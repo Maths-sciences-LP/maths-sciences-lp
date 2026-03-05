@@ -11,7 +11,6 @@
         }
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
         
-        /* En-tête violet pour la Physique-Chimie */
         header { 
             background: #6f42c1; color: white; padding: 25px 20px; 
             text-align: center; border-radius: 8px; position: relative;
@@ -25,7 +24,6 @@
         .btn-retour:hover { background: rgba(255,255,255,0.3); }
         h1 { margin: 0; font-size: 1.6em; margin-top: 15px; }
         
-        /* Style des sections (Cours, Exos, DS) */
         .section-carte { 
             background: white; margin-top: 20px; padding: 20px; 
             border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
@@ -33,7 +31,6 @@
         }
         h2 { color: #6f42c1; margin-top: 0; border-bottom: 2px solid #f3e8ff; padding-bottom: 10px;}
         
-        /* Style des listes de documents */
         ul { list-style-type: none; padding: 0; margin: 0; }
         li { 
             margin-bottom: 10px; padding: 12px; background: #f9f9f9; 
@@ -43,8 +40,19 @@
         a.lien-doc { color: #6f42c1; text-decoration: none; font-weight: 600; }
         a.lien-doc:hover { text-decoration: underline; }
         
-        /* Petites étiquettes pour le type de fichier */
-        .badge { background: #f3e8ff; color: #6f42c1; font-size: 0.8em; padding: 4px 8px; border-radius: 12px; font-weight: bold;}
+        /* --- NOUVEAUX STYLES POUR LES BOUTONS --- */
+        .actions-doubles { display: flex; gap: 8px; }
+        .badge { 
+            display: inline-block; text-decoration: none; font-size: 0.8em; 
+            padding: 4px 10px; border-radius: 12px; font-weight: bold; transition: 0.2s;
+        }
+        .badge-online { background: #f3e8ff; color: #6f42c1; border: 1px solid #d8b4fe; }
+        .badge-online:hover { background: #6f42c1; color: white; }
+        .badge-pdf { background: #ffebe9; color: #cf222e; border: 1px solid #ff8182; }
+        .badge-pdf:hover { background: #cf222e; color: white; }
+        /* ---------------------------------------- */
+
+        .badge-waiting { background: #f6f8fa; color: #57606a; border: 1px solid #d0d7de; }
         .badge-corrige { background: #d1e7dd; color: #0f5132; }
     </style>
 </head>
@@ -60,7 +68,17 @@
             <h2>📖 Cours</h2>
             <p>Retrouvez ici les synthèses et les fiches méthodes.</p>
             <ul>
-<li><a href="pdf/cours_solutions.pdf" class="lien-doc">Chapitre 1 : Les solutions aqueuses</a> <span class="badge">PDF</span></li>                <li><a href="#" class="lien-doc">Chapitre 2 : Mouvement et forces</a> <span class="badge">En préparation</span></li>
+                <li>
+                    <span class="lien-doc">Chapitre 1 : Les solutions aqueuses</span>
+                    <div class="actions-doubles">
+                        <a href="cours-solutions.html" class="badge badge-online">Lire en ligne</a>
+                        <a href="pdf/cours_solutions.pdf" class="badge badge-pdf" target="_blank">PDF</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="lien-doc">Chapitre 2 : Mouvement et forces</span> 
+                    <span class="badge badge-waiting">En préparation</span>
+                </li>
             </ul>
         </div>
 
@@ -68,8 +86,8 @@
             <h2>✍️ Exercices</h2>
             <p>Feuilles d'exercices et préparations aux Travaux Pratiques (TP).</p>
             <ul>
-                <li><a href="#" class="lien-doc">Exercices : Concentration massique</a> <span class="badge">PDF</span></li>
-                <li><a href="#" class="lien-doc">Préparation TP 1 : Dilution</a> <span class="badge">PDF</span></li>
+                <li><a href="#" class="lien-doc">Exercices : Concentration massique</a> <span class="badge badge-pdf">PDF</span></li>
+                <li><a href="#" class="lien-doc">Préparation TP 1 : Dilution</a> <span class="badge badge-pdf">PDF</span></li>
             </ul>
         </div>
 
@@ -77,7 +95,7 @@
             <h2>📝 Devoirs Surveillés (DS)</h2>
             <p>Sujets d'évaluation et corrections.</p>
             <ul>
-                <li><a href="#" class="lien-doc">DS 1 : Solutions et Atomes</a> <span class="badge">PDF</span></li>
+                <li><a href="#" class="lien-doc">DS 1 : Solutions et Atomes</a> <span class="badge badge-pdf">PDF</span></li>
                 <li><a href="#" class="lien-doc">Corrigé du DS 1</a> <span class="badge badge-corrige">Corrigé</span></li>
             </ul>
         </div>
