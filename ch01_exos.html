@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch01 &ndash; Exercices : Proportionnalit&eacute; et Pourcentages</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root { --primary: #0056b3; --danger: #c53030; --success: #2f855a; --text: #2d3748; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
+    .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    header { text-align: center; border-bottom: 3px solid var(--primary); margin-bottom: 25px; padding-bottom: 15px; }
+    h1 { margin: 0; color: var(--primary); font-size: 1.6em; }
+    h2 { font-size: 1.1em; color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; margin-top: 25px; }
+    .exo { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; margin: 15px 0; }
+    .exo strong { color: var(--primary); }
+    .correction { background: #f0fff4; border-left: 4px solid var(--success); padding: 10px 15px; margin-top: 10px; border-radius: 0 8px 8px 0; display: none; }
+    .btn-corr { background: var(--primary); color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 0.85em; margin-top: 8px; }
+    .nav-back { margin-bottom: 15px; display: block; text-decoration: none; color: var(--primary); font-size: 0.8em; font-weight: bold; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <a href="maths-2nde-mama.html" class="nav-back">&larr; RETOUR SOMMAIRE</a>
+  <header><h1>Exercices &ndash; Proportionnalit&eacute; et Pourcentages</h1></header>
+
+  <h2>Exercice 1 &ndash; Coefficient de proportionnalit&eacute;</h2>
+  <div class="exo">
+    <strong>Probl&egrave;me :</strong><br>
+    Un robinet remplit 4 litres en 6 minutes.<br>
+    a) Ces deux grandeurs sont-elles proportionnelles ?<br>
+    b) Quel volume sera rempli en 15 minutes ?<br>
+    c) En combien de minutes obtient-on 10 litres ?
+    <button class="btn-corr" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+    <div class="correction">
+      a) Oui : \(k = \frac{4}{6} = \frac{2}{3}\) L/min (rapport constant).<br>
+      b) \(V = \frac{2}{3} \times 15 = 10\) L<br>
+      c) \(t = \frac{10}{2/3} = 15\) min
+    </div>
+  </div>
+
+  <h2>Exercice 2 &ndash; Calcul de pourcentage</h2>
+  <div class="exo">
+    <strong>Probl&egrave;me :</strong><br>
+    Un article co&ucirc;te 85 &euro;.<br>
+    a) Calculer 20% de ce prix.<br>
+    b) Prix apr&egrave;s une remise de 20%.<br>
+    c) Prix apr&egrave;s une augmentation de 8% de TVA.
+    <button class="btn-corr" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+    <div class="correction">
+      a) \(85 \times 0{,}20 = 17\) &euro;<br>
+      b) \(85 \times 0{,}80 = 68\) &euro;<br>
+      c) \(85 \times 1{,}08 = 91{,}80\) &euro;
+    </div>
+  </div>
+
+  <h2>Exercice 3 &ndash; Taux d'&eacute;volution</h2>
+  <div class="exo">
+    <strong>Probl&egrave;me :</strong><br>
+    Le prix d'un v&eacute;hicule passe de 12 000 &euro; &agrave; 9 600 &euro;.<br>
+    a) Calculer le taux d'&eacute;volution en %.<br>
+    b) S'agit-il d'une hausse ou d'une baisse ?
+    <button class="btn-corr" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+    <div class="correction">
+      a) \(t = \frac{9600 - 12000}{12000} \times 100 = \frac{-2400}{12000} \times 100 = -20\%\)<br>
+      b) C'est une baisse de 20%.
+    </div>
+  </div>
+
+  <h2>Exercice 4 &ndash; R&egrave;gle de trois</h2>
+  <div class="exo">
+    <strong>Probl&egrave;me :</strong><br>
+    Si 5 pi&egrave;ces m&eacute;caniques co&ucirc;tent 37,50 &euro;, quel est le prix de 8 pi&egrave;ces ?
+    <button class="btn-corr" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+    <div class="correction">
+      \(x = \frac{37{,}50 \times 8}{5} = \frac{300}{5} = 60\) &euro;
+    </div>
+  </div>
+</div>
+</body>
+</html>
