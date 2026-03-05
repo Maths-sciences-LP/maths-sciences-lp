@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résolveur d'Équations - Laboratoire Virtuel</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; text-align: center; }
+        .card { background: white; max-width: 500px; margin: 40px auto; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 8px solid #007bff; }
+        h2 { color: #007bff; }
+        .equation-input { font-size: 1.5em; margin: 20px 0; }
+        input { width: 60px; padding: 10px; font-size: 1em; text-align: center; border: 2px solid #ddd; border-radius: 8px; }
+        button { background: #007bff; color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-size: 1em; margin-top: 20px; }
+        button:hover { background: #0056b3; }
+        #etapes { margin-top: 30px; text-align: left; background: #f8f9fa; padding: 15px; border-radius: 8px; display: none; }
+        .btn-retour { display: inline-block; margin-bottom: 20px; color: #666; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <a href="simulations.html" class="btn-retour">← Retour au labo</a>
+    <div class="card">
+        <h2>Résoudre \( ax + b = c \)</h2>
+        <div class="equation-input">
+            <input type="number" id="a" value="2"> \( x + \) 
+            <input type="number" id="b" value="4"> \( = \) 
+            <input type="number" id="c" value="10">
+        </div>
+        <button onclick="resoudre()">Résoudre pas à pas</button>
+        
+        <div id="etapes"></div>
+    </div>
+
+    <script>
+        function resoudre() {
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+            const div = document.getElementById('etapes');
+            div.style.display = "block";
+
+            if (a === 0) {
+                div.innerHTML = "<strong>Erreur :</strong> 'a' ne peut pas être égal à 0.";
+                return;
+            }
+
+            let html = "<strong>Étapes :</strong><br>";
+            html += `1. On soustrait ${b} des deux côtés :<br> \( ${a}x = ${c} - (${b}) \)<br>`;
+            let reste = c - b;
+            html += `\( ${a}x = ${reste} \)<br><br>`;
+            html += `2. On divise par ${a} :<br> \( x = \\frac{${reste}}{${a}} \)<br><br>`;
+            html += `<strong>Résultat : \( x = ${reste/a} \)</strong>`;
+            
+            div.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
