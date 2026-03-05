@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation - Couches Électroniques</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f0f0f0; padding: 20px; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .atom-view { position: relative; width: 300px; height: 300px; margin: 20px auto; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .nucleus { width: 40px; height: 40px; background: radial-gradient(circle, #ff4d4d, #b30000); border-radius: 50%; color: white; font-weight: bold; display: flex; align-items: center; justify-content: center; z-index: 10; }
+        .shell { position: absolute; border: 1px dashed #ccc; border-radius: 50%; }
+        .shell-k { width: 100px; height: 100px; }
+        .shell-l { width: 180px; height: 180px; }
+        .shell-m { width: 260px; height: 260px; }
+        .electron { position: absolute; width: 12px; height: 12px; background: #007bff; border-radius: 50%; box-shadow: 0 0 5px #007bff; }
+        .formula { font-size: 1.5em; font-weight: bold; color: #007bff; margin: 15px 0; font-family: monospace; }
+        .btn-retour { display: inline-block; margin-top: 15px; text-decoration: none; color: #6f42c1; font-weight: bold; border: 1px solid #6f42c1; padding: 5px 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌀 Configuration Électronique</h2>
+        <p>Sélectionnez le numéro atomique (Z) :</p>
+        <input type="range" id="z-range" min="1" max="18" value="6" oninput="drawAtom()" style="width:80%; accent-color:#007bff;">
+        <div id="z-val" style="font-size: 1.2em; font-weight: bold;">Z = 6</div>
+        
+        <div class="formula" id="config-text">(K)2 (L)4</div>
+        
+        <div class="atom-view" id="atom-canvas">
+            <div class="nucleus" id="nucleus">C</div>
+            <div class="shell shell-k"></div>
+            <div class="shell shell-l"></div>
+            <div class="shell shell-m"></div>
+        </div>
+        <a href="simulations.html" class="btn-retour">← Retour</a>
+    </div>
+
+    <script>
+        const symbols = ["","H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","Si","P","S","Cl","Ar"];
+        
+        function drawAtom() {
+            const z = parseInt(document.getElementById('z-range').value);
+            document.getElementById('z-val').innerText = `Z = ${z} (${symbols[z]})`;
+            document.getElementById('nucleus').innerText = symbols[z];
+            
+            // Calcul des couches
+            let k = Math.min(z, 2);
+            let l = Math.min(z - k, 8);
+            let m = Math.max(0, z - k - l);
+            
+            document.getElementById('config-text').innerText = `(K)${k} ${l>0?'(L)'+l:''} ${m>0?'(M)'+m:''}`;
+            
+            // Nettoyage électrons
+            document.querySelectorAll('.electron').forEach(e => e.remove());
+            
+            // Dessin
+            addElectrons(k, 50);  // Rayon K
+            addElectrons(l, 90);  // Rayon L
+            addElectrons(m, 130); // Rayon M
+        }
+
+        function addElectrons(count, radius) {
+            const container = document.getElementById('atom-canvas');
+            for(let i=0; i<count; i++) {
+                let angle = (i * 2 * Math.PI) / count;
+                let x = 150 + radius * Math.cos(angle) - 6;
+                let y = 150 + radius * Math.sin(angle) - 6;
+                let e = document.createElement('div');
+                e.className = 'electron';
+                e.style.left = x + 'px';
+                e.style.top = y + 'px';
+                container.appendChild(e);
+            }
+        }
+        drawAtom();
+    </script>
+</body>
+</html>
