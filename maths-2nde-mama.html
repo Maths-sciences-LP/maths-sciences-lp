@@ -7,184 +7,242 @@
     <style>
         :root {
             --primary: #0969da;
-            --web: #673ab7; 
-            --pdf: #d32f2f;
-            --exos: #2e7d32;
-            --ds: #455a64;
             --bg: #f6f8fa;
             --text: #1f2328;
+            --border: #d0d7de;
+            --subtle: #6e7781;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.5; padding: 20px; margin: 0; }
-        .container { max-width: 1100px; margin: auto; }
-        
-        header { background: var(--primary); color: white; padding: 40px 20px; border-radius: 12px; text-align: center; margin-bottom: 30px; position: relative; }
-        .btn-retour { position: absolute; left: 20px; top: 20px; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); padding: 5px 15px; border-radius: 6px; font-size: 0.9em; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 25px; }
-        
-        .domain-box { background: white; border-radius: 10px; border: 1px solid #d0d7de; overflow: hidden; box-shadow: 0 1px 3px rgba(31,35,40,0.1); }
-        .domain-header { background: #f6f8fa; padding: 15px 20px; font-weight: 600; color: #57606a; border-bottom: 1px solid #d0d7de; text-transform: uppercase; font-size: 0.85em; display: flex; align-items: center; gap: 10px; }
-        
-        ul { list-style: none; padding: 0; margin: 0; }
-        li { padding: 20px; border-bottom: 1px solid #d0d7de; transition: background 0.1s; }
-        li:last-child { border-bottom: none; }
-        
-        .chapter-head { display: flex; align-items: center; margin-bottom: 12px; }
-        .ch-num { background: #afb8c1; color: white; border-radius: 6px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px; font-size: 0.9em; }
-        .ch-title { font-size: 1.1em; font-weight: 600; color: var(--primary); }
-
-        .resource-group { display: flex; flex-wrap: wrap; gap: 8px; margin-left: 40px; }
-        
-        .btn { 
-            display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; 
-            text-decoration: none; font-size: 0.8em; font-weight: 600; transition: 0.2s; 
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            line-height: 1.5; 
+            padding: 20px; 
+            margin: 0; 
         }
-        .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .container { max-width: 950px; margin: auto; }
         
-        .btn-web { background: var(--web); color: white; }
-        .btn-pdf { background: var(--pdf); color: white; }
-        .btn-exos { border: 1px solid var(--exos); color: var(--exos); background: white; }
-        .btn-exos:hover { background: var(--exos); color: white; }
-        .btn-ds { background: var(--ds); color: white; }
+        header { text-align: center; padding: 40px 0; margin-bottom: 20px; }
+        header h1 { margin: 0; font-size: 1.8em; font-weight: 600; }
+        header p { margin: 10px 0 0; color: var(--subtle); font-size: 0.95em; }
+        
+        .domain-section { margin-bottom: 40px; }
+        .domain-title { 
+            font-size: 0.8em; 
+            text-transform: uppercase; 
+            color: var(--subtle); 
+            letter-spacing: 1px; 
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .chapter-row { 
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 8px;
+            display: flex; 
+            align-items: center;
+            justify-content: space-between;
+            transition: border-color 0.2s;
+        }
+        .chapter-row:hover { border-color: #afb8c1; }
+        
+        .chapter-info { display: flex; align-items: center; flex-grow: 1; }
+        .ch-num { font-weight: 700; color: #afb8c1; margin-right: 15px; font-size: 0.85em; width: 20px; }
+        .ch-title { font-weight: 500; font-size: 1em; }
 
-        .footer-modules { margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .module-card { background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #d0d7de; }
-        .module-card h3 { margin: 0 0 10px 0; font-size: 1em; color: #57606a; }
+        .links-group { display: flex; gap: 8px; }
 
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .resource-group { margin-left: 0; } }
+        .link-item {
+            text-decoration: none;
+            font-size: 0.82em;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .link-item:hover { background-color: #f0f7ff; }
+
+        .footer-links {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .module-link {
+            text-decoration: none;
+            color: var(--subtle);
+            font-size: 0.8em;
+            padding: 6px 14px;
+            background: #eee;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+        .module-link:hover { background: #e1e4e8; color: var(--text); }
+        
+        @media (max-width: 768px) {
+            .chapter-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .links-group { width: 100%; justify-content: flex-end; border-top: 1px solid #f6f8fa; padding-top: 8px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <a href="index.html" class="btn-retour">← Accueil</a>
-        <h1>Mathématiques — Seconde Pro</h1>
-        <p>Espace de formation : Métiers de l'Alimentation et des Métiers d'Art</p>
+        <h1>Mathématiques — 2<sup>de</sup> Pro</h1>
+        <p>Espace de travail numérique</p>
     </header>
 
-    <div class="grid">
-        <!-- STATISTIQUE ET PROBABILITÉS -->
-        <div class="domain-box">
-            <div class="domain-header">📊 Statistique et probabilités</div>
-            <ul>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">01</span><span class="ch-title">Proportionnalité et Pourcentages</span></div>
-                    <div class="resource-group">
-                        <a href="ch01/index.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours01.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos01.pdf" class="btn btn-exos">✏️ Exercices</a>
-                        <a href="evals/ds01.pdf" class="btn btn-ds">📝 DS</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">02</span><span class="ch-title">Statistiques à une variable</span></div>
-                    <div class="resource-group">
-                        <a href="ch02/index.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours02.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos02.pdf" class="btn btn-exos">✏️ Exercices</a>
-                        <a href="evals/ds02.pdf" class="btn btn-ds">📝 DS</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">03</span><span class="ch-title">Indicateurs statistiques</span></div>
-                    <div class="resource-group">
-                        <a href="ch03/index.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours03.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos03.pdf" class="btn btn-exos">✏️ Exercices</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">04</span><span class="ch-title">Fluctuations et Probabilités</span></div>
-                    <div class="resource-group">
-                        <a href="ch04/index.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours04.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos04.pdf" class="btn btn-exos">✏️ Exercices</a>
-                        <a href="evals/ds04.pdf" class="btn btn-ds">📝 DS</a>
-                    </div>
-                </li>
-            </ul>
+    <!-- STATISTIQUE ET PROBABILITÉS -->
+    <div class="domain-section">
+        <div class="domain-title">📊 Statistique et probabilités</div>
+        
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">01</span>
+                <span class="ch-title">Proportionnalité et Pourcentages</span>
+            </div>
+            <div class="links-group">
+                <a href="ch01_lecon.html" class="link-item">Cours</a>
+                <a href="ch01_exos.html" class="link-item">Exercices</a>
+                <a href="ch01_ds.html" class="link-item">DS</a>
+            </div>
         </div>
 
-        <!-- ALGÈBRE - ANALYSE -->
-        <div class="domain-box">
-            <div class="domain-header">📈 Algèbre - Analyse</div>
-            <ul>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">05</span><span class="ch-title">Problèmes du 1er degré (Équations)</span></div>
-                    <div class="resource-group">
-                        <!-- LIEN VERS VOTRE COURS WEB CI-DESSOUS -->
-                        <a href="ch05_lecon.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours05.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos05.pdf" class="btn btn-exos">✏️ Exercices</a>
-                        <a href="evals/ds05.pdf" class="btn btn-ds">📝 DS</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">06</span><span class="ch-title">Notion de fonction</span></div>
-                    <div class="resource-group">
-                        <a href="ch06/index.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours06.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos06.pdf" class="btn btn-exos">✏️ Exercices</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">07</span><span class="ch-title">Fonctions affines</span></div>
-                    <div class="resource-group">
-                        <a href="ch07/index.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours07.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos07.pdf" class="btn btn-exos">✏️ Exercices</a>
-                        <a href="evals/ds07.pdf" class="btn btn-ds">📝 DS</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">08</span><span class="ch-title">Fonctions de référence</span></div>
-                    <div class="resource-group">
-                        <a href="ch08/index.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours08.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos08.pdf" class="btn btn-exos">✏️ Exercices</a>
-                    </div>
-                </li>
-            </ul>
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">02</span>
+                <span class="ch-title">Statistiques à une variable</span>
+            </div>
+            <div class="links-group">
+                <a href="ch02_lecon.html" class="link-item">Cours</a>
+                <a href="ch02_exos.html" class="link-item">Exercices</a>
+                <a href="ch02_ds.html" class="link-item">DS</a>
+            </div>
         </div>
 
-        <!-- GÉOMÉTRIE -->
-        <div class="domain-box">
-            <div class="domain-header">📐 Géométrie</div>
-            <ul>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">09</span><span class="ch-title">Géométrie dans le triangle</span></div>
-                    <div class="resource-group">
-                        <a href="ch09/index.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours09.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos09.pdf" class="btn btn-exos">✏️ Exercices</a>
-                        <a href="evals/ds09.pdf" class="btn btn-ds">📝 DS</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="chapter-head"><span class="ch-num">10</span><span class="ch-title">Aires et volumes</span></div>
-                    <div class="resource-group">
-                        <a href="ch10/index.html" class="btn btn-web">🌐 Web</a>
-                        <a href="pdfs/cours10.pdf" class="btn btn-pdf">📄 PDF</a>
-                        <a href="pdfs/exos10.pdf" class="btn btn-exos">✏️ Exercices</a>
-                    </div>
-                </li>
-            </ul>
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">03</span>
+                <span class="ch-title">Indicateurs statistiques</span>
+            </div>
+            <div class="links-group">
+                <a href="ch03_lecon.html" class="link-item">Cours</a>
+                <a href="ch03_exos.html" class="link-item">Exercices</a>
+                <a href="ch03_ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">04</span>
+                <span class="ch-title">Fluctuations et Probabilités</span>
+            </div>
+            <div class="links-group">
+                <a href="ch04_lecon.html" class="link-item">Cours</a>
+                <a href="ch04_exos.html" class="link-item">Exercices</a>
+                <a href="ch04_ds.html" class="link-item">DS</a>
+            </div>
         </div>
     </div>
 
-    <!-- MODULES TRANSVERSAUX -->
-    <div class="footer-modules">
-        <div class="module-card">
-            <h3>💻 Algorithmique et programmation</h3>
-            <p style="font-size: 0.85em;">Utilisation du langage Python et décomposition de problèmes.</p>
-            <a href="ressources/python_mama.html" class="btn btn-web">Consulter le module</a>
+    <!-- ALGÈBRE - ANALYSE -->
+    <div class="domain-section">
+        <div class="domain-title">📈 Algèbre - Analyse</div>
+        
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">05</span>
+                <span class="ch-title">Résolution de problèmes du 1<sup>er</sup> degré</span>
+            </div>
+            <div class="links-group">
+                <a href="ch05_lecon.html" class="link-item">Cours</a>
+                <a href="ch05_exos.html" class="link-item">Exercices</a>
+                <a href="ch05_ds.html" class="link-item">DS</a>
+            </div>
         </div>
-        <div class="module-card">
-            <h3>⚡ Automatismes et Rituels</h3>
-            <p style="font-size: 0.85em;">Calcul mental, pourcentages et transformations de formules.</p>
-            <a href="pdfs/automatismes_sommaire.pdf" class="btn btn-pdf">Fiches Méthodes</a>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">06</span>
+                <span class="ch-title">Notion de fonction</span>
+            </div>
+            <div class="links-group">
+                <a href="ch06_lecon.html" class="link-item">Cours</a>
+                <a href="ch06_exos.html" class="link-item">Exercices</a>
+                <a href="ch06_ds.html" class="link-item">DS</a>
+            </div>
         </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">07</span>
+                <span class="ch-title">Fonction affine</span>
+            </div>
+            <div class="links-group">
+                <a href="ch07_lecon.html" class="link-item">Cours</a>
+                <a href="ch07_exos.html" class="link-item">Exercices</a>
+                <a href="ch07_ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">08</span>
+                <span class="ch-title">Fonctions de référence</span>
+            </div>
+            <div class="links-group">
+                <a href="ch08_lecon.html" class="link-item">Cours</a>
+                <a href="ch08_exos.html" class="link-item">Exercices</a>
+                <a href="ch08_ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- GÉOMÉTRIE -->
+    <div class="domain-section">
+        <div class="domain-title">📐 Géométrie</div>
+        
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">09</span>
+                <span class="ch-title">Géométrie dans le triangle</span>
+            </div>
+            <div class="links-group">
+                <a href="ch09_lecon.html" class="link-item">Cours</a>
+                <a href="ch09_exos.html" class="link-item">Exercices</a>
+                <a href="ch09_ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">10</span>
+                <span class="ch-title">Aires et volumes</span>
+            </div>
+            <div class="links-group">
+                <a href="ch10_lecon.html" class="link-item">Cours</a>
+                <a href="ch10_exos.html" class="link-item">Exercices</a>
+                <a href="ch10_ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <a href="python.html" class="module-link">💻 Algorithmique</a>
+        <a href="automatismes.html" class="module-link">⚡ Automatismes</a>
+        <a href="logique.html" class="module-link">🔍 Logique</a>
     </div>
 </div>
 
