@@ -8,40 +8,136 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f4f4f9; color: #333; line-height: 1.6; }
-        .container { max-width: 800px; margin: 20px auto; padding: 0 15px; }
-        header { background: #6f42c1; color: white; padding: 25px 20px; text-align: center; border-radius: 8px; position: relative; }
-        .btn-retour { position: absolute; left: 15px; top: 15px; color: white; text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 5px; font-size: 0.9em; }
-        .section-cours { background: white; margin-top: 20px; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-left: 5px solid #6f42c1; }
-        .formule { background: #f3e8ff; padding: 20px; border-radius: 8px; text-align: center; font-size: 1.3em; margin: 20px 0; color: #4b2e83; }
-        h2 { color: #6f42c1; border-bottom: 2px solid #f3e8ff; padding-bottom: 10px; }
+        :root { --main-color: #6f42c1; --sec-color: #f3e8ff; --accent-color: #4b2e83; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f4f9; color: #333; line-height: 1.6; }
+        .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
+        
+        header { background: var(--main-color); color: white; padding: 30px 20px; text-align: center; border-radius: 8px; position: relative; margin-bottom: 20px; }
+        .btn-retour { position: absolute; left: 15px; top: 15px; color: white; text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 5px; font-size: 0.9em; }
+        .btn-retour:hover { background: rgba(255,255,255,0.3); }
+
+        .section-cours { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 6px solid var(--main-color); margin-bottom: 25px; }
+        h2 { color: var(--main-color); border-bottom: 2px solid var(--sec-color); padding-bottom: 10px; margin-top: 0; }
+        h3 { color: var(--accent-color); margin-top: 25px; }
+
+        .formule { background: var(--sec-color); padding: 20px; border-radius: 8px; text-align: center; font-size: 1.4em; margin: 20px 0; color: var(--accent-color); border: 1px dashed var(--main-color); }
+        
+        .box { padding: 15px; border-radius: 6px; margin: 15px 0; }
+        .exemple { background-color: #e7f3fe; border-left: 5px solid #2196F3; }
+        .attention { background-color: #fff4e5; border-left: 5px solid #ffa000; }
+        .protocole { background-color: #f0fdf4; border-left: 5px solid #22c55e; }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: var(--sec-color); }
+
+        /* Calculateur */
+        .calc-container { background: #2d3436; color: white; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .calc-container input { padding: 8px; border-radius: 4px; border: none; margin: 5px; width: 120px; }
+        .calc-container button { padding: 8px 15px; background: var(--main-color); color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .calc-container button:hover { background: #5a32a3; }
+        #res { font-weight: bold; color: #00cec9; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="pc-2nde-pro.html" class="btn-retour">← Retour</a>
-            <h1>Chapitre 1 : Les Solutions Aqueuses</h1>
-        </header>
 
-        <div class="section-cours">
-            <h2>I. Définitions</h2>
-            <p>Une <strong>solution aqueuse</strong> est un mélange homogène obtenu par dissolution d'un soluté dans de l'eau (le solvant).</p>
+<div class="container">
+    <header>
+        <a href="pc-2nde-pro.html" class="btn-retour">← Retour</a>
+        <h1>Chapitre 1 : Les Solutions Aqueuses</h1>
+    </header>
 
-            <h2>II. Concentration massique</h2>
-            <p>La concentration massique \( C_m \) est la masse de soluté présente dans un litre de solution.</p>
-            
-            <div class="formule">
-                $$ C_m = \frac{m_{soluté}}{V_{solution}} $$
-            </div>
+    <div class="section-cours">
+        <h2>I. Définitions</h2>
+        <p>Une <strong>solution aqueuse</strong> est un mélange homogène obtenu par dissolution d'une espèce chimique, le <strong>soluté</strong>, dans de l'eau, le <strong>solvant</strong>.</p>
+        <ul>
+            <li>Si le soluté est solide (ex: sel), on parle de dissolution.</li>
+            <li>Si la solution ne peut plus dissoudre de soluté, elle est dite <strong>saturée</strong>.</li>
+        </ul>
+    </div>
 
-            <p><strong>Unités :</strong></p>
-            <ul>
-                <li>\( m \) : masse en grammes (g)</li>
-                <li>\( V \) : volume en litres (L)</li>
-                <li>\( C_m \) : concentration en grammes par litre (g/L)</li>
-            </ul>
+    <div class="section-cours">
+        <h2>II. Concentration massique</h2>
+        <p>Elle correspond à la masse de soluté dissoute par litre de solution.</p>
+        
+        <div class="formule">
+            $$ C_m = \frac{m_{soluté}}{V_{solution}} $$
+        </div>
+
+        <div class="box exemple">
+            <strong>Exemple :</strong> On dissout 10 g de sucre dans 500 mL d'eau.<br>
+            \( m = 10 \text{ g} \) | \( V = 0,5 \text{ L} \)<br>
+            \( C_m = \frac{10}{0,5} = 20 \text{ g/L} \).
         </div>
     </div>
+
+    <div class="section-cours">
+        <h2>III. Concentration molaire</h2>
+        <p>Elle représente la quantité de matière (en moles) de soluté par litre de solution.</p>
+        
+        <div class="formule">
+            $$ c = \frac{n}{V} $$
+        </div>
+
+        <div class="box attention">
+            <strong>Relation entre les deux :</strong><br>
+            On peut passer de l'une à l'autre grâce à la masse molaire \( M \) (en g/mol) :
+            $$ C_m = c \times M $$
+        </div>
+    </div>
+
+    <div class="section-cours">
+        <h2>IV. Protocoles Expérimentaux</h2>
+        
+        <h3>1. Préparation par dissolution</h3>
+        <p>Pour préparer un volume précis de solution à partir d'un solide :</p>
+        <div class="box protocole">
+            <ol>
+                <li>Peser la masse \( m \) de soluté dans une coupelle.</li>
+                <li>Introduire le solide dans une <strong>fiole jaugée</strong> à l'aide d'un entonnoir.</li>
+                <li>Rincer la coupelle et l'entonnoir à l'eau distillée.</li>
+                <li>Remplir la fiole aux 2/3 et agiter pour dissoudre.</li>
+                <li>Compléter jusqu'au <strong>trait de jauge</strong>, boucher et homogénéiser.</li>
+            </ol>
+        </div>
+        
+
+        <h3>2. Préparation par dilution</h3>
+        <p>Diluer une solution, c'est diminuer sa concentration en ajoutant du solvant.</p>
+        <div class="box protocole">
+            <strong>Loi de dilution :</strong> La quantité de matière se conserve.
+            $$ C_{mère} \times V_{pripette} = C_{fille} \times V_{fiole} $$
+        </div>
+        
+    </div>
+
+    <div class="section-cours">
+        <h2>V. Outil de vérification</h2>
+        <p>Utilisez ce module pour vérifier vos calculs de concentration massique :</p>
+        <div class="calc-container">
+            <input type="number" id="m_input" placeholder="Masse (g)">
+            <input type="number" id="v_input" placeholder="Volume (L)">
+            <button onclick="calcCm()">Calculer \( C_m \)</button>
+            <div id="res">Résultat : -- g/L</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function calcCm() {
+        const m = document.getElementById('m_input').value;
+        const v = document.getElementById('v_input').value;
+        const resDiv = document.getElementById('res');
+        
+        if(m && v && v > 0) {
+            const result = (m / v).toFixed(2);
+            resDiv.innerText = "Résultat : " + result + " g/L";
+        } else {
+            resDiv.innerText = "Veuillez entrer des valeurs valides (V > 0).";
+        }
+    }
+</script>
+
 </body>
 </html>
