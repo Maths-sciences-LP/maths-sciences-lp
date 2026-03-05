@@ -3,115 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie des Simulations - Mes Cours</title>
+    <title>Laboratoire Virtuel - Maths Sciences</title>
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; background-color: #f4f4f9; color: #333; line-height: 1.6;
-        }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        
-        /* En-tête vert */
-        header { 
-            background: #2ea44f; color: white; padding: 25px 20px; 
-            text-align: center; border-radius: 8px; position: relative;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .btn-retour { 
-            position: absolute; left: 15px; top: 15px; color: white; 
-            text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.2); 
-            padding: 5px 12px; border-radius: 5px; font-size: 0.9em;
-        }
-        .btn-retour:hover { background: rgba(255,255,255,0.3); }
-        h1 { margin: 0; font-size: 1.6em; margin-top: 15px; }
-        
+        /* --- DESIGN GLOBAL --- */
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        /* En-tête vert (Style GitHub) */
+        header { background-color: #28a745; color: white; padding: 30px; text-align: center; border-radius: 10px; margin-bottom: 40px; position: relative; }
+        .btn-accueil { position: absolute; left: 20px; top: 20px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 15px; border-radius: 5px; font-size: 0.9em; }
+
+        /* Titres des catégories */
+        .domaine-titre { color: #28a745; border-bottom: 3px solid #e9ecef; padding-bottom: 10px; margin: 40px 0 20px 0; display: flex; align-items: center; gap: 10px; }
+
         /* Grille des simulations */
-        .grille-simu {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px; margin-top: 25px;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
 
-        /* Style des "cartes" de simulation */
-        .carte-simu {
-            background: white; border-radius: 8px; overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s; border: 1px solid #eee;
-            display: flex; flex-direction: column;
-        }
-        .carte-simu:hover { transform: translateY(-3px); }
-        
-        /* Aperçu visuel (zone grise en attendant une image) */
-        .aperçu { height: 140px; background-color: #e1f7e7; color: #2ea44f; display: flex; align-items: center; justify-content: center; font-size: 3em;}
+        /* Style des cartes */
+        .card { background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #eee; transition: transform 0.2s; display: flex; flex-direction: column; justify-content: space-between; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .icon { font-size: 40px; margin-bottom: 15px; }
+        .card h3 { margin: 10px 0; font-size: 1.2em; color: #2c3e50; }
 
-        .contenu-carte { padding: 15px; flex-grow: 1; display: flex; flex-direction: column;}
-        .carte-simu h3 { margin: 0 0 10px 0; color: #2ea44f; font-size: 1.2em;}
-        .carte-simu p { margin: 0 0 15px 0; font-size: 0.9em; color: #666; flex-grow: 1;}
-        
-        .btn-lancer { 
-            display: block; background: #2ea44f; color: white; 
-            text-decoration: none; text-align: center; padding: 10px; 
-            border-radius: 6px; font-weight: bold;
-        }
-        .btn-lancer:hover { background: #22863a; }
+        /* Badges */
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.75em; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
+        .tag-maths { background: #e3f2fd; color: #1976d2; }
+        .tag-physique { background: #f3e5f5; color: #7b1fa2; }
+        .tag-chimie { background: #f3e5f5; color: #7b1fa2; }
 
-        /* Badges de catégorie */
-        .badge-cat { font-size: 0.75em; padding: 3px 8px; border-radius: 10px; margin-left: 5px; font-weight: normal; vertical-align: middle;}
-        .cat-physique { background: #f3e8ff; color: #6f42c1; }
-        .cat-maths { background: #e1effe; color: #0969da; }
+        .desc { font-size: 0.9em; color: #666; margin-bottom: 20px; min-height: 50px; }
+        .btn-lancer { background-color: #28a745; color: white; text-decoration: none; padding: 10px; border-radius: 6px; font-weight: bold; display: block; }
+        .btn-lancer:hover { background-color: #218838; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="index.html" class="btn-retour">← Accueil</a>
-            <h1>⚙️ Laboratoire Virtuel</h1>
-            <p style="margin: 5px 0 0 0; opacity: 0.9;">Simulations Interactives</p>
-        </header>
 
-        <div class="grille-simu">
-            <div class="carte-simu">
-                <div class="aperçu">⚖️</div>
-                <div class="contenu-carte">
-                    <h3>Mélangeur de Couleurs <span class="badge-cat cat-physique">Physique/Chimie</span></h3>
-                    <p>Une activité simple pour comprendre la synthèse additive des couleurs (RVB).</p>
-                    <a href="simu-melangeur.html" class="btn-lancer">Lancer la simulation →</a>
-                </div>
+<div class="container">
+    <header>
+        <a href="index.html" class="btn-accueil">← Accueil</a>
+        <h1>⚙️ Laboratoire Virtuel</h1>
+        <p>Simulations Interactives</p>
+    </header>
+
+    <h2 class="domaine-titre">📐 Mathématiques</h2>
+    <div class="grid">
+        <div class="card">
+            <div>
+                <div class="icon">📈</div>
+                <span class="tag tag-maths">Maths</span>
+                <h3>Fonctions du 2nd degré</h3>
+                <p class="desc">Visualisez l'impact des coefficients a, b et c sur la parabole.</p>
             </div>
-
-            <div class="carte-simu">
-                <div class="aperçu">📈</div>
-                <div class="contenu-carte">
-                    <h3>Fonctions du 2nd degré <span class="badge-cat cat-maths">Maths</span></h3>
-                    <p>Visualisez l'impact des coefficients a, b et c sur la parabole.</p>
-                    <a href="simu-traceur.html" class="btn-lancer">Lancer la simulation →</a>
-                </div>
-            </div>
-            <div class="carte-simu">
-    <div class="aperçu">⚛️</div>
-    <div class="contenu-carte">
-        <h3>Constructeur d'Atomes <span class="badge-cat cat-physique">Chimie</span></h3>
-        <p>Manipulez protons, neutrons et électrons pour former des atomes et des ions.</p>
-        <a href="simu-atome.html" class="btn-lancer">Lancer →</a>
-    </div>
-</div>
-
-<div class="carte-simu">
-    <div class="aperçu">🌀</div>
-    <div class="contenu-carte">
-        <h3>Couches Électroniques <span class="badge-cat cat-physique">Chimie</span></h3>
-        <p>Visualisez la répartition des électrons sur les couches K, L et M.</p>
-        <a href="simu-atome-couches.html" class="btn-lancer">Lancer →</a>
-    </div>
-</div>
-            <div class="carte-simu">
-    <div class="aperçu">🧪</div>
-    <div class="contenu-carte">
-        <h3>Modèles de l'Atome <span class="badge-cat cat-physique">Histoire / Chimie</span></h3>
-        <p>Découvrez comment la vision de l'atome a évolué, de Dalton au modèle de Bohr.</p>
-        <a href="simu-modeles-atome.html" class="btn-lancer">Lancer la simulation →</a>
-    </div>
-</div>
+            <a href="simu-traceur.html" class="btn-lancer">Lancer la simulation →</a>
         </div>
     </div>
+
+    <h2 class="domaine-titre">🍎 Physique</h2>
+    <div class="grid">
+        <div class="card">
+            <div>
+                <div class="icon">⚖️</div>
+                <span class="tag tag-physique">Physique / Chimie</span>
+                <h3>Mélangeur de Couleurs</h3>
+                <p class="desc">Une activité simple pour comprendre la synthèse additive des couleurs (RVB).</p>
+            </div>
+            <a href="simu-melangeur.html" class="btn-lancer">Lancer la simulation →</a>
+        </div>
+    </div>
+
+    <h2 class="domaine-titre">🧪 Chimie</h2>
+    <div class="grid">
+        <div class="card">
+            <div>
+                <div class="icon">⚛️</div>
+                <span class="tag tag-chimie">Chimie</span>
+                <h3>Constructeur d'Atomes</h3>
+                <p class="desc">Manipulez protons, neutrons et électrons pour former des atomes et des ions.</p>
+            </div>
+            <a href="simu-atome.html" class="btn-lancer">Lancer →</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="icon">🌀</div>
+                <span class="tag tag-chimie">Chimie</span>
+                <h3>Couches Électroniques</h3>
+                <p class="desc">Visualisez la répartition des électrons sur les couches K, L et M.</p>
+            </div>
+            <a href="simu-atome-couches.html" class="btn-lancer">Lancer →</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="icon">🧪</div>
+                <span class="tag tag-chimie">Histoire / Chimie</span>
+                <h3>Modèles de l'Atome</h3>
+                <p class="desc">Découvrez comment la vision de l'atome a évolué, de Dalton au modèle de Bohr.</p>
+            </div>
+            <a href="simu-modeles-atome.html" class="btn-lancer">Lancer la simulation →</a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
