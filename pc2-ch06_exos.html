@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch06 – Caractéristiques et transmission d'un son | Exercices</title>
+<style>
+:root{--p:#6f42c1;--pl:#f3eeff;--pd:#4b2e83;--g:#28a745;--gl:#e8f5e9;--o:#fd7e14;--ol:#fff3e0;--r:#dc3545;--rl:#fdecea;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5;color:#222;line-height:1.6;}
+header{background:var(--p);color:#fff;padding:16px 24px;display:flex;align-items:center;gap:12px;}
+header h1{font-size:1.3rem;}header .badge{background:rgba(255,255,255,.25);padding:3px 10px;border-radius:12px;font-size:.85rem;}
+nav{background:var(--pd);padding:8px 24px;display:flex;gap:16px;flex-wrap:wrap;}
+nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;padding:3px 8px;border-radius:4px;transition:.2s;}
+nav a:hover{background:rgba(255,255,255,.2);}nav a.active{background:rgba(255,255,255,.3);font-weight:600;}
+.container{max-width:860px;margin:24px auto;padding:0 16px;}
+.card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:20px;overflow:hidden;}
+.card-header{background:var(--p);color:#fff;padding:10px 18px;font-weight:600;font-size:1rem;display:flex;justify-content:space-between;align-items:center;}
+.badge-diff{padding:3px 10px;border-radius:12px;font-size:.8rem;background:rgba(255,255,255,.25);}
+.card-body{padding:18px;}
+.corr{display:none;background:var(--gl);border-left:4px solid var(--g);padding:12px 16px;border-radius:0 6px 6px 0;margin-top:12px;}
+.corr strong{color:#155724;}
+.btn-corr{background:var(--p);color:#fff;border:none;padding:6px 14px;border-radius:4px;cursor:pointer;margin-top:8px;font-size:.9rem;}
+.btn-corr:hover{background:var(--pd);}
+p{margin:6px 0;}
+.footer-links{text-align:center;margin-top:32px;padding:16px;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.footer-links a{color:var(--p);text-decoration:none;margin:0 12px;font-weight:500;}
+</style>
+<script>MathJax={tex:{inlineMath:[['$','$']]},startup:{typeset:true}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+function toggle(id){
+  const el = document.getElementById(id);
+  el.style.display = el.style.display==='block'?'none':'block';
+}
+</script>
+</head>
+<body>
+<header>
+  <div>
+    <div class="badge">Acoustique – Chapitre 6</div>
+    <h1>Caractéristiques et transmission d'un son – Exercices</h1>
+  </div>
+</header>
+<nav>
+  <a href="pc-2nde-pro.html">← Accueil PC</a>
+  <a href="pc2-ch06_lecon.html">Cours</a>
+  <a href="pc2-ch06_exos.html" class="active">Exercices</a>
+  <a href="pc2-ch06_ds.html">Devoir</a>
+</nav>
+<div class="container">
+
+  <div class="card">
+    <div class="card-header">
+      Exercice 1 – Sons graves et aigus
+      <span class="badge-diff">⭐ Facile</span>
+    </div>
+    <div class="card-body">
+      <p>Voici quatre sons de fréquences : 80 Hz, 440 Hz, 1200 Hz, 18 000 Hz.</p>
+      <p><strong>1.</strong> Lequel est le plus grave ? Lequel est le plus aigu ?</p>
+      <p><strong>2.</strong> Lesquels sont audibles par l'oreille humaine ?</p>
+      <p><strong>3.</strong> La fréquence 18 000 Hz est-elle un ultrason ou un infrason ?</p>
+      <button class="btn-corr" onclick="toggle('c1')">Voir la correction</button>
+      <div class="corr" id="c1">
+        <strong>Correction :</strong>
+        <p>1. Le son le plus grave est 80 Hz (fréquence la plus basse) ; le plus aigu est 18 000 Hz.</p>
+        <p>2. Tous sont audibles car compris entre 20 Hz et 20 000 Hz.</p>
+        <p>3. 18 000 Hz < 20 000 Hz, donc ce n'est pas encore un ultrason ; c'est un son audible (très aigu).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Exercice 2 – Propagation du son
+      <span class="badge-diff">⭐ Facile</span>
+    </div>
+    <div class="card-body">
+      <p>Un éclair est observé. Le tonnerre est entendu 5 secondes plus tard. La célérité du son dans l'air est $v = 340$ m/s.</p>
+      <p><strong>1.</strong> À quelle distance se trouve l'orage ?</p>
+      <p><strong>2.</strong> Si on entend le tonnerre 2 s après l'éclair, l'orage est-il plus ou moins loin ?</p>
+      <button class="btn-corr" onclick="toggle('c2')">Voir la correction</button>
+      <div class="corr" id="c2">
+        <strong>Correction :</strong>
+        <p>1. $d = v 	imes t = 340 	imes 5 = 1700$ m, soit 1,7 km.</p>
+        <p>2. $d = 340 	imes 2 = 680$ m. L'orage est plus proche (0,68 km).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Exercice 3 – Célérité dans différents milieux
+      <span class="badge-diff">⭐⭐ Intermédiaire</span>
+    </div>
+    <div class="card-body">
+      <p>Un sonar émet une impulsion sonore dans l'eau. L'écho revient après $t = 0{,}4$ s. La célérité du son dans l'eau est $v = 1500$ m/s.</p>
+      <p><strong>1.</strong> Quelle distance totale a parcourue le son ?</p>
+      <p><strong>2.</strong> À quelle profondeur se trouve le fond marin ?</p>
+      <button class="btn-corr" onclick="toggle('c3')">Voir la correction</button>
+      <div class="corr" id="c3">
+        <strong>Correction :</strong>
+        <p>1. Distance totale : $d = v 	imes t = 1500 	imes 0{,}4 = 600$ m.</p>
+        <p>2. Le son fait l'aller ET le retour, donc la profondeur est $600 div 2 = 300$ m.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Exercice 4 – Longueur d'onde
+      <span class="badge-diff">⭐⭐ Intermédiaire</span>
+    </div>
+    <div class="card-body">
+      <p>Un son de fréquence $f = 680$ Hz se propage dans l'air à $v = 340$ m/s.</p>
+      <p><strong>1.</strong> Calculer la longueur d'onde $lambda$ de ce son.</p>
+      <p><strong>2.</strong> Ce même son se propage dans l'eau ($v_{eau} = 1500$ m/s). Calculer la nouvelle longueur d'onde.</p>
+      <p><strong>3.</strong> La fréquence change-t-elle lorsque le milieu change ?</p>
+      <button class="btn-corr" onclick="toggle('c4')">Voir la correction</button>
+      <div class="corr" id="c4">
+        <strong>Correction :</strong>
+        <p>1. $lambda = rac{v}{f} = rac{340}{680} = 0{,}5$ m.</p>
+        <p>2. $lambda_{eau} = rac{1500}{680} approx 2{,}21$ m.</p>
+        <p>3. Non, la fréquence reste identique (elle dépend de la source). C'est la célérité et la longueur d'onde qui changent.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Exercice 5 – Niveau sonore et risques
+      <span class="badge-diff">⭐⭐⭐ Avancé</span>
+    </div>
+    <div class="card-body">
+      <p>On dispose des données suivantes sur le niveau sonore de différentes situations :</p>
+      <table style="width:100%;border-collapse:collapse;margin:10px 0;">
+        <tr style="background:var(--p);color:#fff;"><th style="padding:6px;">Situation</th><th style="padding:6px;">Niveau (dB)</th></tr>
+        <tr><td style="padding:6px;border-bottom:1px solid #eee;">Bibliothèque</td><td style="padding:6px;border-bottom:1px solid #eee;">30 dB</td></tr>
+        <tr><td style="padding:6px;border-bottom:1px solid #eee;">Conversation normale</td><td style="padding:6px;border-bottom:1px solid #eee;">60 dB</td></tr>
+        <tr><td style="padding:6px;border-bottom:1px solid #eee;">Concert de rock</td><td style="padding:6px;border-bottom:1px solid #eee;">110 dB</td></tr>
+        <tr><td style="padding:6px;">Décollage d'avion</td><td style="padding:6px;">140 dB</td></tr>
+      </table>
+      <p><strong>1.</strong> Quel est le seuil de douleur pour l'oreille humaine ?</p>
+      <p><strong>2.</strong> Quelles situations dépassent ce seuil ?</p>
+      <p><strong>3.</strong> Proposer des mesures de protection adaptées à un concert.</p>
+      <button class="btn-corr" onclick="toggle('c5')">Voir la correction</button>
+      <div class="corr" id="c5">
+        <strong>Correction :</strong>
+        <p>1. Le seuil de douleur est fixé à 120 dB.</p>
+        <p>2. Le décollage d'avion (140 dB) dépasse ce seuil. Le concert de rock (110 dB) est en dessous mais reste dangereux pour une exposition prolongée.</p>
+        <p>3. Mesures de protection : port de bouchons d'oreilles ou casque antibruit, limitation de la durée d'exposition, éloignement des haut-parleurs.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="footer-links">
+  <a href="pc-2nde-pro.html">← Retour au sommaire</a>
+  <a href="pc2-ch06_lecon.html">← Cours</a>
+  <a href="pc2-ch06_ds.html">Devoir →</a>
+</div>
+</body>
+</html>
