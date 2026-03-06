@@ -1,282 +1,300 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physique-Chimie 2nde Bac Pro - Mes Cours</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0; background-color: #f4f4f9; color: #333; line-height: 1.6;
-        }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        header {
-            background: #6f42c1; color: white; padding: 25px 20px;
-            text-align: center; border-radius: 8px; position: relative;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .btn-retour {
-            position: absolute; left: 15px; top: 15px; color: white;
-            text-decoration: none; font-weight: bold;
-            background: rgba(255,255,255,0.2); padding: 5px 12px;
-            border-radius: 5px; font-size: 0.9em;
-        }
-        .btn-retour:hover { background: rgba(255,255,255,0.3); }
-        h1 { margin: 0; font-size: 1.6em; margin-top: 15px; }
-        .nav-tabs {
-            display: flex; gap: 8px; margin-top: 25px;
-            border-bottom: 2px solid #e9ecef; padding-bottom: 0;
-        }
-        .nav-tab {
-            padding: 10px 18px; border-radius: 8px 8px 0 0;
-            background: #f3e8ff; color: #6f42c1;
-            font-weight: 600; cursor: pointer; border: none;
-            font-size: 0.95em; border-bottom: 3px solid transparent;
-            transition: 0.2s;
-        }
-        .nav-tab:hover { background: #e9d5ff; }
-        .nav-tab.active {
-            background: white; border-bottom: 3px solid #6f42c1; color: #6f42c1;
-        }
-        .tab-panel { display: none; }
-        .tab-panel.active { display: block; }
-        .section-carte {
-            background: white; margin-top: 20px; padding: 20px;
-            border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border-left: 5px solid #6f42c1;
-        }
-        .section-carte.physique { border-left-color: #0969da; }
-        .section-carte.chimie   { border-left-color: #e85d04; }
-        .section-carte.secu     { border-left-color: #2ea44f; }
-        h2 { color: #6f42c1; margin-top: 0; border-bottom: 2px solid #f3e8ff; padding-bottom: 10px; }
-        h2.physique { color: #0969da; border-bottom-color: #dbeafe; }
-        h2.chimie   { color: #e85d04; border-bottom-color: #ffedd5; }
-        h2.secu     { color: #2ea44f; border-bottom-color: #dcfce7; }
-        ul { list-style-type: none; padding: 0; margin: 0; }
-        li {
-            margin-bottom: 10px; padding: 12px; background: #f9f9f9;
-            border-radius: 6px; border: 1px solid #eee;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        a.lien-doc { color: #6f42c1; text-decoration: none; font-weight: 600; }
-        a.lien-doc:hover { text-decoration: underline; }
-        .actions-doubles { display: flex; gap: 8px; }
-        .badge {
-            display: inline-block; text-decoration: none; font-size: 0.8em;
-            padding: 4px 10px; border-radius: 12px; font-weight: bold; transition: 0.2s;
-        }
-        .badge-online { background: #f3e8ff; color: #6f42c1; border: 1px solid #d8b4fe; }
-        .badge-online:hover { background: #6f42c1; color: white; }
-        .badge-pdf { background: #ffebe9; color: #cf222e; border: 1px solid #ff8182; }
-        .badge-pdf:hover { background: #cf222e; color: white; }
-        .badge-waiting { background: #f6f8fa; color: #57606a; border: 1px solid #d0d7de; }
-        .badge-corrige { background: #d1e7dd; color: #0f5132; }
-        .prog-tag {
-            display: inline-block; font-size: 0.75em; font-weight: 600;
-            padding: 2px 8px; border-radius: 10px; margin-left: 8px;
-            background: #fff3cd; color: #856404; border: 1px solid #ffc107;
-            vertical-align: middle;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physique-Chimie 2nde Pro - Espace Ressources</title>
+<style>
+:root {
+  --primary: #6f42c1;
+  --bg: #f6f8fa;
+  --text: #1f2328;
+  --border: #d0d7de;
+  --subtle: #6e7781;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 20px;
+  margin: 0;
+}
+.container {
+  max-width: 950px;
+  margin: auto;
+}
+header {
+  text-align: center;
+  padding: 40px 0;
+  margin-bottom: 20px;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+header p {
+  margin: 10px 0 0;
+  color: var(--subtle);
+  font-size: 0.95em;
+}
+.domain-section {
+  margin-bottom: 40px;
+}
+.domain-title {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.chapter-row {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.2s;
+}
+.chapter-row:hover {
+  border-color: #afb8c1;
+}
+.chapter-info {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+.ch-num {
+  font-weight: 700;
+  color: #afb8c1;
+  margin-right: 15px;
+  font-size: 0.85em;
+  width: 20px;
+}
+.ch-title {
+  font-weight: 500;
+  font-size: 1em;
+}
+.links-group {
+  display: flex;
+  gap: 8px;
+}
+.link-item {
+  text-decoration: none;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.link-item:hover {
+  background-color: #f5f0ff;
+}
+.footer-links {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.module-link {
+  text-decoration: none;
+  color: var(--subtle);
+  font-size: 0.8em;
+  padding: 6px 14px;
+  background: #eee;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+.module-link:hover {
+  background: #e1e4e8;
+  color: var(--text);
+}
+@media (max-width: 768px) {
+  .chapter-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .links-group {
+    width: 100%;
+    justify-content: flex-end;
+    border-top: 1px solid #f6f8fa;
+    padding-top: 8px;
+  }
+}
+</style>
 </head>
 <body>
 <div class="container">
-    <header>
-        <a href="index.html" class="btn-retour">&larr; Accueil</a>
-        <h1>&#x1F9EA; Physique-Chimie</h1>
-        <p style="margin: 5px 0 0 0; opacity: 0.9;">Niveau : Seconde Bac Pro &mdash; R&eacute;f&eacute;rentiel 2019</p>
-    </header>
 
-    <div class="nav-tabs">
-        <button class="nav-tab active" onclick="afficherOnglet('chimie', this)">&#x2696;&#xFE0F; Chimie</button>
-        <button class="nav-tab" onclick="afficherOnglet('physique', this)">&#x26A1; Physique</button>
-        <button class="nav-tab" onclick="afficherOnglet('secu', this)">&#x1F6E1;&#xFE0F; S&eacute;curit&eacute;</button>
+<header>
+  <h1>Physique-Chimie — 2<sup>de</sup> Pro</h1>
+  <p>Espace de travail numérique</p>
+</header>
+
+<!-- MÉCANIQUE -->
+<div class="domain-section">
+  <div class="domain-title">⚙️ Mécanique</div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">01</span>
+      <span class="ch-title">Mouvement rectiligne</span>
     </div>
-
-    <div id="tab-chimie" class="tab-panel active">
-
-        <div class="section-carte chimie">
-            <h2 class="chimie">&#x1F4D6; Cours de Chimie</h2>
-            <p>Programme : <em>Caract&eacute;riser une solution.</em></p>
-            <ul>
-                <li>
-                    <span class="lien-doc">
-                        Chapitre 1 : Les solutions aqueuses
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <div class="actions-doubles">
-                        <a href="cours-solutions.html" class="badge badge-online">Lire en ligne</a>
-                        <a href="pdf/cours_solutions.pdf" class="badge badge-pdf" target="_blank">PDF</a>
-                    </div>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Chapitre 2 : Esp&egrave;ces chimiques &mdash; Atomes, mol&eacute;cules, ions
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Chapitre 3 : Le pH &mdash; Acidit&eacute;, basicit&eacute; et mesure exp&eacute;rimentale
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Chapitre 4 : Concentration massique et dilution (Cm = m/V)
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section-carte chimie">
-            <h2 class="chimie">&#x270F;&#xFE0F; Exercices de Chimie</h2>
-            <p>Feuilles d'exercices et pr&eacute;parations aux Travaux Pratiques (TP).</p>
-            <ul>
-                <li>
-                    <a href="#" class="lien-doc">Exercices : Concentration massique</a>
-                    <span class="badge badge-pdf">PDF</span>
-                </li>
-                <li>
-                    <a href="#" class="lien-doc">Pr&eacute;paration TP 1 : Dilution</a>
-                    <span class="badge badge-pdf">PDF</span>
-                </li>
-                <li>
-                    <a href="#" class="lien-doc">Exercices : pH et indicateurs color&eacute;s</a>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section-carte chimie">
-            <h2 class="chimie">&#x1F4DD; Devoirs Surveill&eacute;s &mdash; Chimie</h2>
-            <p>Sujets d'&eacute;valuation et corrections.</p>
-            <ul>
-                <li>
-                    <a href="#" class="lien-doc">DS 1 : Solutions et Atomes</a>
-                    <span class="badge badge-pdf">PDF</span>
-                </li>
-                <li>
-                    <a href="#" class="lien-doc">Corrig&eacute; du DS 1</a>
-                    <span class="badge badge-corrige">Corrig&eacute;</span>
-                </li>
-            </ul>
-        </div>
-
+    <div class="links-group">
+      <a href="pc2-ch01_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch01_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch01_ds.html" class="link-item">DS</a>
     </div>
+  </div>
 
-    <div id="tab-physique" class="tab-panel">
-
-        <div class="section-carte physique">
-            <h2 class="physique">&#x1F4D6; Cours de Physique</h2>
-            <p>Programme : <em>&Eacute;lectricit&eacute;, M&eacute;canique, Acoustique, Optique, Thermique.</em></p>
-            <ul>
-                <li>
-                    <span class="lien-doc">
-                        Ch. 1 : &Eacute;lectricit&eacute; &mdash; Lois des noeuds, mailles et loi d'Ohm (U=RI)
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Ch. 2 : Signaux &eacute;lectriques &mdash; P&eacute;riode, fr&eacute;quence, valeur efficace
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Ch. 3 : M&eacute;canique &mdash; Mouvement, forces et &eacute;quilibre (P=mg)
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Ch. 4 : Acoustique &mdash; Niveau sonore (dB) et seuils de danger
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Ch. 5 : Thermique &mdash; &Eacute;quilibre thermique et &eacute;chelles Celsius / Kelvin
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Ch. 6 : Optique &mdash; R&eacute;flexion, r&eacute;fraction et spectre visible
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section-carte physique">
-            <h2 class="physique">&#x270F;&#xFE0F; Exercices de Physique</h2>
-            <ul>
-                <li>
-                    <a href="#" class="lien-doc">Exercices : Loi d'Ohm et circuits</a>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <a href="#" class="lien-doc">Exercices : Vitesse et forces</a>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-            </ul>
-        </div>
-
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">02</span>
+      <span class="ch-title">Mouvement circulaire</span>
     </div>
-
-    <div id="tab-secu" class="tab-panel">
-
-        <div class="section-carte secu">
-            <h2 class="secu">&#x1F4D6; Cours S&eacute;curit&eacute;</h2>
-            <p>Programme : <em>Comment travailler en toute s&eacute;curit&eacute; ?</em></p>
-            <ul>
-                <li>
-                    <span class="lien-doc">
-                        Ch. 1 : Pictogrammes de danger chimique
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Ch. 2 : EPI, fusibles, disjoncteurs et mise &agrave; la terre
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-                <li>
-                    <span class="lien-doc">
-                        Ch. 3 : Rayonnements &mdash; Dangers des lasers et seuils acoustiques
-                        <span class="prog-tag">Prog.</span>
-                    </span>
-                    <span class="badge badge-waiting">En pr&eacute;paration</span>
-                </li>
-            </ul>
-        </div>
-
+    <div class="links-group">
+      <a href="pc2-ch02_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch02_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch02_ds.html" class="link-item">DS</a>
     </div>
+  </div>
 
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">03</span>
+      <span class="ch-title">Équilibre d'un solide</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch03_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch03_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch03_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
 </div>
 
-<script>
-function afficherOnglet(nom, bouton) {
-    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-    document.querySelectorAll('.nav-tab').forEach(function(b) { b.classList.remove('active'); });
-    document.getElementById('tab-' + nom).classList.add('active');
-    bouton.classList.add('active');
-}
-</script>
+<!-- CHIMIE -->
+<div class="domain-section">
+  <div class="domain-title">⚗️ Chimie</div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">04</span>
+      <span class="ch-title">Composition chimique d'un liquide</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch04_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch04_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch04_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">05</span>
+      <span class="ch-title">Acidité et pH</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch05_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch05_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch05_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+</div>
+
+<!-- ACOUSTIQUE -->
+<div class="domain-section">
+  <div class="domain-title">🔊 Acoustique</div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">06</span>
+      <span class="ch-title">Caractéristiques et transmission d'un son</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch06_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch06_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch06_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+</div>
+
+<!-- THERMIQUE -->
+<div class="domain-section">
+  <div class="domain-title">🌡️ Thermique</div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">07</span>
+      <span class="ch-title">Température et chaleur</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch07_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch07_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch07_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+</div>
+
+<!-- OPTIQUE -->
+<div class="domain-section">
+  <div class="domain-title">💡 Optique</div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">08</span>
+      <span class="ch-title">Réflexion et réfraction de la lumière</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch08_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch08_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch08_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">09</span>
+      <span class="ch-title">Composition de la lumière</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch09_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch09_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch09_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">10</span>
+      <span class="ch-title">Éclairement et photocomposants</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch10_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch10_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch10_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer-links">
+  <a href="cours-solutions.html" class="module-link">🧪 Solutions aqueuses</a>
+  <a href="simulations.html" class="module-link">🔬 Simulations</a>
+</div>
+
+</div>
 </body>
 </html>
