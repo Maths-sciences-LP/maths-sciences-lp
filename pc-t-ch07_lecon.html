@@ -1,23 +1,559 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours — Ch07 Utiliser le rayonnement thermique</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #f6f8fa; color: #1f2328; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; text-align: center; padding: 80px 20px; }
-        .back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #6f42c1; }
-        h1 { font-size: 1.4em; font-weight: 600; margin-bottom: 8px; }
-        p { color: #6e7781; font-size: 0.95em; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Rayonnement thermique – Cours</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #ddd6fe}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.svg-wrap{text-align:center;margin:18px 0}
+</style>
 </head>
 <body>
-<div class="container">
-    <a href="pc-term-iccer.html" class="back">← Retour</a>
-    <h1>Cours — Utiliser le rayonnement thermique</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+<header>
+  <h1>Chapitre 7 – Utiliser le rayonnement thermique et comprendre l'effet de serre</h1>
+  <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique – Thermique</p>
+</header>
+
+<!-- ===== 1. OBJECTIFS ===== -->
+<div class="objectifs">
+  <strong>Objectifs d'apprentissage</strong>
+  <ul>
+    <li>Montrer qu'un objet peut se réchauffer sous l'effet d'un rayonnement.</li>
+    <li>Exploiter des images d'une caméra thermique pour analyser des transferts de chaleur.</li>
+    <li>Illustrer expérimentalement l'absorption du rayonnement infrarouge par différents matériaux.</li>
+    <li>Expliquer le principe de l'effet de serre à partir d'une ressource documentaire.</li>
+    <li>Identifier les principaux gaz à effet de serre (GES) et leurs origines.</li>
+    <li>Comprendre l'impact de l'activité humaine sur l'amplification de l'effet de serre.</li>
+  </ul>
+</div>
+
+<!-- ===== 2. RAYONNEMENT THERMIQUE ===== -->
+<h2>1. Le rayonnement thermique</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Tout objet dont la température est supérieure au zéro absolu (0 K = &minus;273,15 °C) émet un <strong>rayonnement thermique</strong> : il rayonne de l'énergie sous forme d'ondes électromagnétiques dans toutes les directions.
+</div>
+
+<p>Ce rayonnement est une conséquence de l'agitation thermique des particules (atomes, molécules) qui constituent la matière. Plus un corps est chaud, plus il émet d'énergie et plus son rayonnement se décale vers les hautes fréquences (courtes longueurs d'onde).</p>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li><strong>Puissance rayonnée</strong> : augmente très rapidement avec la température (loi de Stefan-Boltzmann : \(P = \varepsilon \sigma A T^4\)).</li>
+    <li><strong>Répartition spectrale</strong> : le pic d'émission se déplace vers les courtes longueurs d'onde quand T augmente (loi de Wien : \(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{T}\)).</li>
+    <li><strong>Indépendance</strong> : le rayonnement se propage dans le vide, sans nécessiter de support matériel.</li>
+  </ul>
+</div>
+
+<div class="formule-box">
+  \(\lambda_{\max} \times T = 2{,}898 \times 10^{-3} \text{ m·K}\)
+  <small>Loi de déplacement de Wien — \(\lambda_{\max}\) en mètres, T en kelvins</small>
+</div>
+
+<h2>2. Domaines spectraux : visible et infrarouge</h2>
+
+<p>Le spectre électromagnétique couvre un très large domaine de longueurs d'onde. Le rayonnement thermique des corps courants se situe essentiellement dans le domaine <strong>infrarouge (IR)</strong>.</p>
+
+<div class="svg-wrap">
+  <!-- Spectre électromagnétique simplifié -->
+  <svg width="780" height="110" viewBox="0 0 780 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spectre électromagnétique simplifié">
+    <!-- Bande UV -->
+    <rect x="20" y="30" width="100" height="40" rx="4" fill="#8b5cf6"/>
+    <text x="70" y="55" text-anchor="middle" font-size="12" fill="white" font-weight="bold">UV</text>
+    <text x="70" y="85" text-anchor="middle" font-size="10" fill="#555">10 – 400 nm</text>
+    <!-- Bande visible -->
+    <defs>
+      <linearGradient id="vis" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#6600ff"/>
+        <stop offset="16%" stop-color="#0000ff"/>
+        <stop offset="33%" stop-color="#00cc00"/>
+        <stop offset="50%" stop-color="#ffff00"/>
+        <stop offset="70%" stop-color="#ff6600"/>
+        <stop offset="100%" stop-color="#ff0000"/>
+      </linearGradient>
+    </defs>
+    <rect x="120" y="30" width="120" height="40" rx="4" fill="url(#vis)"/>
+    <text x="180" y="55" text-anchor="middle" font-size="12" fill="white" font-weight="bold" style="text-shadow:0 1px 2px #000">Visible</text>
+    <text x="180" y="85" text-anchor="middle" font-size="10" fill="#555">400 – 780 nm</text>
+    <!-- Bande IR proche -->
+    <rect x="240" y="30" width="130" height="40" rx="4" fill="#f87171"/>
+    <text x="305" y="52" text-anchor="middle" font-size="11" fill="white" font-weight="bold">IR proche</text>
+    <text x="305" y="85" text-anchor="middle" font-size="10" fill="#555">0,78 – 3 µm</text>
+    <!-- Bande IR moyen -->
+    <rect x="370" y="30" width="150" height="40" rx="4" fill="#ef4444"/>
+    <text x="445" y="52" text-anchor="middle" font-size="11" fill="white" font-weight="bold">IR moyen</text>
+    <text x="445" y="85" text-anchor="middle" font-size="10" fill="#555">3 – 15 µm ★</text>
+    <!-- Bande IR lointain -->
+    <rect x="520" y="30" width="130" height="40" rx="4" fill="#b91c1c"/>
+    <text x="585" y="52" text-anchor="middle" font-size="11" fill="white" font-weight="bold">IR lointain</text>
+    <text x="585" y="85" text-anchor="middle" font-size="10" fill="#555">15 – 1000 µm</text>
+    <!-- Micro-ondes -->
+    <rect x="650" y="30" width="110" height="40" rx="4" fill="#d97706"/>
+    <text x="705" y="55" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Micro-ondes</text>
+    <text x="705" y="85" text-anchor="middle" font-size="10" fill="#555">&gt; 1 mm</text>
+    <!-- Axe -->
+    <text x="390" y="108" text-anchor="middle" font-size="10" fill="#6f42c1">★ Zone d'émission principale des corps à température ambiante</text>
+    <!-- Flèche -->
+    <line x1="20" y1="25" x2="760" y2="25" stroke="#cbd5e0" stroke-width="1.5"/>
+    <text x="20" y="18" font-size="10" fill="#718096">λ courte</text>
+    <text x="700" y="18" font-size="10" fill="#718096">λ longue</text>
+  </svg>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">À retenir</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li>Un corps à <strong>température ambiante</strong> (~300 K) émet principalement dans l'<strong>IR moyen</strong> (~10 µm) : ce rayonnement est <em>invisible à l'œil nu</em>.</li>
+    <li>Le rayonnement thermique n'est <strong>visible</strong> que pour des températures très élevées : filament d'une lampe à incandescence (~2 700 K), métal porté au rouge (&gt; 1 000 K), surface du Soleil (~5 780 K).</li>
+    <li>Le Soleil émet principalement dans le <strong>visible et le proche IR</strong> (pic vers 500 nm).</li>
+    <li>La Terre, à ~288 K, émet dans l'<strong>IR moyen</strong> (pic vers 10 µm).</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple de calcul – Loi de Wien</span><br>
+  Pour un corps humain à T = 37 °C = 310 K :<br>
+  \[\lambda_{\max} = \frac{2{,}898 \times 10^{-3}}{310} \approx 9{,}3 \; \mu\text{m}\]
+  Ce rayonnement est bien dans l'infrarouge moyen, invisible à l'œil mais détectable par une caméra thermique.
+</div>
+
+<!-- ===== 3. CAMÉRA THERMIQUE ===== -->
+<h2>3. La caméra thermique</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Une <strong>caméra thermique</strong> (ou caméra infrarouge) est un appareil qui détecte le rayonnement infrarouge émis par les objets et le convertit en une image visible colorée appelée <strong>thermogramme</strong>. Elle ne nécessite aucune source de lumière visible et fonctionne dans l'obscurité totale.
+</div>
+
+<h3 style="font-size:1em;color:#4a5568;margin-top:18px">Principe de fonctionnement</h3>
+<p>La caméra thermique est équipée d'un capteur (matrice de pixels) sensible au rayonnement infrarouge (typiquement entre 8 et 14 µm). Chaque pixel mesure l'intensité du rayonnement IR reçu, qui est directement liée à la température de surface de l'objet visé. Un logiciel attribue une couleur à chaque niveau de température selon une palette de couleurs (palette dite "fer chaud" ou "arc-en-ciel") :</p>
+<ul>
+  <li>Couleurs chaudes (blanc, rouge, orange) → zones à <strong>haute température</strong>.</li>
+  <li>Couleurs froides (bleu, violet, noir) → zones à <strong>basse température</strong>.</li>
+</ul>
+
+<div class="meth">
+  <span class="label label-meth">Méthode – Lire un thermogramme</span>
+  <ol style="margin:8px 0 0 0;padding-left:20px">
+    <li>Identifier la palette de couleurs et son échelle de température (indiquée en barre latérale).</li>
+    <li>Repérer les zones les plus lumineuses (chaudes) et les zones sombres (froides).</li>
+    <li>Relier les anomalies thermiques à des phénomènes physiques : pont thermique, déperdition de chaleur, point chaud d'un composant électrique, etc.</li>
+  </ol>
+</div>
+
+<h3 style="font-size:1em;color:#4a5568;margin-top:18px">Applications</h3>
+<table>
+  <thead>
+    <tr><th>Domaine</th><th>Application</th><th>Ce que l'on détecte</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Bâtiment</td><td>Diagnostic énergétique (DPE)</td><td>Ponts thermiques, fuites de chaleur, isolation déficiente</td></tr>
+    <tr><td>Industrie</td><td>Maintenance préventive</td><td>Surchauffe de moteurs, câbles, roulements, transformateurs</td></tr>
+    <tr><td>Électricité</td><td>Contrôle des installations</td><td>Points chauds dans les tableaux électriques, connexions défectueuses</td></tr>
+    <tr><td>Médecine</td><td>Imagerie médicale</td><td>Inflammation, troubles circulatoires (thermographie médicale)</td></tr>
+    <tr><td>Sécurité</td><td>Surveillance nocturne</td><td>Présence humaine ou animale dans l'obscurité</td></tr>
+  </tbody>
+</table>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  La caméra thermique mesure la <strong>température de surface</strong>, pas la température intérieure d'un matériau. La valeur lue dépend aussi de l'<strong>émissivité</strong> du matériau (rapport entre le rayonnement réel et celui d'un corps noir idéal). Un métal poli a une faible émissivité : il peut sembler froid même s'il est chaud.
+</div>
+
+<!-- ===== 4. ABSORPTION DU RAYONNEMENT IR ===== -->
+<h2>4. Absorption du rayonnement infrarouge par les matériaux</h2>
+
+<p>Lorsqu'un rayonnement infrarouge frappe un matériau, trois phénomènes peuvent se produire :</p>
+<ul>
+  <li><strong>Absorption</strong> : le matériau absorbe l'énergie du rayonnement et se réchauffe.</li>
+  <li><strong>Réflexion</strong> : le rayonnement est renvoyé (ex. : miroir, métal poli).</li>
+  <li><strong>Transmission</strong> : le rayonnement traverse le matériau (ex. : certains types de verre, le sel gemme pour l'IR).</li>
+</ul>
+
+<div class="prop">
+  <span class="label label-prop">Loi de conservation</span><br>
+  Pour tout rayonnement incident, les coefficients d'absorption \(\alpha\), de réflexion \(\rho\) et de transmission \(\tau\) vérifient :
+  \[\alpha + \rho + \tau = 1\]
+  Un corps noir idéal absorbe <em>tout</em> le rayonnement incident (\(\alpha = 1\), \(\rho = 0\), \(\tau = 0\)).
+</div>
+
+<h3 style="font-size:1em;color:#4a5568;margin-top:18px">Absorption selon les matériaux</h3>
+<table>
+  <thead>
+    <tr><th>Matériau</th><th>Comportement vis-à-vis de l'IR</th><th>Remarque</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Verre ordinaire</td><td>Absorbe fortement l'IR</td><td>Transparent au visible ; bloque l'IR (effet de serre dans une serre)</td></tr>
+    <tr><td>Eau liquide</td><td>Très forte absorption IR</td><td>Bandes d'absorption intenses entre 2 et 15 µm</td></tr>
+    <tr><td>CO<sub>2</sub> (gaz)</td><td>Absorption sélective IR</td><td>Bandes vers 4,3 µm et 15 µm — rôle crucial dans l'effet de serre</td></tr>
+    <tr><td>Métal poli (aluminium)</td><td>Forte réflexion IR</td><td>Faible absorption, faible émissivité</td></tr>
+    <tr><td>Peinture noire mate</td><td>Forte absorption IR</td><td>Proche du corps noir (\(\alpha \approx 0{,}95\))</td></tr>
+    <tr><td>Sel gemme (NaCl)</td><td>Transparent à l'IR</td><td>Utilisé pour les fenêtres des spectromètres IR</td></tr>
+  </tbody>
+</table>
+
+<div class="ex">
+  <span class="label label-ex">Expérience – Réchauffement sous rayonnement IR</span><br>
+  On place plusieurs matériaux (blanc, noir, métal) sous une lampe infrarouge et on mesure leur température au fil du temps à l'aide d'une sonde ou d'une caméra thermique. <br>
+  <strong>Observation :</strong> La surface noire se réchauffe bien plus vite que la surface métallique polie, qui réfléchit la majorité du rayonnement. Cela confirme que la couleur et la nature de la surface influencent fortement l'absorption du rayonnement IR.
+</div>
+
+<!-- ===== 5. EFFET DE SERRE NATUREL ===== -->
+<h2>5. L'effet de serre naturel</h2>
+
+<p>L'effet de serre est un phénomène <strong>naturel et indispensable</strong> à la vie sur Terre. Sans lui, la température moyenne à la surface serait d'environ <strong>&minus;18 °C</strong> au lieu des +15 °C actuels, soit un écart de 33 °C.</p>
+
+<h3 style="font-size:1em;color:#4a5568;margin-top:18px">Mécanisme étape par étape</h3>
+
+<div class="meth">
+  <span class="label label-meth">Étape par étape</span>
+  <ol style="margin:8px 0 0 0;padding-left:20px">
+    <li><strong>Rayonnement solaire incident (visible + UV)</strong> : le Soleil, à ~5 780 K, émet principalement dans le domaine visible (400–780 nm) et l'UV proche. L'atmosphère est <em>transparente</em> à ce rayonnement : il traverse les couches gazeuses et atteint la surface terrestre.</li>
+    <li><strong>Absorption par la surface</strong> : la surface terrestre (sols, océans, végétation) absorbe le rayonnement solaire et se réchauffe.</li>
+    <li><strong>Émission infrarouge par la Terre</strong> : la surface, réchauffée à ~288 K, émet un rayonnement infrarouge (pic vers 10 µm) vers l'atmosphère.</li>
+    <li><strong>Absorption par les GES</strong> : les gaz à effet de serre présents dans l'atmosphère (H<sub>2</sub>O, CO<sub>2</sub>, CH<sub>4</sub>…) absorbent ce rayonnement IR. L'atmosphère ne laisse passer qu'une partie de l'IR (fenêtres atmosphériques entre 8 et 12 µm).</li>
+    <li><strong>Ré-émission vers la Terre</strong> : les GES, réchauffés, ré-émettent à leur tour un rayonnement IR dans toutes les directions, notamment <em>vers la surface terrestre</em>, qui reçoit ainsi un supplément d'énergie.</li>
+    <li><strong>Équilibre thermique</strong> : la température à la surface s'établit à un niveau plus élevé que sans atmosphère, jusqu'à ce que l'énergie émise vers l'espace égale l'énergie reçue du Soleil.</li>
+  </ol>
+</div>
+
+<!-- Schéma SVG de l'effet de serre -->
+<div class="svg-wrap">
+<svg width="780" height="420" viewBox="0 0 780 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma de l'effet de serre">
+  <!-- Fond ciel / espace -->
+  <rect width="780" height="420" fill="#0f172a" rx="10"/>
+
+  <!-- Etoiles -->
+  <circle cx="50" cy="20" r="1" fill="white" opacity="0.6"/>
+  <circle cx="120" cy="40" r="1.2" fill="white" opacity="0.5"/>
+  <circle cx="200" cy="15" r="1" fill="white" opacity="0.7"/>
+  <circle cx="350" cy="30" r="1" fill="white" opacity="0.4"/>
+  <circle cx="600" cy="22" r="1.2" fill="white" opacity="0.6"/>
+  <circle cx="700" cy="10" r="1" fill="white" opacity="0.5"/>
+  <circle cx="740" cy="35" r="1" fill="white" opacity="0.6"/>
+  <circle cx="450" cy="8" r="1" fill="white" opacity="0.5"/>
+
+  <!-- Sol (surface terrestre) -->
+  <rect x="0" y="340" width="780" height="80" rx="0" fill="#2d6a4f"/>
+  <text x="390" y="370" text-anchor="middle" font-size="13" fill="#d1fae5" font-weight="bold">Surface terrestre (~288 K)</text>
+  <text x="390" y="388" text-anchor="middle" font-size="11" fill="#a7f3d0">Sols, océans, végétation</text>
+
+  <!-- Atmosphère (arc / couche) -->
+  <path d="M 0,200 Q 390,80 780,200" fill="none" stroke="#60a5fa" stroke-width="3" stroke-dasharray="8,4" opacity="0.8"/>
+  <path d="M 0,230 Q 390,110 780,230" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+  <!-- Remplissage couche atmosphérique -->
+  <path d="M 0,200 Q 390,80 780,200 L 780,230 Q 390,110 0,230 Z" fill="#1e40af" opacity="0.25"/>
+  <text x="390" y="170" text-anchor="middle" font-size="13" fill="#93c5fd" font-weight="bold">Atmosphère (GES : H₂O, CO₂, CH₄, N₂O)</text>
+
+  <!-- SOLEIL (en haut à gauche) -->
+  <circle cx="80" cy="70" r="40" fill="#fef08a" stroke="#fbbf24" stroke-width="3"/>
+  <text x="80" y="67" text-anchor="middle" font-size="13" fill="#78350f" font-weight="bold">SOLEIL</text>
+  <text x="80" y="82" text-anchor="middle" font-size="10" fill="#92400e">~5 780 K</text>
+  <!-- Rayons du soleil (décoratifs) -->
+  <line x1="80" y1="25" x2="80" y2="10" stroke="#fbbf24" stroke-width="2"/>
+  <line x1="110" y1="40" x2="122" y2="28" stroke="#fbbf24" stroke-width="2"/>
+  <line x1="120" y1="70" x2="135" y2="70" stroke="#fbbf24" stroke-width="2"/>
+  <line x1="50" y1="40" x2="38" y2="28" stroke="#fbbf24" stroke-width="2"/>
+  <line x1="40" y1="70" x2="25" y2="70" stroke="#fbbf24" stroke-width="2"/>
+
+  <!-- TERRE (au centre bas) -->
+  <circle cx="390" cy="310" r="28" fill="#1d4ed8" stroke="#3b82f6" stroke-width="2"/>
+  <text x="390" y="308" text-anchor="middle" font-size="11" fill="white" font-weight="bold">TERRE</text>
+  <text x="390" y="322" text-anchor="middle" font-size="9" fill="#bfdbfe">~288 K</text>
+
+  <!-- === FLÈCHE 1 : Rayonnement solaire visible vers la Terre === -->
+  <!-- Flèche jaune/orange depuis le Soleil vers la surface terrestre -->
+  <defs>
+    <marker id="arr-jaune" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arr-rouge" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#f97316"/>
+    </marker>
+    <marker id="arr-bleu" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#60a5fa"/>
+    </marker>
+  </defs>
+
+  <!-- Rayonnement solaire (visible) : Soleil → surface, traverse l'atmosphère sans être absorbé -->
+  <line x1="118" y1="95" x2="310" y2="320" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#arr-jaune)"/>
+  <line x1="125" y1="80" x2="340" y2="318" stroke="#fbbf24" stroke-width="2" stroke-dasharray="none" opacity="0.7" marker-end="url(#arr-jaune)"/>
+  <!-- Label -->
+  <rect x="140" y="150" width="140" height="40" rx="5" fill="#78350f" opacity="0.85"/>
+  <text x="210" y="167" text-anchor="middle" font-size="11" fill="#fef3c7" font-weight="bold">① Visible + UV</text>
+  <text x="210" y="183" text-anchor="middle" font-size="10" fill="#fde68a">traverse l'atmosphère</text>
+
+  <!-- === FLÈCHE 2 : Émission IR de la Terre vers l'atmosphère === -->
+  <line x1="370" y1="283" x2="290" y2="215" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arr-rouge)"/>
+  <!-- Label IR Terre → Atm -->
+  <rect x="200" y="238" width="145" height="36" rx="5" fill="#7f1d1d" opacity="0.85"/>
+  <text x="272" y="254" text-anchor="middle" font-size="11" fill="#fee2e2" font-weight="bold">② IR émis par la Terre</text>
+  <text x="272" y="268" text-anchor="middle" font-size="10" fill="#fca5a5">pic ~10 µm</text>
+
+  <!-- === FLÈCHE 3 : Absorption par GES dans l'atmosphère === -->
+  <!-- Point d'absorption dans l'atmosphère (milieu) -->
+  <circle cx="290" cy="210" r="12" fill="#1e40af" stroke="#60a5fa" stroke-width="2"/>
+  <text x="290" y="215" text-anchor="middle" font-size="11" fill="white" font-weight="bold">GES</text>
+
+  <!-- === FLÈCHE 4a : Ré-émission vers la Terre (effet de serre) === -->
+  <path d="M 285,222 Q 340,280 380,288" fill="none" stroke="#f97316" stroke-width="2.5" marker-end="url(#arr-orange)"/>
+  <!-- Label ré-émission vers Terre -->
+  <rect x="290" y="272" width="160" height="36" rx="5" fill="#7c2d12" opacity="0.85"/>
+  <text x="370" y="288" text-anchor="middle" font-size="11" fill="#ffedd5" font-weight="bold">③ IR renvoyé vers la Terre</text>
+  <text x="370" y="302" text-anchor="middle" font-size="10" fill="#fed7aa">→ réchauffement accru</text>
+
+  <!-- === FLÈCHE 4b : IR perdu vers l'espace === -->
+  <line x1="293" y1="198" x2="310" y2="100" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arr-rouge)" opacity="0.7"/>
+  <text x="330" y="148" text-anchor="middle" font-size="10" fill="#fca5a5">IR perdu</text>
+  <text x="330" y="161" text-anchor="middle" font-size="10" fill="#fca5a5">vers l'espace</text>
+
+  <!-- === FLÈCHE 5 : Réflexion partielle du visible par l'atmosphère === -->
+  <path d="M 170,175 Q 130,140 95,108" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-jaune)" opacity="0.6"/>
+  <text x="115" y="158" text-anchor="middle" font-size="9" fill="#fde68a">Réflexion</text>
+  <text x="115" y="170" text-anchor="middle" font-size="9" fill="#fde68a">(albédo)</text>
+
+  <!-- LÉGENDE -->
+  <rect x="490" y="250" width="270" height="145" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="625" y="272" text-anchor="middle" font-size="12" fill="#e2e8f0" font-weight="bold">Légende</text>
+  <line x1="505" y1="290" x2="545" y2="290" stroke="#fbbf24" stroke-width="3"/>
+  <text x="555" y="294" font-size="11" fill="#fde68a">Rayonnement visible (Soleil)</text>
+  <line x1="505" y1="312" x2="545" y2="312" stroke="#ef4444" stroke-width="2.5"/>
+  <text x="555" y="316" font-size="11" fill="#fca5a5">IR émis par la Terre</text>
+  <line x1="505" y1="332" x2="545" y2="332" stroke="#f97316" stroke-width="2.5"/>
+  <text x="555" y="336" font-size="11" fill="#fdba74">IR renvoyé par les GES</text>
+  <line x1="505" y1="352" x2="545" y2="352" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="5,3"/>
+  <text x="555" y="356" font-size="11" fill="#fca5a5">IR échappant vers l'espace</text>
+  <line x1="505" y1="372" x2="545" y2="372" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="555" y="376" font-size="11" fill="#fde68a">Réflexion (albédo)</text>
+
+  <!-- Titre du schéma -->
+  <text x="390" y="415" text-anchor="middle" font-size="11" fill="#94a3b8">Fig. 1 – Schéma de principe de l'effet de serre atmosphérique</text>
+</svg>
+</div>
+
+<div class="att">
+  <span class="label label-att">Point clé</span><br>
+  L'atmosphère est <strong>transparente</strong> au rayonnement visible solaire mais <strong>absorbante</strong> pour le rayonnement infrarouge émis par la Terre. C'est cette asymétrie qui est à l'origine de l'effet de serre.
+</div>
+
+<!-- ===== 6. GES ===== -->
+<h2>6. Les gaz à effet de serre (GES)</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Les <strong>gaz à effet de serre</strong> sont des gaz qui absorbent le rayonnement infrarouge émis par la surface terrestre. Ils sont transparents au rayonnement visible solaire mais opaques à certaines longueurs d'onde de l'infrarouge.
+</div>
+
+<p>Ce comportement sélectif est lié à la structure moléculaire de ces gaz : leurs liaisons chimiques vibrent et tournent à des fréquences correspondant à des longueurs d'onde infrarouges précises (absorption par résonance).</p>
+
+<h3 style="font-size:1em;color:#4a5568;margin-top:18px">Principaux gaz à effet de serre</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Gaz</th>
+      <th>Formule</th>
+      <th>Origine naturelle</th>
+      <th>Origine anthropique</th>
+      <th>PRG (sur 100 ans)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Vapeur d'eau</strong></td>
+      <td>H<sub>2</sub>O</td>
+      <td>Évaporation des océans, transpiration</td>
+      <td>Négligeable (directement)</td>
+      <td>N/A (amplificateur)</td>
+    </tr>
+    <tr>
+      <td><strong>Dioxyde de carbone</strong></td>
+      <td>CO<sub>2</sub></td>
+      <td>Respiration, volcans, décomposition</td>
+      <td>Combustibles fossiles, déforestation, cimenterie</td>
+      <td><strong>1</strong> (référence)</td>
+    </tr>
+    <tr>
+      <td><strong>Méthane</strong></td>
+      <td>CH<sub>4</sub></td>
+      <td>Zones humides, termites, fond océanique</td>
+      <td>Élevage (ruminants), riziculture, décharges, gaz naturel</td>
+      <td><strong>28–36</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Protoxyde d'azote</strong></td>
+      <td>N<sub>2</sub>O</td>
+      <td>Sols, océans (bactéries dénitrifiantes)</td>
+      <td>Engrais azotés, élevage intensif, industrie chimique</td>
+      <td><strong>265–298</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Ozone troposphérique</strong></td>
+      <td>O<sub>3</sub></td>
+      <td>Réactions photochimiques naturelles</td>
+      <td>Pollution atmosphérique (NOx, COV)</td>
+      <td>Variable</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="font-size:.88em;color:#718096;margin-top:4px">PRG : Potentiel de Réchauffement Global, exprimé par rapport au CO<sub>2</sub> (source : GIEC AR6, 2021). La vapeur d'eau est le principal GES en masse mais son taux dans l'atmosphère dépend essentiellement de la température (rétroaction, non forçage direct).</p>
+
+<div class="prop">
+  <span class="label label-prop">Rôle de la vapeur d'eau</span><br>
+  La vapeur d'eau (H<sub>2</sub>O) est, en valeur absolue, le GES le plus abondant et le plus actif. Cependant, sa concentration dans l'atmosphère est régulée par le cycle de l'eau (elle se condense et retombe sous forme de pluie). L'activité humaine n'agit pas directement sur la vapeur d'eau, mais une augmentation de la température (causée par d'autres GES) entraîne une plus grande évaporation, ce qui amplifie l'effet de serre : c'est un <strong>mécanisme de rétroaction positive</strong>.
+</div>
+
+<!-- ===== 7. AMPLIFICATION ANTHROPIQUE ===== -->
+<h2>7. L'amplification de l'effet de serre par l'activité humaine</h2>
+
+<p>Depuis la révolution industrielle (~1850), les activités humaines ont considérablement augmenté la concentration des GES dans l'atmosphère, amplifiant l'effet de serre naturel.</p>
+
+<div class="prop">
+  <span class="label label-prop">Données clés (GIEC, 2023)</span>
+  <ul style="margin:8px 0 0 0;padding-left:20px">
+    <li>Concentration en CO<sub>2</sub> : ~280 ppm avant l'ère industrielle → <strong>~422 ppm en 2024</strong> (+50 %).</li>
+    <li>Concentration en CH<sub>4</sub> : multipliée par 2,6 depuis l'ère préindustrielle.</li>
+    <li>Augmentation de la température moyenne mondiale : <strong>+1,2 °C</strong> depuis 1850–1900.</li>
+    <li>Le réchauffement actuel est principalement d'<strong>origine humaine</strong> (certitude &gt; 95 % selon le GIEC).</li>
+  </ul>
+</div>
+
+<h3 style="font-size:1em;color:#4a5568;margin-top:18px">Principales sources anthropiques de GES</h3>
+
+<div class="ex">
+  <span class="label label-ex">Combustibles fossiles et CO2</span><br>
+  La combustion du charbon, du pétrole et du gaz naturel libère du CO<sub>2</sub> stocké depuis des millions d'années dans le sous-sol. Cette réaction est irréversible à l'échelle humaine :
+  \[\text{C}_n\text{H}_m + \text{O}_2 \;\longrightarrow\; \text{CO}_2 + \text{H}_2\text{O}\]
+  Le secteur de l'énergie (électricité, chaleur, transport) représente à lui seul plus de <strong>70 %</strong> des émissions mondiales de GES.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Déforestation</span><br>
+  Les forêts agissent comme des <strong>puits de carbone</strong> : elles absorbent le CO<sub>2</sub> atmosphérique par photosynthèse et le stockent dans leur biomasse. La déforestation libère ce carbone stocké et réduit la capacité d'absorption de la planète. On estime que la déforestation contribue à environ <strong>10–15 %</strong> des émissions mondiales de GES.
+</div>
+
+<div class="att">
+  <span class="label label-att">Conséquences de l'amplification</span>
+  <ul style="margin:8px 0 0 0;padding-left:20px">
+    <li>Augmentation de la <strong>température moyenne</strong> mondiale (réchauffement climatique).</li>
+    <li><strong>Fonte des glaces</strong> polaires et des glaciers → montée du niveau des mers.</li>
+    <li>Multiplication des <strong>événements climatiques extrêmes</strong> (canicules, sécheresses, cyclones intenses).</li>
+    <li>Acidification des océans (absorption du CO<sub>2</sub> par l'eau de mer).</li>
+    <li>Perturbation des écosystèmes et de la biodiversité.</li>
+  </ul>
+</div>
+
+<!-- ===== 8. TABLEAU RÉCAPITULATIF GES ===== -->
+<h2>8. Tableau récapitulatif des principaux gaz à effet de serre</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Formule</th>
+      <th>Origine principale</th>
+      <th>PRG (100 ans)</th>
+      <th>Durée de vie dans l'atmosphère</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Vapeur d'eau</td>
+      <td>H<sub>2</sub>O</td>
+      <td>Naturelle (évaporation)</td>
+      <td>— (rétroaction)</td>
+      <td>Quelques jours</td>
+    </tr>
+    <tr>
+      <td>Dioxyde de carbone</td>
+      <td>CO<sub>2</sub></td>
+      <td>Naturelle + fossiles / déforestation</td>
+      <td>1 (référence)</td>
+      <td>100 à 300 ans</td>
+    </tr>
+    <tr>
+      <td>Méthane</td>
+      <td>CH<sub>4</sub></td>
+      <td>Naturelle + élevage / décharges</td>
+      <td>28 – 36</td>
+      <td>~12 ans</td>
+    </tr>
+    <tr>
+      <td>Protoxyde d'azote</td>
+      <td>N<sub>2</sub>O</td>
+      <td>Naturelle + engrais azotés</td>
+      <td>265 – 298</td>
+      <td>~114 ans</td>
+    </tr>
+    <tr>
+      <td>Ozone (troposphère)</td>
+      <td>O<sub>3</sub></td>
+      <td>Pollution (NOx, COV)</td>
+      <td>Variable</td>
+      <td>Heures à semaines</td>
+    </tr>
+    <tr>
+      <td>Gaz fluorés (HFC, PFC, SF<sub>6</sub>)</td>
+      <td>Divers</td>
+      <td>Réfrigérants, industrie</td>
+      <td>150 – 23 500</td>
+      <td>Très longue (siècles à millénaires)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="font-size:.88em;color:#718096">Sources : GIEC AR6 (2021), NOAA, CEA Climat. PRG = Potentiel de Réchauffement Global sur 100 ans, par rapport au CO<sub>2</sub>.</p>
+
+<!-- ===== RÉSUMÉ FINAL ===== -->
+<h2>Résumé — Ce qu'il faut retenir</h2>
+
+<div class="def">
+  <span class="label label-def">Bilan du chapitre</span>
+  <ul style="margin:8px 0 0 0;padding-left:20px">
+    <li>Tout corps émet un rayonnement thermique dont la puissance et le spectre dépendent de sa température (lois de Stefan-Boltzmann et de Wien).</li>
+    <li>Aux températures usuelles, le rayonnement thermique est <strong>infrarouge</strong> (invisible) ; il n'est visible qu'à très haute température.</li>
+    <li>La caméra thermique détecte le rayonnement IR et produit des thermogrammes utiles au diagnostic énergétique et à la maintenance.</li>
+    <li>L'atmosphère est transparente au <strong>visible</strong> mais absorbe l'<strong>IR</strong> émis par la Terre grâce aux GES.</li>
+    <li>L'effet de serre <strong>naturel</strong> maintient la Terre à +15 °C en moyenne (sans lui : &minus;18 °C).</li>
+    <li>Les principaux GES sont : H<sub>2</sub>O, CO<sub>2</sub>, CH<sub>4</sub>, N<sub>2</sub>O.</li>
+    <li>Les activités humaines augmentent la concentration en GES (CO<sub>2</sub> +50 % depuis 1850), amplifiant l'effet de serre et provoquant le réchauffement climatique.</li>
+  </ul>
+</div>
+
 </div>
 </body>
 </html>

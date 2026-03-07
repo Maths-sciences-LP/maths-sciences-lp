@@ -1,23 +1,689 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours — Ch11 Caractériser la propagation d'un son</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #f6f8fa; color: #1f2328; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; text-align: center; padding: 80px 20px; }
-        .back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #6f42c1; }
-        h1 { font-size: 1.4em; font-weight: 600; margin-bottom: 8px; }
-        p { color: #6e7781; font-size: 0.95em; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch11 – Signal sonore – Cours</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #ddd6fe}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+</style>
 </head>
 <body>
-<div class="container">
-    <a href="pc-term-iccer.html" class="back">← Retour</a>
-    <h1>Cours — Caractériser la propagation d'un son</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+<header>
+  <h1>Chapitre 11 – Caractériser la propagation d'un signal sonore</h1>
+  <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique – Signaux</p>
+</header>
+
+<!-- ============================================================ -->
+<!-- 1. OBJECTIFS                                                   -->
+<!-- ============================================================ -->
+<div class="objectifs">
+  <strong>Objectifs d'apprentissage</strong>
+  <ul>
+    <li>Mettre en évidence la nécessité d'un milieu matériel pour la propagation du son.</li>
+    <li>Déterminer expérimentalement la vitesse de propagation du son dans l'air ou dans l'eau.</li>
+    <li>Exploiter la relation \(\lambda = c_\text{son} \times T = \dfrac{c_\text{son}}{f}\).</li>
+    <li>Connaître le domaine d'audition humaine (20 Hz – 20 kHz).</li>
+    <li>Mesurer une pression acoustique et un niveau d'intensité acoustique à l'aide d'un sonomètre.</li>
+    <li>Calculer un niveau d'intensité acoustique en dB : \(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\).</li>
+    <li>Étudier l'atténuation de l'intensité acoustique en fonction de la distance.</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- 2. NATURE D'UN SON                                            -->
+<!-- ============================================================ -->
+<h2>1. Nature d'un son – vibration mécanique dans un milieu matériel</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Un <strong>son</strong> est une onde mécanique produite par la vibration d'une source (corde, membrane, colonne d'air…). Cette vibration se propage dans le milieu environnant sous forme de <strong>compressions et dilatations</strong> successives des particules du milieu.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété fondamentale</span><br>
+  La propagation d'un son <strong>nécessite obligatoirement un milieu matériel</strong> (gaz, liquide ou solide). <strong>Il n'y a pas de son dans le vide.</strong>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Expérience – Cloche sous vide</span><br>
+  On place un réveil sonnant sous une cloche en verre. Lorsque l'on pompe progressivement l'air à l'intérieur de la cloche, le son devient de plus en plus faible, puis inaudible lorsque le vide est suffisant. En remettant de l'air, le son redevient audible. Cette expérience démontre que l'air (milieu matériel) est indispensable à la propagation du son.
+</div>
+
+<div class="def">
+  <span class="label label-def">Onde longitudinale</span><br>
+  Un son est une <strong>onde longitudinale</strong> : les particules du milieu vibrent <em>dans le même sens</em> que la direction de propagation de l'onde (par opposition aux ondes transversales où les particules vibrent perpendiculairement à la propagation). L'onde sonore crée ainsi des zones alternées de <strong>compression</strong> (surpression) et de <strong>dilatation</strong> (dépression).
+</div>
+
+<!-- ============================================================ -->
+<!-- 3. VITESSE DE PROPAGATION                                     -->
+<!-- ============================================================ -->
+<h2>2. Vitesse de propagation du son</h2>
+
+<div class="prop">
+  <span class="label label-prop">Propriété</span><br>
+  La vitesse de propagation du son <strong>dépend du milieu</strong> traversé (nature, état physique, température). Elle est <strong>indépendante de la fréquence</strong> du son.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Milieu</th>
+      <th>Vitesse du son \(c_\text{son}\)</th>
+      <th>Conditions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Air (sec)</td>
+      <td>\(\approx 340\ \text{m/s}\)</td>
+      <td>à 20 °C</td>
+    </tr>
+    <tr>
+      <td>Air (sec)</td>
+      <td>\(\approx 331\ \text{m/s}\)</td>
+      <td>à 0 °C</td>
+    </tr>
+    <tr>
+      <td>Eau douce</td>
+      <td>\(\approx 1480\ \text{m/s}\)</td>
+      <td>à 20 °C</td>
+    </tr>
+    <tr>
+      <td>Eau de mer</td>
+      <td>\(\approx 1500\ \text{m/s}\)</td>
+      <td>à 20 °C</td>
+    </tr>
+    <tr>
+      <td>Acier</td>
+      <td>\(\approx 5000\ \text{m/s}\)</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Béton</td>
+      <td>\(\approx 3500\ \text{m/s}\)</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="att">
+  <span class="label label-att">Remarque</span><br>
+  Le son se propage <strong>plus vite dans les solides et les liquides</strong> que dans les gaz. Les molécules sont plus proches les unes des autres dans un solide ou un liquide, ce qui facilite la transmission des vibrations.
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Applications industrielles et technologiques</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li><strong>Sonar :</strong> mesure du temps d'aller-retour d'une impulsion sonore dans l'eau pour déterminer la profondeur ou détecter des obstacles (sous-marins, bancs de poissons). On utilise \(d = c_\text{son} \times \dfrac{\Delta t}{2}\).</li>
+    <li><strong>Échographie médicale :</strong> les ultrasons (> 20 kHz) traversent les tissus humains à des vitesses connues (\(\approx 1540\ \text{m/s}\) dans les tissus mous) ; les échos permettent de reconstruire une image.</li>
+    <li><strong>Contrôle Non Destructif (CND/NDT) :</strong> en aéronautique et en industrie, des ultrasons sont envoyés dans les pièces métalliques ou composites pour détecter des défauts internes (fissures, bulles d'air) sans les endommager.</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- 4. FRÉQUENCE, PÉRIODE, LONGUEUR D'ONDE                        -->
+<!-- ============================================================ -->
+<h2>3. Fréquence, période et longueur d'onde</h2>
+
+<div class="def">
+  <span class="label label-def">Rappels</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li>La <strong>période</strong> \(T\) (en secondes, s) est la durée d'un cycle complet de vibration.</li>
+    <li>La <strong>fréquence</strong> \(f\) (en hertz, Hz) est le nombre de cycles par seconde : \(f = \dfrac{1}{T}\).</li>
+  </ul>
+</div>
+
+<div class="def">
+  <span class="label label-def">Longueur d'onde</span><br>
+  La <strong>longueur d'onde</strong> \(\lambda\) (lambda, en mètres, m) est la distance parcourue par l'onde pendant une période \(T\). C'est aussi la distance entre deux zones de compression successives.
+</div>
+
+<div class="formule-box">
+  \[
+    \lambda = c_\text{son} \times T = \frac{c_\text{son}}{f}
+  \]
+  <small>
+    \(\lambda\) : longueur d'onde (m) &nbsp;|&nbsp;
+    \(c_\text{son}\) : vitesse du son (m/s) &nbsp;|&nbsp;
+    \(T\) : période (s) &nbsp;|&nbsp;
+    \(f\) : fréquence (Hz)
+  </small>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu</span><br>
+  <strong>Énoncé :</strong> Un haut-parleur émet un son de fréquence \(f = 1\,000\ \text{Hz}\) dans l'air à 20 °C (\(c_\text{son} = 340\ \text{m/s}\)). Calculer la longueur d'onde \(\lambda\) et la période \(T\).
+  <br><br>
+  <strong>1. Calcul de la période :</strong>
+  \[
+    T = \frac{1}{f} = \frac{1}{1\,000} = 1{,}0 \times 10^{-3}\ \text{s} = 1{,}0\ \text{ms}
+  \]
+  <strong>2. Calcul de la longueur d'onde :</strong>
+  \[
+    \lambda = \frac{c_\text{son}}{f} = \frac{340}{1\,000} = 0{,}34\ \text{m} = 34\ \text{cm}
+  \]
+  <strong>Conclusion :</strong> À 1 kHz, les compressions sonores sont espacées de 34 cm dans l'air.
+</div>
+
+<!-- ============================================================ -->
+<!-- 5. DOMAINE D'AUDITION HUMAINE                                 -->
+<!-- ============================================================ -->
+<h2>4. Domaine d'audition humaine – Infrasons et ultrasons</h2>
+
+<div class="prop">
+  <span class="label label-prop">Domaine audible</span><br>
+  L'oreille humaine perçoit les sons dont la fréquence est approximativement comprise entre <strong>20 Hz et 20 000 Hz (20 kHz)</strong>. Cette plage varie selon l'âge et l'état de santé auditive.
+</div>
+
+<div class="def">
+  <span class="label label-def">Définitions</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li><strong>Infrasons :</strong> ondes sonores de fréquence <em>inférieure</em> à 20 Hz. Non perceptibles par l'oreille humaine, mais ressentis par le corps (vibrations).</li>
+    <li><strong>Sons audibles :</strong> de 20 Hz à 20 kHz.</li>
+    <li><strong>Ultrasons :</strong> ondes sonores de fréquence <em>supérieure</em> à 20 kHz. Non perceptibles par l'oreille humaine.</li>
+  </ul>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Source / Phénomène</th>
+      <th>Gamme de fréquences</th>
+      <th>Domaine</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Séismes, vagues de fond</td>
+      <td>\(< 1\ \text{Hz}\)</td>
+      <td>Infrasons</td>
+    </tr>
+    <tr>
+      <td>Moteurs diesel, ventilateurs industriels</td>
+      <td>5 – 20 Hz</td>
+      <td>Infrasons</td>
+    </tr>
+    <tr>
+      <td>Voix humaine (grave – aigu)</td>
+      <td>80 Hz – 1 100 Hz</td>
+      <td>Sons audibles</td>
+    </tr>
+    <tr>
+      <td>Piano (étendue complète)</td>
+      <td>28 Hz – 4 200 Hz</td>
+      <td>Sons audibles</td>
+    </tr>
+    <tr>
+      <td>Flûte, piccolo</td>
+      <td>250 Hz – 4 500 Hz</td>
+      <td>Sons audibles</td>
+    </tr>
+    <tr>
+      <td>Sifflet d'arbitre</td>
+      <td>2 500 – 4 000 Hz</td>
+      <td>Sons audibles</td>
+    </tr>
+    <tr>
+      <td>Chauve-souris (détection)</td>
+      <td>20 kHz – 100 kHz</td>
+      <td>Ultrasons</td>
+    </tr>
+    <tr>
+      <td>Dauphin (communication)</td>
+      <td>jusqu'à 150 kHz</td>
+      <td>Ultrasons</td>
+    </tr>
+    <tr>
+      <td>Échographie médicale</td>
+      <td>1 MHz – 20 MHz</td>
+      <td>Ultrasons</td>
+    </tr>
+    <tr>
+      <td>CND industriel (aéronautique)</td>
+      <td>0,1 MHz – 50 MHz</td>
+      <td>Ultrasons</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============================================================ -->
+<!-- 6. PRESSION ACOUSTIQUE ET INTENSITÉ SONORE                   -->
+<!-- ============================================================ -->
+<h2>5. Pression acoustique et intensité sonore</h2>
+
+<div class="def">
+  <span class="label label-def">Pression acoustique</span><br>
+  Lorsqu'une onde sonore se propage dans l'air, elle crée des <strong>variations locales et périodiques de la pression</strong> autour de la pression atmosphérique \(P_0\). L'amplitude de ces variations est appelée <strong>pression acoustique</strong> \(p\), exprimée en <strong>pascals (Pa)</strong>.
+  <br><br>
+  Un <strong>microphone</strong> est un capteur qui convertit ces variations de pression en signal électrique. Il mesure donc la pression acoustique. Un <strong>sonomètre</strong> contient un microphone et affiche directement le niveau d'intensité acoustique en dB.
+</div>
+
+<div class="def">
+  <span class="label label-def">Intensité sonore</span><br>
+  Une onde sonore transporte de l'énergie. L'<strong>intensité sonore</strong> \(I\) est la puissance acoustique \(P_\text{ac}\) traversant une surface \(S\) perpendiculaire à la direction de propagation :
+</div>
+
+<div class="formule-box">
+  \[
+    I = \frac{P_\text{ac}}{S}
+  \]
+  <small>
+    \(I\) : intensité sonore (W/m²) &nbsp;|&nbsp;
+    \(P_\text{ac}\) : puissance acoustique (W) &nbsp;|&nbsp;
+    \(S\) : surface (m²)
+  </small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Valeurs de référence</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li><strong>Seuil d'audition :</strong> \(I_0 = 10^{-12}\ \text{W/m}^2\) (à 1 kHz, pour une oreille jeune et saine). C'est la plus faible intensité perceptible par l'oreille humaine.</li>
+    <li><strong>Seuil de douleur :</strong> \(I \approx 1\ \text{W/m}^2\), soit \(10^{12}\) fois le seuil d'audition.</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Lien entre pression et intensité</span><br>
+  La pression acoustique \(p\) et l'intensité \(I\) sont liées par la relation :
+  \[
+    I = \frac{p^2}{\rho \cdot c_\text{son}}
+  \]
+  où \(\rho\) est la masse volumique du milieu (kg/m³) et \(c_\text{son}\) la vitesse du son. Cette relation montre que l'intensité est proportionnelle au <strong>carré de la pression acoustique</strong>.
+</div>
+
+<!-- ============================================================ -->
+<!-- 7. NIVEAU D'INTENSITÉ ACOUSTIQUE                              -->
+<!-- ============================================================ -->
+<h2>6. Niveau d'intensité acoustique (en décibels)</h2>
+
+<div class="att">
+  <span class="label label-att">Pourquoi une échelle logarithmique ?</span><br>
+  L'intensité sonore perçue par l'oreille varie dans un rapport de \(10^{12}\) entre le seuil d'audition et le seuil de douleur. Utiliser une <strong>échelle logarithmique</strong> permet de compresser cette très large plage en une échelle pratique de 0 à 140 dB. De plus, la perception humaine de la sonie (force d'un son) est elle-même approximativement logarithmique.
+</div>
+
+<div class="def">
+  <span class="label label-def">Niveau d'intensité acoustique</span><br>
+  Le <strong>niveau d'intensité acoustique</strong> \(L\) (en décibels, dB) est défini par :
+</div>
+
+<div class="formule-box">
+  \[
+    L = 10 \times \log\!\left(\frac{I}{I_0}\right)
+  \]
+  <small>
+    \(L\) : niveau d'intensité acoustique (dB) &nbsp;|&nbsp;
+    \(I\) : intensité sonore (W/m²) &nbsp;|&nbsp;
+    \(I_0 = 10^{-12}\ \text{W/m}^2\) : intensité de référence (seuil d'audition)
+  </small>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Lien mathématique – Formule inverse</span><br>
+  Si on connaît \(L\), on retrouve \(I\) en utilisant la fonction \(10^x\) :
+  \[
+    \frac{I}{I_0} = 10^{L/10} \quad \Longrightarrow \quad I = I_0 \times 10^{L/10}
+  \]
+  Chaque augmentation de <strong>10 dB</strong> correspond à une multiplication de l'intensité par <strong>10</strong>.<br>
+  Chaque augmentation de <strong>3 dB</strong> correspond environ à un doublement de l'intensité.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Niveau \(L\) (dB)</th>
+      <th>Intensité \(I\) (W/m²)</th>
+      <th>Source / Situation</th>
+      <th>Risque</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 dB</td>
+      <td>\(10^{-12}\)</td>
+      <td>Seuil d'audition (silence absolu)</td>
+      <td>Aucun</td>
+    </tr>
+    <tr>
+      <td>20 dB</td>
+      <td>\(10^{-10}\)</td>
+      <td>Feuilles bruissant, studio d'enregistrement</td>
+      <td>Aucun</td>
+    </tr>
+    <tr>
+      <td>30 dB</td>
+      <td>\(10^{-9}\)</td>
+      <td>Bibliothèque calme, campagne la nuit</td>
+      <td>Aucun</td>
+    </tr>
+    <tr>
+      <td>60 dB</td>
+      <td>\(10^{-6}\)</td>
+      <td>Conversation normale</td>
+      <td>Aucun</td>
+    </tr>
+    <tr>
+      <td>75 dB</td>
+      <td>\(\approx 3{,}2 \times 10^{-5}\)</td>
+      <td>Rue animée, aspirateur</td>
+      <td>Faible</td>
+    </tr>
+    <tr style="background:#fff9f0">
+      <td><strong>85 dB</strong></td>
+      <td>\(\approx 3{,}2 \times 10^{-4}\)</td>
+      <td><strong>Seuil de risque auditif</strong> (exposition prolongée)</td>
+      <td style="color:#d97706"><strong>Seuil risque</strong></td>
+    </tr>
+    <tr>
+      <td>90 dB</td>
+      <td>\(10^{-3}\)</td>
+      <td>Tondeuse à gazon, perceuse</td>
+      <td style="color:#d97706">Risque modéré</td>
+    </tr>
+    <tr>
+      <td>110 dB</td>
+      <td>\(10^{-1}\)</td>
+      <td>Concert de rock (première rangée)</td>
+      <td style="color:#c53030">Risque élevé</td>
+    </tr>
+    <tr>
+      <td>120 dB</td>
+      <td>\(1\)</td>
+      <td>Avion au décollage (à 50 m)</td>
+      <td style="color:#c53030">Danger</td>
+    </tr>
+    <tr>
+      <td>140 dB</td>
+      <td>\(100\)</td>
+      <td>Seuil de douleur, explosion proche</td>
+      <td style="color:#c53030"><strong>Très dangereux</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="att">
+  <span class="label label-att">Danger pour l'audition</span><br>
+  Au-delà de <strong>85 dB</strong>, une exposition prolongée entraîne des lésions irréversibles des cellules ciliées de la cochlée. Ces cellules ne se régénèrent pas. La surdité professionnelle est la première maladie professionnelle en France. En atelier industriel, le port de protections auditives (EPI) est obligatoire dès 80 dB et renforcé dès 85 dB (réglementation INRS).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu – Calcul de niveau sonore</span><br>
+  <strong>Énoncé :</strong> Une perceuse produit une intensité sonore \(I = 10^{-3}\ \text{W/m}^2\). Calculer le niveau d'intensité acoustique \(L\).
+  <br><br>
+  <strong>Application numérique :</strong>
+  \[
+    L = 10 \times \log\!\left(\frac{10^{-3}}{10^{-12}}\right)
+    = 10 \times \log\!\left(10^{-3-(-12)}\right)
+    = 10 \times \log\!\left(10^{9}\right)
+    = 10 \times 9
+    = 90\ \text{dB}
+  \]
+  <strong>Conclusion :</strong> \(L = 90\ \text{dB}\). L'utilisation de protections auditives est nécessaire.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu – Retrouver I à partir de L</span><br>
+  <strong>Énoncé :</strong> Un sonomètre indique \(L = 60\ \text{dB}\). Quelle est l'intensité sonore \(I\) ?
+  <br><br>
+  <strong>Calcul :</strong>
+  \[
+    I = I_0 \times 10^{L/10} = 10^{-12} \times 10^{60/10} = 10^{-12} \times 10^{6} = 10^{-6}\ \text{W/m}^2
+  \]
+</div>
+
+<!-- ============================================================ -->
+<!-- 8. ATTÉNUATION AVEC LA DISTANCE                               -->
+<!-- ============================================================ -->
+<h2>7. Atténuation du son avec la distance</h2>
+
+<div class="prop">
+  <span class="label label-prop">Principe</span><br>
+  Même dans un milieu <strong>sans absorption</strong> (milieu idéal), une onde sonore s'atténue lorsqu'elle se propage. Pour une <strong>source ponctuelle</strong> émettant uniformément dans toutes les directions, la puissance acoustique \(P_\text{ac}\) se répartit sur des sphères de surface \(S = 4\pi r^2\) croissante. L'intensité diminue donc en <strong>\(1/r^2\)</strong> :
+  \[
+    I(r) = \frac{P_\text{ac}}{4\pi r^2}
+  \]
+</div>
+
+<div class="formule-box">
+  \[
+    L_2 = L_1 - 20 \times \log\!\left(\frac{r_2}{r_1}\right)
+  \]
+  <small>
+    \(L_1\) : niveau sonore à la distance \(r_1\) (dB) &nbsp;|&nbsp;
+    \(L_2\) : niveau sonore à la distance \(r_2\) (dB) &nbsp;|&nbsp;
+    \(r_1,\, r_2\) : distances à la source (m)
+  </small>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Démonstration de la formule</span><br>
+  On part de \(I \propto 1/r^2\), donc \(I_2/I_1 = (r_1/r_2)^2\). En passant en décibels :
+  \[
+    L_2 - L_1 = 10 \times \log\!\left(\frac{I_2}{I_1}\right)
+    = 10 \times \log\!\left(\frac{r_1^2}{r_2^2}\right)
+    = 10 \times 2 \times \log\!\left(\frac{r_1}{r_2}\right)
+    = -20 \times \log\!\left(\frac{r_2}{r_1}\right)
+  \]
+</div>
+
+<div class="att">
+  <span class="label label-att">Règle pratique</span><br>
+  <strong>Doubler la distance à la source</strong> (source ponctuelle) provoque une diminution du niveau sonore de :
+  \[
+    \Delta L = -20 \times \log\!\left(\frac{2r}{r}\right) = -20 \times \log(2) \approx -6\ \text{dB}
+  \]
+  S'éloigner deux fois plus loin réduit le niveau sonore d'environ <strong>6 dB</strong>.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu – Application industrielle</span><br>
+  <strong>Situation :</strong> Une machine dans un atelier produit un niveau sonore de \(L_1 = 95\ \text{dB}\) à \(r_1 = 1\ \text{m}\). Un opérateur travaille à \(r_2 = 4\ \text{m}\) de la machine. Quel est le niveau sonore reçu par l'opérateur ? Des protections sont-elles nécessaires ?
+  <br><br>
+  <strong>Calcul :</strong>
+  \[
+    L_2 = L_1 - 20 \times \log\!\left(\frac{r_2}{r_1}\right)
+    = 95 - 20 \times \log\!\left(\frac{4}{1}\right)
+    = 95 - 20 \times \log(4)
+    = 95 - 20 \times 0{,}602
+    \approx 95 - 12{,}0
+    = 83\ \text{dB}
+  \]
+  <strong>Conclusion :</strong> À 4 m, l'opérateur reçoit \(\approx 83\ \text{dB}\), légèrement en dessous du seuil de risque de 85 dB. Cependant, si l'exposition dure plusieurs heures, le port de protections auditives reste recommandé. S'il devait se rapprocher à 2 m, le niveau atteindrait \(\approx 89\ \text{dB}\), rendant les protections obligatoires.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Moyens de réduction du bruit en atelier</span><br>
+  En milieu industriel (usinage, chaudronnerie, aéronautique…), la réduction du niveau sonore peut être obtenue par :
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li><strong>Éloignement :</strong> augmenter la distance entre l'opérateur et la source (loi en 1/r²).</li>
+    <li><strong>Encoffrement :</strong> isoler la machine dans un capot ou un caisson absorbant.</li>
+    <li><strong>Protections individuelles (EPI) :</strong> bouchons d'oreille ou casque antibruit (obligatoires dès 80 dB, renforcés dès 85 dB selon la réglementation INRS).</li>
+    <li><strong>Réduction à la source :</strong> maintenance des machines, amortisseurs de vibrations, lubrification.</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- 8. LASERS ET SOURCES LUMINEUSES INTENSES                      -->
+<!-- ============================================================ -->
+<h2>8. Sources lumineuses intenses et lasers – Dangers et prévention</h2>
+
+<div class="def">
+  <span class="label label-def">Qu'est-ce qu'un laser ?</span><br>
+  Un <strong>laser</strong> (<em>Light Amplification by Stimulated Emission of Radiation</em>) est une source de lumière aux propriétés très particulières :
+  <ul>
+    <li><strong>Monochromaticité :</strong> le faisceau est composé d'une seule longueur d'onde (une seule couleur).</li>
+    <li><strong>Cohérence :</strong> toutes les ondes sont en phase.</li>
+    <li><strong>Directivité (faible divergence) :</strong> le faisceau reste très concentré sur de longues distances.</li>
+    <li><strong>Forte puissance surfacique :</strong> l'énergie est concentrée sur une très petite surface.</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Classes de lasers (norme EN 60825-1)</span>
+  <table>
+    <thead>
+      <tr><th>Classe</th><th>Danger</th><th>Exemples d'utilisation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Classe 1</strong></td><td>Sans danger en utilisation normale</td><td>Lecteurs CD, imprimantes laser</td></tr>
+      <tr><td><strong>Classe 2</strong></td><td>Faible risque – le réflexe de clignement protège l'œil</td><td>Pointeurs laser rouges (&lt; 1 mW)</td></tr>
+      <tr><td><strong>Classe 3B</strong></td><td>Dangereux pour l'œil par vision directe ou par réflexion</td><td>Lasers de spectroscopie, médecine</td></tr>
+      <tr><td><strong>Classe 4</strong></td><td>Très dangereux – brûlures de l'œil et de la peau, risque d'incendie</td><td>Lasers de découpe industrielle, chirurgie</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="att">
+  <span class="label label-att">Dangers pour la santé</span><br>
+  L'exposition au rayonnement d'un laser ou d'une source lumineuse intense (UV, IR) présente des risques :
+  <ul>
+    <li><strong>Pour l'œil :</strong> la cornée et le cristallin concentrent le faisceau sur la rétine → brûlure irréversible, cécité (même par réflexion sur un miroir ou une surface métallique).</li>
+    <li><strong>Pour la peau :</strong> brûlures thermiques en cas d'exposition prolongée à un faisceau de forte puissance (classes 3B et 4).</li>
+    <li><strong>Risques invisibles :</strong> les lasers IR ou UV ne sont pas visibles à l'œil nu → pas de réflexe de clignement → danger accru.</li>
+  </ul>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Prévention et protections (EPI)</span><br>
+  En atelier utilisant des lasers (découpe, soudage, marquage) :
+  <ul>
+    <li><strong>Lunettes de protection laser :</strong> spécifiques à la longueur d'onde utilisée (ne pas utiliser des lunettes de sécurité classiques).</li>
+    <li><strong>Balisage de la zone laser :</strong> signalétique obligatoire, accès restreint.</li>
+    <li><strong>Ne jamais regarder directement dans le faisceau</strong>, même pour un laser de classe 2.</li>
+    <li><strong>Se méfier des réflexions :</strong> les surfaces métalliques polies peuvent dévier le faisceau dans une direction inattendue.</li>
+    <li><strong>Écrans de confinement :</strong> pour les lasers de classe 4, barricader la zone avec des matériaux opaques.</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">En atelier aéronautique / chaudronnerie</span><br>
+  Les procédés de découpe et de soudage laser sont courants dans l'industrie aéronautique. Un opérateur doit :
+  <ul>
+    <li>Identifier la classe du laser utilisé sur la plaque signalétique de la machine.</li>
+    <li>Porter les lunettes de protection adaptées à la longueur d'onde (ex. : 1 064 nm pour un laser Nd:YAG).</li>
+    <li>Ne pas introduire de surfaces réfléchissantes (miroirs, montres, bijoux métalliques) dans la zone de travail.</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- 9. TABLEAU RÉCAPITULATIF                                      -->
+<!-- ============================================================ -->
+<h2>9. Tableau récapitulatif – Formules et unités</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grandeur</th>
+      <th>Symbole</th>
+      <th>Formule</th>
+      <th>Unité</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fréquence</td>
+      <td>\(f\)</td>
+      <td>\(f = \dfrac{1}{T}\)</td>
+      <td>Hertz (Hz)</td>
+    </tr>
+    <tr>
+      <td>Période</td>
+      <td>\(T\)</td>
+      <td>\(T = \dfrac{1}{f}\)</td>
+      <td>Seconde (s)</td>
+    </tr>
+    <tr>
+      <td>Longueur d'onde</td>
+      <td>\(\lambda\)</td>
+      <td>\(\lambda = c_\text{son} \times T = \dfrac{c_\text{son}}{f}\)</td>
+      <td>Mètre (m)</td>
+    </tr>
+    <tr>
+      <td>Vitesse du son (air, 20 °C)</td>
+      <td>\(c_\text{son}\)</td>
+      <td>\(c_\text{son} \approx 340\ \text{m/s}\)</td>
+      <td>m/s</td>
+    </tr>
+    <tr>
+      <td>Vitesse du son (eau, 20 °C)</td>
+      <td>\(c_\text{son}\)</td>
+      <td>\(c_\text{son} \approx 1500\ \text{m/s}\)</td>
+      <td>m/s</td>
+    </tr>
+    <tr>
+      <td>Intensité sonore</td>
+      <td>\(I\)</td>
+      <td>\(I = \dfrac{P_\text{ac}}{S}\)</td>
+      <td>W/m²</td>
+    </tr>
+    <tr>
+      <td>Intensité de référence</td>
+      <td>\(I_0\)</td>
+      <td>\(I_0 = 10^{-12}\ \text{W/m}^2\)</td>
+      <td>W/m²</td>
+    </tr>
+    <tr>
+      <td>Niveau d'intensité acoustique</td>
+      <td>\(L\)</td>
+      <td>\(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\)</td>
+      <td>Décibel (dB)</td>
+    </tr>
+    <tr>
+      <td>Intensité à partir du niveau</td>
+      <td>\(I\)</td>
+      <td>\(I = I_0 \times 10^{L/10}\)</td>
+      <td>W/m²</td>
+    </tr>
+    <tr>
+      <td>Atténuation géométrique</td>
+      <td>\(L_2\)</td>
+      <td>\(L_2 = L_1 - 20 \times \log\!\left(\dfrac{r_2}{r_1}\right)\)</td>
+      <td>dB</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="prop">
+  <span class="label label-prop">Points clés à retenir</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li>Le son est une <strong>onde mécanique longitudinale</strong> qui ne se propage pas dans le vide.</li>
+    <li>La vitesse du son dépend du milieu : <strong>340 m/s dans l'air</strong>, <strong>1 500 m/s dans l'eau</strong>, ~5 000 m/s dans l'acier.</li>
+    <li>L'oreille humaine perçoit entre <strong>20 Hz et 20 kHz</strong>.</li>
+    <li>Le niveau sonore s'exprime en <strong>décibels (dB)</strong> sur une échelle logarithmique.</li>
+    <li>Au-delà de <strong>85 dB</strong>, l'exposition prolongée est dangereuse pour l'audition de façon irréversible.</li>
+    <li>Doubler la distance à une source ponctuelle réduit le niveau sonore d'environ <strong>6 dB</strong>.</li>
+  </ul>
+</div>
+
 </div>
 </body>
 </html>

@@ -1,229 +1,516 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Ch09 – Décrire un fluide en mouvement – Cours</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-    :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
-    body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
-    .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-    header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
-    h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
-    .sous-titre{color:#718096;font-size:.95em;margin:0}
-    h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
-    .def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
-    .prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
-    .att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
-    .meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
-    .ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
-    .label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
-    .label-def{background:#ede9fe;color:#5b21b6}
-    .label-prop{background:#d1fae5;color:#065f46}
-    .label-att{background:#fee2e2;color:#991b1b}
-    .label-meth{background:#fef3c7;color:#92400e}
-    .label-ex{background:#e2e8f0;color:#4a5568}
-    table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
-    th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
-    th{background:#eef2f7;font-weight:600}
-    .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
-    .formule-box{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
-    .formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
-    .svg-wrap{text-align:center;margin:18px 0}
-    .objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #ddd6fe}
-    .objectifs ul{margin:6px 0 0 0;padding-left:20px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – Transport par un fluide en mouvement – Cours</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #ddd6fe}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.svg-wrap{text-align:center;margin:18px 0}
+</style>
 </head>
 <body>
 <div class="c">
-  <a href="pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
-  <header>
-    <h1>Chapitre 9 – Décrire un fluide en mouvement</h1>
-    <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique – Mécanique des fluides</p>
-  </header>
-  <div class="objectifs">
-    <strong>Je vais apprendre à :</strong>
-    <ul>
-      <li>Calculer le débit volumique et massique d’un fluide en mouvement</li>
-      <li>Appliquer la conservation du débit (tube de courant)</li>
-      <li>Utiliser l’équation de Bernoulli pour les écoulements</li>
-      <li>Analyser les pertes de charge dans une installation</li>
-    </ul>
-  </div>
+<a href="pc-term-iccer.html" class="nb">&#8592; RETOUR SOMMAIRE</a>
+<header>
+  <h1>Chapitre 9 &#8211; D&#233;crire le transport de masse et de volume par un fluide en mouvement</h1>
+  <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique &#8211; M&#233;canique des fluides</p>
+</header>
 
-  <!-- ============================================================ -->
-  <h2>1. Types d’écoulement</h2>
-  <div class="def">
-    <span class="label label-def">Fluide parfait et fluide réel</span><br>
-    <ul>
-      <li><strong>Fluide parfait (idéal)</strong> : incompressible et sans viscosité (sans frottement interne). Modèle simplifié.</li>
-      <li><strong>Fluide réel</strong> : possède une viscosité η (en Pa·s) qui cause des frottements et des pertes d’énergie.</li>
-    </ul>
-  </div>
-  <div class="prop">
-    <span class="label label-prop">Nombre de Reynolds – type d’écoulement</span><br>
-    Le <strong>nombre de Reynolds Re</strong> caractérise le type d’écoulement :
-    <div class="formule-box" style="margin-top:10px">
-      \[ Re = \frac{\rho \times v \times D}{\eta} \]
-      <small>ρ : masse volumique (kg/m³) &nbsp;|&nbsp; v : vitesse (m/s) &nbsp;|&nbsp; D : diamètre (m) &nbsp;|&nbsp; η : viscosité dynamique (Pa·s)</small>
-    </div>
-    <table>
-      <tr><th>Type d’écoulement</th><th>Nombre de Reynolds</th><th>Caractéristique</th></tr>
-      <tr><td>Laminaire</td><td>Re &lt; 2 000</td><td>Filets fluides parallèles et réguliers</td></tr>
-      <tr><td>Transitoire</td><td>2 000 &lt; Re &lt; 4 000</td><td>Écoulement instable</td></tr>
-      <tr><td>Turbulent</td><td>Re &gt; 4 000</td><td>Tourbillons, mélange</td></tr>
-    </table>
-  </div>
+<!-- ============================================================ -->
+<!-- 1. Objectifs -->
+<!-- ============================================================ -->
+<div class="objectifs">
+  <strong>Je vais apprendre &#224; :</strong>
+  <ul>
+    <li>Mesurer exp&#233;rimentalement le d&#233;bit en masse ou en volume d'un fluide en mouvement</li>
+    <li>Calculer une vitesse moyenne d'&#233;coulement &#224; partir du d&#233;bit volumique et de la section</li>
+    <li>Exploiter la conservation du d&#233;bit en masse pour comparer les vitesses d'&#233;coulement en diff&#233;rents points d'une canalisation</li>
+    <li>Distinguer d&#233;bit volumique et d&#233;bit massique, et savoir les relier via la masse volumique</li>
+  </ul>
+</div>
 
-  <!-- ============================================================ -->
-  <h2>2. Débit volumique</h2>
-  <div class="def">
-    <span class="label label-def">Débit volumique Q<sub>v</sub></span><br>
-    Le <strong>débit volumique</strong> est le volume de fluide qui traverse une section par unité de temps.
-    <div class="formule-box" style="margin-top:10px">
-      \[ Q_v = S \times v \]
-      <small>Q<sub>v</sub> en m³/s &nbsp;|&nbsp; S : surface de la section (m²) &nbsp;|&nbsp; v : vitesse du fluide (m/s)</small>
-    </div>
-    Aussi noté Q<sub>v</sub> = V / t, avec V le volume en m³ et t le temps en s.<br>
-    <strong>Conversions courantes :</strong> 1 m³/s = 1 000 L/s = 3 600 m³/h
-  </div>
-  <div class="ex">
-    <span class="label label-ex">Exemple</span><br>
-    Eau circulant dans une conduite de diamètre D = 40 mm à la vitesse v = 2 m/s.<br>
-    Section : \(S = \pi \times \left(\dfrac{D}{2}\right)^2 = \pi \times (0{,}02)^2 \approx 1{,}257 \times 10^{-3}\text{ m}^2\)<br>
-    \(Q_v = S \times v = 1{,}257 \times 10^{-3} \times 2 \approx \mathbf{2{,}51 \times 10^{-3}\text{ m}^3/\text{s}} \approx 9{,}05\text{ m}^3/\text{h}\)
-  </div>
+<!-- ============================================================ -->
+<!-- 2. Debit volumique -->
+<!-- ============================================================ -->
+<h2>1. D&#233;bit volumique Q<sub>v</sub></h2>
 
-  <!-- ============================================================ -->
-  <h2>3. Débit massique</h2>
-  <div class="def">
-    <span class="label label-def">Débit massique Q<sub>m</sub></span><br>
-    Le <strong>débit massique</strong> est la masse de fluide qui traverse une section par unité de temps.
-    <div class="formule-box" style="margin-top:10px">
-      \[ Q_m = \rho \times Q_v = \rho \times S \times v \]
-      <small>Q<sub>m</sub> en kg/s &nbsp;|&nbsp; ρ : masse volumique (kg/m³)</small>
-    </div>
-  </div>
-  <div class="ex">
-    <span class="label label-ex">Exemple (suite)</span><br>
-    Avec Q<sub>v</sub> = 2,51 × 10<sup>−3</sup> m³/s et ρ<sub>eau</sub> = 1 000 kg/m³ :<br>
-    \(Q_m = 1\,000 \times 2{,}51 \times 10^{-3} = \mathbf{2{,}51\text{ kg/s}}\)
-  </div>
+<div class="def">
+  <span class="label label-def">D&#233;finition</span><br>
+  Le <strong>d&#233;bit volumique Q<sub>v</sub></strong> d'un fluide en mouvement est le <strong>volume de fluide qui traverse une section droite de la canalisation par unit&#233; de temps</strong>.
+  <ul>
+    <li>Plus le d&#233;bit est grand, plus le fluide s'&#233;coule vite ou en grande quantit&#233;.</li>
+    <li>Le d&#233;bit volumique se mesure &#224; l'aide d'un <strong>d&#233;bitmètre</strong> ou par la m&#233;thode <em>volum&#233;trique</em> (mesure du volume recueilli pendant une dur&#233;e t).</li>
+  </ul>
+</div>
 
-  <!-- ============================================================ -->
-  <h2>4. Conservation du débit (loi de continuité)</h2>
-  <div class="prop">
-    <span class="label label-prop">Loi de continuité</span><br>
-    Pour un <strong>fluide incompressible</strong> circulant dans un tube de courant fermé, le débit volumique est <strong>constant</strong> tout au long du circuit :
-    <div class="formule-box" style="margin-top:10px">
-      \[ Q_v = S_1 \times v_1 = S_2 \times v_2 = \text{constante} \]
-      <small>S en m² &nbsp;|&nbsp; v en m/s</small>
-    </div>
-    <strong>Conséquence :</strong> quand la section diminue, la vitesse augmente (et vice-versa).
-  </div>
-  <div class="svg-wrap">
-    <svg width="400" height="130" viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0,0 7,3.5 0,7" fill="#6f42c1"/></marker>
-      </defs>
-      <!-- Conduite large -->
-      <rect x="20" y="35" width="140" height="60" fill="#dbeeff" stroke="#3b82f6" stroke-width="2" rx="4"/>
-      <!-- Conduite étroite -->
-      <rect x="240" y="50" width="140" height="30" fill="#dbeeff" stroke="#3b82f6" stroke-width="2" rx="4"/>
-      <!-- Réduction -->
-      <polygon points="160,35 240,50 240,80 160,95" fill="#dbeeff" stroke="#3b82f6" stroke-width="2"/>
-      <!-- Labels S1 v1 -->
-      <text x="55" y="20" font-size="13" fill="#3b82f6" font-family="Segoe UI,sans-serif" font-weight="600">S₁ (grande)</text>
-      <text x="75" y="115" font-size="12" fill="#6f42c1" font-family="Segoe UI,sans-serif">v₁ (lente)</text>
-      <line x1="100" y1="65" x2="145" y2="65" stroke="#6f42c1" stroke-width="2" marker-end="url(#arr)"/>
-      <!-- Labels S2 v2 -->
-      <text x="255" y="43" font-size="13" fill="#3b82f6" font-family="Segoe UI,sans-serif" font-weight="600">S₂ (petite)</text>
-      <text x="270" y="100" font-size="12" fill="#6f42c1" font-family="Segoe UI,sans-serif">v₂ (rapide)</text>
-      <line x1="270" y1="65" x2="340" y2="65" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arr)"/>
-    </svg>
-    <p style="font-size:.85em;color:#718096;margin-top:4px">Si S<sub>2</sub> &lt; S<sub>1</sub>, alors v<sub>2</sub> &gt; v<sub>1</sub> : le fluide accélère dans la partie étroite.</p>
-  </div>
-  <div class="ex">
-    <span class="label label-ex">Exemple</span><br>
-    Tuyau : S<sub>1</sub> = 10 cm², v<sub>1</sub> = 0,5 m/s. La conduite se réduit à S<sub>2</sub> = 2 cm². Quelle est la vitesse v<sub>2</sub> ?<br>
-    \[ Q_v = S_1 \times v_1 = 10 \times 10^{-4} \times 0{,}5 = 5 \times 10^{-4}\text{ m}^3/\text{s} \]
-    \[ v_2 = \frac{Q_v}{S_2} = \frac{5 \times 10^{-4}}{2 \times 10^{-4}} = \mathbf{2{,}5\text{ m/s}} \]
-  </div>
+<div class="formule-box">
+  \[ Q_v = \frac{V}{t} \]
+  <small>Q<sub>v</sub> en m&#179;/s &nbsp;|&nbsp; V en m&#179; (volume &#233;coul&#233;) &nbsp;|&nbsp; t en s (dur&#233;e d'&#233;coulement)</small>
+</div>
 
-  <!-- ============================================================ -->
-  <h2>5. Équation de Bernoulli (fluide parfait)</h2>
-  <div class="def">
-    <span class="label label-def">Équation de Bernoulli</span><br>
-    Pour un <strong>fluide parfait incompressible en écoulement permanent</strong>, la somme des énergies est conservée le long d’une ligne de courant :
-    <div class="formule-box" style="margin-top:10px">
-      \[ P + \frac{1}{2}\rho v^2 + \rho g z = \text{constante} \]
-      <small>P : pression (Pa) &nbsp;|&nbsp; ρ : masse volumique (kg/m³) &nbsp;|&nbsp; v : vitesse (m/s) &nbsp;|&nbsp; g : 9,81 m/s² &nbsp;|&nbsp; z : hauteur (m)</small>
-    </div>
-    Entre deux points A et B :
-    <div class="formule-box" style="margin-top:6px">
-      \[ P_A + \frac{1}{2}\rho v_A^2 + \rho g z_A = P_B + \frac{1}{2}\rho v_B^2 + \rho g z_B \]
-    </div>
-  </div>
-  <div class="prop">
-    <span class="label label-prop">Signification physique des termes</span>
-    <table>
-      <tr><th>Terme</th><th>Signification</th><th>Unité</th></tr>
-      <tr><td>P</td><td>Énergie de pression (pression statique)</td><td>Pa (= J/m³)</td></tr>
-      <tr><td>½ρv²</td><td>Énergie cinétique (pression dynamique)</td><td>Pa</td></tr>
-      <tr><td>ρgz</td><td>Énergie potentielle de pesanteur</td><td>Pa</td></tr>
-    </table>
-  </div>
-  <div class="att">
-    <span class="label label-att">Application importante</span><br>
-    Si z<sub>A</sub> = z<sub>B</sub> (même altitude), l’équation se simplifie : quand la vitesse augmente (rétrécissement), la pression <strong>diminue</strong>. C’est l’<strong>effet Venturi</strong>.
-  </div>
-  <div class="ex">
-    <span class="label label-ex">Exemple – tube de Venturi</span><br>
-    Eau (ρ = 1 000 kg/m³) circulant horizontalement : v<sub>A</sub> = 1 m/s, P<sub>A</sub> = 200 000 Pa, v<sub>B</sub> = 4 m/s (rétrécissement). Calculer P<sub>B</sub>.<br>
-    \[ P_B = P_A + \frac{1}{2}\rho(v_A^2 - v_B^2) = 200\,000 + \frac{1}{2} \times 1\,000 \times (1^2 - 4^2) \]
-    \[ P_B = 200\,000 + 500 \times (1 - 16) = 200\,000 - 7\,500 = \mathbf{192\,500\text{ Pa}} \]
-    La pression a <strong>diminué</strong> au rétrécissement.
-  </div>
+<div class="prop">
+  <span class="label label-prop">Lien avec la section et la vitesse</span><br>
+  Si le fluide s'&#233;coule avec une vitesse moyenne \(v\) dans une canalisation de section droite \(S\),
+  le volume qui traverse la section pendant \(\Delta t\) est le <em>cylindre</em> de base \(S\) et de longueur \(v \cdot \Delta t\) :
+  \[ \Delta V = S \times v \times \Delta t \]
+  D'o&#249; :
+  \[ \boxed{Q_v = S \times v} \]
+  <small>Q<sub>v</sub> en m&#179;/s &nbsp;|&nbsp; S en m&#178; (section droite de passage) &nbsp;|&nbsp; v en m/s (vitesse moyenne d'&#233;coulement)</small>
+</div>
 
-  <!-- ============================================================ -->
-  <h2>6. Pertes de charge (fluide réel)</h2>
-  <div class="def">
-    <span class="label label-def">Pertes de charge</span><br>
-    Dans un fluide réel, les frottements (viscosité) et les obstacles (coudes, vannes, filtres) provoquent des <strong>pertes d’énergie</strong>. On les appelle <strong>pertes de charge J</strong>, exprimées en Pa ou en mètres de colonne d’eau (mCE).
-    <ul>
-      <li><strong>Pertes de charge régulières (linéaires)</strong> : dues aux frottements dans les conduites droites</li>
-      <li><strong>Pertes de charge singulières</strong> : dues aux changements de direction, sections, accessoires</li>
-    </ul>
-  </div>
-  <div class="prop">
-    <span class="label label-prop">Équation de Bernoulli réelle</span><br>
-    Pour un fluide réel avec pertes de charge J (en Pa), l’équation devient :
-    <div class="formule-box" style="margin-top:8px">
-      \[ P_A + \frac{1}{2}\rho v_A^2 + \rho g z_A = P_B + \frac{1}{2}\rho v_B^2 + \rho g z_B + J \]
-    </div>
-    J représente l’énergie perdue par frottements entre A et B.
-  </div>
-  <div class="meth">
-    <span class="label label-meth">Conversion : Pa ↔ m de colonne d’eau</span><br>
-    <div class="formule-box" style="margin-top:8px">
-      \[ h = \frac{J}{\rho \times g} \]
-      <small>h en mètres &nbsp;|&nbsp; J en Pa &nbsp;|&nbsp; ρ en kg/m³ &nbsp;|&nbsp; g = 9,81 m/s²</small>
-    </div>
-  </div>
-
-  <!-- ============================================================ -->
-  <h2>7. Tableau récapitulatif</h2>
+<div class="prop">
+  <span class="label label-prop">Unit&#233;s usuelles du d&#233;bit volumique</span>
   <table>
-    <tr><th>Grandeur</th><th>Symbole</th><th>Unité</th><th>Formule</th></tr>
-    <tr><td>Débit volumique</td><td>Q<sub>v</sub></td><td>m³/s</td><td>\(Q_v = S \times v\)</td></tr>
-    <tr><td>Débit massique</td><td>Q<sub>m</sub></td><td>kg/s</td><td>\(Q_m = \rho \times Q_v\)</td></tr>
-    <tr><td>Conservation du débit</td><td>—</td><td>—</td><td>\(S_1 v_1 = S_2 v_2\)</td></tr>
-    <tr><td>Nombre de Reynolds</td><td>Re</td><td>sans unité</td><td>\(Re = \rho v D / \eta\)</td></tr>
-    <tr><td>Bernoulli (parfait)</td><td>—</td><td>Pa</td><td>\(P + \tfrac{1}{2}\rho v^2 + \rho gz = \text{cste}\)</td></tr>
-    <tr><td>Perte de charge (hauteur)</td><td>h</td><td>m</td><td>\(h = J / (\rho g)\)</td></tr>
+    <tr><th>Unit&#233;</th><th>Symbole</th><th>Conversion</th></tr>
+    <tr><td>M&#232;tre cube par seconde</td><td>m&#179;/s</td><td>unit&#233; SI</td></tr>
+    <tr><td>Litre par seconde</td><td>L/s</td><td>1 L/s = 10<sup>&#8722;3</sup> m&#179;/s</td></tr>
+    <tr><td>Litre par minute</td><td>L/min</td><td>1 L/min = 1/60 L/s &#8776; 1,67 &#215; 10<sup>&#8722;5</sup> m&#179;/s</td></tr>
+    <tr><td>M&#232;tre cube par heure</td><td>m&#179;/h</td><td>1 m&#179;/h &#8776; 2,78 &#215; 10<sup>&#8722;4</sup> m&#179;/s</td></tr>
   </table>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention aux unit&#233;s</span><br>
+  Avant tout calcul, convertir les volumes en m&#179; et les dur&#233;es en secondes pour obtenir Q<sub>v</sub> en m&#179;/s.
+  Pour passer de L &#224; m&#179; : diviser par 1&#160;000.
+</div>
+
+<!-- ============================================================ -->
+<!-- 3. Debit massique -->
+<!-- ============================================================ -->
+<h2>2. D&#233;bit massique Q<sub>m</sub></h2>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition</span><br>
+  Le <strong>d&#233;bit massique Q<sub>m</sub></strong> est la <strong>masse de fluide qui traverse une section par unit&#233; de temps</strong>.
+  Il est utilis&#233; notamment lorsque la masse du fluide transport&#233; est importante (carburant, gaz, mati&#232;re premi&#232;re...).
+</div>
+
+<div class="formule-box">
+  \[ Q_m = \frac{m}{t} \]
+  <small>Q<sub>m</sub> en kg/s &nbsp;|&nbsp; m en kg (masse transport&#233;e) &nbsp;|&nbsp; t en s (dur&#233;e d'&#233;coulement)</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Lien entre Q<sub>m</sub> et Q<sub>v</sub></span><br>
+  La masse volumique \(\rho\) (en kg/m&#179;) relie la masse au volume : \(m = \rho \times V\).
+  En divisant par la dur&#233;e :
+  \[ \boxed{Q_m = \rho \times Q_v} \]
+  <small>&#961; en kg/m&#179; &nbsp;|&nbsp; Q<sub>v</sub> en m&#179;/s &nbsp;|&nbsp; Q<sub>m</sub> en kg/s</small>
+  <br>
+  <em>Exemples de masses volumiques :</em> eau : 1&#160;000 kg/m&#179; ; huile hydraulique : &#8776; 870 kg/m&#179; ; air &#224; 20&#160;&#176;C : &#8776; 1,2 kg/m&#179;.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple</span><br>
+  Une pompe &#224; carburant (k&#233;ros&#232;ne, \(\rho = 800\) kg/m&#179;) d&#233;bite \(Q_v = 5{,}0 \times 10^{-3}\) m&#179;/s.
+  \[ Q_m = 800 \times 5{,}0 \times 10^{-3} = \mathbf{4{,}0 \text{ kg/s}} \]
+</div>
+
+<!-- ============================================================ -->
+<!-- 4. Schema SVG – canalisation cylindrique -->
+<!-- ============================================================ -->
+<h2>3. Repr&#233;sentation du volume &#233;l&#233;mentaire &#233;coul&#233;</h2>
+
+<p>
+  Pendant un intervalle de temps \(\Delta t\), un fluide de vitesse moyenne \(v\) dans une canalisation de section \(S\)
+  parcourt une distance \(l = v \cdot \Delta t\).
+  Le volume &#233;l&#233;mentaire qui traverse la section est donc :
+  \[ \Delta V = S \times v \times \Delta t \]
+</p>
+
+<div class="svg-wrap">
+  <svg width="620" height="200" viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tubeGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c4b5fd"/>
+        <stop offset="40%" stop-color="#ede9fe"/>
+        <stop offset="100%" stop-color="#c4b5fd"/>
+      </linearGradient>
+      <linearGradient id="volGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#a7f3d0"/>
+        <stop offset="50%" stop-color="#d1fae5"/>
+        <stop offset="100%" stop-color="#a7f3d0"/>
+      </linearGradient>
+      <marker id="arr-v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#6f42c1"/>
+      </marker>
+      <marker id="arr-b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#2d3748"/>
+      </marker>
+      <marker id="arr-b2" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+        <polygon points="8,0 0,4 8,8" fill="#2d3748"/>
+      </marker>
+      <marker id="arr-g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#2f855a"/>
+      </marker>
+      <marker id="arr-g2" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+        <polygon points="8,0 0,4 8,8" fill="#2f855a"/>
+      </marker>
+    </defs>
+
+    <!-- Corps du tube -->
+    <rect x="60" y="60" width="500" height="80" fill="url(#tubeGrad)" rx="2"/>
+    <!-- Parois sup et inf -->
+    <rect x="60" y="57" width="500" height="7" fill="#9061e0" rx="2"/>
+    <rect x="60" y="136" width="500" height="7" fill="#9061e0" rx="2"/>
+    <!-- Ellipse gauche (entree) -->
+    <ellipse cx="60" cy="100" rx="12" ry="43" fill="#c4b5fd" stroke="#6f42c1" stroke-width="1.5"/>
+    <!-- Ellipse droite (sortie) -->
+    <ellipse cx="560" cy="100" rx="12" ry="43" fill="#c4b5fd" stroke="#6f42c1" stroke-width="1.5"/>
+
+    <!-- Volume elementaire DeltaV (rectangle vert hachuré) -->
+    <rect x="260" y="64" width="120" height="72" fill="url(#volGrad)" opacity="0.85"/>
+    <rect x="260" y="64" width="120" height="72" fill="none" stroke="#2f855a" stroke-width="2" stroke-dasharray="5,3"/>
+    <!-- Face gauche du volume elementaire -->
+    <ellipse cx="260" cy="100" rx="10" ry="36" fill="#a7f3d0" stroke="#2f855a" stroke-width="1.5"/>
+    <!-- Face droite -->
+    <ellipse cx="380" cy="100" rx="10" ry="36" fill="#6ee7b7" stroke="#2f855a" stroke-width="1.5"/>
+    <!-- Label DeltaV -->
+    <text x="320" y="97" font-size="12" fill="#065f46" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">&#916;V</text>
+    <text x="320" y="113" font-size="11" fill="#065f46" font-family="Segoe UI,sans-serif" text-anchor="middle">= S&#183;v&#183;&#916;t</text>
+
+    <!-- Fleche vitesse v (gauche du volume) -->
+    <line x1="90" y1="100" x2="240" y2="100" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arr-v)"/>
+    <text x="162" y="93" font-size="13" fill="#6f42c1" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">v</text>
+
+    <!-- Fleche vitesse v (droite du volume) -->
+    <line x1="400" y1="100" x2="530" y2="100" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arr-v)"/>
+    <text x="466" y="93" font-size="13" fill="#6f42c1" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">v</text>
+
+    <!-- Double fleche longueur v*Dt -->
+    <line x1="260" y1="156" x2="380" y2="156" stroke="#2d3748" stroke-width="1.5" marker-end="url(#arr-b)" marker-start="url(#arr-b2)"/>
+    <text x="320" y="172" font-size="12" fill="#2d3748" font-family="Segoe UI,sans-serif" text-anchor="middle">l = v &#183; &#916;t</text>
+
+    <!-- Double fleche section S -->
+    <line x1="28" y1="64" x2="28" y2="136" stroke="#2f855a" stroke-width="1.5" marker-end="url(#arr-g)" marker-start="url(#arr-g2)"/>
+    <text x="14" y="104" font-size="13" fill="#2f855a" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">S</text>
+
+    <!-- Label Qv en haut -->
+    <text x="310" y="36" font-size="13" fill="#2d3748" font-family="Segoe UI,sans-serif" text-anchor="middle">Q<tspan font-style="italic" font-size="11" dy="2">v</tspan><tspan dy="-2"> = S &#215; v</tspan></text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px">
+    En un temps <strong>&#916;t</strong>, le volume de fluide traversant la section <strong>S</strong> est <strong>&#916;V = S &#215; v &#215; &#916;t</strong>,
+    d'o&#249; <strong>Q<sub>v</sub> = &#916;V / &#916;t = S &#215; v</strong>.
+  </p>
+</div>
+
+<!-- ============================================================ -->
+<!-- 5. Conservation du debit – equation de continuite -->
+<!-- ============================================================ -->
+<h2>4. Conservation du d&#233;bit &#8211; &#233;quation de continuit&#233;</h2>
+
+<div class="prop">
+  <span class="label label-prop">D&#233;bit en masse constant en tout point</span><br>
+  Dans un <strong>&#233;coulement permanent</strong> (r&#233;gime &#233;tabli, sans accumulation ni vidange), le d&#233;bit en masse est <strong>le m&#234;me en tout point de la canalisation</strong>, quelle que soit la section :
+  \[ Q_{m,1} = Q_{m,2} \]
+  Pour un fluide <strong>incompressible</strong> (liquide : eau, huile), la masse volumique est constante (\(\rho = \text{cst}\)),
+  donc le d&#233;bit volumique est &#233;galement conserv&#233; :
+  \[ \boxed{Q_v = S_1 \times v_1 = S_2 \times v_2} \]
+  C'est l'<strong>&#233;quation de continuit&#233;</strong>.
+</div>
+
+<div class="att">
+  <span class="label label-att">Cons&#233;quence importante</span><br>
+  Si la section de la canalisation <strong>diminue</strong> (S<sub>2</sub> &lt; S<sub>1</sub>), alors la vitesse <strong>augmente</strong> (v<sub>2</sub> &gt; v<sub>1</sub>).
+  Si la section <strong>augmente</strong>, la vitesse <strong>diminue</strong>.
+  <br><em>C'est le ph&#233;nom&#232;ne que l'on observe en pin&#231;ant un tuyau d'arrosage : le jet est plus rapide &#224; la sortie r&#233;tr&#233;cie.</em>
+</div>
+
+<!-- Schema SVG – canalisation qui se retrecit -->
+<div class="svg-wrap">
+  <svg width="620" height="215" viewBox="0 0 620 215" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tG1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c4b5fd"/>
+        <stop offset="45%" stop-color="#ede9fe"/>
+        <stop offset="100%" stop-color="#c4b5fd"/>
+      </linearGradient>
+      <linearGradient id="tG2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#bfdbfe"/>
+        <stop offset="45%" stop-color="#eff6ff"/>
+        <stop offset="100%" stop-color="#bfdbfe"/>
+      </linearGradient>
+      <marker id="av1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#6f42c1"/>
+      </marker>
+      <marker id="av2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#1d4ed8"/>
+      </marker>
+      <marker id="as1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#2d3748"/>
+      </marker>
+      <marker id="as2" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+        <polygon points="8,0 0,4 8,8" fill="#2d3748"/>
+      </marker>
+    </defs>
+
+    <!-- Paroi superieure section 1 (large) -->
+    <polygon points="40,38 270,38 320,72 320,79 270,45 40,45" fill="#9061e0"/>
+    <!-- Paroi inferieure section 1 -->
+    <polygon points="40,162 270,162 320,128 320,135 270,169 40,169" fill="#9061e0"/>
+    <!-- Corps section 1 -->
+    <polygon points="40,45 270,45 320,79 320,128 270,162 40,162" fill="url(#tG1)"/>
+
+    <!-- Paroi superieure section 2 (etroite) -->
+    <rect x="320" y="72" width="260" height="7" fill="#3b82f6"/>
+    <!-- Paroi inferieure section 2 -->
+    <rect x="320" y="128" width="260" height="7" fill="#3b82f6"/>
+    <!-- Corps section 2 -->
+    <rect x="320" y="79" width="260" height="49" fill="url(#tG2)"/>
+
+    <!-- Ellipse entree gauche -->
+    <ellipse cx="40" cy="103" rx="11" ry="62" fill="#c4b5fd" stroke="#6f42c1" stroke-width="1.5"/>
+    <!-- Ellipse sortie droite -->
+    <ellipse cx="580" cy="103" rx="9" ry="28" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+
+    <!-- Fleche v1 (section large) – courte car fluide lent -->
+    <line x1="65" y1="103" x2="180" y2="103" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#av1)"/>
+    <text x="120" y="96" font-size="13" fill="#6f42c1" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">v&#8321;</text>
+
+    <!-- Fleche v2 (section etroite) – longue car fluide rapide -->
+    <line x1="345" y1="103" x2="554" y2="103" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#av2)"/>
+    <text x="452" y="96" font-size="13" fill="#1d4ed8" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">v&#8322; &gt; v&#8321;</text>
+
+    <!-- Double fleche S1 (gauche) -->
+    <line x1="14" y1="45" x2="14" y2="162" stroke="#6f42c1" stroke-width="1.5" marker-end="url(#as1)" marker-start="url(#as2)"/>
+    <text x="8" y="108" font-size="13" fill="#6f42c1" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">S&#8321;</text>
+
+    <!-- Double fleche S2 (droite) -->
+    <line x1="600" y1="79" x2="600" y2="128" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#as1)" marker-start="url(#as2)"/>
+    <text x="614" y="108" font-size="13" fill="#1d4ed8" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">S&#8322;</text>
+
+    <!-- Zone convergente – label -->
+    <text x="300" y="97" font-size="11" fill="#718096" font-family="Segoe UI,sans-serif" text-anchor="middle" font-style="italic">&#9654;</text>
+
+    <!-- Legende bas -->
+    <text x="310" y="200" font-size="12" fill="#2d3748" font-family="Segoe UI,sans-serif" text-anchor="middle">
+      S&#8322; &lt; S&#8321; &#160;&#8658;&#160; v&#8322; &gt; v&#8321; &#160;&#160;(Q<tspan font-style="italic" font-size="10">v</tspan><tspan> conserv&#233;)</tspan>
+    </text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px">
+    Le fluide acc&#233;l&#232;re dans la section r&#233;tr&#233;cie : <strong>S<sub>1</sub> &#215; v<sub>1</sub> = S<sub>2</sub> &#215; v<sub>2</sub></strong>.
+    Si S<sub>2</sub> &lt; S<sub>1</sub>, alors v<sub>2</sub> &gt; v<sub>1</sub>.
+  </p>
+</div>
+
+<div class="formule-box">
+  \[ Q_v = S_1 \times v_1 = S_2 \times v_2 \]
+  <small>&#201;quation de continuit&#233; &#8211; valable pour un fluide incompressible en &#233;coulement permanent</small>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple &#8211; tuyau qui se r&#233;tr&#233;cit</span><br>
+  Un circuit hydraulique a une section \(S_1 = 4{,}0 \times 10^{-3}\) m&#178; o&#249; le fluide circule &#224; \(v_1 = 0{,}5\) m/s.
+  La canalisation se r&#233;tr&#233;cit &#224; \(S_2 = 1{,}0 \times 10^{-3}\) m&#178;.
+  <br>Conservation du d&#233;bit volumique :
+  \[ Q_v = S_1 \times v_1 = 4{,}0 \times 10^{-3} \times 0{,}5 = 2{,}0 \times 10^{-3} \text{ m}^3/\text{s} \]
+  \[ v_2 = \frac{Q_v}{S_2} = \frac{2{,}0 \times 10^{-3}}{1{,}0 \times 10^{-3}} = \mathbf{2{,}0 \text{ m/s}} \]
+  La vitesse est multipli&#233;e par 4 quand la section est divis&#233;e par 4.
+</div>
+
+<!-- ============================================================ -->
+<!-- 6. Applications industrielles -->
+<!-- ============================================================ -->
+<h2>5. Applications industrielles</h2>
+
+<div class="prop">
+  <span class="label label-prop">Hydraulique &#8211; v&#233;rins et pompes</span><br>
+  Dans un <strong>circuit hydraulique</strong> (machines-outils, presses, grues), une pompe impose un d&#233;bit volumique constant.
+  Le fluide sous pression (huile hydraulique) actionne des v&#233;rins.
+  <ul>
+    <li>Le d&#233;bit volumique de la pompe d&#233;termine la <strong>vitesse de d&#233;placement du piston</strong> du v&#233;rin : \(v_{\text{piston}} = Q_v / S_{\text{piston}}\).</li>
+    <li>La connaissance du d&#233;bit permet de dimensionner les canalisations (diam&#232;tre, vitesse d'&#233;coulement admissible).</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Pneumatique</span><br>
+  Dans les <strong>circuits pneumatiques</strong> (v&#233;rins &#224; air comprim&#233;, outils pneumatiques), le d&#233;bit d'air comprim&#233; est mesur&#233; en L/min ou en Nm&#179;/h.
+  L'&#233;quation de continuit&#233; s'applique aussi, mais la compressibilit&#233; de l'air doit &#234;tre prise en compte pour des calculs pr&#233;cis.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Ventilation et climatisation</span><br>
+  Dans les installations de <strong>ventilation</strong> (CVC &#8211; chauffage, ventilation, climatisation), les gaines de distribution d'air ont des sections vari&#233;es.
+  L'&#233;quation de continuit&#233; permet de calculer la vitesse de l'air dans chaque tron&#231;on et d'&#233;viter les bruits d'&#233;coulement ou les pertes de charge excessives.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Conduites de carburant en a&#233;ronautique</span><br>
+  Dans un avion, le <strong>d&#233;bit massique de k&#233;ros&#232;ne</strong> fourni aux r&#233;acteurs est un param&#232;tre critique.
+  Les capteurs de d&#233;bit massique surveillent la consommation en temps r&#233;el.
+  Les canalisations sont dimensionn&#233;es pour maintenir des vitesses d'&#233;coulement dans les plages admissibles (g&#233;n&#233;ralement &lt; 3 m/s pour les liquides carburants).
+</div>
+
+<!-- ============================================================ -->
+<!-- 7. Methode de calcul -->
+<!-- ============================================================ -->
+<h2>6. M&#233;thode de r&#233;solution d'un probl&#232;me de d&#233;bit</h2>
+
+<div class="meth">
+  <span class="label label-meth">D&#233;marche type</span>
+  <ol style="margin-top:8px;padding-left:20px">
+    <li><strong>Identifier les donn&#233;es :</strong> relever toutes les grandeurs num&#233;riques avec leurs unit&#233;s (V, m, t, S, v, &#961;, Q<sub>v</sub>, Q<sub>m</sub>).</li>
+    <li><strong>Convertir les unit&#233;s :</strong> tout mettre en unit&#233;s SI (m&#179;, kg, s, m&#178;, m/s) avant de calculer.</li>
+    <li><strong>Choisir la formule :</strong>
+      <ul>
+        <li>Si on conna&#238;t V et t &#8594; \(Q_v = V / t\)</li>
+        <li>Si on conna&#238;t S et v &#8594; \(Q_v = S \times v\)</li>
+        <li>Si on veut v &#224; partir de Q<sub>v</sub> et S &#8594; \(v = Q_v / S\)</li>
+        <li>Si on veut Q<sub>m</sub> &#8594; \(Q_m = \rho \times Q_v\)</li>
+        <li>&#201;quation de continuit&#233; &#8594; \(S_1 v_1 = S_2 v_2\)</li>
+      </ul>
+    </li>
+    <li><strong>Poser et effectuer le calcul</strong> avec les valeurs num&#233;riques.</li>
+    <li><strong>V&#233;rifier l'unit&#233;</strong> du r&#233;sultat (analyse dimensionnelle).</li>
+    <li><strong>R&#233;diger la r&#233;ponse</strong> avec le bon nombre de chiffres significatifs et l'unit&#233;.</li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<!-- 8. Exemples numeriques -->
+<!-- ============================================================ -->
+<h2>7. Exemples num&#233;riques</h2>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 1 &#8211; Pompe hydraulique (mesure exp&#233;rimentale)</span><br>
+  Une pompe hydraulique remplit une cuve en recueillant <strong>V = 120 L</strong> d'huile en <strong>t = 4 min</strong>.
+  <strong>Calculer le d&#233;bit volumique Q<sub>v</sub>.</strong>
+  <br><br>
+  <em>Conversion :</em> V = 120 L = 0,120 m&#179; &nbsp;;&nbsp; t = 4 &#215; 60 = 240 s
+  \[ Q_v = \frac{V}{t} = \frac{0{,}120}{240} = 5{,}0 \times 10^{-4} \text{ m}^3/\text{s} \]
+  Soit Q<sub>v</sub> = 0,50 L/s = 30 L/min.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 2 &#8211; Tuyau d'arrosage (section et vitesse)</span><br>
+  Un tuyau d'arrosage a un diam&#232;tre int&#233;rieur <strong>d = 16 mm</strong>.
+  Le d&#233;bit volumique mesur&#233; est <strong>Q<sub>v</sub> = 0,80 L/s</strong>.
+  <strong>Calculer la vitesse moyenne v de l'eau dans le tuyau.</strong>
+  <br><br>
+  <em>Section :</em> rayon r = 8 mm = 0,008 m
+  \[ S = \pi r^2 = \pi \times (0{,}008)^2 \approx 2{,}01 \times 10^{-4} \text{ m}^2 \]
+  <em>Conversion du d&#233;bit :</em> Q<sub>v</sub> = 0,80 &#215; 10<sup>&#8722;3</sup> m&#179;/s
+  \[ v = \frac{Q_v}{S} = \frac{0{,}80 \times 10^{-3}}{2{,}01 \times 10^{-4}} \approx \mathbf{3{,}98 \text{ m/s}} \approx 4{,}0 \text{ m/s} \]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 3 &#8211; D&#233;bit massique d'une conduite d'eau</span><br>
+  Une canalisation transporte de l'eau (\(\rho = 1000\) kg/m&#179;) avec un d&#233;bit volumique <strong>Q<sub>v</sub> = 2,5 &#215; 10<sup>&#8722;3</sup> m&#179;/s</strong>.
+  <strong>Calculer le d&#233;bit massique Q<sub>m</sub>.</strong>
+  \[ Q_m = \rho \times Q_v = 1000 \times 2{,}5 \times 10^{-3} = \mathbf{2{,}5 \text{ kg/s}} \]
+  En 1 heure : masse transport&#233;e = 2,5 &#215; 3&#160;600 = 9&#160;000 kg = <strong>9 tonnes</strong>.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 4 &#8211; &#201;quation de continuit&#233; (circuit hydraulique)</span><br>
+  Dans une installation hydraulique, l'huile passe d'une canalisation de <strong>diam&#232;tre d<sub>1</sub> = 40 mm</strong>
+  o&#249; elle circule &#224; <strong>v<sub>1</sub> = 1,2 m/s</strong>, dans une canalisation de <strong>diam&#232;tre d<sub>2</sub> = 20 mm</strong>.
+  <strong>Calculer la vitesse v<sub>2</sub> dans la deuxi&#232;me canalisation.</strong>
+  <br><br>
+  <em>Sections :</em>
+  \[ S_1 = \frac{\pi d_1^2}{4} = \frac{\pi \times (0{,}040)^2}{4} \approx 1{,}257 \times 10^{-3} \text{ m}^2 \]
+  \[ S_2 = \frac{\pi d_2^2}{4} = \frac{\pi \times (0{,}020)^2}{4} \approx 3{,}14 \times 10^{-4} \text{ m}^2 \]
+  <em>&#201;quation de continuit&#233; :</em>
+  \[ S_1 v_1 = S_2 v_2 \Rightarrow v_2 = \frac{S_1 \times v_1}{S_2} = \frac{1{,}257 \times 10^{-3} \times 1{,}2}{3{,}14 \times 10^{-4}} \approx \mathbf{4{,}8 \text{ m/s}} \]
+  <em>V&#233;rification rapide :</em> le diam&#232;tre est divis&#233; par 2, donc la section est divis&#233;e par 4 et la vitesse est multipli&#233;e par 4 : 1,2 &#215; 4 = 4,8 m/s. Coh&#233;rent.
+</div>
+
+<!-- ============================================================ -->
+<!-- 9. Tableau recapitulatif -->
+<!-- ============================================================ -->
+<h2>8. Tableau r&#233;capitulatif des formules</h2>
+
+<table>
+  <tr>
+    <th>Grandeur</th>
+    <th>Symbole</th>
+    <th>Unit&#233; SI</th>
+    <th>Formule(s)</th>
+  </tr>
+  <tr>
+    <td>D&#233;bit volumique</td>
+    <td>Q<sub>v</sub></td>
+    <td>m&#179;/s</td>
+    <td>\(\displaystyle Q_v = \frac{V}{t} = S \times v\)</td>
+  </tr>
+  <tr>
+    <td>D&#233;bit massique</td>
+    <td>Q<sub>m</sub></td>
+    <td>kg/s</td>
+    <td>\(\displaystyle Q_m = \frac{m}{t} = \rho \times Q_v\)</td>
+  </tr>
+  <tr>
+    <td>Vitesse moyenne d'&#233;coulement</td>
+    <td>v</td>
+    <td>m/s</td>
+    <td>\(\displaystyle v = \frac{Q_v}{S}\)</td>
+  </tr>
+  <tr>
+    <td>Section droite de passage</td>
+    <td>S</td>
+    <td>m&#178;</td>
+    <td>\(\displaystyle S = \pi r^2 = \frac{\pi d^2}{4}\) (section circulaire)</td>
+  </tr>
+  <tr>
+    <td>&#201;quation de continuit&#233;</td>
+    <td>&#8211;</td>
+    <td>&#8211;</td>
+    <td>\(\displaystyle S_1 v_1 = S_2 v_2\)</td>
+  </tr>
+  <tr>
+    <td>Volume &#233;coul&#233;</td>
+    <td>V</td>
+    <td>m&#179;</td>
+    <td>\(\displaystyle V = Q_v \times t\)</td>
+  </tr>
+  <tr>
+    <td>Masse transport&#233;e</td>
+    <td>m</td>
+    <td>kg</td>
+    <td>\(\displaystyle m = Q_m \times t = \rho \times V\)</td>
+  </tr>
+</table>
+
+<div class="att">
+  <span class="label label-att">Rappels de conversions utiles</span>
+  <ul style="margin:4px 0 0 0;padding-left:20px">
+    <li>1 L = 10<sup>&#8722;3</sup> m&#179; &nbsp;;&nbsp; 1 m&#179; = 1&#160;000 L</li>
+    <li>1 L/s = 10<sup>&#8722;3</sup> m&#179;/s &nbsp;;&nbsp; 1 L/min &#8776; 1,667 &#215; 10<sup>&#8722;5</sup> m&#179;/s</li>
+    <li>1 m&#179;/h &#8776; 2,778 &#215; 10<sup>&#8722;4</sup> m&#179;/s</li>
+    <li>Section d'un tube circulaire de diam&#232;tre d : \(\displaystyle S = \dfrac{\pi d^2}{4}\)</li>
+  </ul>
+</div>
+
 </div>
 </body>
 </html>

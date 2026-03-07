@@ -1,23 +1,518 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours — Ch10 Prévoir une réaction d'oxydoréduction</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #f6f8fa; color: #1f2328; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; text-align: center; padding: 80px 20px; }
-        .back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #6f42c1; }
-        h1 { font-size: 1.4em; font-weight: 600; margin-bottom: 8px; }
-        p { color: #6e7781; font-size: 0.95em; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Oxydoréduction et corrosion – Cours</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #ddd6fe}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.classif{border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;margin:14px 0}
+.classif-header{background:#eef2f7;padding:8px 14px;font-weight:700;font-size:.9em}
+.classif-row{display:flex;padding:6px 14px;border-top:1px solid #e2e8f0;font-size:.9em}
+.classif-row:nth-child(even){background:#f8fafc}
+.classif-ox{flex:1;color:#c53030;font-weight:600}
+.classif-red{flex:1;color:#2f855a;font-weight:600;text-align:right}
+.classif-sep{color:#999;padding:0 10px}
+</style>
 </head>
 <body>
-<div class="container">
-    <a href="pc-term-iccer.html" class="back">← Retour</a>
-    <h1>Cours — Prévoir une réaction d'oxydoréduction</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+<header>
+  <h1>Chapitre 10 – Oxydoréduction et protection des métaux contre la corrosion</h1>
+  <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Chimie</p>
+</header>
+
+<!-- ====== OBJECTIFS ====== -->
+<div class="objectifs">
+  <strong>Objectifs d'apprentissage</strong>
+  <ul>
+    <li>Définir oxydation et réduction en termes de transfert d'électrons ; identifier les espèces oxydantes et réductrices.</li>
+    <li>Écrire les demi-équations d'oxydoréduction et les combiner pour obtenir l'équation bilan.</li>
+    <li>Utiliser la classification électrochimique pour prévoir le sens d'évolution spontanée d'une réaction.</li>
+    <li>Expliquer et illustrer les phénomènes de corrosion des métaux par le dioxygène de l'air.</li>
+    <li>Comprendre et distinguer les deux modes de protection : passivation et anode sacrificielle.</li>
+  </ul>
+</div>
+
+<!-- ====== SECTION 1 : OXYDATION ET RÉDUCTION ====== -->
+<h2>1. Oxydation et réduction</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Une <strong>oxydation</strong> est une <strong>perte d'électrons</strong> par une espèce chimique.<br>
+  Une <strong>réduction</strong> est un <strong>gain d'électrons</strong> par une espèce chimique.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Moyen mnémotechnique — OIL RIG</span><br>
+  <strong style="font-size:1.1em;letter-spacing:2px">O I L &nbsp;&nbsp; R I G</strong><br>
+  <em>Oxidation Is Loss — Reduction Is Gain</em><br>
+  (L'oxydation est une perte — La réduction est un gain [d'électrons])
+</div>
+
+<div class="def">
+  <span class="label label-def">Couple oxydant / réducteur</span><br>
+  Un <strong>couple oxydant/réducteur</strong> (noté <strong>Ox/Red</strong>) regroupe deux espèces conjuguées qui se transforment l'une en l'autre par échange d'électrons. La relation générale est :<br><br>
+  <div class="formule-box">
+    \(\mathrm{Ox} + n\,e^- \rightleftharpoons \mathrm{Red}\)
+    <small>avec \(n\) le nombre d'électrons échangés (entier positif)</small>
+  </div>
+  <ul>
+    <li>L'espèce <strong style="color:#c53030">Ox</strong> (oxydant) est celle qui <em>capte</em> des électrons.</li>
+    <li>L'espèce <strong style="color:#2f855a">Red</strong> (réducteur) est celle qui <em>cède</em> des électrons.</li>
+  </ul>
+  Exemples de couples : \(\mathrm{Cu^{2+}/Cu}\), \(\mathrm{Zn^{2+}/Zn}\), \(\mathrm{Fe^{2+}/Fe}\), \(\mathrm{Fe^{3+}/Fe^{2+}}\), \(\mathrm{O_2/H_2O}\).
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Une oxydation et une réduction ont toujours lieu <strong>simultanément</strong> : les électrons cédés par le réducteur sont immédiatement captés par l'oxydant. On ne peut pas avoir l'une sans l'autre. C'est pourquoi on parle de réaction d'<strong>oxydoréduction</strong>.
+</div>
+
+<!-- ====== SECTION 2 : DEMI-ÉQUATIONS ====== -->
+<h2>2. Demi-équations d'oxydoréduction</h2>
+
+<p>Une <strong>demi-équation</strong> traduit le gain ou la perte d'électrons pour un couple Ox/Red. Elle doit être équilibrée en charges électriques et en éléments chimiques.</p>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Écriture d'une demi-équation</span><br>
+  Pour écrire la demi-équation de réduction du couple \(\mathrm{Ox/Red}\) :
+  <ol>
+    <li>Écrire l'espèce oxydante à gauche et l'espèce réduite à droite.</li>
+    <li>Équilibrer les éléments autres que O et H.</li>
+    <li>Équilibrer les atomes d'oxygène en ajoutant des molécules \(\mathrm{H_2O}\).</li>
+    <li>Équilibrer les atomes d'hydrogène en ajoutant des ions \(\mathrm{H^+}\) (milieu acide ou neutre).</li>
+    <li>Équilibrer les charges électriques en ajoutant des électrons \(e^-\) du côté le plus chargé positivement.</li>
+  </ol>
+  Pour la demi-équation d'oxydation, écrire le réducteur à gauche et l'oxydant à droite, puis les électrons libérés apparaissent à droite.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemples de demi-équations</span>
+
+  <p><strong>Couple \(\mathrm{Fe^{2+}/Fe}\)</strong> — réduction de l'ion fer(II) :</p>
+  \[
+    \mathrm{Fe^{2+} + 2\,e^- \longrightarrow Fe}
+  \]
+  <small style="color:#718096">Vérification des charges : gauche \(+2 + 2(-1) = 0\) ; droite \(0\). ✓</small>
+
+  <p style="margin-top:12px"><strong>Couple \(\mathrm{Cu^{2+}/Cu}\)</strong> — réduction de l'ion cuivre(II) :</p>
+  \[
+    \mathrm{Cu^{2+} + 2\,e^- \longrightarrow Cu}
+  \]
+
+  <p style="margin-top:12px"><strong>Couple \(\mathrm{Zn^{2+}/Zn}\)</strong> — oxydation du zinc (sens inverse) :</p>
+  \[
+    \mathrm{Zn \longrightarrow Zn^{2+} + 2\,e^-}
+  \]
+
+  <p style="margin-top:12px"><strong>Couple \(\mathrm{O_2/H_2O}\)</strong> — réduction du dioxygène en milieu acide :</p>
+  \[
+    \mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}
+  \]
+  <small style="color:#718096">Vérification : charges à gauche \(0 + 4(+1) + 4(-1) = 0\) ; charges à droite \(0\). ✓ — atomes O : 2 des deux côtés ✓</small>
+
+  <p style="margin-top:12px"><strong>Couple \(\mathrm{Fe^{3+}/Fe^{2+}}\)</strong> — réduction de l'ion fer(III) en ion fer(II) :</p>
+  \[
+    \mathrm{Fe^{3+} + e^- \longrightarrow Fe^{2+}}
+  \]
+  <small style="color:#718096">Ce couple intervient notamment dans la corrosion du fer en présence d'ions Fe³⁺ et dans les piles.</small>
+</div>
+
+<!-- ====== SECTION 3 : ÉQUATION BILAN ====== -->
+<h2>3. Écriture de l'équation bilan — combinaison de deux demi-équations</h2>
+
+<p>L'équation bilan d'une transformation d'oxydoréduction s'obtient en combinant la demi-équation de <strong>réduction</strong> et la demi-équation d'<strong>oxydation</strong>, de manière à éliminer les électrons de l'équation finale.</p>
+
+<div class="meth">
+  <span class="label label-meth">Méthode</span><br>
+  <ol>
+    <li>Écrire la demi-équation de <strong>réduction</strong> (l'oxydant capte des électrons).</li>
+    <li>Écrire la demi-équation d'<strong>oxydation</strong> (le réducteur cède des électrons).</li>
+    <li>Multiplier chaque demi-équation par un coefficient entier pour que le nombre d'électrons soit identique dans les deux demi-équations.</li>
+    <li>Additionner membre à membre ; les électrons se compensent et doivent disparaître.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple détaillé : réaction du zinc avec les ions cuivre(II)</span>
+
+  <p><em>Situation :</em> On plonge une lame de zinc \(\mathrm{Zn}\) dans une solution de sulfate de cuivre \(\mathrm{CuSO_4}\). On observe le dépôt d'un solide rougeâtre (cuivre métallique) sur la lame et la décoloration progressive de la solution bleue.</p>
+
+  <p><strong>Étape 1</strong> — Demi-équation de réduction (les ions \(\mathrm{Cu^{2+}}\) sont réduits en \(\mathrm{Cu}\)) :</p>
+  \[
+    \mathrm{Cu^{2+} + 2\,e^- \longrightarrow Cu} \tag{1}
+  \]
+
+  <p><strong>Étape 2</strong> — Demi-équation d'oxydation (le zinc \(\mathrm{Zn}\) est oxydé en \(\mathrm{Zn^{2+}}\)) :</p>
+  \[
+    \mathrm{Zn \longrightarrow Zn^{2+} + 2\,e^-} \tag{2}
+  \]
+
+  <p><strong>Étape 3</strong> — Le nombre d'électrons est déjà identique (2 électrons) dans les deux demi-équations : aucun coefficient multiplicateur n'est nécessaire.</p>
+
+  <p><strong>Étape 4</strong> — Addition de (1) et (2), puis simplification des \(2\,e^-\) :</p>
+  \[
+    \mathrm{Cu^{2+} + 2\,e^- + Zn \longrightarrow Cu + Zn^{2+} + 2\,e^-}
+  \]
+
+  <div class="formule-box">
+    \(\mathrm{Zn_{(s)} + Cu^{2+}_{(aq)} \longrightarrow Zn^{2+}_{(aq)} + Cu_{(s)}}\)
+    <small>Le zinc (réducteur) est oxydé ; les ions cuivre (oxydant) sont réduits.</small>
+  </div>
+
+  <p><em>Vérification des charges :</em> gauche \(0 + (+2) = +2\) ; droite \(+2 + 0 = +2\). ✓<br>
+  <em>Vérification des éléments :</em> 1 Zn des deux côtés ✓ ; 1 Cu des deux côtés ✓.</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Les électrons ne doivent <strong>jamais apparaître</strong> dans l'équation bilan finale. Si des électrons subsistent après addition des deux demi-équations, les coefficients multiplicateurs ont été mal choisis.
+</div>
+
+<!-- ====== SECTION 4 : CLASSIFICATION ÉLECTROCHIMIQUE ====== -->
+<h2>4. Classification électrochimique des couples Ox/Red</h2>
+
+<p>Il est possible de <strong>classer expérimentalement</strong> les couples Ox/Red par ordre de pouvoir oxydant croissant (ou de pouvoir réducteur décroissant). Cette classification est établie par rapport à l'<strong>électrode normale à hydrogène (ENH)</strong> et donne le <strong>potentiel standard de réduction \(E°\)</strong> de chaque couple.</p>
+
+<div class="classif">
+  <div class="classif-header">
+    Classification électrochimique (extrait) — potentiel standard croissant vers le haut
+  </div>
+  <div style="display:flex;padding:6px 14px;background:#f0fff4;font-size:.82em;font-weight:700;border-top:1px solid #e2e8f0;">
+    <span style="flex:1;color:#c53030">Oxydant (Ox) &nbsp;&#8595; oxydant de + en + fort</span>
+    <span style="color:#999;padding:0 10px">&nbsp;</span>
+    <span style="flex:1;color:#2f855a;text-align:right">réducteur de + en + fort &#8593;&nbsp; Réducteur (Red)</span>
+    <span style="width:80px;text-align:right;color:#555">\(E°\) (V)</span>
+  </div>
+  <div class="classif-row">
+    <span class="classif-ox">\(\mathrm{Au^{3+}}\)</span>
+    <span class="classif-sep">/</span>
+    <span class="classif-red">\(\mathrm{Au}\)</span>
+    <span style="width:80px;text-align:right;color:#555">+1,50</span>
+  </div>
+  <div class="classif-row">
+    <span class="classif-ox">\(\mathrm{Ag^{+}}\)</span>
+    <span class="classif-sep">/</span>
+    <span class="classif-red">\(\mathrm{Ag}\)</span>
+    <span style="width:80px;text-align:right;color:#555">+0,80</span>
+  </div>
+  <div class="classif-row">
+    <span class="classif-ox">\(\mathrm{Cu^{2+}}\)</span>
+    <span class="classif-sep">/</span>
+    <span class="classif-red">\(\mathrm{Cu}\)</span>
+    <span style="width:80px;text-align:right;color:#555">+0,34</span>
+  </div>
+  <div class="classif-row">
+    <span class="classif-ox">\(\mathrm{Fe^{2+}}\)</span>
+    <span class="classif-sep">/</span>
+    <span class="classif-red">\(\mathrm{Fe}\)</span>
+    <span style="width:80px;text-align:right;color:#555">−0,44</span>
+  </div>
+  <div class="classif-row">
+    <span class="classif-ox">\(\mathrm{Zn^{2+}}\)</span>
+    <span class="classif-sep">/</span>
+    <span class="classif-red">\(\mathrm{Zn}\)</span>
+    <span style="width:80px;text-align:right;color:#555">−0,76</span>
+  </div>
+  <div class="classif-row">
+    <span class="classif-ox">\(\mathrm{Al^{3+}}\)</span>
+    <span class="classif-sep">/</span>
+    <span class="classif-red">\(\mathrm{Al}\)</span>
+    <span style="width:80px;text-align:right;color:#555">−1,66</span>
+  </div>
+</div>
+
+<p style="font-size:.88em;color:#718096;margin-top:4px">Les potentiels standard \(E°\) sont donnés par rapport à l'électrode normale à hydrogène (ENH), à 25 °C et pour des concentrations de 1 mol·L⁻¹. Plus \(E°\) est élevé, plus l'oxydant est puissant ; plus \(E°\) est faible, plus le réducteur est puissant.</p>
+
+<div class="prop">
+  <span class="label label-prop">Règle du gamma (ou règle en croix)</span><br>
+  Une réaction d'oxydoréduction <strong>spontanée</strong> se produit entre :
+  <ul>
+    <li>L'<strong style="color:#c53030">oxydant le plus fort</strong> — celui du couple ayant le potentiel \(E°\) le plus élevé (en haut dans la classification)</li>
+    <li>Le <strong style="color:#2f855a">réducteur le plus fort</strong> — celui du couple ayant le potentiel \(E°\) le plus faible (en bas dans la classification)</li>
+  </ul>
+  En traçant une diagonale (en forme de \(\gamma\)) entre les deux espèces réactives dans la classification, on visualise directement la réaction qui se produit spontanément.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Application de la règle du gamma</span>
+  <p>On dispose des couples \(\mathrm{Cu^{2+}/Cu}\) (\(E° = +0{,}34\,\text{V}\)) et \(\mathrm{Zn^{2+}/Zn}\) (\(E° = -0{,}76\,\text{V}\)).</p>
+  <ul>
+    <li>Oxydant le plus fort : \(\mathrm{Cu^{2+}}\) (potentiel le plus élevé)</li>
+    <li>Réducteur le plus fort : \(\mathrm{Zn}\) (potentiel le plus faible)</li>
+  </ul>
+  <p>La réaction spontanée est donc \(\mathrm{Zn + Cu^{2+} \longrightarrow Zn^{2+} + Cu}\).</p>
+  <p>La réaction inverse \(\mathrm{(Cu + Zn^{2+})}\) n'est <strong>pas spontanée</strong> dans les conditions standard.</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  La règle du gamma permet de prévoir le <strong>sens spontané</strong> de la réaction (aspect thermodynamique). La <strong>vitesse</strong> de cette réaction (aspect cinétique) est une information distincte : une réaction peut être spontanée mais extrêmement lente. Par exemple, l'oxydation de l'or par l'air est spontanée mais négligeable en pratique — c'est pourquoi l'or est utilisé en joaillerie et en électronique.
+</div>
+
+<!-- ====== SECTION 5 : CORROSION DES MÉTAUX ====== -->
+<h2>5. Corrosion des métaux — oxydation par le dioxygène de l'air</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  La <strong>corrosion</strong> est la dégradation spontanée d'un métal par réaction chimique avec son environnement (dioxygène de l'air, eau, acides, sels dissous…). Il s'agit d'une réaction d'<strong>oxydation du métal</strong> par un agent extérieur.
+</div>
+
+<p>En présence de dioxygène de l'air \(\mathrm{(O_2)}\) et d'eau, le fer se corrode pour former la <strong>rouille</strong>, composée principalement d'oxyde de fer(III) hydraté \(\mathrm{Fe_2O_3 \cdot n\,H_2O}\).</p>
+
+<div class="ex">
+  <span class="label label-ex">Réaction de corrosion du fer par le dioxygène (milieu acide)</span>
+
+  <p><strong>Demi-équation d'oxydation du fer :</strong></p>
+  \[
+    \mathrm{Fe \longrightarrow Fe^{2+} + 2\,e^-}
+  \]
+
+  <p><strong>Demi-équation de réduction du dioxygène :</strong></p>
+  \[
+    \mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}
+  \]
+
+  <p>On multiplie la demi-équation du fer par 2 pour équilibrer les électrons (4 de chaque côté) :</p>
+  \[
+    \mathrm{2\,Fe \longrightarrow 2\,Fe^{2+} + 4\,e^-}
+  \]
+
+  <p>Équation bilan (addition des deux demi-équations) :</p>
+  <div class="formule-box">
+    \(\mathrm{2\,Fe_{(s)} + O_{2(g)} + 4\,H^+_{(aq)} \longrightarrow 2\,Fe^{2+}_{(aq)} + 2\,H_2O_{(l)}}\)
+    <small>Le fer est oxydé (réducteur) ; le dioxygène est réduit (oxydant).</small>
+  </div>
+
+  <p>Les ions \(\mathrm{Fe^{2+}}\) sont ensuite ré-oxydés en \(\mathrm{Fe^{3+}}\) par l'oxygène, puis précipitent en présence d'eau sous forme de rouille \(\mathrm{Fe_2O_3 \cdot n\,H_2O}\).</p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Conditions favorisant la corrosion</span>
+  <ul>
+    <li>Présence simultanée d'eau et de dioxygène (milieu humide)</li>
+    <li>Milieu acide (pH faible accélère fortement la corrosion)</li>
+    <li>Présence de sels dissous : les ions \(\mathrm{Cl^-}\) (eau de mer) accélèrent la corrosion en détruisant les couches protectrices</li>
+    <li>Contact entre deux métaux de potentiels différents (corrosion galvanique)</li>
+    <li>Températures élevées</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Enjeux industriels de la corrosion</span><br>
+  La corrosion représente un coût économique estimé à environ 3 à 4 % du PIB mondial annuel. Elle touche de nombreux secteurs :
+  <ul>
+    <li><strong>Aviation :</strong> structures en alliages d'aluminium, fuselages, trains d'atterrissage, réservoirs de carburant</li>
+    <li><strong>Bâtiment et génie civil :</strong> armatures en acier dans le béton armé (ponts, tunnels), charpentes métalliques</li>
+    <li><strong>Marine :</strong> coques de navires, hélices, structures offshore, plateformes pétrolières</li>
+    <li><strong>Transports :</strong> carrosseries automobiles, rails, pipelines de transport de pétrole ou de gaz</li>
+  </ul>
+</div>
+
+<!-- ====== SECTION 6 : PASSIVATION ====== -->
+<h2>6. Passivation — formation d'une couche d'oxyde protectrice</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  La <strong>passivation</strong> est le phénomène par lequel un métal, après avoir été légèrement oxydé, se recouvre d'une <strong>couche d'oxyde fine, dense et très adhérente</strong> qui isole le métal du milieu extérieur et <strong>stoppe ou ralentit fortement</strong> la poursuite de la corrosion. Le métal est dit <em>passivé</em>.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Métaux passivables et leur oxyde protecteur</span>
+  <table>
+    <tr>
+      <th>Métal</th>
+      <th>Oxyde protecteur</th>
+      <th>Caractéristiques de la couche</th>
+    </tr>
+    <tr>
+      <td><strong>Aluminium (Al)</strong></td>
+      <td>\(\mathrm{Al_2O_3}\) (alumine)</td>
+      <td>Formée spontanément en quelques secondes à l'air ; épaisseur ~4 nm ; très dure, dense et adhérente</td>
+    </tr>
+    <tr>
+      <td><strong>Chrome (Cr) / Acier inoxydable</strong></td>
+      <td>\(\mathrm{Cr_2O_3}\)</td>
+      <td>L'ajout de plus de 12 % de chrome à l'acier confère la passivation ; utilisé dans le médical, l'alimentaire et l'architecture</td>
+    </tr>
+    <tr>
+      <td><strong>Titane (Ti)</strong></td>
+      <td>\(\mathrm{TiO_2}\)</td>
+      <td>Passivation très robuste et stable ; utilisé en aéronautique et pour les implants médicaux</td>
+    </tr>
+  </table>
+</div>
+
+<p>La réaction de passivation de l'aluminium s'écrit :</p>
+<div class="formule-box">
+  \(\mathrm{4\,Al_{(s)} + 3\,O_{2(g)} \longrightarrow 2\,Al_2O_3{(s)}}\)
+  <small>Réaction spontanée à température ambiante — la couche d'alumine formée est auto-protectrice.</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Avantages de l'aluminium en aéronautique</span><br>
+  L'aluminium (et ses alliages) est massivement utilisé dans la construction aéronautique pour plusieurs raisons conjuguées :
+  <ul>
+    <li><strong>Faible densité :</strong> \(\rho_{\mathrm{Al}} = 2{,}7\ \text{g·cm}^{-3}\) contre \(7{,}9\ \text{g·cm}^{-3}\) pour l'acier — gain de masse = économies de carburant significatives.</li>
+    <li><strong>Passivation naturelle :</strong> la couche d'alumine \(\mathrm{Al_2O_3}\) protège le métal sans traitement supplémentaire coûteux ni entretien permanent.</li>
+    <li><strong>Bonne résistance mécanique</strong> des alliages d'aluminium à haute performance (séries 2xxx au cuivre, 7xxx au zinc) utilisés pour les fuselages, les voilures et les cadres.</li>
+    <li><strong>Anodisation :</strong> on peut épaissir artificiellement la couche d'alumine par électrolyse (jusqu'à 20–25 µm) pour renforcer encore la protection et permettre une coloration esthétique.</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Limites de la passivation</span><br>
+  La couche d'oxyde peut être détruite :
+  <ul>
+    <li>En milieu acide concentré ou en milieu très basique (l'alumine se dissout dans les bases fortes).</li>
+    <li>En présence d'ions chlorure \(\mathrm{Cl^-}\) en concentration élevée (eau de mer) qui perfore localement la couche protectrice.</li>
+  </ul>
+  À noter : pour le fer, la rouille \(\mathrm{Fe_2O_3 \cdot n\,H_2O}\) est <strong>poreuse, friable et non adhérente</strong> — elle n'assure aucune protection et la corrosion se poursuit jusqu'à la destruction totale de la pièce. C'est la différence fondamentale entre le fer et l'aluminium.
+</div>
+
+<!-- ====== SECTION 7 : ANODE SACRIFICIELLE ====== -->
+<h2>7. Protection par anode sacrificielle</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  La <strong>protection par anode sacrificielle</strong> (ou protection cathodique par anode galvanique) consiste à mettre en contact électrique le métal à protéger avec un <strong>métal plus réducteur</strong>, c'est-à-dire de potentiel standard \(E°\) plus faible. Ce métal "sacrifié" se corrode préférentiellement <em>à la place</em> du métal à protéger.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Principe électrochimique — Pourquoi l'anode sacrificielle se corrode-t-elle en premier ?</span><br>
+  D'après la règle du gamma, la réaction spontanée a lieu entre l'oxydant le plus fort (\(\mathrm{O_2}\)) et le réducteur le plus fort. Si deux métaux M₁ (moins réducteur, \(E°\) plus élevé) et M₂ (plus réducteur, \(E°\) plus faible) sont en contact dans un milieu corrosif :
+  <ul>
+    <li>M₂ (plus réducteur) joue le rôle d'<strong>anode</strong> : il cède ses électrons en premier — il est oxydé préférentiellement.</li>
+    <li>M₁ (moins réducteur) joue le rôle de <strong>cathode</strong> : il reçoit les électrons — il est protégé de l'oxydation.</li>
+  </ul>
+  Le métal à protéger est maintenu à un potentiel suffisamment négatif pour ne pas s'oxyder : c'est la <strong>protection cathodique</strong>.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple : protection de l'acier (fer) par le zinc — galvanisation</span>
+
+  <p>Comparaison des potentiels standard :</p>
+  <ul>
+    <li>\(\mathrm{Fe^{2+}/Fe}\) : \(E° = -0{,}44\ \text{V}\)</li>
+    <li>\(\mathrm{Zn^{2+}/Zn}\) : \(E° = -0{,}76\ \text{V}\)</li>
+  </ul>
+  <p>Le zinc est <strong>plus réducteur</strong> que le fer car \(E°_{\mathrm{Zn^{2+}/Zn}} < E°_{\mathrm{Fe^{2+}/Fe}}\). D'après la règle du gamma, c'est le zinc qui est oxydé spontanément en premier :</p>
+
+  \[
+    \underbrace{\mathrm{Zn \longrightarrow Zn^{2+} + 2\,e^-}}_{\text{anode sacrificielle — zinc oxydé}}
+  \]
+  \[
+    \underbrace{\mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}}_{\text{cathode — fer protégé}}
+  \]
+
+  <p>Le fer est maintenu cathodique : il n'est pas oxydé. <strong>Même si le revêtement de zinc est rayé et que le fer est localement exposé au milieu corrosif, il reste protégé</strong> tant que du zinc est en contact électrique — contrairement à un simple revêtement de peinture ou d'étain.</p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Applications industrielles des anodes sacrificielles</span>
+  <ul>
+    <li><strong>Galvanisation à chaud :</strong> immersion des pièces en acier dans du zinc fondu (tôles de toiture, poutres, garde-corps, boulonnerie). Fournit à la fois une barrière physique et une protection électrochimique.</li>
+    <li><strong>Coques de navires :</strong> blocs de zinc ou d'alliages zinc-aluminium boulonnés sur la coque métallique ; remplacés lors de chaque carénage.</li>
+    <li><strong>Pipelines enterrés :</strong> anodes de magnésium \(\mathrm{Mg}\) (\(E° = -2{,}37\ \text{V}\)) connectées aux conduites en acier sur de grandes longueurs ; le magnésium, encore plus réducteur que le zinc, assure une protection efficace.</li>
+    <li><strong>Réservoirs d'eau chaude (ballons) :</strong> anode en magnésium à l'intérieur pour protéger la cuve en acier contre la corrosion par l'eau chaude.</li>
+    <li><strong>Structures offshore :</strong> plateformes pétrolières en mer, piliers de ponts immergés, éoliennes offshore.</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Remplacement régulier obligatoire</span><br>
+  L'anode sacrificielle se <strong>consomme progressivement</strong> au cours du temps (elle s'oxyde à la place du métal protégé). Elle doit être <strong>inspectée et remplacée régulièrement</strong>. Une anode épuisée ne protège plus le métal principal, qui se corrode alors normalement.
+</div>
+
+<!-- ====== SECTION 8 : TABLEAU RÉCAPITULATIF ====== -->
+<h2>8. Tableau récapitulatif des méthodes de protection contre la corrosion</h2>
+
+<table>
+  <tr>
+    <th>Méthode de protection</th>
+    <th>Principe chimique</th>
+    <th>Exemples d'application</th>
+    <th>Avantages</th>
+    <th>Limites</th>
+  </tr>
+  <tr>
+    <td><strong>Passivation naturelle</strong></td>
+    <td>Formation spontanée d'une couche d'oxyde dense et adhérente (\(\mathrm{Al_2O_3}\), \(\mathrm{Cr_2O_3}\), \(\mathrm{TiO_2}\))</td>
+    <td>Aluminium (aéronautique, emballages), acier inoxydable (médical, alimentaire, architecture)</td>
+    <td>Automatique, sans entretien courant ; légèreté de l'aluminium</td>
+    <td>Détruite en milieu acide concentré, basique fort ou par les ions \(\mathrm{Cl^-}\)</td>
+  </tr>
+  <tr>
+    <td><strong>Revêtement de surface</strong> (peinture, vernis, laque, étain)</td>
+    <td>Isolation physique du métal du milieu corrosif (barrière mécanique)</td>
+    <td>Carrosseries automobiles, charpentes métalliques, boîtes de conserve (fer étamé)</td>
+    <td>Simple, économique, esthétique</td>
+    <td>Perd toute efficacité si le revêtement est rayé ou écaillé (le métal sous-jacent se corrode sans protection)</td>
+  </tr>
+  <tr>
+    <td><strong>Galvanisation</strong> (dépôt de zinc)</td>
+    <td>Couche de zinc : barrière physique + protection électrochimique par anode sacrificielle si rayure</td>
+    <td>Tôles de toiture, garde-corps, profilés, boulonnerie, câbles</td>
+    <td>Double protection ; efficace même en cas de rayure locale</td>
+    <td>Tenue limitée dans les milieux très agressifs (eau de mer, acides) ; le zinc se consomme</td>
+  </tr>
+  <tr>
+    <td><strong>Anode sacrificielle</strong></td>
+    <td>Métal plus réducteur (Zn, Mg, Al) se corrode électrochimiquement à la place du métal à protéger</td>
+    <td>Coques de navires (Zn), pipelines enterrés (Mg), ballons d'eau chaude, structures offshore</td>
+    <td>Protection active même si le revêtement est endommagé ; simple à mettre en œuvre</td>
+    <td>Anode à surveiller et remplacer régulièrement ; coût d'entretien récurrent</td>
+  </tr>
+  <tr>
+    <td><strong>Protection cathodique imposée</strong> (courant extérieur)</td>
+    <td>Courant électrique imposé par un générateur pour maintenir le métal cathodique (non oxydable)</td>
+    <td>Grands pipelines enterrés ou immergés, coques de grands navires, ouvrages d'art</td>
+    <td>Protection permanente et ajustable sur de très grandes surfaces</td>
+    <td>Nécessite une source d'énergie continue et une surveillance technique spécialisée</td>
+  </tr>
+</table>
+
+<div class="prop">
+  <span class="label label-prop">Bilan — Ce qu'il faut retenir</span>
+  <ul>
+    <li>Une <strong>oxydation</strong> est une perte d'électrons ; une <strong>réduction</strong> est un gain d'électrons. Mémo : <strong>OIL RIG</strong>.</li>
+    <li>Les deux phénomènes sont toujours <strong>simultanés</strong> : il y a toujours un transfert d'électrons du réducteur vers l'oxydant.</li>
+    <li>La <strong>classification électrochimique</strong> (ordre croissant de \(E°\)) permet de prévoir quelle réaction est spontanée : l'oxydant le plus fort (haut de la classification) réagit avec le réducteur le plus fort (bas de la classification) — <strong>règle du gamma</strong>.</li>
+    <li>La <strong>corrosion du fer</strong> est due à son oxydation par \(\mathrm{O_2}\) de l'air (et l'eau) ; la rouille est poreuse et n'assure aucune protection.</li>
+    <li>La <strong>passivation</strong> (Al → \(\mathrm{Al_2O_3}\) ; acier inox → \(\mathrm{Cr_2O_3}\)) crée une couche d'oxyde dense et protectrice qui stoppe spontanément la corrosion.</li>
+    <li>L'<strong>anode sacrificielle</strong> exploite la classification électrochimique : le métal plus réducteur (Zn, Mg) se corrode en premier et protège le métal moins réducteur (Fe).</li>
+  </ul>
+</div>
+
 </div>
 </body>
 </html>
