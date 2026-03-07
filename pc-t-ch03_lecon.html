@@ -1,23 +1,620 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours — Ch03 Étudier le moteur électrique</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #f6f8fa; color: #1f2328; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; text-align: center; padding: 80px 20px; }
-        .back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #6f42c1; }
-        h1 { font-size: 1.4em; font-weight: 600; margin-bottom: 8px; }
-        p { color: #6e7781; font-size: 0.95em; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Moteur électrique – Cours</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #ddd6fe}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.bilan{display:flex;align-items:center;justify-content:center;gap:0;margin:18px 0;flex-wrap:wrap}
+.bilan-box{background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:10px 18px;text-align:center;font-weight:600;font-size:.95em}
+.bilan-arrow{font-size:1.5em;color:var(--p);padding:0 8px}
+.bilan-loss{background:#fff5f5;border:2px dashed var(--d);border-radius:8px;padding:8px 14px;text-align:center;font-size:.85em;color:var(--d)}
+/* extra */
+.plaque{font-family:monospace;background:#1a202c;color:#e2e8f0;border-radius:8px;padding:18px 24px;font-size:.88em;margin:14px 0;line-height:2.1}
+.plaque-title{color:#fbbf24;font-weight:700;font-size:.95em;display:block;margin-bottom:6px;letter-spacing:.05em;text-transform:uppercase}
+.plaque-row{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:2px}
+.plaque-item{color:#a3e635}
+.plaque-label{color:#94a3b8;font-size:.85em}
+.recap-table th{background:#6f42c1;color:#fff}
+.recap-table td:first-child{font-weight:600;text-align:left;background:#f5f0ff;white-space:nowrap}
+td:first-child{text-align:left}
+</style>
 </head>
 <body>
-<div class="container">
-    <a href="pc-term-iccer.html" class="back">← Retour</a>
-    <h1>Cours — Étudier le moteur électrique</h1>
-    <p>Page en construction.</p>
+<div class="c">
+
+<a href="pc-term-iccer.html" class="nb">&#8592; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Chapitre 3 &#8211; Obtenir de l&#8217;&#233;nergie m&#233;canique &#224; l&#8217;aide d&#8217;un moteur &#233;lectrique</h1>
+  <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique &#8211; &#201;lectricit&#233;</p>
+</header>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 1. OBJECTIFS                            -->
+<!-- ═══════════════════════════════════════ -->
+<div class="objectifs">
+  <strong style="color:var(--p)">Objectifs d&#8217;apprentissage</strong>
+  <ul>
+    <li>Identifier un moteur &#233;lectrique comme convertisseur &#233;lectrom&#233;canique.</li>
+    <li>Diff&#233;rencier un moteur &#224; courant continu (CC) et un moteur asynchrone.</li>
+    <li>Lire et exploiter une plaque signal&#233;tique&nbsp;: tension U, courant I, puissance P, fr&#233;quence f, facteur de puissance cos&#160;&#966;, vitesse n, rendement &#951;.</li>
+    <li>&#201;tablir le bilan de puissance et calculer le rendement.</li>
+    <li>V&#233;rifier exp&#233;rimentalement l&#8217;influence de U sur n pour un moteur CC.</li>
+    <li>V&#233;rifier exp&#233;rimentalement l&#8217;influence de f sur n pour un moteur asynchrone.</li>
+    <li>Calculer la vitesse de synchronisme d&#8217;un moteur asynchrone.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 2. MOTEUR COMME CONVERTISSEUR          -->
+<!-- ═══════════════════════════════════════ -->
+<h2>I &#8211; Le moteur &#233;lectrique&nbsp;: un convertisseur &#233;lectrom&#233;canique</h2>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition</span><br>
+  Un <strong>moteur &#233;lectrique</strong> est un <strong>convertisseur d&#8217;&#233;nergie</strong>&nbsp;: il transforme l&#8217;<strong>&#233;nergie &#233;lectrique</strong> re&#231;ue en <strong>&#233;nergie m&#233;canique</strong> (rotation de l&#8217;arbre de sortie). C&#8217;est un convertisseur &#233;lectrom&#233;canique.
+</div>
+
+<p>
+  Les moteurs &#233;lectriques sont pr&#233;sents dans de tr&#232;s nombreux syst&#232;mes industriels et a&#233;ronautiques&nbsp;: pompes hydrauliques, actionneurs de gouvernes, ventilateurs de cabine, compresseurs, outillage d&#8217;atelier, convoyeurs&#8230;
+</p>
+
+<!-- Sch&#233;ma de conversion SVG -->
+<div style="text-align:center;margin:22px 0">
+  <svg viewBox="0 0 780 170" width="100%" style="max-width:730px" font-family="'Segoe UI',sans-serif" font-size="13">
+    <defs>
+      <marker id="arr-p" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+        <path d="M0,0 L0,7 L9,3.5 z" fill="#6f42c1"/>
+      </marker>
+      <marker id="arr-r" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+        <path d="M0,0 L0,7 L9,3.5 z" fill="#c53030"/>
+      </marker>
+      <marker id="arr-g" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+        <path d="M0,0 L0,7 L9,3.5 z" fill="#2f855a"/>
+      </marker>
+    </defs>
+    <!-- Bloc alimentation -->
+    <rect x="8" y="55" width="155" height="65" rx="8" fill="#ede9fe" stroke="#6f42c1" stroke-width="2"/>
+    <text x="86" y="83" text-anchor="middle" fill="#5b21b6" font-weight="700">Alimentation</text>
+    <text x="86" y="99" text-anchor="middle" fill="#5b21b6">&#233;lectrique</text>
+    <text x="86" y="114" text-anchor="middle" fill="#5b21b6" font-size="11">(tension U, courant I)</text>
+    <!-- Fl&#232;che 1 avec &#233;tiquette -->
+    <line x1="163" y1="87" x2="218" y2="87" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arr-p)"/>
+    <text x="191" y="79" text-anchor="middle" fill="#6f42c1" font-size="11">P&#8336; = U &#215; I</text>
+    <!-- Bloc moteur -->
+    <rect x="218" y="38" width="195" height="98" rx="10" fill="#6f42c1" stroke="#4c1d95" stroke-width="2"/>
+    <text x="315" y="81" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">MOTEUR</text>
+    <text x="315" y="99" text-anchor="middle" fill="#c4b5fd" font-size="13">&#201;LECTRIQUE</text>
+    <text x="315" y="117" text-anchor="middle" fill="#ddd6fe" font-size="11">(CC ou asynchrone)</text>
+    <!-- Fl&#232;che pertes (vers le haut) -->
+    <line x1="315" y1="38" x2="315" y2="10" stroke="#c53030" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr-r)"/>
+    <text x="315" y="7" text-anchor="middle" fill="#c53030" font-size="11">Pertes (chaleur, frottements)</text>
+    <!-- Fl&#232;che 2 -->
+    <line x1="413" y1="87" x2="468" y2="87" stroke="#2f855a" stroke-width="2.5" marker-end="url(#arr-g)"/>
+    <text x="441" y="79" text-anchor="middle" fill="#2f855a" font-size="11">P&#8363; = T&#8347;&#8341; &#215; &#969;</text>
+    <!-- Bloc &#233;nergie m&#233;canique -->
+    <rect x="468" y="55" width="165" height="65" rx="8" fill="#d1fae5" stroke="#2f855a" stroke-width="2"/>
+    <text x="550" y="83" text-anchor="middle" fill="#065f46" font-weight="700">&#201;nergie</text>
+    <text x="550" y="99" text-anchor="middle" fill="#065f46">m&#233;canique</text>
+    <text x="550" y="114" text-anchor="middle" fill="#065f46" font-size="11">(rotation de l&#8217;arbre)</text>
+  </svg>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Les deux grandes cat&#233;gories</span><br>
+  <ul style="margin:6px 0 0;padding-left:20px">
+    <li><strong>Le moteur &#224; courant continu (CC)</strong>&nbsp;: aliment&#233; par une tension <em>continue</em> (batterie, alimentation r&#233;gul&#233;e).</li>
+    <li><strong>Le moteur asynchrone</strong>&nbsp;: aliment&#233; par une tension <em>alternative</em> (r&#233;seau 50&#160;Hz, monophas&#233; ou triphas&#233;).</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 3. BILAN DE PUISSANCE ET RENDEMENT     -->
+<!-- ═══════════════════════════════════════ -->
+<h2>II &#8211; Bilan de puissance et rendement</h2>
+
+<p>Un moteur &#233;lectrique n&#8217;est pas parfait. Une partie de l&#8217;&#233;nergie &#233;lectrique absorb&#233;e est dissip&#233;e sous forme de chaleur (pertes Joule dans les enroulements, frottements m&#233;caniques, pertes fer dans le stator). Seule la partie restante constitue l&#8217;&#233;nergie m&#233;canique utile.</p>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8211; Les trois puissances</span>
+  <ul style="margin:8px 0 0;padding-left:20px">
+    <li><strong>Puissance absorb&#233;e P&#8336;</strong>&nbsp;: puissance &#233;lectrique fournie au moteur par le r&#233;seau (puissance d&#8217;entr&#233;e).</li>
+    <li><strong>Puissance utile P&#8363;</strong>&nbsp;: puissance m&#233;canique disponible sur l&#8217;arbre de sortie (puissance effective pour entra&#238;ner la charge).</li>
+    <li><strong>Pertes P<sub>pertes</sub></strong>&nbsp;: puissance dissip&#233;e sous forme de chaleur, non r&#233;cup&#233;rable.</li>
+  </ul>
+</div>
+
+<!-- Sch&#233;ma bilan boites color&#233;es -->
+<div class="bilan">
+  <div class="bilan-box">
+    P&#8336;<br>
+    <span style="font-weight:400;font-size:.85em;color:#718096">Puissance<br>absorb&#233;e</span>
+  </div>
+  <div class="bilan-arrow">&#8594;</div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+    <div class="bilan-loss">
+      P<sub>pertes</sub><br>
+      <small>Chaleur, frottements, pertes fer&#8230;</small>
+    </div>
+    <div style="color:var(--p);font-size:1.2em">&#8595;</div>
+    <div class="bilan-box" style="background:#d1fae5;border-color:#2f855a;color:#065f46">
+      P&#8363;<br>
+      <span style="font-weight:400;font-size:.85em;color:#065f46">Puissance utile<br>(m&#233;canique)</span>
+    </div>
+  </div>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Conservation de l&#8217;&#233;nergie</span><br>
+  \[ P_a = P_u + P_{\text{pertes}} \]
+</div>
+
+<div class="formule-box">
+  \[ \eta = \frac{P_u}{P_a} \]
+  <small>&#951; (&#233;ta)&nbsp;: rendement du moteur &#8212; sans unit&#233;, compris entre 0 et 1 (ou exprim&#233; en %). Plus &#951; est proche de 1, plus le moteur est efficace.</small>
+</div>
+
+<p>La puissance absorb&#233;e d&#233;pend du type d&#8217;alimentation&nbsp;:</p>
+
+<div class="formule-box">
+  Moteur <strong>CC (courant continu)</strong> ou circuit monophas&#233; sans d&#233;phasage&nbsp;:
+  \[ P_a = U \times I \]
+  Moteur <strong>asynchrone triphas&#233;</strong>&nbsp;:
+  \[ P_a = \sqrt{3} \times U \times I \times \cos\varphi \]
+  <small>U&nbsp;: tension entre phases (V) &nbsp;|&nbsp; I&nbsp;: courant de ligne (A) &nbsp;|&nbsp; cos&#160;&#966;&nbsp;: facteur de puissance</small>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple r&#233;solu</span><br>
+  Un moteur asynchrone triphas&#233; absorbe <strong>P&#8336; = 4&#160;000&#160;W</strong>. Sa puissance utile sur l&#8217;arbre est <strong>P&#8363; = 3&#160;600&#160;W</strong>. Calculer les pertes et le rendement.
+  <ol style="margin:10px 0 0;padding-left:20px">
+    <li>
+      Pertes&nbsp;:
+      \[ P_{\text{pertes}} = P_a - P_u = 4\,000 - 3\,600 = 400 \text{ W} \]
+    </li>
+    <li>
+      Rendement&nbsp;:
+      \[ \eta = \frac{P_u}{P_a} = \frac{3\,600}{4\,000} = 0{,}90 \quad \text{soit} \quad 90\,\% \]
+    </li>
+  </ol>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Le rendement est <strong>toujours strictement inf&#233;rieur &#224; 1 (100&#160;%)</strong> car il y a toujours des pertes. Un bon moteur industriel a un rendement compris entre 80&#160;% et 95&#160;%.
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 4. MOTEUR CC                           -->
+<!-- ═══════════════════════════════════════ -->
+<h2>III &#8211; Le moteur &#224; courant continu (CC)</h2>
+
+<div class="def">
+  <span class="label label-def">Principe</span><br>
+  Le moteur CC est aliment&#233; par une <strong>tension continue U</strong>. L&#8217;interaction entre le champ magn&#233;tique de l&#8217;inducteur (stator fixe) et le courant circulant dans l&#8217;induit (rotor) produit une <strong>force de Laplace</strong> qui fait tourner le rotor. Un collecteur &#224; balais assure la commutation du courant dans l&#8217;induit.
+</div>
+
+<p>On trouve des moteurs CC dans les v&#233;hicules &#233;lectriques, actionneurs embarqu&#233;s, outillage portatif, a&#233;ronefs &#224; alimentation DC (24&#160;V bord).</p>
+
+<div class="prop">
+  <span class="label label-prop">Influence de la tension sur la vitesse de rotation</span><br>
+  La fr&#233;quence de rotation <strong>n</strong> (tr/min) est <strong>directement proportionnelle &#224; la tension d&#8217;alimentation U</strong> (&#224; couple r&#233;sistant constant)&nbsp;:
+  \[ n \propto U \]
+  <ul style="margin:6px 0 0;padding-left:20px">
+    <li>Augmenter U &#8594; n augmente.</li>
+    <li>Diminuer U &#8594; n diminue.</li>
+    <li>Le graphe n = f(U) est une <strong>droite passant par l&#8217;origine</strong>.</li>
+  </ul>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Protocole exp&#233;rimental &#8211; Moteur CC</span>
+  <ol style="margin:8px 0 0;padding-left:20px">
+    <li>Brancher le moteur CC sur une alimentation &#224; tension variable (0&#160;V &#224; 12&#160;V par exemple).</li>
+    <li>Faire varier U par paliers r&#233;guliers (ex.&nbsp;: 2&#160;V, 4&#160;V, 6&#160;V, 8&#160;V, 10&#160;V, 12&#160;V).</li>
+    <li>Mesurer la vitesse de rotation n &#224; chaque palier &#224; l&#8217;aide d&#8217;un tachym&#232;tre ou d&#8217;un stroboscope.</li>
+    <li>Relever les valeurs dans un tableau puis tracer le graphe n&#160;=&#160;f(U).</li>
+    <li><strong>Conclusion attendue</strong>&nbsp;: la courbe obtenue est une droite &#8594; n est proportionnel &#224; U.</li>
+  </ol>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tension U (V)</th>
+      <th>2</th><th>4</th><th>6</th><th>8</th><th>10</th><th>12</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Vitesse n (tr/min)</strong></td>
+      <td>500</td><td>1&#160;000</td><td>1&#160;500</td><td>2&#160;000</td><td>2&#160;500</td><td>3&#160;000</td>
+    </tr>
+  </tbody>
+</table>
+<p style="font-size:.87em;color:#718096;margin-top:2px">Exemple de valeurs typiques&nbsp;: la vitesse double quand la tension double (proportionnalit&#233;).</p>
+
+<h2 style="margin-top:24px">Plaque signal&#233;tique d&#8217;un moteur CC &#8211; exemple</h2>
+
+<div class="meth">
+  <span class="label label-meth">M&#233;thode &#8211; Lire la plaque</span><br>
+  La plaque signal&#233;tique donne les <strong>caract&#233;ristiques nominales</strong> du moteur, c&#8217;est-&#224;-dire les valeurs pour lesquelles il est con&#231;u et garantit ses performances.
+</div>
+
+<div class="plaque">
+  <span class="plaque-title">Moteur &#224; Courant Continu &#8212; Fabricant XYZ</span>
+  <div class="plaque-row">
+    <span><span class="plaque-label">Type&nbsp;:</span> <span class="plaque-item">ZD&#160;12/24</span></span>
+    <span><span class="plaque-label">Tension nominale&nbsp;:</span> <span class="plaque-item">U&#160;=&#160;24&#160;V CC</span></span>
+    <span><span class="plaque-label">Courant nominal&nbsp;:</span> <span class="plaque-item">I&#160;=&#160;5&#160;A</span></span>
+  </div>
+  <div class="plaque-row">
+    <span><span class="plaque-label">Puissance nominale&nbsp;:</span> <span class="plaque-item">P&#160;=&#160;80&#160;W</span></span>
+    <span><span class="plaque-label">Vitesse nominale&nbsp;:</span> <span class="plaque-item">n&#160;=&#160;3&#160;000&#160;tr/min</span></span>
+    <span><span class="plaque-label">Rendement&nbsp;:</span> <span class="plaque-item">&#951;&#160;=&#160;67&#160;%</span></span>
+  </div>
+</div>
+
+<table>
+  <thead><tr><th>Donn&#233;e</th><th>Symbole</th><th>Unit&#233;</th><th>Signification</th></tr></thead>
+  <tbody>
+    <tr><td>Tension nominale</td><td>U</td><td>V</td><td>Tension CC &#224; appliquer pour fonctionnement nominal</td></tr>
+    <tr><td>Courant nominal</td><td>I</td><td>A</td><td>Courant absorb&#233; en fonctionnement &#224; charge nominale</td></tr>
+    <tr><td>Puissance nominale</td><td>P (ou P&#8363;)</td><td>W</td><td>Puissance m&#233;canique disponible sur l&#8217;arbre</td></tr>
+    <tr><td>Vitesse nominale</td><td>n</td><td>tr/min</td><td>Fr&#233;quence de rotation &#224; la charge nominale</td></tr>
+    <tr><td>Rendement</td><td>&#951;</td><td>%</td><td>Rapport puissance utile / puissance absorb&#233;e</td></tr>
+  </tbody>
+</table>
+
+<div class="ex">
+  <span class="label label-ex">V&#233;rification &#8211; Plaque CC</span><br>
+  Avec la plaque ci-dessus&nbsp;:
+  \[ P_a = U \times I = 24 \times 5 = 120 \text{ W} \]
+  \[ \eta = \frac{P_u}{P_a} = \frac{80}{120} \approx 0{,}67 \quad \text{soit} \quad 67\,\% \]
+  C&#8217;est bien coh&#233;rent avec la valeur &#951;&#160;=&#160;67&#160;% indiqu&#233;e sur la plaque.
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 5. MOTEUR ASYNCHRONE                   -->
+<!-- ═══════════════════════════════════════ -->
+<h2>IV &#8211; Le moteur asynchrone</h2>
+
+<div class="def">
+  <span class="label label-def">Principe simplifi&#233;</span><br>
+  Le moteur asynchrone (ou moteur &#224; induction) est aliment&#233; par une tension <strong>alternative</strong> (g&#233;n&#233;ralement triphas&#233;e, r&#233;seau 50&#160;Hz). Les bobinages du stator cr&#233;ent un <strong>champ magn&#233;tique tournant</strong> dont la vitesse (appel&#233;e vitesse de synchronisme) d&#233;pend de la fr&#233;quence f et du nombre de paires de p&#244;les p. Le rotor (en cage d&#8217;&#233;cureuil) tourne <em>l&#233;g&#232;rement en retard</em> sur ce champ, d&#8217;o&#249; le nom <em>asynchrone</em>.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Vitesse de synchronisme</span><br>
+  La vitesse de synchronisme n<sub>s</sub> est la vitesse du champ tournant (vitesse th&#233;orique maximale du rotor)&nbsp;:
+  \[ n_s = \frac{60 \times f}{p} \]
+  <ul style="margin:6px 0 0;padding-left:20px">
+    <li>\(n_s\)&nbsp;: vitesse de synchronisme (tr/min)</li>
+    <li>\(f\)&nbsp;: fr&#233;quence du r&#233;seau (Hz) &#8212; en France&nbsp;: <strong>50&#160;Hz</strong></li>
+    <li>\(p\)&nbsp;: nombre de <strong>paires de p&#244;les</strong> du stator</li>
+  </ul>
+  La vitesse r&#233;elle du rotor est <strong>l&#233;g&#232;rement inf&#233;rieure</strong> &#224; n<sub>s</sub> (glissement g&#233;n&#233;ralement de 2&#160;% &#224; 5&#160;%).
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Paires de p&#244;les p</th>
+      <th>1</th><th>2</th><th>3</th><th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>n<sub>s</sub> &#224; 50&#160;Hz (tr/min)</strong></td>
+      <td>3&#160;000</td><td>1&#160;500</td><td>1&#160;000</td><td>750</td>
+    </tr>
+    <tr>
+      <td><strong>Vitesse r&#233;elle typique (tr/min)</strong></td>
+      <td>2&#160;900</td><td>1&#160;450</td><td>960</td><td>720</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="ex">
+  <span class="label label-ex">Exemple</span><br>
+  Un moteur asynchrone a <strong>p&#160;=&#160;2 paires de p&#244;les</strong>. Il est aliment&#233; par le r&#233;seau 50&#160;Hz.
+  \[ n_s = \frac{60 \times 50}{2} = 1\,500 \text{ tr/min} \]
+  En pratique, sa vitesse r&#233;elle est environ <strong>1&#160;450&#160;tr/min</strong> (glissement de 50&#160;tr/min soit 3,3&#160;%).
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Influence de la fr&#233;quence sur la vitesse de rotation</span><br>
+  La vitesse de synchronisme est <strong>proportionnelle &#224; la fr&#233;quence f</strong> de la tension d&#8217;alimentation&nbsp;:
+  \[ n_s \propto f \]
+  C&#8217;est le principe du <strong>variateur de fr&#233;quence (onduleur)</strong>&nbsp;: en faisant varier f entre 0&#160;Hz et 50&#160;Hz (ou plus), on contr&#244;le la vitesse du moteur de fa&#231;on continue et pr&#233;cise.
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Protocole exp&#233;rimental &#8211; Moteur asynchrone</span>
+  <ol style="margin:8px 0 0;padding-left:20px">
+    <li>Relier le moteur asynchrone &#224; un variateur de fr&#233;quence (onduleur) r&#233;glable.</li>
+    <li>Faire varier la fr&#233;quence de sortie par paliers (ex.&nbsp;: 10&#160;Hz, 20&#160;Hz, 30&#160;Hz, 40&#160;Hz, 50&#160;Hz).</li>
+    <li>Mesurer la vitesse de rotation n &#224; chaque palier (tachym&#232;tre ou cellule optique).</li>
+    <li>Tracer le graphe n&#160;=&#160;f(f).</li>
+    <li><strong>Conclusion attendue</strong>&nbsp;: la courbe est une droite &#8594; n est proportionnel &#224; f.</li>
+  </ol>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fr&#233;quence f (Hz)</th>
+      <th>10</th><th>20</th><th>30</th><th>40</th><th>50</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>n<sub>s</sub> calcul&#233;e (tr/min) &#8212; p&#160;=&#160;2</strong></td>
+      <td>300</td><td>600</td><td>900</td><td>1&#160;200</td><td>1&#160;500</td>
+    </tr>
+    <tr>
+      <td><strong>Vitesse mesur&#233;e (tr/min)</strong></td>
+      <td>&#8776;&#160;290</td><td>&#8776;&#160;580</td><td>&#8776;&#160;870</td><td>&#8776;&#160;1&#160;160</td><td>&#8776;&#160;1&#160;450</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 style="margin-top:24px">Plaque signal&#233;tique d&#8217;un moteur asynchrone &#8211; exemple</h2>
+
+<div class="plaque">
+  <span class="plaque-title">Moteur Asynchrone Triphas&#233; &#8212; Fabricant ABC</span>
+  <div class="plaque-row">
+    <span><span class="plaque-label">Type&nbsp;:</span> <span class="plaque-item">MAT&#160;90L&#8209;4</span></span>
+    <span><span class="plaque-label">Fr&#233;quence&nbsp;:</span> <span class="plaque-item">f&#160;=&#160;50&#160;Hz</span></span>
+    <span><span class="plaque-label">Tension&nbsp;:</span> <span class="plaque-item">400&#160;V / 690&#160;V (&#916;&#160;/&#160;Y)</span></span>
+  </div>
+  <div class="plaque-row">
+    <span><span class="plaque-label">Courant&nbsp;:</span> <span class="plaque-item">I&#160;=&#160;7,2&#160;A / 4,1&#160;A</span></span>
+    <span><span class="plaque-label">Puissance utile&nbsp;:</span> <span class="plaque-item">P&#8363;&#160;=&#160;3&#160;kW</span></span>
+    <span><span class="plaque-label">cos&#160;&#966;&nbsp;:</span> <span class="plaque-item">0,82</span></span>
+  </div>
+  <div class="plaque-row">
+    <span><span class="plaque-label">Vitesse&nbsp;:</span> <span class="plaque-item">n&#160;=&#160;1&#160;450&#160;tr/min</span></span>
+    <span><span class="plaque-label">Rendement&nbsp;:</span> <span class="plaque-item">&#951;&#160;=&#160;84&#160;%</span></span>
+    <span><span class="plaque-label">Classe isolat.&nbsp;:</span> <span class="plaque-item">F</span></span>
+  </div>
+</div>
+
+<table>
+  <thead><tr><th>Donn&#233;e</th><th>Symbole</th><th>Unit&#233;</th><th>Signification</th></tr></thead>
+  <tbody>
+    <tr><td>Fr&#233;quence r&#233;seau</td><td>f</td><td>Hz</td><td>Fr&#233;quence de la tension alternative (50&#160;Hz en Europe)</td></tr>
+    <tr><td>Tension nominale</td><td>U</td><td>V</td><td>Tension entre phases ; couplage triangle (&#916;) ou &#233;toile (Y)</td></tr>
+    <tr><td>Courant nominal</td><td>I</td><td>A</td><td>Courant de ligne absorb&#233; en fonctionnement nominal</td></tr>
+    <tr><td>Puissance utile</td><td>P&#8363;</td><td>W ou kW</td><td>Puissance m&#233;canique disponible sur l&#8217;arbre</td></tr>
+    <tr><td>Facteur de puissance</td><td>cos&#160;&#966;</td><td>&#8212;</td><td>D&#233;phasage courant/tension (toujours &lt;&#160;1 pour un moteur asynchrone)</td></tr>
+    <tr><td>Vitesse nominale</td><td>n</td><td>tr/min</td><td>Vitesse r&#233;elle &#224; charge nominale (l&#233;g&#232;rement &lt;&#160;n<sub>s</sub>)</td></tr>
+    <tr><td>Rendement</td><td>&#951;</td><td>%</td><td>Rapport P&#8363;&#160;/&#160;P&#8336;</td></tr>
+  </tbody>
+</table>
+
+<div class="att">
+  <span class="label label-att">Point cl&#233; &#8211; Plaque signal&#233;tique</span><br>
+  La puissance indiqu&#233;e sur la plaque d&#8217;un moteur asynchrone est <strong>toujours la puissance utile m&#233;canique P&#8363;</strong>, jamais la puissance absorb&#233;e &#233;lectrique P&#8336;. Pour calculer P&#8336; il faut utiliser la formule triphas&#233;e avec cos&#160;&#966;, ou utiliser le rendement &#951;.
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 6. TABLEAU COMPARATIF CC vs ASYNCHRO   -->
+<!-- ═══════════════════════════════════════ -->
+<h2>V &#8211; Comparaison&nbsp;: moteur CC vs moteur asynchrone</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Crit&#232;re</th>
+      <th>Moteur CC</th>
+      <th>Moteur asynchrone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Alimentation</strong></td>
+      <td>Tension continue (batterie, alimentation DC)</td>
+      <td>Tension alternative &#8212; r&#233;seau 50&#160;Hz (triphas&#233; ou monophas&#233;)</td>
+    </tr>
+    <tr>
+      <td><strong>R&#233;glage de la vitesse</strong></td>
+      <td>En faisant varier la tension U</td>
+      <td>En faisant varier la fr&#233;quence f (variateur de fr&#233;quence)</td>
+    </tr>
+    <tr>
+      <td><strong>Couple au d&#233;marrage</strong></td>
+      <td>Tr&#232;s &#233;lev&#233; (avantage)</td>
+      <td>Bon mais inf&#233;rieur au CC &#224; basse vitesse</td>
+    </tr>
+    <tr>
+      <td><strong>Entretien</strong></td>
+      <td>R&#233;gulier (balais et collecteur &#224; usure)</td>
+      <td>Tr&#232;s peu d&#8217;entretien (rotor en cage, pas de balais)</td>
+    </tr>
+    <tr>
+      <td><strong>Robustesse / durabilit&#233;</strong></td>
+      <td>Plus fragile (pi&#232;ces d&#8217;usure)</td>
+      <td>Tr&#232;s robuste, fiable, longue dur&#233;e de vie</td>
+    </tr>
+    <tr>
+      <td><strong>Co&#251;t</strong></td>
+      <td>Entretien plus co&#251;teux</td>
+      <td>Faible co&#251;t d&#8217;achat et d&#8217;entretien</td>
+    </tr>
+    <tr>
+      <td><strong>Applications typiques</strong></td>
+      <td>V&#233;hicules &#233;lectriques, actionneurs embarqu&#233;s a&#233;ronautiques (24&#160;V DC), outillage portatif</td>
+      <td>Pompes, ventilateurs, compresseurs, convoyeurs, ascenseurs, machines-outils</td>
+    </tr>
+    <tr>
+      <td><strong>Identification rapide</strong></td>
+      <td>2 bornes (+ et &#8722;), pr&#233;sence de balais visibles</td>
+      <td>3 ou 6 bornes, plaque avec f&#160;=&#160;50&#160;Hz et cos&#160;&#966;</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 7. LECTURE PLAQUE – EXERCICE GUIDE     -->
+<!-- ═══════════════════════════════════════ -->
+<h2>VI &#8211; Lire et exploiter une plaque signal&#233;tique&nbsp;: exercice guid&#233;</h2>
+
+<div class="ex">
+  <span class="label label-ex">Exercice guid&#233;</span><br>
+  On dispose d&#8217;un moteur asynchrone triphas&#233; dont la plaque signal&#233;tique indique&nbsp;:
+
+  <div class="plaque" style="font-size:.82em;padding:12px 18px;margin-top:10px">
+    <div class="plaque-row">
+      <span><span class="plaque-label">f&nbsp;:</span> <span class="plaque-item">50&#160;Hz</span></span>
+      <span><span class="plaque-label">U&nbsp;:</span> <span class="plaque-item">400&#160;V (&#916;)</span></span>
+      <span><span class="plaque-label">I&nbsp;:</span> <span class="plaque-item">8,6&#160;A</span></span>
+      <span><span class="plaque-label">P&#8363;&nbsp;:</span> <span class="plaque-item">4&#160;kW</span></span>
+    </div>
+    <div class="plaque-row">
+      <span><span class="plaque-label">cos&#160;&#966;&nbsp;:</span> <span class="plaque-item">0,80</span></span>
+      <span><span class="plaque-label">n&nbsp;:</span> <span class="plaque-item">1&#160;455&#160;tr/min</span></span>
+      <span><span class="plaque-label">&#951;&nbsp;:</span> <span class="plaque-item">85&#160;%</span></span>
+      <span><span class="plaque-label">p&nbsp;:</span> <span class="plaque-item">2 paires de p&#244;les</span></span>
+    </div>
+  </div>
+
+  <strong>Questions et solutions&nbsp;:</strong>
+  <ol style="padding-left:20px;margin:12px 0 0">
+    <li>
+      <strong>Calculer la puissance absorb&#233;e P&#8336;.</strong><br>
+      \[ P_a = \sqrt{3} \times U \times I \times \cos\varphi = \sqrt{3} \times 400 \times 8{,}6 \times 0{,}80 \approx 4\,761\,\text{W} \approx 4{,}76\,\text{kW} \]
+    </li>
+    <li>
+      <strong>V&#233;rifier le rendement indiqu&#233; sur la plaque.</strong><br>
+      \[ \eta = \frac{P_u}{P_a} = \frac{4\,000}{4\,761} \approx 0{,}84 \quad \text{soit} \quad 84\,\% \]
+      La l&#233;g&#232;re diff&#233;rence avec 85&#160;% s&#8217;explique par les arrondis de calcul.
+    </li>
+    <li>
+      <strong>Calculer la vitesse de synchronisme n<sub>s</sub>.</strong><br>
+      \[ n_s = \frac{60 \times f}{p} = \frac{60 \times 50}{2} = 1\,500\,\text{tr/min} \]
+      La vitesse r&#233;elle (1&#160;455&#160;tr/min) est bien inf&#233;rieure &#224; n<sub>s</sub>&nbsp;: c&#8217;est caract&#233;ristique du fonctionnement asynchrone.
+    </li>
+    <li>
+      <strong>Calculer les pertes P<sub>pertes</sub>.</strong><br>
+      \[ P_{\text{pertes}} = P_a - P_u = 4\,761 - 4\,000 = 761\,\text{W} \]
+    </li>
+  </ol>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 8. TABLEAU RÉCAP DES FORMULES          -->
+<!-- ═══════════════════════════════════════ -->
+<h2>VII &#8211; Tableau r&#233;capitulatif des formules</h2>
+
+<table class="recap-table">
+  <thead>
+    <tr>
+      <th>Grandeur</th>
+      <th>Formule</th>
+      <th>Unit&#233;</th>
+      <th>Remarques</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Puissance absorb&#233;e (DC&#160;/&#160;monophas&#233;)</td>
+      <td>\(P_a = U \times I\)</td>
+      <td>W</td>
+      <td>Moteur CC ou circuit monophas&#233; sans d&#233;phasage</td>
+    </tr>
+    <tr>
+      <td>Puissance absorb&#233;e (triphas&#233;)</td>
+      <td>\(P_a = \sqrt{3} \times U \times I \times \cos\varphi\)</td>
+      <td>W</td>
+      <td>U&nbsp;: tension entre phases (V)</td>
+    </tr>
+    <tr>
+      <td>Conservation de l&#8217;&#233;nergie</td>
+      <td>\(P_a = P_u + P_{\text{pertes}}\)</td>
+      <td>W</td>
+      <td>Bilan de puissance du moteur</td>
+    </tr>
+    <tr>
+      <td>Rendement</td>
+      <td>\(\eta = \dfrac{P_u}{P_a}\)</td>
+      <td>sans unit&#233; (ou %)</td>
+      <td>\(0 < \eta < 1\) toujours</td>
+    </tr>
+    <tr>
+      <td>Puissance m&#233;canique utile</td>
+      <td>\(P_u = T_{em} \times \omega\)</td>
+      <td>W</td>
+      <td>\(T_{em}\)&nbsp;: couple en N&#183;m &nbsp;|&nbsp; \(\omega\)&nbsp;: vitesse angulaire en rad/s</td>
+    </tr>
+    <tr>
+      <td>Vitesse angulaire</td>
+      <td>\(\omega = \dfrac{2\pi \times n}{60}\)</td>
+      <td>rad/s</td>
+      <td>n&nbsp;: vitesse en tr/min</td>
+    </tr>
+    <tr>
+      <td>Vitesse de synchronisme</td>
+      <td>\(n_s = \dfrac{60 \times f}{p}\)</td>
+      <td>tr/min</td>
+      <td>f&nbsp;: fr&#233;quence r&#233;seau (Hz)&#160;|&#160;p&nbsp;: paires de p&#244;les</td>
+    </tr>
+    <tr>
+      <td>Influence U sur n (moteur CC)</td>
+      <td>\(n \propto U\)</td>
+      <td>tr/min</td>
+      <td>Proportionnalit&#233; &#224; charge constante</td>
+    </tr>
+    <tr>
+      <td>Influence f sur n (asynchrone)</td>
+      <td>\(n_s \propto f\)</td>
+      <td>tr/min</td>
+      <td>Principe du variateur de fr&#233;quence</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="prop">
+  <span class="label label-prop">Synth&#232;se &#8211; &#224; retenir</span>
+  <ul style="margin:8px 0 0;padding-left:20px">
+    <li>Le moteur &#233;lectrique <strong>convertit</strong> l&#8217;&#233;nergie &#233;lectrique en &#233;nergie m&#233;canique (convertisseur &#233;lectrom&#233;canique).</li>
+    <li>Le <strong>moteur CC</strong> varie sa vitesse avec la tension U&#160;; le <strong>moteur asynchrone</strong> varie sa vitesse avec la fr&#233;quence f.</li>
+    <li>Le <strong>rendement</strong> \(\eta = P_u/P_a\) mesure l&#8217;efficacit&#233; du moteur (toujours inf&#233;rieur &#224; 100&#160;%).</li>
+    <li>La <strong>plaque signal&#233;tique</strong> contient toutes les donn&#233;es nominales utiles pour les calculs (U, I, f, cos&#160;&#966;, n, &#951;, P&#8363;).</li>
+    <li>La <strong>vitesse de synchronisme</strong> \(n_s = 60f/p\) est la r&#233;f&#233;rence pour les moteurs asynchrones.</li>
+    <li>On reconna&#238;t un moteur <strong>CC</strong> &#224; ses 2 bornes et ses balais&#160;; un moteur <strong>asynchrone</strong> &#224; ses 3 ou 6 bornes et l&#8217;indication f&#160;=&#160;50&#160;Hz sur la plaque.</li>
+  </ul>
+</div>
+
 </div>
 </body>
 </html>
