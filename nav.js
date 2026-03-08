@@ -76,6 +76,26 @@
       ]
     },
 
+    /* Physique-Chimie — 2nde Pro MAMA */
+    'pc2-ch': {
+      summary:      'pc-2nde-pro.html',
+      summaryLabel: '2nde Pro MAMA',
+      subject:      'Physique-Chimie',
+      types: { lecon: 'Cours', exos: 'Exercices', ds: 'Devoir surveillé' },
+      chapters: [
+        { id: '01', title: 'Mouvement rectiligne' },
+        { id: '02', title: 'Mouvement circulaire' },
+        { id: '03', "title": 'Équilibre d\'un solide' },
+        { id: '04', title: 'Composition chimique d\'un liquide' },
+        { id: '05', title: 'Acidité et pH' },
+        { id: '06', title: 'Caractéristiques et transmission d\'un son' },
+        { id: '07', title: 'Température et chaleur' },
+        { id: '08', title: 'Réflexion et réfraction' },
+        { id: '09', title: 'Composition de la lumière' },
+        { id: '10', title: 'Éclairement et photocomposants' }
+      ]
+    },
+
     /* Physique-Chimie — Terminale ERA-MA */
     'pc-era-ch': {
       summary:      'pc-term-erama.html',
@@ -95,13 +115,59 @@
     }
   };
 
+  /* ── Fonction utilitaire : chargement de nav.css ───────────────────── */
+  function injectCss() {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var j = 0; j < links.length; j++) {
+      if (links[j].href && links[j].href.indexOf('nav.css') !== -1) return;
+    }
+    var cssLink = document.createElement('link');
+    cssLink.rel  = 'stylesheet';
+    cssLink.href = 'nav.css';
+    document.head.appendChild(cssLink);
+  }
+
+  /* ── Pages sommaires (affichage simple ← Accueil) ──────────────────── */
+  var SUMMARY_PAGES = {
+    'maths-2nde-mama.html':  { label: 'Mathématiques — 2nde Pro MAMA' },
+    'maths-term-iccer.html': { label: 'Mathématiques — Terminale ICCER' },
+    'maths-term-erama.html': { label: 'Mathématiques — Terminale ERA-MA' },
+    'pc-2nde-pro.html':      { label: 'Physique-Chimie — 2nde Pro' },
+    'pc-term-iccer.html':    { label: 'Physique-Chimie — Terminale ICCER' },
+    'pc-term-erama.html':    { label: 'Physique-Chimie — Terminale ERA-MA' },
+    'simulations.html':      { label: 'Simulations interactives' }
+  };
+
   /* ── Détection du fichier courant ──────────────────────────────────── */
   var filename = (window.location.pathname.split('/').pop() || '').replace(/\?.*$/, '');
   if (!filename) return;
 
+  /* Cas 1 : page sommaire → fil d'Ariane minimal */
+  if (SUMMARY_PAGES[filename]) {
+    var info = SUMMARY_PAGES[filename];
+    var sumBC = document.createElement('nav');
+    sumBC.className = 'sn-breadcrumb';
+    sumBC.setAttribute('aria-label', "Fil d'Ariane");
+    sumBC.innerHTML =
+      '<a href="index.html">Accueil</a>' +
+      '<span class="sn-sep">›</span>' +
+      '<span class="sn-bc-current">' + esc(info.label) + '</span>';
+
+    /* Injecter au début du conteneur */
+    var wrap = document.querySelector('.container') ||
+               document.querySelector('.c') ||
+               document.body;
+    wrap.insertBefore(sumBC, wrap.firstChild);
+
+    /* Charger nav.css si absent */
+    injectCss();
+    return;
+  }
+
+  /* Cas 2 : page chapitre */
   /* Regex : (prefix)(numéro)_(type).html
      Exemples : t-ch05_lecon.html  |  pc-era-ch03_lecon.html  |  ch01_exos.html */
-  var m = filename.match(/^(pc-era-ch|pc-t-ch|t-ch|ch)(\d+)_(lecon|exos|ds)\.html$/);
+  var m = filename.match(/^(pc-era-ch|pc-t-ch|pc2-ch|t-ch|ch)(\d+)_(lecon|exos|ds)\.html$/);
   if (!m) return;
 
   var prefix   = m[1];
@@ -214,19 +280,7 @@
     });
   }
 
-  /* ── Chargement de nav.css (si pas déjà présent) ───────────────────── */
-  var alreadyLoaded = false;
-  var links = document.querySelectorAll('link[rel="stylesheet"]');
-  for (var j = 0; j < links.length; j++) {
-    if (links[j].href && links[j].href.indexOf('nav.css') !== -1) {
-      alreadyLoaded = true; break;
-    }
-  }
-  if (!alreadyLoaded) {
-    var cssLink = document.createElement('link');
-    cssLink.rel  = 'stylesheet';
-    cssLink.href = 'nav.css';
-    document.head.appendChild(cssLink);
-  }
+  /* ── Chargement de nav.css ─────────────────────────────────────────── */
+  injectCss();
 
 })();
