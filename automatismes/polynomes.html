@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Automatismes – Polynômes du 2nd degré – Terminale Bac Pro</title>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--p:#d97706;--s:#2f855a;--d:#c53030;--o:#0969da;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);margin:0;padding:20px;line-height:1.7}
+.c{max-width:860px;margin:auto;background:#fff;padding:30px 35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:26px;padding-bottom:14px}
+.surtitre{margin:0 0 4px;color:#718096;font-size:.85em;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
+.sous-titre{margin:0;color:#718096;font-size:.88em}
+.nav-haut{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.nav-haut a{color:#92400e;text-decoration:none;font-size:.83em;font-weight:700;padding:5px 11px;border-radius:6px;background:#fef3c7;border:1px solid #fde68a;transition:.15s}
+.nav-haut a:hover{background:#fde68a}
+.fml{background:#fef3c7;border:1.5px solid var(--p);border-radius:8px;padding:10px 18px;margin:14px 0;font-size:.94em}
+.fml ul{margin:6px 0 0;padding-left:18px}.fml li{margin-bottom:4px}
+.alerte{background:#fffbeb;border-left:4px solid var(--p);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9em}
+.bloc-niveau{border:2px solid #e2e8f0;border-radius:10px;margin:22px 0;overflow:hidden}
+.bloc-niveau-header{padding:11px 18px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:1em;border-bottom:1px solid #e2e8f0}
+.n1 .bloc-niveau-header{background:#d1fae5;color:#065f46;border-bottom-color:#a7f3d0}
+.n2 .bloc-niveau-header{background:#dbeafe;color:#1e40af;border-bottom-color:#93c5fd}
+.n3 .bloc-niveau-header{background:#f3e8ff;color:#6d28d9;border-bottom-color:#d8b4fe}
+.bloc-niveau-body{padding:16px 18px}
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:13px 16px;margin:10px 0}
+.exo-q{margin:0 0 8px;font-weight:600;font-size:.97em}
+.exo-q .num{color:var(--p);margin-right:4px}
+details{margin-top:6px}
+details summary{cursor:pointer;color:#92400e;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:'▸ Voir la réponse'}
+details[open] summary::before{content:'▾ Masquer la réponse'}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
+.corr b{color:#065f46}
+.qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.qo{padding:6px 16px;border-radius:6px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.9em;transition:.15s;font-family:inherit}
+.qo:hover:not(:disabled){border-color:var(--p);background:#fef3c7}
+.qo.ok{background:#d1fae5;border-color:var(--s);color:#065f46;font-weight:700}
+.qo.ko{background:#fee2e2;border-color:var(--d);color:#991b1b}
+.qo:disabled{cursor:default}
+.fb{font-size:.85em;min-height:1.3em;font-weight:600;margin-top:3px}
+.fb.ok{color:var(--s)}.fb.ko{color:var(--d)}
+/* SVG parabole */
+.graph-wrap{text-align:center;margin:10px 0;background:#f8fafc;border-radius:8px;padding:10px;border:1px solid #e2e8f0}
+</style>
+</head>
+<body>
+<div class="c">
+
+  <nav class="nav-haut">
+    <a href="index.html">← Automatismes</a>
+    <a href="../maths-term-iccer.html">↗ Maths Term. ICCER</a>
+    <a href="../maths-term-erama.html">↗ Maths Term. ERA-MA</a>
+  </nav>
+
+  <header>
+    <p class="surtitre">⚡ Automatismes – Terminale Bac Pro</p>
+    <h1>📐 Fonctions polynômes du 2nd degré</h1>
+    <p class="sous-titre">Mise à jour : 08 mars 2026</p>
+  </header>
+
+  <div class="alerte">
+    <strong>Objectif :</strong> Calculer rapidement le discriminant, déterminer le nombre de solutions, lire une courbe, écrire la forme factorisée.
+  </div>
+
+  <div class="fml">
+    <strong>📋 Rappel des formules essentielles</strong>
+    <ul>
+      <li>Forme générale : \(f(x) = ax^2 + bx + c\) avec \(a \neq 0\)</li>
+      <li>Discriminant : \(\Delta = b^2 - 4ac\)</li>
+      <li>Si \(\Delta > 0\) : deux racines \(x_1 = \dfrac{-b - \sqrt{\Delta}}{2a}\) et \(x_2 = \dfrac{-b + \sqrt{\Delta}}{2a}\)</li>
+      <li>Si \(\Delta = 0\) : une racine double \(x_0 = \dfrac{-b}{2a}\)</li>
+      <li>Si \(\Delta < 0\) : pas de racine réelle</li>
+      <li>Forme factorisée : \(f(x) = a(x - x_1)(x - x_2)\)</li>
+    </ul>
+  </div>
+
+  <!-- ═══ NIVEAU 1 ═══ -->
+  <div class="bloc-niveau n1">
+    <div class="bloc-niveau-header">🟢 Niveau 1 — Bases</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Identifier les coefficients a, b et c pour : \(f(x) = 2x^2 - 3x + 5\)</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'Attention à bien identifier chaque coefficient.')">A) a=3, b=2, c=5</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) a=2, b=5, c=3</button>
+          <button class="qo" onclick="qcm(this,true,'Forme ax²+bx+c : coefficient de x² est 2, de x est −3, constante est 5.')">C) a=2, b=−3, c=5</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) a=−3, b=2, c=5</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Calculer \(\Delta\) pour \(f(x) = x^2 - 5x + 4\) (a=1, b=−5, c=4).</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'Δ = b²−4ac = (−5)²−4×1×4 = 25−16')">A) Δ = 4</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) Δ = 21</button>
+          <button class="qo" onclick="qcm(this,true,'Δ = (−5)² − 4×1×4 = 25 − 16 = 9')">C) Δ = 9</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) Δ = −9</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Si Δ = 16 &gt; 0, combien y a-t-il de solutions à f(x) = 0 ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) Aucune</button>
+          <button class="qo" onclick="qcm(this,false,'Δ = 0 donnerait une solution double.')">B) Une seule</button>
+          <button class="qo" onclick="qcm(this,true,'Δ > 0 ⟹ deux solutions distinctes.')">C) Deux solutions distinctes</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) Trois solutions</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Lecture graphique : la parabole ci-dessous coupe l'axe des x. Combien y a-t-il de solutions à f(x) = 0 ?</p>
+        <div class="graph-wrap">
+          <svg width="300" height="140" viewBox="-5 -10 10 14" style="overflow:visible">
+            <line x1="-5" y1="0" x2="5" y2="0" stroke="#ccc" stroke-width=".15"/>
+            <line x1="0" y1="-10" x2="0" y2="4" stroke="#ccc" stroke-width=".15"/>
+            <text x="5.2" y=".5" font-size=".8" fill="#888">x</text>
+            <text x=".2" y="-10" font-size=".8" fill="#888">y</text>
+            <!-- Parabole f(x)=(x-2)(x+1) passant par x=2 et x=-1 -->
+            <path d="M-4,12 Q-1.5,-4 -1,0 Q0,-2 1,-2.25 Q2,-2.5 2.5,-1.75 Q3,0 4,6" fill="none" stroke="#d97706" stroke-width=".25"/>
+            <!-- Racines -->
+            <circle cx="-1" cy="0" r=".2" fill="#d97706"/>
+            <circle cx="2" cy="0" r=".2" fill="#d97706"/>
+            <text x="-1.4" y=".9" font-size=".7" fill="#d97706">x₁</text>
+            <text x="1.7" y=".9" font-size=".7" fill="#d97706">x₂</text>
+          </svg>
+          <p style="font-size:.82em;color:#888;margin:4px 0 0">Parabole de f(x) = (x+1)(x−2)</p>
+        </div>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) Aucune (Δ &lt; 0)</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) Une seule (Δ = 0)</button>
+          <button class="qo" onclick="qcm(this,true,'La courbe coupe l\'axe en deux points distincts → deux solutions.')">C) Deux solutions (Δ &gt; 0)</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : calculer Δ pour chaque trinôme.<br>
+        a) \(x^2 - 4x + 4\) &nbsp;&nbsp; b) \(x^2 + x + 1\) &nbsp;&nbsp; c) \(2x^2 - 6x + 4\)</p>
+        <details><summary></summary>
+        <div class="corr">
+          a) \(\Delta = (-4)^2 - 4 \times 1 \times 4 = 16 - 16 = \mathbf{0}\) → une racine double<br>
+          b) \(\Delta = 1^2 - 4 \times 1 \times 1 = 1 - 4 = \mathbf{-3}\) → pas de racine réelle<br>
+          c) \(\Delta = (-6)^2 - 4 \times 2 \times 4 = 36 - 32 = \mathbf{4}\) → deux racines distinctes
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 2 ═══ -->
+  <div class="bloc-niveau n2">
+    <div class="bloc-niveau-header">🔵 Niveau 2 — Entraînement</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Résoudre \(x^2 - 5x + 4 = 0\).<br>
+        On a vu que \(\Delta = 9\). Calculer \(x_1\) et \(x_2\).</p>
+        <details><summary></summary>
+        <div class="corr">
+          \(\sqrt{\Delta} = \sqrt{9} = 3\)<br>
+          \(x_1 = \dfrac{-(-5) - 3}{2 \times 1} = \dfrac{5-3}{2} = \dfrac{2}{2} = \mathbf{1}\)<br>
+          \(x_2 = \dfrac{-(-5) + 3}{2 \times 1} = \dfrac{5+3}{2} = \dfrac{8}{2} = \mathbf{4}\)<br>
+          Vérification : \((1-1)(1-4) = 0\) ✓ et \((4-1)(4-4) = 0\) ✓
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Résoudre \(x^2 - 4x + 4 = 0\). Combien de solutions ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'Calculer Δ = (−4)² − 4×1×4 = 0.')">A) Deux solutions : 2 et −2</button>
+          <button class="qo" onclick="qcm(this,true,'Δ = 0 → racine double x₀ = −(−4)/(2×1) = 2')">B) Une racine double : x₀ = 2</button>
+          <button class="qo" onclick="qcm(this,false,'Δ = 0 ≥ 0, il y a bien une solution.')">C) Pas de solution réelle</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Les racines d'un trinôme sont \(x_1 = -3\) et \(x_2 = 5\), avec \(a = 1\). Écrire la forme factorisée.</p>
+        <details><summary></summary>
+        <div class="corr">
+          Forme factorisée : \(f(x) = a(x - x_1)(x - x_2)\)<br>
+          \(f(x) = 1 \times (x - (-3))(x - 5)\)<br>
+          \(\mathbf{f(x) = (x + 3)(x - 5)}\)<br>
+          Vérification : développement donne \(x^2 - 2x - 15\).
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Pour \(f(x) = x^2 + 2x + 5\), calculer Δ et conclure.</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) Δ = 4, deux solutions</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) Δ = 0, une solution</button>
+          <button class="qo" onclick="qcm(this,true,'Δ = 2²−4×1×5 = 4−20 = −16 < 0 : pas de racine réelle.')">C) Δ = −16, aucune solution</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> La parabole \(f(x) = 2(x-1)(x+3)\) coupe l'axe des x en quels points ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          La forme factorisée permet de lire directement les racines :<br>
+          \(f(x) = 0 \Leftrightarrow (x - 1) = 0\) ou \((x + 3) = 0\)<br>
+          <b>Racines : x₁ = 1 et x₂ = −3</b><br>
+          La parabole coupe l'axe des x aux points (1 ; 0) et (−3 ; 0).
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 3 ═══ -->
+  <div class="bloc-niveau n3">
+    <div class="bloc-niveau-header">🟣 Niveau 3 — Automatisation</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Résoudre complètement \(3x^2 - 6x + 3 = 0\).</p>
+        <details><summary></summary>
+        <div class="corr">
+          a=3, b=−6, c=3<br>
+          \(\Delta = (-6)^2 - 4 \times 3 \times 3 = 36 - 36 = 0\)<br>
+          Racine double : \(x_0 = \dfrac{6}{2 \times 3} = 1\)<br>
+          Forme factorisée : \(f(x) = 3(x - 1)^2\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Flash-calcul : pour chaque trinôme, donner sans calcul détaillé le nombre de solutions (0, 1 ou 2).<br>
+        a) \(x^2 - 10x + 25\) &nbsp; b) \(x^2 + x - 6\) &nbsp; c) \(x^2 + 4\)</p>
+        <details><summary></summary>
+        <div class="corr">
+          a) \(\Delta = 100 - 100 = 0\) → <b>1 solution</b> (racine double x₀ = 5)<br>
+          b) \(\Delta = 1 + 24 = 25 > 0\) → <b>2 solutions</b> (x₁ = 2, x₂ = −3)<br>
+          c) \(\Delta = 0 - 16 = -16 < 0\) → <b>0 solution</b> réelle
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Résoudre \(2x^2 + 5x - 3 = 0\).</p>
+        <details><summary></summary>
+        <div class="corr">
+          a=2, b=5, c=−3<br>
+          \(\Delta = 25 + 24 = 49\), \(\sqrt{\Delta} = 7\)<br>
+          \(x_1 = \dfrac{-5-7}{4} = \dfrac{-12}{4} = \mathbf{-3}\)<br>
+          \(x_2 = \dfrac{-5+7}{4} = \dfrac{2}{4} = \mathbf{0{,}5}\)<br>
+          Forme factorisée : \(f(x) = 2(x + 3)(x - 0{,}5)\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Une entreprise modélise son bénéfice par \(B(x) = -x^2 + 8x - 12\) où x est la quantité (en centaines) vendue. Pour quelles valeurs de x le bénéfice est-il nul ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          a=−1, b=8, c=−12<br>
+          \(\Delta = 64 - 48 = 16\), \(\sqrt{\Delta} = 4\)<br>
+          \(x_1 = \dfrac{-8-4}{-2} = \dfrac{-12}{-2} = \mathbf{6}\)<br>
+          \(x_2 = \dfrac{-8+4}{-2} = \dfrac{-4}{-2} = \mathbf{2}\)<br>
+          Le bénéfice est nul pour x = 2 (200 unités) et x = 6 (600 unités).<br>
+          <b>Le bénéfice est positif pour 2 &lt; x &lt; 6.</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Reconnaître : laquelle de ces expressions est la forme factorisée de \(x^2 - x - 6\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'Développer : (x+2)(x−3) = x²−x−6 ✓ mais vérifier l\'option D.')">A) (x − 2)(x + 3)</button>
+          <button class="qo" onclick="qcm(this,false,'(x−1)(x+6) = x²+5x−6 ≠ x²−x−6')">B) (x − 1)(x + 6)</button>
+          <button class="qo" onclick="qcm(this,false,'(x+1)(x−6) = x²−5x−6 ≠ x²−x−6')">C) (x + 1)(x − 6)</button>
+          <button class="qo" onclick="qcm(this,true,'(x+2)(x−3) = x²−3x+2x−6 = x²−x−6 ✓')">D) (x + 2)(x − 3)</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function qcm(btn, ok, expl) {
+  const opts = btn.closest('.qcm-opts');
+  opts.querySelectorAll('.qo').forEach(b => { b.disabled = true; });
+  const fb = opts.nextElementSibling;
+  if (ok) {
+    btn.classList.add('ok');
+    fb.className = 'fb ok';
+    fb.textContent = '✓ Correct ! ' + (expl || '');
+  } else {
+    btn.classList.add('ko');
+    fb.className = 'fb ko';
+    fb.textContent = '✗ Incorrect. ' + (expl || '');
+  }
+}
+</script>
+<script src="../nav.js"></script>
+</body>
+</html>

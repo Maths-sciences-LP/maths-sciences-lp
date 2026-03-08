@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Automatismes – Probabilités – Terminale Bac Pro</title>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--p:#0284c7;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);margin:0;padding:20px;line-height:1.7}
+.c{max-width:860px;margin:auto;background:#fff;padding:30px 35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:26px;padding-bottom:14px}
+.surtitre{margin:0 0 4px;color:#718096;font-size:.85em;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
+.sous-titre{margin:0;color:#718096;font-size:.88em}
+h2{font-size:1.1em;color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin:28px 0 10px}
+.nav-haut{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.nav-haut a{color:var(--p);text-decoration:none;font-size:.83em;font-weight:700;padding:5px 11px;border-radius:6px;background:#e0f2fe;border:1px solid #bae6fd;transition:.15s}
+.nav-haut a:hover{background:#bae6fd}
+/* formules */
+.fml{background:#e0f2fe;border:1.5px solid var(--p);border-radius:8px;padding:10px 18px;margin:14px 0;font-size:.94em}
+.fml ul{margin:6px 0 0;padding-left:18px}
+.fml li{margin-bottom:3px}
+/* alerte */
+.alerte{background:#fffbeb;border-left:4px solid var(--o);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9em}
+/* blocs niveau */
+.bloc-niveau{border:2px solid #e2e8f0;border-radius:10px;margin:22px 0;overflow:hidden}
+.bloc-niveau-header{padding:11px 18px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:1em;border-bottom:1px solid #e2e8f0}
+.n1 .bloc-niveau-header{background:#d1fae5;color:#065f46;border-bottom-color:#a7f3d0}
+.n2 .bloc-niveau-header{background:#dbeafe;color:#1e40af;border-bottom-color:#93c5fd}
+.n3 .bloc-niveau-header{background:#f3e8ff;color:#6d28d9;border-bottom-color:#d8b4fe}
+.bloc-niveau-body{padding:16px 18px}
+/* exercice */
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:13px 16px;margin:10px 0}
+.exo-q{margin:0 0 8px;font-weight:600;font-size:.97em}
+.exo-q .num{color:var(--p);margin-right:4px}
+details{margin-top:6px}
+details summary{cursor:pointer;color:var(--p);font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:'▸ Voir la réponse'}
+details[open] summary::before{content:'▾ Masquer la réponse'}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
+.corr b{color:#065f46}
+/* QCM */
+.qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.qo{padding:6px 16px;border-radius:6px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.9em;transition:.15s;font-family:inherit}
+.qo:hover:not(:disabled){border-color:var(--p);background:#e0f2fe}
+.qo.ok{background:#d1fae5;border-color:var(--s);color:#065f46;font-weight:700}
+.qo.ko{background:#fee2e2;border-color:var(--d);color:#991b1b}
+.qo:disabled{cursor:default}
+.fb{font-size:.85em;min-height:1.3em;font-weight:600;margin-top:3px}
+.fb.ok{color:var(--s)}.fb.ko{color:var(--d)}
+/* tableau */
+table{border-collapse:collapse;margin:10px 0;font-size:.9em;width:auto}
+th,td{border:1px solid #e2e8f0;padding:7px 14px;text-align:center}
+th{background:#eef2f7;font-weight:700}
+td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
+</style>
+</head>
+<body>
+<div class="c">
+
+  <nav class="nav-haut">
+    <a href="index.html">← Automatismes</a>
+    <a href="../maths-term-iccer.html">↗ Maths Term. ICCER</a>
+    <a href="../maths-term-erama.html">↗ Maths Term. ERA-MA</a>
+  </nav>
+
+  <header>
+    <p class="surtitre">⚡ Automatismes – Terminale Bac Pro</p>
+    <h1>🎲 Probabilités</h1>
+    <p class="sous-titre">Mise à jour : 08 mars 2026</p>
+  </header>
+
+  <div class="alerte">
+    <strong>Objectif :</strong> Répondre rapidement aux questions de probabilités : calcul, événement contraire, tableau croisé, probabilité conditionnelle. Chaque exercice doit être traité en moins de 2 minutes.
+  </div>
+
+  <div class="fml">
+    <strong>📋 Rappel des formules essentielles</strong>
+    <ul>
+      <li>\(P(A) = \dfrac{\text{nombre de cas favorables}}{\text{nombre de cas possibles}}\)</li>
+      <li>Événement contraire : \(P(\bar{A}) = 1 - P(A)\)</li>
+      <li>Réunion : \(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</li>
+      <li>Événements incompatibles : \(P(A \cap B) = 0 \Rightarrow P(A \cup B) = P(A) + P(B)\)</li>
+      <li>Probabilité conditionnelle : \(P(B|A) = \dfrac{P(A \cap B)}{P(A)}\)</li>
+    </ul>
+  </div>
+
+  <!-- ═══ NIVEAU 1 ═══ -->
+  <div class="bloc-niveau n1">
+    <div class="bloc-niveau-header">🟢 Niveau 1 — Bases</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> On lance un dé à 6 faces numérotées de 1 à 6. Quelle est la probabilité d'obtenir le 3 ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'Il y a 1 cas favorable sur 6 cas possibles.')">A) 1/3</button>
+          <button class="qo" onclick="qcm(this,true,'1 seul résultat favorable (le 3) sur 6 résultats possibles.')">B) 1/6</button>
+          <button class="qo" onclick="qcm(this,false,'3/6 serait la probabilité d\'obtenir un nombre ≤ 3.')">C) 3/6</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 1/2</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> P(A) = 0,35. Quelle est la probabilité de l'événement contraire \(\bar{A}\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'P(Ā) = 1 − P(A), pas 1 + P(A).')">A) 1,35</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 0,35</button>
+          <button class="qo" onclick="qcm(this,true,'P(Ā) = 1 − 0,35 = 0,65')">C) 0,65</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 0,5</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Dans une classe de 25 élèves, 10 portent des lunettes. Un élève est tiré au sort. Quelle est la probabilité qu'il porte des lunettes ?</p>
+        <details><summary></summary>
+        <div class="corr">\(P = \dfrac{10}{25} = \dfrac{2}{5} = 0{,}4\)<br>Il y a 10 cas favorables (portent des lunettes) sur 25 cas possibles (total élèves).</div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Un événement certain a une probabilité égale à…</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'0 est la probabilité d\'un événement impossible.')">A) 0</button>
+          <button class="qo" onclick="qcm(this,true,'Un événement certain se réalise toujours : P = 1.')">B) 1</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 0,5</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 100</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> On tire une carte dans un jeu de 52 cartes. Quelle est la probabilité de tirer un as ? (Il y a 4 as dans le jeu.)</p>
+        <details><summary></summary>
+        <div class="corr">\(P(\text{as}) = \dfrac{4}{52} = \dfrac{1}{13} \approx 0{,}077\)<br>4 cas favorables (4 as) sur 52 cas possibles (52 cartes).</div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q6.</span> La probabilité qu'il pleut demain est 0,7. Quelle est la probabilité qu'il ne pleuve pas ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,true,'P(pas pluie) = 1 − 0,7 = 0,3')">A) 0,3</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 0,7</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 1,7</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 0,07</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 2 ═══ -->
+  <div class="bloc-niveau n2">
+    <div class="bloc-niveau-header">🔵 Niveau 2 — Entraînement</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> P(A) = 0,4 et P(B) = 0,3. Les événements A et B sont <strong>incompatibles</strong>. Calculer P(A ∪ B).</p>
+        <details><summary></summary>
+        <div class="corr">A et B incompatibles ⟹ \(P(A \cap B) = 0\)<br>\(P(A \cup B) = P(A) + P(B) = 0{,}4 + 0{,}3 = \mathbf{0{,}7}\)</div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> P(A) = 0,6, P(B) = 0,5, P(A ∩ B) = 0,2. Calculer P(A ∪ B).</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'Il faut soustraire P(A ∩ B) pour ne pas compter deux fois.')">A) 1,1</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 0,8</button>
+          <button class="qo" onclick="qcm(this,true,'P(A∪B) = 0,6 + 0,5 − 0,2 = 0,9')">C) 0,9</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 0,7</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Lisez ce tableau et répondez :</p>
+        <table>
+          <tr><th></th><th>Sport</th><th>Pas de sport</th><th>Total</th></tr>
+          <tr><td class="th-row">Garçons</td><td>28</td><td>17</td><td>45</td></tr>
+          <tr><td class="th-row">Filles</td><td>32</td><td>23</td><td>55</td></tr>
+          <tr><td class="th-row">Total</td><td>60</td><td>40</td><td>100</td></tr>
+        </table>
+        <p style="margin:6px 0 4px;font-size:.92em;">a) P(Garçon) = ?&nbsp;&nbsp; b) P(Sport) = ?&nbsp;&nbsp; c) P(Garçon et Sport) = ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          a) \(P(\text{Garçon}) = \dfrac{45}{100} = 0{,}45\)<br>
+          b) \(P(\text{Sport}) = \dfrac{60}{100} = 0{,}6\)<br>
+          c) \(P(\text{Garçon} \cap \text{Sport}) = \dfrac{28}{100} = 0{,}28\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Un sac contient 4 boules rouges, 3 bleues et 3 vertes. On tire une boule au hasard. Calculer P(rouge) et P(non rouge).</p>
+        <details><summary></summary>
+        <div class="corr">
+          Total : 4 + 3 + 3 = 10 boules<br>
+          \(P(\text{rouge}) = \dfrac{4}{10} = 0{,}4\)<br>
+          \(P(\text{non rouge}) = 1 - 0{,}4 = 0{,}6\) &nbsp; (ou \(\dfrac{6}{10}\))
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Deux événements A et B sont incompatibles si :</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,true,'Incompatibles = ne peuvent pas se réaliser en même temps ⟹ P(A∩B) = 0.')">A) P(A ∩ B) = 0</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) P(A) = P(B)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) P(A ∪ B) = 1</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) P(A) × P(B) = 0</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q6.</span> Dans une usine, 3 % des pièces sont défectueuses. On prend une pièce au hasard. Quelle est la probabilité qu'elle soit <em>conforme</em> ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 0,03</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 3</button>
+          <button class="qo" onclick="qcm(this,true,'P(conforme) = 1 − P(défectueuse) = 1 − 0,03 = 0,97')">C) 0,97</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 0,3</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 3 ═══ -->
+  <div class="bloc-niveau n3">
+    <div class="bloc-niveau-header">🟣 Niveau 3 — Automatisation</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> P(A ∩ B) = 0,15 et P(A) = 0,5. Calculer P(B|A), la probabilité de B sachant A.</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,true,'P(B|A) = P(A∩B)/P(A) = 0,15/0,5 = 0,3')">A) 0,3</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 0,075</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 0,65</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 3</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> P(A) = 0,6 et P(B|A) = 0,5. Calculer P(A ∩ B).</p>
+        <details><summary></summary>
+        <div class="corr">
+          On utilise la formule : \(P(A \cap B) = P(A) \times P(B|A)\)<br>
+          \(P(A \cap B) = 0{,}6 \times 0{,}5 = \mathbf{0{,}3}\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Lisez le tableau, puis calculer P(Positif | Malade).</p>
+        <table>
+          <tr><th></th><th>Malade</th><th>Non malade</th><th>Total</th></tr>
+          <tr><td class="th-row">Test positif</td><td>45</td><td>5</td><td>50</td></tr>
+          <tr><td class="th-row">Test négatif</td><td>5</td><td>45</td><td>50</td></tr>
+          <tr><td class="th-row">Total</td><td>50</td><td>50</td><td>100</td></tr>
+        </table>
+        <details><summary></summary>
+        <div class="corr">
+          P(Positif | Malade) = probabilité d'être positif <em>parmi les malades</em><br>
+          \(P(\text{Positif} | \text{Malade}) = \dfrac{P(\text{Positif} \cap \text{Malade})}{P(\text{Malade})} = \dfrac{45/100}{50/100} = \dfrac{45}{50} = 0{,}9\)<br>
+          <b>Ce test détecte correctement 90 % des malades.</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> 70 % des clients d'un magasin achètent. Parmi ceux qui achètent, 40 % paient par carte. Quelle est la probabilité qu'un client achète <em>et</em> paie par carte ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 0,44</button>
+          <button class="qo" onclick="qcm(this,true,'P(achète ∩ carte) = 0,7 × 0,4 = 0,28')">B) 0,28</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 0,11</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 1,1</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> On tire une carte dans un jeu de 52 cartes. Événement A : cœur. Événement B : figure (valet, dame, roi). Calculer P(A), P(B) et P(A ∩ B). Sont-ils incompatibles ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          Il y a 13 cœurs, 12 figures (4 × 3), 3 figures de cœur (valet, dame, roi de cœur).<br>
+          \(P(A) = \dfrac{13}{52} = \dfrac{1}{4}\) &nbsp;|&nbsp; \(P(B) = \dfrac{12}{52} = \dfrac{3}{13}\) &nbsp;|&nbsp; \(P(A \cap B) = \dfrac{3}{52}\)<br>
+          <b>Non incompatibles</b> car \(P(A \cap B) \neq 0\) (on peut tirer une figure de cœur).
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q6.</span> Flash-calcul : donnez immédiatement P(Ā) pour chaque valeur de P(A).<br>
+        a) P(A) = 0,2 &nbsp;&nbsp; b) P(A) = 3/4 &nbsp;&nbsp; c) P(A) = 0,08 &nbsp;&nbsp; d) P(A) = 1</p>
+        <details><summary></summary>
+        <div class="corr">
+          a) \(P(\bar{A}) = 1 - 0{,}2 = \mathbf{0{,}8}\)<br>
+          b) \(P(\bar{A}) = 1 - \dfrac{3}{4} = \mathbf{\dfrac{1}{4}}\)<br>
+          c) \(P(\bar{A}) = 1 - 0{,}08 = \mathbf{0{,}92}\)<br>
+          d) \(P(\bar{A}) = 1 - 1 = \mathbf{0}\) &nbsp; (A est certain, Ā est impossible)
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function qcm(btn, ok, expl) {
+  const opts = btn.closest('.qcm-opts');
+  opts.querySelectorAll('.qo').forEach(b => { b.disabled = true; });
+  const fb = opts.nextElementSibling;
+  if (ok) {
+    btn.classList.add('ok');
+    fb.className = 'fb ok';
+    fb.textContent = '✓ Correct ! ' + (expl || '');
+  } else {
+    btn.classList.add('ko');
+    fb.className = 'fb ko';
+    fb.textContent = '✗ Incorrect. ' + (expl || '');
+  }
+}
+</script>
+<script src="../nav.js"></script>
+</body>
+</html>

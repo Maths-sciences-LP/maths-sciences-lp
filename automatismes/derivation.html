@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Automatismes – Dérivation – Terminale Bac Pro</title>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--p:#dc2626;--s:#2f855a;--d:#7c2d12;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);margin:0;padding:20px;line-height:1.7}
+.c{max-width:860px;margin:auto;background:#fff;padding:30px 35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:26px;padding-bottom:14px}
+.surtitre{margin:0 0 4px;color:#718096;font-size:.85em;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
+.sous-titre{margin:0;color:#718096;font-size:.88em}
+.nav-haut{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.nav-haut a{color:#991b1b;text-decoration:none;font-size:.83em;font-weight:700;padding:5px 11px;border-radius:6px;background:#fee2e2;border:1px solid #fecaca;transition:.15s}
+.nav-haut a:hover{background:#fecaca}
+.fml{background:#fef2f2;border:1.5px solid var(--p);border-radius:8px;padding:12px 18px;margin:14px 0;font-size:.94em}
+.fml-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px}
+@media(max-width:560px){.fml-grid{grid-template-columns:1fr}}
+.fml-row{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:5px 0;border-bottom:1px solid #fecaca;align-items:center;font-size:.93em}
+.fml-row:last-child{border-bottom:none}
+.fml-f{font-weight:600;color:#7c2d12}
+.fml-df{color:#1e40af}
+.alerte{background:#fffbeb;border-left:4px solid var(--o);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9em}
+.bloc-niveau{border:2px solid #e2e8f0;border-radius:10px;margin:22px 0;overflow:hidden}
+.bloc-niveau-header{padding:11px 18px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:1em;border-bottom:1px solid #e2e8f0}
+.n1 .bloc-niveau-header{background:#d1fae5;color:#065f46;border-bottom-color:#a7f3d0}
+.n2 .bloc-niveau-header{background:#dbeafe;color:#1e40af;border-bottom-color:#93c5fd}
+.n3 .bloc-niveau-header{background:#f3e8ff;color:#6d28d9;border-bottom-color:#d8b4fe}
+.bloc-niveau-body{padding:16px 18px}
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:13px 16px;margin:10px 0}
+.exo-q{margin:0 0 8px;font-weight:600;font-size:.97em}
+.exo-q .num{color:var(--p);margin-right:4px}
+details{margin-top:6px}
+details summary{cursor:pointer;color:#991b1b;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:'▸ Voir la réponse'}
+details[open] summary::before{content:'▾ Masquer la réponse'}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
+.corr b{color:#065f46}
+.qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.qo{padding:6px 16px;border-radius:6px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.9em;transition:.15s;font-family:inherit}
+.qo:hover:not(:disabled){border-color:var(--p);background:#fef2f2}
+.qo.ok{background:#d1fae5;border-color:var(--s);color:#065f46;font-weight:700}
+.qo.ko{background:#fee2e2;border-color:var(--p);color:#991b1b}
+.qo:disabled{cursor:default}
+.fb{font-size:.85em;min-height:1.3em;font-weight:600;margin-top:3px}
+.fb.ok{color:var(--s)}.fb.ko{color:var(--p)}
+</style>
+</head>
+<body>
+<div class="c">
+
+  <nav class="nav-haut">
+    <a href="index.html">← Automatismes</a>
+    <a href="../maths-term-iccer.html">↗ Maths Term. ICCER</a>
+    <a href="../maths-term-erama.html">↗ Maths Term. ERA-MA</a>
+  </nav>
+
+  <header>
+    <p class="surtitre">⚡ Automatismes – Terminale Bac Pro</p>
+    <h1>📉 Dérivation</h1>
+    <p class="sous-titre">Mise à jour : 08 mars 2026</p>
+  </header>
+
+  <div class="alerte">
+    <strong>Objectif :</strong> Calculer instantanément la dérivée d'une fonction polynôme, reconnaître une dérivée dans un QCM, calculer f'(a) et interpréter le signe de f'.
+  </div>
+
+  <div class="fml">
+    <strong>📋 Tableau des dérivées à connaître</strong>
+    <div class="fml-grid" style="margin-top:10px">
+      <div class="fml-row"><span class="fml-f">\(f(x) = c\) (constante)</span><span class="fml-df">\(f'(x) = 0\)</span></div>
+      <div class="fml-row"><span class="fml-f">\(f(x) = x\)</span><span class="fml-df">\(f'(x) = 1\)</span></div>
+      <div class="fml-row"><span class="fml-f">\(f(x) = x^2\)</span><span class="fml-df">\(f'(x) = 2x\)</span></div>
+      <div class="fml-row"><span class="fml-f">\(f(x) = x^3\)</span><span class="fml-df">\(f'(x) = 3x^2\)</span></div>
+      <div class="fml-row"><span class="fml-f">\(f(x) = x^n\)</span><span class="fml-df">\(f'(x) = nx^{n-1}\)</span></div>
+      <div class="fml-row"><span class="fml-f">\(f(x) = ax\)</span><span class="fml-df">\(f'(x) = a\)</span></div>
+    </div>
+    <p style="margin:8px 0 0;font-size:.9em;color:#7c2d12"><strong>Règle d'addition :</strong> \((u + v)' = u' + v'\) &nbsp;|&nbsp; \((ku)' = k \cdot u'\)</p>
+  </div>
+
+  <!-- ═══ NIVEAU 1 ═══ -->
+  <div class="bloc-niveau n1">
+    <div class="bloc-niveau-header">🟢 Niveau 1 — Bases</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Quelle est la dérivée de \(f(x) = x^2\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(f'(x) = x\)</button>
+          <button class="qo" onclick="qcm(this,true,'Règle : (xⁿ)′ = n·xⁿ⁻¹, donc (x²)′ = 2x.')">B) \(f'(x) = 2x\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(f'(x) = 2\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(f'(x) = x^3\)</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Quelle est la dérivée de \(f(x) = 7\) (une constante) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(f'(x) = 7\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) \(f'(x) = 1\)</button>
+          <button class="qo" onclick="qcm(this,true,'La dérivée de toute constante est 0 : la droite y=7 est horizontale, sa pente est nulle.')">C) \(f'(x) = 0\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(f'(x) = 7x\)</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Dériver \(f(x) = 3x\).</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(f'(x) = 3x^2\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) \(f'(x) = x\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(f'(x) = 0\)</button>
+          <button class="qo" onclick="qcm(this,true,'(ax)′ = a, donc (3x)′ = 3.')">D) \(f'(x) = 3\)</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Dériver \(f(x) = 5x^2\).</p>
+        <details><summary></summary>
+        <div class="corr">
+          \((5x^2)' = 5 \times (x^2)' = 5 \times 2x\)<br>
+          \(\mathbf{f'(x) = 10x}\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : dériver mentalement chaque fonction.<br>
+        a) \(f(x) = x^3\) &nbsp;&nbsp; b) \(f(x) = 4x\) &nbsp;&nbsp; c) \(f(x) = 2x^2\) &nbsp;&nbsp; d) \(f(x) = 10\)</p>
+        <details><summary></summary>
+        <div class="corr">
+          a) \(f'(x) = 3x^2\)<br>
+          b) \(f'(x) = 4\)<br>
+          c) \(f'(x) = 4x\)<br>
+          d) \(f'(x) = 0\)
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 2 ═══ -->
+  <div class="bloc-niveau n2">
+    <div class="bloc-niveau-header">🔵 Niveau 2 — Entraînement</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Dériver \(f(x) = 3x^2 + 2x - 1\).</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(f'(x) = 3x + 2\)</button>
+          <button class="qo" onclick="qcm(this,true,'(3x²)′=6x, (2x)′=2, (−1)′=0 → f′(x) = 6x+2')">B) \(f'(x) = 6x + 2\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(f'(x) = 6x - 1\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(f'(x) = 6x\)</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Dériver \(g(x) = x^3 - 4x + 5\).</p>
+        <details><summary></summary>
+        <div class="corr">
+          \((x^3)' = 3x^2\) &nbsp; \((-4x)' = -4\) &nbsp; \((5)' = 0\)<br>
+          \(\mathbf{g'(x) = 3x^2 - 4}\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Calculer f'(2) pour \(f(x) = 3x^2 + 2x - 1\).<br>(On a trouvé \(f'(x) = 6x + 2\) ci-dessus.)</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) f′(2) = 10</button>
+          <button class="qo" onclick="qcm(this,true,'f′(2) = 6×2 + 2 = 12 + 2 = 14')">B) f′(2) = 14</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) f′(2) = 8</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) f′(2) = 16</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Parmi les propositions, laquelle est la dérivée de \(f(x) = 4x^3 - x^2 + 3\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(12x^2 - 2x + 3\)</button>
+          <button class="qo" onclick="qcm(this,true,'(4x³)′=12x², (x²)′=2x, (3)′=0 → 12x²−2x')">B) \(12x^2 - 2x\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(4x^2 - x\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(12x^3 - 2x\)</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : dériver rapidement chaque fonction.<br>
+        a) \(f(x) = x^2 - 5x + 4\) &nbsp;&nbsp; b) \(f(x) = 2x^3 + 3x\) &nbsp;&nbsp; c) \(f(x) = -x^2 + 4\)</p>
+        <details><summary></summary>
+        <div class="corr">
+          a) \(f'(x) = 2x - 5\)<br>
+          b) \(f'(x) = 6x^2 + 3\)<br>
+          c) \(f'(x) = -2x\)
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 3 ═══ -->
+  <div class="bloc-niveau n3">
+    <div class="bloc-niveau-header">🟣 Niveau 3 — Automatisation</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> \(f(x) = x^2 - 4x + 3\). Calculer f'(x), puis déterminer le signe de f'(x). Que peut-on en déduire sur les variations de f ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          \(f'(x) = 2x - 4\)<br>
+          \(f'(x) = 0 \Rightarrow 2x - 4 = 0 \Rightarrow x = 2\)<br>
+          <b>f'(x) &lt; 0 pour x &lt; 2 : f est décroissante</b> sur ] −∞ ; 2 [<br>
+          <b>f'(x) &gt; 0 pour x &gt; 2 : f est croissante</b> sur ] 2 ; +∞ [<br>
+          x = 2 est le <b>minimum</b> de f.
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Pour \(g(x) = -2x^2 + 8x\), calculer g'(x) et trouver la valeur de x pour laquelle g'(x) = 0. Que représente ce point ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          \(g'(x) = -4x + 8\)<br>
+          \(g'(x) = 0 \Rightarrow -4x + 8 = 0 \Rightarrow x = 2\)<br>
+          En x = 2 : g(2) = −8 + 16 = 8<br>
+          <b>Ce point est le maximum de g</b> (car a = −2 &lt; 0, la parabole est tournée vers le bas).
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> On sait que \(f'(x) = 3x^2 - 6\). Pour quelle(s) valeur(s) de x est-on en x = 0 pour f' (c'est-à-dire f'(x) = 0) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) x = 0</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) x = 2 seulement</button>
+          <button class="qo" onclick="qcm(this,true,'3x²=6 → x²=2 → x=√2≈1,41 ou x=−√2≈−1,41')">C) \(x = \sqrt{2}\) et \(x = -\sqrt{2}\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) x = 6</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Flash-dérivation : donner f'(x) puis calculer f'(0) et f'(1) pour :<br>
+        a) \(f(x) = 2x^2 - 3x + 1\) &nbsp;&nbsp; b) \(f(x) = x^3 - x\)</p>
+        <details><summary></summary>
+        <div class="corr">
+          <b>a)</b> \(f'(x) = 4x - 3\)<br>
+          \(f'(0) = -3\) &nbsp; \(f'(1) = 4 - 3 = 1\)<br><br>
+          <b>b)</b> \(f'(x) = 3x^2 - 1\)<br>
+          \(f'(0) = -1\) &nbsp; \(f'(1) = 3 - 1 = 2\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Reconnaître. Quelle fonction a pour dérivée \(f'(x) = 6x - 4\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'Dériver 6x²−4x donne 12x−4 ≠ 6x−4.')">A) \(f(x) = 6x^2 - 4x\)</button>
+          <button class="qo" onclick="qcm(this,false,'Dériver x²−4 donne 2x ≠ 6x−4.')">B) \(f(x) = x^2 - 4\)</button>
+          <button class="qo" onclick="qcm(this,true,'Dériver 3x²−4x+7 donne 6x−4. ✓')">C) \(f(x) = 3x^2 - 4x + 7\)</button>
+          <button class="qo" onclick="qcm(this,false,'Dériver 3x²+7 donne 6x ≠ 6x−4.')">D) \(f(x) = 3x^2 + 7\)</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function qcm(btn, ok, expl) {
+  const opts = btn.closest('.qcm-opts');
+  opts.querySelectorAll('.qo').forEach(b => { b.disabled = true; });
+  const fb = opts.nextElementSibling;
+  if (ok) {
+    btn.classList.add('ok');
+    fb.className = 'fb ok';
+    fb.textContent = '✓ Correct ! ' + (expl || '');
+  } else {
+    btn.classList.add('ko');
+    fb.className = 'fb ko';
+    fb.textContent = '✗ Incorrect. ' + (expl || '');
+  }
+}
+</script>
+<script src="../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Automatismes – Terminale Bac Professionnel</title>
+<style>
+:root{--p:#0969da;--s:#2f855a;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);margin:0;padding:20px;line-height:1.6}
+.c{max-width:900px;margin:auto}
+
+/* Header */
+header{background:linear-gradient(135deg,#0f3460,#0969da);color:#fff;padding:30px 35px;border-radius:14px;margin-bottom:28px;text-align:center}
+header h1{margin:0 0 6px;font-size:1.9em;letter-spacing:-0.5px}
+header p{margin:0;opacity:.85;font-size:.95em}
+.date{margin-top:8px;opacity:.7;font-size:.85em}
+
+/* Nav */
+.nav-haut{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.nav-haut a{color:var(--p);text-decoration:none;font-size:.85em;font-weight:700;padding:6px 12px;border-radius:6px;background:#ebf5ff;border:1px solid #bfdbfe;transition:.15s}
+.nav-haut a:hover{background:#dbeafe}
+
+/* Pourquoi section */
+.pourquoi{background:#fff;border-radius:12px;padding:22px 28px;border:1px solid #e2e8f0;margin-bottom:26px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.pourquoi h2{margin:0 0 12px;color:var(--p);font-size:1.1em;border-left:4px solid var(--p);padding-left:10px}
+.pourquoi ul{margin:0 0 0 18px;padding:0}
+.pourquoi li{margin-bottom:6px;font-size:.95em}
+.conseil{background:#fffbeb;border-left:4px solid #d97706;padding:10px 14px;border-radius:0 8px 8px 0;font-size:.9em;margin-top:12px}
+
+/* Cartes thèmes */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-bottom:30px}
+.card{background:#fff;border-radius:12px;padding:22px 20px;border:2px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;flex-direction:column;justify-content:space-between;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.card-icon{font-size:2.2em;margin-bottom:10px}
+.card h3{margin:0 0 8px;font-size:1.05em}
+.card p{margin:0 0 16px;font-size:.87em;color:#718096;flex-grow:1;line-height:1.5}
+.card a{display:block;text-align:center;padding:9px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.9em;color:#fff;transition:opacity .15s}
+.card a:hover{opacity:.87}
+
+/* Couleurs par thème */
+.th-proba{border-color:#bae6fd}.th-proba h3{color:#0284c7}.th-proba a{background:#0284c7}
+.th-suites{border-color:#bbf7d0}.th-suites h3{color:#16a34a}.th-suites a{background:#16a34a}
+.th-poly{border-color:#fed7aa}.th-poly h3{color:#d97706}.th-poly a{background:#d97706}
+.th-deriv{border-color:#fecaca}.th-deriv h3{color:#dc2626}.th-deriv a{background:#dc2626}
+.th-vect{border-color:#e9d5ff}.th-vect h3{color:#7c3aed}.th-vect a{background:#7c3aed}
+
+/* Badges niveaux */
+.niveaux{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;margin-bottom:10px}
+.nbadge{font-size:.72em;padding:2px 9px;border-radius:12px;font-weight:700}
+.n1{background:#d1fae5;color:#065f46}
+.n2{background:#dbeafe;color:#1e40af}
+.n3{background:#f3e8ff;color:#6d28d9}
+
+/* Comment utiliser */
+.howto{background:#fff;border-radius:12px;padding:22px 28px;border:1px solid #e2e8f0;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.howto h2{margin:0 0 14px;color:var(--p);font-size:1.1em;border-left:4px solid var(--p);padding-left:10px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.step{background:#f8fafc;border-radius:8px;padding:12px;text-align:center;border:1px solid #e2e8f0}
+.step-num{font-size:1.6em;font-weight:900;color:var(--p);display:block}
+.step-txt{font-size:.85em;margin-top:4px;color:#4a5568}
+</style>
+</head>
+<body>
+<div class="c">
+
+  <nav class="nav-haut">
+    <a href="../index.html">← Accueil du site</a>
+    <a href="../maths-term-iccer.html">↗ Maths Term. ICCER</a>
+    <a href="../maths-term-erama.html">↗ Maths Term. ERA-MA</a>
+  </nav>
+
+  <header>
+    <div style="font-size:2.4em;margin-bottom:8px">⚡</div>
+    <h1>Automatismes – Mathématiques</h1>
+    <p>Terminale Bac Professionnel – Groupements A, B et C</p>
+    <div class="date">Mise à jour : 08 mars 2026</div>
+  </header>
+
+  <!-- Pourquoi -->
+  <div class="pourquoi">
+    <h2>Pourquoi s'entraîner aux automatismes ?</h2>
+    <ul>
+      <li><strong>Gagner du temps</strong> lors des épreuves en reconnaissant immédiatement les situations classiques.</li>
+      <li><strong>Consolider les bases</strong> : certains calculs doivent devenir des réflexes.</li>
+      <li><strong>Progresser régulièrement</strong> avec des séances courtes et fréquentes plutôt qu'une longue révision rare.</li>
+      <li><strong>Réduire les erreurs</strong> sur des calculs simples qui peuvent coûter des points.</li>
+    </ul>
+    <div class="conseil">
+      💡 <strong>Conseil d'utilisation :</strong> Travaillez un thème par séance, 10 à 15 minutes. Essayez de répondre sans aide avant de vérifier. Recommencez les questions ratées.
+    </div>
+  </div>
+
+  <!-- Cartes thèmes -->
+  <h2 style="color:var(--p);font-size:1.15em;border-left:4px solid var(--p);padding-left:10px;margin:0 0 16px">Les 5 thèmes d'automatismes</h2>
+  <div class="grid">
+
+    <div class="card th-proba">
+      <div>
+        <div class="card-icon">🎲</div>
+        <h3>Probabilités</h3>
+        <p>Calculer une probabilité, utiliser l'événement contraire, lire un tableau croisé, probabilités conditionnelles.</p>
+        <div class="niveaux">
+          <span class="nbadge n1">Bases</span>
+          <span class="nbadge n2">Entraînement</span>
+          <span class="nbadge n3">Automatisation</span>
+        </div>
+      </div>
+      <a href="probabilites.html">S'entraîner →</a>
+    </div>
+
+    <div class="card th-suites">
+      <div>
+        <div class="card-icon">📈</div>
+        <h3>Suites</h3>
+        <p>Calculer un terme d'une suite arithmétique, interpréter une évolution, reconnaître la raison.</p>
+        <div class="niveaux">
+          <span class="nbadge n1">Bases</span>
+          <span class="nbadge n2">Entraînement</span>
+          <span class="nbadge n3">Automatisation</span>
+        </div>
+      </div>
+      <a href="suites.html">S'entraîner →</a>
+    </div>
+
+    <div class="card th-poly">
+      <div>
+        <div class="card-icon">📐</div>
+        <h3>Fonctions polynômes du 2nd degré</h3>
+        <p>Calculer le discriminant, trouver les racines, lire graphiquement, écrire la forme factorisée.</p>
+        <div class="niveaux">
+          <span class="nbadge n1">Bases</span>
+          <span class="nbadge n2">Entraînement</span>
+          <span class="nbadge n3">Automatisation</span>
+        </div>
+      </div>
+      <a href="polynomes.html">S'entraîner →</a>
+    </div>
+
+    <div class="card th-deriv">
+      <div>
+        <div class="card-icon">📉</div>
+        <h3>Dérivation</h3>
+        <p>Dériver une fonction polynôme, reconnaître la dérivée, calculer f'(a), étudier les variations.</p>
+        <div class="niveaux">
+          <span class="nbadge n1">Bases</span>
+          <span class="nbadge n2">Entraînement</span>
+          <span class="nbadge n3">Automatisation</span>
+        </div>
+      </div>
+      <a href="derivation.html">S'entraîner →</a>
+    </div>
+
+    <div class="card th-vect">
+      <div>
+        <div class="card-icon">🧭</div>
+        <h3>Vecteurs</h3>
+        <p>Coordonnées d'un vecteur, somme de vecteurs, produit par un réel, relation de Chasles.</p>
+        <div class="niveaux">
+          <span class="nbadge n1">Bases</span>
+          <span class="nbadge n2">Entraînement</span>
+          <span class="nbadge n3">Automatisation</span>
+        </div>
+      </div>
+      <a href="vecteurs.html">S'entraîner →</a>
+    </div>
+
+  </div>
+
+  <!-- Comment utiliser -->
+  <div class="howto">
+    <h2>Comment utiliser cette section ?</h2>
+    <div class="steps">
+      <div class="step"><span class="step-num">①</span><div class="step-txt">Choisissez un thème et commencez par le <strong>Niveau 1</strong>.</div></div>
+      <div class="step"><span class="step-num">②</span><div class="step-txt">Répondez <strong>sans regarder</strong> la correction. Notez mentalement vos réponses.</div></div>
+      <div class="step"><span class="step-num">③</span><div class="step-txt">Vérifiez avec le bouton <em>"Voir la réponse"</em> ou en cliquant sur le QCM.</div></div>
+      <div class="step"><span class="step-num">④</span><div class="step-txt"><strong>Recommencez</strong> les exercices ratés lors d'une prochaine séance.</div></div>
+    </div>
+  </div>
+
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Automatismes – Suites – Terminale Bac Pro</title>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--p:#16a34a;--s:#0969da;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);margin:0;padding:20px;line-height:1.7}
+.c{max-width:860px;margin:auto;background:#fff;padding:30px 35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:26px;padding-bottom:14px}
+.surtitre{margin:0 0 4px;color:#718096;font-size:.85em;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
+.sous-titre{margin:0;color:#718096;font-size:.88em}
+.nav-haut{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.nav-haut a{color:var(--p);text-decoration:none;font-size:.83em;font-weight:700;padding:5px 11px;border-radius:6px;background:#dcfce7;border:1px solid #bbf7d0;transition:.15s}
+.nav-haut a:hover{background:#bbf7d0}
+.fml{background:#dcfce7;border:1.5px solid var(--p);border-radius:8px;padding:10px 18px;margin:14px 0;font-size:.94em}
+.fml ul{margin:6px 0 0;padding-left:18px}
+.fml li{margin-bottom:3px}
+.alerte{background:#fffbeb;border-left:4px solid var(--o);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9em}
+.bloc-niveau{border:2px solid #e2e8f0;border-radius:10px;margin:22px 0;overflow:hidden}
+.bloc-niveau-header{padding:11px 18px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:1em;border-bottom:1px solid #e2e8f0}
+.n1 .bloc-niveau-header{background:#d1fae5;color:#065f46;border-bottom-color:#a7f3d0}
+.n2 .bloc-niveau-header{background:#dbeafe;color:#1e40af;border-bottom-color:#93c5fd}
+.n3 .bloc-niveau-header{background:#f3e8ff;color:#6d28d9;border-bottom-color:#d8b4fe}
+.bloc-niveau-body{padding:16px 18px}
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:13px 16px;margin:10px 0}
+.exo-q{margin:0 0 8px;font-weight:600;font-size:.97em}
+.exo-q .num{color:var(--p);margin-right:4px}
+details{margin-top:6px}
+details summary{cursor:pointer;color:var(--p);font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:'▸ Voir la réponse'}
+details[open] summary::before{content:'▾ Masquer la réponse'}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
+.corr b{color:#065f46}
+.qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.qo{padding:6px 16px;border-radius:6px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.9em;transition:.15s;font-family:inherit}
+.qo:hover:not(:disabled){border-color:var(--p);background:#dcfce7}
+.qo.ok{background:#d1fae5;border-color:var(--p);color:#065f46;font-weight:700}
+.qo.ko{background:#fee2e2;border-color:var(--d);color:#991b1b}
+.qo:disabled{cursor:default}
+.fb{font-size:.85em;min-height:1.3em;font-weight:600;margin-top:3px}
+.fb.ok{color:var(--p)}.fb.ko{color:var(--d)}
+table{border-collapse:collapse;margin:10px 0;font-size:.9em}
+th,td{border:1px solid #e2e8f0;padding:7px 14px;text-align:center}
+th{background:#eef2f7;font-weight:700}
+</style>
+</head>
+<body>
+<div class="c">
+
+  <nav class="nav-haut">
+    <a href="index.html">← Automatismes</a>
+    <a href="../maths-term-iccer.html">↗ Maths Term. ICCER</a>
+    <a href="../maths-term-erama.html">↗ Maths Term. ERA-MA</a>
+  </nav>
+
+  <header>
+    <p class="surtitre">⚡ Automatismes – Terminale Bac Pro</p>
+    <h1>📈 Suites</h1>
+    <p class="sous-titre">Mise à jour : 08 mars 2026</p>
+  </header>
+
+  <div class="alerte">
+    <strong>Objectif :</strong> Calculer rapidement des termes de suites arithmétiques, identifier la raison, interpréter une évolution. Objectif : réponse en moins de 90 secondes par question.
+  </div>
+
+  <div class="fml">
+    <strong>📋 Rappel des formules essentielles</strong>
+    <ul>
+      <li>Suite arithmétique de raison r et de premier terme \(u_0\) : \(u_n = u_0 + n \times r\)</li>
+      <li>Terme suivant : \(u_{n+1} = u_n + r\)</li>
+      <li>Raison : \(r = u_{n+1} - u_n\) (différence entre deux termes consécutifs)</li>
+      <li>Somme des n+1 premiers termes : \(S = (n+1) \times \dfrac{u_0 + u_n}{2}\)</li>
+    </ul>
+  </div>
+
+  <!-- ═══ NIVEAU 1 ═══ -->
+  <div class="bloc-niveau n1">
+    <div class="bloc-niveau-header">🟢 Niveau 1 — Bases</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Une suite arithmétique a pour premier terme \(u_0 = 5\) et pour raison \(r = 3\). Quel est \(u_1\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 3</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 5</button>
+          <button class="qo" onclick="qcm(this,true,'u₁ = u₀ + r = 5 + 3 = 8')">C) 8</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 15</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> La suite 2 ; 5 ; 8 ; 11 ; … est-elle arithmétique ? Si oui, quelle est sa raison ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) Non arithmétique</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) Oui, r = 2</button>
+          <button class="qo" onclick="qcm(this,true,'5−2=3, 8−5=3, 11−8=3. La différence est constante : r = 3.')">C) Oui, r = 3</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) Oui, r = 5</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Suite arithmétique : \(u_0 = 10\), \(r = -2\). Écrire les 4 premiers termes : \(u_0, u_1, u_2, u_3\).</p>
+        <details><summary></summary>
+        <div class="corr">
+          \(u_0 = 10\)<br>
+          \(u_1 = 10 + (-2) = 8\)<br>
+          \(u_2 = 8 + (-2) = 6\)<br>
+          \(u_3 = 6 + (-2) = 4\)<br>
+          <b>La suite est décroissante car r &lt; 0.</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> \(u_0 = 3\), \(r = 4\). Calculer directement \(u_5\) avec la formule \(u_n = u_0 + n \times r\).</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 15</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 20</button>
+          <button class="qo" onclick="qcm(this,true,'u₅ = 3 + 5 × 4 = 3 + 20 = 23')">C) 23</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 27</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Une suite est <strong>croissante</strong> si sa raison est…</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'r négatif donne une suite décroissante.')">A) Négative</button>
+          <button class="qo" onclick="qcm(this,true,'r > 0 : chaque terme est plus grand que le précédent.')">B) Strictement positive</button>
+          <button class="qo" onclick="qcm(this,false,'r = 0 donne une suite constante.')">C) Nulle</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) Quelconque</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q6.</span> Flash-calcul : dans chaque cas, calculer le terme manquant.<br>
+        a) \(u_n = 2 + n \times 5\) → \(u_4\) = ?<br>
+        b) \(u_n = 100 - 3n\) → \(u_{10}\) = ?<br>
+        c) \(u_0 = 7, r = 6\) → \(u_3\) = ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          a) \(u_4 = 2 + 4 \times 5 = 2 + 20 = \mathbf{22}\)<br>
+          b) \(u_{10} = 100 - 3 \times 10 = 100 - 30 = \mathbf{70}\)<br>
+          c) \(u_3 = 7 + 3 \times 6 = 7 + 18 = \mathbf{25}\)
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 2 ═══ -->
+  <div class="bloc-niveau n2">
+    <div class="bloc-niveau-header">🔵 Niveau 2 — Entraînement</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Un ouvrier gagne 1 500 € en janvier. Son salaire augmente de 80 € par mois. Quel sera son salaire en juillet (mois n°6) ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          Suite arithmétique : \(u_0 = 1500\) (janvier = mois 0), \(r = 80\)<br>
+          Juillet = mois 6 : \(u_6 = 1500 + 6 \times 80 = 1500 + 480 = \mathbf{1\,980\ €}\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Voici un tableau de valeurs. La suite est-elle arithmétique ?</p>
+        <table>
+          <tr><th>n</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+          <tr><th>\(u_n\)</th><td>6</td><td>10</td><td>14</td><td>18</td><td>22</td></tr>
+        </table>
+        <p style="margin:6px 0 4px;font-size:.92em;">Si oui, donner \(u_0\) et la raison r. Puis calculer \(u_{20}\).</p>
+        <details><summary></summary>
+        <div class="corr">
+          Différences : 10−6 = 4 ; 14−10 = 4 ; etc. → <b>Suite arithmétique, r = 4, u₀ = 6</b><br>
+          \(u_{20} = 6 + 20 \times 4 = 6 + 80 = \mathbf{86}\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> \(u_0 = 50\), \(r = -5\). À partir de quel rang n aura-t-on \(u_n = 0\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) n = 5</button>
+          <button class="qo" onclick="qcm(this,true,'u_n = 50 + n×(−5) = 0 ⟹ 50 = 5n ⟹ n = 10')">B) n = 10</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) n = 50</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) n = 45</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Une suite arithmétique vérifie \(u_3 = 19\) et \(u_4 = 23\). Trouver la raison r et \(u_0\).</p>
+        <details><summary></summary>
+        <div class="corr">
+          \(r = u_4 - u_3 = 23 - 19 = \mathbf{4}\)<br>
+          On remonte : \(u_0 = u_3 - 3r = 19 - 3 \times 4 = 19 - 12 = \mathbf{7}\)<br>
+          Vérification : \(u_3 = 7 + 3 \times 4 = 19\) ✓
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Interpréter : la suite \(u_n = 200 + 15n\) représente le nombre de km parcourus après n semaines. Quel est le sens physique de 200 ? De 15 ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          <b>200</b> = \(u_0\) = km parcourus au départ (semaine 0), avant de commencer à compter.<br>
+          <b>15</b> = raison r = km parcourus <em>par semaine</em> (augmentation constante).<br>
+          Après 8 semaines : \(u_8 = 200 + 8 \times 15 = 320\) km.
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 3 ═══ -->
+  <div class="bloc-niveau n3">
+    <div class="bloc-niveau-header">🟣 Niveau 3 — Automatisation</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Thomas économise 50 € le 1er mois, puis augmente son épargne de 20 € par mois. Combien aura-t-il économisé au total sur 6 mois (mois 1 à 6) ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          Termes : \(u_1 = 50, u_2 = 70, \ldots, u_6 = 50 + 5 \times 20 = 150\)<br>
+          Somme 6 termes : \(S = 6 \times \dfrac{u_1 + u_6}{2} = 6 \times \dfrac{50 + 150}{2} = 6 \times 100 = \mathbf{600\ €}\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Une suite arithmétique vérifie \(u_0 = 4\) et \(u_{10} = 54\). Quelle est la raison ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 4</button>
+          <button class="qo" onclick="qcm(this,true,'u₁₀ = u₀ + 10r ⟹ 54 = 4 + 10r ⟹ 10r = 50 ⟹ r = 5')">B) 5</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 10</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 50</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Une machine produit 120 pièces la 1re heure, puis augmente sa cadence de 8 pièces par heure. Combien de pièces produit-elle à la 10e heure ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          \(u_0 = 120\) (1re heure = rang 0), \(r = 8\)<br>
+          10e heure = rang 9 : \(u_9 = 120 + 9 \times 8 = 120 + 72 = \mathbf{192}\) pièces
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Laquelle de ces formules <strong>n'est pas</strong> une suite arithmétique ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'u_n = 2n + 1 est linéaire en n : c\'est bien une suite arithmétique (r = 2).')">A) \(u_n = 2n + 1\)</button>
+          <button class="qo" onclick="qcm(this,true,'n² n\'est pas linéaire : la différence u_{n+1} − u_n n\'est pas constante.')">B) \(u_n = n^2\)</button>
+          <button class="qo" onclick="qcm(this,false,'u_n = 5 − 3n est linéaire en n : c\'est arithmétique (r = −3).')">C) \(u_n = 5 - 3n\)</button>
+          <button class="qo" onclick="qcm(this,false,'u_n = 100 est une suite constante : c\'est arithmétique (r = 0).')">D) \(u_n = 100\)</button>
+        </div>
+        <p class="fb"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : sans poser de calcul, répondre immédiatement.<br>
+        a) \(u_n = 3n + 7\) : valeur de \(u_{100}\) ?<br>
+        b) Suite arithmétique décroissante avec \(u_0 = 500\) et \(r = -10\) : valeur de \(u_{50}\) ?<br>
+        c) \(u_5 = 41\) et \(r = 7\) : valeur de \(u_6\) ?</p>
+        <details><summary></summary>
+        <div class="corr">
+          a) \(u_{100} = 3 \times 100 + 7 = \mathbf{307}\)<br>
+          b) \(u_{50} = 500 + 50 \times (-10) = 500 - 500 = \mathbf{0}\)<br>
+          c) \(u_6 = u_5 + r = 41 + 7 = \mathbf{48}\)
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function qcm(btn, ok, expl) {
+  const opts = btn.closest('.qcm-opts');
+  opts.querySelectorAll('.qo').forEach(b => { b.disabled = true; });
+  const fb = opts.nextElementSibling;
+  if (ok) {
+    btn.classList.add('ok');
+    fb.className = 'fb ok';
+    fb.textContent = '✓ Correct ! ' + (expl || '');
+  } else {
+    btn.classList.add('ko');
+    fb.className = 'fb ko';
+    fb.textContent = '✗ Incorrect. ' + (expl || '');
+  }
+}
+</script>
+<script src="../nav.js"></script>
+</body>
+</html>
