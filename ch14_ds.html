@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch14 – DS – Solides, volumes et agrandissement</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#0056b3;--d:#c53030;--s:#2f855a;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.q{margin:12px 0;padding-left:8px;border-left:3px solid #e2e8f0}
+.q strong{color:var(--t)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92em}
+th,td{border:1px solid #c5cdd8;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.answer-area{border:1px solid #aaa;border-radius:4px;min-height:60px;margin:8px 0;display:block}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none;font-size:.93em}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px;transition:background .2s}
+.bc:hover{background:#004494}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nb:hover{text-decoration:underline}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.highlight{background:#fffbea;border-left:3px solid var(--o);padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:.92em}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveillé – Chapitre 14</h1>
+  <p class="sous-titre">Solides, volumes et agrandissement &nbsp;|&nbsp; 2<sup>de</sup> Pro MA-MA</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div class="highlight">
+  <strong>Formulaire :</strong>
+  Cylindre : \(V = \pi r^2 h\) &nbsp;|&nbsp;
+  Cône : \(V = \dfrac{1}{3}\pi r^2 h\) &nbsp;|&nbsp;
+  Sphère : \(V = \dfrac{4}{3}\pi r^3\) &nbsp;|&nbsp;
+  Pavé : \(V = L \times \ell \times h\) &nbsp;|&nbsp;
+  Prisme : \(V = A_{\text{base}} \times h\)
+</div>
+
+<!-- ===== PARTIE A ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A – Calculs de volumes</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p class="bareme">2 pts par question. Donner les résultats arrondis au centième.</p>
+
+  <div class="q"><strong>1.</strong> Calculer le volume d'un cylindre de rayon \(r = 4\) cm et de hauteur \(h = 15\) cm.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Calculer le volume d'un cône de rayon de base \(r = 5\) cm et de hauteur \(h = 12\) cm.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (Situation MAMA)</strong> Un réservoir de forme cylindrique a un diamètre intérieur de 60 cm et une hauteur de 1,2 m. Calculer son volume en litres (\(1\) L \(= 1\) dm³ \(= 1000\) cm³).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Un pavé droit (cuve rectangulaire) mesure \(80\) cm \(\times\) \(60\) cm \(\times\) \(45\) cm. Calculer son volume en m³ puis en litres.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(V = \pi \times 4^2 \times 15 = 240\pi \approx 753{,}98\) cm³.</p>
+    <p><strong>2.</strong> \(V = \dfrac{1}{3} \times \pi \times 5^2 \times 12 = \dfrac{300\pi}{3} = 100\pi \approx 314{,}16\) cm³.</p>
+    <p><strong>3.</strong> \(r = 30\) cm, \(h = 120\) cm.<br>
+    \(V = \pi \times 30^2 \times 120 = 108\,000\pi \approx 339\,292{,}01\) cm³.<br>
+    En litres : \(339\,292{,}01 \div 1000 \approx 339{,}3\) L.</p>
+    <p><strong>4.</strong> \(V = 0{,}80 \times 0{,}60 \times 0{,}45 = 0{,}216\) m³ \(= 216\) L.</p>
+  </div>
+</div>
+
+<!-- ===== PARTIE B ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B – Conversions de volumes</span>
+    <span class="pts">4 points</span>
+  </div>
+
+  <p class="bareme">1 pt par conversion.</p>
+
+  <div class="q"><strong>1.</strong> Convertir \(2{,}5\) m³ en cm³.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Convertir \(340\) L en m³.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> Convertir \(0{,}75\) m³ en litres.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Un tuyau transporte un débit de \(18\) L/min. En combien de minutes remplira-t-il un réservoir de \(450\) dm³ ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(2{,}5\) m³ \(= 2{,}5 \times 10^6\) cm³ \(= 2\,500\,000\) cm³.</p>
+    <p><strong>2.</strong> \(340\) L \(= 340\) dm³ \(= 0{,}340\) m³.</p>
+    <p><strong>3.</strong> \(0{,}75\) m³ \(= 750\) dm³ \(= 750\) L.</p>
+    <p><strong>4.</strong> \(450\) dm³ \(= 450\) L. Durée \(= \dfrac{450}{18} = 25\) min.</p>
+  </div>
+</div>
+
+<!-- ===== PARTIE C ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C – Agrandissement et réduction</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> On agrandit un cylindre selon un rapport \(k = 1{,}5\). Le cylindre initial a \(r = 4\) cm et \(h = 10\) cm.
+    <br>a) Calculer les nouvelles dimensions \(r'\) et \(h'\).
+    <br>b) Par quel facteur le volume est-il multiplié ? Calculer les deux volumes pour vérifier.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> On réduit un cube de côté \(a = 6\) cm selon un rapport \(k = \dfrac{1}{2}\).
+    <br>a) Par quel facteur la surface (aire) du cube est-elle multipliée ?
+    <br>b) Calculer le volume initial et le volume réduit. Quel est le rapport des volumes ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Énoncer la règle générale : si on applique un rapport \(k\) à un solide, par quel facteur l'aire et le volume sont-ils respectivement multipliés ?</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1a.</strong> \(r' = 4 \times 1{,}5 = 6\) cm ; \(h' = 10 \times 1{,}5 = 15\) cm.</p>
+    <p><strong>1b.</strong> Le volume est multiplié par \(k^3 = 1{,}5^3 = 3{,}375\).<br>
+    \(V_{\text{initial}} = \pi \times 16 \times 10 = 160\pi \approx 502{,}65\) cm³.<br>
+    \(V' = \pi \times 36 \times 15 = 540\pi \approx 1\,696{,}46\) cm³.<br>
+    Rapport : \(\dfrac{540\pi}{160\pi} = \dfrac{540}{160} = 3{,}375 = 1{,}5^3\). &#10003;</p>
+    <p><strong>2a.</strong> L'aire est multipliée par \(k^2 = \left(\dfrac{1}{2}\right)^2 = \dfrac{1}{4}\).</p>
+    <p><strong>2b.</strong> \(V = 6^3 = 216\) cm³ ; \(V' = 3^3 = 27\) cm³.<br>
+    Rapport : \(\dfrac{27}{216} = \dfrac{1}{8} = \left(\dfrac{1}{2}\right)^3\). &#10003;</p>
+    <p><strong>3.</strong> Les longueurs sont multipliées par \(k\), les aires par \(k^2\), les volumes par \(k^3\).</p>
+  </div>
+</div>
+
+<!-- ===== PARTIE D ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie D – Problème MAMA</span>
+    <span class="pts">3 points</span>
+  </div>
+
+  <p>Un technicien doit couler une dalle de béton pour les fondations d'une extension. La dalle est un pavé droit de \(5{,}5\) m de long, \(3{,}2\) m de large et \(0{,}15\) m d'épaisseur.</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> Calculer le volume de béton nécessaire en m³.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> Le béton prêt à l'emploi est livré en camion-toupie de 6 m³. Combien de toupies sont nécessaires ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Si les dimensions de la dalle sont réduites avec \(k = 0{,}8\) (dalle plus petite), quel sera le nouveau volume ? Utiliser la propriété d'agrandissement.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(V = 5{,}5 \times 3{,}2 \times 0{,}15 = 2{,}64\) m³.</p>
+    <p><strong>2.</strong> \(\dfrac{2{,}64}{6} = 0{,}44\) toupie → il faut <strong>1 toupie</strong> (arrondir à l'entier supérieur car on ne peut pas commander 0,44 toupie).</p>
+    <p><strong>3.</strong> \(V' = V \times k^3 = 2{,}64 \times 0{,}8^3 = 2{,}64 \times 0{,}512 = 1{,}352\) m³.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,56 +1,942 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ch01 – Proportionnalité et Pourcentages</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-    :root { --primary: #0056b3; --danger: #c53030; --text: #2d3748; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: var(--text); line-height: 1.6; margin: 0; padding: 20px; }
-    .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
-    header { text-align: center; border-bottom: 3px solid var(--primary); margin-bottom: 25px; padding-bottom: 15px; }
-    h1 { margin: 0; color: var(--primary); font-size: 1.6em; }
-    h2 { font-size: 1.2em; color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; margin-top: 25px; }
-    .box { padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px solid #e2e8f0; }
-    .rule { background: #fff5f5; border-left: 5px solid var(--danger); }
-    .method { background: #f0f7ff; border-left: 5px solid var(--primary); }
-    table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
-    th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; }
-    th { background: #f7fafc; }
-    .nav-back { margin-bottom: 15px; display: block; text-decoration: none; color: var(--primary); font-size: 0.8em; font-weight: bold; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Proportionnalité et Pourcentages – 2nde MAMA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:28px;padding-bottom:16px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
+.sous-titre{color:#718096;font-size:.93em;margin:0}
+.maj{font-size:.78em;color:#a0aec0;text-align:center;margin-top:4px}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:36px;margin-bottom:14px}
+h3{font-size:1em;color:var(--t);margin-top:20px;margin-bottom:8px;font-weight:700}
+
+.def{background:#ebf5ff;border-left:5px solid var(--p);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.def strong{color:var(--p)}
+.prop{background:#f0fff4;border-left:5px solid var(--s);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.prop strong{color:var(--s)}
+.att{background:#fff5f5;border-left:5px solid var(--d);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.att strong{color:var(--d)}
+.meth{background:#fffbeb;border-left:5px solid var(--o);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.meth strong{color:var(--o)}
+.retenir{background:#f0fff4;border:2px solid var(--s);border-radius:10px;padding:18px 22px;margin:24px 0}
+.retenir h3{color:var(--s);margin:0 0 10px}
+.situation{background:#fdf4ff;border:2px dashed #a855f7;border-radius:10px;padding:16px 20px;margin:16px 0}
+.situation h3{color:#7c3aed;margin:0 0 8px;font-size:1em}
+
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;margin:16px 0}
+.ex-titre{font-weight:700;color:var(--p);margin-bottom:10px}
+.etape{display:flex;gap:12px;margin:8px 0;align-items:flex-start}
+.nc{background:var(--p);color:#fff;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-size:.8em;font-weight:700;margin-top:2px;flex-shrink:0}
+
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;margin:16px 0}
+details.corr-wrap{margin-top:10px}
+summary.corr-btn{cursor:pointer;font-size:.85em;font-weight:700;color:var(--s);padding:6px 12px;background:#f0fff4;border-radius:6px;border:1px solid #a7f3d0;display:inline-block;list-style:none}
+summary.corr-btn::-webkit-details-marker{display:none}
+.corr-body{background:#f0fff4;border-left:4px solid var(--s);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:8px;font-size:.92em;line-height:1.8}
+.corr-rep{background:#065f46;color:#fff;border-radius:5px;padding:2px 8px;font-weight:700;display:inline-block;font-size:.95em}
+
+table{border-collapse:collapse;margin:12px 0;font-size:.93em}
+table.full{width:100%}
+th,td{border:1px solid #e2e8f0;padding:9px 14px;text-align:center}
+th{background:#ebf5ff;color:var(--p);font-weight:700}
+td.tv-x{background:#f0f7ff;font-weight:600;color:var(--p)}
+td.ok{background:#d1fae5;font-weight:700}
+td.hi{background:#fef3c7;font-weight:700;color:var(--o)}
+
+.chart-wrapper{max-width:580px;margin:16px auto;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px}
+canvas.anim{display:block;margin:12px auto;border-radius:10px;border:1px solid #e2e8f0;background:#fff}
+.ctrl-vis{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0;align-items:center;font-size:.9em}
+.ctrl-vis input[type=range]{width:160px;accent-color:var(--p)}
+.ctrl-vis label{display:flex;align-items:center;gap:6px}
+.anim-result{text-align:center;font-size:1em;font-weight:700;color:var(--p);min-height:1.6em;margin-top:6px}
+.svg-wrap{text-align:center;margin:16px 0}
+.svg-leg{font-size:.82em;color:#718096;text-align:center;margin-top:6px;font-style:italic}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:16px 0}
+.formula-box{background:#ebf5ff;border:1px solid #bee3f8;border-radius:10px;padding:14px 16px;text-align:center}
+.formula-box .fb-label{font-size:.82em;color:#4a5568;margin-bottom:6px;font-weight:600}
+.formula-box .fb-formula{font-size:1em;color:var(--p);font-weight:700}
+.formula-box.green{background:#f0fff4;border-color:#a7f3d0}
+.formula-box.green .fb-formula{color:var(--s)}
+.formula-box.orange{background:#fffbeb;border-color:#fde68a}
+.formula-box.orange .fb-formula{color:var(--o)}
+.formula-box.red{background:#fff5f5;border-color:#fed7d7}
+.formula-box.red .fb-formula{color:var(--d)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}.card-grid{grid-template-columns:1fr}}
+
+.nb{margin-bottom:16px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nav-footer{display:flex;justify-content:space-between;margin-top:36px;padding-top:16px;border-top:1px solid #e2e8f0;flex-wrap:wrap;gap:10px}
+.nav-btn{text-decoration:none;font-size:.85em;font-weight:600;padding:8px 18px;border-radius:6px;color:var(--p);border:1px solid var(--p);transition:.2s}
+.nav-btn:hover{background:var(--p);color:#fff}
+
+.badge{display:inline-block;font-size:.75em;font-weight:700;padding:2px 8px;border-radius:12px;margin-right:4px}
+.badge-green{background:#d1fae5;color:#065f46}
+.badge-blue{background:#dbeafe;color:#1e40af}
+.badge-yellow{background:#fef3c7;color:#92400e}
+.badge-red{background:#fee2e2;color:#991b1b}
+
+ul.styled li{margin-bottom:6px}
+</style>
 </head>
 <body>
-<div class="container">
-  <a href="maths-2nde-mama.html" class="nav-back">&larr; RETOUR SOMMAIRE</a>
-  <header><h1>Cours &ndash; Proportionnalit&eacute; et Pourcentages</h1></header>
-  <h2>1. Proportionnalit&eacute;</h2>
-  <p>Deux grandeurs sont <strong>proportionnelles</strong> si leurs valeurs sont li&eacute;es par un coefficient constant \(k\).</p>
-  <div class="box method">
-    <strong>Formule :</strong> \( y = k \times x \) avec \( k = \dfrac{y}{x} \)<br>
-    <em>Exemple :</em> Si 3 kg co&ucirc;tent 7,50 &euro; alors \( k = 2{,}50 \) &euro;/kg.
-  </div>
-  <h2>2. R&egrave;gle de trois</h2>
-  <table>
-    <tr><th>Quantit&eacute; (kg)</th><th>3</th><th>x</th></tr>
-    <tr><td>Prix (&euro;)</td><td>7,50</td><td>?</td></tr>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Chapitre 1 – Proportionnalité et Pourcentages</h1>
+  <p class="sous-titre">Terminale Bac Pro MAMA &nbsp;|&nbsp; Calcul numérique &nbsp;|&nbsp; Mathématiques</p>
+  <p class="maj">Dernière mise à jour : 9 mars 2026</p>
+</header>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>1. Introduction — Dans les métiers MAMA</h2>
+
+<div class="situation">
+  <h3>Situation professionnelle — Technicien en maintenance</h3>
+  <p>
+    <strong>Situation 1 — Métreur :</strong> Un technicien MAMA doit préparer un devis pour la rénovation d'une installation de chauffage dans un appartement.
+    Il relève que la surface totale de l'appartement est 85 m² et que 60 m² nécessitent un traitement thermique.
+    Quelle proportion de la surface totale doit-il traiter ?
+  </p>
+  <p>
+    \[\text{Proportion} = \frac{60}{85} \approx 0{,}706 = 70{,}6\%\]
+  </p>
+  <p>
+    <strong>Situation 2 — Remise commerciale :</strong> Son fournisseur lui propose une remise de 15% sur un lot de pièces détachées
+    (vannes, raccords, joints) dont le prix catalogue HT est 340 €. Il doit calculer le prix réel à payer.
+  </p>
+  <p>
+    \[\text{Prix remisé} = 340 \times (1 - 0{,}15) = 340 \times 0{,}85 = 289\,€\]
+  </p>
+  <p>
+    Ces deux situations utilisent les mêmes outils mathématiques : <strong>la proportionnalité et les pourcentages</strong>.
+    Ce chapitre vous donne toutes les clés pour maîtriser ces calculs en situation professionnelle.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>2. Notions essentielles — Proportionnalité</h2>
+
+<div class="def">
+  <strong>Définition — Deux grandeurs proportionnelles :</strong><br>
+  Deux grandeurs \(x\) et \(y\) sont <strong>proportionnelles</strong> lorsqu'il existe un réel \(k\) tel que :
+  \[y = k \times x\]
+  Le réel \(k\) s'appelle le <strong>coefficient de proportionnalité</strong>.<br><br>
+  On calcule \(k\) par : \(\displaystyle k = \frac{y}{x}\)<br><br>
+  <em>Exemple MAMA :</em> Un tuyau coûte 3,50 €/mètre. Si \(x\) = longueur (m) et \(y\) = prix (€), alors \(y = 3{,}50 \times x\). Le coefficient est \(k = 3{,}50\,€/\text{m}\).
+</div>
+
+<div class="prop">
+  <strong>Propriétés — Tableau de proportionnalité :</strong><br>
+  Dans un tableau de proportionnalité, on passe d'une ligne à l'autre en multipliant par le même coefficient \(k\).
+  <br><br>
+  <table class="full">
+    <tr>
+      <th>\(x\) (quantité)</th>
+      <td class="tv-x">1</td>
+      <td class="tv-x">2</td>
+      <td class="tv-x">3</td>
+      <td class="tv-x">5</td>
+      <td class="tv-x">n</td>
+    </tr>
+    <tr>
+      <th>\(y\) (prix en €)</th>
+      <td class="ok">3,50</td>
+      <td class="ok">7,00</td>
+      <td class="ok">10,50</td>
+      <td class="ok">17,50</td>
+      <td class="ok">\(3{,}50 \times n\)</td>
+    </tr>
   </table>
-  <p>\[ x = \dfrac{7{,}50 \times x_1}{3} \]</p>
-  <h2>3. Pourcentages</h2>
-  <div class="box method">
-    <strong>Calculer p% de V :</strong> \( V \times \dfrac{p}{100} \)<br>
-    <em>Exemple :</em> 20% de 150 &euro; = \(150 \times 0{,}20 = 30\) &euro;
+  <strong>Produits croisés :</strong> Dans un tableau de proportionnalité, les produits croisés sont égaux :
+  \[\frac{y_1}{x_1} = \frac{y_2}{x_2} = k \quad \Longleftrightarrow \quad x_1 \times y_2 = x_2 \times y_1\]
+</div>
+
+<div class="meth">
+  <strong>Méthode — Trois façons de travailler avec la proportionnalité :</strong>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div><strong>Calculer le coefficient :</strong> \(k = \dfrac{y}{x}\) — diviser une valeur de \(y\) par la valeur de \(x\) correspondante.</div>
   </div>
-  <h2>4. Taux d'&eacute;volution</h2>
-  <div class="box rule">
-    <strong>Augmentation de t% :</strong> multiplier par \((1 + \frac{t}{100})\)<br>
-    <strong>R&eacute;duction de t% :</strong> multiplier par \((1 - \frac{t}{100})\)<br>
-    <em>Exemple :</em> Remise de 15% sur 80 &euro; &rarr; \(80 \times 0{,}85 = 68\) &euro;
+  <div class="etape">
+    <div class="nc">2</div>
+    <div><strong>Vérifier la proportionnalité :</strong> Calculer \(\dfrac{y_1}{x_1}\), \(\dfrac{y_2}{x_2}\), \(\dfrac{y_3}{x_3}\) — si tous égaux, c'est proportionnel.</div>
   </div>
-  <h2>5. Taux d'&eacute;volution calcul&eacute;</h2>
-  <p>\[ t = \dfrac{V_{\text{final}} - V_{\text{initial}}}{V_{\text{initial}}} \times 100 \]</p>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div><strong>Règle de trois :</strong> Si \(x_1 \to y_1\) et on cherche \(y_2\) pour \(x_2\), alors \(y_2 = \dfrac{x_2 \times y_1}{x_1}\).</div>
+  </div>
+</div>
+
+<div class="att">
+  <strong>Attention — Erreurs fréquentes :</strong>
+  <ul class="styled">
+    <li><strong>Confusion proportionnalité / linéarité :</strong> \(y = kx\) est proportionnel (passe par l'origine).
+    Mais \(y = kx + b\) (avec \(b \neq 0\)) est <em>affine</em>, pas proportionnel — même si la relation est linéaire par morceaux.</li>
+    <li><strong>Exemple :</strong> Un plombier facture 50 € de déplacement + 40 €/heure. Le coût total n'est PAS proportionnel au temps : \(C = 40t + 50\). Si on double le temps, on ne double pas le coût.</li>
+    <li><strong>Sur les pourcentages :</strong> "Augmenter de 20% puis diminuer de 20%" ne redonne pas la valeur initiale ! \(100 \times 1{,}20 \times 0{,}80 = 96\), pas \(100\).</li>
+  </ul>
+</div>
+
+<!-- SVG Illustration -->
+<h3>Illustration — Tableau de proportionnalité</h3>
+
+<div class="svg-wrap">
+<svg width="520" height="180" viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;border:1px solid #e2e8f0;border-radius:10px;background:#fafbfc">
+  <!-- Titre -->
+  <text x="260" y="22" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" fill="#718096">Tableau de proportionnalité — k = 3,50 €/m</text>
+
+  <!-- En-têtes -->
+  <rect x="20" y="32" width="200" height="34" rx="4" fill="#ebf5ff" stroke="#bee3f8"/>
+  <text x="120" y="54" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" fill="#0056b3" font-weight="bold">Longueur (m)</text>
+  <rect x="20" y="100" width="200" height="34" rx="4" fill="#f0fff4" stroke="#a7f3d0"/>
+  <text x="120" y="122" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" fill="#2f855a" font-weight="bold">Prix (€)</text>
+
+  <!-- Valeurs ligne 1 -->
+  <rect x="230" y="32" width="60" height="34" rx="2" fill="#f0f7ff" stroke="#e2e8f0"/>
+  <text x="260" y="54" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#0056b3" font-weight="600">2</text>
+  <rect x="300" y="32" width="60" height="34" rx="2" fill="#f0f7ff" stroke="#e2e8f0"/>
+  <text x="330" y="54" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#0056b3" font-weight="600">5</text>
+  <rect x="370" y="32" width="60" height="34" rx="2" fill="#f0f7ff" stroke="#e2e8f0"/>
+  <text x="400" y="54" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#0056b3" font-weight="600">8</text>
+  <rect x="440" y="32" width="60" height="34" rx="2" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="470" y="54" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#92400e" font-weight="600">?</text>
+
+  <!-- Valeurs ligne 2 -->
+  <rect x="230" y="100" width="60" height="34" rx="2" fill="#d1fae5" stroke="#a7f3d0"/>
+  <text x="260" y="122" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#2f855a" font-weight="600">7,00</text>
+  <rect x="300" y="100" width="60" height="34" rx="2" fill="#d1fae5" stroke="#a7f3d0"/>
+  <text x="330" y="122" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#2f855a" font-weight="600">17,50</text>
+  <rect x="370" y="100" width="60" height="34" rx="2" fill="#d1fae5" stroke="#a7f3d0"/>
+  <text x="400" y="122" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#2f855a" font-weight="600">28,00</text>
+  <rect x="440" y="100" width="60" height="34" rx="2" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="470" y="122" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#92400e" font-weight="600">×k</text>
+
+  <!-- Flèche ×k verticale -->
+  <line x1="120" y1="68" x2="120" y2="96" stroke="#0056b3" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="78" y="75" width="84" height="18" rx="8" fill="#0056b3"/>
+  <text x="120" y="88" text-anchor="middle" font-size="11" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="bold">× k = 3,50</text>
+
+  <!-- Flèche ×k sur chaque colonne -->
+  <line x1="260" y1="68" x2="260" y2="96" stroke="#4a5568" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="330" y1="68" x2="330" y2="96" stroke="#4a5568" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="400" y1="68" x2="400" y2="96" stroke="#4a5568" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Légende bas -->
+  <text x="260" y="160" text-anchor="middle" font-size="11" font-family="Segoe UI,sans-serif" fill="#718096" font-style="italic">Pour ? : y = 3,50 × x — on cherche x pour trouver y</text>
+
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#0056b3"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+<p class="svg-leg">Chaque colonne est obtenue en multipliant la longueur par k = 3,50</p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>3. Graphique — Relation de proportionnalité</h2>
+
+<p style="font-size:.9em;color:#718096">Une relation proportionnelle donne toujours une <strong>droite passant par l'origine</strong> dans un repère.
+Ci-dessous : prix d'une pièce selon la quantité commandée (k = 12,50 €/pièce).</p>
+
+<div class="chart-wrapper">
+  <canvas id="chartProp"></canvas>
+</div>
+<script>
+(function(){
+  const qtes = [0,1,2,3,4,5,6,7,8,10,12,15,20];
+  const k = 12.5;
+  new Chart(document.getElementById('chartProp'),{
+    type:'line',
+    data:{
+      labels:qtes,
+      datasets:[{
+        label:'Prix = 12,50 × quantité (€)',
+        data:qtes.map(q=>k*q),
+        borderColor:'#0056b3',
+        backgroundColor:'rgba(0,86,179,0.08)',
+        borderWidth:2.5,
+        pointRadius:5,
+        pointBackgroundColor:'#0056b3',
+        tension:0,
+        fill:true
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{position:'bottom',labels:{font:{size:12}}},
+        title:{display:true,text:'Proportionnalité : Prix (€) en fonction de la quantité de pièces',font:{size:12}}
+      },
+      scales:{
+        x:{
+          title:{display:true,text:'Quantité (nb pièces)'},
+          grid:{color:'#f0f0f0'}
+        },
+        y:{
+          title:{display:true,text:'Prix total (€)'},
+          min:0,
+          grid:{color:'#f0f0f0'}
+        }
+      }
+    }
+  });
+})();
+</script>
+
+<div class="prop">
+  <strong>A retenir — Lecture graphique :</strong><br>
+  La droite passe par l'<strong>origine (0 ; 0)</strong> — c'est la caractéristique d'une relation proportionnelle.<br>
+  La <strong>pente</strong> de la droite est le coefficient de proportionnalité \(k\).<br>
+  Si la courbe ne passe pas par l'origine, la relation n'est <em>pas</em> proportionnelle.
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>4. Animation interactive — Visualiser y = k × x</h2>
+
+<p style="font-size:.9em;color:#718096">Modifiez la valeur de \(x\) et le coefficient \(k\) pour voir comment \(y = k \times x\) évolue.</p>
+
+<div class="ctrl-vis">
+  <label>Valeur \(x\) = <input type="range" id="slX" min="1" max="100" step="1" value="30"> <strong id="lblX">30</strong></label>
+  <label>Coefficient \(k\) = <input type="range" id="slK" min="0.5" max="5" step="0.1" value="2.0"> <strong id="lblK">2.0</strong></label>
+</div>
+<canvas id="animProp" class="anim" width="560" height="200"></canvas>
+<div class="anim-result" id="resuProp"></div>
+<script>
+(function(){
+  const canvas = document.getElementById('animProp');
+  const ctx = canvas.getContext('2d');
+  const slX = document.getElementById('slX');
+  const slK = document.getElementById('slK');
+  const lblX = document.getElementById('lblX');
+  const lblK = document.getElementById('lblK');
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const x = parseFloat(slX.value);
+    const k = parseFloat(slK.value);
+    const y = Math.round(k * x * 100) / 100;
+    lblX.textContent = x;
+    lblK.textContent = k.toFixed(1);
+
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillRect(0,0,W,H);
+
+    // --- Barres ---
+    const maxVal = Math.max(x, y, 10);
+    const barH = (H - 60);
+    const bW = 70;
+    const bX_x = 80;
+    const bX_y = 200;
+
+    // Barre x (bleue)
+    const hx = Math.round(barH * (x / maxVal));
+    ctx.fillStyle = '#dbeafe';
+    ctx.strokeStyle = '#0056b3';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(bX_x, H - 40 - hx, bW, hx, [4,4,0,0]);
+    ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#0056b3';
+    ctx.font = 'bold 14px Segoe UI,sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('x = ' + x, bX_x + bW/2, H - 40 - hx - 8);
+    ctx.fillStyle = '#4a5568';
+    ctx.font = '11px Segoe UI,sans-serif';
+    ctx.fillText('x', bX_x + bW/2, H - 24);
+
+    // Barre y (verte)
+    const hy = Math.round(barH * (y / maxVal));
+    ctx.fillStyle = '#d1fae5';
+    ctx.strokeStyle = '#2f855a';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(bX_y, H - 40 - hy, bW, hy, [4,4,0,0]);
+    ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#2f855a';
+    ctx.font = 'bold 14px Segoe UI,sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('y = ' + y, bX_y + bW/2, H - 40 - hy - 8);
+    ctx.fillStyle = '#4a5568';
+    ctx.font = '11px Segoe UI,sans-serif';
+    ctx.fillText('y = k×x', bX_y + bW/2, H - 24);
+
+    // Ligne de base
+    ctx.strokeStyle = '#cbd5e0';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(40, H - 40);
+    ctx.lineTo(W - 40, H - 40);
+    ctx.stroke();
+
+    // Formule au centre
+    const cx = (bX_x + bW + bX_y) / 2;
+    ctx.fillStyle = '#d97706';
+    ctx.font = 'bold 15px Segoe UI,sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('× k = ' + k.toFixed(1), cx, H/2);
+
+    // Flèche de x vers y
+    ctx.strokeStyle = '#d97706';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([5,3]);
+    ctx.beginPath();
+    ctx.moveTo(bX_x + bW + 8, H - 40 - hx/2);
+    ctx.lineTo(bX_y - 8, H - 40 - hy/2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Encadré résultat à droite
+    const rx = 310, ry = 30, rw = 220, rh = 80;
+    ctx.fillStyle = '#fff';
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(rx, ry, rw, rh, 8);
+    ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#2d3748';
+    ctx.font = '13px Segoe UI,sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('x = ' + x, rx + 14, ry + 22);
+    ctx.fillText('k = ' + k.toFixed(1), rx + 14, ry + 42);
+    ctx.fillStyle = '#2f855a';
+    ctx.font = 'bold 14px Segoe UI,sans-serif';
+    ctx.fillText('y = k × x = ' + y, rx + 14, ry + 66);
+
+    document.getElementById('resuProp').textContent =
+      'y = ' + k.toFixed(1) + ' × ' + x + ' = ' + y;
+  }
+
+  slX.oninput = slK.oninput = draw;
+  draw();
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>5. Pourcentages</h2>
+
+<h3>5.1 Formules fondamentales</h3>
+
+<div class="card-grid">
+  <div class="formula-box">
+    <div class="fb-label">Calculer x% de A</div>
+    <div class="fb-formula">\(A \times \dfrac{x}{100}\)</div>
+  </div>
+  <div class="formula-box green">
+    <div class="fb-label">Augmentation de t%</div>
+    <div class="fb-formula">\(\times \left(1 + \dfrac{t}{100}\right)\)</div>
+  </div>
+  <div class="formula-box red">
+    <div class="fb-label">Réduction de t%</div>
+    <div class="fb-formula">\(\times \left(1 - \dfrac{t}{100}\right)\)</div>
+  </div>
+  <div class="formula-box orange">
+    <div class="fb-label">Taux d'évolution</div>
+    <div class="fb-formula">\(\dfrac{V_f - V_i}{V_i} \times 100\)</div>
+  </div>
+</div>
+
+<div class="def">
+  <strong>Définition — Pourcentage :</strong><br>
+  Exprimer une partie comme un pourcentage du tout :
+  \[\text{Pourcentage} = \frac{\text{partie}}{\text{tout}} \times 100\]
+  <em>Exemple :</em> 15 m² sur 60 m² représente \(\dfrac{15}{60} \times 100 = 25\%\) de la surface totale.
+</div>
+
+<h3>5.2 Augmentation et réduction</h3>
+
+<div class="prop">
+  <strong>Propriété — Coefficient multiplicateur :</strong><br>
+  Pour appliquer une variation de \(t\%\), on multiplie par le <strong>coefficient multiplicateur</strong> :
+  <ul class="styled">
+    <li><strong>Augmentation de t% :</strong> multiplier par \(1 + \dfrac{t}{100}\)
+    &nbsp;(ex : +20% → multiplier par 1,20)</li>
+    <li><strong>Réduction de t% :</strong> multiplier par \(1 - \dfrac{t}{100}\)
+    &nbsp;(ex : −15% → multiplier par 0,85)</li>
+  </ul>
+  Cette méthode est <strong>plus rapide</strong> que de calculer le montant de la variation séparément.
+</div>
+
+<div class="meth">
+  <strong>Méthode — Calculer le pourcentage d'évolution :</strong>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div>Identifier la valeur initiale \(V_i\) et la valeur finale \(V_f\).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div>Calculer la variation absolue : \(\Delta V = V_f - V_i\)</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div>Calculer le taux : \(t = \dfrac{V_f - V_i}{V_i} \times 100\)</div>
+  </div>
+  <div class="etape">
+    <div class="nc">4</div>
+    <div>Si \(t > 0\) : hausse. Si \(t < 0\) : baisse. Arrondir si nécessaire.</div>
+  </div>
+</div>
+
+<h3>5.3 Exemples MAMA — Remise, TVA, hausse tarifaire</h3>
+
+<div class="grid2">
+  <div class="ex">
+    <div class="ex-titre">Remise 15% sur pièces</div>
+    Prix catalogue HT : 340 €<br>
+    Remise : 15%<br>
+    Coefficient : \(1 - 0{,}15 = 0{,}85\)<br>
+    <strong>Prix remisé : \(340 \times 0{,}85 = \)</strong> <span class="corr-rep">289 €</span>
+  </div>
+  <div class="ex">
+    <div class="ex-titre">TVA 20% — HT vers TTC</div>
+    Montant HT : 289 €<br>
+    TVA : 20%<br>
+    Coefficient : \(1 + 0{,}20 = 1{,}20\)<br>
+    <strong>Montant TTC : \(289 \times 1{,}20 = \)</strong> <span class="corr-rep">346,80 €</span>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Hausse tarifaire — Calcul du taux d'évolution</div>
+  Un technicien facturait ses interventions 58 €/h en 2024. En 2026, il facture 67 €/h.<br>
+  Quel est le taux d'augmentation ?<br><br>
+  \[t = \frac{67 - 58}{58} \times 100 = \frac{9}{58} \times 100 \approx \mathbf{15{,}5\%}\]
+  Son tarif a augmenté d'environ <strong>15,5%</strong> en deux ans.
+</div>
+
+<div class="att">
+  <strong>Attention — Les pourcentages ne s'additionnent pas directement !</strong><br>
+  Une remise de 10%, puis une nouvelle remise de 5% <strong>ne font pas 15%</strong>.<br>
+  Le calcul correct : \(1{,}00 \times 0{,}90 \times 0{,}95 = 0{,}855\), soit une réduction globale de <strong>14,5%</strong> seulement.<br>
+  De même : +20% puis −20% ≠ 0% &nbsp;→&nbsp; \(1{,}20 \times 0{,}80 = 0{,}96\), soit une perte de 4%.
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>6. Exemples MAMA détaillés</h2>
+
+<!-- Exemple 1 -->
+<div class="ex">
+  <div class="ex-titre">Exemple 1 — Règle de trois : longueur de tuyau et débit</div>
+  <p>
+    Un technicien sait que 12 mètres de tuyau permettent un débit de 18 litres/minute dans une installation de chauffage.
+    Quelle longueur faut-il pour obtenir un débit de 27 litres/minute ?
+  </p>
+  <table>
+    <tr>
+      <th>Longueur (m)</th>
+      <th>Débit (L/min)</th>
+    </tr>
+    <tr>
+      <td class="tv-x">12</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td class="hi">?</td>
+      <td class="hi">27</td>
+    </tr>
+  </table>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div>On identifie les données : \(x_1 = 12\,\text{m}\), \(y_1 = 18\,\text{L/min}\), \(y_2 = 27\,\text{L/min}\), \(x_2 = ?\)</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div>On applique la règle de trois (produits croisés) :
+    \[x_2 = \frac{x_1 \times y_2}{y_1} = \frac{12 \times 27}{18} = \frac{324}{18} = \mathbf{18\,\text{m}}\]</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div><strong>Réponse :</strong> Il faut <span class="corr-rep">18 mètres</span> de tuyau pour obtenir un débit de 27 L/min.</div>
+  </div>
+  <p style="font-size:.88em;color:#718096;margin-top:8px">
+    Vérification : coefficient \(k = 18/12 = 1{,}5\,\text{L/min/m}\). Pour 18 m : \(18 \times 1{,}5 = 27\,\text{L/min}\). Correct.
+  </p>
+</div>
+
+<!-- Exemple 2 -->
+<div class="ex">
+  <div class="ex-titre">Exemple 2 — Remise commerciale sur pièce détachée</div>
+  <p>
+    Un technicien commande une vanne motorisée dont le prix catalogue HT est <strong>84,00 €</strong>.
+    Le fournisseur accorde une remise de <strong>15%</strong> pour les professionnels. Calculer le prix remisé HT.
+  </p>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div><strong>Identifier le coefficient multiplicateur :</strong> remise de 15% → \(1 - \dfrac{15}{100} = 1 - 0{,}15 = 0{,}85\)</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div><strong>Calculer le prix remisé :</strong>
+    \[\text{Prix remisé} = 84{,}00 \times 0{,}85 = 71{,}40\,€\]</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div><strong>Vérification :</strong> montant de la remise = \(84 \times 0{,}15 = 12{,}60\,€\). Et \(84 - 12{,}60 = 71{,}40\,€\). Correct.</div>
+  </div>
+  <p><strong>Réponse :</strong> Le prix remisé HT est <span class="corr-rep">71,40 €</span>.</p>
+</div>
+
+<!-- Exemple 3 -->
+<div class="ex">
+  <div class="ex-titre">Exemple 3 — Calcul de la TVA et montant TTC</div>
+  <p>
+    Après remise (71,40 € HT), le technicien doit calculer le montant TTC (TVA 20%) à facturer au client.
+  </p>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div><strong>Coefficient multiplicateur pour TVA 20% :</strong> \(1 + \dfrac{20}{100} = 1{,}20\)</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div><strong>Calcul du montant TTC :</strong>
+    \[\text{TTC} = 71{,}40 \times 1{,}20 = 85{,}68\,€\]</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div><strong>Détail de la TVA :</strong> montant TVA = \(71{,}40 \times 0{,}20 = 14{,}28\,€\). Et \(71{,}40 + 14{,}28 = 85{,}68\,€\). Correct.</div>
+  </div>
+  <p><strong>Récapitulatif :</strong></p>
+  <table>
+    <tr><th>Prix catalogue HT</th><td>84,00 €</td></tr>
+    <tr><th>Remise 15%</th><td>− 12,60 €</td></tr>
+    <tr><th>Prix remisé HT</th><td class="ok">71,40 €</td></tr>
+    <tr><th>TVA 20%</th><td>+ 14,28 €</td></tr>
+    <tr><th>Montant TTC</th><td class="ok">85,68 €</td></tr>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>7. À retenir — L'essentiel du chapitre</h2>
+
+<div class="retenir">
+  <h3>L'essentiel du chapitre 1</h3>
+  <ul class="styled">
+    <li><strong>Proportionnalité :</strong> \(y = k \times x\) — le coefficient \(k = y/x\) est constant.</li>
+    <li><strong>Tableau de proportionnalité :</strong> on passe d'une ligne à l'autre en multipliant par \(k\).</li>
+    <li><strong>Règle de trois :</strong> \(x_2 = \dfrac{x_1 \times y_2}{y_1}\) (ou \(y_2 = \dfrac{y_1 \times x_2}{x_1}\)).</li>
+    <li><strong>Graphique :</strong> une relation proportionnelle est une droite passant par l'origine.</li>
+    <li><strong>x% de A :</strong> \(A \times \dfrac{x}{100}\)</li>
+    <li><strong>Augmentation t% :</strong> multiplier par \((1 + t/100)\)</li>
+    <li><strong>Réduction t% :</strong> multiplier par \((1 - t/100)\)</li>
+    <li><strong>Taux d'évolution :</strong> \(t = \dfrac{V_f - V_i}{V_i} \times 100\%\)</li>
+    <li><strong>TVA 20% :</strong> TTC = HT × 1,20 &nbsp;|&nbsp; HT = TTC ÷ 1,20</li>
+    <li><strong>Attention :</strong> les pourcentages ne s'additionnent pas — on multiplie les coefficients.</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>8. Mini-exercices corrigés</h2>
+
+<!-- Exercice 1 — Vert -->
+<div class="exo">
+  <span class="badge badge-green">Niveau 1</span>
+  <strong>Mini-exercice 1 — Règle de trois simple</strong><br><br>
+  Un plombier pose 8 mètres de canalisation en 45 minutes. En supposant qu'il travaille à la même vitesse,
+  combien de temps lui faudra-t-il pour poser 20 mètres ?
+  <details class="corr-wrap">
+    <summary class="corr-btn">Voir la correction</summary>
+    <div class="corr-body">
+      Les grandeurs sont proportionnelles (même vitesse de pose).<br><br>
+      <table>
+        <tr><th>Longueur (m)</th><th>Temps (min)</th></tr>
+        <tr><td>8</td><td>45</td></tr>
+        <tr><td>20</td><td>?</td></tr>
+      </table>
+      Règle de trois :
+      \[t = \frac{20 \times 45}{8} = \frac{900}{8} = 112{,}5\,\text{min}\]
+      Soit <span class="corr-rep">1 h 52 min 30 s</span> (ou 112,5 minutes).<br><br>
+      Vérification : \(k = 45/8 = 5{,}625\,\text{min/m}\). Pour 20 m : \(20 \times 5{,}625 = 112{,}5\,\text{min}\). Correct.
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 2 — Bleu -->
+<div class="exo">
+  <span class="badge badge-blue">Niveau 2</span>
+  <strong>Mini-exercice 2 — Vérifier la proportionnalité</strong><br><br>
+  Un technicien relève les consommations de gaz suivantes pour un chaudière selon l'heure de fonctionnement :
+  <table class="full" style="margin:10px 0">
+    <tr>
+      <th>Durée (h)</th>
+      <td class="tv-x">2</td>
+      <td class="tv-x">5</td>
+      <td class="tv-x">8</td>
+      <td class="tv-x">10</td>
+    </tr>
+    <tr>
+      <th>Conso (m³)</th>
+      <td>1,8</td>
+      <td>4,5</td>
+      <td>7,0</td>
+      <td>9,0</td>
+    </tr>
+  </table>
+  Cette relation est-elle proportionnelle ? Justifier.
+  <details class="corr-wrap">
+    <summary class="corr-btn">Voir la correction</summary>
+    <div class="corr-body">
+      On calcule le rapport \(k = \text{conso}/\text{durée}\) pour chaque colonne :<br><br>
+      \(k_1 = 1{,}8 / 2 = 0{,}90\)<br>
+      \(k_2 = 4{,}5 / 5 = 0{,}90\)<br>
+      \(k_3 = 7{,}0 / 8 = 0{,}875\) ← <strong>différent !</strong><br>
+      \(k_4 = 9{,}0 / 10 = 0{,}90\)<br><br>
+      Le rapport n'est pas constant (la valeur pour 8 h est différente).<br>
+      <span class="corr-rep">La relation n'est PAS proportionnelle</span> — il y a probablement une erreur de relevé pour la mesure à 8 h, ou un fonctionnement en mode différent (démarrage/arrêt).
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 3 — Jaune -->
+<div class="exo">
+  <span class="badge badge-yellow">Niveau 3</span>
+  <strong>Mini-exercice 3 — Remise + TVA</strong><br><br>
+  Un technicien commande une pompe de circulation dont le prix catalogue est <strong>126 € HT</strong>.
+  Il bénéficie d'une remise professionnelle de <strong>12%</strong>, puis la TVA à 20% s'applique.
+  <ol>
+    <li>Calculer le prix HT après remise.</li>
+    <li>Calculer le montant TTC.</li>
+    <li>Quel est le taux global de variation entre le prix catalogue HT et le prix TTC final ?</li>
+  </ol>
+  <details class="corr-wrap">
+    <summary class="corr-btn">Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1. Prix HT après remise 12% :</strong><br>
+      \[\text{Prix HT remisé} = 126 \times (1 - 0{,}12) = 126 \times 0{,}88 = 110{,}88\,€\]
+      <span class="corr-rep">110,88 €</span><br><br>
+
+      <strong>2. Montant TTC (TVA 20%) :</strong><br>
+      \[\text{TTC} = 110{,}88 \times 1{,}20 = 133{,}056\,€ \approx 133{,}06\,€\]
+      <span class="corr-rep">133,06 €</span><br><br>
+
+      <strong>3. Taux de variation global (par rapport au prix catalogue HT) :</strong><br>
+      \[t = \frac{133{,}06 - 126}{126} \times 100 = \frac{7{,}06}{126} \times 100 \approx 5{,}6\%\]
+      <span class="corr-rep">Hausse globale d'environ 5,6%</span> par rapport au prix catalogue HT.<br>
+      (Logique : on enlève 12% puis on ajoute 20% — le résultat net est une légère hausse.)<br>
+      Vérification rapide : \(0{,}88 \times 1{,}20 = 1{,}056\) → +5,6%. Correct.
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 4 — Rouge -->
+<div class="exo">
+  <span class="badge badge-red">Niveau 4</span>
+  <strong>Mini-exercice 4 — Situation professionnelle complète</strong><br><br>
+  Un technicien MAMA réalise un devis pour la rénovation d'une installation de chauffage.
+  Il relève les données suivantes :
+  <ul>
+    <li>Surface totale de l'appartement : <strong>95 m²</strong></li>
+    <li>Surface nécessitant une nouvelle tuyauterie : <strong>57 m²</strong></li>
+    <li>Coût de pose : <strong>28 €/m²</strong> (proportionnel à la surface)</li>
+    <li>Fourniture de matériel : <strong>440 € HT</strong> (remise 10% accordée)</li>
+    <li>TVA : 10% sur la main-d'œuvre, 20% sur le matériel</li>
+  </ul>
+  <ol>
+    <li>Quelle proportion (en %) de la surface totale nécessite une rénovation ?</li>
+    <li>Calculer le coût HT de la main-d'œuvre.</li>
+    <li>Calculer le coût HT du matériel après remise.</li>
+    <li>Calculer le montant TTC total du devis.</li>
+  </ol>
+  <details class="corr-wrap">
+    <summary class="corr-btn">Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1. Proportion de surface à rénover :</strong><br>
+      \[\frac{57}{95} \times 100 = 60\%\]
+      <span class="corr-rep">60% de la surface</span> nécessite une rénovation.<br><br>
+
+      <strong>2. Coût HT main-d'œuvre :</strong><br>
+      Proportionnel à la surface : \(57 \times 28 = \)<span class="corr-rep">1 596 €</span><br><br>
+
+      <strong>3. Coût HT matériel après remise 10% :</strong><br>
+      \[440 \times (1 - 0{,}10) = 440 \times 0{,}90 = \mathbf{396\,€}\]
+      <span class="corr-rep">396 €</span><br><br>
+
+      <strong>4. Montant TTC total :</strong><br>
+      Main-d'œuvre TTC : \(1\,596 \times 1{,}10 = 1\,755{,}60\,€\)<br>
+      Matériel TTC : \(396 \times 1{,}20 = 475{,}20\,€\)<br>
+      <strong>Total TTC :</strong> \(1\,755{,}60 + 475{,}20 = \)<span class="corr-rep">2 230,80 €</span><br><br>
+
+      <em>Tableau récapitulatif :</em>
+      <table>
+        <tr><th>Poste</th><th>HT</th><th>TVA</th><th>TTC</th></tr>
+        <tr><td>Main-d'œuvre (57 m²)</td><td>1 596,00 €</td><td>10%</td><td>1 755,60 €</td></tr>
+        <tr><td>Matériel (remisé 10%)</td><td>396,00 €</td><td>20%</td><td>475,20 €</td></tr>
+        <tr><td><strong>TOTAL</strong></td><td><strong>1 992,00 €</strong></td><td></td><td class="ok"><strong>2 230,80 €</strong></td></tr>
+      </table>
+    </div>
+  </details>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>9. Compléments — Proportionnalité dans les métiers techniques</h2>
+
+<h3>9.1 Échelles et plans</h3>
+
+<div class="def">
+  <strong>Définition — Échelle :</strong><br>
+  Un plan ou une carte est dessiné à l'<strong>échelle</strong> \(e\). Si l'échelle est \(\dfrac{1}{n}\), alors :
+  \[\text{Distance réelle} = \text{Distance sur le plan} \times n\]
+  \[\text{Distance sur le plan} = \frac{\text{Distance réelle}}{n}\]
+  <em>Exemple :</em> À l'échelle 1/50, 1 cm sur le plan représente 50 cm = 0,50 m en réalité.
+  Un couloir de 6 m réel mesure \(6\,\text{m} / 50 = 0{,}12\,\text{m} = 12\,\text{cm}\) sur le plan.
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Application — Plan d'une installation MAMA</div>
+  <p>
+    Un technicien dispose d'un plan à l'échelle 1/100. Sur le plan, la distance entre la chaudière
+    et le point de distribution est mesurée à <strong>8,5 cm</strong>. Quelle est la longueur réelle de la tuyauterie à poser ?
+  </p>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div>Échelle : \(\dfrac{1}{100}\) donc 1 cm sur le plan = 100 cm = 1 m en réalité.</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div>Distance réelle : \(8{,}5 \times 100 = 850\,\text{cm} = \mathbf{8{,}5\,\text{m}}\)</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div>Il devra poser au minimum <span class="corr-rep">8,5 m de tuyauterie</span> (en ligne droite — prévoir plus pour les coudes).</div>
+  </div>
+</div>
+
+<h3>9.2 Mélanges et concentrations</h3>
+
+<div class="meth">
+  <strong>Méthode — Proportions dans un mélange :</strong><br>
+  En plomberie/climatisation, on dilue parfois des produits (antigel, produit traitement d'eau).
+  Si on doit préparer un mélange à <strong>25% de produit A</strong> pour un volume total de 12 litres :
+  \[\text{Volume de A} = 12 \times \frac{25}{100} = 12 \times 0{,}25 = 3\,\text{L}\]
+  \[\text{Volume d'eau} = 12 - 3 = 9\,\text{L}\]
+  La relation entre le volume de produit A et le volume total est <strong>proportionnelle</strong> : \(V_A = 0{,}25 \times V_{\text{total}}\).
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Antigel dans un circuit de chauffage</div>
+  <p>
+    Un circuit de chauffage contient 40 litres de fluide. Le technicien doit le vidanger et le remplir
+    avec un mélange eau/antigel à <strong>30% d'antigel</strong>. Combien de litres d'antigel faut-il ?
+  </p>
+  \[V_{\text{antigel}} = 40 \times 0{,}30 = \mathbf{12\,\text{L}}\]
+  \[V_{\text{eau}} = 40 - 12 = \mathbf{28\,\text{L}}\]
+  <p>Il faut <span class="corr-rep">12 L d'antigel</span> et <span class="corr-rep">28 L d'eau</span>.</p>
+</div>
+
+<h3>9.3 Passage HT / TTC — Tableau de synthèse</h3>
+
+<div class="prop">
+  <strong>Résumé des conversions HT ↔ TTC :</strong>
+  <table class="full" style="margin-top:10px">
+    <tr>
+      <th>Taux de TVA</th>
+      <th>Coefficient HT → TTC</th>
+      <th>Coefficient TTC → HT</th>
+      <th>Usage courant</th>
+    </tr>
+    <tr>
+      <td><strong>5,5%</strong></td>
+      <td>\(\times 1{,}055\)</td>
+      <td>\(\div 1{,}055\)</td>
+      <td>Travaux de rénovation énergétique</td>
+    </tr>
+    <tr>
+      <td><strong>10%</strong></td>
+      <td>\(\times 1{,}10\)</td>
+      <td>\(\div 1{,}10\)</td>
+      <td>Travaux d'entretien (main-d'œuvre)</td>
+    </tr>
+    <tr>
+      <td><strong>20%</strong></td>
+      <td>\(\times 1{,}20\)</td>
+      <td>\(\div 1{,}20\)</td>
+      <td>Matériel, équipements neufs</td>
+    </tr>
+  </table>
+  <br>
+  <strong>Formule générale :</strong>
+  \[\text{TTC} = \text{HT} \times \left(1 + \frac{\text{taux TVA}}{100}\right)\]
+  \[\text{HT} = \frac{\text{TTC}}{1 + \frac{\text{taux TVA}}{100}}\]
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Retrouver le HT à partir du TTC</div>
+  <p>
+    Une facture d'entretien de chaudière affiche un montant TTC de <strong>176 €</strong> (TVA 10%).
+    Quel est le montant HT ?
+  </p>
+  \[\text{HT} = \frac{176}{1{,}10} = \frac{176}{1{,}10} = \mathbf{160\,€}\]
+  <p>Vérification : \(160 \times 1{,}10 = 176\,€\). Correct. &nbsp; Montant TVA : \(176 - 160 = 16\,€\).</p>
+</div>
+
+<h3>9.4 Graphique dynamique — Comparaison HT et TTC</h3>
+
+<p style="font-size:.9em;color:#718096">Visualisation du prix TTC en fonction du prix HT pour les trois taux de TVA courants.</p>
+
+<div class="chart-wrapper">
+  <canvas id="chartTVA"></canvas>
+</div>
+<script>
+(function(){
+  const hts = [0,50,100,150,200,250,300,400,500,600,800,1000];
+  new Chart(document.getElementById('chartTVA'),{
+    type:'line',
+    data:{
+      labels:hts,
+      datasets:[
+        {
+          label:'TVA 5,5% — Rénovation énergétique',
+          data:hts.map(h=>Math.round(h*1.055*100)/100),
+          borderColor:'#2f855a',backgroundColor:'rgba(47,133,90,0.04)',
+          borderWidth:2,pointRadius:3,tension:0,fill:false
+        },
+        {
+          label:'TVA 10% — Main-d\'œuvre entretien',
+          data:hts.map(h=>Math.round(h*1.10*100)/100),
+          borderColor:'#d97706',backgroundColor:'rgba(217,119,6,0.04)',
+          borderWidth:2,pointRadius:3,tension:0,fill:false
+        },
+        {
+          label:'TVA 20% — Matériel neuf',
+          data:hts.map(h=>Math.round(h*1.20*100)/100),
+          borderColor:'#0056b3',backgroundColor:'rgba(0,86,179,0.07)',
+          borderWidth:2.5,pointRadius:3,tension:0,fill:false
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{position:'bottom',labels:{font:{size:11},boxWidth:18}},
+        title:{display:true,text:'Prix TTC en fonction du prix HT — Comparaison des taux de TVA',font:{size:12}}
+      },
+      scales:{
+        x:{title:{display:true,text:'Prix HT (€)'},grid:{color:'#f0f0f0'}},
+        y:{title:{display:true,text:'Prix TTC (€)'},min:0,grid:{color:'#f0f0f0'}}
+      }
+    }
+  });
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="nav-footer">
+  <a href="maths-2nde-mama.html" class="nav-btn">← Sommaire</a>
+  <a href="maths-2nde-mama.html" class="nav-btn">Sommaire général</a>
+  <a href="ch01_exos.html" class="nav-btn">Exercices Ch01 →</a>
+</div>
+
 </div>
 <script src="nav.js"></script>
 </body>

@@ -1,20 +1,460 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Ch03 – Indicateurs statistiques</title><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><style>:root{--p:#0056b3;--d:#c53030;--s:#2f855a;--t:#2d3748}body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.6;margin:0;padding:20px}.c{max-width:800px;margin:auto;background:#fff;padding:30px;border-radius:12px;border:1px solid #e2e8f0}header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:25px;padding-bottom:15px}h1{margin:0;color:var(--p);font-size:1.6em}h2{font-size:1.1em;color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:25px}.b{padding:15px;border-radius:8px;margin:15px 0;border:1px solid #e2e8f0}.r{background:#fff5f5;border-left:5px solid var(--d)}.m{background:#f0f7ff;border-left:5px solid var(--p)}.e{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:15px;margin:15px 0}.corr{background:#f0fff4;border-left:4px solid var(--s);padding:10px 15px;margin-top:10px;border-radius:0 8px 8px 0;display:none}.bc{background:var(--p);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:8px}table{width:100%;border-collapse:collapse;margin:15px 0;font-size:.9em}th,td{border:1px solid #e2e8f0;padding:10px;text-align:center}th{background:#f7fafc}.dh{background:#eef2f7;padding:12px 15px;border-radius:8px;margin-bottom:20px;font-size:.9em}.nb{margin-bottom:15px;display:block;text-decoration:none;color:var(--p);font-size:.8em;font-weight:bold}</style></head><body><div class="c"><a href="maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
-<header><h1>Cours – Indicateurs statistiques</h1></header>
-<h2>1. Indicateurs de position</h2>
-<div class="b m"><strong>Moyenne :</strong> \(\bar{x} = \dfrac{\sum n_i x_i}{N}\)<br>
-<strong>M&eacute;diane :</strong> valeur centrale (50% des donn&eacute;es en dessous, 50% au-dessus).<br>
-<strong>Mode :</strong> valeur la plus fr&eacute;quente.</div>
-<h2>2. Indicateurs de dispersion</h2>
-<div class="b r"><strong>&Eacute;tendue :</strong> \(e = x_{\max} - x_{\min}\)<br>
-<strong>Quartiles :</strong> Q1 (25%), Q2 (50% = m&eacute;diane), Q3 (75%)<br>
-<strong>Intervalle interquartile :</strong> \(IQ = Q3 - Q1\)</div>
-<h2>3. Calcul de la moyenne</h2>
-<p>Avec un tableau :</p>
-<table><tr><th>\(x_i\)</th><th>\(n_i\)</th><th>\(n_i \times x_i\)</th></tr>
-<tr><td>10</td><td>3</td><td>30</td></tr>
-<tr><td>15</td><td>5</td><td>75</td></tr>
-<tr><td>20</td><td>2</td><td>40</td></tr>
-<tr><td><strong>Total</strong></td><td>10</td><td>145</td></tr></table>
-<p>\(\bar{x} = \frac{145}{10} = 14{,}5\)</p>
-</div><script src="nav.js"></script>
-</body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Indicateurs statistiques</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+*{box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.container{max-width:880px;margin:auto;background:#fff;padding:35px;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.75em}
+.sub{color:#718096;font-size:.9em;margin:0}
+h2{color:var(--p);border-left:4px solid var(--p);padding-left:14px;margin:36px 0 14px;font-size:1.15em}
+h3{color:#4a5568;font-size:1em;margin:18px 0 8px}
+.nav-btn{display:inline-block;margin-bottom:18px;padding:7px 16px;background:var(--p);color:#fff;border-radius:7px;text-decoration:none;font-size:.88em;font-weight:600;transition:background .2s}
+.nav-btn:hover{background:#004494}
+.def{background:#eff6ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.def strong{color:var(--p)}
+.prop{background:#f0fdf4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.prop strong{color:var(--s)}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.meth strong{color:var(--o)}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.att strong{color:var(--d)}
+.retenir{background:#f0fdf4;border:2px solid var(--s);border-radius:10px;padding:18px 22px;margin:28px 0}
+.retenir h3{color:var(--s);margin:0 0 10px}
+.exemple{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 18px;margin:14px 0}
+.situation{background:#fffbeb;border:1px solid #fbd38d;border-radius:10px;padding:18px 22px;margin:24px 0}
+.situation h3{color:#92400e;margin:0 0 10px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.93em}
+th,td{border:1px solid #c5cdd8;padding:9px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+tr:nth-child(even) td{background:#f8fafc}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.card .label{font-size:.75em;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.card .value{font-size:1.3em;font-weight:700;color:var(--p)}
+.card .desc{font-size:.85em;color:#4a5568;margin-top:4px}
+canvas.anim{display:block;margin:14px auto;border-radius:10px;border:1px solid #e2e8f0;background:#fdfdfd}
+.slider-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:10px auto;max-width:540px}
+.slider-row label{font-size:.9em;min-width:180px}
+.slider-row input[type=range]{flex:1;min-width:100px;accent-color:var(--p)}
+.slider-row span{font-weight:700;color:var(--p);min-width:50px;text-align:right}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:18px;margin:18px 0}
+.exo-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.badge{padding:3px 10px;border-radius:12px;font-size:.78em;font-weight:700;color:#fff}
+.badge.g{background:#22543d}.badge.b{background:#2b6cb0}.badge.j{background:#744210}.badge.r{background:#742a2a}
+details summary{cursor:pointer;color:var(--p);font-weight:600;font-size:.9em;padding:8px 0}
+details[open] summary{color:var(--s)}
+.corr-body{background:#f0fdf4;border-left:3px solid var(--s);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.93em}
+.corr-body p{margin:4px 0}
+.boxplot-wrap{background:#f7fafc;border:1px dashed #cbd5e0;border-radius:8px;padding:14px;margin:14px 0;overflow-x:auto}
+@media(max-width:600px){.container{padding:20px 14px}h1{font-size:1.4em}.card-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="maths-2nde-mama.html" class="nav-btn">&#8592; Sommaire</a>
+
+<header>
+  <h1>Chapitre 3 &#8212; Indicateurs statistiques</h1>
+  <p class="sub">Indicateurs de position et de dispersion &middot; Bo&icirc;te &agrave; moustaches &middot; 2<sup>de</sup> Pro MA-MA</p>
+</header>
+
+<!-- INTRO MAMA -->
+<div class="situation">
+  <h3>&#128296; Situation professionnelle &#8212; MAMA</h3>
+  <p>Un chef d&rsquo;&eacute;quipe MAMA analyse les <strong>temps d&rsquo;intervention</strong> de ses techniciens sur des pannes de climatiseurs pendant un mois. Il rel&egrave;ve (en minutes) : 25, 30, 18, 45, 22, 35, 28, 40, 20, 32, 55, 27.</p>
+  <p>Pour d&eacute;cider si son &eacute;quipe est efficace et r&eacute;guli&egrave;re, il calcule des <strong>indicateurs statistiques</strong> : moyenne, m&eacute;diane, quartiles, &eacute;cart-type. Il trace ensuite une <strong>bo&icirc;te &agrave; moustaches</strong>.</p>
+</div>
+
+<!-- 1. RAPPELS -->
+<h2>1. Rappels &#8212; Donn&eacute;es et regroupement par classes</h2>
+
+<div class="def">
+  <strong>S&eacute;rie statistique</strong> : ensemble de valeurs mesur&eacute;es sur une population.<br>
+  <strong>Effectif \(n_i\)</strong> : nombre de fois qu&rsquo;une valeur appara&icirc;t. &nbsp;<strong>Effectif total \(N\)</strong> : nombre d&rsquo;individus.<br>
+  <strong>Fr&eacute;quence \(f_i = \dfrac{n_i}{N}\)</strong> (entre 0 et 1, ou en %).
+</div>
+
+<div class="def">
+  <strong>Regroupement par classes :</strong> quand les donn&eacute;es sont nombreuses ou continues, on les regroupe en intervalles \([a\,;\,b[\).<br>
+  Le <strong>centre de classe</strong> est \(c_i = \dfrac{a+b}{2}\) (utilis&eacute; pour calculer la moyenne).
+</div>
+
+<div class="exemple">
+  <strong>Exemple &#8212; Dur&eacute;es d&rsquo;intervention de 20 techniciens, regroup&eacute;es par classes :</strong>
+  <table>
+    <tr><th>Classe [min]</th><th>[10;20[</th><th>[20;30[</th><th>[30;40[</th><th>[40;50[</th><th>[50;60[</th><th>Total</th></tr>
+    <tr><td>Effectif \(n_i\)</td><td>3</td><td>7</td><td>6</td><td>3</td><td>1</td><td>20</td></tr>
+    <tr><td>Centre \(c_i\)</td><td>15</td><td>25</td><td>35</td><td>45</td><td>55</td><td>&#8212;</td></tr>
+    <tr><td>Fr&eacute;quence</td><td>15&nbsp;%</td><td>35&nbsp;%</td><td>30&nbsp;%</td><td>15&nbsp;%</td><td>5&nbsp;%</td><td>100&nbsp;%</td></tr>
+  </table>
+  La <strong>classe modale</strong> est [20&nbsp;;&nbsp;30[ (effectif&nbsp;7, le plus grand).
+</div>
+
+<!-- 2. INDICATEURS DE POSITION -->
+<h2>2. Indicateurs de position</h2>
+<p>Les indicateurs de position donnent une valeur <em>repr&eacute;sentative</em> de la s&eacute;rie.</p>
+
+<h3>2.1 Le mode et la classe modale</h3>
+<div class="def">
+  <strong>Mode (Mo)</strong> : valeur dont l&rsquo;effectif est le plus &eacute;lev&eacute; dans la s&eacute;rie.<br>
+  <strong>Classe modale</strong> : classe d&rsquo;effectif le plus &eacute;lev&eacute; (donn&eacute;es regroup&eacute;es par classes).
+</div>
+
+<h3>2.2 La moyenne</h3>
+<div class="prop">
+  <strong>Formule :</strong>
+  \[\bar{x} = \frac{\sum x_i}{N} \qquad\text{avec effectifs :}\quad \bar{x} = \frac{\sum x_i \cdot n_i}{N} \qquad\text{avec classes :}\quad \bar{x} = \frac{\sum c_i \cdot n_i}{N}\]
+</div>
+<div class="exemple">
+  <strong>Nos 12 interventions :</strong> Somme = 377 &nbsp;&rarr;&nbsp; \(\bar{x} = \dfrac{377}{12} \approx \mathbf{31{,}4 \text{ min}}\)
+</div>
+<div class="att">
+  <strong>&#9888; Attention :</strong> La moyenne est <em>sensible aux valeurs extr&ecirc;mes</em>. La valeur 55 min tire la moyenne vers le haut.
+</div>
+
+<h3>2.3 La m&eacute;diane</h3>
+<div class="prop">
+  <strong>M&eacute;diane (Me)</strong> : valeur qui partage la s&eacute;rie tri&eacute;e en deux moiti&eacute;s &eacute;gales &#8212; 50&nbsp;% des valeurs sont &le;&nbsp;Me.
+</div>
+<div class="meth">
+  <strong>M&eacute;thode :</strong>
+  <ol>
+    <li>Trier dans l&rsquo;ordre croissant.</li>
+    <li>\(N\) impair : \(Me\) = valeur au rang \(\dfrac{N+1}{2}\).</li>
+    <li>\(N\) pair : \(Me\) = moyenne des rangs \(\dfrac{N}{2}\) et \(\dfrac{N}{2}+1\).</li>
+  </ol>
+</div>
+<div class="exemple">
+  S&eacute;rie tri&eacute;e (\(N=12\), pair) : 18&nbsp;&middot;&nbsp;20&nbsp;&middot;&nbsp;22&nbsp;&middot;&nbsp;25&nbsp;&middot;&nbsp;27&nbsp;&middot;&nbsp;<strong style="color:var(--p)">28</strong>&nbsp;&middot;&nbsp;<strong style="color:var(--p)">30</strong>&nbsp;&middot;&nbsp;32&nbsp;&middot;&nbsp;35&nbsp;&middot;&nbsp;40&nbsp;&middot;&nbsp;45&nbsp;&middot;&nbsp;55<br>
+  Rangs 6 et 7 : 28 et 30. &nbsp;\(\;Me = \dfrac{28+30}{2} = \mathbf{29 \text{ min}}\)
+</div>
+
+<h3>2.4 Les quartiles Q&#8321; et Q&#8323;</h3>
+<div class="def">
+  <strong>Q&#8321;</strong> : 25&nbsp;% des donn&eacute;es lui sont inf&eacute;rieures ou &eacute;gales.<br>
+  <strong>Q&#8323;</strong> : 75&nbsp;% des donn&eacute;es lui sont inf&eacute;rieures ou &eacute;gales.<br>
+  <em>La m&eacute;diane est Q&#8322; = Me.</em>
+</div>
+<div class="meth">
+  <strong>M&eacute;thode :</strong> partager la s&eacute;rie tri&eacute;e en deux moiti&eacute;s (avant et apr&egrave;s la m&eacute;diane).<br>
+  Q&#8321; = m&eacute;diane de la 1<sup>re</sup> moiti&eacute;. &nbsp; Q&#8323; = m&eacute;diane de la 2<sup>e</sup> moiti&eacute;.
+</div>
+<div class="exemple">
+  1<sup>re</sup> moiti&eacute; : 18&nbsp;&middot;&nbsp;20&nbsp;&middot;&nbsp;22&nbsp;&middot;&nbsp;25&nbsp;&middot;&nbsp;27&nbsp;&middot;&nbsp;28 &nbsp;&rarr;&nbsp; \(Q_1 = \dfrac{22+25}{2} = \mathbf{23{,}5 \text{ min}}\)<br>
+  2<sup>e</sup> moiti&eacute; : 30&nbsp;&middot;&nbsp;32&nbsp;&middot;&nbsp;35&nbsp;&middot;&nbsp;40&nbsp;&middot;&nbsp;45&nbsp;&middot;&nbsp;55 &nbsp;&rarr;&nbsp; \(Q_3 = \dfrac{35+40}{2} = \mathbf{37{,}5 \text{ min}}\)
+</div>
+
+<div class="card-grid">
+  <div class="card"><div class="label">Mode / Classe modale</div><div class="value" style="color:var(--o)">[20;30[</div><div class="desc">Classe la plus fr&eacute;quente</div></div>
+  <div class="card"><div class="label">Moyenne x&#x0305;</div><div class="value">&#8776; 31,4 min</div><div class="desc">Barycentre de la s&eacute;rie</div></div>
+  <div class="card"><div class="label">M&eacute;diane Me</div><div class="value" style="color:var(--s)">29 min</div><div class="desc">Valeur centrale robuste</div></div>
+  <div class="card"><div class="label">Q&#8321; / Q&#8323;</div><div class="value" style="color:var(--p)">23,5 / 37,5</div><div class="desc">Quartiles 1 et 3</div></div>
+</div>
+
+<!-- 3. INDICATEURS DE DISPERSION -->
+<h2>3. Indicateurs de dispersion</h2>
+<p>Les indicateurs de dispersion mesurent la <em>variabilit&eacute;</em> des donn&eacute;es autour de la valeur centrale.</p>
+
+<h3>3.1 L&rsquo;&eacute;tendue</h3>
+<div class="prop">
+  \[\text{&Eacute;tendue} = x_{\max} - x_{\min}\]
+</div>
+<div class="exemple">
+  &Eacute;tendue = 55 &minus; 18 = <strong>37 min</strong>.
+</div>
+<div class="att">
+  <strong>Limite :</strong> l&rsquo;&eacute;tendue ne d&eacute;pend que des deux valeurs extr&ecirc;mes &#8212; une seule valeur aberrante peut la rendre tr&egrave;s grande.
+</div>
+
+<h3>3.2 L&rsquo;&eacute;cart interquartile (IQR)</h3>
+<div class="prop">
+  \[\text{IQR} = Q_3 - Q_1\]
+  Il repr&eacute;sente l&rsquo;&eacute;tendue des 50&nbsp;% centraux des donn&eacute;es.
+</div>
+<div class="exemple">
+  IQR = 37,5 &minus; 23,5 = <strong>14 min</strong>. La moiti&eacute; centrale des interventions dure entre 23,5 et 37,5 min.
+</div>
+
+<h3>3.3 L&rsquo;&eacute;cart-type &#963;</h3>
+<div class="prop">
+  <strong>Variance :</strong> \(\sigma^2 = \dfrac{\displaystyle\sum (x_i - \bar{x})^2}{N}\)<br>
+  <strong>&Eacute;cart-type :</strong> \(\sigma = \sqrt{\sigma^2}\) &nbsp;(m&ecirc;me unit&eacute; que les donn&eacute;es).<br>
+  Plus \(\sigma\) est petit, plus la s&eacute;rie est <em>homog&egrave;ne</em>.
+</div>
+<div class="meth">
+  <strong>En pratique :</strong> utiliser la touche &sigma; (ou &sigma;<sub>n</sub>) de la calculatrice ou la fonction <code>ECARTTYPE</code> du tableur.
+</div>
+<div class="exemple">
+  Pour nos 12 interventions : \(\sigma \approx \mathbf{10{,}4 \text{ min}}\).<br>
+  En moyenne, les temps d&rsquo;intervention s&rsquo;&eacute;cartent de &pm;10,4 min de la moyenne.
+</div>
+
+<!-- 4. BOITE A MOUSTACHES -->
+<h2>4. Diagramme en bo&icirc;te &agrave; moustaches (box plot)</h2>
+
+<div class="def">
+  Le <strong>diagramme en bo&icirc;te &agrave; moustaches</strong> repr&eacute;sente graphiquement les 5 valeurs cl&eacute;s :
+  \[\text{Min} \quad Q_1 \quad Me \quad Q_3 \quad \text{Max}\]
+  &#8212; La <strong>bo&icirc;te</strong> s&rsquo;&eacute;tend de Q&#8321; &agrave; Q&#8323; (50&nbsp;% centraux des donn&eacute;es).<br>
+  &#8212; Le trait vertical dans la bo&icirc;te = <strong>m&eacute;diane</strong>.<br>
+  &#8212; Les <strong>moustaches</strong> s&rsquo;&eacute;tendent de Min &agrave; Q&#8321; et de Q&#8323; &agrave; Max.
+</div>
+
+<div class="boxplot-wrap">
+  <!-- v->x : x(v)=40+v*460/60 — min=18->178, Q1=23.5->220, Me=29->263, Q3=37.5->328, max=55->462 -->
+  <svg width="520" height="130" viewBox="0 0 520 130" style="display:block;margin:auto">
+    <line x1="40" y1="90" x2="500" y2="90" stroke="#4a5568" stroke-width="1.5"/>
+    <line x1="40"  y1="88" x2="40"  y2="95" stroke="#4a5568"/><text x="40"  y="108" text-anchor="middle" font-size="11" fill="#718096">0</text>
+    <line x1="117" y1="88" x2="117" y2="95" stroke="#4a5568"/><text x="117" y="108" text-anchor="middle" font-size="11" fill="#718096">10</text>
+    <line x1="193" y1="88" x2="193" y2="95" stroke="#4a5568"/><text x="193" y="108" text-anchor="middle" font-size="11" fill="#718096">20</text>
+    <line x1="270" y1="88" x2="270" y2="95" stroke="#4a5568"/><text x="270" y="108" text-anchor="middle" font-size="11" fill="#718096">30</text>
+    <line x1="347" y1="88" x2="347" y2="95" stroke="#4a5568"/><text x="347" y="108" text-anchor="middle" font-size="11" fill="#718096">40</text>
+    <line x1="423" y1="88" x2="423" y2="95" stroke="#4a5568"/><text x="423" y="108" text-anchor="middle" font-size="11" fill="#718096">50</text>
+    <line x1="500" y1="88" x2="500" y2="95" stroke="#4a5568"/><text x="500" y="108" text-anchor="middle" font-size="11" fill="#718096">60</text>
+    <text x="270" y="123" text-anchor="middle" font-size="10" fill="#718096">Dur&eacute;e (minutes)</text>
+    <!-- Moustache gauche -->
+    <line x1="178" y1="65" x2="220" y2="65" stroke="#2b6cb0" stroke-width="2"/>
+    <line x1="178" y1="57" x2="178" y2="73" stroke="#2b6cb0" stroke-width="2"/>
+    <!-- Boite -->
+    <rect x="220" y="50" width="108" height="30" fill="#bee3f8" stroke="#2b6cb0" stroke-width="2" rx="2"/>
+    <!-- Mediane -->
+    <line x1="263" y1="50" x2="263" y2="80" stroke="#1a365d" stroke-width="3"/>
+    <!-- Moustache droite -->
+    <line x1="328" y1="65" x2="462" y2="65" stroke="#2b6cb0" stroke-width="2"/>
+    <line x1="462" y1="57" x2="462" y2="73" stroke="#2b6cb0" stroke-width="2"/>
+    <!-- Labels -->
+    <text x="178" y="45" text-anchor="middle" font-size="11" fill="#c53030" font-weight="700">Min=18</text>
+    <text x="220" y="45" text-anchor="middle" font-size="11" fill="#2b6cb0" font-weight="700">Q&#8321;=23,5</text>
+    <text x="263" y="41" text-anchor="middle" font-size="11" fill="#1a365d" font-weight="700">Me=29</text>
+    <text x="328" y="45" text-anchor="middle" font-size="11" fill="#2b6cb0" font-weight="700">Q&#8323;=37,5</text>
+    <text x="462" y="45" text-anchor="middle" font-size="11" fill="#c53030" font-weight="700">Max=55</text>
+  </svg>
+</div>
+
+<div class="prop">
+  <strong>Lecture :</strong>
+  <ul>
+    <li>Longueur de la bo&icirc;te = IQR = 14 min &rarr; dispersion des 50&nbsp;% centraux.</li>
+    <li>M&eacute;diane proche de Q&#8321; &rarr; distribution l&eacute;g&egrave;rement asym&eacute;trique vers la droite.</li>
+    <li>Moustache droite tr&egrave;s longue (37,5 &rarr; 55) &rarr; intervention &agrave; 55 min possiblement aberrante.</li>
+  </ul>
+</div>
+
+<!-- 5. CHART.JS -->
+<h2>5. Visualisation &#8212; Deux techniciens, m&ecirc;me moyenne, dispersions diff&eacute;rentes</h2>
+<p>Ce graphique illustre que deux s&eacute;ries peuvent avoir la m&ecirc;me <strong>moyenne</strong> mais des <strong>dispersions tr&egrave;s diff&eacute;rentes</strong>.</p>
+<div style="max-width:620px;margin:16px auto">
+  <canvas id="chartComp" height="220"></canvas>
+</div>
+<script>
+(function(){
+  const ctx=document.getElementById('chartComp').getContext('2d');
+  new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:['Int 1','Int 2','Int 3','Int 4','Int 5','Int 6','Int 7','Int 8','Int 9','Int 10'],
+      datasets:[
+        {label:'Technicien A (x\u0305\u224830 min, \u03c3\u22481,6) — r\u00e9gulier',data:[28,30,29,31,28,30,29,32,27,30],backgroundColor:'rgba(0,86,179,0.65)',borderColor:'#0056b3',borderWidth:1,borderRadius:4},
+        {label:'Technicien B (x\u0305\u224833 min, \u03c3\u224816) — irr\u00e9gulier',data:[15,45,20,50,18,55,22,48,12,40],backgroundColor:'rgba(197,48,48,0.55)',borderColor:'#c53030',borderWidth:1,borderRadius:4}
+      ]
+    },
+    options:{responsive:true,plugins:{legend:{position:'top'},title:{display:true,text:'Temps d\'intervention (min) \u2014 comparaison de r\u00e9gularit\u00e9',font:{size:13}}},scales:{y:{beginAtZero:true,title:{display:true,text:'Dur\u00e9e (min)'},max:65}}}
+  });
+})();
+</script>
+
+<!-- 6. ANIMATION -->
+<h2>6. Animation &#8212; Moyenne vs M&eacute;diane face aux valeurs extr&ecirc;mes</h2>
+<p>D&eacute;placez le curseur pour modifier une valeur extr&ecirc;me et observer comment la <strong style="color:var(--p)">moyenne</strong> et la <strong style="color:var(--s)">m&eacute;diane</strong> r&eacute;agissent diff&eacute;remment.</p>
+<div style="text-align:center">
+  <canvas id="animStat" class="anim" width="560" height="200"></canvas>
+  <div class="slider-row">
+    <label>Valeur aberrante (min) :</label>
+    <input type="range" id="slOut" min="10" max="120" value="55" step="1">
+    <span id="vOut">55</span>
+  </div>
+</div>
+<script>
+(function(){
+  var cvs=document.getElementById('animStat'),c=cvs.getContext('2d');
+  var sl=document.getElementById('slOut'),vsp=document.getElementById('vOut');
+  var base=[18,20,22,25,27,28,30,32,35,40,45];
+  function stats(arr){
+    var s=[].concat(arr).sort(function(a,b){return a-b;}),n=s.length;
+    var mean=s.reduce(function(t,v){return t+v;},0)/n;
+    var med=n%2===0?(s[n/2-1]+s[n/2])/2:s[Math.floor(n/2)];
+    return{s:s,mean:mean,med:med};
+  }
+  function draw(){
+    var out=+sl.value; vsp.textContent=out;
+    var data=base.concat([out]);
+    var st=stats(data);
+    c.clearRect(0,0,cvs.width,cvs.height);
+    var pad=50,W=cvs.width-pad*2,scMax=Math.max(st.s[st.s.length-1],125);
+    function toX(v){return pad+v/scMax*W;}
+    c.strokeStyle='#4a5568';c.lineWidth=1.5;
+    c.beginPath();c.moveTo(pad,110);c.lineTo(pad+W,110);c.stroke();
+    for(var v=0;v<=130;v+=10){
+      var x=toX(v);
+      if(x<=pad+W+2){
+        c.fillStyle='#718096';c.font='10px Segoe UI';c.textAlign='center';
+        c.fillText(v,x,128);
+        c.beginPath();c.moveTo(x,108);c.lineTo(x,114);c.stroke();
+      }
+    }
+    st.s.forEach(function(v){
+      var x=toX(v),isOut=(v===out&&out>50);
+      c.beginPath();c.arc(x,90,5,0,Math.PI*2);
+      c.fillStyle=isOut?'#c53030':'#90cdf4';
+      c.fill();c.strokeStyle=isOut?'#9b2c2c':'#2b6cb0';c.lineWidth=1.5;c.stroke();
+    });
+    var mx=toX(st.mean);
+    c.strokeStyle='#0056b3';c.lineWidth=3;c.setLineDash([5,3]);
+    c.beginPath();c.moveTo(mx,60);c.lineTo(mx,105);c.stroke();c.setLineDash([]);
+    c.fillStyle='#0056b3';c.font='bold 11px Segoe UI';c.textAlign='center';
+    c.fillText('x\u0305='+st.mean.toFixed(1),mx,53);
+    var mx2=toX(st.med);
+    c.strokeStyle='#2f855a';c.lineWidth=3;c.setLineDash([4,2]);
+    c.beginPath();c.moveTo(mx2,60);c.lineTo(mx2,105);c.stroke();c.setLineDash([]);
+    c.fillStyle='#2f855a';c.textAlign='center';
+    c.fillText('Me='+st.med.toFixed(1),mx2,53+(Math.abs(mx2-mx)<30?-12:0));
+    c.font='11px Segoe UI';c.textAlign='left';
+    c.fillStyle='#0056b3';c.fillText('\u2014 \u2014 Moyenne (sensible aux extr\u00eames)',pad,155);
+    c.fillStyle='#2f855a';c.fillText('\u2014 \u2014 M\u00e9diane (robuste)',pad,170);
+    c.fillStyle='#c53030';c.fillText('\u25cf valeur potentiellement aberrante',pad+230,155);
+  }
+  sl.oninput=draw; draw();
+})();
+</script>
+
+<!-- 7. EXEMPLES MAMA -->
+<h2>7. Exemples MAMA d&eacute;taill&eacute;s</h2>
+
+<h3>Exemple 1 &#8212; Donn&eacute;es par classes : temp&eacute;ratures de circuits chauffage</h3>
+<div class="exemple">
+  Temp&eacute;ratures (&deg;C) relev&eacute;es dans 25 circuits de chauffage :
+  <table>
+    <tr><th>Classe [&deg;C]</th><th>[55;60[</th><th>[60;65[</th><th>[65;70[</th><th>[70;75[</th><th>[75;80[</th><th>Total</th></tr>
+    <tr><td>Effectif</td><td>3</td><td>8</td><td>9</td><td>4</td><td>1</td><td>25</td></tr>
+    <tr><td>Centre</td><td>57,5</td><td>62,5</td><td>67,5</td><td>72,5</td><td>77,5</td><td>&#8212;</td></tr>
+    <tr><td>\(c_i \times n_i\)</td><td>172,5</td><td>500</td><td>607,5</td><td>290</td><td>77,5</td><td>1647,5</td></tr>
+  </table>
+  \(\bar{x} = \dfrac{1647{,}5}{25} = \mathbf{65{,}9\,^{\circ}\text{C}}\) &#8212; Classe modale : <strong>[65&nbsp;;&nbsp;70[</strong> (effectif 9)
+</div>
+
+<h3>Exemple 2 &#8212; Comparaison deux &eacute;quipes</h3>
+<div class="exemple">
+  <strong>&Eacute;quipe A</strong> : 30, 32, 28, 31, 29, 33, 30, 27, 31, 29 &nbsp;&rarr;&nbsp; \(\bar{x}_A = 30\) min, \(\sigma_A \approx 1{,}6\) min<br>
+  <strong>&Eacute;quipe B</strong> : 15, 45, 20, 50, 25, 55, 18, 48, 22, 42 &nbsp;&rarr;&nbsp; \(\bar{x}_B = 34\) min, \(\sigma_B \approx 15\) min<br><br>
+  <strong>Conclusion :</strong> L&rsquo;&eacute;quipe A est plus rapide ET plus r&eacute;guli&egrave;re. L&rsquo;&eacute;cart-type r&eacute;v&egrave;le une information que la moyenne seule ne suffit pas &agrave; donner.
+</div>
+
+<h3>Exemple 3 &#8212; Lecture d&rsquo;une bo&icirc;te &agrave; moustaches</h3>
+<div class="exemple">
+  Donn&eacute;es : Min=12, Q&#8321;=20, Me=28, Q&#8323;=35, Max=70.<br>
+  <ul>
+    <li>&Eacute;tendue = 70 &minus; 12 = 58 &nbsp;;&nbsp; IQR = 35 &minus; 20 = 15.</li>
+    <li>Moustache droite (35&nbsp;&rarr;&nbsp;70) tr&egrave;s longue &rarr; valeur 70 possiblement aberrante.</li>
+    <li>M&eacute;diane plus proche de Q&#8321; &rarr; distribution asym&eacute;trique vers la droite.</li>
+    <li>50&nbsp;% des donn&eacute;es centrales sont entre 20 et 35.</li>
+  </ul>
+</div>
+
+<!-- A RETENIR -->
+<div class="retenir">
+  <h3>&#128204; &Agrave; retenir</h3>
+  <p><strong>Indicateurs de position :</strong></p>
+  <ul>
+    <li>Mode / Classe modale = valeur ou classe la plus fr&eacute;quente</li>
+    <li>Moyenne \(\bar{x}\) = barycentre, <em>sensible aux extr&ecirc;mes</em></li>
+    <li>M&eacute;diane Me = valeur centrale, <em>robuste aux extr&ecirc;mes</em></li>
+    <li>Quartiles Q&#8321; (25&nbsp;%) et Q&#8323; (75&nbsp;%)</li>
+  </ul>
+  <p><strong>Indicateurs de dispersion :</strong></p>
+  <ul>
+    <li>&Eacute;tendue = Max &minus; Min (sensible aux extr&ecirc;mes)</li>
+    <li>IQR = Q&#8323; &minus; Q&#8321; (robuste)</li>
+    <li>&Eacute;cart-type \(\sigma\) = dispersion autour de la moyenne</li>
+  </ul>
+  <p><strong>Bo&icirc;te &agrave; moustaches :</strong> repr&eacute;sentation visuelle des 5 valeurs cl&eacute;s Min, Q&#8321;, Me, Q&#8323;, Max. Outil puissant pour comparer deux s&eacute;ries.</p>
+</div>
+
+<!-- MINI-EXERCICES -->
+<h2>8. Mini-exercices corrig&eacute;s</h2>
+
+<div class="exo">
+  <div class="exo-header"><span class="badge g">&#128994; Niveau 1</span><strong>Moyenne et m&eacute;diane</strong></div>
+  <p>7 temps de d&eacute;placement (min) : 12, 15, 20, 18, 15, 25, 10. Calculer la moyenne et la m&eacute;diane.</p>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Moyenne :</strong> \(\bar{x} = \dfrac{12+15+20+18+15+25+10}{7} = \dfrac{115}{7} \approx 16{,}4\) min.</p>
+      <p><strong>M&eacute;diane :</strong> Tri&eacute;e : 10&middot;12&middot;15&middot;<strong>15</strong>&middot;18&middot;20&middot;25. N=7 impair, rang 4 &rarr; Me = 15 min.</p>
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-header"><span class="badge b">&#128309; Niveau 2</span><strong>Quartiles et IQR</strong></div>
+  <p>10 dur&eacute;es tri&eacute;es (min) : 8, 12, 15, 18, 20, 22, 25, 28, 32, 40. Calculer Q&#8321;, Me, Q&#8323; et l&rsquo;IQR. Interpr&eacute;ter.</p>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <p>N=10, pair. Me = (20+22)/2 = 21 min.</p>
+      <p>1<sup>re</sup> moiti&eacute; : 8,12,15,18,20 &rarr; Q&#8321; = 15 min.</p>
+      <p>2<sup>e</sup> moiti&eacute; : 22,25,28,32,40 &rarr; Q&#8323; = 28 min.</p>
+      <p>IQR = 28 &minus; 15 = <strong>13 min</strong>. 50&nbsp;% des interventions durent entre 15 et 28 min.</p>
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-header"><span class="badge j">&#128992; Niveau 3</span><strong>Donn&eacute;es par classes &#8212; MAMA</strong></div>
+  <p>Consommations mensuelles (kWh) de 20 climatiseurs :</p>
+  <table>
+    <tr><th>Classe</th><th>[100;120[</th><th>[120;140[</th><th>[140;160[</th><th>[160;180[</th></tr>
+    <tr><td>Effectif</td><td>4</td><td>9</td><td>5</td><td>2</td></tr>
+  </table>
+  <p>Identifier la classe modale. Calculer la moyenne.</p>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Classe modale :</strong> [120;140[ (effectif 9, le plus grand).</p>
+      <p>Centres : 110, 130, 150, 170.</p>
+      <p>\(\bar{x} = \dfrac{4\times110 + 9\times130 + 5\times150 + 2\times170}{20} = \dfrac{2700}{20} = \mathbf{135 \text{ kWh}}\).</p>
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-header"><span class="badge r">&#128308; Niveau 4</span><strong>Comparaison de deux &eacute;quipes &#8212; bo&icirc;te &agrave; moustaches</strong></div>
+  <p>Deux &eacute;quipes de maintenance :</p>
+  <ul>
+    <li><strong>&Eacute;quipe A :</strong> Min=10, Q&#8321;=18, Me=22, Q&#8323;=28, Max=35 min</li>
+    <li><strong>&Eacute;quipe B :</strong> Min=5, Q&#8321;=15, Me=25, Q&#8323;=42, Max=80 min</li>
+  </ul>
+  <p>Quelle &eacute;quipe est la plus efficace ? la plus r&eacute;guli&egrave;re ? Justifier avec les indicateurs.</p>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Efficacit&eacute; (m&eacute;diane) :</strong> A = 22 min &lt; B = 25 min &rarr; &Eacute;quipe A plus rapide.</p>
+      <p><strong>R&eacute;gularit&eacute; (IQR) :</strong> A = 28&minus;18 = 10 min ; B = 42&minus;15 = 27 min &rarr; &Eacute;quipe A 2,7&times; plus r&eacute;guli&egrave;re.</p>
+      <p><strong>&Eacute;tendue :</strong> A = 25 min ; B = 75 min &rarr; &Eacute;quipe B a des interventions tr&egrave;s longues (Max 80 min).</p>
+      <p><strong>Conclusion :</strong> l&rsquo;&eacute;quipe A est plus rapide ET plus r&eacute;guli&egrave;re. La moustache droite tr&egrave;s longue de B signale des interventions aberrantes &agrave; investiguer.</p>
+    </div>
+  </details>
+</div>
+
+</div>
+<script src="nav.js"></script>
+</body>
+</html>
