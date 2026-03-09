@@ -318,21 +318,21 @@ function fmt(a, b) {
 function genEq(lv) {
   let eq, sol, steps;
   if (lv === 1) {
-    // ax = b
+    // ax = b  (x peut être négatif)
     const a = rnd([2,3,4,5,6]);
-    const x = rand(1,9);
+    const x = (Math.random()>.5?1:-1)*rand(1,9);
     const b = a * x;
     eq = a + 'x = ' + b;
     sol = x;
     steps = [
       {eq: a+'x = '+b, why: 'Équation de départ'},
-      {eq: 'x = '+b+' ÷ '+a, why: 'On divise les deux membres par '+a},
+      {eq: 'x = '+'('+b+') ÷ '+a, why: 'On divise les deux membres par '+a},
       {eq: 'x = '+x, why: 'Solution', hi: true},
     ];
   } else if (lv === 2) {
-    // ax + b = c
+    // ax + b = c  (x peut être négatif)
     const a = rnd([2,3,4,5]);
-    const x = rand(1,8);
+    const x = (Math.random()>.5?1:-1)*rand(1,8);
     const b = (Math.random()>.5?1:-1)*rand(1,10);
     const c = a*x + b;
     eq = fmt(a,b) + ' = ' + c;
