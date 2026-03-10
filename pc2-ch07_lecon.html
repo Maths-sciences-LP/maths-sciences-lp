@@ -48,6 +48,15 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
 .el-nm{background:#f3f0ff;border-color:#c4b5fd;color:#5b21b6}
 .el-m{background:#d1fae5;border-color:#6ee7b7;color:#065f46}
 .el-h{background:#fef3c7;border-color:#fcd34d;color:#92400e}
+/* Ajouts obligatoires */
+.svg-wrap{text-align:center;margin:22px 0}
+.chart-wrap{max-width:580px;margin:22px auto}
+.anim-wrap{background:#fef9ee;border:1px solid #fcd34d;border-radius:10px;padding:20px;margin:22px 0;text-align:center}
+.anim-wrap canvas{border-radius:8px;max-width:100%}
+.anim-controls{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.anim-btn{background:#d97706;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.88em;font-weight:600}
+.anim-btn:hover{opacity:.85}
+.anim-label{font-size:.88em;color:#4a5568;margin-top:8px}
 /* Chart & Canvas */
 .chart-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px;margin:18px 0}
 .chart-wrap h4{margin:0 0 12px;color:var(--p);font-size:.95em}
@@ -186,6 +195,55 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   <p style="font-size:.85em;color:#718096;margin-top:4px;">Mod&egrave;le plan&eacute;taire simplifi&eacute; d&rsquo;un atome de carbone (C) : noyau central avec 6 protons et 6 neutrons, entour&eacute; de 6 &eacute;lectrons.</p>
 </div>
 
+<h3>Mod&egrave;le de Bohr &mdash; Couches &eacute;lectroniques (atome de carbone C)</h3>
+<div class="svg-wrap">
+  <svg width="500" height="220" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mod&egrave;le de Bohr de l&rsquo;atome de carbone">
+    <title>Mod&egrave;le de Bohr &mdash; Carbone C : 6p+, 6n, couche K 2e&minus;, couche L 4e&minus;</title>
+    <rect width="500" height="220" fill="#f8fafc" rx="10"/>
+    <!-- Couche L (rayon 90) -->
+    <circle cx="210" cy="110" r="90" fill="none" stroke="#cbd5e1" stroke-width="1.6" stroke-dasharray="6,4"/>
+    <!-- Couche K (rayon 50) -->
+    <circle cx="210" cy="110" r="50" fill="none" stroke="#cbd5e1" stroke-width="1.6" stroke-dasharray="6,4"/>
+    <!-- Noyau -->
+    <circle cx="210" cy="110" r="26" fill="#fee2e2" stroke="#c53030" stroke-width="2.5"/>
+    <text x="210" y="107" text-anchor="middle" font-size="11" font-family="Segoe UI,sans-serif" font-weight="700" fill="#c53030">6p&#x207A;</text>
+    <text x="210" y="121" text-anchor="middle" font-size="11" font-family="Segoe UI,sans-serif" font-weight="700" fill="#c53030">6n&#x2070;</text>
+    <!-- Electrons couche K (2e-) : 0° et 180° -->
+    <circle cx="260" cy="110" r="8" fill="#3b82f6"/>
+    <text x="260" y="115" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="160" cy="110" r="8" fill="#3b82f6"/>
+    <text x="160" y="115" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <!-- Electrons couche L (4e-) : 0°, 90°, 180°, 270° -->
+    <circle cx="300" cy="110" r="8" fill="#1d4ed8"/>
+    <text x="300" y="115" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="210" cy="20" r="8" fill="#1d4ed8"/>
+    <text x="210" y="25" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="120" cy="110" r="8" fill="#1d4ed8"/>
+    <text x="120" y="115" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="210" cy="200" r="8" fill="#1d4ed8"/>
+    <text x="210" y="205" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <!-- Annotations fléchées -->
+    <line x1="210" y1="84" x2="242" y2="62" stroke="#c53030" stroke-width="1.2"/>
+    <text x="245" y="60" font-size="11" font-family="Segoe UI,sans-serif" fill="#c53030" font-weight="700">Noyau</text>
+    <line x1="263" y1="102" x2="290" y2="78" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="293" y="76" font-size="10" font-family="Segoe UI,sans-serif" fill="#1d4ed8" font-weight="600">Couche K (2e&#x207B;)</text>
+    <line x1="302" y1="103" x2="328" y2="56" stroke="#1d4ed8" stroke-width="1.2"/>
+    <text x="330" y="54" font-size="10" font-family="Segoe UI,sans-serif" fill="#1e40af" font-weight="600">Couche L (4e&#x207B;)</text>
+    <!-- L&eacute;gende -->
+    <rect x="362" y="88" width="130" height="112" rx="7" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="427" y="107" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#374151">Carbone C</text>
+    <text x="427" y="122" text-anchor="middle" font-size="10" font-family="Segoe UI,sans-serif" fill="#6b7280">Z=6 &nbsp;|&nbsp; A=12</text>
+    <circle cx="378" cy="137" r="6" fill="#fee2e2" stroke="#c53030" stroke-width="1.5"/>
+    <text x="390" y="141" font-size="10" font-family="Segoe UI,sans-serif" fill="#c53030">Noyau (rouge)</text>
+    <circle cx="378" cy="154" r="6" fill="#3b82f6"/>
+    <text x="390" y="158" font-size="10" font-family="Segoe UI,sans-serif" fill="#1d4ed8">e&#x207B; K (bleu clair)</text>
+    <circle cx="378" cy="171" r="6" fill="#1d4ed8"/>
+    <text x="390" y="175" font-size="10" font-family="Segoe UI,sans-serif" fill="#1e40af">e&#x207B; L (bleu fonce)</text>
+    <text x="427" y="193" text-anchor="middle" font-size="9" font-family="Segoe UI,sans-serif" fill="#9ca3af">K(2) L(4)</text>
+  </svg>
+  <p style="font-size:.83em;color:#718096;margin-top:6px;">Mod&egrave;le de Bohr : les &eacute;lectrons se r&eacute;partissent sur des <strong>couches</strong>. Couche K : 2 e&#x207B; max. Couche L : 8 e&#x207B; max. Le carbone a la configuration K(2) L(4).</p>
+</div>
+
 <!-- SVG PÉDAGOGIQUE : Modèle de l'atome avec couches électroniques -->
 <h3>Mod&egrave;le g&eacute;n&eacute;ral d&rsquo;un atome &mdash; couches &eacute;lectroniques</h3>
 <div class="svg-center">
@@ -275,6 +333,124 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
 <div class="prop">
   <span class="label label-prop">Tableau p&eacute;riodique</span><br>
   Les &eacute;l&eacute;ments chimiques sont class&eacute;s dans le <strong>tableau p&eacute;riodique de Mendele&iuml;ev</strong> par num&eacute;ro atomique Z croissant. Les &eacute;l&eacute;ments d&rsquo;une m&ecirc;me colonne ont des propri&eacute;t&eacute;s chimiques similaires.
+</div>
+
+<h3>Tableau p&eacute;riodique simplifi&eacute; &mdash; P&eacute;riodes 1, 2 et 3</h3>
+<div class="svg-wrap">
+  <svg width="600" height="160" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tableau p&eacute;riodique simplifi&eacute; des 18 premiers &eacute;l&eacute;ments">
+    <title>Tableau p&eacute;riodique simplifi&eacute; &mdash; p&eacute;riodes 1 &agrave; 3 (18 premiers &eacute;l&eacute;ments)</title>
+    <rect width="600" height="160" fill="#f8fafc" rx="8"/>
+    <!-- L&eacute;gende couleurs -->
+    <rect x="10" y="8" width="12" height="12" rx="2" fill="#fef9c3" stroke="#eab308"/>
+    <text x="25" y="19" font-size="9" font-family="Segoe UI,sans-serif" fill="#374151">M&eacute;tal</text>
+    <rect x="75" y="8" width="12" height="12" rx="2" fill="#dcfce7" stroke="#22c55e"/>
+    <text x="90" y="19" font-size="9" font-family="Segoe UI,sans-serif" fill="#374151">Non-m&eacute;tal</text>
+    <rect x="155" y="8" width="12" height="12" rx="2" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="170" y="19" font-size="9" font-family="Segoe UI,sans-serif" fill="#374151">Gaz noble</text>
+    <!-- P&eacute;riode 1 : H (col 1), He (col 18) -->
+    <!-- Colonne 1 = x=10, chaque colonne w=31 -->
+    <!-- Groupes affich&eacute;s : 1,2,13,14,15,16,17,18 -->
+    <!-- x positions: gr1=10, gr2=41, gr13=227, gr14=258, gr15=289, gr16=320, gr17=351, gr18=382 -->
+    <!-- P1 H -->
+    <rect x="10" y="28" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="25" y="38" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">1</text>
+    <text x="25" y="50" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">H</text>
+    <text x="25" y="62" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Hydrog&egrave;ne</text>
+    <!-- P1 He -->
+    <rect x="560" y="28" width="30" height="38" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="575" y="38" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#1e40af">2</text>
+    <text x="575" y="50" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#1e40af">He</text>
+    <text x="575" y="62" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#1e40af">H&eacute;lium</text>
+    <!-- P2 : Li(3) Be(4) | B(5) C(6) N(7) O(8) F(9) Ne(10) -->
+    <!-- Li -->
+    <rect x="10" y="72" width="30" height="38" rx="3" fill="#fef9c3" stroke="#eab308" stroke-width="1"/>
+    <text x="25" y="82" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">3</text>
+    <text x="25" y="94" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#713f12">Li</text>
+    <text x="25" y="106" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">Lithium</text>
+    <!-- Be -->
+    <rect x="42" y="72" width="30" height="38" rx="3" fill="#fef9c3" stroke="#eab308" stroke-width="1"/>
+    <text x="57" y="82" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">4</text>
+    <text x="57" y="94" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#713f12">Be</text>
+    <text x="57" y="106" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">B&eacute;ryllium</text>
+    <!-- B -->
+    <rect x="264" y="72" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="279" y="82" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">5</text>
+    <text x="279" y="94" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">B</text>
+    <text x="279" y="106" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Bore</text>
+    <!-- C -->
+    <rect x="296" y="72" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="311" y="82" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">6</text>
+    <text x="311" y="94" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">C</text>
+    <text x="311" y="106" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Carbone</text>
+    <!-- N -->
+    <rect x="328" y="72" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="343" y="82" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">7</text>
+    <text x="343" y="94" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">N</text>
+    <text x="343" y="106" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Azote</text>
+    <!-- O -->
+    <rect x="360" y="72" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="375" y="82" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">8</text>
+    <text x="375" y="94" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">O</text>
+    <text x="375" y="106" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Oxyg&egrave;ne</text>
+    <!-- F -->
+    <rect x="392" y="72" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="407" y="82" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">9</text>
+    <text x="407" y="94" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">F</text>
+    <text x="407" y="106" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Fluor</text>
+    <!-- Ne -->
+    <rect x="528" y="72" width="30" height="38" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="543" y="82" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#1e40af">10</text>
+    <text x="543" y="94" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#1e40af">Ne</text>
+    <text x="543" y="106" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#1e40af">N&eacute;on</text>
+    <!-- P3 : Na(11) Mg(12) | Al(13) Si(14) P(15) S(16) Cl(17) Ar(18) -->
+    <!-- Na -->
+    <rect x="10" y="116" width="30" height="38" rx="3" fill="#fef9c3" stroke="#eab308" stroke-width="1"/>
+    <text x="25" y="126" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">11</text>
+    <text x="25" y="138" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#713f12">Na</text>
+    <text x="25" y="150" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">Sodium</text>
+    <!-- Mg -->
+    <rect x="42" y="116" width="30" height="38" rx="3" fill="#fef9c3" stroke="#eab308" stroke-width="1"/>
+    <text x="57" y="126" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">12</text>
+    <text x="57" y="138" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#713f12">Mg</text>
+    <text x="57" y="150" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">Magn&eacute;sium</text>
+    <!-- Al -->
+    <rect x="264" y="116" width="30" height="38" rx="3" fill="#fef9c3" stroke="#eab308" stroke-width="1"/>
+    <text x="279" y="126" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">13</text>
+    <text x="279" y="138" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#713f12">Al</text>
+    <text x="279" y="150" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#713f12">Aluminium</text>
+    <!-- Si -->
+    <rect x="296" y="116" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="311" y="126" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">14</text>
+    <text x="311" y="138" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">Si</text>
+    <text x="311" y="150" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Silicium</text>
+    <!-- P -->
+    <rect x="328" y="116" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="343" y="126" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">15</text>
+    <text x="343" y="138" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">P</text>
+    <text x="343" y="150" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Phosphore</text>
+    <!-- S -->
+    <rect x="360" y="116" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="375" y="126" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">16</text>
+    <text x="375" y="138" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">S</text>
+    <text x="375" y="150" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Soufre</text>
+    <!-- Cl -->
+    <rect x="392" y="116" width="30" height="38" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="407" y="126" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">17</text>
+    <text x="407" y="138" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#166534">Cl</text>
+    <text x="407" y="150" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#166534">Chlore</text>
+    <!-- Ar -->
+    <rect x="560" y="116" width="30" height="38" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+    <text x="575" y="126" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#1e40af">18</text>
+    <text x="575" y="138" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" font-weight="700" fill="#1e40af">Ar</text>
+    <text x="575" y="150" text-anchor="middle" font-size="7" font-family="Segoe UI,sans-serif" fill="#1e40af">Argon</text>
+    <!-- Label P&eacute;riodes -->
+    <text x="430" y="48" font-size="9" font-family="Segoe UI,sans-serif" fill="#9ca3af" font-style="italic">P&eacute;riode 1</text>
+    <text x="116" y="92" font-size="9" font-family="Segoe UI,sans-serif" fill="#9ca3af" font-style="italic">P&eacute;riode 2</text>
+    <text x="116" y="136" font-size="9" font-family="Segoe UI,sans-serif" fill="#9ca3af" font-style="italic">P&eacute;riode 3</text>
+    <text x="210" y="92" font-size="8" font-family="Segoe UI,sans-serif" fill="#cbd5e1" font-style="italic">&#x2190; m&eacute;taux de transition (non affich&eacute;s) &#x2192;</text>
+    <text x="210" y="136" font-size="8" font-family="Segoe UI,sans-serif" fill="#cbd5e1" font-style="italic">&#x2190; m&eacute;taux de transition (non affich&eacute;s) &#x2192;</text>
+  </svg>
+  <p style="font-size:.82em;color:#718096;margin-top:6px;">Tableau p&eacute;riodique simplifi&eacute; : p&eacute;riodes 1&ndash;3. <span style="background:#fef9c3;border:1px solid #eab308;padding:1px 5px;border-radius:3px;font-size:.9em">M&eacute;tal</span> <span style="background:#dcfce7;border:1px solid #22c55e;padding:1px 5px;border-radius:3px;font-size:.9em">Non-m&eacute;tal</span> <span style="background:#dbeafe;border:1px solid #3b82f6;padding:1px 5px;border-radius:3px;font-size:.9em">Gaz noble</span></p>
 </div>
 
 <!-- ===== 3. LES IONS ===== -->
@@ -569,6 +745,25 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   <p style="color:#a0aec0;font-size:.82em;margin-top:8px" id="animLabel">&#x25CF; &Eacute;tat actuel : <strong style="color:#c4b5fd">Solide</strong> &mdash; particules fix&eacute;es en r&eacute;seau, vibrations infimes</p>
 </div>
 
+<!-- ===== CHART.JS : Abondance croûte terrestre ===== -->
+<h2>5 quater. Abondance des &eacute;l&eacute;ments dans la cro&ucirc;te terrestre</h2>
+<p>La <strong>cro&ucirc;te terrestre</strong> est la couche superficielle solide de la Terre. Ses &eacute;l&eacute;ments les plus abondants sont ceux que l&rsquo;on retrouve dans les mat&eacute;riaux de construction et les mat&eacute;riaux des m&eacute;tiers MAMA.</p>
+<div class="chart-wrap">
+  <canvas id="chartAbondance" height="120"></canvas>
+  <p style="font-size:.8em;color:#718096;margin-top:8px;text-align:center">Source : donn&eacute;es g&eacute;ochimiques standard &mdash; pourcentages massiques dans la cro&ucirc;te terrestre</p>
+</div>
+
+<!-- ===== ANIMATION CANVAS : Modèle atomique animé ===== -->
+<h2>5 quinquies. Animation &mdash; Mod&egrave;le atomique interactif</h2>
+<p>Observe les &eacute;lectrons orbiter autour du noyau. Clique sur <strong>Changer d&rsquo;atome</strong> pour passer d&rsquo;un &eacute;l&eacute;ment &agrave; l&rsquo;autre (H &rarr; He &rarr; Li &rarr; C &rarr; H).</p>
+<div class="anim-wrap">
+  <canvas id="animAtome" width="400" height="200"></canvas>
+  <div class="anim-controls">
+    <button class="anim-btn" onclick="changerAtome()">Changer d&rsquo;atome</button>
+  </div>
+  <p class="anim-label" id="atomLabel">Chargement&hellip;</p>
+</div>
+
 <!-- ===== 6. APPLICATION MAMA ===== -->
 <h2>6. Applications MAMA</h2>
 
@@ -740,8 +935,77 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   </tr>
 </table>
 
-<!-- ===== 8. À RETENIR ===== -->
-<h2>8. &Agrave; retenir</h2>
+<!-- ===== APPLICATIONS MAMA ENRICHIES ===== -->
+<h2>8. Applications en atelier MAMA</h2>
+
+<p>Les notions de structure de la mati&egrave;re (atomes, ions, mol&eacute;cules) trouvent des applications directes dans les m&eacute;tiers de la menuiserie, de l&rsquo;am&eacute;nagement et de la maintenance.</p>
+
+<div class="ex">
+  <span class="label label-ex">1. Composition du bois &mdash; mol&eacute;cules organiques</span><br>
+  Le bois est principalement compos&eacute; de <strong>cellulose</strong> (formule : (C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)<sub>n</sub>) et de <strong>lignine</strong>. Ces deux polym&egrave;res contiennent uniquement des atomes de <strong>carbone (C)</strong>, <strong>hydrog&egrave;ne (H)</strong> et <strong>oxyg&egrave;ne (O)</strong>.<br><br>
+  <strong>Pourquoi le bois br&ucirc;le-t-il ?</strong><br>
+  La combustion du bois est une r&eacute;action chimique entre les mol&eacute;cules organiques (C, H, O) et le dioxyg&egrave;ne (O<sub>2</sub>) de l&rsquo;air :<br>
+  &bull; Le carbone C se combine avec O<sub>2</sub> &rarr; <strong>CO<sub>2</sub></strong> (dioxyde de carbone, gaz &agrave; effet de serre)<br>
+  &bull; L&rsquo;hydrog&egrave;ne H se combine avec O<sub>2</sub> &rarr; <strong>H<sub>2</sub>O</strong> (vapeur d&rsquo;eau)<br>
+  &bull; Il reste des cendres (min&eacute;raux : Ca, K, Mg&hellip;)<br><br>
+  <em>Comprendre cette chimie permet d&rsquo;expliquer pourquoi le bois est un mat&eacute;riau combustible et de respecter les r&egrave;gles de s&eacute;curit&eacute; incendie en atelier.</em>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">2. Rouille = oxyde de fer &mdash; identification des &eacute;l&eacute;ments</span><br>
+  La <strong>rouille</strong> est un oxyde de fer hydrat&eacute; de formule g&eacute;n&eacute;rale <strong>Fe<sub>2</sub>O<sub>3</sub></strong> (ou Fe<sub>2</sub>O<sub>3</sub>&middot;nH<sub>2</sub>O). Elle se forme par la r&eacute;action du fer avec le dioxyg&egrave;ne et l&rsquo;eau de l&rsquo;air :<br><br>
+  <div class="formule" style="font-size:.95em">4 Fe &nbsp;+&nbsp; 3 O<sub>2</sub> &nbsp;+&nbsp; n H<sub>2</sub>O &nbsp;&rarr;&nbsp; 2 Fe<sub>2</sub>O<sub>3</sub>&middot;nH<sub>2</sub>O
+  <small>&Eacute;l&eacute;ments impliqu&eacute;s : fer (Fe, Z=26) + oxyg&egrave;ne (O, Z=8) + hydrog&egrave;ne (H, Z=1)</small></div>
+  <strong>En atelier MAMA :</strong><br>
+  &bull; Les vis, clous et ferrures en acier non prot&eacute;g&eacute; rouillent au contact de l&rsquo;humidit&eacute;.<br>
+  &bull; La rouille fragilise les assemblages et tache le bois (ions Fe<sup>2+</sup> et Fe<sup>3+</sup>).<br>
+  &bull; Protection : galvanisation (couche de zinc Zn), peinture anticorrosion, acier inoxydable (alliage Fe + Cr).<br>
+  &bull; Identifier les &eacute;l&eacute;ments Fe et O dans Fe<sub>2</sub>O<sub>3</sub> permet de comprendre la nature chimique de la corrosion.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">3. Vernis et solvants &mdash; mol&eacute;cules organiques et s&eacute;curit&eacute;</span><br>
+  Les <strong>vernis, peintures et colles</strong> utilis&eacute;s en menuiserie contiennent des <strong>mol&eacute;cules organiques</strong> bas&eacute;es sur les atomes C, H et O :<br><br>
+  &bull; <strong>Solvants</strong> (white-spirit, ac&eacute;tone, tolu&egrave;ne) : mol&eacute;cules compos&eacute;es de C et H (et parfois O). Exemples : ac&eacute;tone C<sub>3</sub>H<sub>6</sub>O, hexane C<sub>6</sub>H<sub>14</sub>.<br>
+  &bull; <strong>R&eacute;sines</strong> (polyur&eacute;thane, &eacute;poxy) : polym&egrave;res &agrave; base de C, H, O, N.<br>
+  &bull; <strong>Pigments</strong> : souvent des oxydes m&eacute;talliques (TiO<sub>2</sub>, Fe<sub>2</sub>O<sub>3</sub>).<br><br>
+  <strong>Pictogrammes de s&eacute;curit&eacute; li&eacute;s &agrave; la chimie :</strong><br>
+  <table style="font-size:.85em;margin-top:8px">
+    <tr>
+      <th>Pictogramme</th>
+      <th>Signification</th>
+      <th>Mol&eacute;cules concern&eacute;es</th>
+      <th>Pr&eacute;caution MAMA</th>
+    </tr>
+    <tr>
+      <td>&#x1F525; Inflammable</td>
+      <td>Le produit peut s&rsquo;enflammer facilement</td>
+      <td>Solvants organiques (C, H)</td>
+      <td>Pas de flamme, &eacute;tincelle, cigare en atelier</td>
+    </tr>
+    <tr>
+      <td>&#x26A0; Danger pour la sant&eacute;</td>
+      <td>Vapeurs toxiques ou irritantes</td>
+      <td>Isocy&acirc;nates, form&eacute;ald&eacute;hyde, solvants halog&eacute;n&eacute;s</td>
+      <td>Port du masque, ventilation forc&eacute;e</td>
+    </tr>
+    <tr>
+      <td>&#x2620; Toxique</td>
+      <td>Danger grave (ingestion, inhalation, contact)</td>
+      <td>Produits &agrave; base de Cr<sup>6+</sup>, solvants chlor&eacute;s</td>
+      <td>EPI complets, FDS obligatoire</td>
+    </tr>
+    <tr>
+      <td>&#x267B; Dangereux pour l&rsquo;environnement</td>
+      <td>Ne pas rejeter dans les &eacute;gouts ou la nature</td>
+      <td>Huiles, solvants, produits de traitement</td>
+      <td>Collecte s&eacute;par&eacute;e, d&eacute;chetterie sp&eacute;cialis&eacute;e</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ===== 9. À RETENIR ===== -->
+<h2>9. &Agrave; retenir</h2>
 
 <div class="retenir">
   <span class="label label-ret">&Agrave; retenir</span>
@@ -754,8 +1018,8 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   </ol>
 </div>
 
-<!-- ===== 9. MINI-EXERCICES ===== -->
-<h2>9. Mini-exercices</h2>
+<!-- ===== 10. MINI-EXERCICES ===== -->
+<h2>10. Mini-exercices</h2>
 
 <div class="exo">
   <div class="exo-num">Exercice 1 &mdash; Identifier ions, mol&eacute;cules et atomes</div>
@@ -829,7 +1093,7 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
 
 
 <!-- ===== MINI-EXERCICES SUPPLÉMENTAIRES ===== -->
-<h2>10. Mini-exercices &mdash; Contexte MAMA</h2>
+<h2>11. Mini-exercices &mdash; Contexte MAMA</h2>
 
 <div class="exo">
   <div class="exo-num">Exercice 4 &mdash; Structure du fer et de l&rsquo;aluminium</div>
@@ -1062,6 +1326,178 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
       gaz: '&#x25CF; &Eacute;tat actuel : <strong style="color:#fcd34d">Gaz</strong> &mdash; particules tr&egrave;s espac&eacute;es, agitation rapide al&eacute;atoire'
     };
     document.getElementById('animLabel').innerHTML = labels[e];
+  };
+})();
+
+// ===== CHART.JS : Abondance éléments croûte terrestre =====
+(function(){
+  const ctx = document.getElementById('chartAbondance');
+  if(!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['O (46.6%)','Si (27.7%)','Al (8.1%)','Fe (5.0%)','Ca (3.6%)','Na (2.8%)','K (2.6%)','Mg (2.1%)'],
+      datasets: [{
+        label: 'Abondance (%)',
+        data: [46.6, 27.7, 8.1, 5.0, 3.6, 2.8, 2.6, 2.1],
+        backgroundColor: '#d97706',
+        borderColor: '#b45309',
+        borderWidth: 1,
+        borderRadius: 5,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Abondance des éléments dans la croûte terrestre (%)',
+          font: { size: 13, weight: '600' },
+          color: '#374151',
+          padding: { bottom: 10 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx){ return ' ' + ctx.parsed.y + ' %'; }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'Abondance massique (%)', font: { size: 12 } },
+          grid: { color: '#f0f0f0' },
+          ticks: { callback: function(v){ return v + '%'; } }
+        },
+        x: {
+          grid: { display: false }
+        }
+      }
+    }
+  });
+})();
+
+// ===== ANIMATION CANVAS : Modèle atomique animé H→He→Li→C =====
+(function(){
+  const canvas = document.getElementById('animAtome');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const CX = W / 2, CY = H / 2;
+
+  // Définition des atomes : nom, Z, config électronique, couches [nb e- par couche]
+  const atomes = [
+    { nom: 'Hydrogène', sym: 'H',  Z: 1,  A: 1,  config: 'K(1)',       couches: [1] },
+    { nom: 'Hélium',    sym: 'He', Z: 2,  A: 4,  config: 'K(2)',       couches: [2] },
+    { nom: 'Lithium',   sym: 'Li', Z: 3,  A: 7,  config: 'K(2) L(1)',  couches: [2, 1] },
+    { nom: 'Carbone',   sym: 'C',  Z: 6,  A: 12, config: 'K(2) L(4)',  couches: [2, 4] },
+  ];
+  let atomeIdx = 0;
+  let t = 0;
+  let nucleusPulse = 0;
+
+  // Rayons des orbites
+  const orbRayons = [52, 88];
+  // Couleurs des couches
+  const coucheCouleurs = ['#60a5fa', '#3b82f6'];
+
+  function drawFrame(){
+    t += 0.018;
+    nucleusPulse = 1 + 0.07 * Math.sin(t * 3);
+    ctx.clearRect(0, 0, W, H);
+
+    // Fond dégradé
+    const grad = ctx.createRadialGradient(CX, CY, 20, CX, CY, W/2);
+    grad.addColorStop(0, '#1e1b4b');
+    grad.addColorStop(1, '#0f172a');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    const atom = atomes[atomeIdx];
+
+    // Orbites (cercles)
+    atom.couches.forEach(function(_, ci){
+      const r = orbRayons[ci];
+      ctx.beginPath();
+      ctx.arc(CX, CY, r, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(148,163,184,0.3)';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+    });
+
+    // Noyau avec pulsation
+    const nr = 20 * nucleusPulse;
+    const ng = ctx.createRadialGradient(CX, CY, 2, CX, CY, nr);
+    ng.addColorStop(0, '#fca5a5');
+    ng.addColorStop(0.6, '#ef4444');
+    ng.addColorStop(1, '#b91c1c');
+    ctx.beginPath();
+    ctx.arc(CX, CY, nr, 0, Math.PI * 2);
+    ctx.fillStyle = ng;
+    ctx.fill();
+
+    // Symbole dans le noyau
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 12px Segoe UI, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(atom.sym, CX, CY - 3);
+    ctx.font = '9px Segoe UI, sans-serif';
+    ctx.fillText('Z=' + atom.Z, CX, CY + 8);
+
+    // Électrons orbitants
+    let electronIdx = 0;
+    atom.couches.forEach(function(nbE, ci){
+      const r = orbRayons[ci];
+      const speed = ci === 0 ? 1.0 : 0.65;
+      const color = coucheCouleurs[ci];
+      for(let e = 0; e < nbE; e++){
+        const angle = (2 * Math.PI * e / nbE) + t * speed;
+        const ex = CX + r * Math.cos(angle);
+        const ey = CY + r * Math.sin(angle);
+        // Halo
+        ctx.beginPath();
+        ctx.arc(ex, ey, 7, 0, Math.PI * 2);
+        ctx.fillStyle = color.replace(')', ',0.25)').replace('rgb', 'rgba');
+        ctx.fill();
+        // Électron
+        ctx.beginPath();
+        ctx.arc(ex, ey, 5, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+        electronIdx++;
+      }
+    });
+
+    // Infos en bas
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    ctx.font = '11px Segoe UI, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText(atom.nom + ' — Z=' + atom.Z + ', A=' + atom.A + '  Config. : ' + atom.config, 10, H - 10);
+
+    requestAnimationFrame(drawFrame);
+  }
+
+  drawFrame();
+
+  // Mettre à jour le label HTML
+  function updateLabel(){
+    const a = atomes[atomeIdx];
+    const el = document.getElementById('atomLabel');
+    if(el){
+      el.innerHTML = '<strong>' + a.nom + '</strong> (' + a.sym + ')' +
+        ' &nbsp;&mdash;&nbsp; Z = ' + a.Z + ', A = ' + a.A +
+        ' &nbsp;&mdash;&nbsp; Configuration : ' + a.config;
+    }
+  }
+  updateLabel();
+
+  window.changerAtome = function(){
+    atomeIdx = (atomeIdx + 1) % atomes.length;
+    updateLabel();
   };
 })();
 </script>
