@@ -1,21 +1,466 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Ch10 PC – Éclairement et photocomposants</title><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><style>:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}h1{margin:0 0 6px;color:var(--p);font-size:1.7em}.sous-titre{color:#718096;font-size:.95em;margin:0}h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}.label-def{background:#ede9fe;color:#5b21b6}.label-prop{background:#d1fae5;color:#065f46}.label-att{background:#fee2e2;color:#991b1b}.label-meth{background:#fef3c7;color:#92400e}.label-ex{background:#e2e8f0;color:#4a5568}table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}th{background:#eef2f7;font-weight:600}.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}</style></head><body><div class="c"><a href="pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
-<header><h1>Chapitre 10 – Éclairement et photocomposants</h1><p class="sous-titre">2<sup>de</sup> Pro &nbsp;|&nbsp; Physique – Optique</p></header>
-<h2>1. Flux lumineux et éclairement</h2>
-<div class="def"><span class="label label-def">Flux lumineux</span><br>Le <strong>flux lumineux</strong> \(\Phi\) mesure la puissance lumineuse émise par une source. Unité : <strong>lumen (lm)</strong>.</div>
-<div class="def"><span class="label label-def">Éclairement</span><br>L'<strong>éclairement</strong> \(E\) est le flux lumineux reçu par unité de surface :\[E = \frac{\Phi}{S}\]<ul><li>\(E\) : éclairement (lux, lx)</li><li>\(\Phi\) : flux lumineux (lm)</li><li>\(S\) : surface (m²)</li></ul></div>
-<div class="ex"><span class="label label-ex">Exemple</span><br>500 lm reçus sur 5 m² : \(E = 500/5 = 100\) lx</div>
-<h2>2. Sources lumineuses</h2>
-<div class="prop"><span class="label label-prop">Types de sources</span>
-<ul><li><strong>Ampoule incandescente</strong> : filament chauffé, faible rendement (~5% lumineux)</li><li><strong>Ampoule fluocompacte</strong> : meilleur rendement (~20%)</li><li><strong>LED</strong> : très bon rendement (~50%), longue durée de vie</li><li><strong>Soleil</strong> : source naturelle</li></ul></div>
-<h2>3. Photocomposants</h2>
-<div class="def"><span class="label label-def">Photocomposants</span><br>Composants électroniques sensibles à la lumière :<ul><li><strong>Photorésistance (LDR)</strong> : résistance diminue quand l'éclairement augmente</li><li><strong>Photodiode</strong> : produit un courant sous éclairement (panneaux solaires)</li><li><strong>Phototransistor</strong> : amplifie un signal lumière</li></ul></div>
-<div class="meth"><span class="label label-meth">Exemple d'utilisation</span><br>
-Photorésistance + montage électronique → allumage automatique des lampadaires à la tombée de la nuit.</div>
-<h2>4. Tableau récapitulatif</h2>
-<table><tr><th>Grandeur</th><th>Symbole</th><th>Unité</th><th>Formule</th></tr>
-<tr><td>Flux lumineux</td><td>Φ</td><td>lumen (lm)</td><td>Φ = E×S</td></tr>
-<tr><td>Éclairement</td><td>E</td><td>lux (lx)</td><td>E = Φ/S</td></tr>
-<tr><td>Surface</td><td>S</td><td>m²</td><td>S = Φ/E</td></tr></table>
-</div><script src="nav.js"></script>
-</body></html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch10 &ndash; Temp&eacute;rature et capteurs thermiques &mdash; 2nde Pro MAMA</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.formule{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.1em;font-weight:700;color:var(--p)}
+.formule small{display:block;margin-top:6px;font-size:.75em;font-weight:400;color:#718096}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-ret{background:#c4b5fd;color:#3b0764}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+th{background:#f3f0ff;font-weight:600;color:var(--p)}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+.objectifs ul{margin:6px 0 0;padding-left:20px}
+.exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+.exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+details.corr summary{cursor:pointer;font-weight:600;color:#2f855a;font-size:.88em;margin-top:10px;padding:4px 0}
+details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+.chart-container{position:relative;max-width:600px;margin:18px auto}
+</style>
+</head>
+<body>
+<div class="c">
+  <header>
+    <p class="sous-titre">Physique&ndash;Chimie &mdash; 2nde Pro MAMA &mdash; Ann&eacute;e 2025&ndash;2026</p>
+    <h1>Chapitre 10 &mdash; Temp&eacute;rature et capteurs thermiques</h1>
+    <p class="sous-titre">Menuiserie &bull; Agencement &bull; Ameublement</p>
+  </header>
+
+  <a class="nb" href="pc-2nde-pro.html">&larr; Retour au sommaire</a>
+
+  <div class="objectifs">
+    <strong>Objectifs du chapitre</strong>
+    <ul>
+      <li>Conna&icirc;tre les deux &eacute;chelles de temp&eacute;rature (Celsius et Kelvin) et savoir convertir.</li>
+      <li>Identifier les principaux capteurs de temp&eacute;rature et leurs principes de fonctionnement.</li>
+      <li>Lire et exploiter la caract&eacute;ristique R(T) d&rsquo;une thermistance CTN.</li>
+      <li>Associer un capteur &agrave; une application industrielle en MAMA.</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>1. La temp&eacute;rature</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    La <strong>temp&eacute;rature</strong> est une grandeur physique qui traduit l&rsquo;<strong>agitation thermique</strong> des particules (atomes, mol&eacute;cules) constituant la mati&egrave;re. Plus les particules s&rsquo;agitent rapidement, plus la temp&eacute;rature est &eacute;lev&eacute;e.
+  </div>
+
+  <h3>Les deux &eacute;chelles de temp&eacute;rature</h3>
+
+  <p>Deux &eacute;chelles coexistent en sciences et dans l&rsquo;industrie :</p>
+  <ul>
+    <li><strong>L&rsquo;&eacute;chelle Celsius (&deg;C)</strong> : utilis&eacute;e dans la vie courante et dans la plupart des applications industrielles.</li>
+    <li><strong>L&rsquo;&eacute;chelle Kelvin (K)</strong> : &eacute;chelle absolue utilis&eacute;e en sciences. Elle d&eacute;bute au <em>z&eacute;ro absolu</em>.</li>
+  </ul>
+
+  <div class="formule">
+    \( T(\text{K}) = \theta(\text{&deg;C}) + 273 \)
+    <small>\(T\) en Kelvin &mdash; \(\theta\) en degr&eacute;s Celsius</small>
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Attention</span><br>
+    Le <strong>z&eacute;ro absolu</strong> (0 K = &minus;273&nbsp;&deg;C) est la temp&eacute;rature la plus basse possible : toute agitation thermique y cesse. On ne peut pas atteindre de temp&eacute;rature n&eacute;gative en Kelvin.
+  </div>
+
+  <h3>Temp&eacute;ratures remarquables</h3>
+
+  <table>
+    <tr>
+      <th>Situation</th>
+      <th>T (&deg;C)</th>
+      <th>T (K)</th>
+    </tr>
+    <tr>
+      <td>Z&eacute;ro absolu</td>
+      <td>&minus;273</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Glace fondante (eau&nbsp;/&nbsp;glace &agrave; l&rsquo;&eacute;quilibre)</td>
+      <td>0</td>
+      <td>273</td>
+    </tr>
+    <tr>
+      <td>Atelier confortable</td>
+      <td>20</td>
+      <td>293</td>
+    </tr>
+    <tr>
+      <td>Four de s&eacute;chage du bois</td>
+      <td>80</td>
+      <td>353</td>
+    </tr>
+    <tr>
+      <td>Eau bouillante (P = 1 atm)</td>
+      <td>100</td>
+      <td>373</td>
+    </tr>
+    <tr>
+      <td>Colle thermofusible (application)</td>
+      <td>&sim;180</td>
+      <td>453</td>
+    </tr>
+  </table>
+
+  <!-- ============================================================ -->
+  <h2>2. Mesure de la temp&eacute;rature</h2>
+
+  <p>Plusieurs instruments permettent de mesurer la temp&eacute;rature selon la pr&eacute;cision et la plage souhait&eacute;es.</p>
+
+  <h3>Thermom&egrave;tre &agrave; mercure</h3>
+  <p>
+    Bas&eacute; sur la dilatation du mercure. Simple et historiquement r&eacute;pandu, mais son <strong>usage est aujourd&rsquo;hui r&eacute;duit</strong> pour des raisons environnementales (mercure toxique). Pr&eacute;cision : &plusmn;0,5&nbsp;&deg;C. Plage : &minus;39&nbsp;&deg;C &agrave; +360&nbsp;&deg;C.
+  </p>
+
+  <h3>Thermom&egrave;tre &eacute;lectronique</h3>
+  <p>
+    Utilise une <strong>sonde de r&eacute;sistance</strong> (ou un capteur &agrave; semi-conducteur) dont la valeur &eacute;lectrique varie avec la temp&eacute;rature. Affichage num&eacute;rique. Pr&eacute;cision courante : &plusmn;0,1&nbsp;&deg;C. Facilement reli&eacute; &agrave; un syst&egrave;me d&rsquo;acquisition ou un microcontr&ocirc;leur.
+  </p>
+
+  <div class="ex">
+    <span class="label label-ex">Exemples en MAMA</span>
+    <ul>
+      <li><strong>Contr&ocirc;le du s&eacute;chage du bois</strong> : dans une &eacute;tuve, la temp&eacute;rature doit rester entre 60 et 90&nbsp;&deg;C pour &eacute;liminer l&rsquo;humidit&eacute; sans d&eacute;grader les fibres du bois.</li>
+      <li><strong>Surveillance de la colle thermofusible</strong> : la colle doit &ecirc;tre maintenue &agrave; une temp&eacute;rature pr&eacute;cise pour conserver la bonne viscosit&eacute; d&rsquo;application.</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>3. Les capteurs de temp&eacute;rature</h2>
+
+  <p>
+    Un <strong>capteur de temp&eacute;rature</strong> convertit une temp&eacute;rature en grandeur &eacute;lectrique mesurable (tension ou r&eacute;sistance).
+    Il en existe plusieurs types, adapt&eacute;s &agrave; diff&eacute;rents besoins industriels.
+  </p>
+
+  <h3>3.1 Le thermocouple</h3>
+  <div class="def">
+    <span class="label label-def">Principe</span><br>
+    Un thermocouple est form&eacute; de <strong>deux fils de m&eacute;taux diff&eacute;rents</strong> soud&eacute;s &agrave; une extr&eacute;mit&eacute;.
+    La diff&eacute;rence de temp&eacute;rature entre la <em>jonction chaude</em> et la <em>jonction froide</em> g&eacute;n&egrave;re une <strong>tension &eacute;lectrique</strong> (effet Seebeck).
+  </div>
+  <ul>
+    <li><strong>Plage de mesure</strong> : tr&egrave;s large, de &minus;200&nbsp;&deg;C &agrave; +1&nbsp;000&nbsp;&deg;C selon le type (K, J, T&hellip;).</li>
+    <li><strong>R&eacute;ponse</strong> : tr&egrave;s rapide.</li>
+    <li><strong>Inconv&eacute;nient</strong> : signal faible (quelques millivolts), n&eacute;cessite un amplificateur et une compensation de jonction froide.</li>
+  </ul>
+
+  <h3>3.2 La thermistance CTN (Coefficient de Temp&eacute;rature N&eacute;gatif)</h3>
+  <div class="def">
+    <span class="label label-def">Principe</span><br>
+    La r&eacute;sistance d&rsquo;une CTN <strong>diminue</strong> lorsque la temp&eacute;rature <strong>augmente</strong>.
+    C&rsquo;est un composant &agrave; base de semi-conducteur dont la loi est de forme exponentielle :
+  </div>
+
+  <div class="formule">
+    \( R = R_0 \cdot \exp\!\left[B\!\left(\dfrac{1}{T} - \dfrac{1}{T_0}\right)\right] \)
+    <small>
+      \(R_0\) : r&eacute;sistance &agrave; la temp&eacute;rature de r&eacute;f&eacute;rence \(T_0\) (en K) &mdash;
+      \(B\) : constante caract&eacute;ristique du mat&eacute;riau (en K) &mdash;
+      \(T\) : temp&eacute;rature en Kelvin
+    </small>
+  </div>
+  <ul>
+    <li><strong>Plage</strong> : &minus;50&nbsp;&deg;C &agrave; +150&nbsp;&deg;C.</li>
+    <li><strong>Avantage</strong> : tr&egrave;s sensible dans la plage 0&ndash;100&nbsp;&deg;C, peu co&ucirc;teux.</li>
+    <li><strong>Usage MAMA</strong> : mesure et r&eacute;gulation de temp&eacute;rature dans les &eacute;tuves de s&eacute;chage, thermostat d&rsquo;atelier.</li>
+  </ul>
+
+  <h3>3.3 La thermistance CTP (Coefficient de Temp&eacute;rature Positif)</h3>
+  <div class="def">
+    <span class="label label-def">Principe</span><br>
+    La r&eacute;sistance d&rsquo;une CTP <strong>augmente</strong> tr&egrave;s fortement lorsque la temp&eacute;rature d&eacute;passe un seuil critique.
+    Ce comportement est utilis&eacute; comme <strong>fusible thermique autoprotecteur</strong>.
+  </div>
+  <ul>
+    <li><strong>Application</strong> : protection des moteurs &eacute;lectriques contre les &eacute;chauffements excessifs (machines &agrave; bois : toupies, d&eacute;fonceuses, raboteuses).</li>
+    <li><strong>Limitation</strong> : pas adapt&eacute;e &agrave; une mesure fine de temp&eacute;rature.</li>
+  </ul>
+
+  <h3>3.4 Le capteur &agrave; semi-conducteur (ex. LM35)</h3>
+  <div class="prop">
+    <span class="label label-prop">Propri&eacute;t&eacute;</span><br>
+    Ce type de capteur fournit une <strong>tension de sortie directement proportionnelle</strong> &agrave; la temp&eacute;rature en degr&eacute;s Celsius.
+    Pour le LM35 : \(V_{\text{out}} = 10\,\text{mV/&deg;C} \times \theta\).
+  </div>
+  <ul>
+    <li><strong>Avantage</strong> : sortie lin&eacute;aire, simple &agrave; interfacer avec un microcontr&ocirc;leur (Arduino, Raspberry Pi&hellip;).</li>
+    <li><strong>Plage</strong> : &minus;55&nbsp;&deg;C &agrave; +150&nbsp;&deg;C.</li>
+    <li><strong>Usage</strong> : affichage de temp&eacute;rature d&rsquo;atelier, contr&ocirc;le num&eacute;rique de machines-outils.</li>
+  </ul>
+
+  <!-- ============================================================ -->
+  <h2>4. Caract&eacute;ristique R(T) d&rsquo;une CTN</h2>
+
+  <p>
+    La courbe ci-dessous repr&eacute;sente l&rsquo;&eacute;volution de la r&eacute;sistance d&rsquo;une CTN typique en fonction de la temp&eacute;rature.
+    La r&eacute;sistance d&eacute;cro&icirc;t de mani&egrave;re exponentielle : de pr&egrave;s de <strong>100&nbsp;k&Omega;</strong> &agrave; 0&nbsp;&deg;C &agrave; moins de <strong>1&nbsp;k&Omega;</strong> &agrave; 80&nbsp;&deg;C.
+  </p>
+
+  <div class="chart-container">
+    <canvas id="ctnChart"></canvas>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">M&eacute;thode &mdash; Utiliser la courbe R(T)</span>
+    <ol>
+      <li>Mesurer la <strong>r&eacute;sistance</strong> de la CTN avec un ohm&egrave;tre (circuit hors tension).</li>
+      <li>Reporter la valeur mesur&eacute;e sur l&rsquo;<strong>axe des ordonn&eacute;es</strong> du graphe R(T).</li>
+      <li>Lire en face la <strong>temp&eacute;rature correspondante</strong> sur l&rsquo;axe des abscisses.</li>
+      <li>En pratique, le fabricant fournit une <strong>table de correspondance</strong> R&nbsp;&rarr;&nbsp;T plus pr&eacute;cise que le graphe.</li>
+    </ol>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>5. Applications industrielles en MAMA</h2>
+
+  <h3>5.1 &Eacute;tuves de s&eacute;chage du bois</h3>
+  <p>
+    Le bois fra&icirc;chement coup&eacute; contient jusqu&rsquo;&agrave; 50&nbsp;% d&rsquo;eau. Le s&eacute;chage en &eacute;tuve permet de r&eacute;duire ce taux d&rsquo;humidit&eacute; &agrave; 8&ndash;12&nbsp;% pour un usage int&eacute;rieur.
+    Une CTN reli&eacute;e &agrave; un r&eacute;gulateur maintient la temp&eacute;rature &agrave; la valeur consigne (typiquement 70&ndash;85&nbsp;&deg;C).
+  </p>
+
+  <h3>5.2 Contr&ocirc;le de la colle thermofusible</h3>
+  <p>
+    Les pistolets &agrave; colle thermofusible (<em>hot glue gun</em>) utilisent une r&eacute;sistance chauffante r&eacute;gul&eacute;e par thermistance.
+    Si la temp&eacute;rature d&eacute;passe le seuil admissible (&sim;200&nbsp;&deg;C), une CTP coupe l&rsquo;alimentation de la r&eacute;sistance chauffante automatiquement.
+  </p>
+
+  <h3>5.3 D&eacute;tection d&rsquo;&eacute;chauffement des paliers de machines</h3>
+  <p>
+    Les roulements et paliers des machines &agrave; bois (toupies, raboteuses, scies &agrave; ruban) s&rsquo;usent et s&rsquo;&eacute;chauffent anormalement en cas de d&eacute;faut.
+    Un thermocouple fix&eacute; sur le palier d&eacute;tecte toute mont&eacute;e anormale de temp&eacute;rature et d&eacute;clenche une alarme ou l&rsquo;arr&ecirc;t de la machine.
+  </p>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple num&eacute;rique</span><br>
+    Une CTN a une r&eacute;sistance de <strong>10&nbsp;k&Omega;</strong> &agrave; 25&nbsp;&deg;C et une constante \(B = 3950\,\text{K}\).
+    Calculer la r&eacute;sistance &agrave; 80&nbsp;&deg;C.<br><br>
+    \(T = 80 + 273 = 353\,\text{K}\) &mdash; \(T_0 = 25 + 273 = 298\,\text{K}\)<br>
+    \[ R = 10\,000 \times e^{\,3950\left(\frac{1}{353}-\frac{1}{298}\right)} \approx 10\,000 \times e^{-2{,}06} \approx 10\,000 \times 0{,}127 \approx 1{,}27\,\text{k}\Omega \]
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>6. Tableau de synth&egrave;se des capteurs</h2>
+
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Principe</th>
+      <th>Plage (&deg;C)</th>
+      <th>Avantages</th>
+      <th>Inconv&eacute;nients</th>
+    </tr>
+    <tr>
+      <td><strong>Thermocouple</strong></td>
+      <td>Tension Seebeck entre deux m&eacute;taux diff&eacute;rents</td>
+      <td>&minus;200 &agrave; +1&nbsp;000</td>
+      <td>Grande plage, robuste, tr&egrave;s rapide</td>
+      <td>Signal faible (mV), n&eacute;cessite amplificateur</td>
+    </tr>
+    <tr>
+      <td><strong>CTN</strong></td>
+      <td>R&eacute;sistance d&eacute;cro&icirc;t avec T</td>
+      <td>&minus;50 &agrave; +150</td>
+      <td>Tr&egrave;s sensible, peu co&ucirc;teux</td>
+      <td>Relation non lin&eacute;aire, plage limit&eacute;e</td>
+    </tr>
+    <tr>
+      <td><strong>CTP</strong></td>
+      <td>R&eacute;sistance explose au-del&agrave; d&rsquo;un seuil</td>
+      <td>Seuil fix&eacute;</td>
+      <td>Autoprotection automatique, simple</td>
+      <td>Pas de mesure fine de T</td>
+    </tr>
+    <tr>
+      <td><strong>Semi-conducteur (LM35)</strong></td>
+      <td>Tension proportionnelle &agrave; T</td>
+      <td>&minus;55 &agrave; +150</td>
+      <td>Sortie lin&eacute;aire, interface microcontr&ocirc;leur facile</td>
+      <td>Plage limit&eacute;e, fragile aux surtensions</td>
+    </tr>
+  </table>
+
+  <!-- ============================================================ -->
+  <h2>7. &Agrave; retenir</h2>
+
+  <div class="retenir">
+    <span class="label label-ret">5 points cl&eacute;s</span>
+    <ol>
+      <li>La temp&eacute;rature mesure l&rsquo;<strong>agitation thermique</strong> des particules de la mati&egrave;re.</li>
+      <li>Conversion : \(T(\text{K}) = \theta(\text{&deg;C}) + 273\). Le z&eacute;ro absolu est 0&nbsp;K = &minus;273&nbsp;&deg;C.</li>
+      <li>Une <strong>CTN</strong> voit sa r&eacute;sistance <em>diminuer</em> quand T augmente ; une <strong>CTP</strong> la voit <em>augmenter brutalement</em> au-del&agrave; d&rsquo;un seuil.</li>
+      <li>Le <strong>thermocouple</strong> couvre la plus grande plage de mesure (jusqu&rsquo;&agrave; +1&nbsp;000&nbsp;&deg;C).</li>
+      <li>En MAMA : CTN pour les &eacute;tuves de s&eacute;chage, CTP pour la protection des moteurs, thermocouple pour les paliers de machines.</li>
+    </ol>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>8. Mini-exercices</h2>
+
+  <div class="exo">
+    <div class="exo-num">Exercice 1 &mdash; Conversion &deg;C / K</div>
+    <p>Convertir les temp&eacute;ratures suivantes :</p>
+    <ol type="a">
+      <li>Un four de s&eacute;chage r&eacute;gl&eacute; &agrave; 85&nbsp;&deg;C &mdash; quelle est cette temp&eacute;rature en Kelvin&nbsp;?</li>
+      <li>La temp&eacute;rature de sublimation de la glace carbonique est 194&nbsp;K &mdash; combien est-ce en &deg;C&nbsp;?</li>
+      <li>Combien vaut une diff&eacute;rence de 40&nbsp;&deg;C exprim&eacute;e en Kelvin&nbsp;?</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <ol type="a">
+          <li>\(T = 85 + 273 = \mathbf{358\,\text{K}}\)</li>
+          <li>\(\theta = 194 - 273 = \mathbf{-79\,\text{&deg;C}}\)</li>
+          <li>Une <em>diff&eacute;rence</em> de temp&eacute;rature est identique en &deg;C et en K : \(\Delta T = \mathbf{40\,\text{K}}\).
+          (Car \(\Delta T(\text{K}) = \Delta T(\text{&deg;C})\).)</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <div class="exo">
+    <div class="exo-num">Exercice 2 &mdash; Lecture de la caract&eacute;ristique R(T) d&rsquo;une CTN</div>
+    <p>On dispose d&rsquo;une CTN dont la r&eacute;sistance &agrave; diff&eacute;rentes temp&eacute;ratures est donn&eacute;e dans le tableau ci-dessous :</p>
+    <table>
+      <tr>
+        <th>T (&deg;C)</th>
+        <th>0</th><th>20</th><th>40</th><th>60</th><th>80</th>
+      </tr>
+      <tr>
+        <td><strong>R (k&Omega;)</strong></td>
+        <td>32,7</td><td>12,0</td><td>4,9</td><td>2,2</td><td>1,1</td>
+      </tr>
+    </table>
+    <ol type="a">
+      <li>Un ohm&egrave;tre mesure 4,9&nbsp;k&Omega; sur la CTN. Quelle est la temp&eacute;rature de la sonde&nbsp;?</li>
+      <li>La r&eacute;sistance augmente ou diminue quand la temp&eacute;rature monte&nbsp;? Quel type de thermistance est-ce&nbsp;?</li>
+      <li>On mesure 2,2&nbsp;k&Omega; dans l&rsquo;&eacute;tuve. Faut-il augmenter ou r&eacute;duire la temp&eacute;rature pour atteindre la consigne de 40&nbsp;&deg;C&nbsp;?</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <ol type="a">
+          <li>R = 4,9&nbsp;k&Omega; correspond &agrave; <strong>T = 40&nbsp;&deg;C</strong> d&rsquo;apr&egrave;s le tableau.</li>
+          <li>La r&eacute;sistance <strong>diminue</strong> quand T augmente &rarr; c&rsquo;est une <strong>CTN</strong> (Coefficient de Temp&eacute;rature N&eacute;gatif).</li>
+          <li>R = 2,2&nbsp;k&Omega; correspond &agrave; 60&nbsp;&deg;C. L&rsquo;&eacute;tuve est <strong>trop chaude</strong> ; il faut <strong>r&eacute;duire</strong> la temp&eacute;rature pour revenir &agrave; la consigne de 40&nbsp;&deg;C.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <div class="exo">
+    <div class="exo-num">Exercice 3 &mdash; Choisir le bon capteur</div>
+    <p>Pour chaque application, indiquer quel capteur est le plus adapt&eacute; parmi : <em>thermocouple, CTN, CTP, LM35</em>. Justifier bri&egrave;vement.</p>
+    <ol type="a">
+      <li>Mesurer la temp&eacute;rature d&rsquo;un four &agrave; c&eacute;ramique atteignant 900&nbsp;&deg;C.</li>
+      <li>Prot&eacute;ger le moteur d&rsquo;une toupie contre les surchauffes.</li>
+      <li>Afficher la temp&eacute;rature de l&rsquo;atelier sur un &eacute;cran Arduino.</li>
+      <li>R&eacute;guler finement la temp&eacute;rature d&rsquo;une &eacute;tuve &agrave; 80&nbsp;&deg;C.</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <ol type="a">
+          <li><strong>Thermocouple</strong> : seul capteur couvrant une plage jusqu&rsquo;&agrave; 900&nbsp;&deg;C.</li>
+          <li><strong>CTP</strong> : d&egrave;s que la temp&eacute;rature d&eacute;passe un seuil, la r&eacute;sistance monte en fl&egrave;che et coupe le circuit &rarr; protection automatique du moteur.</li>
+          <li><strong>Capteur LM35</strong> : sortie lin&eacute;aire en tension directement lisible par l&rsquo;entr&eacute;e analogique d&rsquo;un Arduino, simple &agrave; programmer.</li>
+          <li><strong>CTN</strong> : tr&egrave;s sensible dans la plage 0&ndash;100&nbsp;&deg;C, id&eacute;ale pour la r&eacute;gulation fine d&rsquo;&eacute;tuve.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+</div><!-- /.c -->
+
+<script>
+(function(){
+  var labels = [];
+  var data   = [];
+  var R0 = 10000; // 10 kOhm a T0 = 25 degC
+  var T0 = 298;   // en K
+  var B  = 3950;  // constante en K
+  for(var t = 0; t <= 80; t += 5){
+    var T = t + 273;
+    var R = R0 * Math.exp(B * (1/T - 1/T0));
+    labels.push(t);
+    data.push(parseFloat((R / 1000).toFixed(2))); // en k-ohm
+  }
+  var ctx = document.getElementById('ctnChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'R\u00e9sistance (k\u03a9)',
+        data: data,
+        borderColor: '#6f42c1',
+        backgroundColor: 'rgba(111,66,193,0.08)',
+        borderWidth: 2.5,
+        pointRadius: 4,
+        pointBackgroundColor: '#6f42c1',
+        tension: 0.35,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Caract\u00e9ristique R(T) d\u2019une CTN  (B\u00a0=\u00a03950\u00a0K,  R\u2080\u00a0=\u00a010\u00a0k\u03a9 \u00e0 25\u00b0C)',
+          color: '#2d3748',
+          font: { size: 13 }
+        },
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx){ return ctx.parsed.y + ' k\u03a9'; }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Temp\u00e9rature (\u00b0C)', font: { size: 12 } }
+        },
+        y: {
+          title: { display: true, text: 'R\u00e9sistance R (k\u03a9)', font: { size: 12 } },
+          ticks: {
+            callback: function(v){ return v + ' k\u03a9'; }
+          }
+        }
+      }
+    }
+  });
+})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

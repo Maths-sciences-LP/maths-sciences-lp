@@ -1,24 +1,550 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Ch05 PC – Acidité et pH</title><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><style>:root{--p:#6f42c1;--d:#c53030;--s:#2f855a;--o:#d97706;--t:#2d3748}body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}h1{margin:0 0 6px;color:var(--p);font-size:1.7em}.sous-titre{color:#718096;font-size:.95em;margin:0}h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}.label-def{background:#ede9fe;color:#5b21b6}.label-prop{background:#d1fae5;color:#065f46}.label-att{background:#fee2e2;color:#991b1b}.label-meth{background:#fef3c7;color:#92400e}.label-ex{background:#e2e8f0;color:#4a5568}table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}th{background:#eef2f7;font-weight:600}.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}</style></head><body><div class="c"><a href="pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
-<header><h1>Chapitre 5 – Acidité et pH</h1><p class="sous-titre">2<sup>de</sup> Pro &nbsp;|&nbsp; Chimie</p></header>
-<h2>1. Définition du pH</h2>
-<div class="def"><span class="label label-def">Définition</span><br>Le <strong>pH</strong> (potentiel Hydrogène) mesure l'acidité ou la basicité d'une solution aqueuse. Il varie de 0 à 14.<br>
-<ul><li>pH &lt; 7 : solution <strong>acide</strong></li><li>pH = 7 : solution <strong>neutre</strong></li><li>pH &gt; 7 : solution <strong>basique</strong> (ou alcaline)</li></ul></div>
-<h2>2. Mesure du pH</h2>
-<div class="meth"><span class="label label-meth">Méthodes de mesure</span>
-<ul><li><strong>Papier pH</strong> : mesure approximative (±1)</li><li><strong>Indicateur coloré</strong> : Bleu de bromothymol (BBT), phénolphtaléine…</li><li><strong>pH-mètre</strong> : mesure précise (±0,1)</li></ul></div>
-<div class="prop"><span class="label label-prop">BBT (Bleu de bromothymol)</span><br>
-Jaune en milieu acide (pH&lt;6) | Vert en milieu neutre (pH≈7) | Bleu en milieu basique (pH&gt;7,6)</div>
-<h2>3. Exemples de pH</h2>
-<table><tr><th>Substance</th><th>pH</th><th>Nature</th></tr>
-<tr><td>Jus de citron</td><td>2 – 3</td><td>Acide fort</td></tr>
-<tr><td>Vinaigre</td><td>2 – 3</td><td>Acide fort</td></tr>
-<tr><td>Café</td><td>5 – 6</td><td>Acide faible</td></tr>
-<tr><td>Eau pure</td><td>7</td><td>Neutre</td></tr>
-<tr><td>Eau de mer</td><td>8</td><td>Basique faible</td></tr>
-<tr><td>Eau de Javel</td><td>12 – 13</td><td>Basique fort</td></tr></table>
-<h2>4. Sécurité</h2>
-<div class="att"><span class="label label-att">Danger</span><br>
-pH très bas (acides forts) ou très élevé (bases fortes) : <strong>corrosifs</strong> → danger pour la peau et les muqueuses. Porter lunettes et gants en laboratoire.</div>
-</div><script src="nav.js"></script>
-</body></html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.5 &mdash; Mouvement et trajectoire &mdash; Physique-Chimie 2nde Pro MAMA</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.formule{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.1em;font-weight:700;color:var(--p)}
+.formule small{display:block;margin-top:6px;font-size:.75em;font-weight:400;color:#718096}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-ret{background:#c4b5fd;color:#3b0764}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+th{background:#f3f0ff;font-weight:600;color:var(--p)}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+.objectifs ul{margin:6px 0 0;padding-left:20px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+.exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+details.corr summary{cursor:pointer;font-weight:600;color:var(--s);font-size:.88em;margin-top:10px;padding:4px 0}
+details.corr summary:hover{text-decoration:underline}
+details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="c">
+
+<header>
+  <a href="pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+  <h1>Chapitre 5 &mdash; Mouvement et trajectoire</h1>
+  <p class="sous-titre">Physique-Chimie &bull; 2nde Pro MAMA &bull; Menuiserie Agencement Ameublement</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>D&eacute;finir un r&eacute;f&eacute;rentiel et comprendre la relativit&eacute; du mouvement</li>
+    <li>Distinguer les types de trajectoires (rectiligne, circulaire, curviligne)</li>
+    <li>Calculer une vitesse moyenne &agrave; partir d&rsquo;une distance et d&rsquo;une dur&eacute;e</li>
+    <li>Convertir des vitesses entre m/s et km/h</li>
+    <li>Caract&eacute;riser un mouvement &agrave; partir d&rsquo;une chronophotographie</li>
+  </ul>
+</div>
+
+<!-- ==================== SECTION 1 ==================== -->
+<h2>1. R&eacute;f&eacute;rentiel et objet &eacute;tudi&eacute;</h2>
+
+<span class="label label-def">D&eacute;finition</span>
+<div class="def">
+  Un <strong>r&eacute;f&eacute;rentiel</strong> est un solide de r&eacute;f&eacute;rence (ou un rep&egrave;re) par rapport auquel on &eacute;tudie le mouvement d&rsquo;un objet. Toute description d&rsquo;un mouvement doit pr&eacute;ciser le r&eacute;f&eacute;rentiel utilis&eacute;.
+</div>
+
+<h3>1.1 Exemples de r&eacute;f&eacute;rentiels</h3>
+<table>
+  <thead>
+    <tr>
+      <th>R&eacute;f&eacute;rentiel</th>
+      <th>D&eacute;finition</th>
+      <th>Exemples d&rsquo;utilisation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Terrestre</strong></td>
+      <td>Li&eacute; &agrave; la Terre (b&acirc;timent, sol)</td>
+      <td>D&eacute;placement d&rsquo;une pi&egrave;ce dans l&rsquo;atelier, voiture sur route</td>
+    </tr>
+    <tr>
+      <td><strong>G&eacute;ocentrique</strong></td>
+      <td>Centre de la Terre, axes fixes</td>
+      <td>&Eacute;tude des satellites artificiels</td>
+    </tr>
+    <tr>
+      <td><strong>H&eacute;liocentrique</strong></td>
+      <td>Centre du Soleil</td>
+      <td>Mouvement des plan&egrave;tes autour du Soleil</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="prop">
+  <span class="label label-prop">Relativit&eacute; du mouvement</span><br>
+  Un m&ecirc;me objet peut &ecirc;tre <strong>en mouvement</strong> dans un r&eacute;f&eacute;rentiel et <strong>au repos</strong> dans un autre.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple &mdash; Passager dans un train</span><br>
+  Un passager assis dans un train :<br>
+  &bull; Est <strong>au repos</strong> par rapport au r&eacute;f&eacute;rentiel du train (il ne change pas de place dans le wagon).<br>
+  &bull; Est <strong>en mouvement</strong> par rapport au r&eacute;f&eacute;rentiel terrestre (il se d&eacute;place avec le train).<br><br>
+  <em>Contexte MAMA :</em> un op&eacute;rateur qui guide une pi&egrave;ce sur une scie &agrave; ruban est <strong>au repos</strong> par rapport &agrave; l&rsquo;atelier (r&eacute;f&eacute;rentiel terrestre), mais la pi&egrave;ce est <strong>en mouvement</strong> relative par rapport &agrave; la lame.
+</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<h2>2. La trajectoire</h2>
+
+<span class="label label-def">D&eacute;finition</span>
+<div class="def">
+  La <strong>trajectoire</strong> d&rsquo;un objet (dans un r&eacute;f&eacute;rentiel donn&eacute;) est l&rsquo;ensemble des positions successives occup&eacute;es par cet objet au cours du temps. C&rsquo;est le &laquo;&nbsp;chemin&nbsp;&raquo; trac&eacute; par l&rsquo;objet.
+</div>
+
+<h3>2.1 Les trois types de trajectoires</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Forme</th>
+      <th>Exemples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Rectiligne</strong></td>
+      <td>Droite</td>
+      <td>Voiture sur autoroute droite, chariot d&rsquo;atelier sur rail, pi&egrave;ce en translation sur une toupie &agrave; guide</td>
+    </tr>
+    <tr>
+      <td><strong>Circulaire</strong></td>
+      <td>Cercle (ou arc de cercle)</td>
+      <td>Roue, h&eacute;lice de ventilateur, dent d&rsquo;une scie circulaire, fraise en rotation</td>
+    </tr>
+    <tr>
+      <td><strong>Curviligne</strong></td>
+      <td>Courbe quelconque</td>
+      <td>Balle lanc&eacute;e, copeaux &eacute;ject&eacute;s par une toupie, usinage d&rsquo;un profil courbe en CNC</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- SVG Trajectoires -->
+<figure style="margin:18px 0;text-align:center">
+  <svg width="100%" viewBox="0 0 640 180" xmlns="http://www.w3.org/2000/svg" style="max-width:640px;font-family:sans-serif">
+    <rect width="640" height="180" fill="#f8fafc" rx="8"/>
+
+    <!-- TRAJECTOIRE RECTILIGNE -->
+    <text x="107" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#6f42c1">Rectiligne</text>
+    <!-- fl&egrave;che direction -->
+    <defs>
+      <marker id="arr1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#6f42c1"/>
+      </marker>
+    </defs>
+    <line x1="20" y1="90" x2="190" y2="90" stroke="#6f42c1" stroke-width="2" marker-end="url(#arr1)"/>
+    <!-- Points de position -->
+    <circle cx="40"  cy="90" r="5" fill="#6f42c1"/>
+    <circle cx="75"  cy="90" r="5" fill="#6f42c1"/>
+    <circle cx="110" cy="90" r="5" fill="#6f42c1"/>
+    <circle cx="145" cy="90" r="5" fill="#6f42c1"/>
+    <circle cx="180" cy="90" r="5" fill="#6f42c1"/>
+    <text x="107" y="120" text-anchor="middle" font-size="10" fill="#718096">Chariot sur rail</text>
+    <text x="107" y="134" text-anchor="middle" font-size="10" fill="#718096">d&rsquo;atelier</text>
+
+    <!-- TRAJECTOIRE CIRCULAIRE -->
+    <text x="320" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#2f855a">Circulaire</text>
+    <defs>
+      <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#2f855a"/>
+      </marker>
+    </defs>
+    <circle cx="320" cy="85" r="50" fill="none" stroke="#2f855a" stroke-width="2" stroke-dasharray="5,3"/>
+    <!-- Points circulaires -->
+    <circle cx="370" cy="85"  r="5" fill="#2f855a"/>
+    <circle cx="355" cy="42"  r="5" fill="#2f855a"/>
+    <circle cx="320" cy="35"  r="5" fill="#2f855a"/>
+    <circle cx="285" cy="42"  r="5" fill="#2f855a"/>
+    <circle cx="270" cy="85"  r="5" fill="#2f855a"/>
+    <circle cx="285" cy="128" r="5" fill="#2f855a"/>
+    <!-- fl&egrave;che tangente -->
+    <path d="M370,85 A1,1 0 0,1 355,42" fill="none" stroke="#2f855a" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <text x="320" y="150" text-anchor="middle" font-size="10" fill="#718096">Dent de scie circulaire</text>
+    <text x="320" y="164" text-anchor="middle" font-size="10" fill="#718096">(en rotation)</text>
+
+    <!-- TRAJECTOIRE CURVILIGNE -->
+    <text x="533" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#d97706">Curviligne</text>
+    <defs>
+      <marker id="arr3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
+      </marker>
+    </defs>
+    <path d="M430,130 C450,130 455,50 490,50 C525,50 530,110 560,80 C580,65 600,60 620,55"
+          fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arr3)"/>
+    <!-- Points curvilignes -->
+    <circle cx="433" cy="129" r="5" fill="#d97706"/>
+    <circle cx="460" cy="95"  r="5" fill="#d97706"/>
+    <circle cx="490" cy="50"  r="5" fill="#d97706"/>
+    <circle cx="520" cy="80"  r="5" fill="#d97706"/>
+    <circle cx="555" cy="82"  r="5" fill="#d97706"/>
+    <circle cx="615" cy="57"  r="5" fill="#d97706"/>
+    <text x="533" y="150" text-anchor="middle" font-size="10" fill="#718096">Balle lanc&eacute;e,</text>
+    <text x="533" y="164" text-anchor="middle" font-size="10" fill="#718096">profil CNC courbe</text>
+  </svg>
+  <figcaption style="font-size:.82em;color:#718096;margin-top:4px">Les trois types de trajectoires (les points repr&eacute;sentent les positions successives de l&rsquo;objet)</figcaption>
+</figure>
+
+<!-- ==================== SECTION 3 ==================== -->
+<h2>3. La vitesse moyenne</h2>
+
+<span class="label label-def">D&eacute;finition</span>
+<div class="def">
+  La <strong>vitesse moyenne</strong> d&rsquo;un objet est le rapport de la distance parcourue par la dur&eacute;e du trajet. Elle indique &laquo;&nbsp;en moyenne&nbsp;&raquo; quelle distance l&rsquo;objet parcourt par unit&eacute; de temps.
+</div>
+
+<div class="formule">
+  \( v = \dfrac{d}{\Delta t} \)
+  <small>v : vitesse (m/s ou km/h) &bull; d : distance parcourue (m ou km) &bull; &Delta;t : dur&eacute;e (s ou h)</small>
+</div>
+
+<h3>3.1 Unit&eacute;s et conversions</h3>
+<div class="prop">
+  <span class="label label-prop">Conversion m/s &harr; km/h</span><br>
+  \[ 1\ \text{m/s} = 3{,}6\ \text{km/h} \qquad \Longleftrightarrow \qquad 1\ \text{km/h} = \frac{1}{3{,}6}\ \text{m/s} \approx 0{,}278\ \text{m/s} \]
+  <strong>Astuce :</strong> pour passer de m/s &agrave; km/h, <em>multiplier par 3,6</em> ; pour passer de km/h &agrave; m/s, <em>diviser par 3,6</em>.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemples contextualis&eacute;s MAMA</span><br>
+  <strong>Exemple 1 &mdash; Chariot d&rsquo;atelier :</strong> un chariot transporte des panneaux sur une distance de 12 m en 8 s.<br>
+  \[ v = \frac{12}{8} = 1{,}5\ \text{m/s} = 1{,}5 \times 3{,}6 = 5{,}4\ \text{km/h} \]
+  <br>
+  <strong>Exemple 2 &mdash; Avance d&rsquo;outil :</strong> lors d&rsquo;un passage de raboteuse, la pi&egrave;ce parcourt 2,5 m en 5 s.<br>
+  \[ v = \frac{2{,}5}{5} = 0{,}5\ \text{m/s} = 0{,}5 \times 3{,}6 = 1{,}8\ \text{km/h} \]
+</div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<h2>4. Types de mouvements</h2>
+
+<span class="label label-def">D&eacute;finition</span>
+<div class="def">
+  On caract&eacute;rise un mouvement selon l&rsquo;&eacute;volution de sa vitesse au cours du temps :
+  <ul style="margin-top:6px">
+    <li><strong>Mouvement uniforme</strong> : la vitesse est <em>constante</em> (ni acc&eacute;l&eacute;ration, ni d&eacute;c&eacute;l&eacute;ration).</li>
+    <li><strong>Mouvement acc&eacute;l&eacute;r&eacute;</strong> : la vitesse <em>augmente</em> au cours du temps.</li>
+    <li><strong>Mouvement d&eacute;c&eacute;l&eacute;r&eacute;</strong> : la vitesse <em>diminue</em> au cours du temps.</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Distinction importante</span><br>
+  Un objet dont la <strong>vitesse est nulle &agrave; un instant donn&eacute;</strong> n&rsquo;est pas forc&eacute;ment <strong>au repos</strong>. Il peut &ecirc;tre en mouvement juste avant ou juste apr&egrave;s (ex. : balle au sommet d&rsquo;un lancer).
+</div>
+
+<h3>4.1 Visualisation par chronophotographie</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Type de mouvement</th>
+      <th>Apparence des positions sur la photo</th>
+      <th>Vitesse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Uniforme</strong></td>
+      <td>Positions <em>&eacute;quidistantes</em> (espaces &eacute;gaux)</td>
+      <td>Constante</td>
+    </tr>
+    <tr>
+      <td><strong>Acc&eacute;l&eacute;r&eacute;</strong></td>
+      <td>Positions de plus en plus <em>&eacute;loign&eacute;es</em></td>
+      <td>Croissante</td>
+    </tr>
+    <tr>
+      <td><strong>D&eacute;c&eacute;l&eacute;r&eacute;</strong></td>
+      <td>Positions de plus en plus <em>rapproch&eacute;es</em></td>
+      <td>D&eacute;croissante</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ==================== SECTION 5 ==================== -->
+<h2>5. La chronophotographie</h2>
+
+<span class="label label-def">D&eacute;finition</span>
+<div class="def">
+  La <strong>chronophotographie</strong> est une technique qui consiste &agrave; photographier un objet en mouvement &agrave; intervalles de temps r&eacute;guliers (dur&eacute;e &tau; entre chaque photo). Elle laisse sur l&rsquo;image une s&eacute;rie de positions de l&rsquo;objet espac&eacute;es dans le temps.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Lecture d&rsquo;une chronophotographie</span><br>
+  <ul>
+    <li><strong>Positions &eacute;quidistantes</strong> &rArr; mouvement <strong>uniforme</strong> (vitesse constante)</li>
+    <li><strong>Espaces qui s&rsquo;&eacute;largissent</strong> &rArr; mouvement <strong>acc&eacute;l&eacute;r&eacute;</strong></li>
+    <li><strong>Espaces qui se r&eacute;duisent</strong> &rArr; mouvement <strong>d&eacute;c&eacute;l&eacute;r&eacute;</strong></li>
+  </ul>
+</div>
+
+<span class="label label-meth">M&eacute;thode</span>
+<div class="meth">
+  <strong>Calculer la vitesse entre deux positions cons&eacute;cutives :</strong><br>
+  Si l&rsquo;intervalle de temps entre deux flashs est &tau; et que la distance entre deux positions cons&eacute;cutives est d :
+  \[ v = \frac{d}{\tau} \]
+  Cette vitesse est la vitesse <em>moyenne</em> sur cet intervalle. On consid&egrave;re qu&rsquo;elle est &eacute;gale &agrave; la vitesse instantan&eacute;e au milieu de cet intervalle.
+</div>
+
+<h3>5.1 SVG illustratif &mdash; Trois types de mouvements</h3>
+
+<figure style="margin:18px 0;text-align:center">
+  <svg width="100%" viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg" style="max-width:620px;font-family:sans-serif">
+    <rect width="620" height="260" fill="#f8fafc" rx="8"/>
+
+    <!-- MOUVEMENT UNIFORME -->
+    <text x="310" y="24" text-anchor="middle" font-size="11" font-weight="bold" fill="#2f855a">Mouvement UNIFORME (vitesse constante)</text>
+    <!-- Rail -->
+    <line x1="30" y1="55" x2="590" y2="55" stroke="#cbd5e0" stroke-width="1.5"/>
+    <!-- Points &eacute;quidistants : 7 points espac&eacute;s de 80px -->
+    <circle cx="70"  cy="55" r="8" fill="#2f855a"/>
+    <circle cx="150" cy="55" r="8" fill="#2f855a"/>
+    <circle cx="230" cy="55" r="8" fill="#2f855a"/>
+    <circle cx="310" cy="55" r="8" fill="#2f855a"/>
+    <circle cx="390" cy="55" r="8" fill="#2f855a"/>
+    <circle cx="470" cy="55" r="8" fill="#2f855a"/>
+    <circle cx="550" cy="55" r="8" fill="#2f855a"/>
+    <!-- Espaces -->
+    <text x="110" y="75" text-anchor="middle" font-size="9" fill="#2f855a">80 mm</text>
+    <text x="190" y="75" text-anchor="middle" font-size="9" fill="#2f855a">80 mm</text>
+    <text x="270" y="75" text-anchor="middle" font-size="9" fill="#2f855a">80 mm</text>
+    <text x="350" y="75" text-anchor="middle" font-size="9" fill="#2f855a">80 mm</text>
+    <text x="430" y="75" text-anchor="middle" font-size="9" fill="#2f855a">80 mm</text>
+    <text x="510" y="75" text-anchor="middle" font-size="9" fill="#2f855a">80 mm</text>
+    <text x="30" y="45" font-size="9" fill="#718096">t=0</text>
+    <text x="540" y="45" font-size="9" fill="#718096">t=6&tau;</text>
+
+    <!-- MOUVEMENT ACCELERE -->
+    <text x="310" y="110" text-anchor="middle" font-size="11" font-weight="bold" fill="#6f42c1">Mouvement ACCELERE (vitesse croissante)</text>
+    <line x1="30" y1="140" x2="590" y2="140" stroke="#cbd5e0" stroke-width="1.5"/>
+    <!-- Points de plus en plus espac&eacute;s : 10, 30, 55, 85, 120, 160 -->
+    <circle cx="50"  cy="140" r="8" fill="#6f42c1"/>
+    <circle cx="80"  cy="140" r="8" fill="#6f42c1"/>
+    <circle cx="135" cy="140" r="8" fill="#6f42c1"/>
+    <circle cx="215" cy="140" r="8" fill="#6f42c1"/>
+    <circle cx="330" cy="140" r="8" fill="#6f42c1"/>
+    <circle cx="480" cy="140" r="8" fill="#6f42c1"/>
+    <!-- Espaces -->
+    <text x="65"  cy="160" y="160" text-anchor="middle" font-size="9" fill="#6f42c1">30</text>
+    <text x="107" cy="160" y="160" text-anchor="middle" font-size="9" fill="#6f42c1">55</text>
+    <text x="175" cy="160" y="160" text-anchor="middle" font-size="9" fill="#6f42c1">80</text>
+    <text x="272" cy="160" y="160" text-anchor="middle" font-size="9" fill="#6f42c1">115</text>
+    <text x="405" cy="160" y="160" text-anchor="middle" font-size="9" fill="#6f42c1">150 mm</text>
+    <text x="30" y="130" font-size="9" fill="#718096">t=0</text>
+    <text x="462" y="130" font-size="9" fill="#718096">t=5&tau;</text>
+
+    <!-- MOUVEMENT DECELERE -->
+    <text x="310" y="195" text-anchor="middle" font-size="11" font-weight="bold" fill="#c53030">Mouvement DECELERE (vitesse d&eacute;croissante)</text>
+    <line x1="30" y1="225" x2="590" y2="225" stroke="#cbd5e0" stroke-width="1.5"/>
+    <!-- Points de plus en plus rapproch&eacute;s : 150, 110, 75, 45, 25 -->
+    <circle cx="50"  cy="225" r="8" fill="#c53030"/>
+    <circle cx="200" cy="225" r="8" fill="#c53030"/>
+    <circle cx="310" cy="225" r="8" fill="#c53030"/>
+    <circle cx="385" cy="225" r="8" fill="#c53030"/>
+    <circle cx="430" cy="225" r="8" fill="#c53030"/>
+    <circle cx="455" cy="225" r="8" fill="#c53030"/>
+    <!-- Espaces -->
+    <text x="125" y="245" text-anchor="middle" font-size="9" fill="#c53030">150</text>
+    <text x="255" y="245" text-anchor="middle" font-size="9" fill="#c53030">110</text>
+    <text x="347" y="245" text-anchor="middle" font-size="9" fill="#c53030">75</text>
+    <text x="407" y="245" text-anchor="middle" font-size="9" fill="#c53030">45</text>
+    <text x="442" y="245" text-anchor="middle" font-size="9" fill="#c53030">25 mm</text>
+    <text x="30" y="215" font-size="9" fill="#718096">t=0</text>
+    <text x="440" y="215" font-size="9" fill="#718096">t=5&tau;</text>
+  </svg>
+  <figcaption style="font-size:.82em;color:#718096;margin-top:4px">Chronophotographies des trois types de mouvements rectilignes (&tau; = dur&eacute;e entre deux flashs)</figcaption>
+</figure>
+
+<div class="ex">
+  <span class="label label-ex">Exemple num&eacute;rique</span><br>
+  Une chronophotographie d&rsquo;un chariot d&rsquo;atelier est prise toutes les &tau; = 0,5 s. On mesure sur la photo (apr&egrave;s correction d&rsquo;&eacute;chelle) les distances entre positions cons&eacute;cutives :<br><br>
+  <table style="margin:8px 0">
+    <thead>
+      <tr><th>Intervalle</th><th>0&rarr;1</th><th>1&rarr;2</th><th>2&rarr;3</th><th>3&rarr;4</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Distance d (m)</td><td>0,6</td><td>0,6</td><td>0,6</td><td>0,6</td></tr>
+      <tr><td>Vitesse v = d/&tau; (m/s)</td><td>1,2</td><td>1,2</td><td>1,2</td><td>1,2</td></tr>
+    </tbody>
+  </table>
+  Les distances sont &eacute;gales &rArr; le mouvement est <strong>uniforme</strong>, vitesse v = <strong>1,2 m/s</strong>.
+</div>
+
+<!-- ==================== SECTION 6 ==================== -->
+<h2>6. Tableau de synth&egrave;se</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grandeur</th>
+      <th>Symbole</th>
+      <th>Unit&eacute; SI</th>
+      <th>Autre unit&eacute;</th>
+      <th>Formule principale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Distance</td>
+      <td>d</td>
+      <td>m&egrave;tre (m)</td>
+      <td>km</td>
+      <td>\( d = v \times \Delta t \)</td>
+    </tr>
+    <tr>
+      <td>Dur&eacute;e</td>
+      <td>&Delta;t</td>
+      <td>seconde (s)</td>
+      <td>h, min</td>
+      <td>\( \Delta t = \dfrac{d}{v} \)</td>
+    </tr>
+    <tr>
+      <td>Vitesse moyenne</td>
+      <td>v</td>
+      <td>m/s</td>
+      <td>km/h</td>
+      <td>\( v = \dfrac{d}{\Delta t} \)</td>
+    </tr>
+    <tr>
+      <td>Conversion</td>
+      <td>&mdash;</td>
+      <td>m/s</td>
+      <td>km/h</td>
+      <td>\( v_{\text{km/h}} = v_{\text{m/s}} \times 3{,}6 \)</td>
+    </tr>
+    <tr>
+      <td>Vitesse (chronophoto)</td>
+      <td>v</td>
+      <td>m/s</td>
+      <td>&mdash;</td>
+      <td>\( v = \dfrac{d}{\tau} \) (&tau; : intervalle de temps entre flashs)</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ==================== SECTION 7 ==================== -->
+<h2>7. &Agrave; retenir</h2>
+
+<div class="retenir">
+  <span class="label label-ret">&Agrave; retenir</span>
+  <ol>
+    <li>Un <strong>r&eacute;f&eacute;rentiel</strong> est indispensable pour d&eacute;crire un mouvement. Un m&ecirc;me objet peut &ecirc;tre en mouvement dans un r&eacute;f&eacute;rentiel et au repos dans un autre.</li>
+    <li>La <strong>trajectoire</strong> est l&rsquo;ensemble des positions successives. Elle peut &ecirc;tre rectiligne, circulaire ou curviligne.</li>
+    <li>La <strong>vitesse moyenne</strong> se calcule par \( v = d / \Delta t \). Les unit&eacute;s sont m/s (SI) ou km/h. Conversion : 1 m/s = 3,6 km/h.</li>
+    <li>Un mouvement est <strong>uniforme</strong> (v constante), <strong>acc&eacute;l&eacute;r&eacute;</strong> (v croissante) ou <strong>d&eacute;c&eacute;l&eacute;r&eacute;</strong> (v d&eacute;croissante).</li>
+    <li>En <strong>chronophotographie</strong> : positions &eacute;quidistantes = mouvement uniforme ; espaces croissants = acc&eacute;l&eacute;ration ; espaces d&eacute;croissants = d&eacute;c&eacute;l&eacute;ration.</li>
+  </ol>
+</div>
+
+<!-- ==================== SECTION 8 ==================== -->
+<h2>8. Mini-exercices</h2>
+
+<div class="exo">
+  <div class="exo-num">Exercice 1 &mdash; Conversion de vitesse</div>
+  <p>
+    Un chariot motoris&eacute; transporte des panneaux dans un entrep&ocirc;t &agrave; une vitesse de <strong>v = 4,5 km/h</strong>.
+  </p>
+  <ol>
+    <li>Convertir cette vitesse en m/s.</li>
+    <li>Si l&rsquo;entrep&ocirc;t fait 60 m de long, combien de temps le chariot met-il pour traverser l&rsquo;entrep&ocirc;t ?</li>
+    <li>Un pi&eacute;ton marche &agrave; 1,2 m/s. Quelle est sa vitesse en km/h ? Le chariot va-t-il plus vite ou moins vite que le pi&eacute;ton ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <ol>
+        <li>\( v = \dfrac{4{,}5}{3{,}6} \approx \mathbf{1{,}25\ \text{m/s}} \)</li>
+        <li>\( \Delta t = \dfrac{d}{v} = \dfrac{60}{1{,}25} = \mathbf{48\ \text{s}} \)</li>
+        <li>\( v_{\text{km/h}} = 1{,}2 \times 3{,}6 = \mathbf{4{,}32\ \text{km/h}} \). Le chariot (4,5 km/h) va <strong>plus vite</strong> que le pi&eacute;ton (4,32 km/h), mais de peu.</li>
+      </ol>
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 2 &mdash; Calcul de distance et de dur&eacute;e</div>
+  <p>
+    Lors d&rsquo;un usinage sur une CNC, l&rsquo;outil se d&eacute;place &agrave; une avance de <strong>v = 0,4 m/s</strong>.
+  </p>
+  <ol>
+    <li>Quelle distance l&rsquo;outil parcourt-il en 12 s ?</li>
+    <li>Combien de temps faut-il pour usiner un panneau de 2,4 m de longueur ?</li>
+    <li>Convertir la vitesse d&rsquo;avance en m/min (m&egrave;tres par minute).</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <ol>
+        <li>\( d = v \times \Delta t = 0{,}4 \times 12 = \mathbf{4{,}8\ \text{m}} \)</li>
+        <li>\( \Delta t = \dfrac{d}{v} = \dfrac{2{,}4}{0{,}4} = \mathbf{6\ \text{s}} \)</li>
+        <li>1 min = 60 s donc \( v = 0{,}4 \times 60 = \mathbf{24\ \text{m/min}} \)</li>
+      </ol>
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 3 &mdash; Lecture d&rsquo;une chronophotographie</div>
+  <p>
+    On r&eacute;alise une chronophotographie d&rsquo;une pi&egrave;ce de bois glissant sur un plan inclin&eacute;. L&rsquo;intervalle entre deux flashs est <strong>&tau; = 0,2 s</strong>. On mesure les distances entre positions cons&eacute;cutives (en cm) :
+  </p>
+  <table>
+    <thead>
+      <tr><th>Intervalle</th><th>0&rarr;1</th><th>1&rarr;2</th><th>2&rarr;3</th><th>3&rarr;4</th><th>4&rarr;5</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Distance d (cm)</td><td>4</td><td>8</td><td>12</td><td>16</td><td>20</td></tr>
+    </tbody>
+  </table>
+  <ol>
+    <li>Quel type de mouvement observe-t-on ? Justifier.</li>
+    <li>Calculer la vitesse (en m/s) entre les positions 2 et 3.</li>
+    <li>Calculer la vitesse (en m/s) entre les positions 4 et 5.</li>
+    <li>La vitesse augmente-t-elle ? Cela confirme-t-il votre r&eacute;ponse en 1) ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <ol>
+        <li>Les distances augmentent r&eacute;guli&egrave;rement (4, 8, 12, 16, 20 cm) &rArr; la pi&egrave;ce s&rsquo;&eacute;loigne de plus en plus &rArr; mouvement <strong>acc&eacute;l&eacute;r&eacute;</strong>.</li>
+        <li>d = 12 cm = 0,12 m ; \( v_{2\to3} = \dfrac{0{,}12}{0{,}2} = \mathbf{0{,}6\ \text{m/s}} \)</li>
+        <li>d = 20 cm = 0,20 m ; \( v_{4\to5} = \dfrac{0{,}20}{0{,}2} = \mathbf{1{,}0\ \text{m/s}} \)</li>
+        <li>La vitesse est pass&eacute;e de 0,6 m/s &agrave; 1,0 m/s : elle <strong>augmente</strong>, ce qui confirme bien un mouvement <strong>acc&eacute;l&eacute;r&eacute;</strong>.</li>
+      </ol>
+    </div>
+  </details>
+</div>
+
+</div><!-- fin .c -->
+<script src="nav.js"></script>
+</body>
+</html>

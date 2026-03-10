@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Exercices – Stocker l'énergie électrochimique | ERA-MA Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#2da44e;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;flex:1}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{opacity:.85}
+.intro-box{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.methode strong{color:#d97706}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.attention strong{color:#be123c}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.retenir strong{color:#0369a1}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.svg-wrap{text-align:center;margin:24px 0}
+.chart-wrap{max-width:600px;margin:24px auto}
+</style>
+</head>
+<body><div class="c">
+<a href="pc-term-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch02 – Stocker l'énergie électrochimique</h1>
+  <p class="sous-titre">Exercices | Terminale Bac Pro ERA-MA – Groupement 3</p>
+</header>
+
+<!-- ===== INTRODUCTION ===== -->
+<div class="intro-box">
+  <strong>Rappels du cours</strong>
+  <p><strong>Pile vs accumulateur :</strong> une pile est un générateur électrochimique à usage unique (réaction irréversible). Un accumulateur est rechargeable (réaction réversible).</p>
+  <p><strong>Constituants d'une cellule électrochimique :</strong></p>
+  <ul>
+    <li><strong>Anode</strong> (pôle –) : siège de l'<em>oxydation</em> (perte d'électrons)</li>
+    <li><strong>Cathode</strong> (pôle +) : siège de la <em>réduction</em> (gain d'électrons)</li>
+    <li><strong>Électrolyte</strong> : permet la circulation des ions entre anode et cathode</li>
+  </ul>
+  <p>Formules essentielles :</p>
+  <ul>
+    <li><strong>Énergie stockée</strong> : \(E = U \cdot I \cdot t\) (joules) ou \(E = U \cdot Q\) avec \(Q\) en Ah → \(E\ (\text{Wh}) = U\ (\text{V}) \times Q\ (\text{Ah})\)</li>
+    <li><strong>Conversion</strong> : \(1\ \text{Wh} = 3\,600\ \text{J}\)</li>
+    <li><strong>Autonomie</strong> : \(t = \dfrac{E\ (\text{Wh})}{P\ (\text{W})}\) (en heures)</li>
+    <li><strong>Densité d'énergie massique</strong> : \(d = \dfrac{E\ (\text{Wh})}{m\ (\text{kg})}\) (Wh/kg)</li>
+    <li><strong>Capacité en courant</strong> : \(Q\ (\text{Ah}) = I\ (\text{A}) \times t\ (\text{h})\)</li>
+  </ul>
+</div>
+
+<div class="attention">
+  <strong>Attention !</strong> La capacité s'exprime en <strong>Ah (ampères-heures)</strong> et représente une quantité de charge. L'énergie s'exprime en <strong>Wh (watts-heures)</strong> et tient compte de la tension. On ne peut pas comparer directement Ah et Wh sans connaître la tension ! Une batterie 12 V 60 Ah n'a pas la même énergie qu'une batterie 24 V 60 Ah.
+</div>
+
+<!-- ===== SVG PILE ÉLECTROCHIMIQUE ===== -->
+<h2>Schéma d'une pile électrochimique</h2>
+<div class="svg-wrap">
+<svg width="500" height="280" viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <!-- Électrolyte (cuve) -->
+  <rect x="120" y="60" width="260" height="160" rx="8" fill="#fef9c3" stroke="#d97706" stroke-width="2"/>
+  <text x="250" y="145" text-anchor="middle" fill="#92400e" font-size="13" font-weight="bold">Électrolyte</text>
+  <text x="250" y="163" text-anchor="middle" fill="#92400e" font-size="11">(solution ionique)</text>
+  <!-- Anode (Zinc, pôle –) -->
+  <rect x="130" y="75" width="50" height="130" rx="4" fill="#9ca3af" stroke="#6b7280" stroke-width="2"/>
+  <text x="155" y="128" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Zn</text>
+  <text x="155" y="146" text-anchor="middle" fill="white" font-size="11">Anode</text>
+  <text x="155" y="162" text-anchor="middle" fill="white" font-size="10">Oxydation</text>
+  <!-- Cathode (Cuivre, pôle +) -->
+  <rect x="320" y="75" width="50" height="130" rx="4" fill="#b45309" stroke="#92400e" stroke-width="2"/>
+  <text x="345" y="128" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Cu</text>
+  <text x="345" y="146" text-anchor="middle" fill="white" font-size="11">Cathode</text>
+  <text x="345" y="162" text-anchor="middle" fill="white" font-size="10">Réduction</text>
+  <!-- Fils externes -->
+  <line x1="155" y1="75" x2="155" y2="30" stroke="#374151" stroke-width="2.5"/>
+  <line x1="155" y1="30" x2="345" y2="30" stroke="#374151" stroke-width="2.5"/>
+  <line x1="345" y1="75" x2="345" y2="30" stroke="#374151" stroke-width="2.5"/>
+  <!-- Résistance (charge) -->
+  <rect x="205" y="18" width="90" height="24" rx="4" fill="white" stroke="#374151" stroke-width="1.5"/>
+  <text x="250" y="34" text-anchor="middle" fill="#374151" font-size="11" font-weight="bold">Résistance R</text>
+  <!-- Flèches électrons -->
+  <polygon points="195,26 205,22 205,30" fill="#c53030"/>
+  <text x="190" y="14" text-anchor="middle" fill="#c53030" font-size="11" font-weight="bold">e⁻</text>
+  <polygon points="305,30 295,26 295,34" fill="#c53030"/>
+  <!-- Labels pôles -->
+  <text x="155" y="250" text-anchor="middle" fill="#374151" font-size="13" font-weight="bold">– (pôle –)</text>
+  <text x="345" y="250" text-anchor="middle" fill="#374151" font-size="13" font-weight="bold">+ (pôle +)</text>
+  <!-- Flèche courant conventionnel -->
+  <text x="250" y="270" text-anchor="middle" fill="#2da44e" font-size="11">Courant conventionnel I →  (de + vers –, circuit externe)</text>
+  <!-- Ions dans électrolyte -->
+  <text x="250" y="100" text-anchor="middle" fill="#92400e" font-size="10">← anions</text>
+  <text x="250" y="118" text-anchor="middle" fill="#92400e" font-size="10">cations →</text>
+</svg>
+<p style="color:#718096;font-size:.85em;margin-top:4px">Figure 1 – Schéma de principe d'une pile Daniell (Zn/Cu). Les électrons circulent dans le circuit externe de l'anode vers la cathode.</p>
+</div>
+
+<!-- ===== GRAPHIQUE DENSITÉ D'ÉNERGIE ===== -->
+<h2>Comparaison des densités d'énergie par technologie</h2>
+<div class="methode">
+  <strong>Méthode :</strong> La densité d'énergie massique (Wh/kg) indique combien d'énergie on peut stocker par kilogramme de batterie. Plus elle est élevée, plus la batterie est légère pour une même autonomie. C'est un critère décisif pour les applications mobiles (outils sans fil, véhicules électriques).
+</div>
+<div class="chart-wrap">
+  <canvas id="chartBatterie"></canvas>
+</div>
+
+<!-- ===== EXERCICES DE BASE ===== -->
+<h2>Exercices de base</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Anode et cathode dans une pile</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>On étudie une pile dont les électrodes sont en zinc (Zn) et en cuivre (Cu) plongées dans un électrolyte.</p>
+  <p class="q"><strong>1.</strong> Définir ce qu'est l'anode dans une pile électrochimique.</p>
+  <p class="q"><strong>2.</strong> Définir ce qu'est la cathode.</p>
+  <p class="q"><strong>3.</strong> Dans une pile Zn/Cu, quelle électrode est l'anode ? Quelle est la cathode ?</p>
+  <p class="q"><strong>4.</strong> Dans quel sens circulent les électrons dans le circuit extérieur ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> L'<strong>anode</strong> est l'électrode siège de l'<strong>oxydation</strong> (le métal perd des électrons). C'est le pôle négatif de la pile en fonctionnement.</p>
+    <p><strong>2.</strong> La <strong>cathode</strong> est l'électrode siège de la <strong>réduction</strong> (les ions gagnent des électrons). C'est le pôle positif de la pile.</p>
+    <p><strong>3.</strong> Le zinc est plus réducteur que le cuivre : <strong>Zn = anode (pôle –)</strong> et <strong>Cu = cathode (pôle +)</strong>. Le zinc se dissout au cours du fonctionnement.</p>
+    <p><strong>4.</strong> Les électrons circulent de l'<strong>anode vers la cathode</strong> dans le circuit extérieur, soit du pôle – vers le pôle + (sens opposé au courant conventionnel).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Énergie stockée dans une batterie</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Une batterie de véhicule est caractérisée par : tension \(U = 12\ \text{V}\), capacité \(Q = 60\ \text{Ah}\).</p>
+  <p class="q"><strong>1.</strong> Rappeler la formule de l'énergie en Wh à partir de \(U\) et \(Q\).</p>
+  <p class="q"><strong>2.</strong> Calculer l'énergie stockée en Wh.</p>
+  <p class="q"><strong>3.</strong> Convertir cette énergie en joules (\(1\ \text{Wh} = 3\,600\ \text{J}\)).</p>
+  <p class="q"><strong>4.</strong> Si un démarreur consomme un courant de 120 A, combien de temps (en secondes) peut-il fonctionner avant de décharger complètement la batterie ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(E\ (\text{Wh}) = U\ (\text{V}) \times Q\ (\text{Ah})\)</p>
+    <p><strong>2.</strong> \(E = 12 \times 60 = \mathbf{720\ Wh}\)</p>
+    <p><strong>3.</strong> \(E = 720 \times 3\,600 = \mathbf{2\,592\,000\ J = 2{,}592\ MJ}\)</p>
+    <p><strong>4.</strong> \(t = \dfrac{Q}{I} = \dfrac{60\ \text{Ah}}{120\ \text{A}} = 0{,}5\ \text{h} = \mathbf{30\ minutes = 1\,800\ s}\)</p>
+    <p><em>En pratique, un démarreur fonctionne quelques secondes ; la batterie n'est jamais complètement déchargée par un démarrage normal.</em></p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Durée de décharge</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Une batterie de secours contient une énergie de \(E = 100\ \text{Wh}\). Elle alimente un équipement de surveillance consommant \(P = 20\ \text{W}\).</p>
+  <p class="q"><strong>1.</strong> Écrire la formule de l'autonomie \(t\) en fonction de \(E\) et \(P\).</p>
+  <p class="q"><strong>2.</strong> Calculer l'autonomie en heures.</p>
+  <p class="q"><strong>3.</strong> Exprimer cette autonomie en heures et minutes.</p>
+  <p class="q"><strong>4.</strong> Si l'équipement consomme 40 W au lieu de 20 W, quelle est la nouvelle autonomie ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(t = \dfrac{E\ (\text{Wh})}{P\ (\text{W})}\) (résultat en heures)</p>
+    <p><strong>2.</strong> \(t = \dfrac{100}{20} = \mathbf{5\ h}\)</p>
+    <p><strong>3.</strong> \(5\ \text{h} = \mathbf{5\ \text{heures}\ 0\ \text{minute}}\)</p>
+    <p><strong>4.</strong> \(t = \dfrac{100}{40} = 2{,}5\ \text{h} = \mathbf{2\ h\ 30\ min}\). Doubler la consommation divise l'autonomie par 2.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICES GUIDÉS ===== -->
+<h2>Exercices guidés</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Outil sans fil – énergie et autonomie</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Une visseuse sans fil porte les indications suivantes sur son accu : <strong>18 V – 2 Ah</strong>. Son moteur consomme une puissance de <strong>36 W</strong> lors d'une utilisation normale.</p>
+  <div class="methode">
+    <strong>Méthode :</strong> Calculer d'abord l'énergie en Wh à partir de la tension et de la capacité, puis diviser par la puissance pour obtenir l'autonomie théorique.
+  </div>
+  <p class="q"><strong>1.</strong> Calculer l'énergie stockée dans la batterie en Wh.</p>
+  <p class="q"><strong>2.</strong> Calculer l'autonomie théorique en utilisation continue.</p>
+  <p class="q"><strong>3.</strong> Le courant de décharge correspond-il bien à 2 A ? Vérifier par le calcul (\(I = P/U\)).</p>
+  <p class="q"><strong>4.</strong> En réalité, l'autonomie est inférieure à la valeur théorique. Citer deux raisons expliquant cela.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(E = U \times Q = 18 \times 2 = \mathbf{36\ Wh}\)</p>
+    <p><strong>2.</strong> \(t = \dfrac{E}{P} = \dfrac{36}{36} = \mathbf{1\ h} = 60\ \text{min}\)</p>
+    <p><strong>3.</strong> \(I = \dfrac{P}{U} = \dfrac{36}{18} = \mathbf{2\ A}\). Oui, cela correspond exactement au régime de décharge nominale C1 (2 Ah déchargés en 1 heure à 2 A).</p>
+    <p><strong>4.</strong> L'autonomie réelle est inférieure car :</p>
+    <ul>
+      <li>La batterie vieillit et sa capacité diminue avec les cycles de charge/décharge.</li>
+      <li>La puissance consommée par le moteur varie et est souvent supérieure à 36 W lors de vissages forcés.</li>
+      <li>Le rendement de la batterie n'est pas de 100 % (pertes internes, échauffement).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Densité d'énergie d'un accumulateur Li-ion</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un accumulateur Li-ion de robot industriel a les caractéristiques suivantes : énergie \(E = 200\ \text{Wh}\), masse \(m = 1{,}2\ \text{kg}\).</p>
+  <p class="q"><strong>1.</strong> Écrire la formule de la densité d'énergie massique \(d\).</p>
+  <p class="q"><strong>2.</strong> Calculer la densité d'énergie de cet accumulateur (en Wh/kg).</p>
+  <p class="q"><strong>3.</strong> Comparer avec une batterie au plomb de même masse dont la densité d'énergie est 35 Wh/kg. Quelle énergie stockerait-elle ?</p>
+  <p class="q"><strong>4.</strong> En déduire l'intérêt du Li-ion pour les robots mobiles.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(d = \dfrac{E\ (\text{Wh})}{m\ (\text{kg})}\) (en Wh/kg)</p>
+    <p><strong>2.</strong> \(d = \dfrac{200}{1{,}2} \approx \mathbf{167\ Wh/kg}\)</p>
+    <p><strong>3.</strong> Batterie Pb de masse 1,2 kg : \(E_{\text{Pb}} = 35 \times 1{,}2 = \mathbf{42\ Wh}\)</p>
+    <p><strong>4.</strong> Le Li-ion stocke \(200 / 42 \approx 4{,}8\) fois plus d'énergie pour la même masse. Pour un robot mobile, une masse réduite améliore la mobilité, l'autonomie et réduit la consommation d'énergie pour le déplacement lui-même.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICES D'APPLICATION ===== -->
+<h2>Exercices d'application</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Comparaison de technologies de batteries</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Le tableau ci-dessous présente les caractéristiques de trois technologies d'accumulateurs :</p>
+  <table>
+    <tr>
+      <th>Technologie</th>
+      <th>Densité énergie (Wh/kg)</th>
+      <th>Coût relatif</th>
+      <th>Nb cycles (charge/décharge)</th>
+      <th>Risques</th>
+    </tr>
+    <tr>
+      <td><strong>Plomb (Pb)</strong></td>
+      <td>30 – 50</td>
+      <td>Faible</td>
+      <td>300 – 500</td>
+      <td>Acide, lourd</td>
+    </tr>
+    <tr>
+      <td><strong>NiMH</strong></td>
+      <td>60 – 120</td>
+      <td>Moyen</td>
+      <td>500 – 1 000</td>
+      <td>Effet mémoire</td>
+    </tr>
+    <tr>
+      <td><strong>Li-ion</strong></td>
+      <td>150 – 250</td>
+      <td>Élevé</td>
+      <td>500 – 1 500</td>
+      <td>Thermique si endommagé</td>
+    </tr>
+  </table>
+  <p class="q"><strong>1.</strong> Quelle technologie offre la meilleure densité d'énergie ?</p>
+  <p class="q"><strong>2.</strong> Quelle technologie choisir pour une application nécessitant un faible coût initial et une puissance modérée (ex : balise de signalisation) ?</p>
+  <p class="q"><strong>3.</strong> Pour un outil portatif de maintenance (contrainte : masse minimale), quelle technologie est la plus adaptée ? Justifier.</p>
+  <p class="q"><strong>4.</strong> Quel est l'inconvénient principal du Li-ion en termes de sécurité ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> La technologie <strong>Li-ion</strong> offre la meilleure densité d'énergie (150 à 250 Wh/kg).</p>
+    <p><strong>2.</strong> La batterie <strong>au plomb</strong> est la plus adaptée pour un faible coût initial. Elle est fiable, robuste et recyclable, malgré sa masse élevée.</p>
+    <p><strong>3.</strong> Pour un outil portatif où la masse est critique, le <strong>Li-ion</strong> est le choix optimal : densité d'énergie 4 à 8 fois supérieure au plomb → outil plus léger ou autonomie plus longue à masse égale.</p>
+    <p><strong>4.</strong> Le Li-ion présente des risques d'<strong>emballement thermique</strong> (thermal runaway) en cas de choc, de surcharge ou de court-circuit : la batterie peut s'enflammer ou exploser. Une gestion électronique (BMS – Battery Management System) est indispensable.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Dimensionnement batterie d'un robot autonome</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un robot de maintenance autonome doit pouvoir fonctionner pendant <strong>8 heures</strong> sans recharge. Sa consommation moyenne est de <strong>150 W</strong> (motorisation + électronique). On envisage une solution Li-ion (densité 180 Wh/kg) avec un coefficient de sécurité de 1,2 (on surdimensionne de 20 % pour tenir compte du vieillissement).</p>
+  <p class="q"><strong>1.</strong> Calculer l'énergie nécessaire pour 8 heures de fonctionnement.</p>
+  <p class="q"><strong>2.</strong> En appliquant le coefficient de sécurité, calculer l'énergie de la batterie à prévoir.</p>
+  <p class="q"><strong>3.</strong> Calculer la masse minimale de la batterie Li-ion.</p>
+  <p class="q"><strong>4.</strong> La batterie est en 48 V. Calculer la capacité nécessaire en Ah.</p>
+  <p class="q"><strong>5.</strong> Comparer avec une solution Plomb (densité 40 Wh/kg) : quelle masse de batterie faudrait-il ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(E_{\text{nécessaire}} = P \times t = 150 \times 8 = \mathbf{1\,200\ Wh}\)</p>
+    <p><strong>2.</strong> \(E_{\text{batterie}} = E_{\text{nécessaire}} \times k_{\text{sécu}} = 1\,200 \times 1{,}2 = \mathbf{1\,440\ Wh}\)</p>
+    <p><strong>3.</strong> \(m = \dfrac{E_{\text{batterie}}}{d} = \dfrac{1\,440}{180} = \mathbf{8\ kg}\)</p>
+    <p><strong>4.</strong> \(Q = \dfrac{E\ (\text{Wh})}{U\ (\text{V})} = \dfrac{1\,440}{48} = \mathbf{30\ Ah}\)</p>
+    <p><strong>5.</strong> Solution Plomb : \(m_{\text{Pb}} = \dfrac{1\,440}{40} = \mathbf{36\ kg}\)</p>
+    <p>La batterie Plomb serait <strong>4,5 fois plus lourde</strong> que le Li-ion (36 kg vs 8 kg). Cela alourdirait considérablement le robot et augmenterait sa consommation d'énergie pour se déplacer.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICES CONTEXTUALISÉS ERA-MA ===== -->
+<h2>Exercices contextualisés ERA-MA</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Chariot élévateur électrique de maintenance</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Dans un atelier industriel, un technicien ERA-MA est chargé de gérer la recharge du parc de chariots élévateurs électriques. Chaque chariot est équipé d'une batterie traction : <strong>48 V – 500 Ah</strong>. Le coût de l'électricité est de <strong>0,15 €/kWh</strong>. Le rendement du chargeur est de <strong>85 %</strong>.</p>
+  <p class="q"><strong>1.</strong> Calculer l'énergie stockée dans la batterie du chariot (en Wh puis en kWh).</p>
+  <p class="q"><strong>2.</strong> Calculer l'énergie que le chargeur doit fournir au réseau pour recharger complètement la batterie (tenir compte du rendement du chargeur).</p>
+  <p class="q"><strong>3.</strong> Calculer le coût d'une recharge complète.</p>
+  <p class="q"><strong>4.</strong> L'atelier possède 5 chariots. Calculer le coût mensuel des recharges si chaque chariot est rechargé en moyenne 20 fois par mois.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(E_{\text{batterie}} = U \times Q = 48 \times 500 = 24\,000\ \text{Wh} = \mathbf{24\ kWh}\)</p>
+    <p><strong>2.</strong> Le rendement du chargeur est 85 % : l'énergie prélevée au réseau est supérieure à l'énergie stockée.</p>
+    <p>\(E_{\text{réseau}} = \dfrac{E_{\text{batterie}}}{\eta_{\text{chargeur}}} = \dfrac{24}{0{,}85} \approx \mathbf{28{,}2\ kWh}\)</p>
+    <p><strong>3.</strong> Coût d'une recharge : \(c = E_{\text{réseau}} \times p = 28{,}2 \times 0{,}15 \approx \mathbf{4{,}24\ €}\)</p>
+    <p><strong>4.</strong> Coût mensuel total : \(C = 5 \times 20 \times 4{,}24 = \mathbf{424\ €/\text{mois}}\)</p>
+    <p><em>Ce calcul justifie l'intérêt des contrats d'énergie adaptés (tarifs heures creuses) pour les ateliers utilisant de nombreux véhicules électriques.</em></p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Engin de chantier hybride : batterie Li-ion vs diesel</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un bureau d'étude compare deux solutions d'alimentation pour un engin de chantier hybride devant travailler <strong>8 heures par jour</strong> avec une puissance moyenne de <strong>20 kW</strong>.</p>
+  <ul>
+    <li><strong>Solution A – Batterie Li-ion :</strong> densité 200 Wh/kg, coût 300 €/kWh</li>
+    <li><strong>Solution B – Moteur diesel :</strong> 1 litre de gazole ≈ 10 kWh d'énergie thermique, rendement du moteur diesel 35 %, prix du gazole 1,80 €/L</li>
+  </ul>
+  <p class="q"><strong>1.</strong> Calculer l'énergie mécanique nécessaire pour une journée de travail (8 h à 20 kW).</p>
+  <p class="q"><strong>2.</strong> <strong>Solution A :</strong> Calculer la masse de la batterie Li-ion (rendement batterie 90 %).</p>
+  <p class="q"><strong>3.</strong> <strong>Solution A :</strong> Calculer le coût d'investissement de la batterie.</p>
+  <p class="q"><strong>4.</strong> <strong>Solution B :</strong> Calculer le volume de gazole consommé par jour (tenir compte du rendement).</p>
+  <p class="q"><strong>5.</strong> <strong>Solution B :</strong> Calculer le coût quotidien en carburant.</p>
+  <p class="q"><strong>6.</strong> En supposant que la batterie Li-ion dure 5 ans (1 500 cycles) et que l'engin travaille 250 jours/an, calculer le coût énergétique journalier de la solution A (amortissement batterie uniquement, énergie de recharge ≈ 0,15 €/kWh). Comparer avec le diesel.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(E_{\text{utile}} = P \times t = 20\,000 \times 8 = 160\,000\ \text{Wh} = \mathbf{160\ kWh}\)</p>
+    <p><strong>2. Solution A :</strong> Énergie à stocker (rendement 90 %) : \(E_{\text{batterie}} = \dfrac{160}{0{,}90} \approx 177{,}8\ \text{kWh}\)</p>
+    <p>Masse : \(m = \dfrac{177\,800}{200} = \mathbf{889\ kg \approx 890\ kg}\)</p>
+    <p><strong>3. Solution A :</strong> Coût investissement : \(C_{\text{inv}} = 177{,}8 \times 300 \approx \mathbf{53\,333\ €}\)</p>
+    <p><strong>4. Solution B :</strong> Énergie thermique nécessaire : \(E_{\text{thermique}} = \dfrac{160}{0{,}35} \approx 457\ \text{kWh}\)</p>
+    <p>Volume gazole : \(V = \dfrac{457}{10} = \mathbf{45{,}7\ L}\)</p>
+    <p><strong>5. Solution B :</strong> Coût carburant/jour : \(c = 45{,}7 \times 1{,}80 \approx \mathbf{82{,}3\ €/jour}\)</p>
+    <p><strong>6. Comparaison :</strong></p>
+    <p>Nb jours total batterie : \(250 \times 5 = 1\,250\) jours</p>
+    <p>Amortissement batterie/jour : \(53\,333 / 1\,250 \approx 42{,}7\ €/\text{jour}\)</p>
+    <p>Énergie recharge/jour : \(177{,}8\ \text{kWh} \times 0{,}15 \approx 26{,}7\ €/\text{jour}\)</p>
+    <p>Coût total solution A/jour : \(42{,}7 + 26{,}7 \approx \mathbf{69{,}4\ €/\text{jour}}\)</p>
+    <p>Coût solution B/jour : <strong>82,3 €/jour</strong></p>
+    <p><strong>Conclusion :</strong> La solution électrique (A) est environ <strong>15 % moins coûteuse</strong> sur la durée d'amortissement, sans compter les avantages environnementaux (zéro émission locale) et la réduction du bruit sur chantier.</p>
+  </div>
+</div>
+
+<!-- ===== À RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir – Essentiel du chapitre</strong>
+  <ul>
+    <li>Une pile est à usage unique ; un accumulateur est rechargeable.</li>
+    <li>L'anode est le siège de l'oxydation (pôle –) ; la cathode est le siège de la réduction (pôle +).</li>
+    <li>Énergie stockée : \(E\ (\text{Wh}) = U\ (\text{V}) \times Q\ (\text{Ah})\). Ne pas confondre Ah et Wh !</li>
+    <li>Autonomie : \(t\ (\text{h}) = E\ (\text{Wh}) / P\ (\text{W})\).</li>
+    <li>Densité d'énergie : Li-ion (≈ 200 Wh/kg) &gt; NiMH (≈ 80 Wh/kg) &gt; Pb (≈ 35 Wh/kg).</li>
+    <li>Le choix de la technologie dépend du contexte : coût, masse, cycles, sécurité.</li>
+  </ul>
+</div>
+
+</div>
+<script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
+<script>
+(function(){
+  const ctx = document.getElementById('chartBatterie').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Plomb (Pb)', 'NiMH', 'Li-ion', 'Li-Po'],
+      datasets: [{
+        label: 'Densité d\'énergie (Wh/kg)',
+        data: [35, 80, 200, 250],
+        backgroundColor: [
+          'rgba(156,163,175,0.8)',
+          'rgba(251,191,36,0.8)',
+          'rgba(45,164,78,0.85)',
+          'rgba(59,130,246,0.8)'
+        ],
+        borderColor: [
+          '#6b7280',
+          '#d97706',
+          '#2f855a',
+          '#2563eb'
+        ],
+        borderWidth: 2,
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Densité d\'énergie massique par technologie (Wh/kg)',
+          color: '#2d3748',
+          font: { size: 14 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return context.parsed.y + ' Wh/kg';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Technologie', color: '#2d3748' }
+        },
+        y: {
+          title: { display: true, text: 'Densité d\'énergie (Wh/kg)', color: '#2d3748' },
+          beginAtZero: true,
+          max: 300
+        }
+      }
+    }
+  });
+})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

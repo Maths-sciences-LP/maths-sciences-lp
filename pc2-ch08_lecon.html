@@ -1,21 +1,419 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Ch08 PC – Réflexion et réfraction</title><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><style>:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}h1{margin:0 0 6px;color:var(--p);font-size:1.7em}.sous-titre{color:#718096;font-size:.95em;margin:0}h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}.label-def{background:#ede9fe;color:#5b21b6}.label-prop{background:#d1fae5;color:#065f46}.label-att{background:#fee2e2;color:#991b1b}.label-meth{background:#fef3c7;color:#92400e}.label-ex{background:#e2e8f0;color:#4a5568}table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}th{background:#eef2f7;font-weight:600}.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}</style></head><body><div class="c"><a href="pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
-<header><h1>Chapitre 8 – Réflexion et réfraction de la lumière</h1><p class="sous-titre">2<sup>de</sup> Pro &nbsp;|&nbsp; Physique – Optique</p></header>
-<h2>1. La lumière et sa propagation</h2>
-<div class="def"><span class="label label-def">Définition</span><br>La lumière se propage en <strong>ligne droite</strong> dans un milieu homogène. Sa vitesse dans le vide est \(c = 3 \times 10^8\) m/s.</div>
-<h2>2. Réflexion</h2>
-<div class="def"><span class="label label-def">Loi de la réflexion (Descartes)</span><br>Quand un rayon lumineux frappe une surface réfléchissante :<ul><li>Le rayon incident, la normale et le rayon réfléchi sont dans le même plan.</li><li><strong>L'angle de réflexion = l'angle d'incidence</strong> : \(i_r = i_1\)</li></ul></div>
-<div class="ex"><span class="label label-ex">Exemples</span><br>Miroir, surface d'un lac calme, vitre.</div>
-<h2>3. Réfraction</h2>
-<div class="def"><span class="label label-def">Loi de Snell-Descartes</span><br>Quand la lumière passe d'un milieu 1 (indice \(n_1\)) à un milieu 2 (indice \(n_2\)) :<br>\[n_1 \sin i_1 = n_2 \sin i_2\]<br>Si \(n_2 > n_1\) (ex : air→verre) : le rayon se rapproche de la normale (\(i_2 < i_1\)).</div>
-<div class="att"><span class="label label-att">Attention</span><br>Les angles sont mesurés par rapport à la <strong>normale</strong> (perpendiculaire à la surface), PAS par rapport à la surface.</div>
-<h2>4. Indices de réfraction courants</h2>
-<table><tr><th>Milieu</th><th>Indice n</th></tr>
-<tr><td>Vide / Air</td><td>1,00</td></tr>
-<tr><td>Eau</td><td>1,33</td></tr>
-<tr><td>Verre</td><td>1,5</td></tr>
-<tr><td>Diamant</td><td>2,42</td></tr></table>
-<h2>5. Réflexion totale</h2>
-<div class="prop"><span class="label label-prop">Réflexion totale interne</span><br>Si l'angle d'incidence dépasse l'<strong>angle limite</strong>, la lumière ne peut plus passer dans le milieu 2 → tout est réfléchi. Utilisée dans les <strong>fibres optiques</strong>.</div>
-</div><script src="nav.js"></script>
-</body></html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch08 &mdash; Solutions chimiques et concentration &mdash; 2nde Pro MAMA</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+    body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+    .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+    h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+    .sous-titre{color:#718096;font-size:.95em;margin:0}
+    h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+    h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+    .def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+    .retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+    .formule{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.1em;font-weight:700;color:var(--p)}
+    .formule small{display:block;margin-top:6px;font-size:.75em;font-weight:400;color:#718096}
+    .label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+    .label-def{background:#ede9fe;color:#5b21b6}
+    .label-prop{background:#d1fae5;color:#065f46}
+    .label-att{background:#fee2e2;color:#991b1b}
+    .label-meth{background:#fef3c7;color:#92400e}
+    .label-ex{background:#e2e8f0;color:#4a5568}
+    .label-ret{background:#c4b5fd;color:#3b0764}
+    table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+    th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+    th{background:#f3f0ff;font-weight:600;color:var(--p)}
+    .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+    .objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+    .objectifs ul{margin:6px 0 0;padding-left:20px}
+    .exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+    .exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+    details.corr summary{cursor:pointer;font-weight:600;color:#2f855a;font-size:.88em;margin-top:10px;padding:4px 0}
+    details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+  </style>
+</head>
+<body>
+<div class="c">
+  <header>
+    <p class="sous-titre">Physique-Chimie &mdash; 2nde Pro MAMA &mdash; Menuiserie Agencement Ameublement</p>
+    <h1>Chapitre 8 &mdash; Solutions chimiques et concentration</h1>
+    <p class="sous-titre">Pr&eacute;paration et dosage des produits de traitement du bois</p>
+  </header>
+
+  <a href="#exercices" class="nb">&#8595; Aller aux exercices</a>
+
+  <div class="objectifs">
+    <strong>Objectifs du chapitre</strong>
+    <ul>
+      <li>Distinguer m&eacute;lange homog&egrave;ne et h&eacute;t&eacute;rog&egrave;ne, solut&eacute; et solvant.</li>
+      <li>Calculer une concentration massique \(C_m\) et retrouver une masse ou un volume.</li>
+      <li>D&eacute;crire la proc&eacute;dure de pr&eacute;paration d&rsquo;une solution par dissolution.</li>
+      <li>Appliquer la relation de dilution \(C_{m1} \times V_1 = C_{m2} \times V_2\).</li>
+      <li>Utiliser la notion de mole et de masse molaire pour convertir masse et quantit&eacute; de mati&egrave;re.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>1. M&eacute;langes et solutions</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    Un <strong>m&eacute;lange homog&egrave;ne</strong> a un aspect uniforme &agrave; l&rsquo;&oelig;il nu : on ne distingue pas les constituants. Une <strong>solution</strong> est un m&eacute;lange homog&egrave;ne liquide dans lequel un <strong>solut&eacute;</strong> est dissous dans un <strong>solvant</strong>.<br><br>
+    Un <strong>m&eacute;lange h&eacute;t&eacute;rog&egrave;ne</strong> pr&eacute;sente des phases distinctes visibles (ex. huile + eau, sciure + eau).
+  </div>
+
+  <h3>Solution aqueuse</h3>
+  <p>Quand le solvant est l&rsquo;eau, on parle de <strong>solution aqueuse</strong>. Exemples courants :</p>
+  <ul>
+    <li>Eau sal&eacute;e : sel (solut&eacute;) dissous dans l&rsquo;eau (solvant).</li>
+    <li>Vernis dilu&eacute; : r&eacute;sine (solut&eacute;) dissoute dans un diluant (solvant).</li>
+    <li>Produit de nettoyage du bois pr&ecirc;t &agrave; l&rsquo;emploi.</li>
+  </ul>
+
+  <div class="prop">
+    <span class="label label-prop">Contexte MAMA</span><br>
+    En atelier de menuiserie, de nombreux produits de traitement du bois (lasures, d&eacute;capants, d&eacute;graissants, produits fongicides) sont des solutions pr&eacute;sentant une concentration pr&eacute;cise indiqu&eacute;e sur la fiche technique. Savoir lire et calculer cette concentration est indispensable pour utiliser ces produits correctement et en toute s&eacute;curit&eacute;.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>2. Dissolution et dissociation</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    La <strong>dissolution</strong> est le processus par lequel un solut&eacute; se m&eacute;lange de fa&ccedil;on homog&egrave;ne &agrave; un solvant. Le r&eacute;sultat est une solution.
+  </div>
+
+  <h3>Dissolution mol&eacute;culaire</h3>
+  <p>Pour un <strong>compos&eacute; mol&eacute;culaire</strong> comme le sucre (\(\text{C}_{12}\text{H}_{22}\text{O}_{11}\)), les mol&eacute;cules se dispersent telles quelles dans l&rsquo;eau, sans se fragmenter :</p>
+  <div class="ex">
+    <span class="label label-ex">Exemple</span><br>
+    \[ \text{C}_{12}\text{H}_{22}\text{O}_{11}(\text{s}) \xrightarrow{\text{eau}} \text{C}_{12}\text{H}_{22}\text{O}_{11}(\text{aq}) \]
+  </div>
+
+  <h3>Dissociation ionique</h3>
+  <p>Pour un <strong>sel ionique</strong> comme le chlorure de sodium (NaCl), la dissolution s&rsquo;accompagne d&rsquo;une <strong>dissociation</strong> : le compos&eacute; se s&eacute;pare en ions :</p>
+  <div class="ex">
+    <span class="label label-ex">Exemple</span><br>
+    \[ \text{NaCl}(\text{s}) \xrightarrow{\text{eau}} \text{Na}^+(\text{aq}) + \text{Cl}^-(\text{aq}) \]
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Attention &mdash; Saturation</span><br>
+    La <strong>solubilit&eacute;</strong> d&rsquo;un solut&eacute; est la masse maximale que l&rsquo;on peut dissoudre dans 1&nbsp;L de solvant &agrave; une temp&eacute;rature donn&eacute;e. Au-del&agrave; de cette limite, la solution est <strong>satur&eacute;e</strong> : tout solut&eacute; suppl&eacute;mentaire reste &agrave; l&rsquo;&eacute;tat solide (pr&eacute;cipit&eacute;).
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>3. Concentration massique</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    La <strong>concentration massique</strong> \(C_m\) d&rsquo;une solution est la masse de solut&eacute; dissous par unit&eacute; de volume de solution.
+  </div>
+
+  <div class="formule">
+    \[ C_m = \frac{m}{V} \]
+    <small>\(C_m\) en g/L &mdash; \(m\) masse de solut&eacute; en g &mdash; \(V\) volume de solution en L</small>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">M&eacute;thode &mdash; Calculer \(m\) ou \(V\)</span><br>
+    En isolant chaque grandeur depuis la formule \(C_m = m / V\) :
+    <ul>
+      <li>Masse de solut&eacute; : \(\displaystyle m = C_m \times V\)</li>
+      <li>Volume de solution : \(\displaystyle V = \frac{m}{C_m}\)</li>
+    </ul>
+    <strong>Attention aux unit&eacute;s</strong> : \(C_m\) en g/L, \(m\) en g, \(V\) en L. Convertir les mL en L en divisant par 1&nbsp;000.
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple r&eacute;solu</span><br>
+    Un produit d&eacute;capant contient 25&nbsp;g de principe actif dissous dans 500&nbsp;mL de solution. Quelle est sa concentration massique ?<br><br>
+    <em>Donn&eacute;es&nbsp;:</em> \(m = 25\,\text{g}\) ; \(V = 500\,\text{mL} = 0{,}500\,\text{L}\)<br>
+    \[ C_m = \frac{25}{0{,}500} = 50\,\text{g/L} \]
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>4. Pr&eacute;paration d&rsquo;une solution par dissolution</h2>
+
+  <div class="meth">
+    <span class="label label-meth">Protocole &mdash; Pr&eacute;paration d&rsquo;une solution de volume \(V\) et de concentration \(C_m\)</span>
+    <ol>
+      <li><strong>Calculer</strong> la masse de solut&eacute; n&eacute;cessaire : \(m = C_m \times V\).</li>
+      <li><strong>Peser</strong> la masse \(m\) de solut&eacute; sur une balance de pr&eacute;cision dans un b&eacute;cher.</li>
+      <li><strong>Dissoudre</strong> le solut&eacute; dans un peu de solvant (environ la moiti&eacute; du volume final) en agitant avec un agitateur en verre jusqu&rsquo;&agrave; dissolution compl&egrave;te.</li>
+      <li><strong>Transf&eacute;rer</strong> quantitativement dans une <strong>fiole jaug&eacute;e</strong> du volume \(V\) voulu (rincer le b&eacute;cher plusieurs fois avec le solvant).</li>
+      <li><strong>Compl&eacute;ter</strong> avec le solvant jusqu&rsquo;au <strong>trait de jauge</strong> (lire le bas du m&eacute;nisque &agrave; hauteur des yeux).</li>
+      <li><strong>Boucher et agiter</strong> (retourner plusieurs fois) pour homog&eacute;n&eacute;iser la solution.</li>
+    </ol>
+  </div>
+
+  <h3>Verrerie utilis&eacute;e</h3>
+  <table>
+    <thead>
+      <tr><th>Mat&eacute;riel</th><th>R&ocirc;le</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Fiole jaug&eacute;e</td><td>Mesure pr&eacute;cise du volume final de solution</td></tr>
+      <tr><td>B&eacute;cher</td><td>R&eacute;cipient de dissolution provisoire</td></tr>
+      <tr><td>Balance de pr&eacute;cision</td><td>Peser le solut&eacute;</td></tr>
+      <tr><td>Agitateur en verre</td><td>Acc&eacute;l&eacute;rer la dissolution</td></tr>
+      <tr><td>Entonnoir (si poudre)</td><td>Transf&eacute;rer sans perte dans la fiole</td></tr>
+      <tr><td>Pissette d&rsquo;eau distill&eacute;e</td><td>Rincer et compl&eacute;ter jusqu&rsquo;au trait de jauge</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>5. Dilution</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    <strong>Diluer</strong> une solution consiste &agrave; ajouter du solvant &agrave; une <strong>solution m&egrave;re</strong> (concentration \(C_{m1}\), volume pr&eacute;lev&eacute; \(V_1\)) pour obtenir une <strong>solution fille</strong> plus dilu&eacute;e (concentration \(C_{m2} < C_{m1}\), volume final \(V_2 > V_1\)).
+  </div>
+
+  <div class="formule">
+    \[ C_{m1} \times V_1 = C_{m2} \times V_2 \]
+    <small>Conservation de la masse de solut&eacute; lors de la dilution &mdash; \(V\) en L ou mL (unit&eacute; coh&eacute;rente des deux c&ocirc;t&eacute;s)</small>
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Facteur de dilution</span><br>
+    Le <strong>facteur de dilution</strong> \(F\) indique combien de fois la concentration est divis&eacute;e :
+    \[ F = \frac{V_2}{V_1} = \frac{C_{m1}}{C_{m2}} \]
+    Exemple&nbsp;: dilution au 1/10 &rarr; \(F = 10\) ; la concentration est divis&eacute;e par 10.
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple r&eacute;solu</span><br>
+    Un produit de traitement du bois a une concentration m&egrave;re \(C_{m1} = 200\,\text{g/L}\). On pr&eacute;l&egrave;ve \(V_1 = 50\,\text{mL}\) et on compl&egrave;te &agrave; \(V_2 = 500\,\text{mL}\). Calculer \(C_{m2}\).<br><br>
+    \[ C_{m2} = \frac{C_{m1} \times V_1}{V_2} = \frac{200 \times 50}{500} = 20\,\text{g/L} \]
+    Le facteur de dilution est \(F = 500 / 50 = 10\).
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Protocole de dilution &agrave; la fiole jaug&eacute;e</span>
+    <ol>
+      <li>Pr&eacute;lever le volume \(V_1\) de solution m&egrave;re &agrave; la pipette jaug&eacute;e.</li>
+      <li>L&rsquo;introduire dans une fiole jaug&eacute;e de volume \(V_2\).</li>
+      <li>Compl&eacute;ter avec de l&rsquo;eau distill&eacute;e jusqu&rsquo;au trait de jauge.</li>
+      <li>Boucher et homog&eacute;n&eacute;iser par retournements successifs.</li>
+    </ol>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>6. Concentration molaire (introduction)</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition &mdash; La mole</span><br>
+    La <strong>mole</strong> est l&rsquo;unit&eacute; de quantit&eacute; de mati&egrave;re. Une mole contient exactement
+    \(N_A = 6{,}02 \times 10^{23}\) entit&eacute;s (atomes, mol&eacute;cules, ions&hellip;).<br>
+    \(N_A\) est appel&eacute; <strong>nombre d&rsquo;Avogadro</strong>.
+  </div>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition &mdash; Masse molaire</span><br>
+    La <strong>masse molaire</strong> \(M\) d&rsquo;une esp&egrave;ce chimique est la masse d&rsquo;une mole de cette esp&egrave;ce, exprim&eacute;e en <strong>g/mol</strong>. Elle s&rsquo;obtient en additionnant les masses atomiques de tous les atomes de la formule chimique.
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Esp&egrave;ce</th><th>Formule</th><th>Masse molaire \(M\) (g/mol)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Eau</td><td>\(\text{H}_2\text{O}\)</td><td>18,0</td></tr>
+      <tr><td>Chlorure de sodium</td><td>\(\text{NaCl}\)</td><td>58,5</td></tr>
+      <tr><td>Dioxyde de carbone</td><td>\(\text{CO}_2\)</td><td>44,0</td></tr>
+      <tr><td>Saccharose (sucre)</td><td>\(\text{C}_{12}\text{H}_{22}\text{O}_{11}\)</td><td>342,0</td></tr>
+      <tr><td>Acide ac&eacute;tique</td><td>\(\text{CH}_3\text{COOH}\)</td><td>60,0</td></tr>
+    </tbody>
+  </table>
+
+  <div class="formule">
+    \[ n = \frac{m}{M} \]
+    <small>\(n\) quantit&eacute; de mati&egrave;re en mol &mdash; \(m\) masse en g &mdash; \(M\) masse molaire en g/mol</small>
+  </div>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition &mdash; Concentration molaire</span><br>
+    La <strong>concentration molaire</strong> \(C\) est la quantit&eacute; de mati&egrave;re de solut&eacute; par litre de solution :
+    \[ C = \frac{n}{V} \quad \text{unit&eacute; : mol/L} \]
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Lien entre \(C_m\) et \(C\)</span><br>
+    \[ C_m = C \times M \qquad \Longleftrightarrow \qquad C = \frac{C_m}{M} \]
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>7. Application MAMA &mdash; Produits de traitement du bois</h2>
+
+  <div class="ex">
+    <span class="label label-ex">Situation 1 &mdash; Nettoyant bois</span><br>
+    Un nettoyant bois concentr&eacute; est vendu avec une concentration massique de \(C_{m1} = 150\,\text{g/L}\). La fiche technique recommande une dilution au 1/5 avant utilisation.<br><br>
+    <strong>Quelle est la concentration pr&ecirc;te &agrave; l&rsquo;emploi&nbsp;?</strong>
+    \[ C_{m2} = \frac{C_{m1}}{F} = \frac{150}{5} = 30\,\text{g/L} \]
+    <strong>Quel volume de concentr&eacute; pr&eacute;lever pour pr&eacute;parer 1&nbsp;L de solution pr&ecirc;te &agrave; l&rsquo;emploi&nbsp;?</strong>
+    \[ V_1 = \frac{C_{m2} \times V_2}{C_{m1}} = \frac{30 \times 1}{150} = 0{,}20\,\text{L} = 200\,\text{mL} \]
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Situation 2 &mdash; D&eacute;graissant avant vernissage</span><br>
+    Un d&eacute;graissant est pr&eacute;par&eacute; en dissolvant 12&nbsp;g de principe actif dans 400&nbsp;mL d&rsquo;eau. Calculer \(C_m\) puis la concentration molaire sachant que \(M = 120\,\text{g/mol}\).<br><br>
+    \[ C_m = \frac{m}{V} = \frac{12}{0{,}400} = 30\,\text{g/L} \]
+    \[ C = \frac{C_m}{M} = \frac{30}{120} = 0{,}25\,\text{mol/L} \]
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>8. Tableau de synth&egrave;se</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Grandeur</th>
+        <th>Symbole</th>
+        <th>Unit&eacute;</th>
+        <th>Formule</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Masse de solut&eacute;</td>
+        <td>\(m\)</td>
+        <td>g</td>
+        <td>\(m = C_m \times V\)</td>
+      </tr>
+      <tr>
+        <td>Volume de solution</td>
+        <td>\(V\)</td>
+        <td>L</td>
+        <td>\(V = m \,/\, C_m\)</td>
+      </tr>
+      <tr>
+        <td>Concentration massique</td>
+        <td>\(C_m\)</td>
+        <td>g/L</td>
+        <td>\(C_m = m \,/\, V\)</td>
+      </tr>
+      <tr>
+        <td>Quantit&eacute; de mati&egrave;re</td>
+        <td>\(n\)</td>
+        <td>mol</td>
+        <td>\(n = m \,/\, M\)</td>
+      </tr>
+      <tr>
+        <td>Concentration molaire</td>
+        <td>\(C\)</td>
+        <td>mol/L</td>
+        <td>\(C = n \,/\, V = C_m \,/\, M\)</td>
+      </tr>
+      <tr>
+        <td>Relation de dilution</td>
+        <td>&mdash;</td>
+        <td>&mdash;</td>
+        <td>\(C_{m1} \, V_1 = C_{m2} \, V_2\)</td>
+      </tr>
+      <tr>
+        <td>Facteur de dilution</td>
+        <td>\(F\)</td>
+        <td>sans unit&eacute;</td>
+        <td>\(F = V_2 \,/\, V_1 = C_{m1} \,/\, C_{m2}\)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>9. &Agrave; retenir</h2>
+
+  <div class="retenir">
+    <span class="label label-ret">&Agrave; retenir</span>
+    <ol>
+      <li>Une <strong>solution</strong> est un m&eacute;lange homog&egrave;ne&nbsp;: le solut&eacute; est dissous dans le solvant. Quand le solvant est l&rsquo;eau, on parle de <strong>solution aqueuse</strong>.</li>
+      <li>La <strong>concentration massique</strong> \(C_m = m/V\) s&rsquo;exprime en <strong>g/L</strong>&nbsp;; ne pas oublier de convertir les mL en L (diviser par 1&nbsp;000).</li>
+      <li>Pour pr&eacute;parer une solution, on utilise une <strong>fiole jaug&eacute;e</strong> et on ajuste pr&eacute;cis&eacute;ment au <strong>trait de jauge</strong> avec de l&rsquo;eau distill&eacute;e.</li>
+      <li>Lors d&rsquo;une <strong>dilution</strong>, la masse de solut&eacute; est conserv&eacute;e&nbsp;: \(C_{m1} V_1 = C_{m2} V_2\). On ajoute du solvant, pas de solut&eacute; suppl&eacute;mentaire.</li>
+      <li>La <strong>masse molaire</strong> \(M\) (en g/mol) permet de relier masse et quantit&eacute; de mati&egrave;re via \(n = m/M\), et de calculer la concentration molaire via \(C = C_m/M\).</li>
+    </ol>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2 id="exercices">10. Mini-exercices</h2>
+
+  <!-- Exercice 1 -->
+  <div class="exo">
+    <div class="exo-num">Exercice 1 &mdash; Calculer une concentration massique</div>
+    <p>Un produit de d&eacute;capage du bois contient 36&nbsp;g de principe actif dissous dans 600&nbsp;mL de solution.</p>
+    <ol>
+      <li>Exprimer le volume en litres.</li>
+      <li>Calculer la concentration massique \(C_m\) en g/L.</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <ol>
+          <li>\(V = 600\,\text{mL} = 0{,}600\,\text{L}\)</li>
+          <li>\(\displaystyle C_m = \frac{m}{V} = \frac{36}{0{,}600} = \mathbf{60\,\text{g/L}}\)</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <!-- Exercice 2 -->
+  <div class="exo">
+    <div class="exo-num">Exercice 2 &mdash; Calculer la masse &agrave; dissoudre</div>
+    <p>On souhaite pr&eacute;parer 250&nbsp;mL d&rsquo;une solution de d&eacute;graissant de concentration massique \(C_m = 40\,\text{g/L}\).</p>
+    <ol>
+      <li>Quelle masse \(m\) de solut&eacute; faut-il peser&nbsp;?</li>
+      <li>D&eacute;crire bri&egrave;vement le protocole de pr&eacute;paration.</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <ol>
+          <li>\(V = 250\,\text{mL} = 0{,}250\,\text{L}\)<br>
+              \(m = C_m \times V = 40 \times 0{,}250 = \mathbf{10\,\text{g}}\)</li>
+          <li>Peser 10&nbsp;g de solut&eacute; &rarr; dissoudre dans un peu d&rsquo;eau dans un b&eacute;cher &rarr; transf&eacute;rer dans une fiole jaug&eacute;e de 250&nbsp;mL &rarr; compl&eacute;ter au trait de jauge avec de l&rsquo;eau distill&eacute;e &rarr; boucher et homog&eacute;n&eacute;iser.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <!-- Exercice 3 -->
+  <div class="exo">
+    <div class="exo-num">Exercice 3 &mdash; Dilution d&rsquo;un produit de traitement</div>
+    <p>Un lasure concentr&eacute; a une concentration massique \(C_{m1} = 300\,\text{g/L}\). On pr&eacute;l&egrave;ve \(V_1 = 100\,\text{mL}\) et on dilue dans une fiole jaug&eacute;e de \(V_2 = 1\,\text{L}\).</p>
+    <ol>
+      <li>Calculer la concentration \(C_{m2}\) de la solution dilu&eacute;e.</li>
+      <li>Quel est le facteur de dilution \(F\)&nbsp;?</li>
+      <li>La masse de solut&eacute; est-elle modifi&eacute;e par la dilution&nbsp;? Justifier.</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <ol>
+          <li>\(\displaystyle C_{m2} = \frac{C_{m1} \times V_1}{V_2} = \frac{300 \times 0{,}100}{1} = \mathbf{30\,\text{g/L}}\)</li>
+          <li>\(F = V_2 / V_1 = 1\,000 / 100 = \mathbf{10}\) ; la concentration est divis&eacute;e par 10.</li>
+          <li>Non. La dilution consiste &agrave; ajouter du solvant uniquement. La masse de solut&eacute; reste
+              \(m = C_{m1} \times V_1 = 300 \times 0{,}100 = 30\,\text{g}\) avant et apr&egrave;s dilution.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+</div><!-- /.c -->
+<script src="nav.js"></script>
+</body>
+</html>

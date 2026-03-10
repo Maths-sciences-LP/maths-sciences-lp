@@ -1,3 +1,546 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Ch07 PC – Température et chaleur</title><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><style>:root{--p:#6f42c1;--d:#c53030;--s:#2f855a;--o:#d97706;--t:#2d3748}body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}h1{margin:0 0 6px;color:var(--p);font-size:1.7em}.sous-titre{color:#718096;font-size:.95em;margin:0}h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}.label-def{background:#ede9fe;color:#5b21b6}.label-prop{background:#d1fae5;color:#065f46}.label-att{background:#fee2e2;color:#991b1b}.label-meth{background:#fef3c7;color:#92400e}.label-ex{background:#e2e8f0;color:#4a5568}table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}th{background:#eef2f7;font-weight:600}.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}</style></head><body><div class="c"><a href="pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a><header><h1>Chapitre 7 – Température et chaleur</h1><p class="sous-titre">2<sup>de</sup> Pro &nbsp;|&nbsp; Physique – Thermique</p></header><h2>1. Température</h2><div class="def"><span class="label label-def">Définition</span><br>La <strong>température</strong> mesure l'agitation thermique des particules. Deux échelles :<ul><li><strong>Celsius (°C)</strong> : 0°C = glace fondante, 100°C = eau bouillante</li><li><strong>Kelvin (K)</strong> : \(T(K) = T(°C) + 273\)</li></ul></div><div class="ex"><span class="label label-ex">Exemples</span><br>20°C = 293 K &nbsp;|&nbsp; 0°C = 273 K &nbsp;|&nbsp; -273°C = 0 K (zéro absolu)</div><h2>2. Chaleur et transfert thermique</h2><div class="def"><span class="label label-def">Transfert thermique</span><br>La chaleur se transfère du corps <strong>chaud vers le corps froid</strong> jusqu'à l'<strong>équilibre thermique</strong> (même température).</div><div class="prop"><span class="label label-prop">Modes de transfert</span><ul><li><strong>Conduction</strong> : par contact (métal chaud)</li><li><strong>Convection</strong> : par déplacement de fluide (eau qui bout)</li><li><strong>Rayonnement</strong> : sans milieu matériel (chaleur du Soleil)</li></ul></div><h2>3. États de la matière</h2><table><tr><th>Changement d'état</th><th>Nom</th><th>Chaleur</th></tr><tr><td>Solide → Liquide</td><td>Fusion</td><td>Absorbée</td></tr><tr><td>Liquide → Solide</td><td>Solidification</td><td>Dégagée</td></tr><tr><td>Liquide → Gaz</td><td>Vaporisation</td><td>Absorbée</td></tr><tr><td>Gaz → Liquide</td><td>Condensation</td><td>Dégagée</td></tr></table><h2>4. Isolation thermique</h2><div class="meth"><span class="label label-meth">Isolation</span><br>Réduire les transferts thermiques → économiser l'énergie. Matériaux isolants : laine de verre, polystyrène, air.</div></div><script src="nav.js"></script>
-</body></html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 &ndash; Structure de la mati&egrave;re &ndash; Cours</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.formule{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.1em;font-weight:700;color:var(--p)}
+.formule small{display:block;margin-top:6px;font-size:.75em;font-weight:400;color:#718096}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-ret{background:#c4b5fd;color:#3b0764}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+th{background:#f3f0ff;font-weight:600;color:var(--p)}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+.objectifs ul{margin:6px 0 0;padding-left:20px}
+.exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+.exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+details.corr summary{cursor:pointer;font-weight:600;color:#2f855a;font-size:.88em;margin-top:10px;padding:4px 0}
+details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+.svg-center{text-align:center;margin:18px 0}
+.tableau-perio{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.el{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:52px;height:52px;border-radius:6px;font-size:.78em;font-weight:700;border:2px solid transparent}
+.el .sym{font-size:1.3em;line-height:1.1}
+.el .nom{font-size:.62em;font-weight:400;text-align:center;line-height:1.1}
+.el-nm{background:#f3f0ff;border-color:#c4b5fd;color:#5b21b6}
+.el-m{background:#d1fae5;border-color:#6ee7b7;color:#065f46}
+.el-h{background:#fef3c7;border-color:#fcd34d;color:#92400e}
+</style>
+</head>
+<body><div class="c">
+<a href="pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+<header>
+  <h1>Chapitre 7 &mdash; Structure de la mati&egrave;re</h1>
+  <p class="sous-titre">2<sup>de</sup> Pro MAMA &nbsp;|&nbsp; Physique-Chimie &nbsp;|&nbsp; Chimie</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>D&eacute;crire la structure d&rsquo;un atome (noyau, &eacute;lectrons, nombres Z et A).</li>
+    <li>Distinguer atome, ion et mol&eacute;cule ; identifier cations et anions.</li>
+    <li>Lire et interpr&eacute;ter une formule brute.</li>
+    <li>Relier l&rsquo;&eacute;tat physique de la mati&egrave;re &agrave; l&rsquo;organisation microscopique des particules.</li>
+    <li>Appliquer ces notions aux mat&eacute;riaux rencontr&eacute;s en menuiserie (MAMA).</li>
+  </ul>
+</div>
+
+<!-- ===== 1. L'ATOME ===== -->
+<h2>1. L&rsquo;atome</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Un <strong>atome</strong> est la plus petite entit&eacute; chimique d&rsquo;un &eacute;l&eacute;ment chimique. Il est &eacute;lectriquement <strong>neutre</strong>.
+</div>
+
+<h3>Structure de l&rsquo;atome</h3>
+<p>Un atome est constitu&eacute; de deux parties :</p>
+<ul>
+  <li>Un <strong>noyau</strong> (tr&egrave;s petit, au centre) compos&eacute; de :
+    <ul>
+      <li><strong>protons</strong> (charge positive, not&eacute;s p<sup>+</sup>)</li>
+      <li><strong>neutrons</strong> (sans charge &eacute;lectrique, not&eacute;s n<sup>0</sup>)</li>
+    </ul>
+  </li>
+  <li>Des <strong>&eacute;lectrons</strong> (charge n&eacute;gative, not&eacute;s e<sup>&minus;</sup>) qui gravitent autour du noyau.</li>
+</ul>
+
+<div class="prop">
+  <span class="label label-prop">Neutralit&eacute; de l&rsquo;atome</span><br>
+  Dans un atome neutre : <strong>nombre de protons = nombre d&rsquo;&eacute;lectrons</strong>.<br>
+  Les charges positives (protons) et n&eacute;gatives (&eacute;lectrons) se compensent exactement.
+</div>
+
+<h3>Les nombres caract&eacute;ristiques</h3>
+<table>
+  <tr>
+    <th>Symbole</th>
+    <th>Nom</th>
+    <th>D&eacute;finition</th>
+    <th>Exemple (carbone C)</th>
+  </tr>
+  <tr>
+    <td>\(Z\)</td>
+    <td>Num&eacute;ro atomique</td>
+    <td>Nombre de protons dans le noyau</td>
+    <td>\(Z = 6\) (6 protons)</td>
+  </tr>
+  <tr>
+    <td>\(A\)</td>
+    <td>Nombre de masse</td>
+    <td>Nombre de protons + nombre de neutrons</td>
+    <td>\(A = 12\) (6 protons + 6 neutrons)</td>
+  </tr>
+  <tr>
+    <td>\(N\)</td>
+    <td>Nombre de neutrons</td>
+    <td>\(N = A - Z\)</td>
+    <td>\(N = 12 - 6 = 6\)</td>
+  </tr>
+</table>
+
+<div class="formule">
+  \(A = Z + N\)
+  <small>\(A\) : nombre de masse &nbsp;&mdash;&nbsp; \(Z\) : num&eacute;ro atomique (protons) &nbsp;&mdash;&nbsp; \(N\) : nombre de neutrons</small>
+</div>
+
+<p>La notation symbolique d&rsquo;un atome est : \({}^{A}_{Z}\text{X}\) o&ugrave; X est le symbole de l&rsquo;&eacute;l&eacute;ment.</p>
+
+<h3>Sch&eacute;ma simplifi&eacute; d&rsquo;un atome</h3>
+<div class="svg-center">
+  <svg width="260" height="230" viewBox="0 0 260 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sch&eacute;ma simplifi&eacute; d&rsquo;un atome de carbone">
+    <title>Sch&eacute;ma simplifi&eacute; d&rsquo;un atome de carbone (mod&egrave;le plan&eacute;taire simplifi&eacute;)</title>
+    <!-- Orbites -->
+    <ellipse cx="130" cy="115" rx="80" ry="32" fill="none" stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <ellipse cx="130" cy="115" rx="80" ry="32" fill="none" stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="5,4" transform="rotate(60 130 115)"/>
+    <ellipse cx="130" cy="115" rx="80" ry="32" fill="none" stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="5,4" transform="rotate(120 130 115)"/>
+    <!-- Noyau -->
+    <circle cx="130" cy="115" r="22" fill="#6f42c1" opacity=".15"/>
+    <circle cx="130" cy="115" r="22" fill="none" stroke="#6f42c1" stroke-width="2"/>
+    <text x="130" y="112" text-anchor="middle" font-size="10" font-family="Segoe UI,sans-serif" font-weight="700" fill="#5b21b6">6 p&#x207A;</text>
+    <text x="130" y="124" text-anchor="middle" font-size="10" font-family="Segoe UI,sans-serif" font-weight="700" fill="#5b21b6">6 n&#x2070;</text>
+    <!-- Electrons -->
+    <circle cx="210" cy="115" r="7" fill="#c53030"/>
+    <text x="210" y="119" text-anchor="middle" font-size="9" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="50" cy="115" r="7" fill="#c53030"/>
+    <text x="50" y="119" text-anchor="middle" font-size="9" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="130" cy="42" r="7" fill="#c53030"/>
+    <text x="130" y="46" text-anchor="middle" font-size="9" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="130" cy="188" r="7" fill="#c53030"/>
+    <text x="130" y="192" text-anchor="middle" font-size="9" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="198" cy="58" r="7" fill="#d97706"/>
+    <text x="198" y="62" text-anchor="middle" font-size="9" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="62" cy="172" r="7" fill="#d97706"/>
+    <text x="62" y="176" text-anchor="middle" font-size="9" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <!-- L&eacute;gende -->
+    <rect x="5" y="205" width="250" height="22" fill="#f5f0ff" rx="4"/>
+    <text x="130" y="219" text-anchor="middle" font-size="10" font-family="Segoe UI,sans-serif" fill="#5b21b6">Carbone C : Z=6, A=12 &mdash; 6 protons, 6 neutrons, 6 &eacute;lectrons</text>
+    <!-- L&eacute;gende couleurs -->
+    <circle cx="15" cy="115" r="6" fill="#6f42c1" opacity=".5"/>
+    <text x="23" y="119" font-size="9" font-family="Segoe UI,sans-serif" fill="#5b21b6">Noyau</text>
+    <circle cx="15" cy="130" r="6" fill="#c53030"/>
+    <text x="23" y="134" font-size="9" font-family="Segoe UI,sans-serif" fill="#c53030">Electron</text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px;">Mod&egrave;le plan&eacute;taire simplifi&eacute; d&rsquo;un atome de carbone (C) : noyau central avec 6 protons et 6 neutrons, entour&eacute; de 6 &eacute;lectrons.</p>
+</div>
+
+<!-- ===== 2. LES ÉLÉMENTS CHIMIQUES ===== -->
+<h2>2. Les &eacute;l&eacute;ments chimiques</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Un <strong>&eacute;l&eacute;ment chimique</strong> est caract&eacute;ris&eacute; par son num&eacute;ro atomique \(Z\) (nombre de protons). Tous les atomes ayant le m&ecirc;me \(Z\) appartiennent au m&ecirc;me &eacute;l&eacute;ment, m&ecirc;me s&rsquo;ils ont des nombres de neutrons diff&eacute;rents (isotopes).
+</div>
+
+<h3>Symboles des principaux &eacute;l&eacute;ments &agrave; conna&icirc;tre</h3>
+
+<table>
+  <tr>
+    <th>Symbole</th>
+    <th>Nom de l&rsquo;&eacute;l&eacute;ment</th>
+    <th>\(Z\)</th>
+    <th>Pr&eacute;sent dans / utilit&eacute;</th>
+  </tr>
+  <tr><td><strong>H</strong></td><td>Hydrog&egrave;ne</td><td>1</td><td>Eau, mati&egrave;re organique</td></tr>
+  <tr><td><strong>C</strong></td><td>Carbone</td><td>6</td><td>Bois, mati&egrave;res plastiques, CO<sub>2</sub></td></tr>
+  <tr><td><strong>N</strong></td><td>Azote</td><td>7</td><td>Air (78 %), produits de traitement</td></tr>
+  <tr><td><strong>O</strong></td><td>Oxyg&egrave;ne</td><td>8</td><td>Eau, air, oxydes</td></tr>
+  <tr><td><strong>Na</strong></td><td>Sodium</td><td>11</td><td>Sel (NaCl), lessive</td></tr>
+  <tr><td><strong>Cl</strong></td><td>Chlore</td><td>17</td><td>Sel, produits d&eacute;sinfectants</td></tr>
+  <tr><td><strong>Ca</strong></td><td>Calcium</td><td>20</td><td>Plaques de pl&acirc;tre (CaSO<sub>4</sub>), murs</td></tr>
+  <tr><td><strong>Fe</strong></td><td>Fer</td><td>26</td><td>Acier, clous, vis, quincaillerie</td></tr>
+  <tr><td><strong>Cu</strong></td><td>Cuivre</td><td>29</td><td>C&acirc;bles &eacute;lectriques, tuyaux</td></tr>
+</table>
+
+<div class="prop">
+  <span class="label label-prop">Tableau p&eacute;riodique</span><br>
+  Les &eacute;l&eacute;ments chimiques sont class&eacute;s dans le <strong>tableau p&eacute;riodique de Mendele&iuml;ev</strong> par num&eacute;ro atomique Z croissant. Les &eacute;l&eacute;ments d&rsquo;une m&ecirc;me colonne ont des propri&eacute;t&eacute;s chimiques similaires.
+</div>
+
+<!-- ===== 3. LES IONS ===== -->
+<h2>3. Les ions</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Un <strong>ion</strong> est un atome (ou un groupe d&rsquo;atomes) qui a <strong>perdu ou gagn&eacute; un ou plusieurs &eacute;lectrons</strong>. Il porte donc une charge &eacute;lectrique non nulle.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Deux types d&rsquo;ions</span><br>
+  &bull; <strong>Cation</strong> : ion de charge <em>positive</em> &mdash; l&rsquo;atome a <em>perdu</em> des &eacute;lectrons (il y a plus de protons que d&rsquo;&eacute;lectrons).<br>
+  &bull; <strong>Anion</strong> : ion de charge <em>n&eacute;gative</em> &mdash; l&rsquo;atome a <em>gagn&eacute;</em> des &eacute;lectrons (il y a plus d&rsquo;&eacute;lectrons que de protons).
+</div>
+
+<div class="meth">
+  <span class="label label-meth">M&eacute;thode &mdash; Lire la charge d&rsquo;un ion</span><br>
+  &bull; Na<sup>+</sup> : sodium, charge +1 (a perdu 1 &eacute;lectron) &rarr; cation<br>
+  &bull; Ca<sup>2+</sup> : calcium, charge +2 (a perdu 2 &eacute;lectrons) &rarr; cation<br>
+  &bull; Fe<sup>3+</sup> : fer, charge +3 (a perdu 3 &eacute;lectrons) &rarr; cation<br>
+  &bull; Cl<sup>&minus;</sup> : chlorure, charge &minus;1 (a gagn&eacute; 1 &eacute;lectron) &rarr; anion<br>
+  &bull; O<sup>2&minus;</sup> : oxyde, charge &minus;2 (a gagn&eacute; 2 &eacute;lectrons) &rarr; anion
+</div>
+
+<h3>Tableau des ions courants</h3>
+<table>
+  <tr>
+    <th>Formule</th>
+    <th>Nom</th>
+    <th>Charge</th>
+    <th>Type</th>
+    <th>Exemple d&rsquo;utilisation</th>
+  </tr>
+  <tr><td>Na<sup>+</sup></td><td>Ion sodium</td><td>+1</td><td>Cation</td><td>Sel de cuisine (NaCl)</td></tr>
+  <tr><td>Ca<sup>2+</sup></td><td>Ion calcium</td><td>+2</td><td>Cation</td><td>Eau calcaire, pl&acirc;tre</td></tr>
+  <tr><td>Fe<sup>2+</sup></td><td>Ion fer(II)</td><td>+2</td><td>Cation</td><td>Rouille</td></tr>
+  <tr><td>Fe<sup>3+</sup></td><td>Ion fer(III)</td><td>+3</td><td>Cation</td><td>Produits de traitement du bois</td></tr>
+  <tr><td>Cu<sup>2+</sup></td><td>Ion cuivre(II)</td><td>+2</td><td>Cation</td><td>Solutions de traitement, vert-de-gris</td></tr>
+  <tr><td>Cl<sup>&minus;</sup></td><td>Ion chlorure</td><td>&minus;1</td><td>Anion</td><td>Sel de cuisine, eau de Javel</td></tr>
+  <tr><td>O<sup>2&minus;</sup></td><td>Ion oxyde</td><td>&minus;2</td><td>Anion</td><td>Oxydes m&eacute;talliques</td></tr>
+  <tr><td>OH<sup>&minus;</sup></td><td>Ion hydroxyde</td><td>&minus;1</td><td>Anion</td><td>Solutions basiques, d&eacute;capants</td></tr>
+  <tr><td>SO<sub>4</sub><sup>2&minus;</sup></td><td>Ion sulfate</td><td>&minus;2</td><td>Anion</td><td>Pl&acirc;tre (CaSO<sub>4</sub>)</td></tr>
+  <tr><td>NO<sub>3</sub><sup>&minus;</sup></td><td>Ion nitrate</td><td>&minus;1</td><td>Anion</td><td>Engrais, certains vernis</td></tr>
+</table>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Un ion <strong>n&rsquo;est pas</strong> un atome : il a perdu ou gagn&eacute; des &eacute;lectrons. Il n&rsquo;est <strong>pas &eacute;lectriquement neutre</strong>. Il ne faut pas confondre Fe (atome de fer, neutre) avec Fe<sup>2+</sup> (ion fer, charg&eacute; positivement).
+</div>
+
+<!-- ===== 4. LES MOLÉCULES ===== -->
+<h2>4. Les mol&eacute;cules</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Une <strong>mol&eacute;cule</strong> est un assemblage de plusieurs atomes li&eacute;s entre eux par des <strong>liaisons chimiques</strong>. Une mol&eacute;cule est &eacute;lectriquement <strong>neutre</strong>.
+</div>
+
+<h3>La formule brute</h3>
+<p>La <strong>formule brute</strong> (ou formule mol&eacute;culaire) indique la nature et le nombre d&rsquo;atomes pr&eacute;sents dans une mol&eacute;cule. Les indices (chiffres en bas) indiquent le nombre d&rsquo;atomes de chaque &eacute;l&eacute;ment.</p>
+
+<table>
+  <tr>
+    <th>Formule brute</th>
+    <th>Nom</th>
+    <th>Composition</th>
+    <th>Remarque</th>
+  </tr>
+  <tr>
+    <td>H<sub>2</sub>O</td>
+    <td>Eau</td>
+    <td>2 atomes H + 1 atome O</td>
+    <td>Liquide &agrave; temp&eacute;rature ambiante, solvant universel</td>
+  </tr>
+  <tr>
+    <td>CO<sub>2</sub></td>
+    <td>Dioxyde de carbone</td>
+    <td>1 atome C + 2 atomes O</td>
+    <td>Gaz de l&rsquo;air (0,04 %), produit lors de la combustion du bois</td>
+  </tr>
+  <tr>
+    <td>CH<sub>4</sub></td>
+    <td>M&eacute;thane</td>
+    <td>1 atome C + 4 atomes H</td>
+    <td>Gaz naturel, gaz combustible</td>
+  </tr>
+  <tr>
+    <td>O<sub>2</sub></td>
+    <td>Dioxyg&egrave;ne</td>
+    <td>2 atomes O</td>
+    <td>Gaz de l&rsquo;air (21 %), n&eacute;cessaire &agrave; la combustion</td>
+  </tr>
+  <tr>
+    <td>N<sub>2</sub></td>
+    <td>Diazote</td>
+    <td>2 atomes N</td>
+    <td>Gaz de l&rsquo;air (78 %)</td>
+  </tr>
+  <tr>
+    <td>C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></td>
+    <td>Glucose</td>
+    <td>6 C + 12 H + 6 O</td>
+    <td>Sucre, constitu&eacute; dans le bois par la photosynth&egrave;se</td>
+  </tr>
+</table>
+
+<div class="meth">
+  <span class="label label-meth">M&eacute;thode &mdash; Lire une formule brute</span><br>
+  Exemple : H<sub>2</sub>O<br>
+  &bull; H<sub>2</sub> : 2 atomes d&rsquo;hydrog&egrave;ne<br>
+  &bull; O : 1 atome d&rsquo;oxyg&egrave;ne (l&rsquo;absence d&rsquo;indice = 1 atome)<br>
+  &bull; La mol&eacute;cule est compos&eacute;e de <strong>3 atomes</strong> au total et est &eacute;lectriquement <strong>neutre</strong>.
+</div>
+
+<h3>Distinction atome / ion / mol&eacute;cule</h3>
+<table>
+  <tr>
+    <th>Entit&eacute;</th>
+    <th>Charge</th>
+    <th>Composition</th>
+    <th>Exemple</th>
+  </tr>
+  <tr>
+    <td>Atome</td>
+    <td>Neutre (0)</td>
+    <td>1 seul atome</td>
+    <td>Fe, C, Na</td>
+  </tr>
+  <tr>
+    <td>Ion</td>
+    <td>Non nulle (+ ou &minus;)</td>
+    <td>1 atome ou groupe d&rsquo;atomes</td>
+    <td>Na<sup>+</sup>, Cl<sup>&minus;</sup>, SO<sub>4</sub><sup>2&minus;</sup></td>
+  </tr>
+  <tr>
+    <td>Mol&eacute;cule</td>
+    <td>Neutre (0)</td>
+    <td>Plusieurs atomes li&eacute;s</td>
+    <td>H<sub>2</sub>O, CO<sub>2</sub>, CH<sub>4</sub></td>
+  </tr>
+</table>
+
+<!-- ===== 5. ÉTATS DE LA MATIÈRE ===== -->
+<h2>5. &Eacute;tats de la mati&egrave;re &agrave; l&rsquo;&eacute;chelle microscopique</h2>
+
+<p>Les trois &eacute;tats physiques de la mati&egrave;re correspondent &agrave; diff&eacute;rentes organisations des particules (atomes, ions, mol&eacute;cules) &agrave; l&rsquo;&eacute;chelle microscopique.</p>
+
+<table>
+  <tr>
+    <th>&Eacute;tat physique</th>
+    <th>Organisation des particules</th>
+    <th>Distances entre particules</th>
+    <th>Agitation thermique</th>
+    <th>Exemple</th>
+  </tr>
+  <tr>
+    <td><strong>Solide</strong></td>
+    <td>Ordonn&eacute;e (r&eacute;seau rigide)</td>
+    <td>Tr&egrave;s faibles (particules joint&icirc;ves)</td>
+    <td>Faible (vibrations sur place)</td>
+    <td>Bois, m&eacute;tal, glace</td>
+  </tr>
+  <tr>
+    <td><strong>Liquide</strong></td>
+    <td>D&eacute;sordonn&eacute;e mais dense</td>
+    <td>Faibles (particules proches)</td>
+    <td>Moyenne (mouvements locaux)</td>
+    <td>Eau, colle, vernis</td>
+  </tr>
+  <tr>
+    <td><strong>Gaz</strong></td>
+    <td>D&eacute;sordonn&eacute;e et tr&egrave;s espac&eacute;e</td>
+    <td>Grandes (particules &eacute;loign&eacute;es)</td>
+    <td>Forte (mouvements rapides al&eacute;atoires)</td>
+    <td>Air, vapeur d&rsquo;eau</td>
+  </tr>
+</table>
+
+<div class="prop">
+  <span class="label label-prop">Changements d&rsquo;&eacute;tat</span><br>
+  En chauffant un solide, on augmente l&rsquo;agitation thermique des particules :<br>
+  &bull; Les particules vibrent de plus en plus fort (solide).<br>
+  &bull; Les liaisons entre particules se rompent &rarr; <strong>fusion</strong> (passage &agrave; l&rsquo;&eacute;tat liquide).<br>
+  &bull; Les particules s&rsquo;&eacute;chappent dans l&rsquo;air &rarr; <strong>vaporisation</strong> (passage &agrave; l&rsquo;&eacute;tat gazeux).
+</div>
+
+<!-- ===== 6. APPLICATION MAMA ===== -->
+<h2>6. Applications MAMA</h2>
+
+<h3>Composition de quelques mat&eacute;riaux du menuisier</h3>
+
+<div class="ex">
+  <span class="label label-ex">Eau (H<sub>2</sub>O)</span><br>
+  L&rsquo;eau est utilis&eacute;e pour nettoyer les surfaces, d&eacute;lier certaines colles, pr&eacute;parer des solutions. Sa formule H<sub>2</sub>O montre qu&rsquo;elle est compos&eacute;e de <strong>2 atomes d&rsquo;hydrog&egrave;ne et 1 atome d&rsquo;oxyg&egrave;ne</strong>. L&rsquo;eau est une mol&eacute;cule <em>polaire</em> qui peut dissoudre des sels (ions).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">CO<sub>2</sub> dans l&rsquo;air</span><br>
+  Le dioxyde de carbone (CO<sub>2</sub>) est un gaz pr&eacute;sent dans l&rsquo;air. Il est produit lors de la <strong>combustion du bois</strong> (coupes, braises) ou lors du ponc&ccedil;age si des r&eacute;sidus se consument. Formule : 1 atome de carbone + 2 atomes d&rsquo;oxyg&egrave;ne.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Ions dans les produits de traitement du bois</span><br>
+  De nombreux <strong>produits de traitement du bois</strong> contiennent des ions m&eacute;talliques :<br>
+  &bull; <strong>Fe<sup>3+</sup></strong> (ion fer III) : dans certains fongicides &agrave; base de sels de fer.<br>
+  &bull; <strong>Cu<sup>2+</sup></strong> (ion cuivre II) : dans les produits &agrave; base de cuivre (traitement autoclave).<br>
+  Ces ions sont responsables de l&rsquo;activit&eacute; biocide (protection contre les champignons et insectes).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">NaCl &mdash; sel dans l&rsquo;eau de nettoyage</span><br>
+  Le sel de cuisine est du <strong>chlorure de sodium NaCl</strong>. Dissous dans l&rsquo;eau, il se s&eacute;pare en ions : Na<sup>+</sup> (ions sodium) et Cl<sup>&minus;</sup> (ions chlorure). Une eau sal&eacute;e est conductrice de l&rsquo;&eacute;lectricit&eacute; &mdash; risque suppl&eacute;mentaire pr&egrave;s des installations &eacute;lectriques.
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention &mdash; S&eacute;curit&eacute;</span><br>
+  Certains produits de traitement du bois contiennent des ions toxiques (Cu<sup>2+</sup>, Cr<sup>6+</sup>&hellip;). Il est obligatoire de consulter la <strong>Fiche de Donn&eacute;es de S&eacute;curit&eacute; (FDS)</strong> et de porter les &Eacute;quipements de Protection Individuelle (EPI) adapt&eacute;s.
+</div>
+
+<!-- ===== 7. TABLEAU DE SYNTHÈSE ===== -->
+<h2>7. Tableau de synth&egrave;se</h2>
+
+<table>
+  <tr>
+    <th>Entit&eacute;</th>
+    <th>D&eacute;finition</th>
+    <th>Charge &eacute;lectrique</th>
+    <th>Exemples</th>
+  </tr>
+  <tr>
+    <td><strong>Atome</strong></td>
+    <td>Plus petite entit&eacute; d&rsquo;un &eacute;l&eacute;ment ; noyau (p<sup>+</sup> + n<sup>0</sup>) + &eacute;lectrons (e<sup>&minus;</sup>)</td>
+    <td>Nulle (neutre) : nb e<sup>&minus;</sup> = nb p<sup>+</sup></td>
+    <td>H, C, O, Na, Fe</td>
+  </tr>
+  <tr>
+    <td><strong>Cation</strong></td>
+    <td>Atome ou groupe d&rsquo;atomes ayant perdu des &eacute;lectrons</td>
+    <td>Positive (+)</td>
+    <td>Na<sup>+</sup>, Ca<sup>2+</sup>, Fe<sup>3+</sup>, Cu<sup>2+</sup></td>
+  </tr>
+  <tr>
+    <td><strong>Anion</strong></td>
+    <td>Atome ou groupe d&rsquo;atomes ayant gagn&eacute; des &eacute;lectrons</td>
+    <td>N&eacute;gative (&minus;)</td>
+    <td>Cl<sup>&minus;</sup>, O<sup>2&minus;</sup>, SO<sub>4</sub><sup>2&minus;</sup>, OH<sup>&minus;</sup></td>
+  </tr>
+  <tr>
+    <td><strong>Mol&eacute;cule</strong></td>
+    <td>Assemblage d&rsquo;atomes li&eacute;s par des liaisons chimiques</td>
+    <td>Nulle (neutre)</td>
+    <td>H<sub>2</sub>O, CO<sub>2</sub>, CH<sub>4</sub>, O<sub>2</sub></td>
+  </tr>
+</table>
+
+<!-- ===== 8. À RETENIR ===== -->
+<h2>8. &Agrave; retenir</h2>
+
+<div class="retenir">
+  <span class="label label-ret">&Agrave; retenir</span>
+  <ol>
+    <li>Un <strong>atome</strong> est constitu&eacute; d&rsquo;un noyau (protons Z + neutrons) et d&rsquo;&eacute;lectrons. Il est &eacute;lectriquement neutre. Son num&eacute;ro atomique Z = nombre de protons.</li>
+    <li>Un <strong>ion</strong> est un atome (ou groupe d&rsquo;atomes) qui a perdu (cation, charge +) ou gagn&eacute; (anion, charge &minus;) des &eacute;lectrons. Il n&rsquo;est plus neutre.</li>
+    <li>Une <strong>mol&eacute;cule</strong> est un assemblage neutre de plusieurs atomes li&eacute;s. La formule brute indique la nature et le nombre d&rsquo;atomes (ex. H<sub>2</sub>O = 2 H + 1 O).</li>
+    <li>Les 3 &eacute;tats de la mati&egrave;re diff&egrave;rent par l&rsquo;organisation des particules : <strong>solide</strong> (ordonn&eacute;, vibrations), <strong>liquide</strong> (proche, mobile), <strong>gaz</strong> (&eacute;loign&eacute;, d&eacute;sordonn&eacute;).</li>
+    <li>En menuiserie : l&rsquo;eau (H<sub>2</sub>O), le CO<sub>2</sub> (combustion du bois), les ions Cu<sup>2+</sup> et Fe<sup>3+</sup> (produits de traitement) sont des entit&eacute;s chimiques importantes &agrave; conna&icirc;tre pour la s&eacute;curit&eacute;.</li>
+  </ol>
+</div>
+
+<!-- ===== 9. MINI-EXERCICES ===== -->
+<h2>9. Mini-exercices</h2>
+
+<div class="exo">
+  <div class="exo-num">Exercice 1 &mdash; Identifier ions, mol&eacute;cules et atomes</div>
+  <p>Classer les entit&eacute;s suivantes dans le tableau (atome / ion / mol&eacute;cule) et pr&eacute;ciser leur charge &eacute;lectrique :</p>
+  <p><strong>Fe &nbsp;|&nbsp; H<sub>2</sub>O &nbsp;|&nbsp; Na<sup>+</sup> &nbsp;|&nbsp; CO<sub>2</sub> &nbsp;|&nbsp; Cl<sup>&minus;</sup> &nbsp;|&nbsp; O &nbsp;|&nbsp; SO<sub>4</sub><sup>2&minus;</sup> &nbsp;|&nbsp; Cu<sup>2+</sup></strong></p>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <table>
+        <tr><th>Entit&eacute;</th><th>Classe</th><th>Charge</th></tr>
+        <tr><td>Fe</td><td>Atome</td><td>Nulle (neutre)</td></tr>
+        <tr><td>H<sub>2</sub>O</td><td>Mol&eacute;cule</td><td>Nulle (neutre)</td></tr>
+        <tr><td>Na<sup>+</sup></td><td>Ion (cation)</td><td>+1</td></tr>
+        <tr><td>CO<sub>2</sub></td><td>Mol&eacute;cule</td><td>Nulle (neutre)</td></tr>
+        <tr><td>Cl<sup>&minus;</sup></td><td>Ion (anion)</td><td>&minus;1</td></tr>
+        <tr><td>O</td><td>Atome</td><td>Nulle (neutre)</td></tr>
+        <tr><td>SO<sub>4</sub><sup>2&minus;</sup></td><td>Ion (anion)</td><td>&minus;2</td></tr>
+        <tr><td>Cu<sup>2+</sup></td><td>Ion (cation)</td><td>+2</td></tr>
+      </table>
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 2 &mdash; Lire une formule brute</div>
+  <p>Analyser la formule brute du glucose : C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></p>
+  <ol>
+    <li>Quels &eacute;l&eacute;ments chimiques sont pr&eacute;sents dans le glucose ?</li>
+    <li>Combien y a-t-il d&rsquo;atomes de chaque &eacute;l&eacute;ment ?</li>
+    <li>Combien y a-t-il d&rsquo;atomes au total dans une mol&eacute;cule de glucose ?</li>
+    <li>Le glucose est-il un atome, un ion ou une mol&eacute;cule ? Justifier.</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong> &Eacute;l&eacute;ments : carbone (C), hydrog&egrave;ne (H) et oxyg&egrave;ne (O).<br>
+      <strong>2.</strong> 6 atomes de C, 12 atomes de H, 6 atomes de O.<br>
+      <strong>3.</strong> Total : \(6 + 12 + 6 = 24\) atomes par mol&eacute;cule de glucose.<br>
+      <strong>4.</strong> Le glucose est une <em>mol&eacute;cule</em> : c&rsquo;est un assemblage de plusieurs atomes (24) li&eacute;s par des liaisons chimiques. Il est &eacute;lectriquement neutre (pas d&rsquo;exposant de charge dans la formule).
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 3 &mdash; Identifier cations et anions</div>
+  <p>Un produit de traitement du bois contient les esp&egrave;ces suivantes en solution :</p>
+  <p>Cu<sup>2+</sup> &nbsp;|&nbsp; SO<sub>4</sub><sup>2&minus;</sup> &nbsp;|&nbsp; Fe<sup>3+</sup> &nbsp;|&nbsp; OH<sup>&minus;</sup> &nbsp;|&nbsp; Na<sup>+</sup></p>
+  <ol>
+    <li>Classer ces ions en cations et en anions.</li>
+    <li>Pour chaque ion, indiquer le nombre d&rsquo;&eacute;lectrons perdus ou gagn&eacute;s par rapport &agrave; l&rsquo;atome neutre.</li>
+    <li>Le cuivre a pour num&eacute;ro atomique Z = 29. Combien d&rsquo;&eacute;lectrons poss&egrave;de un atome de cuivre neutre ? Combien en poss&egrave;de l&rsquo;ion Cu<sup>2+</sup> ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1. Cations :</strong> Cu<sup>2+</sup>, Fe<sup>3+</sup>, Na<sup>+</sup> (charges positives)<br>
+      <strong>Anions :</strong> SO<sub>4</sub><sup>2&minus;</sup>, OH<sup>&minus;</sup> (charges n&eacute;gatives)<br><br>
+      <strong>2.</strong>
+      <ul>
+        <li>Cu<sup>2+</sup> : a perdu 2 &eacute;lectrons</li>
+        <li>Fe<sup>3+</sup> : a perdu 3 &eacute;lectrons</li>
+        <li>Na<sup>+</sup> : a perdu 1 &eacute;lectron</li>
+        <li>SO<sub>4</sub><sup>2&minus;</sup> : a gagn&eacute; 2 &eacute;lectrons (au total pour le groupe)</li>
+        <li>OH<sup>&minus;</sup> : a gagn&eacute; 1 &eacute;lectron</li>
+      </ul>
+      <strong>3.</strong> Atome de cuivre neutre : Z = 29 donc 29 &eacute;lectrons.<br>
+      Ion Cu<sup>2+</sup> : a perdu 2 &eacute;lectrons, donc \(29 - 2 = \mathbf{27 \text{ &eacute;lectrons}}\).
+    </div>
+  </details>
+</div>
+
+</div>
+<script src="nav.js"></script>
+</body>
+</html>

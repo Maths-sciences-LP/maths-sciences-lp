@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Physique-Chimie 2nde MAMA - Espace Ressources</title>
+<title>Physique-Chimie 2nde Pro MAMA — Espace Ressources</title>
 <style>
 :root {
   --primary: #6f42c1;
@@ -20,28 +20,13 @@ body {
   padding: 20px;
   margin: 0;
 }
-.container {
-  max-width: 950px;
-  margin: auto;
-}
-header {
-  text-align: center;
-  padding: 40px 0;
-  margin-bottom: 20px;
-}
-header h1 {
-  margin: 0;
-  font-size: 1.8em;
-  font-weight: 600;
-}
-header p {
-  margin: 10px 0 0;
-  color: var(--subtle);
-  font-size: 0.95em;
-}
-.domain-section {
-  margin-bottom: 40px;
-}
+.container { max-width: 950px; margin: auto; }
+
+header { text-align: center; padding: 40px 0; margin-bottom: 20px; }
+header h1 { margin: 0; font-size: 1.8em; font-weight: 600; }
+header p { margin: 10px 0 0; color: var(--subtle); font-size: 0.95em; }
+
+.domain-section { margin-bottom: 40px; }
 .domain-title {
   font-size: 0.8em;
   text-transform: uppercase;
@@ -62,9 +47,7 @@ header p {
   justify-content: space-between;
   transition: border-color 0.2s;
 }
-.chapter-row:hover {
-  border-color: #afb8c1;
-}
+.chapter-row:hover { border-color: #afb8c1; }
 .chapter-info {
   display: flex;
   align-items: center;
@@ -76,30 +59,21 @@ header p {
   margin-right: 15px;
   font-size: 0.85em;
   width: 20px;
+  flex-shrink: 0;
 }
-.ch-title {
-  font-weight: 500;
-  font-size: 1em;
-}
-.links-group {
-  display: flex;
-  gap: 8px;
-}
+.ch-title { font-weight: 500; font-size: 1em; }
+.links-group { display: flex; gap: 8px; flex-shrink: 0; }
 .link-item {
   text-decoration: none;
   font-size: 0.82em;
   font-weight: 600;
   color: var(--primary);
-  display: flex;
-  align-items: center;
-  gap: 4px;
   padding: 4px 10px;
   border-radius: 4px;
   transition: background 0.2s;
 }
-.link-item:hover {
-  background-color: #f5f0ff;
-}
+.link-item:hover { background-color: #f5f0ff; }
+
 .footer-links {
   margin-top: 50px;
   padding-top: 20px;
@@ -118,10 +92,8 @@ header p {
   border-radius: 6px;
   transition: 0.2s;
 }
-.module-link:hover {
-  background: #e1e4e8;
-  color: var(--text);
-}
+.module-link:hover { background: #e1e4e8; color: var(--text); }
+
 @media (max-width: 768px) {
   .chapter-row {
     flex-direction: column;
@@ -136,23 +108,24 @@ header p {
   }
 }
 </style>
+<link rel="stylesheet" href="nav.css">
 </head>
 <body>
 <div class="container">
 
 <header>
-  <h1>Physique-Chimie — 2<sup>de</sup> MAMA</h1>
-  <p>Métiers de l'Agencement, de la Menuiserie et de l'Ameublement</p>
+  <h1>Physique-Chimie &mdash; 2<sup>de</sup> Pro MAMA</h1>
+  <p>Espace de travail num&eacute;rique</p>
 </header>
 
-<!-- MÉCANIQUE -->
+<!-- SECTION 1 — SÉCURITÉ -->
 <div class="domain-section">
-  <div class="domain-title">⚙️ Mécanique</div>
+  <div class="domain-title">&#9888;&#65039; S&eacute;curit&eacute;</div>
 
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">01</span>
-      <span class="ch-title">Mouvement rectiligne</span>
+      <span class="ch-title">S&eacute;curit&eacute; en laboratoire et en atelier</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch01_lecon.html" class="link-item">Cours</a>
@@ -160,11 +133,16 @@ header p {
       <a href="pc2-ch01_ds.html" class="link-item">DS</a>
     </div>
   </div>
+</div>
+
+<!-- SECTION 2 — ÉLECTRICITÉ -->
+<div class="domain-section">
+  <div class="domain-title">&#9889; &Eacute;lectricit&eacute;</div>
 
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">02</span>
-      <span class="ch-title">Mouvement circulaire</span>
+      <span class="ch-title">Grandeurs &eacute;lectriques et circuits</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch02_lecon.html" class="link-item">Cours</a>
@@ -176,7 +154,7 @@ header p {
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">03</span>
-      <span class="ch-title">Équilibre des solides</span>
+      <span class="ch-title">Loi d&rsquo;Ohm et caract&eacute;ristiques d&rsquo;un dip&ocirc;le</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch03_lecon.html" class="link-item">Cours</a>
@@ -184,16 +162,11 @@ header p {
       <a href="pc2-ch03_ds.html" class="link-item">DS</a>
     </div>
   </div>
-</div>
-
-<!-- CHIMIE -->
-<div class="domain-section">
-  <div class="domain-title">⚗️ Chimie</div>
 
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">04</span>
-      <span class="ch-title">Composition chimique d'un liquide</span>
+      <span class="ch-title">Signaux &eacute;lectriques alternatifs</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch04_lecon.html" class="link-item">Cours</a>
@@ -201,11 +174,16 @@ header p {
       <a href="pc2-ch04_ds.html" class="link-item">DS</a>
     </div>
   </div>
+</div>
+
+<!-- SECTION 3 — MÉCANIQUE -->
+<div class="domain-section">
+  <div class="domain-title">&#9881;&#65039; M&eacute;canique</div>
 
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">05</span>
-      <span class="ch-title">Acidité et pH</span>
+      <span class="ch-title">Mouvement et trajectoire</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch05_lecon.html" class="link-item">Cours</a>
@@ -213,16 +191,11 @@ header p {
       <a href="pc2-ch05_ds.html" class="link-item">DS</a>
     </div>
   </div>
-</div>
-
-<!-- ACOUSTIQUE -->
-<div class="domain-section">
-  <div class="domain-title">🔊 Acoustique</div>
 
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">06</span>
-      <span class="ch-title">Son et isolation acoustique</span>
+      <span class="ch-title">Forces et &eacute;quilibre</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch06_lecon.html" class="link-item">Cours</a>
@@ -232,14 +205,14 @@ header p {
   </div>
 </div>
 
-<!-- THERMIQUE -->
+<!-- SECTION 4 — CHIMIE -->
 <div class="domain-section">
-  <div class="domain-title">🌡️ Thermique</div>
+  <div class="domain-title">&#9877;&#65039; Chimie</div>
 
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">07</span>
-      <span class="ch-title">Chaleur et isolation thermique</span>
+      <span class="ch-title">Structure de la mati&egrave;re : atomes, ions et mol&eacute;cules</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch07_lecon.html" class="link-item">Cours</a>
@@ -247,16 +220,11 @@ header p {
       <a href="pc2-ch07_ds.html" class="link-item">DS</a>
     </div>
   </div>
-</div>
-
-<!-- OPTIQUE -->
-<div class="domain-section">
-  <div class="domain-title">💡 Optique</div>
 
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">08</span>
-      <span class="ch-title">Réflexion et réfraction de la lumière</span>
+      <span class="ch-title">Solutions chimiques et concentration</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch08_lecon.html" class="link-item">Cours</a>
@@ -264,11 +232,16 @@ header p {
       <a href="pc2-ch08_ds.html" class="link-item">DS</a>
     </div>
   </div>
+</div>
+
+<!-- SECTION 5 — ACOUSTIQUE -->
+<div class="domain-section">
+  <div class="domain-title">&#128266; Acoustique</div>
 
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">09</span>
-      <span class="ch-title">Composition de la lumière</span>
+      <span class="ch-title">Caract&eacute;ristiques d&rsquo;un son</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch09_lecon.html" class="link-item">Cours</a>
@@ -276,11 +249,16 @@ header p {
       <a href="pc2-ch09_ds.html" class="link-item">DS</a>
     </div>
   </div>
+</div>
+
+<!-- SECTION 6 — THERMIQUE -->
+<div class="domain-section">
+  <div class="domain-title">&#127777;&#65039; Thermique</div>
 
   <div class="chapter-row">
     <div class="chapter-info">
       <span class="ch-num">10</span>
-      <span class="ch-title">Éclairement et photocomposants</span>
+      <span class="ch-title">Temp&eacute;rature et capteurs thermiques</span>
     </div>
     <div class="links-group">
       <a href="pc2-ch10_lecon.html" class="link-item">Cours</a>
@@ -288,11 +266,64 @@ header p {
       <a href="pc2-ch10_ds.html" class="link-item">DS</a>
     </div>
   </div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">11</span>
+      <span class="ch-title">Transferts thermiques et &eacute;quilibre thermique</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch11_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch11_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch11_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">12</span>
+      <span class="ch-title">Changements d&rsquo;&eacute;tat et &eacute;nergie thermique</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch12_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch12_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch12_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7 — OPTIQUE -->
+<div class="domain-section">
+  <div class="domain-title">&#128161; Optique</div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">13</span>
+      <span class="ch-title">R&eacute;flexion, r&eacute;fraction et signaux lumineux</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch13_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch13_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch13_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
+
+  <div class="chapter-row">
+    <div class="chapter-info">
+      <span class="ch-num">14</span>
+      <span class="ch-title">Lumi&egrave;re, couleurs et photod&eacute;tecteurs</span>
+    </div>
+    <div class="links-group">
+      <a href="pc2-ch14_lecon.html" class="link-item">Cours</a>
+      <a href="pc2-ch14_exos.html" class="link-item">Exercices</a>
+      <a href="pc2-ch14_ds.html" class="link-item">DS</a>
+    </div>
+  </div>
 </div>
 
 <div class="footer-links">
-  <a href="cours-solutions.html" class="module-link">🧪 Solutions aqueuses</a>
-  <a href="simulations.html" class="module-link">🔬 Simulations</a>
+  <a href="simulations.html" class="module-link">&#128300; Simulations</a>
+  <a href="index.html" class="module-link">&#8592; Accueil</a>
 </div>
 
 </div>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch.12 &mdash; Changements d&apos;&eacute;tat et &eacute;nergie thermique &mdash; 2nde Pro MAMA</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+MathJax = {tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.formule{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.1em;font-weight:700;color:var(--p)}
+.formule small{display:block;margin-top:6px;font-size:.75em;font-weight:400;color:#718096}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-ret{background:#c4b5fd;color:#3b0764}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+th{background:#f3f0ff;font-weight:600;color:var(--p)}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+.objectifs ul{margin:6px 0 0;padding-left:20px}
+.exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+.exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+details.corr summary{cursor:pointer;font-weight:600;color:#2f855a;font-size:.88em;margin-top:10px;padding:4px 0}
+details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+.chart-wrap{max-width:600px;margin:20px auto}
+.svg-wrap{text-align:center;margin:18px 0}
+</style>
+</head>
+<body>
+<div class="c">
+<header>
+  <h1>Chapitre 12 &mdash; Changements d&apos;&eacute;tat et &eacute;nergie thermique</h1>
+  <p class="sous-titre">Physique-Chimie &mdash; 2<sup>nde</sup> Pro MAMA &mdash; Ann&eacute;e 2025-2026</p>
+</header>
+
+<a class="nb" href="index.html">&larr; Retour au sommaire</a>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre :</strong>
+  <ul>
+    <li>Identifier les trois &eacute;tats de la mati&egrave;re et leurs caract&eacute;ristiques</li>
+    <li>Nommer et classer les six changements d&apos;&eacute;tat</li>
+    <li>Expliquer le palier de temp&eacute;rature lors d&apos;un changement d&apos;&eacute;tat</li>
+    <li>Utiliser la formule \(Q = m \cdot L\) pour calculer une &eacute;nergie</li>
+    <li>Relier ces ph&eacute;nom&egrave;nes aux m&eacute;tiers du bois (s&eacute;chage, vernis, solvants)</li>
+  </ul>
+</div>
+
+<!-- ===== SECTION 1 ===== -->
+<h2>1. Les &eacute;tats de la mati&egrave;re</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  La mati&egrave;re peut exister sous <strong>trois &eacute;tats physiques</strong> : solide, liquide et gazeux. Ces &eacute;tats d&eacute;pendent de la temp&eacute;rature et de la pression.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>&Eacute;tat</th>
+      <th>Forme</th>
+      <th>Volume</th>
+      <th>Arrangement des particules</th>
+      <th>Exemple MAMA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Solide</strong></td>
+      <td>Forme propre</td>
+      <td>Volume propre</td>
+      <td>Ordonn&eacute;es, tr&egrave;s proches, vibrent sur place</td>
+      <td>Planche de bois, clou, colle en b&acirc;ton</td>
+    </tr>
+    <tr>
+      <td><strong>Liquide</strong></td>
+      <td>Forme du contenant</td>
+      <td>Volume propre</td>
+      <td>Mobiles, proches, d&eacute;sordonn&eacute;es</td>
+      <td>Eau de traitement du bois, vernis liquide, colle blanche</td>
+    </tr>
+    <tr>
+      <td><strong>Gaz</strong></td>
+      <td>Forme du contenant</td>
+      <td>Volume du contenant</td>
+      <td>Tr&egrave;s &eacute;loign&eacute;es, agitation rapide</td>
+      <td>Vapeur de solvant (ac&eacute;tone, white-spirit), air dans le bois</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="prop">
+  <span class="label label-prop">Lien MAMA</span><br>
+  Les <strong>solvants volatils</strong> pr&eacute;sents dans les vernis et peintures passent spontan&eacute;ment de l&apos;&eacute;tat liquide &agrave; l&apos;&eacute;tat gazeux &agrave; temp&eacute;rature ambiante : c&apos;est pour cela qu&apos;on sent l&apos;odeur du vernis m&ecirc;me sans chauffer le produit.
+</div>
+
+<!-- ===== SECTION 2 ===== -->
+<h2>2. Les changements d&apos;&eacute;tat</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Un <strong>changement d&apos;&eacute;tat</strong> est le passage d&apos;un &eacute;tat physique &agrave; un autre. Il existe six changements d&apos;&eacute;tat. Lors d&apos;un changement d&apos;&eacute;tat, la <strong>composition chimique</strong> du corps pur ne change pas.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Transition</th>
+      <th>&Eacute;nergie</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Fusion</strong></td>
+      <td>Solide &rarr; Liquide</td>
+      <td>Absorbe de la chaleur (endothermique)</td>
+    </tr>
+    <tr>
+      <td><strong>Solidification</strong></td>
+      <td>Liquide &rarr; Solide</td>
+      <td>D&eacute;gage de la chaleur (exothermique)</td>
+    </tr>
+    <tr>
+      <td><strong>Vaporisation</strong></td>
+      <td>Liquide &rarr; Gaz</td>
+      <td>Absorbe de la chaleur (endothermique)</td>
+    </tr>
+    <tr>
+      <td><strong>Condensation</strong></td>
+      <td>Gaz &rarr; Liquide</td>
+      <td>D&eacute;gage de la chaleur (exothermique)</td>
+    </tr>
+    <tr>
+      <td><strong>Sublimation</strong></td>
+      <td>Solide &rarr; Gaz</td>
+      <td>Absorbe de la chaleur (endothermique)</td>
+    </tr>
+    <tr>
+      <td><strong>Condensation solide</strong></td>
+      <td>Gaz &rarr; Solide</td>
+      <td>D&eacute;gage de la chaleur (exothermique)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="prop">
+  <span class="label label-prop">Propri&eacute;t&eacute;</span><br>
+  La <strong>vaporisation</strong> comprend deux ph&eacute;nom&egrave;nes :<br>
+  &bull; <strong>L&apos;&eacute;bullition</strong> : vaporisation rapide dans tout le liquide, &agrave; temp&eacute;rature fix&eacute;e (100&nbsp;&deg;C pour l&apos;eau &agrave; pression normale).<br>
+  &bull; <strong>L&apos;&eacute;vaporation</strong> : vaporisation lente &agrave; la surface, &agrave; n&apos;importe quelle temp&eacute;rature.
+</div>
+
+<!-- SVG circulaire des changements d'état -->
+<div class="svg-wrap">
+<svg width="420" height="380" viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sch&eacute;ma circulaire des six changements d&apos;&eacute;tat">
+  <!-- Fond -->
+  <rect width="420" height="380" fill="#f8fafc" rx="12"/>
+
+  <!-- Ellipses des trois états -->
+  <!-- SOLIDE (bas gauche) -->
+  <ellipse cx="100" cy="300" rx="75" ry="38" fill="#ede9fe" stroke="#6f42c1" stroke-width="2"/>
+  <text x="100" y="295" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="14" font-weight="bold" fill="#5b21b6">SOLIDE</text>
+  <text x="100" y="313" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#5b21b6">glace, bois</text>
+
+  <!-- LIQUIDE (bas droite) -->
+  <ellipse cx="320" cy="300" rx="75" ry="38" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="320" y="295" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="14" font-weight="bold" fill="#1e40af">LIQUIDE</text>
+  <text x="320" y="313" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#1e40af">eau, vernis</text>
+
+  <!-- GAZ (haut centre) -->
+  <ellipse cx="210" cy="80" rx="80" ry="38" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+  <text x="210" y="75" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="14" font-weight="bold" fill="#065f46">GAZ</text>
+  <text x="210" y="93" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#065f46">vapeur, solvant</text>
+
+  <!-- Flèches et labels -->
+  <!-- Fusion : solide -> liquide (bas, gauche vers droite) -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#4a5568"/>
+    </marker>
+    <marker id="arr-r" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#c53030"/>
+    </marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <!-- Fusion (S->L) -->
+  <path d="M175,290 L245,290" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#arr-g)"/>
+  <text x="210" y="282" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#92400e" font-weight="bold">Fusion</text>
+  <!-- Solidification (L->S) -->
+  <path d="M245,308 L175,308" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="210" y="324" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#1e40af" font-weight="bold">Solidification</text>
+
+  <!-- Vaporisation (L->G) -->
+  <path d="M290,268 L240,118" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#arr-g)"/>
+  <text x="290" y="200" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#92400e" font-weight="bold">Vaporisation</text>
+  <!-- Condensation (G->L) -->
+  <path d="M252,118 L340,268" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="342" y="200" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#1e40af" font-weight="bold">Condensation</text>
+
+  <!-- Sublimation (S->G) -->
+  <path d="M130,268 L178,118" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#arr-g)"/>
+  <text x="118" y="200" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#92400e" font-weight="bold">Sublimation</text>
+  <!-- Condensation solide (G->S) -->
+  <path d="M166,118 L112,268" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="72" y="185" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#1e40af" font-weight="bold">Cond. solide</text>
+
+  <!-- Légende chaleur -->
+  <rect x="10" y="345" width="180" height="28" fill="#fff8e1" rx="4" stroke="#d97706" stroke-width="1"/>
+  <text x="18" y="362" font-family="Segoe UI,sans-serif" font-size="10" fill="#92400e">&#8594; orange : absorbe de la chaleur</text>
+  <rect x="200" y="345" width="180" height="28" fill="#e8f4fd" rx="4" stroke="#2563eb" stroke-width="1"/>
+  <text x="208" y="362" font-family="Segoe UI,sans-serif" font-size="10" fill="#1e40af">&#8594; bleu : d&eacute;gage de la chaleur</text>
+</svg>
+<p style="font-size:.82em;color:#718096;margin-top:4px">Figure 1 &mdash; Les six changements d&apos;&eacute;tat de la mati&egrave;re</p>
+</div>
+
+<!-- ===== SECTION 3 ===== -->
+<h2>3. Palier de temp&eacute;rature</h2>
+
+<div class="prop">
+  <span class="label label-prop">Propri&eacute;t&eacute; fondamentale</span><br>
+  Lors d&apos;un changement d&apos;&eacute;tat d&apos;un <strong>corps pur</strong>, la <strong>temp&eacute;rature reste constante</strong> m&ecirc;me si on continue &agrave; apporter ou &agrave; retirer de l&apos;&eacute;nergie. Toute l&apos;&eacute;nergie re&ccedil;ue sert uniquement &agrave; modifier l&apos;&eacute;tat physique.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple</span><br>
+  Lorsqu&apos;on chauffe de la glace :<br>
+  &bull; La temp&eacute;rature monte jusqu&apos;&agrave; <strong>0&nbsp;&deg;C</strong>, puis stagne (palier de fusion).<br>
+  &bull; Une fois toute la glace fondue, la temp&eacute;rature remonte jusqu&apos;&agrave; <strong>100&nbsp;&deg;C</strong>, puis stagne (palier d&apos;&eacute;bullition).<br>
+  &bull; Apr&egrave;s &eacute;bullition compl&egrave;te, la temp&eacute;rature de la vapeur monte &agrave; nouveau.
+</div>
+
+<h3>Courbe de chauffage de l&apos;eau</h3>
+<div class="chart-wrap">
+  <canvas id="chauffageChart" width="580" height="300"></canvas>
+</div>
+<p style="text-align:center;font-size:.82em;color:#718096">Figure 2 &mdash; Courbe de chauffage de l&apos;eau : deux paliers de temp&eacute;rature &agrave; 0&nbsp;&deg;C et 100&nbsp;&deg;C</p>
+
+<script>
+(function(){
+  var ctx = document.getElementById('chauffageChart').getContext('2d');
+  // Points de la courbe : (temps, température)
+  var data = [
+    {x:0,  y:-20},
+    {x:5,  y:0},    // début fusion
+    {x:12, y:0},    // fin fusion (palier)
+    {x:18, y:100},  // début ébullition
+    {x:26, y:100},  // fin ébullition (palier)
+    {x:32, y:130}   // vapeur surchauffée
+  ];
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      datasets: [{
+        label: 'Temp\u00e9rature (\u00b0C)',
+        data: data,
+        borderColor: '#6f42c1',
+        backgroundColor: 'rgba(111,66,193,0.08)',
+        borderWidth: 2.5,
+        pointRadius: 5,
+        pointBackgroundColor: '#6f42c1',
+        fill: true,
+        tension: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          type: 'linear',
+          title: { display: true, text: 'Temps (min)', color: '#4a5568' },
+          min: 0, max: 34
+        },
+        y: {
+          title: { display: true, text: 'Temp\u00e9rature (\u00b0C)', color: '#4a5568' },
+          min: -30, max: 140,
+          ticks: {
+            callback: function(v){ return v + '\u00b0C'; }
+          }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: function(c){ return c.parsed.y + '\u00b0C'; } } },
+        annotation: {}
+      }
+    },
+    plugins: [{
+      afterDraw: function(chart){
+        var ctx2 = chart.ctx;
+        var yAxis = chart.scales.y;
+        var xAxis = chart.scales.x;
+        // Annotation palier 0°C
+        var y0 = yAxis.getPixelForValue(0);
+        var x5 = xAxis.getPixelForValue(5);
+        var x12 = xAxis.getPixelForValue(12);
+        ctx2.save();
+        ctx2.fillStyle = '#c53030';
+        ctx2.font = 'bold 11px Segoe UI,sans-serif';
+        ctx2.fillText('Palier de fusion (0\u00b0C)', x5 + 8, y0 - 8);
+        // Annotation palier 100°C
+        var y100 = yAxis.getPixelForValue(100);
+        var x18 = xAxis.getPixelForValue(18);
+        ctx2.fillStyle = '#d97706';
+        ctx2.fillText('Palier d\'\u00e9bullition (100\u00b0C)', x18 + 8, y100 - 8);
+        // Zones colorées
+        ctx2.globalAlpha = 0.12;
+        ctx2.fillStyle = '#2563eb';
+        ctx2.fillRect(x5, yAxis.getPixelForValue(5), x12 - x5, yAxis.getPixelForValue(-5) - yAxis.getPixelForValue(5));
+        ctx2.fillStyle = '#d97706';
+        ctx2.fillRect(x18, yAxis.getPixelForValue(105), xAxis.getPixelForValue(26) - x18, yAxis.getPixelForValue(95) - yAxis.getPixelForValue(105));
+        ctx2.restore();
+      }
+    }]
+  });
+})();
+</script>
+
+<!-- ===== SECTION 4 ===== -->
+<h2>4. &Eacute;nergie de changement d&apos;&eacute;tat</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  La <strong>chaleur latente</strong> est l&apos;&eacute;nergie &eacute;chang&eacute;e par unit&eacute; de masse lors d&apos;un changement d&apos;&eacute;tat &agrave; temp&eacute;rature constante.
+  <br>On distingue :
+  <br>&bull; \(L_f\) : chaleur latente de <strong>fusion</strong> (J/kg)
+  <br>&bull; \(L_v\) : chaleur latente de <strong>vaporisation</strong> (J/kg)
+</div>
+
+<div class="formule">
+  \( Q = m \times L \)
+  <small>Q : &eacute;nergie thermique en joules (J) &mdash; m : masse en kilogrammes (kg) &mdash; L : chaleur latente en J/kg</small>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Corps</th><th>Chaleur latente de fusion \(L_f\) (J/kg)</th><th>Chaleur latente de vaporisation \(L_v\) (J/kg)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Eau</strong></td><td>334&nbsp;000</td><td>2&nbsp;256&nbsp;000</td></tr>
+    <tr><td>Fer</td><td>272&nbsp;000</td><td>6&nbsp;090&nbsp;000</td></tr>
+    <tr><td>Plomb</td><td>22&nbsp;400</td><td>858&nbsp;000</td></tr>
+    <tr><td>Aluminium</td><td>397&nbsp;000</td><td>10&nbsp;900&nbsp;000</td></tr>
+  </tbody>
+</table>
+
+<div class="meth">
+  <span class="label label-meth">M&eacute;thode &mdash; Calculer Q</span><br>
+  <strong>Exemple :</strong> Quelle &eacute;nergie faut-il pour faire fondre 2&nbsp;kg de glace &agrave; 0&nbsp;&deg;C ?<br><br>
+  <strong>Donn&eacute;es :</strong> \(m = 2\text{ kg}\), \(L_f = 334\,000\text{ J/kg}\)<br>
+  <strong>Application :</strong>
+  \[ Q = m \times L_f = 2 \times 334\,000 = 668\,000 \text{ J} = 668 \text{ kJ} \]
+  Il faut <strong>668&nbsp;kJ</strong> pour faire fondre 2&nbsp;kg de glace.
+</div>
+
+<!-- ===== SECTION 5 ===== -->
+<h2>5. Application MAMA &mdash; S&eacute;chage du bois</h2>
+
+<div class="prop">
+  <span class="label label-prop">Contexte m&eacute;tier</span><br>
+  Le bois fraich&eacute;ment coup&eacute; (bois vert) contient une grande quantit&eacute; d&apos;eau : jusqu&apos;&agrave; <strong>50 &agrave; 100&nbsp;%</strong> de sa masse s&egrave;che. Pour travailler le bois correctement (usinage, collage, finition), il faut l&apos;amener &agrave; une humidit&eacute; adapt&eacute;e (&lt; 12&nbsp;% en g&eacute;n&eacute;ral pour l&apos;int&eacute;rieur).
+</div>
+
+<div class="def">
+  <span class="label label-def">Ph&eacute;nom&egrave;ne physique</span><br>
+  Le <strong>s&eacute;chage du bois</strong> = vaporisation de l&apos;eau contenue dans les cellules du bois. Cette vaporisation est un changement d&apos;&eacute;tat (liquide &rarr; gaz) qui n&eacute;cessite une <strong>grande quantit&eacute; d&apos;&eacute;nergie</strong>.
+</div>
+
+<table>
+  <thead>
+    <tr><th>Type de bois</th><th>Humidit&eacute; approximative</th><th>Utilisation</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Bois vert (abattu)</td><td>50 &agrave; 100&nbsp;%</td><td>Non utilisable directement</td></tr>
+    <tr><td>Bois s&eacute;ch&eacute; &agrave; l&apos;air</td><td>15 &agrave; 20&nbsp;%</td><td>Charpente, construction ext&eacute;rieure</td></tr>
+    <tr><td>Bois s&eacute;ch&eacute; en &eacute;tuve</td><td>6 &agrave; 12&nbsp;%</td><td>Ameublement, menuiserie int&eacute;rieure</td></tr>
+  </tbody>
+</table>
+
+<div class="meth">
+  <span class="label label-meth">Calcul simplifi&eacute;</span><br>
+  Une planche de 5&nbsp;kg de bois vert contient 1,5&nbsp;kg d&apos;eau &agrave; &eacute;vaporer. Quelle &eacute;nergie faut-il pour la vaporiser ?<br><br>
+  \[ Q = m \times L_v = 1{,}5 \times 2\,256\,000 = 3\,384\,000 \text{ J} \approx 3{,}38 \text{ MJ} \]
+  C&apos;est pourquoi le s&eacute;chage en &eacute;tuve est &eacute;nerg&eacute;tiquement co&ucirc;teux. Le s&eacute;chage naturel &agrave; l&apos;air &eacute;tale cette &eacute;nergie sur plusieurs mois.
+</div>
+
+<!-- ===== SECTION 6 ===== -->
+<h2>6. &Eacute;vaporation des solvants &mdash; s&eacute;curit&eacute; en atelier</h2>
+
+<div class="att">
+  <span class="label label-att">Danger</span><br>
+  Les <strong>vernis, peintures, laques et colles</strong> contiennent des solvants organiques volatils (white-spirit, ac&eacute;tone, tolu&egrave;ne...). Ces liquides s&apos;&eacute;vaporent &agrave; temp&eacute;rature ambiante &rarr; les vapeurs sont <strong>toxiques et/ou inflammables</strong>.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Pr&eacute;cautions MAMA</span><br>
+  &bull; <strong>Ventilation forc&eacute;e</strong> obligatoire lors de l&apos;application de produits solvant&eacute;s.<br>
+  &bull; <strong>Pas de source de chaleur</strong> (flamme, &eacute;tincelle) &agrave; proximit&eacute; : les vapeurs peuvent s&apos;enflammer.<br>
+  &bull; Port de <strong>masque &agrave; cartouche</strong> adapt&eacute; aux solvants organiques.<br>
+  &bull; Stockage en <strong>local ventil&eacute;</strong> &agrave; l&apos;&eacute;cart des sources d&apos;ignition.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple</span><br>
+  Le white-spirit a un point d&apos;&eacute;clair d&apos;environ 40&nbsp;&deg;C : ses vapeurs peuvent s&apos;enflammer d&egrave;s 40&nbsp;&deg;C. En &eacute;t&eacute; dans un atelier mal ventil&eacute;, ce seuil peut &ecirc;tre atteint.
+</div>
+
+<!-- ===== SECTION 7 ===== -->
+<h2>7. Tableau de synth&egrave;se</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Changement d&apos;&eacute;tat</th>
+      <th>Transition</th>
+      <th>&Eacute;nergie</th>
+      <th>Formule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fusion</td>
+      <td>Solide &rarr; Liquide</td>
+      <td>Absorbe : \(Q = m \cdot L_f\)</td>
+      <td>\(Q = m L_f\)</td>
+    </tr>
+    <tr>
+      <td>Solidification</td>
+      <td>Liquide &rarr; Solide</td>
+      <td>D&eacute;gage : \(Q = m \cdot L_f\)</td>
+      <td>\(Q = m L_f\)</td>
+    </tr>
+    <tr>
+      <td>Vaporisation</td>
+      <td>Liquide &rarr; Gaz</td>
+      <td>Absorbe : \(Q = m \cdot L_v\)</td>
+      <td>\(Q = m L_v\)</td>
+    </tr>
+    <tr>
+      <td>Condensation</td>
+      <td>Gaz &rarr; Liquide</td>
+      <td>D&eacute;gage : \(Q = m \cdot L_v\)</td>
+      <td>\(Q = m L_v\)</td>
+    </tr>
+    <tr>
+      <td>Sublimation</td>
+      <td>Solide &rarr; Gaz</td>
+      <td>Absorbe : \(Q = m \cdot L_s\)</td>
+      <td>\(Q = m L_s\)</td>
+    </tr>
+    <tr>
+      <td>Condensation solide</td>
+      <td>Gaz &rarr; Solide</td>
+      <td>D&eacute;gage : \(Q = m \cdot L_s\)</td>
+      <td>\(Q = m L_s\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== SECTION 8 ===== -->
+<h2>8. &Agrave; retenir</h2>
+
+<div class="retenir">
+  <span class="label label-ret">Essentiel</span>
+  <ol>
+    <li>La mati&egrave;re existe sous <strong>trois &eacute;tats</strong> : solide, liquide, gazeux. Les transitions entre ces &eacute;tats sont les <strong>six changements d&apos;&eacute;tat</strong>.</li>
+    <li>Lors d&apos;un changement d&apos;&eacute;tat d&apos;un corps pur, la <strong>temp&eacute;rature est constante</strong> (palier).</li>
+    <li>L&apos;&eacute;nergie &eacute;chang&eacute;e se calcule avec : \(\boxed{Q = m \times L}\) en joules.</li>
+    <li>Le <strong>s&eacute;chage du bois</strong> est une vaporisation de l&apos;eau : il consomme beaucoup d&apos;&eacute;nergie car \(L_v = 2{,}26 \times 10^6\) J/kg.</li>
+    <li>Les <strong>solvants de vernis</strong> s&apos;&eacute;vaporent &agrave; temp&eacute;rature ambiante &rarr; ventilation obligatoire pour raisons de sant&eacute; et de s&eacute;curit&eacute; incendie.</li>
+  </ol>
+</div>
+
+<!-- ===== SECTION 9 ===== -->
+<h2>9. Mini-exercices</h2>
+
+<div class="exo">
+  <div class="exo-num">Exercice 1 &mdash; Identifier le changement d&apos;&eacute;tat</div>
+  <p>Indiquer le nom du changement d&apos;&eacute;tat et pr&eacute;ciser si de la chaleur est absorb&eacute;e ou d&eacute;gag&eacute;e :</p>
+  <ol type="a">
+    <li>L&apos;eau de pluie se transforme en verglas sur la route.</li>
+    <li>La naphtaline (antimites) dispara&icirc;t progressivement sans laisser de liquide.</li>
+    <li>L&apos;ac&eacute;tone d&apos;un vernis &agrave; ongles s&apos;&eacute;vapore dans l&apos;atelier.</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      a) L&apos;eau liquide &rarr; glace solide : <strong>solidification</strong> (d&eacute;gage de la chaleur).<br>
+      b) Naphtaline solide &rarr; gaz directement : <strong>sublimation</strong> (absorbe de la chaleur).<br>
+      c) Ac&eacute;tone liquide &rarr; vapeur gazeuse : <strong>&eacute;vaporation</strong> (vaporisation lente, absorbe de la chaleur).
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 2 &mdash; Calculer l&apos;&eacute;nergie Q</div>
+  <p>Un menuisier doit s&eacute;cher 3&nbsp;kg d&apos;eau contenu dans un lot de planches de ch&ecirc;ne. Calculer l&apos;&eacute;nergie n&eacute;cessaire pour vaporiser cette eau.<br>
+  <strong>Donn&eacute;e :</strong> \(L_v(\text{eau}) = 2\,256\,000\) J/kg</p>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      \[ Q = m \times L_v = 3 \times 2\,256\,000 = 6\,768\,000 \text{ J} = 6{,}77 \text{ MJ} \]
+      Il faut environ <strong>6,77 mégajoules</strong> pour vaporiser 3 kg d&apos;eau. C&apos;est une &eacute;nergie consid&eacute;rable, ce qui explique la dur&eacute;e et le co&ucirc;t du s&eacute;chage en &eacute;tuve.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 3 &mdash; Lire une courbe de changement d&apos;&eacute;tat</div>
+  <p>Sur la courbe de chauffage de l&apos;eau (figure 2 ci-dessus), r&eacute;pondre aux questions :</p>
+  <ol type="a">
+    <li>Combien de paliers observe-t-on ? &Agrave; quelles temp&eacute;ratures ?</li>
+    <li>Que se passe-t-il pour la temp&eacute;rature pendant un palier ?</li>
+    <li>Quel changement d&apos;&eacute;tat correspond au palier &agrave; 0&nbsp;&deg;C ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      a) On observe <strong>deux paliers</strong> : &agrave; <strong>0&nbsp;&deg;C</strong> (fusion de la glace) et &agrave; <strong>100&nbsp;&deg;C</strong> (&eacute;bullition de l&apos;eau).<br>
+      b) Pendant un palier, la temp&eacute;rature <strong>reste constante</strong> m&ecirc;me si on continue &agrave; chauffer.<br>
+      c) Le palier &agrave; 0&nbsp;&deg;C correspond &agrave; la <strong>fusion</strong> (glace &rarr; eau liquide).
+    </div>
+  </details>
+</div>
+
+</div><!-- .c -->
+<script src="nav.js"></script>
+</body>
+</html>

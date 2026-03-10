@@ -3,111 +3,663 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch01 PC – Mouvement rectiligne</title>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>:root{--p:#6f42c1;--d:#c53030;--s:#2f855a;--o:#d97706;--t:#2d3748}
+<title>Ch01 – Sécurité en laboratoire et en atelier – Cours</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
 .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
 h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
 .sous-titre{color:#718096;font-size:.95em;margin:0}
-h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}
-h3{font-size:1em;color:var(--t);margin:18px 0 8px;font-weight:600}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
 .def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
 .prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
 .att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
 .meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
 .ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
 .label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
 .label-def{background:#ede9fe;color:#5b21b6}
 .label-prop{background:#d1fae5;color:#065f46}
 .label-att{background:#fee2e2;color:#991b1b}
 .label-meth{background:#fef3c7;color:#92400e}
 .label-ex{background:#e2e8f0;color:#4a5568}
+.label-ret{background:#c4b5fd;color:#3b0764}
 table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
-th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
-th{background:#eef2f7;font-weight:600}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+th{background:#f3f0ff;font-weight:600;color:var(--p)}
 .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
-.nb:hover{text-decoration:underline}</style>
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+/* Pictogrammes */
+.picto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.picto-card{background:#fff;border:2px solid #e2e8f0;border-radius:10px;padding:14px 10px;text-align:center;transition:border-color .2s}
+.picto-card:hover{border-color:var(--p)}
+.picto-diamond{width:64px;height:64px;background:#fff;border:3px solid #c53030;transform:rotate(45deg);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;border-radius:4px}
+.picto-diamond span{transform:rotate(-45deg);font-size:1.6em;line-height:1}
+.picto-name{font-size:.82em;font-weight:700;color:#2d3748;margin-bottom:2px}
+.picto-desc{font-size:.75em;color:#718096}
+/* EPI grid */
+.epi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}
+.epi-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
+.epi-icon{font-size:1.8em;flex-shrink:0;line-height:1}
+.epi-text .epi-nom{font-weight:700;font-size:.9em;color:var(--p)}
+.epi-text .epi-role{font-size:.82em;color:#4a5568}
+/* Dispositifs électriques */
+.elec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}
+.elec-card{background:#faf5ff;border:1px solid #c4b5fd;border-radius:8px;padding:12px 14px}
+.elec-card .ec-titre{font-weight:700;color:var(--p);font-size:.9em;margin-bottom:4px}
+.elec-card .ec-desc{font-size:.82em;color:#4a5568}
+/* Laser classes */
+.laser-table td:first-child{font-weight:700;text-align:center}
+/* dB chart */
+.chart-wrap{max-width:100%;margin:18px 0}
+/* Mini-exos */
+.exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+.exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+details.corr summary{cursor:pointer;font-weight:600;color:var(--s);font-size:.88em;margin-top:10px;padding:4px 0}
+details.corr summary:hover{text-decoration:underline}
+details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+@media(max-width:600px){
+  .picto-grid{grid-template-columns:repeat(2,1fr)}
+  .epi-grid,.elec-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
-<body><div class="c">
-<a href="pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+<body>
+<div class="c">
+<a href="pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+
 <header>
-  <h1>Chapitre 1 – Mouvement rectiligne</h1>
-  <p class="sous-titre">2<sup>de</sup> Pro &nbsp;|&nbsp; Physique – Mécanique</p>
+  <h1>Chapitre 1 &mdash; S&eacute;curit&eacute; en laboratoire et en atelier</h1>
+  <p class="sous-titre">2<sup>de</sup> Pro MAMA &nbsp;|&nbsp; Physique-Chimie &nbsp;|&nbsp; Module transversal S&eacute;curit&eacute;</p>
 </header>
 
-<h2>1. Description d'un mouvement</h2>
-<div class="def">
-  <span class="label label-def">Définition</span><br>
-  Un <strong>mouvement</strong> est le changement de position d'un objet par rapport à un <strong>référentiel</strong> (repère de référence choisi par l'observateur) au cours du temps.
-  <br>La <strong>trajectoire</strong> est l'ensemble des positions successives occupées par l'objet.
-</div>
-<div class="prop">
-  <span class="label label-prop">Types de trajectoires</span>
+<div class="objectifs">
+  <strong>&#127919; Objectifs du chapitre</strong>
   <ul>
-    <li><strong>Rectiligne</strong> : la trajectoire est une droite</li>
-    <li><strong>Curviligne</strong> : la trajectoire est une courbe</li>
-    <li><strong>Circulaire</strong> : la trajectoire est un cercle</li>
+    <li>Identifier les pictogrammes de danger sur les produits chimiques</li>
+    <li>Conna&icirc;tre et utiliser les &eacute;quipements de protection individuelle (EPI)</li>
+    <li>Conna&icirc;tre les dispositifs de protection &eacute;lectrique</li>
+    <li>Identifier les risques li&eacute;s aux sources lumineuses et sonores</li>
+    <li>Trier correctement les d&eacute;chets chimiques</li>
   </ul>
 </div>
 
-<h2>2. Vitesse moyenne</h2>
-<div class="def">
-  <span class="label label-def">Définition</span><br>
-  La <strong>vitesse moyenne</strong> est le rapport de la distance parcourue sur la durée du trajet :
-  \[v_{moy} = \frac{d}{\Delta t}\]
-  <ul>
-    <li>\(d\) : distance parcourue (en m ou km)</li>
-    <li>\(\Delta t\) : durée (en s ou h)</li>
-    <li>\(v_{moy}\) : vitesse moyenne (en m/s ou km/h)</li>
-  </ul>
-</div>
-<div class="meth">
-  <span class="label label-meth">Conversion de vitesse</span><br>
-  \(1 \text{ m/s} = 3{,}6 \text{ km/h}\) &nbsp;→&nbsp; pour convertir m/s en km/h : multiplier par 3,6<br>
-  \(1 \text{ km/h} = \frac{1}{3{,}6} \approx 0{,}278 \text{ m/s}\)
-</div>
+<!-- ============================================================ -->
+<h2>1. Pourquoi la s&eacute;curit&eacute; est-elle essentielle ?</h2>
+
+<p>
+  En atelier MAMA (Menuiserie, Agenc&eacute;ment, Ameublement) comme en laboratoire de physique-chimie,
+  vous &ecirc;tes en contact avec des produits chimiques, des machines &eacute;lectriques, des sources
+  lumineuses et sonores. Chacun de ces environnements pr&eacute;sente des risques sp&eacute;cifiques.
+</p>
+
 <div class="ex">
-  <span class="label label-ex">Exemple</span><br>
-  Une voiture parcourt 150 km en 1h30. Sa vitesse moyenne est :<br>
-  \(v = \frac{150}{1{,}5} = 100 \text{ km/h} \approx 27{,}8 \text{ m/s}\)
-</div>
-
-<h2>3. Mouvement uniforme et non uniforme</h2>
-<div class="prop">
-  <span class="label label-prop">Propriété</span>
+  <span class="label label-ex">Exemples de risques en atelier MAMA</span>
   <ul>
-    <li><strong>Mouvement uniforme</strong> : la vitesse est constante. La distance parcourue est proportionnelle à la durée : \(d = v \times t\)</li>
-    <li><strong>Mouvement accéléré</strong> : la vitesse augmente</li>
-    <li><strong>Mouvement décéléré (freiné)</strong> : la vitesse diminue</li>
+    <li><strong>Chimique</strong> : vernis, solvants, colles — vapeurs toxiques, contact avec la peau</li>
+    <li><strong>&Eacute;lectrique</strong> : machines portatives, ponceuses, scies — risque d&rsquo;&eacute;lectrocution</li>
+    <li><strong>Sonore</strong> : scie circulaire, d&eacute;fonceuse — jusqu&rsquo;&agrave; 100 dB, risque de surdité</li>
+    <li><strong>Lumineux</strong> : d&eacute;coupes laser, lampes UV — risque pour les yeux et la peau</li>
   </ul>
 </div>
+
+<div class="prop">
+  <span class="label label-prop">Principe fondamental</span><br>
+  La s&eacute;curit&eacute; commence par <strong>lire les &eacute;tiquettes</strong>, <strong>porter les &eacute;quipements de protection</strong>
+  et <strong>appliquer les consignes</strong> avant toute manipulation.
+</div>
+
+<!-- ============================================================ -->
+<h2>2. Les pictogrammes de danger</h2>
+
+<p>
+  Les pictogrammes de danger sont des <strong>symboles normalis&eacute;s</strong> (syst&egrave;me SGH/CLP)
+  qui figurent sur les &eacute;tiquettes des produits chimiques. Ils informent sur le type de risque.
+</p>
+<p>
+  Ils se pr&eacute;sentent sous forme d&rsquo;un <strong>losange blanc &agrave; bord rouge</strong> avec un
+  symbole noir &agrave; l&rsquo;int&eacute;rieur.
+</p>
+
+<div class="picto-grid">
+  <div class="picto-card">
+    <div class="picto-diamond"><span>&#128165;</span></div>
+    <div class="picto-name">Explosif</div>
+    <div class="picto-desc">Risque d&rsquo;explosion au choc ou &agrave; la chaleur</div>
+  </div>
+  <div class="picto-card">
+    <div class="picto-diamond"><span>&#128293;</span></div>
+    <div class="picto-name">Inflammable</div>
+    <div class="picto-desc">S&rsquo;enflamme facilement (solvants, alcool...)</div>
+  </div>
+  <div class="picto-card">
+    <div class="picto-diamond"><span>&#9763;</span></div>
+    <div class="picto-name">Comburant</div>
+    <div class="picto-desc">Active la combustion d&rsquo;autres substances</div>
+  </div>
+  <div class="picto-card">
+    <div class="picto-diamond"><span>&#128684;</span></div>
+    <div class="picto-name">Gaz sous pression</div>
+    <div class="picto-desc">Risque d&rsquo;&eacute;clatement du r&eacute;cipient</div>
+  </div>
+  <div class="picto-card">
+    <div class="picto-diamond"><span>&#9760;</span></div>
+    <div class="picto-name">Toxique</div>
+    <div class="picto-desc">Dangereux m&ecirc;me en petite quantit&eacute;</div>
+  </div>
+  <div class="picto-card">
+    <div class="picto-diamond"><span>&#9888;</span></div>
+    <div class="picto-name">Nocif / Irritant</div>
+    <div class="picto-desc">Peut causer irritations, all&eacute;rgies</div>
+  </div>
+  <div class="picto-card">
+    <div class="picto-diamond"><span>&#129408;</span></div>
+    <div class="picto-name">Corrosif</div>
+    <div class="picto-desc">Br&ucirc;le la peau, les yeux, les mat&eacute;riaux</div>
+  </div>
+  <div class="picto-card">
+    <div class="picto-diamond"><span>&#128308;</span></div>
+    <div class="picto-name">Danger pour la sant&eacute;</div>
+    <div class="picto-desc">Effets graves sur les organes (CMR...)</div>
+  </div>
+  <div class="picto-card">
+    <div class="picto-diamond"><span>&#127807;</span></div>
+    <div class="picto-name">Danger environnement</div>
+    <div class="picto-desc">Toxique pour les organismes aquatiques</div>
+  </div>
+</div>
+
+<div class="def">
+  <span class="label label-def">Phrases H et phrases P</span><br>
+  <strong>Phrases H (Hazard)</strong> : indiquent la nature du danger (ex. : H225 = liquide très inflammable).<br>
+  <strong>Phrases P (Precaution)</strong> : indiquent les précautions à prendre (ex. : P210 = tenir à l'écart des sources d'ignition).<br>
+  Ces phrases figurent obligatoirement sur l'étiquette à côté des pictogrammes.
+</div>
+
+<div class="meth">
+  <span class="label label-meth">M&eacute;thode &mdash; Lire une &eacute;tiquette</span>
+  <ol style="margin:8px 0 0;padding-left:20px">
+    <li>Rep&eacute;rer les <strong>pictogrammes</strong> : identifier le type de danger</li>
+    <li>Lire les <strong>phrases H</strong> : comprendre le risque pr&eacute;cis</li>
+    <li>Lire les <strong>phrases P</strong> : appliquer les pr&eacute;cautions</li>
+    <li>Consulter la <strong>Fiche de Donn&eacute;es de S&eacute;curit&eacute; (FDS)</strong> pour plus de d&eacute;tails</li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2>3. Les &Eacute;quipements de Protection Individuelle (EPI)</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Un <strong>EPI</strong> est un &eacute;quipement port&eacute; par une personne pour se prot&eacute;ger contre un risque.
+  Son port est <strong>obligatoire</strong> d&egrave;s qu&rsquo;un risque identifi&eacute; existe.
+</div>
+
+<h3>En chimie</h3>
+<div class="epi-grid">
+  <div class="epi-card">
+    <div class="epi-icon">&#129529;</div>
+    <div class="epi-text">
+      <div class="epi-nom">Blouse de laboratoire</div>
+      <div class="epi-role">Prot&egrave;ge les v&ecirc;tements et la peau des projections de produits chimiques</div>
+    </div>
+  </div>
+  <div class="epi-card">
+    <div class="epi-icon">&#129495;</div>
+    <div class="epi-text">
+      <div class="epi-nom">Lunettes de protection</div>
+      <div class="epi-role">Prot&egrave;gent les yeux des projections, &eacute;claboussures et vapeurs</div>
+    </div>
+  </div>
+  <div class="epi-card">
+    <div class="epi-icon">&#129510;</div>
+    <div class="epi-text">
+      <div class="epi-nom">Gants chimiques</div>
+      <div class="epi-role">Prot&egrave;gent les mains des produits corrosifs, toxiques, irritants</div>
+    </div>
+  </div>
+  <div class="epi-card">
+    <div class="epi-icon">&#128084;</div>
+    <div class="epi-text">
+      <div class="epi-nom">Masque respiratoire</div>
+      <div class="epi-role">Filtre les vapeurs toxiques, les poussi&egrave;res fines (ponçage...)</div>
+    </div>
+  </div>
+</div>
+
+<h3>En acoustique (atelier)</h3>
+<div class="epi-grid">
+  <div class="epi-card">
+    <div class="epi-icon">&#127911;</div>
+    <div class="epi-text">
+      <div class="epi-nom">Casque antibruit (coquilles)</div>
+      <div class="epi-role">R&eacute;duit le niveau sonore jusqu&rsquo;&agrave; 35 dB &mdash; obligatoire au-del&agrave; de 85 dB</div>
+    </div>
+  </div>
+  <div class="epi-card">
+    <div class="epi-icon">&#128083;</div>
+    <div class="epi-text">
+      <div class="epi-nom">Bouchons d&rsquo;oreilles</div>
+      <div class="epi-role">Protection jetable pour exp&eacute;riences courtes &mdash; atténuation de 20 &agrave; 30 dB</div>
+    </div>
+  </div>
+</div>
+
+<h3>Contre les sources lumineuses</h3>
+<div class="epi-grid">
+  <div class="epi-card">
+    <div class="epi-icon">&#128064;</div>
+    <div class="epi-text">
+      <div class="epi-nom">Lunettes anti-laser</div>
+      <div class="epi-role">Filtre la longueur d&rsquo;onde du laser utilis&eacute; &mdash; port obligatoire en pr&eacute;sence d&rsquo;un laser de classe 3 ou 4</div>
+    </div>
+  </div>
+  <div class="epi-card">
+    <div class="epi-icon">&#9728;</div>
+    <div class="epi-text">
+      <div class="epi-nom">Lunettes anti-UV</div>
+      <div class="epi-role">Prot&egrave;gent contre les rayonnements ultraviolets (lampes UV, soudure...)</div>
+    </div>
+  </div>
+</div>
+
 <div class="att">
   <span class="label label-att">Attention</span><br>
-  Dans un mouvement uniforme, la <em>vitesse</em> est constante mais l'objet est tout de même <em>en mouvement</em>. Vitesse constante ≠ vitesse nulle.
+  Un EPI n&rsquo;est efficace que s&rsquo;il est <strong>bien port&eacute;</strong> et <strong>adapt&eacute; au risque</strong>.
+  Les lunettes de vue ne remplacent <em>pas</em> les lunettes de protection certifi&eacute;es.
 </div>
 
-<h2>4. Enregistrement du mouvement – Chronophotographie</h2>
+<!-- ============================================================ -->
+<h2>4. S&eacute;curit&eacute; &eacute;lectrique &mdash; Les dispositifs de protection</h2>
+
+<p>
+  Les installations &eacute;lectriques comportent plusieurs dispositifs qui prot&egrave;gent &agrave; la fois
+  les <strong>appareils</strong> et les <strong>personnes</strong>.
+</p>
+
+<div class="elec-grid">
+  <div class="elec-card">
+    <div class="ec-titre">&#9889; Fusible</div>
+    <div class="ec-desc">Fil conducteur qui fond si l&rsquo;intensit&eacute; d&eacute;passe un seuil. Prot&egrave;ge les c&acirc;bles contre les surcharges. &Agrave; remplacer apr&egrave;s usage.</div>
+  </div>
+  <div class="elec-card">
+    <div class="ec-titre">&#9889; Disjoncteur</div>
+    <div class="ec-desc">Interrupteur automatique qui se d&eacute;clenche en cas de surcharge ou de court-circuit. Se r&eacute;arme manuellement (pas &agrave; remplacer).</div>
+  </div>
+  <div class="elec-card">
+    <div class="ec-titre">&#10003; Disjoncteur diff&eacute;rentiel</div>
+    <div class="ec-desc">D&eacute;tecte un d&eacute;faut d&rsquo;isolation (courant qui passe par une personne). Se d&eacute;clenche en 30 ms. <strong>Prot&egrave;ge les personnes</strong> contre l&rsquo;&eacute;lectrocution.</div>
+  </div>
+  <div class="elec-card">
+    <div class="ec-titre">&#128101; Mise &agrave; la terre</div>
+    <div class="ec-desc">Relie les carcasses m&eacute;talliques des appareils &agrave; la terre. En cas de d&eacute;faut, le courant s&rsquo;&eacute;coule dans la terre plut&ocirc;t que dans la personne.</div>
+  </div>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Sch&eacute;ma de protection d&rsquo;une installation</span><br>
+  <svg viewBox="0 0 600 120" style="width:100%;max-width:600px;display:block;margin:14px auto;font-family:'Segoe UI',sans-serif">
+    <!-- Boîtier général -->
+    <rect x="10" y="40" width="90" height="40" rx="6" fill="#ede9fe" stroke="#6f42c1" stroke-width="2"/>
+    <text x="55" y="58" text-anchor="middle" font-size="9" font-weight="bold" fill="#3b0764">Tableau</text>
+    <text x="55" y="70" text-anchor="middle" font-size="9" fill="#3b0764">général</text>
+    <!-- Flèche -->
+    <line x1="100" y1="60" x2="130" y2="60" stroke="#6f42c1" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- Disj différentiel -->
+    <rect x="130" y="40" width="110" height="40" rx="6" fill="#d1fae5" stroke="#2f855a" stroke-width="2"/>
+    <text x="185" y="57" text-anchor="middle" font-size="9" font-weight="bold" fill="#065f46">Disjoncteur</text>
+    <text x="185" y="70" text-anchor="middle" font-size="9" fill="#065f46">diff&eacute;rentiel 30 mA</text>
+    <!-- Flèche -->
+    <line x1="240" y1="60" x2="270" y2="60" stroke="#6f42c1" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- Fusible/disj -->
+    <rect x="270" y="40" width="100" height="40" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="320" y="57" text-anchor="middle" font-size="9" font-weight="bold" fill="#92400e">Disjoncteur</text>
+    <text x="320" y="70" text-anchor="middle" font-size="9" fill="#92400e">de circuit</text>
+    <!-- Flèche -->
+    <line x1="370" y1="60" x2="400" y2="60" stroke="#6f42c1" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- Appareil -->
+    <rect x="400" y="40" width="90" height="40" rx="6" fill="#f5f0ff" stroke="#6f42c1" stroke-width="2"/>
+    <text x="445" y="57" text-anchor="middle" font-size="9" font-weight="bold" fill="#3b0764">Appareil</text>
+    <text x="445" y="70" text-anchor="middle" font-size="9" fill="#3b0764">+ mise à la terre</text>
+    <!-- Terre -->
+    <line x1="445" y1="80" x2="445" y2="100" stroke="#a0aec0" stroke-width="2"/>
+    <line x1="430" y1="100" x2="460" y2="100" stroke="#a0aec0" stroke-width="2"/>
+    <line x1="435" y1="105" x2="455" y2="105" stroke="#a0aec0" stroke-width="2"/>
+    <line x1="440" y1="110" x2="450" y2="110" stroke="#a0aec0" stroke-width="2"/>
+    <text x="475" y="105" font-size="9" fill="#718096">Terre</text>
+    <defs>
+      <marker id="arr" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#6f42c1"/>
+      </marker>
+    </defs>
+  </svg>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Ne jamais <strong>court-circuiter un fusible</strong> ni condamner un disjoncteur.
+  Ces dispositifs prot&egrave;gent les personnes — les contourner peut &ecirc;tre mortel.
+</div>
+
+<!-- ============================================================ -->
+<h2>5. S&eacute;curit&eacute; face aux sources lumineuses &mdash; Les lasers</h2>
+
 <div class="def">
-  <span class="label label-def">Chronophotographie</span><br>
-  Technique permettant de photographier un mobile à intervalles de temps réguliers \(\tau\).<br>
-  Si les positions sont <strong>équidistantes</strong> → mouvement <strong>uniforme</strong>.<br>
-  Si les positions se <strong>rapprochent</strong> → décélération. Si elles <strong>s'éloignent</strong> → accélération.
-</div>
-<div class="meth">
-  <span class="label label-meth">Méthode – Calculer la vitesse depuis une chronophotographie</span><br>
-  Entre deux positions consécutives séparées d'une distance \(d\) et d'une durée \(\tau\) :
-  \[v = \frac{d}{\tau}\]
+  <span class="label label-def">Laser</span><br>
+  Un laser &eacute;met un <strong>faisceau lumineux tr&egrave;s concentr&eacute;</strong>, monochromatique (une seule longueur d&rsquo;onde)
+  et peu divergent. Il peut provoquer des br&ucirc;lures graves de la r&eacute;tine ou de la peau,
+  m&ecirc;me &agrave; faible puissance.
 </div>
 
-<h2>5. Tableau de synthèse</h2>
-<table>
-  <tr><th>Grandeur</th><th>Symbole</th><th>Unité SI</th><th>Formule</th></tr>
-  <tr><td>Distance</td><td>\(d\)</td><td>mètre (m)</td><td>\(d = v \times t\)</td></tr>
-  <tr><td>Durée</td><td>\(\Delta t\)</td><td>seconde (s)</td><td>\(t = d/v\)</td></tr>
-  <tr><td>Vitesse moyenne</td><td>\(v_{moy}\)</td><td>m/s</td><td>\(v = d/\Delta t\)</td></tr>
+<h3>Classes de lasers</h3>
+<table class="laser-table">
+  <thead>
+    <tr>
+      <th>Classe</th>
+      <th>Description</th>
+      <th>Exemples</th>
+      <th>Risque</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Sans danger en utilisation normale</td>
+      <td>Lecteur CD, imprimante laser</td>
+      <td style="color:#2f855a">&#9679; Nul</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Visible &mdash; le clignement prot&egrave;ge</td>
+      <td>Pointeur laser vert faible puissance</td>
+      <td style="color:#d97706">&#9679; Faible</td>
+    </tr>
+    <tr>
+      <td>3R / 3B</td>
+      <td>Danger si regard direct</td>
+      <td>Lasers de labo, scanners</td>
+      <td style="color:#e65c00">&#9679; Mod&eacute;r&eacute;</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Danger m&ecirc;me par r&eacute;flexion</td>
+      <td>Lasers industriels de d&eacute;coupe</td>
+      <td style="color:#c53030">&#9679; &Eacute;lev&eacute;</td>
+    </tr>
+  </tbody>
 </table>
-</div><script src="nav.js"></script>
-</body></html>
+
+<div class="att">
+  <span class="label label-att">R&egrave;gles absolues face &agrave; un laser</span>
+  <ul style="margin:6px 0 0;padding-left:20px">
+    <li><strong>Ne jamais regarder directement</strong> dans le faisceau, m&ecirc;me indirectement (r&eacute;flexion sur surface brillante)</li>
+    <li>Toujours porter les <strong>lunettes de protection adapt&eacute;es</strong> &agrave; la longueur d&rsquo;onde</li>
+    <li>Ne jamais diriger le faisceau vers une personne</li>
+    <li>&Eacute;teindre le laser lorsqu&rsquo;il n&rsquo;est pas utilis&eacute;</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Rayonnements UV</span><br>
+  Les lampes UV (ultraviolets) &eacute;mettent un rayonnement invisible mais dangereux pour les yeux et la peau.
+  Port des lunettes anti-UV et &eacute;vitement de l&rsquo;exposition directe obligatoires.
+</div>
+
+<!-- ============================================================ -->
+<h2>6. S&eacute;curit&eacute; acoustique &mdash; Protéger son audition</h2>
+
+<p>
+  L&rsquo;intensit&eacute; sonore se mesure en <strong>d&eacute;cibels (dB)</strong>.
+  Une exposition prolong&eacute;e &agrave; des niveaux &eacute;lev&eacute;s provoque des l&eacute;sions <em>irr&eacute;versibles</em> de l&rsquo;audition.
+</p>
+
+<div class="prop">
+  <span class="label label-prop">Seuils importants</span>
+  <ul style="margin:6px 0 0;padding-left:20px">
+    <li><strong>0 dB</strong> : seuil d&rsquo;audibilit&eacute;</li>
+    <li><strong>85 dB</strong> : seuil de danger en exposition prolong&eacute;e (8h/jour)</li>
+    <li><strong>120 dB</strong> : seuil de douleur</li>
+    <li><strong>&gt; 130 dB</strong> : risque de l&eacute;sion imm&eacute;diate</li>
+  </ul>
+</div>
+
+<div class="chart-wrap">
+  <canvas id="dbChart" height="300"></canvas>
+</div>
+
+<div class="att">
+  <span class="label label-att">En atelier MAMA</span><br>
+  Une scie circulaire produit environ <strong>100 &agrave; 105 dB</strong> — soit 15 &agrave; 20 dB au-dessus du seuil de danger.
+  Le port des protections auditives est <strong>obligatoire</strong> d&egrave;s que le niveau d&eacute;passe <strong>85 dB</strong>.
+</div>
+
+<!-- ============================================================ -->
+<h2>7. Tri s&eacute;lectif des d&eacute;chets chimiques</h2>
+
+<p>
+  Les produits chimiques utilis&eacute;s en laboratoire ou en atelier ne doivent <strong>jamais</strong>
+  &ecirc;tre jet&eacute;s dans les poubelles ordinaires ni vers&eacute;s dans l&rsquo;&eacute;vier.
+</p>
+
+<div class="def">
+  <span class="label label-def">D&eacute;chets Dangereux Sp&eacute;cifiques (DDS)</span><br>
+  Ce sont des d&eacute;chets qui pr&eacute;sentent des risques pour la sant&eacute; ou l&rsquo;environnement :
+  solvants, peintures, vernis, huiles, piles, produits corrosifs.
+</div>
+
+<table>
+  <thead>
+    <tr><th>Type de d&eacute;chet</th><th>O&ugrave; le mettre ?</th><th>Exemples en MAMA</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solvants organiques</td>
+      <td>Bidon sp&eacute;cifique solvants</td>
+      <td>White-spirit, ac&eacute;tone, diluants</td>
+    </tr>
+    <tr>
+      <td>Produits corrosifs</td>
+      <td>Bidon sp&eacute;cifique acides/bases</td>
+      <td>D&eacute;calants, d&eacute;capants</td>
+    </tr>
+    <tr>
+      <td>Emballages souillis</td>
+      <td>Collecte DDS</td>
+      <td>Bidons de vernis vides, chiffons impregn&eacute;s</td>
+    </tr>
+    <tr>
+      <td>Piles et batteries</td>
+      <td>Borne de collecte piles</td>
+      <td>Piles d&rsquo;outillage sans fil</td>
+    </tr>
+    <tr>
+      <td>D&eacute;chets banals</td>
+      <td>Poubelle ordinaire</td>
+      <td>Papier, carton non souill&eacute;</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="meth">
+  <span class="label label-meth">R&egrave;gles de tri</span>
+  <ol style="margin:8px 0 0;padding-left:20px">
+    <li>Ne <strong>jamais m&eacute;langer</strong> des produits chimiques diff&eacute;rents dans le m&ecirc;me conteneur</li>
+    <li>Toujours <strong>&eacute;tiqueter</strong> les conteneurs de d&eacute;chets</li>
+    <li>Fermer les conteneurs hermétiquement apr&egrave;s chaque d&eacute;p&ocirc;t</li>
+    <li>Stocker dans un local ventil&eacute; et signal&eacute;</li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2>8. Tableau de synth&egrave;se</h2>
+
+<table>
+  <thead>
+    <tr><th>Risque</th><th>Source en MAMA</th><th>EPI adapt&eacute;</th><th>Dispositif de protection</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Chimique</strong></td>
+      <td>Solvants, vernis, colles</td>
+      <td>Blouse, gants, lunettes, masque</td>
+      <td>Hotte aspirante, ventilation</td>
+    </tr>
+    <tr>
+      <td><strong>&Eacute;lectrique</strong></td>
+      <td>Machines, prises</td>
+      <td>Gants isolants, chaussures isolantes</td>
+      <td>Disj. diff&eacute;rentiel, mise &agrave; la terre</td>
+    </tr>
+    <tr>
+      <td><strong>Acoustique</strong></td>
+      <td>Scie, ponceuse, d&eacute;fonceuse</td>
+      <td>Casque antibruit, bouchons</td>
+      <td>Cabines insonoris&eacute;es</td>
+    </tr>
+    <tr>
+      <td><strong>Lumineux</strong></td>
+      <td>Laser de d&eacute;coupe, lampe UV</td>
+      <td>Lunettes anti-laser / anti-UV</td>
+      <td>Cabine laser ferm&eacute;e</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="retenir">
+  <span class="label label-ret">&#128218; &Agrave; retenir</span>
+  <ul style="margin:8px 0 0;padding-left:20px">
+    <li>Les <strong>pictogrammes SGH</strong> sont normalis&eacute;s — losange blanc bord rouge &mdash; 9 symboles &agrave; conna&icirc;tre</li>
+    <li>L&rsquo;<strong>EPI</strong> doit &ecirc;tre adapt&eacute; au risque et toujours port&eacute; avant la manipulation</li>
+    <li>Le <strong>disjoncteur diff&eacute;rentiel</strong> prot&egrave;ge les personnes ; le fusible/disjoncteur prot&egrave;ge les circuits</li>
+    <li>Seuil de danger acoustique : <strong>85 dB</strong> en exposition prolong&eacute;e</li>
+    <li>Ne jamais regarder un <strong>laser</strong> directement — danger pour la r&eacute;tine</li>
+    <li>Les d&eacute;chets chimiques ne vont <strong>jamais</strong> dans la poubelle ordinaire</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>9. Mini-exercices de v&eacute;rification</h2>
+
+<div class="exo">
+  <div class="exo-num">Exercice 1</div>
+  <p>Un flacon de diluant porte les pictogrammes flamme et t&ecirc;te de mort.</p>
+  <p><strong>a)</strong> Que signifient ces deux pictogrammes ?</p>
+  <p><strong>b)</strong> Quels EPI faut-il porter pour manipuler ce produit ?</p>
+  <details class="corr">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a)</strong> Flamme = produit <em>inflammable</em> (risque d&rsquo;incendie, &eacute;loigner des sources de chaleur).
+      T&ecirc;te de mort = produit <em>toxique</em> (dangereux m&ecirc;me en faible quantit&eacute;).<br><br>
+      <strong>b)</strong> Gants chimiques, lunettes de protection, blouse, masque respiratoire adapt&eacute; aux vapeurs.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 2</div>
+  <p>En atelier, un &eacute;l&egrave;ve utilise une scie &agrave; format qui produit un niveau sonore de 102 dB.</p>
+  <p><strong>a)</strong> Ce niveau est-il sup&eacute;rieur au seuil de danger ?</p>
+  <p><strong>b)</strong> Quelle protection doit-il porter ?</p>
+  <p><strong>c)</strong> De combien de dB ce casque doit-il att&eacute;nuer minimum pour ramener le niveau en dessous de 85 dB ?</p>
+  <details class="corr">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a)</strong> Oui : 102 dB &gt; 85 dB. Le seuil de danger est d&eacute;pass&eacute; &mdash; protection obligatoire.<br><br>
+      <strong>b)</strong> Casque antibruit (coquilles) ou bouchons d&rsquo;oreilles certifi&eacute;s.<br><br>
+      <strong>c)</strong> Il faut att&eacute;nuer d&rsquo;au moins : 102 &minus; 85 = <strong>17 dB</strong>.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 3</div>
+  <p>Dans un tableau &eacute;lectrique, quel est le r&ocirc;le du <strong>disjoncteur diff&eacute;rentiel</strong> ?
+  En quoi est-il diff&eacute;rent du fusible ?</p>
+  <details class="corr">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      Le <strong>disjoncteur diff&eacute;rentiel</strong> d&eacute;tecte tout courant qui s&rsquo;&eacute;chappe du circuit
+      (par exemple &agrave; travers une personne) et coupe l&rsquo;alimentation en moins de 30 ms.
+      Il prot&egrave;ge les <em>personnes</em> contre l&rsquo;&eacute;lectrocution.<br><br>
+      Le <strong>fusible</strong> fond uniquement en cas de <em>surcharge</em> ou de court-circuit &mdash;
+      il prot&egrave;ge les <em>circuits</em> (c&acirc;blage, appareils), pas les personnes.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <p>Associez chaque d&eacute;chet &agrave; son mode de collecte correct :</p>
+  <ol style="padding-left:20px">
+    <li>White-spirit us&eacute;</li>
+    <li>Cartons d&rsquo;emballage propres</li>
+    <li>Bidon de vernis vide avec r&eacute;sidus</li>
+    <li>Piles usag&eacute;es d&rsquo;une visseuse</li>
+  </ol>
+  <p>Choix : Bidon solvants / Poubelle ordinaire / Collecte DDS / Borne piles</p>
+  <details class="corr">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      1 → Bidon solvants (d&eacute;chet chimique dangereux)<br>
+      2 → Poubelle ordinaire (d&eacute;chet banal)<br>
+      3 → Collecte DDS (emballage souill&eacute;)<br>
+      4 → Borne de collecte piles
+    </div>
+  </details>
+</div>
+
+</div><!-- .c -->
+
+<script>
+// Graphique niveaux sonores
+(function(){
+  var ctx = document.getElementById('dbChart').getContext('2d');
+  var labels = [
+    'Seuil d\'audibilité','Bibliothèque','Conversation','Aspirateur',
+    'Seuil danger (85 dB)','Perceuse','Scie circulaire (atelier)','Seuil douleur'
+  ];
+  var values = [0, 35, 60, 75, 85, 95, 102, 120];
+  var colors = values.map(function(v){
+    if(v < 60)  return 'rgba(47,133,90,0.75)';
+    if(v < 85)  return 'rgba(217,119,6,0.75)';
+    return 'rgba(197,48,48,0.80)';
+  });
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Niveau sonore (dB)',
+        data: values,
+        backgroundColor: colors,
+        borderRadius: 5,
+        borderSkipped: false
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: 'Niveaux sonores courants (en dB)', font: { size: 13 } },
+        tooltip: { callbacks: { label: function(c){ return c.raw + ' dB'; } } }
+      },
+      scales: {
+        x: {
+          min: 0, max: 130,
+          title: { display: true, text: 'Niveau sonore (dB)' },
+          ticks: { stepSize: 20 }
+        }
+      }
+    }
+  });
+})();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

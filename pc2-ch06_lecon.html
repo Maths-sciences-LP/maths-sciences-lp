@@ -2,136 +2,457 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ch06 – Caractéristiques et transmission d'un son | Cours</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 &ndash; Forces et &eacute;quilibre &ndash; Cours</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
-:root{--p:#6f42c1;--pl:#f3eeff;--pd:#4b2e83;--g:#28a745;--gl:#e8f5e9;--o:#fd7e14;--ol:#fff3e0;--r:#dc3545;--rl:#fdecea;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5;color:#222;line-height:1.6;}
-header{background:var(--p);color:#fff;padding:16px 24px;display:flex;align-items:center;gap:12px;}
-header h1{font-size:1.3rem;}header .badge{background:rgba(255,255,255,.25);padding:3px 10px;border-radius:12px;font-size:.85rem;}
-nav{background:var(--pd);padding:8px 24px;display:flex;gap:16px;flex-wrap:wrap;}
-nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;padding:3px 8px;border-radius:4px;transition:.2s;}
-nav a:hover{background:rgba(255,255,255,.2);}nav a.active{background:rgba(255,255,255,.3);font-weight:600;}
-.container{max-width:860px;margin:24px auto;padding:0 16px;}
-.card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:20px;overflow:hidden;}
-.card-header{background:var(--p);color:#fff;padding:10px 18px;font-weight:600;font-size:1rem;}
-.card-body{padding:18px;}
-.def-box{background:var(--pl);border-left:4px solid var(--p);padding:12px 16px;border-radius:0 6px 6px 0;margin:12px 0;}
-.def-box strong{color:var(--pd);}
-.prop-box{background:#e8f4fd;border-left:4px solid #0d6efd;padding:12px 16px;border-radius:0 6px 6px 0;margin:12px 0;}
-.prop-box strong{color:#0a3d8f;}
-.attn-box{background:var(--ol);border-left:4px solid var(--o);padding:12px 16px;border-radius:0 6px 6px 0;margin:12px 0;}
-.attn-box strong{color:#b45300;}
-.ex-box{background:#f8f9fa;border:1px solid #dee2e6;padding:12px 16px;border-radius:6px;margin:12px 0;}
-.ex-box strong{color:var(--p);}
-table{width:100%;border-collapse:collapse;margin:12px 0;}
-th{background:var(--p);color:#fff;padding:8px 12px;text-align:left;}
-td{padding:8px 12px;border-bottom:1px solid #eee;}
-tr:nth-child(even) td{background:#f9f6ff;}
-.footer-links{text-align:center;margin-top:32px;padding:16px;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);}
-.footer-links a{color:var(--p);text-decoration:none;margin:0 12px;font-weight:500;}
-.footer-links a:hover{text-decoration:underline;}
-h2{color:var(--pd);font-size:1.1rem;margin:16px 0 8px;}
-p{margin:6px 0;}
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.formule{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.1em;font-weight:700;color:var(--p)}
+.formule small{display:block;margin-top:6px;font-size:.75em;font-weight:400;color:#718096}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-ret{background:#c4b5fd;color:#3b0764}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+th{background:#f3f0ff;font-weight:600;color:var(--p)}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+.objectifs ul{margin:6px 0 0;padding-left:20px}
+.exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+.exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+details.corr summary{cursor:pointer;font-weight:600;color:#2f855a;font-size:.88em;margin-top:10px;padding:4px 0}
+details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+.svg-center{text-align:center;margin:18px 0}
 </style>
-<script>MathJax={tex:{inlineMath:[['$','$']]},startup:{typeset:true}};</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
-<body>
+<body><div class="c">
+<a href="pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
 <header>
-  <div>
-    <div class="badge">Acoustique – Chapitre 6</div>
-    <h1>Caractéristiques et transmission d'un son</h1>
-  </div>
+  <h1>Chapitre 6 &mdash; Forces et &eacute;quilibre</h1>
+  <p class="sous-titre">2<sup>de</sup> Pro MAMA &nbsp;|&nbsp; Physique-Chimie &nbsp;|&nbsp; M&eacute;canique</p>
 </header>
-<nav>
-  <a href="pc-2nde-pro.html">← Accueil PC</a>
-  <a href="pc2-ch06_lecon.html" class="active">Cours</a>
-  <a href="pc2-ch06_exos.html">Exercices</a>
-  <a href="pc2-ch06_ds.html">Devoir</a>
-</nav>
-<div class="container">
 
-  <div class="card">
-    <div class="card-header">1. Qu'est-ce qu'un son ?</div>
-    <div class="card-body">
-      <div class="def-box"><strong>Définition :</strong> Un son est une <strong>vibration mécanique</strong> qui se propage dans un milieu matériel (solide, liquide ou gazeux) sous forme d'ondes de pression.</div>
-      <p>Le son est produit par la vibration d'un objet (corde, membrane, colonne d'air…). Ces vibrations se transmettent aux molécules du milieu et créent des zones alternées de compression et de dépression.</p>
-      <div class="attn-box"><strong>⚠ Attention :</strong> Le son ne se propage <strong>pas dans le vide</strong> car il a besoin d'un milieu matériel pour se transmettre.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">2. Caractéristiques d'un son</div>
-    <div class="card-body">
-      <h2>a) La fréquence (hauteur du son)</h2>
-      <div class="def-box"><strong>Définition :</strong> La <strong>fréquence</strong> $f$ d'un son est le nombre de vibrations par seconde. Elle s'exprime en <strong>hertz (Hz)</strong>.</div>
-      <div class="prop-box"><strong>Propriété :</strong> Plus la fréquence est élevée, plus le son est <strong>aigu</strong>. Plus la fréquence est faible, plus le son est <strong>grave</strong>.</div>
-      <p>L'oreille humaine perçoit les sons dont la fréquence est comprise entre <strong>20 Hz et 20 000 Hz</strong>.</p>
-      <table>
-        <tr><th>Type d'onde</th><th>Fréquence</th><th>Exemple</th></tr>
-        <tr><td>Infrason</td><td>$f &lt; 20$ Hz</td><td>Séismes, éléphants</td></tr>
-        <tr><td>Son audible</td><td>$20$ Hz $leq f leq 20000$ Hz</td><td>Musique, voix humaine</td></tr>
-        <tr><td>Ultrason</td><td>$f &gt; 20000$ Hz</td><td>Chauves-souris, échographie</td></tr>
-      </table>
-      
-      <h2>b) L'amplitude (intensité du son)</h2>
-      <div class="def-box"><strong>Définition :</strong> L'<strong>amplitude</strong> d'un son correspond à l'intensité des vibrations. Plus l'amplitude est grande, plus le son est <strong>fort (fort)</strong>.</div>
-      <p>Le niveau sonore se mesure en <strong>décibels (dB)</strong>. Le seuil de douleur est fixé à <strong>120 dB</strong>.</p>
-      
-      <h2>c) Le timbre (qualité du son)</h2>
-      <div class="def-box"><strong>Définition :</strong> Le <strong>timbre</strong> est la qualité d'un son qui permet de distinguer deux instruments jouant la même note à la même intensité.</div>
-      <p>Le timbre dépend de la forme de la vibration et des harmoniques présents dans le son.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">3. Propagation du son</div>
-    <div class="card-body">
-      <div class="def-box"><strong>Définition :</strong> La <strong>célérité</strong> (ou vitesse) du son $v$ est la vitesse à laquelle le son se propage dans un milieu.</div>
-      <table>
-        <tr><th>Milieu</th><th>Célérité approximative</th></tr>
-        <tr><td>Air (20°C)</td><td>$v approx 340$ m/s</td></tr>
-        <tr><td>Eau</td><td>$v approx 1500$ m/s</td></tr>
-        <tr><td>Acier</td><td>$v approx 5000$ m/s</td></tr>
-      </table>
-      <div class="prop-box"><strong>Propriété :</strong> Le son se propage <strong>plus vite</strong> dans les solides que dans les liquides, et plus vite dans les liquides que dans les gaz.</div>
-      
-      <h2>Relation fondamentale</h2>
-      <div class="def-box"><strong>Formule :</strong> $$v = d div t$$ où $v$ est la célérité en m/s, $d$ la distance en m, $t$ le temps en s.</div>
-      <div class="ex-box"><strong>Exemple :</strong> Un éclair est vu 3 secondes avant que le tonnerre soit entendu. La distance de l'orage est : $d = v 	imes t = 340 	imes 3 = 1020$ m $approx 1$ km.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">4. Relation fréquence – longueur d'onde – célérité</div>
-    <div class="card-body">
-      <div class="def-box"><strong>Définition :</strong> La <strong>longueur d'onde</strong> $lambda$ est la distance parcourue par le son pendant une période $T$ (durée d'une vibration).</div>
-      <div class="prop-box"><strong>Formule :</strong> $$lambda = rac{v}{f}$$ avec $lambda$ en m, $v$ en m/s et $f$ en Hz.</div>
-      <div class="ex-box"><strong>Exemple :</strong> Pour un son de fréquence $f = 440$ Hz (note La) dans l'air : $lambda = rac{340}{440} approx 0{,}77$ m.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">5. Résumé</div>
-    <div class="card-body">
-      <table>
-        <tr><th>Caractéristique</th><th>Grandeur physique</th><th>Unité</th></tr>
-        <tr><td>Hauteur</td><td>Fréquence $f$</td><td>hertz (Hz)</td></tr>
-        <tr><td>Intensité</td><td>Amplitude / Niveau sonore</td><td>décibel (dB)</td></tr>
-        <tr><td>Timbre</td><td>Forme de l'onde</td><td>—</td></tr>
-        <tr><td>Propagation</td><td>Célérité $v$</td><td>m/s</td></tr>
-        <tr><td>Longueur d'onde</td><td>$lambda = v / f$</td><td>mètre (m)</td></tr>
-      </table>
-    </div>
-  </div>
-
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Conna&icirc;tre les 4 caract&eacute;ristiques d&rsquo;une force et la repr&eacute;senter par un vecteur.</li>
+    <li>Calculer le poids d&rsquo;un objet &agrave; partir de sa masse.</li>
+    <li>Identifier les forces qui s&rsquo;exercent sur un objet et v&eacute;rifier une condition d&rsquo;&eacute;quilibre.</li>
+    <li>Appliquer ces notions &agrave; des situations du m&eacute;tier (MAMA).</li>
+  </ul>
 </div>
-<div class="footer-links">
-  <a href="pc-2nde-pro.html">← Retour au sommaire</a>
-  <a href="pc2-ch06_exos.html">Exercices →</a>
-  <a href="pc2-ch06_ds.html">Devoir →</a>
+
+<!-- ===== 1. NOTION DE FORCE ===== -->
+<h2>1. Notion de force</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Une <strong>force</strong> est une action exerc&eacute;e par un objet (ou l&rsquo;environnement) sur un autre objet. Elle peut modifier l&rsquo;&eacute;tat de mouvement d&rsquo;un objet ou le d&eacute;former.
+</div>
+
+<p>Une force est enti&egrave;rement d&eacute;finie par <strong>4 caract&eacute;ristiques</strong> :</p>
+
+<table>
+  <tr>
+    <th>Caract&eacute;ristique</th>
+    <th>Description</th>
+    <th>Exemple</th>
+  </tr>
+  <tr>
+    <td><strong>Point d&rsquo;application</strong></td>
+    <td>Endroit o&ugrave; la force s&rsquo;applique sur l&rsquo;objet</td>
+    <td>Centre de gravit&eacute; d&rsquo;une planche</td>
+  </tr>
+  <tr>
+    <td><strong>Direction (droite d&rsquo;action)</strong></td>
+    <td>La droite sur laquelle agit la force</td>
+    <td>Verticale, horizontale, oblique</td>
+  </tr>
+  <tr>
+    <td><strong>Sens</strong></td>
+    <td>Orientation le long de la droite d&rsquo;action</td>
+    <td>Vers le bas, vers le haut</td>
+  </tr>
+  <tr>
+    <td><strong>Valeur (intensit&eacute;)</strong></td>
+    <td>Grandeur de la force, exprim&eacute;e en Newtons (N)</td>
+    <td>50 N, 200 N</td>
+  </tr>
+</table>
+
+<div class="prop">
+  <span class="label label-prop">Repr&eacute;sentation vectorielle</span><br>
+  Une force se repr&eacute;sente par un <strong>vecteur</strong> \(\vec{F}\). Sa longueur est proportionnelle &agrave; sa valeur (on choisit une &eacute;chelle), sa fl&egrave;che indique le sens, et son support indique la direction.
+</div>
+
+<p>L&rsquo;unit&eacute; de force est le <strong>Newton</strong>, symbole <strong>N</strong> (du nom d&rsquo;Isaac Newton).</p>
+
+<!-- ===== 2. LE POIDS ===== -->
+<h2>2. Le poids</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Le <strong>poids</strong> \(\vec{P}\) est la force exerc&eacute;e par la Terre (attraction gravitationnelle) sur un objet. Tout objet ayant une masse est soumis &agrave; son poids.
+</div>
+
+<h3>Caract&eacute;ristiques du poids</h3>
+<ul>
+  <li><strong>Point d&rsquo;application</strong> : centre de gravit&eacute; de l&rsquo;objet</li>
+  <li><strong>Direction</strong> : verticale</li>
+  <li><strong>Sens</strong> : vers le bas (vers le centre de la Terre)</li>
+  <li><strong>Valeur</strong> : \(P = m \times g\)</li>
+</ul>
+
+<div class="formule">
+  \(P = m \times g\)
+  <small>
+    \(P\) : poids en Newtons (N) &nbsp;&mdash;&nbsp;
+    \(m\) : masse en kilogrammes (kg) &nbsp;&mdash;&nbsp;
+    \(g\) : intensit&eacute; de la pesanteur en N/kg
+  </small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Valeur de g sur Terre</span><br>
+  \(g = 9{,}8 \text{ N/kg}\) (valeur pr&eacute;cise) &nbsp; ou &nbsp; \(g \approx 10 \text{ N/kg}\) (valeur approch&eacute;e utilis&eacute;e en exercice).<br>
+  Sur la Lune : \(g_{\text{Lune}} \approx 1{,}6 \text{ N/kg}\) (le poids y est environ 6 fois plus faible).
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention &mdash; Masse &ne; Poids</span><br>
+  &bull; La <strong>masse</strong> (en kg) est une propri&eacute;t&eacute; intrins&egrave;que de l&rsquo;objet : elle ne change pas selon l&rsquo;endroit o&ugrave; on se trouve.<br>
+  &bull; Le <strong>poids</strong> (en N) est une force qui d&eacute;pend de l&rsquo;endroit o&ugrave; on se trouve.<br>
+  <em>Exemple : un astronaute de masse 80 kg a un poids de 784 N sur Terre, mais seulement 128 N sur la Lune.</em>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemples MAMA</span>
+  <ul>
+    <li>Une planche de ch&ecirc;ne de masse \(m = 8 \text{ kg}\) : \(P = 8 \times 10 = 80 \text{ N}\)</li>
+    <li>Une fraiseuse de masse \(m = 120 \text{ kg}\) : \(P = 120 \times 10 = 1\,200 \text{ N}\)</li>
+    <li>Un panneau de MDF de masse \(m = 25 \text{ kg}\) : \(P = 25 \times 10 = 250 \text{ N}\)</li>
+    <li>Un plateau de h&ecirc;tre de masse \(m = 15 \text{ kg}\) : \(P = 15 \times 10 = 150 \text{ N}\)</li>
+  </ul>
+</div>
+
+<!-- ===== 3. RÉACTION DU SUPPORT ===== -->
+<h2>3. La r&eacute;action du support</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  La <strong>r&eacute;action du support</strong> \(\vec{R}\) est la force exerc&eacute;e par la surface d&rsquo;appui sur l&rsquo;objet en contact avec elle. C&rsquo;est une force de contact.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propri&eacute;t&eacute;</span><br>
+  La r&eacute;action du support est <strong>perpendiculaire</strong> &agrave; la surface de contact :<br>
+  &bull; Sur un plan <strong>horizontal</strong> : la r&eacute;action est <strong>verticale vers le haut</strong>.<br>
+  &bull; Sur un plan inclin&eacute; : la r&eacute;action est perpendiculaire au plan inclin&eacute;.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple</span><br>
+  Une armoire pos&eacute;e sur le sol : le sol exerce une force verticale vers le haut sur l&rsquo;armoire. C&rsquo;est la r&eacute;action du support \(\vec{R}\). Sans cette r&eacute;action, l&rsquo;armoire tomberait &agrave; travers le sol.
+</div>
+
+<!-- ===== 4. 3e LOI DE NEWTON ===== -->
+<h2>4. Le principe des actions r&eacute;ciproques (3<sup>e</sup> loi de Newton)</h2>
+
+<div class="prop">
+  <span class="label label-prop">3<sup>e</sup> loi de Newton &mdash; &Eacute;nonc&eacute;</span><br>
+  &laquo;&nbsp;Si un objet A exerce une force sur un objet B, alors B exerce sur A une force &eacute;gale en valeur et en direction, mais de sens oppos&eacute;.&nbsp;&raquo;<br><br>
+  En formule : \(\vec{F}_{A \to B} = -\vec{F}_{B \to A}\)<br><br>
+  Les deux forces ont :
+  <ul>
+    <li>la m&ecirc;me droite d&rsquo;action</li>
+    <li>la m&ecirc;me valeur (intensit&eacute;)</li>
+    <li>des sens <strong>oppos&eacute;s</strong></li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Ces deux forces ne s&rsquo;annulent pas car elles ne s&rsquo;appliquent <strong>pas sur le m&ecirc;me objet</strong> : l&rsquo;une s&rsquo;applique sur A, l&rsquo;autre sur B.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple MAMA &mdash; Armoire sur le plancher</span><br>
+  &bull; L&rsquo;armoire <em>appuie</em> sur le plancher avec une force dirig&eacute;e vers le bas (action de l&rsquo;armoire sur le plancher).<br>
+  &bull; Le plancher <em>r&eacute;agit</em> sur l&rsquo;armoire avec une force de m&ecirc;me valeur, dirig&eacute;e vers le haut (r&eacute;action du plancher sur l&rsquo;armoire).<br>
+  Ces deux forces forment une paire d&rsquo;actions r&eacute;ciproques.
+</div>
+
+<!-- ===== 5. CONDITION D'ÉQUILIBRE ===== -->
+<h2>5. Condition d&rsquo;&eacute;quilibre</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Un objet est en <strong>&eacute;quilibre</strong> lorsqu&rsquo;il est immobile (ou en mouvement rectiligne uniforme) et que la somme vectorielle de toutes les forces qui s&rsquo;exercent sur lui est nulle.
+</div>
+
+<div class="formule">
+  \(\displaystyle\sum \vec{F} = \vec{0}\)
+  <small>La somme vectorielle de toutes les forces est nulle.</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Cas de 2 forces en &eacute;quilibre</span><br>
+  Un objet soumis &agrave; <strong>deux forces</strong> est en &eacute;quilibre si et seulement si ces deux forces sont :
+  <ul>
+    <li>sur la m&ecirc;me droite d&rsquo;action (colin&eacute;aires)</li>
+    <li>de m&ecirc;me valeur</li>
+    <li>de <strong>sens oppos&eacute;s</strong></li>
+  </ul>
+</div>
+
+<h3>Illustration : bloc pos&eacute; sur un plan horizontal</h3>
+<div class="svg-center">
+  <svg width="280" height="230" viewBox="0 0 280 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sch&eacute;ma des forces sur un bloc en &eacute;quilibre">
+    <title>Bloc en &eacute;quilibre sur un plan horizontal</title>
+    <!-- Sol -->
+    <rect x="30" y="175" width="220" height="12" fill="#ede9fe" rx="2"/>
+    <line x1="30" y1="175" x2="250" y2="175" stroke="#6f42c1" stroke-width="1.5"/>
+    <!-- Hachures sol -->
+    <line x1="40" y1="175" x2="28" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="58" y1="175" x2="46" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="76" y1="175" x2="64" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="94" y1="175" x2="82" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="112" y1="175" x2="100" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="130" y1="175" x2="118" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="148" y1="175" x2="136" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="166" y1="175" x2="154" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="184" y1="175" x2="172" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="202" y1="175" x2="190" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="220" y1="175" x2="208" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <line x1="238" y1="175" x2="226" y2="190" stroke="#9d7bd8" stroke-width="1"/>
+    <!-- Bloc -->
+    <rect x="95" y="110" width="90" height="65" fill="#f3f0ff" stroke="#6f42c1" stroke-width="2" rx="4"/>
+    <text x="140" y="148" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#4a5568">bloc</text>
+    <!-- Centre de gravit&eacute; -->
+    <circle cx="140" cy="142" r="3.5" fill="#6f42c1"/>
+    <!-- Fl&egrave;che poids vers le bas -->
+    <line x1="140" y1="145" x2="140" y2="208" stroke="#c53030" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+    <text x="153" y="188" font-size="13" font-family="Segoe UI,sans-serif" font-weight="bold" fill="#c53030">P&#x20D7;</text>
+    <!-- Fl&egrave;che r&eacute;action vers le haut -->
+    <line x1="140" y1="139" x2="140" y2="62" stroke="#2f855a" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <text x="148" y="88" font-size="13" font-family="Segoe UI,sans-serif" font-weight="bold" fill="#2f855a">R&#x20D7;</text>
+    <!-- D&eacute;finition marqueurs -->
+    <defs>
+      <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" fill="#c53030"/>
+      </marker>
+      <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" fill="#2f855a"/>
+      </marker>
+    </defs>
+    <!-- L&eacute;gende haut -->
+    <rect x="10" y="4" width="260" height="28" fill="#f0fff4" rx="4" stroke="#2f855a" stroke-width="1"/>
+    <text x="140" y="22" text-anchor="middle" font-size="11" font-family="Segoe UI,sans-serif" fill="#2f855a" font-weight="600">
+      Equilibre : P + R = 0 (m&ecirc;me valeur, sens oppos&eacute;s)
+    </text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:6px;">Bloc en &eacute;quilibre : le poids \(\vec{P}\) (rouge, vers le bas) et la r&eacute;action \(\vec{R}\) (vert, vers le haut) ont la m&ecirc;me valeur et des sens oppos&eacute;s.</p>
+</div>
+
+<!-- ===== 6. ÉQUILIBRE 3 FORCES ===== -->
+<h2>6. &Eacute;quilibre avec 3 forces</h2>
+
+<div class="prop">
+  <span class="label label-prop">Th&eacute;or&egrave;me des 3 forces</span><br>
+  Trois forces en &eacute;quilibre sont <strong>coplanaires</strong> (dans le m&ecirc;me plan) et <strong>concourantes</strong> : leurs droites d&rsquo;action se croisent toutes en un m&ecirc;me point.
+</div>
+
+<div class="meth">
+  <span class="label label-meth">M&eacute;thode &mdash; V&eacute;rifier l&rsquo;&eacute;quilibre sous 3 forces</span>
+  <ol>
+    <li>Identifier les 3 forces et tracer leurs droites d&rsquo;action.</li>
+    <li>V&eacute;rifier qu&rsquo;elles sont dans le m&ecirc;me plan (coplanaires).</li>
+    <li>V&eacute;rifier qu&rsquo;elles se croisent toutes en un m&ecirc;me point (concourantes).</li>
+    <li>V&eacute;rifier que la somme vectorielle est nulle (fermeture du triangle des forces).</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple MAMA &mdash; &Eacute;tag&egrave;re murale</span><br>
+  Une &eacute;tag&egrave;re fix&eacute;e au mur par une &eacute;querre est soumise &agrave; 3 forces :
+  <ul>
+    <li>son <strong>poids</strong> \(\vec{P}\) (vertical vers le bas)</li>
+    <li>la <strong>r&eacute;action du mur</strong> (horizontale)</li>
+    <li>la <strong>tension dans l&rsquo;&eacute;querre</strong> (oblique)</li>
+  </ul>
+  Pour que l&rsquo;&eacute;tag&egrave;re soit en &eacute;quilibre, ces 3 droites d&rsquo;action doivent se croiser en un m&ecirc;me point.
+</div>
+
+<!-- ===== 7. APPLICATION MAMA ===== -->
+<h2>7. Applications MAMA</h2>
+
+<h3>Calcul du poids d&rsquo;une pi&egrave;ce de bois</h3>
+<div class="ex">
+  <span class="label label-ex">Probl&egrave;me r&eacute;solu</span><br>
+  Un plateau de h&ecirc;tre massif a une masse de \(m = 15 \text{ kg}\). Calculer son poids.<br><br>
+  <strong>Donn&eacute;es :</strong> \(m = 15 \text{ kg}\) ; \(g = 10 \text{ N/kg}\)<br>
+  <strong>Formule :</strong> \(P = m \times g\)<br>
+  <strong>Application num&eacute;rique :</strong> \(P = 15 \times 10 = 150 \text{ N}\)<br>
+  <strong>R&eacute;sultat :</strong> Le plateau a un poids de <strong>150 N</strong>.
+</div>
+
+<h3>V&eacute;rification de l&rsquo;&eacute;quilibre d&rsquo;une &eacute;tag&egrave;re murale</h3>
+<div class="meth">
+  <span class="label label-meth">D&eacute;marche pratique</span>
+  <ol>
+    <li>Calculer le poids total des objets pos&eacute;s sur l&rsquo;&eacute;tag&egrave;re (poids propre + poids des objets).</li>
+    <li>V&eacute;rifier que les fixations (vis, chevilles) peuvent supporter ce poids total.</li>
+    <li>V&eacute;rifier que la somme de toutes les forces est nulle (conditions d&rsquo;&eacute;quilibre).</li>
+  </ol>
+</div>
+
+<h3>For&ccedil;ages dans une structure menuiserie</h3>
+<p>
+  Dans une menuiserie, les structures (ch&acirc;ssis, cloisons, assemblages) transmettent des forces. Comprendre l&rsquo;&eacute;quilibre des forces permet de dimensionner correctement les assemblages (tenons-mortaises, tourillons, vis, agrafes) pour qu&rsquo;ils r&eacute;sistent aux charges pr&eacute;vues sans se rompre.
+</p>
+<div class="ex">
+  <span class="label label-ex">Exemple num&eacute;rique</span><br>
+  Une &eacute;tag&egrave;re supporte des panneaux de masse totale \(m = 30 \text{ kg}\). Elle poss&egrave;de 4 vis de fixation.<br>
+  Poids total : \(P = 30 \times 10 = 300 \text{ N}\)<br>
+  Chaque vis supporte : \(F = \dfrac{300}{4} = 75 \text{ N}\)<br>
+  Il faut choisir des vis capables de r&eacute;sister &agrave; une force minimale de 75 N chacune.
+</div>
+
+<!-- ===== 8. TABLEAU DE SYNTHÈSE ===== -->
+<h2>8. Tableau de synth&egrave;se</h2>
+
+<table>
+  <tr>
+    <th>Grandeur</th>
+    <th>Symbole</th>
+    <th>Unit&eacute;</th>
+    <th>Formule / Remarque</th>
+  </tr>
+  <tr>
+    <td>Force</td>
+    <td>\(\vec{F}\)</td>
+    <td>Newton (N)</td>
+    <td>Vecteur &agrave; 4 caract&eacute;ristiques : point d&rsquo;application, direction, sens, valeur</td>
+  </tr>
+  <tr>
+    <td>Poids</td>
+    <td>\(\vec{P}\) ou \(P\)</td>
+    <td>Newton (N)</td>
+    <td>\(P = m \times g\) &mdash; vertical vers le bas &mdash; point d&rsquo;application : centre de gravit&eacute;</td>
+  </tr>
+  <tr>
+    <td>Masse</td>
+    <td>\(m\)</td>
+    <td>Kilogramme (kg)</td>
+    <td>Propri&eacute;t&eacute; intrins&egrave;que de l&rsquo;objet, constante quel que soit l&rsquo;endroit</td>
+  </tr>
+  <tr>
+    <td>Intensit&eacute; de la pesanteur</td>
+    <td>\(g\)</td>
+    <td>N/kg</td>
+    <td>\(g = 9{,}8 \approx 10 \text{ N/kg}\) sur Terre</td>
+  </tr>
+  <tr>
+    <td>R&eacute;action du support</td>
+    <td>\(\vec{R}\)</td>
+    <td>Newton (N)</td>
+    <td>Perpendiculaire &agrave; la surface de contact ; verticale vers le haut sur un plan horizontal</td>
+  </tr>
+</table>
+
+<!-- ===== 9. À RETENIR ===== -->
+<h2>9. &Agrave; retenir</h2>
+
+<div class="retenir">
+  <span class="label label-ret">&Agrave; retenir</span>
+  <ol>
+    <li>Une force est caract&eacute;ris&eacute;e par 4 &eacute;l&eacute;ments : <strong>point d&rsquo;application, direction, sens, valeur</strong>. Elle se repr&eacute;sente par un vecteur \(\vec{F}\). L&rsquo;unit&eacute; est le Newton (N).</li>
+    <li>Le <strong>poids</strong> se calcule par \(P = m \times g\) ; sur Terre \(g \approx 10 \text{ N/kg}\). Il est dirig&eacute; verticalement vers le bas.</li>
+    <li><strong>Masse (kg) &ne; Poids (N)</strong> : la masse est constante, le poids varie selon l&rsquo;endroit (Terre, Lune&hellip;).</li>
+    <li>Un objet est en <strong>&eacute;quilibre</strong> si \(\sum \vec{F} = \vec{0}\). Pour 2 forces : m&ecirc;me droite d&rsquo;action, m&ecirc;me valeur, sens oppos&eacute;s.</li>
+    <li>La <strong>3<sup>e</sup> loi de Newton</strong> : les forces d&rsquo;interaction entre deux objets sont &eacute;gales en valeur, de m&ecirc;me direction et de sens oppos&eacute;s.</li>
+  </ol>
+</div>
+
+<!-- ===== 10. MINI-EXERCICES ===== -->
+<h2>10. Mini-exercices</h2>
+
+<div class="exo">
+  <div class="exo-num">Exercice 1 &mdash; Calculer le poids d&rsquo;une armoire</div>
+  <p>Une armoire de cuisine en bois massif a une masse de \(m = 45 \text{ kg}\).</p>
+  <ol>
+    <li>Calculer le poids \(P\) de cette armoire en prenant \(g = 10 \text{ N/kg}\).</li>
+    <li>Donner la direction et le sens du vecteur poids \(\vec{P}\).</li>
+    <li>Cette armoire est pos&eacute;e sur le sol. Quelle est la valeur de la r&eacute;action du sol \(R\) sur l&rsquo;armoire ? Justifier.</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong> \(P = m \times g = 45 \times 10 = \mathbf{450 \text{ N}}\)<br>
+      <strong>2.</strong> Le vecteur poids est <em>vertical</em>, dirig&eacute; vers le <em>bas</em>.<br>
+      <strong>3.</strong> L&rsquo;armoire est immobile donc en &eacute;quilibre : \(\vec{P} + \vec{R} = \vec{0}\), ce qui implique \(R = P = \mathbf{450 \text{ N}}\). La r&eacute;action du sol est verticale vers le haut.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 2 &mdash; Identifier les forces sur un objet pos&eacute;</div>
+  <p>Un panneau de contreplaqu&eacute; de masse \(m = 12 \text{ kg}\) est pos&eacute; &agrave; plat sur une table horizontale.</p>
+  <ol>
+    <li>Lister toutes les forces qui s&rsquo;exercent sur ce panneau.</li>
+    <li>Pour chaque force, pr&eacute;ciser : quel objet l&rsquo;exerce, sa direction et son sens.</li>
+    <li>Justifier que le panneau est bien en &eacute;quilibre.</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>Forces sur le panneau :</strong><br>
+      &bull; <em>Poids \(\vec{P}\)</em> : exerc&eacute; par la Terre, vertical vers le bas, \(P = 12 \times 10 = 120 \text{ N}\).<br>
+      &bull; <em>R&eacute;action de la table \(\vec{R}\)</em> : exerc&eacute;e par la table, verticale vers le haut.<br><br>
+      <strong>Equilibre :</strong> Le panneau est immobile. Les deux forces sont sur la m&ecirc;me droite (verticale), de m&ecirc;me valeur (120 N) et de sens oppos&eacute;s. Donc \(\vec{P} + \vec{R} = \vec{0}\) : le panneau est bien en &eacute;quilibre.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 3 &mdash; Conditions d&rsquo;&eacute;quilibre</div>
+  <p>Un objet est soumis &agrave; deux forces :</p>
+  <ul>
+    <li>\(\vec{F}_1\) : verticale vers le bas, valeur 80 N.</li>
+    <li>\(\vec{F}_2\) : verticale vers le haut, valeur 80 N.</li>
+  </ul>
+  <ol>
+    <li>Calculer \(\vec{F}_1 + \vec{F}_2\). L&rsquo;objet est-il en &eacute;quilibre ? Justifier.</li>
+    <li>On ajoute une troisi&egrave;me force \(\vec{F}_3\) horizontale de valeur 30 N. L&rsquo;objet est-il toujours en &eacute;quilibre ? Pourquoi ?</li>
+    <li>Quelle force \(\vec{F}_4\) faudrait-il ajouter &agrave; \(\vec{F}_3\) pour r&eacute;tablir l&rsquo;&eacute;quilibre ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong> \(\vec{F}_1 + \vec{F}_2 = \vec{0}\) (m&ecirc;me valeur, sens oppos&eacute;s, m&ecirc;me droite d&rsquo;action). L&rsquo;objet est en &eacute;quilibre.<br>
+      <strong>2.</strong> Avec \(\vec{F}_3\) horizontale : \(\vec{F}_1 + \vec{F}_2 + \vec{F}_3 = \vec{0} + \vec{F}_3 = \vec{F}_3 \neq \vec{0}\). L&rsquo;objet n&rsquo;est plus en &eacute;quilibre &mdash; il va se d&eacute;placer dans la direction de \(\vec{F}_3\).<br>
+      <strong>3.</strong> Pour r&eacute;tablir l&rsquo;&eacute;quilibre, il faut \(\vec{F}_4 = -\vec{F}_3\) : horizontale, de valeur 30 N, mais de sens oppos&eacute; &agrave; \(\vec{F}_3\).
+    </div>
+  </details>
+</div>
+
 </div>
 <script src="nav.js"></script>
 </body>

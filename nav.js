@@ -83,16 +83,20 @@
       subject:      'Physique-Chimie',
       types: { lecon: 'Cours', exos: 'Exercices', ds: 'Devoir surveillé' },
       chapters: [
-        { id: '01', title: 'Mouvement rectiligne' },
-        { id: '02', title: 'Mouvement circulaire' },
-        { id: '03', "title": 'Équilibre d\'un solide' },
-        { id: '04', title: 'Composition chimique d\'un liquide' },
-        { id: '05', title: 'Acidité et pH' },
-        { id: '06', title: 'Caractéristiques et transmission d\'un son' },
-        { id: '07', title: 'Température et chaleur' },
-        { id: '08', title: 'Réflexion et réfraction' },
-        { id: '09', title: 'Composition de la lumière' },
-        { id: '10', title: 'Éclairement et photocomposants' }
+        { id: '01', title: 'Sécurité en laboratoire et en atelier' },
+        { id: '02', title: 'Grandeurs électriques et circuits' },
+        { id: '03', title: 'Loi d\'Ohm et caractéristiques d\'un dipôle' },
+        { id: '04', title: 'Signaux électriques alternatifs' },
+        { id: '05', title: 'Mouvement et trajectoire' },
+        { id: '06', title: 'Forces et équilibre' },
+        { id: '07', title: 'Structure de la matière : atomes, ions et molécules' },
+        { id: '08', title: 'Solutions chimiques et concentration' },
+        { id: '09', title: 'Caractéristiques d\'un son' },
+        { id: '10', title: 'Température et capteurs thermiques' },
+        { id: '11', title: 'Transferts thermiques et équilibre thermique' },
+        { id: '12', title: 'Changements d\'état et énergie thermique' },
+        { id: '13', title: 'Réflexion, réfraction et signaux lumineux' },
+        { id: '14', title: 'Lumière, couleurs et photodétecteurs' }
       ]
     },
 
