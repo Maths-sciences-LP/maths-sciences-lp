@@ -1,28 +1,319 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Ch03 PC – Exercices – Équilibre</title><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><style>:root{--p:#6f42c1;--d:#c53030;--s:#2f855a;--o:#d97706;--t:#2d3748}body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}h1{margin:0 0 6px;color:var(--p);font-size:1.7em}.sous-titre{color:#718096;font-size:.95em;margin:0}h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}.label-def{background:#ede9fe;color:#5b21b6}.label-prop{background:#d1fae5;color:#065f46}.label-att{background:#fee2e2;color:#991b1b}.label-meth{background:#fef3c7;color:#92400e}.label-ex{background:#e2e8f0;color:#4a5568}table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}th{background:#eef2f7;font-weight:600}.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}.exo-title{font-weight:600;font-size:1.05em}.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}.diff-1{background:#d1fae5;color:#065f46}.diff-2{background:#fef3c7;color:#92400e}.diff-3{background:#fee2e2;color:#991b1b}.q{margin:10px 0 6px;padding-left:4px}.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}.corr p{margin:6px 0}.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}.bc:hover{background:#5a32a3}.intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}</style></head><body><div class="c"><a href="pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
-<header><h1>Chapitre 3 – Exercices</h1><p class="sous-titre">Équilibre d'un solide &nbsp;|&nbsp; 2<sup>de</sup> Pro</p></header>
-<div class="intro-box"><strong>Compétences :</strong> calculer poids/masse, identifier forces, appliquer la condition d'équilibre.</div>
-<div class="exo"><div class="exo-header"><span class="exo-num">Exercice 1</span><span class="exo-title">Poids et masse</span><span class="diff diff-1">&#9733; Facile</span></div>
-<div class="q"><strong>1.</strong> Calculer le poids d'un objet de masse 8 kg sur Terre (g=9,8 N/kg).</div>
-<div class="q"><strong>2.</strong> Un objet pèse 196 N. Calculer sa masse.</div>
-<div class="q"><strong>3.</strong> Sur la Lune (g=1,6 N/kg), quel est le poids du même objet (196 N sur Terre) ?</div>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p><strong>1.</strong> P=8×9,8=78,4 N</p><p><strong>2.</strong> m=196/9,8=20 kg</p><p><strong>3.</strong> m=20 kg (inchangée) ; P=20×1,6=32 N</p></div></div>
-<div class="exo"><div class="exo-header"><span class="exo-num">Exercice 2</span><span class="exo-title">Forces en équilibre</span><span class="diff diff-2">&#9733;&#9733; Intermédiaire</span></div>
-<p>Un livre de 0,5 kg repose sur une table horizontale.</p>
-<div class="q"><strong>1.</strong> Calculer le poids du livre.</div>
-<div class="q"><strong>2.</strong> Quelles forces s'exercent sur le livre ? Décrire chacune.</div>
-<div class="q"><strong>3.</strong> Quelle est la valeur de la réaction du support ? Justifier.</div>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p><strong>1.</strong> P=0,5×9,8=4,9 N vers le bas</p><p><strong>2.</strong> Poids P⃗ (Terre→livre, vertical bas) + Réaction R⃗ (table→livre, vertical haut)</p><p><strong>3.</strong> Équilibre → R=P=4,9 N (vers le haut)</p></div></div>
-<div class="exo"><div class="exo-header"><span class="exo-num">Exercice 3</span><span class="exo-title">Objet suspendu</span><span class="diff diff-2">&#9733;&#9733; Intermédiaire</span></div>
-<p>Un lustre de 3 kg est suspendu au plafond par un fil.</p>
-<div class="q"><strong>1.</strong> Calculer le poids du lustre.</div>
-<div class="q"><strong>2.</strong> Quelle est la tension dans le fil ? Justifier.</div>
-<div class="q"><strong>3.</strong> Le fil supporte-t-il si sa tension maximale est 25 N ?</div>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p><strong>1.</strong> P=3×9,8=29,4 N</p><p><strong>2.</strong> T=P=29,4 N (équilibre : T⃗ et P⃗ opposées)</p><p><strong>3.</strong> 29,4 N > 25 N → le fil rompt.</p></div></div>
-<script>function toggle(btn){const c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}</script></div><script src="nav.js"></script>
-</body></html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exercices – Loi d'Ohm et caractéristiques d'un dipôle | PC 2nde Pro</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
+.mama-tag{display:inline-block;background:#e6f0ff;border:1px solid #bfdbfe;border-radius:4px;font-size:.75em;font-weight:700;color:#1a4a8a;padding:2px 8px;margin-bottom:6px;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0;background:#fff}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;font-size:1.05em;color:var(--t)}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none;font-size:.95em}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{background:#5a32a3}
+.intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.nav-links{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;font-size:.88em}
+.nav-links a{color:var(--p);text-decoration:none;padding:4px 10px;border:1px solid var(--p);border-radius:5px}
+.nav-links a:hover{background:var(--p);color:#fff}
+.chart-wrap{max-width:560px;margin:16px auto}
+</style>
+</head>
+<body>
+<div class="c">
+<header>
+  <div class="mama-tag">MAMA – 2nde Pro</div>
+  <h1>Chapitre 3 – Loi d'Ohm et caractéristiques d'un dipôle</h1>
+  <p class="sous-titre">Physique-Chimie &nbsp;|&nbsp; Exercices d'entraînement</p>
+</header>
+<div class="nav-links">
+  <a href="pc-2nde-pro.html">&#8592; Retour programme</a>
+  <a href="pc2-ch03_lecon.html">Cours (Ch.3)</a>
+  <a href="pc2-ch03_ds.html">Devoir surveillé</a>
+</div>
+<div class="intro-box">
+  Ces exercices portent sur la loi d'Ohm \( U = R \times I \), la caractéristique courant-tension U(I), les résistances en série et en parallèle, et la puissance \( P = U \times I \). Contexte : circuits automobiles (bougies de préchauffage, phares, dégivreur lunette).
+</div>
+
+<!-- SVG circuit série -->
+<div style="display:flex;justify-content:center;margin:18px 0">
+<svg width="460" height="110" viewBox="0 0 460 110" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="ar3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c53030"/></marker></defs>
+  <!-- batterie -->
+  <line x1="20" y1="55" x2="20" y2="25" stroke="#333" stroke-width="2"/>
+  <line x1="14" y1="33" x2="26" y2="33" stroke="#333" stroke-width="3"/>
+  <line x1="11" y1="44" x2="29" y2="44" stroke="#333" stroke-width="1.5"/>
+  <text x="32" y="43" font-size="11" fill="#6f42c1" font-weight="bold">12 V</text>
+  <line x1="20" y1="25" x2="80" y2="25" stroke="#333" stroke-width="2"/>
+  <line x1="20" y1="55" x2="80" y2="55" stroke="#333" stroke-width="2"/>
+  <!-- R1 -->
+  <line x1="80" y1="25" x2="140" y2="25" stroke="#333" stroke-width="2"/>
+  <rect x="140" y="14" width="70" height="22" rx="4" fill="#fff" stroke="#6f42c1" stroke-width="2"/>
+  <text x="175" y="29" text-anchor="middle" font-size="12" fill="#6f42c1" font-weight="bold">R₁</text>
+  <text x="175" y="8" text-anchor="middle" font-size="9" fill="#2f855a">U₁</text>
+  <!-- R2 -->
+  <line x1="210" y1="25" x2="260" y2="25" stroke="#333" stroke-width="2"/>
+  <rect x="260" y="14" width="70" height="22" rx="4" fill="#fff" stroke="#6f42c1" stroke-width="2"/>
+  <text x="295" y="29" text-anchor="middle" font-size="12" fill="#6f42c1" font-weight="bold">R₂</text>
+  <text x="295" y="8" text-anchor="middle" font-size="9" fill="#2f855a">U₂</text>
+  <!-- R3 -->
+  <line x1="330" y1="25" x2="380" y2="25" stroke="#333" stroke-width="2"/>
+  <rect x="380" y="14" width="60" height="22" rx="4" fill="#fff" stroke="#6f42c1" stroke-width="2"/>
+  <text x="410" y="29" text-anchor="middle" font-size="12" fill="#6f42c1" font-weight="bold">R₃</text>
+  <text x="410" y="8" text-anchor="middle" font-size="9" fill="#2f855a">U₃</text>
+  <line x1="440" y1="25" x2="440" y2="55" stroke="#333" stroke-width="2"/>
+  <!-- fil bas -->
+  <line x1="80" y1="55" x2="440" y2="55" stroke="#333" stroke-width="2"/>
+  <!-- courant I -->
+  <line x1="90" y1="17" x2="130" y2="17" stroke="#c53030" stroke-width="1.5" marker-end="url(#ar3)"/>
+  <text x="105" y="12" font-size="9" fill="#c53030">I →</text>
+  <text x="230" y="75" text-anchor="middle" font-size="10" fill="#718096">Résistances en série : R_éq = R₁ + R₂ + R₃</text>
+</svg>
+</div>
+
+<!-- ===== BASE ===== -->
+<h2>Base – Exercices fondamentaux</h2>
+<div class="section-intro">Maîtriser U = RI, lire une caractéristique, résistances en série.</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Appliquer la loi d'Ohm \( U = R \times I \)</span>
+    <span class="diff diff-1">Facile</span>
+  </div>
+  <div class="retenir"><strong>Loi d'Ohm :</strong> \( U = R \times I \) &nbsp;|&nbsp; \( R = \dfrac{U}{I} \) &nbsp;|&nbsp; \( I = \dfrac{U}{R} \)<br>Unités : U en volts (V), R en ohms (Ω), I en ampères (A).</div>
+  <p class="q"><strong>1.</strong> \( R = 47\,\Omega \), \( I = 0{,}2\,\text{A} \). Calculez \( U \).</p>
+  <p class="q"><strong>2.</strong> \( R = 100\,\Omega \), \( U = 5\,\text{V} \). Calculez \( I \) en mA.</p>
+  <p class="q"><strong>3.</strong> \( U = 12\,\text{V} \), \( I = 3\,\text{A} \). Calculez \( R \).</p>
+  <p class="q"><strong>4.</strong> Convertir : \( 2{,}2\,\text{k}\Omega \) en \(\Omega\) ; \( 470\,\Omega \) en k\(\Omega\).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( U = 47 \times 0{,}2 = 9{,}4\,\text{V} \)</p>
+    <p><strong>2.</strong> \( I = 5/100 = 0{,}05\,\text{A} = 50\,\text{mA} \)</p>
+    <p><strong>3.</strong> \( R = 12/3 = 4\,\Omega \)</p>
+    <p><strong>4.</strong> \( 2{,}2\,\text{k}\Omega = 2\,200\,\Omega \) ; \( 470\,\Omega = 0{,}47\,\text{k}\Omega \)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Lire une caractéristique courant-tension U(I)</span>
+    <span class="diff diff-1">Facile</span>
+  </div>
+  <div class="def"><strong>Caractéristique :</strong> courbe U(I). Pour un dipôle ohmique, c'est une droite de pente \( R = \Delta U / \Delta I \).</div>
+  <table>
+    <thead><tr><th>I (A)</th><th>0</th><th>0,2</th><th>0,4</th><th>0,6</th><th>0,8</th><th>1,0</th></tr></thead>
+    <tbody><tr><td>U (V)</td><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr></tbody>
+  </table>
+  <div class="chart-wrap"><canvas id="chartUI"></canvas></div>
+  <p class="q"><strong>1.</strong> La courbe est-elle une droite passant par l'origine ? Qu'en déduire ?</p>
+  <p class="q"><strong>2.</strong> Calculez \( R \) à partir du tableau.</p>
+  <p class="q"><strong>3.</strong> Estimez \( U \) pour \( I = 0{,}7\,\text{A} \).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Oui, droite passant par l'origine → dipôle ohmique (résistance pure).</p>
+    <p><strong>2.</strong> \( R = \Delta U / \Delta I = 10/1 = 10\,\Omega \). Vérification : \( 6/0{,}6 = 10\,\Omega \) ✓</p>
+    <p><strong>3.</strong> \( U = 10 \times 0{,}7 = 7\,\text{V} \)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Résistances en série</span>
+    <span class="diff diff-1">Facile</span>
+  </div>
+  <div class="prop"><strong>Série :</strong> \( R_{éq} = R_1 + R_2 + R_3 \) ; même courant partout ; \( U_{tot} = U_1 + U_2 + U_3 \).</div>
+  <p>Circuit série : \( R_1 = 10\,\Omega \), \( R_2 = 20\,\Omega \), \( R_3 = 30\,\Omega \), \( U_{tot} = 12\,\text{V} \).</p>
+  <p class="q"><strong>1.</strong> Calculez \( R_{éq} \).</p>
+  <p class="q"><strong>2.</strong> Calculez \( I \).</p>
+  <p class="q"><strong>3.</strong> Calculez \( U_1 \), \( U_2 \), \( U_3 \). Vérifiez.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( R_{éq} = 10+20+30 = 60\,\Omega \)</p>
+    <p><strong>2.</strong> \( I = 12/60 = 0{,}2\,\text{A} \)</p>
+    <p><strong>3.</strong> \( U_1=2\,\text{V} \), \( U_2=4\,\text{V} \), \( U_3=6\,\text{V} \). Vérif : \( 2+4+6=12\,\text{V} \) ✓</p>
+  </div>
+</div>
+
+<!-- ===== GUIDÉ ===== -->
+<h2>Guidé – Exercices intermédiaires guidés</h2>
+<div class="section-intro">Deux exercices avec étapes fléchées pour guider le raisonnement.</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Résistances en parallèle – Phares automobile</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+  <div class="prop"><strong>Parallèle :</strong> \( \dfrac{1}{R_{éq}} = \dfrac{1}{R_1} + \dfrac{1}{R_2} \) soit \( R_{éq} = \dfrac{R_1 R_2}{R_1+R_2} \)<br>
+  Même tension ; courants s'ajoutent : \( I = I_1 + I_2 \).</div>
+  <p>Deux phares \( R_1 = R_2 = 6\,\Omega \) en parallèle sur batterie 12 V.</p>
+  <div class="methode"><strong>Étape 1 :</strong> Calculer \( R_{éq} \).<br><strong>Étape 2 :</strong> Calculer \( I_1 \), \( I_2 \) (même tension 12 V).<br><strong>Étape 3 :</strong> Calculer \( I_{total} \).</div>
+  <p class="q"><strong>1.</strong> Calculez \( R_{éq} \).</p>
+  <p class="q"><strong>2.</strong> Calculez \( I_1 \), \( I_2 \) et \( I_{total} \).</p>
+  <p class="q"><strong>3.</strong> Si un phare grille (\( R_1 \to \infty \)), l'autre fonctionne-t-il encore ? Avantage du parallèle ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( R_{éq} = \dfrac{6 \times 6}{6+6} = 3\,\Omega \)</p>
+    <p><strong>2.</strong> \( I_1 = I_2 = 12/6 = 2\,\text{A} \) ; \( I_{total} = 4\,\text{A} \)</p>
+    <p><strong>3.</strong> Oui. En parallèle, chaque phare est directement aux 12 V : si \( R_1 \) est coupé, \( U_2 = 12\,\text{V} \) est maintenu → phare 2 continue. Avantage clé du câblage automobile en parallèle.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Puissance électrique – Ampoule H7</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+  <div class="def"><strong>Puissance :</strong> \( P = U \times I \) (W) &nbsp;|&nbsp; \( P = R \times I^2 \) &nbsp;|&nbsp; \( P = U^2/R \)<br>
+  Énergie : \( E = P \times t \) (J) ou (Wh)</div>
+  <p>Ampoule H7 : \( U = 12\,\text{V} \), \( P = 55\,\text{W} \).</p>
+  <div class="methode"><strong>Étape 1 :</strong> \( I = P/U \).<br><strong>Étape 2 :</strong> \( R = U/I \).<br><strong>Étape 3 :</strong> énergie en 2 h.</div>
+  <p class="q"><strong>1.</strong> Calculez \( I \).</p>
+  <p class="q"><strong>2.</strong> Calculez \( R \) en fonctionnement.</p>
+  <p class="q"><strong>3.</strong> Calculez l'énergie consommée en 2 h (en Wh et en kJ).</p>
+  <p class="q"><strong>4.</strong> Pour 2 phares H7 en parallèle, calculez \( P_{total} \) et \( I_{total} \).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( I = 55/12 \approx 4{,}6\,\text{A} \)</p>
+    <p><strong>2.</strong> \( R = 12/4{,}6 \approx 2{,}6\,\Omega \)</p>
+    <p><strong>3.</strong> \( E = 55 \times 2 = 110\,\text{Wh} = 396\,\text{kJ} \)</p>
+    <p><strong>4.</strong> \( P_{total} = 110\,\text{W} \) ; \( I_{total} = 110/12 \approx 9{,}2\,\text{A} \)</p>
+  </div>
+</div>
+
+<!-- ===== APPLICATION ===== -->
+<h2>Application – Exercices intermédiaires</h2>
+<div class="section-intro">Deux exercices à résoudre en autonomie.</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Bougie de préchauffage diesel</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+  <div class="attention"><strong>Attention :</strong> La résistance d'une bougie de préchauffage est très faible (≈ 0,5 Ω) → fort courant → ne jamais alimenter hors moteur prolongé.</div>
+  <p>Bougie diesel : \( R = 0{,}5\,\Omega \), \( U = 12\,\text{V} \).</p>
+  <p class="q"><strong>1.</strong> Calculez \( I \) et \( P \) d'une bougie.</p>
+  <p class="q"><strong>2.</strong> Moteur 4 cylindres : 4 bougies identiques en parallèle. Calculez \( I_{total} \).</p>
+  <p class="q"><strong>3.</strong> Si la batterie chute à 10 V, calculez la nouvelle puissance d'une bougie. Cela explique-t-il les difficultés de démarrage diesel par grand froid ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( I = 12/0{,}5 = 24\,\text{A} \) ; \( P = 12 \times 24 = 288\,\text{W} \)</p>
+    <p><strong>2.</strong> En parallèle : même I par bougie → \( I_{total} = 4 \times 24 = 96\,\text{A} \). Appel de courant énorme !</p>
+    <p><strong>3.</strong> \( P' = U'^2/R = 100/0{,}5 = 200\,\text{W} \). Réduction de 31 % → moins de chaleur → démarrage difficile. Oui, cela explique le problème.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Dégivreur de lunette arrière</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+  <p>Dégivreur lunette : \( U = 12\,\text{V} \), \( P = 120\,\text{W} \).</p>
+  <p class="q"><strong>1.</strong> Calculez \( R \) (utiliser \( P = U^2/R \)).</p>
+  <p class="q"><strong>2.</strong> Calculez \( I \).</p>
+  <p class="q"><strong>3.</strong> Calculez l'énergie consommée en 10 min (en J et en Wh).</p>
+  <p class="q"><strong>4.</strong> Quel calibre de fusible choisir parmi 5 A, 10 A, 15 A ? Justifiez.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( R = U^2/P = 144/120 = 1{,}2\,\Omega \)</p>
+    <p><strong>2.</strong> \( I = P/U = 120/12 = 10\,\text{A} \)</p>
+    <p><strong>3.</strong> \( E = 120 \times 600 = 72\,000\,\text{J} = 20\,\text{Wh} \)</p>
+    <p><strong>4.</strong> Courant nominal = 10 A → fusible <strong>15 A</strong> (légèrement supérieur pour absorber les pointes d'appel à la mise sous tension). Un 10 A risquerait de claquer.</p>
+  </div>
+</div>
+
+<!-- ===== MAMA ===== -->
+<h2>Contexte MAMA – Exercices avancés</h2>
+<div class="section-intro"><span class="mama-tag">MAMA</span> Exercices contextualisés dans la maintenance automobile.</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Diagnostic moteur de ventilateur de chauffage</span>
+    <span class="diff diff-3">Avancé</span>
+  </div>
+  <div class="mama-tag">MAMA</div>
+  <p>Le ventilateur de chauffage ne tourne plus en vitesse 1. Valeur nominale de la résistance de vitesse 1 : \( R_{nom} = 5\,\Omega \).</p>
+  <div class="methode"><strong>Démarche :</strong> 1. Mesurer R au multimètre. 2. Comparer à \( R_{nom} \). 3. Conclure : circuit ouvert (\( R=\infty \)) ou court-circuit (\( R\approx 0 \)) ?</div>
+  <p class="q"><strong>1.</strong> Le multimètre affiche OL (overload = \( \infty \)). Quelle est la panne probable ?</p>
+  <p class="q"><strong>2.</strong> Si le multimètre affiche \( 0\,\Omega \), qu'est-ce que cela signifie ?</p>
+  <p class="q"><strong>3.</strong> En fonctionnement normal (\( R=5\,\Omega \), \( U=12\,\text{V} \)), calculez \( I \) et \( P \).</p>
+  <p class="q"><strong>4.</strong> Le bloc résistances comporte \( R_1=2\,\Omega \), \( R_2=3\,\Omega \), \( R_3=5\,\Omega \) en série (vitesse 1). Calculez \( I \) et \( P_{total} \) pour \( U=12\,\text{V} \).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( R=\infty \) → <em>circuit ouvert</em> (fil cassé à l'intérieur de la résistance) → remplacer le bloc résistances.</p>
+    <p><strong>2.</strong> \( R=0 \) → <em>court-circuit</em> de la résistance → courant excessif, risque de claquer le fusible.</p>
+    <p><strong>3.</strong> \( I = 12/5 = 2{,}4\,\text{A} \) ; \( P = 12 \times 2{,}4 = 28{,}8\,\text{W} \)</p>
+    <p><strong>4.</strong> \( R_{éq} = 2+3+5=10\,\Omega \) ; \( I=12/10=1{,}2\,\text{A} \) ; \( P=12\times1{,}2=14{,}4\,\text{W} \). Plus de résistance → moins de courant → ventilateur plus lent.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Chauffage de siège conducteur – Analyse complète</span>
+    <span class="diff diff-3">Avancé</span>
+  </div>
+  <div class="mama-tag">MAMA</div>
+  <p>Deux résistances en série : \( R_1=3\,\Omega \) (dossier) et \( R_2=5\,\Omega \) (assise). Batterie \( U_{tot}=12\,\text{V} \).</p>
+  <p class="q"><strong>1.</strong> Calculez \( R_{éq} \).</p>
+  <p class="q"><strong>2.</strong> Calculez \( I \).</p>
+  <p class="q"><strong>3.</strong> Calculez \( U_1 \) et \( U_2 \). Vérifiez.</p>
+  <p class="q"><strong>4.</strong> Calculez \( P_1 \), \( P_2 \), \( P_{total} \). Quelle partie chauffe le plus ?</p>
+  <p class="q"><strong>5.</strong> Le technicien mesure \( U_1=12\,\text{V} \) et \( U_2=0\,\text{V} \). Quel défaut cela indique-t-il ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( R_{éq}=3+5=8\,\Omega \)</p>
+    <p><strong>2.</strong> \( I=12/8=1{,}5\,\text{A} \)</p>
+    <p><strong>3.</strong> \( U_1=3\times1{,}5=4{,}5\,\text{V} \) ; \( U_2=5\times1{,}5=7{,}5\,\text{V} \). Vérif : \( 4{,}5+7{,}5=12\,\text{V} \) ✓</p>
+    <p><strong>4.</strong> \( P_1=4{,}5\times1{,}5=6{,}75\,\text{W} \) ; \( P_2=7{,}5\times1{,}5=11{,}25\,\text{W} \) ; \( P_{tot}=18\,\text{W} \). <em>L'assise (\( R_2 \) plus grande) chauffe davantage.</em></p>
+    <p><strong>5.</strong> Toute la tension aux bornes de \( R_1 \) et rien pour \( R_2 \) → \( R_2 \) est en <em>circuit ouvert</em> (claqué). Aucun courant ne circule → ni \( R_1 \) ni \( R_2 \) ne chauffent.</p>
+  </div>
+</div>
+
+</div>
+<script>
+function toggle(btn){
+  var c=btn.nextElementSibling;
+  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
+  else{c.style.display='block';btn.textContent='Masquer la correction';}
+}
+const ctx=document.getElementById('chartUI').getContext('2d');
+new Chart(ctx,{type:'line',data:{labels:['0','0,2','0,4','0,6','0,8','1,0'],datasets:[{label:'U=10×I (10 Ω)',data:[0,2,4,6,8,10],borderColor:'#6f42c1',backgroundColor:'rgba(111,66,193,0.08)',borderWidth:2,pointRadius:5,pointBackgroundColor:'#6f42c1',tension:0}]},options:{responsive:true,plugins:{title:{display:true,text:'Caractéristique U(I) — résistance de 10 Ω',font:{size:13}},legend:{display:false}},scales:{x:{title:{display:true,text:'Intensité I (A)'}},y:{title:{display:true,text:'Tension U (V)'},min:0,max:12}}}});
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
