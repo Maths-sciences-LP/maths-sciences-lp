@@ -545,6 +545,30 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   &bull; Les particules s&rsquo;&eacute;chappent dans l&rsquo;air &rarr; <strong>vaporisation</strong> (passage &agrave; l&rsquo;&eacute;tat gazeux).
 </div>
 
+<!-- ===== CHART.JS : Masses atomiques ===== -->
+<h2>5 bis. Masses atomiques des &eacute;l&eacute;ments courants en MAMA</h2>
+<p>La <strong>masse atomique</strong> (en u.m.a., unit&eacute;s de masse atomique) repr&eacute;sente la masse relative d&rsquo;un atome par rapport au carbone-12. Plus un atome est lourd, plus les mat&eacute;riaux qui le contiennent sont denses.</p>
+
+<div class="chart-wrap">
+  <h4>Masses atomiques des &eacute;l&eacute;ments fr&eacute;quents en MAMA (en u.m.a.)</h4>
+  <canvas id="chartMasses" height="90"></canvas>
+  <p style="font-size:.8em;color:#718096;margin-top:8px;text-align:center">Source : tableau p&eacute;riodique &mdash; H=1, C=12, N=14, O=16, Al=27, Si=28, Fe=56, Cu=64, Zn=65</p>
+</div>
+
+<!-- ===== ANIMATION CANVAS : États de la matière ===== -->
+<h2>5 ter. Animation &mdash; Particules et &eacute;tats physiques</h2>
+<p>Observe le comportement des particules selon l&rsquo;&eacute;tat physique : utilise les boutons ci-dessous pour changer d&rsquo;&eacute;tat.</p>
+
+<div class="anim-wrap">
+  <canvas id="animEtats" width="500" height="160"></canvas>
+  <div class="anim-btns">
+    <button class="btn-solid" onclick="setEtat('solide')">Solide</button>
+    <button class="btn-liquid" onclick="setEtat('liquide')">Liquide</button>
+    <button class="btn-gaz" onclick="setEtat('gaz')">Gaz</button>
+  </div>
+  <p style="color:#a0aec0;font-size:.82em;margin-top:8px" id="animLabel">&#x25CF; &Eacute;tat actuel : <strong style="color:#c4b5fd">Solide</strong> &mdash; particules fix&eacute;es en r&eacute;seau, vibrations infimes</p>
+</div>
+
 <!-- ===== 6. APPLICATION MAMA ===== -->
 <h2>6. Applications MAMA</h2>
 
