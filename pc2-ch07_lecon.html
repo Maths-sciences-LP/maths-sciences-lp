@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch07 &ndash; Structure de la mati&egrave;re &ndash; Cours</title>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
@@ -47,6 +48,25 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
 .el-nm{background:#f3f0ff;border-color:#c4b5fd;color:#5b21b6}
 .el-m{background:#d1fae5;border-color:#6ee7b7;color:#065f46}
 .el-h{background:#fef3c7;border-color:#fcd34d;color:#92400e}
+/* Chart & Canvas */
+.chart-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px;margin:18px 0}
+.chart-wrap h4{margin:0 0 12px;color:var(--p);font-size:.95em}
+.anim-wrap{background:#1e1e2e;border-radius:10px;padding:14px;margin:18px 0;text-align:center}
+.anim-wrap canvas{border-radius:6px;display:block;margin:0 auto}
+.anim-btns{display:flex;gap:10px;justify-content:center;margin-top:10px}
+.anim-btns button{padding:6px 18px;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:.9em;transition:opacity .2s}
+.btn-solid{background:#6f42c1;color:#fff}
+.btn-liquid{background:#2f855a;color:#fff}
+.btn-gaz{background:#d97706;color:#fff}
+.anim-btns button:hover{opacity:.82}
+/* Applications MAMA extra */
+.mama-section{background:#f0f4ff;border:1px solid #c4b5fd;border-radius:10px;padding:18px 20px;margin:18px 0}
+.mama-section h4{margin:0 0 10px;color:#3730a3;font-size:1em}
+.mat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+.mat-card{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px}
+.mat-card .mat-title{font-weight:700;color:var(--p);font-size:.92em;margin-bottom:4px}
+.mat-card .mat-form{font-family:monospace;font-size:.85em;color:#065f46;background:#f0fff4;border-radius:4px;padding:2px 6px;display:inline-block;margin:3px 0}
+.mat-card p{margin:4px 0 0;font-size:.83em;color:#4a5568}
 </style>
 </head>
 <body><div class="c">
