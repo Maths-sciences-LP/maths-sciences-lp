@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur de lettre de motivation Parcoursup</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f5f7fa;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    nav {
+      background: #1e3a5f;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    nav ul { list-style: none; display: flex; max-width: 960px; margin: 0 auto; }
+    nav a {
+      display: block; padding: 14px 22px; color: #cbd5e1;
+      text-decoration: none; font-weight: 600; font-size: .95rem;
+      transition: background .2s, color .2s;
+    }
+    nav a:hover, nav a.active { background: #2563eb; color: #fff; }
+    header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      color: #fff; text-align: center; padding: 40px 20px 32px;
+    }
+    header h1 {
+      font-size: clamp(1.3rem, 3.5vw, 2rem);
+      font-weight: 800; margin-bottom: 6px;
+    }
+    header p { font-size: .95rem; opacity: .85; }
+
+    main { max-width: 900px; margin: 0 auto; padding: 28px 16px 64px; }
+
+    /* ── Mode selector ── */
+    .mode-selector {
+      display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .mode-btn {
+      flex: 1; min-width: 200px;
+      padding: 18px 20px;
+      background: #fff;
+      border: 2.5px solid #e2e8f0;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .mode-btn:hover { border-color: #93c5fd; }
+    .mode-btn.active { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
+    .mode-btn-title { font-weight: 700; font-size: 1rem; color: #1e3a5f; margin-bottom: 4px; }
+    .mode-btn-desc { font-size: .82rem; color: #64748b; }
+
+    /* ── Sections ── */
+    .form-section {
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+      padding: 24px; margin-bottom: 20px;
+    }
+    .form-section h2 {
+      font-size: 1.05rem; font-weight: 700; color: #1e3a5f;
+      border-left: 4px solid #2563eb; padding-left: 12px; margin-bottom: 16px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label {
+      font-size: .82rem; font-weight: 600; color: #475569; margin-bottom: 4px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 9px 12px; border: 1.5px solid #e2e8f0; border-radius: 7px;
+      font-size: .92rem; font-family: inherit; transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+    }
+    .form-group textarea { min-height: 80px; resize: vertical; }
+    .form-hint { font-size: .76rem; color: #94a3b8; margin-top: 3px; }
+
+    /* ── Guided steps ── */
+    .step-indicator {
+      display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .step-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .82rem; font-weight: 700;
+      background: #e2e8f0; color: #64748b;
+      transition: background .2s, color .2s;
+    }
+    .step-dot.active { background: #2563eb; color: #fff; }
+    .step-dot.done { background: #16a34a; color: #fff; }
+
+    .step-panel { display: none; }
+    .step-panel.active { display: block; }
+
+    .step-nav { display: flex; gap: 12px; margin-top: 18px; }
+
+    /* ── Template mode ── */
+    .template-area {
+      min-height: 300px; line-height: 1.8; font-size: .92rem;
+    }
+    .template-area .tpl-blank {
+      display: inline-block;
+      border-bottom: 2px solid #2563eb;
+      min-width: 150px;
+      padding: 2px 6px;
+      margin: 0 2px;
+      color: #2563eb;
+      font-weight: 600;
+      background: #eff6ff;
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: .9rem;
+    }
+    .template-area .tpl-blank:focus {
+      outline: none;
+      border-color: #1d4ed8;
+      box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+    }
+    .template-area .tpl-blank::placeholder { color: #93c5fd; font-weight: 400; }
+
+    /* ── Buttons ── */
+    .btn-primary, .btn-secondary {
+      padding: 11px 24px; border-radius: 7px;
+      font-weight: 700; font-size: .92rem;
+      cursor: pointer; border: none;
+      transition: background .2s, transform .1s;
+    }
+    .btn-primary { background: #2563eb; color: #fff; }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-secondary { background: #f1f5f9; color: #475569; border: 1.5px solid #e2e8f0; }
+    .btn-secondary:hover { background: #e2e8f0; }
+
+    /* ── Preview / Output ── */
+    #output-zone { display: none; }
+    #output-zone.visible { display: block; }
+    .letter-preview {
+      background: #fff; border: 2px solid #1e3a5f; border-radius: 4px;
+      padding: 32px 36px; margin-bottom: 20px; font-size: .92rem;
+      line-height: 1.8; white-space: pre-wrap;
+      font-family: 'Georgia', 'Times New Roman', serif;
+    }
+    .letter-preview p { margin-bottom: 12px; }
+
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+
+    .tips-box {
+      background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 8px;
+      padding: 16px 20px; margin-bottom: 20px;
+    }
+    .tips-box h3 { font-size: .9rem; color: #1d4ed8; margin-bottom: 8px; }
+    .tips-box ul { padding-left: 18px; font-size: .84rem; color: #334155; }
+    .tips-box li { margin-bottom: 4px; }
+
+    @media print {
+      body { background: #fff; }
+      nav, header, .form-section, .mode-selector, .btn-row, .tips-box,
+      .step-indicator, .step-nav, #template-mode, #guided-mode { display: none !important; }
+      main { padding: 0; max-width: 100%; }
+      #output-zone { display: block !important; }
+      .letter-preview { border: none; padding: 20px; font-size: 11pt; }
+    }
+
+    @media (max-width: 600px) {
+      nav a { padding: 11px 13px; font-size: .82rem; }
+      .form-section { padding: 16px; }
+      .letter-preview { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="maths-term-iccer.html">Mathématiques</a></li>
+      <li><a href="pc-term-iccer.html">Physique-Chimie</a></li>
+      <li><a href="simulations.html">Simulations</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Lettre de motivation Parcoursup</h1>
+    <p>Crée ta lettre de motivation pour tes voeux Parcoursup</p>
+  </header>
+
+  <main>
+
+    <div class="tips-box">
+      <h3>Conseils pour ta lettre</h3>
+      <ul>
+        <li>Sois <strong>sincère</strong> et <strong>concret</strong> : donne des exemples précis tirés de tes expériences.</li>
+        <li>Montre que tu connais la formation visée et explique <strong>pourquoi elle te correspond</strong>.</li>
+        <li>Mets en avant tes <strong>stages</strong>, projets scolaires et compétences acquises en bac pro.</li>
+        <li>La lettre Parcoursup est limitée à <strong>1 500 caractères</strong> (espaces compris).</li>
+        <li>Relis-toi plusieurs fois et fais relire par un adulte.</li>
+      </ul>
+    </div>
+
+    <!-- ── Mode Selector ── -->
+    <div class="mode-selector">
+      <button class="mode-btn active" onclick="switchMode('guided')" id="btn-mode-guided">
+        <div class="mode-btn-title">Mode guidé</div>
+        <div class="mode-btn-desc">Réponds à des questions simples, la lettre se construit automatiquement.</div>
+      </button>
+      <button class="mode-btn" onclick="switchMode('template')" id="btn-mode-template">
+        <div class="mode-btn-title">Modèle à compléter</div>
+        <div class="mode-btn-desc">Complète directement les champs d'une lettre pré-rédigée.</div>
+      </button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  MODE GUIDÉ                                        -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div id="guided-mode">
+      <div class="step-indicator" id="step-indicator">
+        <div class="step-dot active" data-step="1">1</div>
+        <div class="step-dot" data-step="2">2</div>
+        <div class="step-dot" data-step="3">3</div>
+        <div class="step-dot" data-step="4">4</div>
+        <div class="step-dot" data-step="5">5</div>
+      </div>
+
+      <!-- Étape 1 : Identité -->
+      <div class="step-panel active" id="step-1">
+        <div class="form-section">
+          <h2>Étape 1 – Qui es-tu ?</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="g-prenom">Prénom</label>
+              <input type="text" id="g-prenom" placeholder="Ton prénom">
+            </div>
+            <div class="form-group">
+              <label for="g-nom">Nom</label>
+              <input type="text" id="g-nom" placeholder="Ton nom">
+            </div>
+            <div class="form-group">
+              <label for="g-classe">Classe actuelle</label>
+              <input type="text" id="g-classe" placeholder="Ex : Terminale Bac Pro ICCER">
+            </div>
+            <div class="form-group">
+              <label for="g-lycee">Lycée</label>
+              <input type="text" id="g-lycee" placeholder="Nom de ton lycée">
+            </div>
+          </div>
+          <div class="step-nav">
+            <button class="btn-primary" onclick="nextStep(2)">Suivant</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 2 : Formation visée -->
+      <div class="step-panel" id="step-2">
+        <div class="form-section">
+          <h2>Étape 2 – Quelle formation vises-tu ?</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="g-formation">Nom de la formation</label>
+              <input type="text" id="g-formation" placeholder="Ex : BTS Électrotechnique">
+            </div>
+            <div class="form-group">
+              <label for="g-etablissement">Établissement visé</label>
+              <input type="text" id="g-etablissement" placeholder="Ex : Lycée Diderot, Paris">
+            </div>
+            <div class="form-group full">
+              <label for="g-pourquoi-formation">Pourquoi cette formation t'intéresse ?</label>
+              <textarea id="g-pourquoi-formation" placeholder="Ex : J'ai découvert ce domaine pendant mon stage... Cette formation me permettra de..."></textarea>
+              <span class="form-hint">Explique ce qui t'attire dans cette formation et pourquoi elle correspond à ton projet.</span>
+            </div>
+          </div>
+          <div class="step-nav">
+            <button class="btn-secondary" onclick="prevStep(1)">Précédent</button>
+            <button class="btn-primary" onclick="nextStep(3)">Suivant</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 3 : Expériences -->
+      <div class="step-panel" id="step-3">
+        <div class="form-section">
+          <h2>Étape 3 – Tes expériences</h2>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label for="g-stages">Tes stages et expériences professionnelles</label>
+              <textarea id="g-stages" placeholder="Ex : J'ai effectué un stage de 4 semaines chez Schneider Electric où j'ai appris à câbler des armoires électriques..."></textarea>
+              <span class="form-hint">Décris tes stages (entreprise, durée, ce que tu as fait et appris).</span>
+            </div>
+            <div class="form-group full">
+              <label for="g-projets">Projets scolaires ou personnels en lien</label>
+              <textarea id="g-projets" placeholder="Ex : En cours d'atelier, j'ai réalisé un projet de... / Je m'intéresse à..."></textarea>
+              <span class="form-hint">Projets réalisés au lycée, en atelier, ou centres d'intérêt en lien avec la formation.</span>
+            </div>
+          </div>
+          <div class="step-nav">
+            <button class="btn-secondary" onclick="prevStep(2)">Précédent</button>
+            <button class="btn-primary" onclick="nextStep(4)">Suivant</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 4 : Qualités -->
+      <div class="step-panel" id="step-4">
+        <div class="form-section">
+          <h2>Étape 4 – Tes qualités et compétences</h2>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label for="g-qualites">Quelles sont tes qualités principales ?</label>
+              <textarea id="g-qualites" placeholder="Ex : Je suis rigoureux, j'aime le travail en équipe, je suis autonome et curieux..."></textarea>
+              <span class="form-hint">Cite 2-3 qualités et illustre-les avec un exemple concret si possible.</span>
+            </div>
+            <div class="form-group full">
+              <label for="g-competences">Compétences techniques acquises en bac pro</label>
+              <textarea id="g-competences" placeholder="Ex : Maîtrise de la lecture de plans, utilisation d'appareils de mesure, habilitation électrique..."></textarea>
+            </div>
+          </div>
+          <div class="step-nav">
+            <button class="btn-secondary" onclick="prevStep(3)">Précédent</button>
+            <button class="btn-primary" onclick="nextStep(5)">Suivant</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 5 : Projet professionnel -->
+      <div class="step-panel" id="step-5">
+        <div class="form-section">
+          <h2>Étape 5 – Ton projet professionnel</h2>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label for="g-projet-pro">Quel est ton projet professionnel après cette formation ?</label>
+              <textarea id="g-projet-pro" placeholder="Ex : À terme, je souhaite devenir technicien en maintenance industrielle... / Je vise une licence pro après le BTS..."></textarea>
+              <span class="form-hint">Décris ton objectif à moyen terme (métier visé, poursuite d'études...).</span>
+            </div>
+          </div>
+          <div class="step-nav">
+            <button class="btn-secondary" onclick="prevStep(4)">Précédent</button>
+            <button class="btn-primary" onclick="genererLettre()">Générer ma lettre</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  MODE MODÈLE À COMPLÉTER                           -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div id="template-mode" style="display:none;">
+      <div class="form-section">
+        <h2>Complète les champs en bleu</h2>
+        <p style="font-size:.84rem;color:#64748b;margin-bottom:16px;">
+          Clique sur chaque champ bleu et remplace-le par tes informations. La lettre se mettra à jour automatiquement.
+        </p>
+        <div class="template-area" id="template-area">
+          <p>Objet : Candidature en <input class="tpl-blank" type="text" id="t-formation" placeholder="nom de la formation" style="width:200px"> au sein de <input class="tpl-blank" type="text" id="t-etablissement" placeholder="nom de l'établissement" style="width:220px"></p>
+
+          <p>Madame, Monsieur,</p>
+
+          <p>Actuellement en <input class="tpl-blank" type="text" id="t-classe" placeholder="classe actuelle" style="width:200px"> au lycée <input class="tpl-blank" type="text" id="t-lycee" placeholder="nom du lycée" style="width:200px">, je me permets de vous soumettre ma candidature pour intégrer votre formation en <input class="tpl-blank" type="text" id="t-formation2" placeholder="nom de la formation" style="width:200px">.</p>
+
+          <p>Cette formation m'intéresse particulièrement car <input class="tpl-blank" type="text" id="t-interet" placeholder="raisons de ton intérêt pour cette formation" style="width:100%">.</p>
+
+          <p>Au cours de ma formation en bac professionnel, j'ai eu l'opportunité d'effectuer un stage chez <input class="tpl-blank" type="text" id="t-stage-entreprise" placeholder="nom de l'entreprise" style="width:180px"> où j'ai pu <input class="tpl-blank" type="text" id="t-stage-missions" placeholder="décrire ce que tu as fait et appris" style="width:100%">. Cette expérience a confirmé mon intérêt pour ce domaine.</p>
+
+          <p>Mes atouts pour réussir dans cette formation sont <input class="tpl-blank" type="text" id="t-qualites" placeholder="tes qualités (ex : rigueur, autonomie, esprit d'équipe)" style="width:100%">. J'ai également acquis des compétences techniques telles que <input class="tpl-blank" type="text" id="t-competences" placeholder="compétences techniques acquises" style="width:100%">.</p>
+
+          <p>À terme, mon projet professionnel est de <input class="tpl-blank" type="text" id="t-projet" placeholder="ton projet professionnel (métier visé, poursuite d'études)" style="width:100%">. Votre formation constitue une étape essentielle pour y parvenir.</p>
+
+          <p>Je reste à votre disposition pour tout entretien complémentaire et vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.</p>
+
+          <p><input class="tpl-blank" type="text" id="t-prenom-nom" placeholder="Prénom NOM" style="width:200px"></p>
+        </div>
+
+        <div id="char-count-tpl" style="font-size:.82rem;color:#64748b;margin-top:10px;"></div>
+
+        <div class="btn-row">
+          <button class="btn-primary" onclick="genererDepuisTemplate()">Aperçu de la lettre</button>
+          <button class="btn-secondary" onclick="reinitialiserTemplate()">Réinitialiser</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!--  APERÇU FINAL                                     -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div id="output-zone">
+      <div class="form-section">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <h2 style="margin-bottom:0;">Aperçu de ta lettre</h2>
+          <span id="char-count" style="font-size:.82rem;color:#64748b;background:#f1f5f9;padding:4px 14px;border-radius:20px;"></span>
+        </div>
+        <div class="letter-preview" id="letter-output"></div>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="copierLettre()">Copier le texte</button>
+          <button class="btn-primary" onclick="window.print()">Imprimer / PDF</button>
+          <button class="btn-secondary" onclick="modifierLettre()">Modifier</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer style="background:#1e3a5f;color:#94a3b8;text-align:center;padding:18px;font-size:.8rem;">
+    <p>Maths – Sciences en LP &mdash; M. Azzouz &mdash; Lycée Eugène Hénaff &mdash; Académie de Créteil</p>
+  </footer>
+
+  <script>
+    var currentStep = 1;
+    var currentMode = 'guided';
+
+    function switchMode(mode) {
+      currentMode = mode;
+      document.getElementById('guided-mode').style.display = mode === 'guided' ? '' : 'none';
+      document.getElementById('template-mode').style.display = mode === 'template' ? '' : 'none';
+      document.getElementById('btn-mode-guided').classList.toggle('active', mode === 'guided');
+      document.getElementById('btn-mode-template').classList.toggle('active', mode === 'template');
+      document.getElementById('output-zone').classList.remove('visible');
+    }
+
+    function goToStep(n) {
+      currentStep = n;
+      var panels = document.querySelectorAll('.step-panel');
+      var dots = document.querySelectorAll('.step-dot');
+      for (var i = 0; i < panels.length; i++) {
+        panels[i].classList.toggle('active', i === n - 1);
+      }
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active', 'done');
+        if (i + 1 < n) dots[i].classList.add('done');
+        if (i + 1 === n) dots[i].classList.add('active');
+      }
+    }
+
+    function nextStep(n) { goToStep(n); }
+    function prevStep(n) { goToStep(n); }
+
+    function val(id) { return document.getElementById(id).value.trim(); }
+
+    function genererLettre() {
+      var prenom = val('g-prenom');
+      var nom = val('g-nom');
+      var classe = val('g-classe');
+      var lycee = val('g-lycee');
+      var formation = val('g-formation');
+      var etablissement = val('g-etablissement');
+      var pourquoi = val('g-pourquoi-formation');
+      var stages = val('g-stages');
+      var projets = val('g-projets');
+      var qualites = val('g-qualites');
+      var competences = val('g-competences');
+      var projetPro = val('g-projet-pro');
+
+      if (!prenom || !formation) {
+        alert('Remplis au moins ton prénom et le nom de la formation.');
+        return;
+      }
+
+      var txt = '';
+      txt += 'Objet : Candidature en ' + formation;
+      if (etablissement) txt += ' – ' + etablissement;
+      txt += '\n\n';
+      txt += 'Madame, Monsieur,\n\n';
+
+      txt += 'Actuellement en ' + (classe || 'terminale bac professionnel');
+      if (lycee) txt += ' au lycée ' + lycee;
+      txt += ', je me permets de vous soumettre ma candidature pour intégrer votre formation en ' + formation + '.';
+      txt += '\n\n';
+
+      if (pourquoi) {
+        txt += pourquoi;
+        if (txt.charAt(txt.length - 1) !== '.') txt += '.';
+        txt += '\n\n';
+      }
+
+      if (stages) {
+        txt += stages;
+        if (txt.charAt(txt.length - 1) !== '.') txt += '.';
+        txt += '\n\n';
+      }
+
+      if (projets) {
+        txt += projets;
+        if (txt.charAt(txt.length - 1) !== '.') txt += '.';
+        txt += '\n\n';
+      }
+
+      if (qualites || competences) {
+        var q = '';
+        if (qualites) q += qualites;
+        if (competences) {
+          if (q) q += ' De plus, j\'ai acquis des compétences techniques : ';
+          q += competences;
+        }
+        txt += q;
+        if (txt.charAt(txt.length - 1) !== '.') txt += '.';
+        txt += '\n\n';
+      }
+
+      if (projetPro) {
+        txt += 'À terme, ' + projetPro;
+        if (txt.charAt(txt.length - 1) !== '.') txt += '.';
+        txt += ' Votre formation constitue une étape essentielle pour y parvenir.';
+        txt += '\n\n';
+      }
+
+      txt += 'Je reste à votre disposition pour tout entretien complémentaire et vous prie d\'agréer, Madame, Monsieur, l\'expression de mes salutations distinguées.\n\n';
+      txt += prenom + ' ' + nom.toUpperCase();
+
+      afficherLettre(txt);
+    }
+
+    function genererDepuisTemplate() {
+      var blanks = document.querySelectorAll('#template-area .tpl-blank');
+      var text = '';
+      var nodes = document.getElementById('template-area').querySelectorAll('p');
+      for (var i = 0; i < nodes.length; i++) {
+        var p = nodes[i];
+        var line = '';
+        for (var j = 0; j < p.childNodes.length; j++) {
+          var n = p.childNodes[j];
+          if (n.nodeType === 3) {
+            line += n.textContent;
+          } else if (n.classList && n.classList.contains('tpl-blank')) {
+            line += n.value || n.placeholder;
+          }
+        }
+        text += line.trim() + '\n\n';
+      }
+      afficherLettre(text.trim());
+    }
+
+    function afficherLettre(txt) {
+      var el = document.getElementById('letter-output');
+      el.textContent = txt;
+      document.getElementById('char-count').textContent = txt.length + ' / 1 500 caractères';
+      if (txt.length > 1500) {
+        document.getElementById('char-count').style.color = '#dc2626';
+        document.getElementById('char-count').style.background = '#fef2f2';
+      } else {
+        document.getElementById('char-count').style.color = '#16a34a';
+        document.getElementById('char-count').style.background = '#f0fdf4';
+      }
+      document.getElementById('output-zone').classList.add('visible');
+      document.getElementById('output-zone').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copierLettre() {
+      var txt = document.getElementById('letter-output').textContent;
+      navigator.clipboard.writeText(txt).then(function() {
+        alert('Lettre copiée dans le presse-papiers !');
+      });
+    }
+
+    function modifierLettre() {
+      document.getElementById('output-zone').classList.remove('visible');
+      if (currentMode === 'guided') goToStep(1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function reinitialiserTemplate() {
+      var blanks = document.querySelectorAll('#template-area .tpl-blank');
+      for (var i = 0; i < blanks.length; i++) blanks[i].value = '';
+    }
+
+    // Compteur temps réel pour le mode modèle
+    document.getElementById('template-area').addEventListener('input', function() {
+      var nodes = document.querySelectorAll('#template-area p');
+      var text = '';
+      for (var i = 0; i < nodes.length; i++) {
+        var p = nodes[i];
+        for (var j = 0; j < p.childNodes.length; j++) {
+          var n = p.childNodes[j];
+          if (n.nodeType === 3) text += n.textContent;
+          else if (n.classList && n.classList.contains('tpl-blank')) text += n.value || '';
+        }
+        text += '\n\n';
+      }
+      var len = text.trim().length;
+      var el = document.getElementById('char-count-tpl');
+      el.textContent = len + ' / 1 500 caractères';
+      el.style.color = len > 1500 ? '#dc2626' : '#64748b';
+    });
+  </script>
+
+</body>
+</html>
