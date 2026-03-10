@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ch11 &ndash; Transferts thermiques et &eacute;quilibre thermique &mdash; 2nde Pro MAMA</title>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
@@ -49,6 +50,17 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
 .mode-card p{margin:0;font-size:.85em;color:#4a5568;line-height:1.5}
 .mode-card .icon{font-size:1.8em;margin-bottom:6px}
 @media(max-width:600px){.modes-grid{grid-template-columns:1fr}}
+/* SVG diagram */
+.svg-container{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:16px 0;text-align:center;overflow-x:auto}
+.svg-container figcaption{font-size:.85em;color:#718096;margin-top:8px;font-style:italic}
+/* Chart container */
+.chart-container{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:16px 0}
+.chart-container p.chart-caption{font-size:.85em;color:#718096;text-align:center;margin:6px 0 0;font-style:italic}
+/* Canvas animation */
+.canvas-container{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:16px 0;text-align:center;overflow-x:auto}
+.canvas-container p.canvas-caption{font-size:.85em;color:#718096;text-align:center;margin:8px 0 0;font-style:italic}
+.canvas-btn{display:inline-block;margin-top:10px;padding:6px 18px;background:var(--p);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.9em;font-weight:600}
+.canvas-btn:hover{background:#5a32a3}
 </style>
 </head>
 <body>
@@ -117,6 +129,93 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
       <h4 style="color:#d97706">Rayonnement</h4>
       <p>Par ondes &eacute;lectromagn&eacute;tiques (infrarouge), sans milieu mat&eacute;riel n&eacute;cessaire. Tout corps au-dessus de 0&nbsp;K rayonne.</p>
     </div>
+  </div>
+
+  <!-- SVG diagram of the 3 modes of heat transfer -->
+  <div class="svg-container">
+    <figure style="margin:0">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="100%" style="max-width:720px;display:block;margin:auto" role="img" aria-label="Sch&eacute;ma des trois modes de transfert thermique">
+        <title>Sch&eacute;ma des trois modes de transfert thermique</title>
+        <!-- === Panel backgrounds === -->
+        <rect x="0" y="0" width="230" height="200" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+        <rect x="245" y="0" width="230" height="200" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+        <rect x="490" y="0" width="230" height="200" rx="10" fill="#fff7ed" stroke="#d97706" stroke-width="1.5"/>
+
+        <!-- === CONDUCTION === -->
+        <!-- Title -->
+        <text x="115" y="22" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#4f46e5">Conduction</text>
+        <!-- Wall (solid block) -->
+        <rect x="70" y="35" width="90" height="120" rx="4" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.5"/>
+        <!-- Hot side label -->
+        <text x="30" y="100" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="11" fill="#c53030" font-weight="700">CHAUD</text>
+        <text x="30" y="113" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#c53030">80&deg;C</text>
+        <!-- Cold side label -->
+        <text x="200" y="100" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="11" fill="#2b6cb0" font-weight="700">FROID</text>
+        <text x="200" y="113" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#2b6cb0">20&deg;C</text>
+        <!-- Arrows inside wall showing heat flow -->
+        <line x1="80" y1="95" x2="148" y2="95" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-blue)"/>
+        <!-- Atom dots -->
+        <circle cx="95" cy="75" r="5" fill="#4f46e5" opacity="0.7"/>
+        <circle cx="115" cy="75" r="5" fill="#4f46e5" opacity="0.55"/>
+        <circle cx="135" cy="75" r="5" fill="#4f46e5" opacity="0.4"/>
+        <circle cx="95" cy="120" r="5" fill="#4f46e5" opacity="0.7"/>
+        <circle cx="115" cy="120" r="5" fill="#4f46e5" opacity="0.55"/>
+        <circle cx="135" cy="120" r="5" fill="#4f46e5" opacity="0.4"/>
+        <!-- Caption -->
+        <text x="115" y="178" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#4a5568">De proche en proche,</text>
+        <text x="115" y="192" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#4a5568">sans d&eacute;placement de mati&egrave;re</text>
+
+        <!-- === CONVECTION === -->
+        <!-- Title -->
+        <text x="360" y="22" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#059669">Convection</text>
+        <!-- Radiator (heat source at bottom) -->
+        <rect x="295" y="148" width="130" height="18" rx="4" fill="#fca5a5" stroke="#c53030" stroke-width="1.2"/>
+        <text x="360" y="161" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#c53030" font-weight="700">Radiateur chaud</text>
+        <!-- Rising warm air arrows -->
+        <path d="M330 140 Q325 110 332 80 Q338 50 330 35" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arr-green)"/>
+        <path d="M360 140 Q355 110 362 80 Q368 50 360 35" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arr-green)"/>
+        <path d="M390 140 Q385 110 392 80 Q398 50 390 35" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arr-green)"/>
+        <!-- Labels -->
+        <text x="420" y="90" font-family="Segoe UI,sans-serif" font-size="10" fill="#059669">Air chaud</text>
+        <text x="420" y="103" font-family="Segoe UI,sans-serif" font-size="10" fill="#059669">monte</text>
+        <text x="420" y="130" font-family="Segoe UI,sans-serif" font-size="10" fill="#2b6cb0">Air froid</text>
+        <text x="420" y="143" font-family="Segoe UI,sans-serif" font-size="10" fill="#2b6cb0">descend</text>
+        <!-- Caption -->
+        <text x="360" y="178" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#4a5568">D&eacute;placement d&rsquo;un fluide</text>
+        <text x="360" y="192" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#4a5568">qui transporte l&rsquo;&eacute;nergie</text>
+
+        <!-- === RAYONNEMENT === -->
+        <!-- Title -->
+        <text x="605" y="22" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#d97706">Rayonnement</text>
+        <!-- Sun circle -->
+        <circle cx="545" cy="95" r="22" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+        <text x="545" y="92" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#92400e" font-weight="700">Source</text>
+        <text x="545" y="104" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#92400e">chaude</text>
+        <!-- Wavy radiation lines -->
+        <path d="M570 80 Q578 74 586 80 Q594 86 602 80 Q610 74 618 80 Q624 85 628 80" stroke="#d97706" stroke-width="2" fill="none"/>
+        <path d="M570 95 Q578 89 586 95 Q594 101 602 95 Q610 89 618 95 Q624 100 628 95" stroke="#d97706" stroke-width="2" fill="none"/>
+        <path d="M570 110 Q578 104 586 110 Q594 116 602 110 Q610 104 618 110 Q624 115 628 110" stroke="#d97706" stroke-width="2" fill="none"/>
+        <!-- Receiver -->
+        <rect x="630" y="70" width="30" height="50" rx="4" fill="#fed7aa" stroke="#d97706" stroke-width="1.5"/>
+        <text x="645" y="100" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="9" fill="#92400e">Corps</text>
+        <!-- Vide label -->
+        <text x="599" y="60" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="9" fill="#718096" font-style="italic">Vide ou air</text>
+        <!-- Caption -->
+        <text x="605" y="178" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#4a5568">Ondes IR, sans milieu</text>
+        <text x="605" y="192" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#4a5568">mat&eacute;riel n&eacute;cessaire</text>
+
+        <!-- Arrow markers -->
+        <defs>
+          <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#4f46e5"/>
+          </marker>
+          <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#059669"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>Sch&eacute;ma r&eacute;capitulatif des trois modes de transfert thermique : conduction (mur solide), convection (air montant), rayonnement (ondes sinuso&iuml;dales).</figcaption>
+    </figure>
   </div>
 
   <h3>2.1 La conduction</h3>
@@ -194,6 +293,16 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
     C&rsquo;est un transfert tr&egrave;s faible, caract&eacute;ristique d&rsquo;une bonne isolation.
   </div>
 
+  <!-- Canvas animation: thermal equilibrium -->
+  <div class="canvas-container">
+    <p style="font-weight:700;color:var(--p);margin:0 0 8px;font-size:.95em">Animation &mdash; &Eacute;quilibre thermique</p>
+    <p style="margin:0 0 10px;font-size:.88em;color:#4a5568">Deux blocs &agrave; des temp&eacute;ratures diff&eacute;rentes &eacute;changent de la chaleur et convergent vers une temp&eacute;rature d&rsquo;&eacute;quilibre commune.</p>
+    <canvas id="thermoCanvas" width="600" height="200" style="border:1px solid #e2e8f0;border-radius:6px;background:#fff;max-width:100%"></canvas>
+    <br>
+    <button class="canvas-btn" id="thermoBtn">&#9654; Red&eacute;marrer l&rsquo;animation</button>
+    <p class="canvas-caption">Les temp&eacute;ratures convergent exponentiellement vers l&rsquo;&eacute;quilibre (loi de Newton du refroidissement).</p>
+  </div>
+
   <!-- ============================================================ -->
   <h2>4. La r&eacute;sistance thermique</h2>
 
@@ -267,6 +376,13 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
       R_{th}^{\text{acier}} = \frac{0{,}04}{50 \times 1} = 8 \times 10^{-4}\,\text{K/W}
     \]
     La r&eacute;sistance du bois de pin est environ <strong>400 fois plus grande</strong> que celle de l&rsquo;acier : le bois isole beaucoup mieux.
+  </div>
+
+  <!-- Chart.js bar chart: lambda values (logarithmic scale) -->
+  <div class="chart-container">
+    <p style="font-weight:700;color:var(--p);margin:0 0 8px;font-size:.95em">Comparaison des conductivit&eacute;s thermiques &lambda; (W&middot;m<sup>&minus;1</sup>&middot;K<sup>&minus;1</sup>) &mdash; &eacute;chelle logarithmique</p>
+    <canvas id="chartLambda" height="120"></canvas>
+    <p class="chart-caption">Les valeurs de &lambda; s&rsquo;&eacute;talent sur 4 d&eacute;cades : de l&rsquo;air (0,025) &agrave; l&rsquo;aluminium (230). L&rsquo;&eacute;chelle logarithmique permet de toutes les visualiser.</p>
   </div>
 
   <!-- ============================================================ -->
@@ -440,8 +556,272 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
     </details>
   </div>
 
+  <div class="exo">
+    <div class="exo-num">Exercice 4 &mdash; &Eacute;nergie perdue par une fen&ecirc;tre en une journ&eacute;e</div>
+    <p>
+      Une fen&ecirc;tre simple vitrage a les caract&eacute;ristiques suivantes :
+      &eacute;paisseur de la vitre \(e = 6\,\text{mm} = 0{,}006\,\text{m}\),
+      conductivit&eacute; thermique du verre \(\lambda = 1{,}0\,\text{W&middot;m}^{-1}\text{&middot;K}^{-1}\),
+      surface \(S = 1{,}5\,\text{m}^2\).
+      On consid&egrave;re une journ&eacute;e d&rsquo;hiver o&ugrave; la temp&eacute;rature int&eacute;rieure est maintenue &agrave; 19&nbsp;&deg;C
+      et la temp&eacute;rature ext&eacute;rieure est de &minus;1&nbsp;&deg;C.
+    </p>
+    <ol type="a">
+      <li>Calculer la r&eacute;sistance thermique \(R_{th}\) de la vitre.</li>
+      <li>En d&eacute;duire le flux thermique \(\Phi\) qui s&rsquo;&eacute;chappe en permanence par cette fen&ecirc;tre.</li>
+      <li>Calculer l&rsquo;&eacute;nergie totale \(Q\) perdue par cette fen&ecirc;tre en une journ&eacute;e compl&egrave;te (24&nbsp;heures). Donner le r&eacute;sultat en kWh et en MJ.</li>
+      <li>Sachant qu&rsquo;un double vitrage avec lame d&rsquo;argon de 16&nbsp;mm r&eacute;duit le flux d&rsquo;un facteur 10, quelle serait l&rsquo;&eacute;conomie d&rsquo;&eacute;nergie sur une journ&eacute;e&nbsp;?</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <p><strong>a. R&eacute;sistance thermique :</strong></p>
+        \[ R_{th} = \frac{e}{\lambda \cdot S} = \frac{0{,}006}{1{,}0 \times 1{,}5} = \frac{0{,}006}{1{,}5} = 4 \times 10^{-3}\,\text{K/W} \]
+        <p><strong>b. Flux thermique :</strong></p>
+        \[ \Delta T = 19 - (-1) = 20\,\text{K} \]
+        \[ \Phi = \frac{\Delta T}{R_{th}} = \frac{20}{4 \times 10^{-3}} = \mathbf{5\,000\,\text{W} = 5\,\text{kW}} \]
+        <p>Cette fen&ecirc;tre perd 5&nbsp;kW en permanence &mdash; l&rsquo;&eacute;quivalent de cinq radiateurs &eacute;lectriques !</p>
+        <p><strong>c. &Eacute;nergie perdue en 24 heures :</strong></p>
+        \[ t = 24 \times 3\,600 = 86\,400\,\text{s} \]
+        \[ Q = \Phi \times t = 5\,000 \times 86\,400 = 432\,000\,000\,\text{J} = \mathbf{432\,\text{MJ}} \]
+        <p>En kWh : \(Q = 5\,\text{kW} \times 24\,\text{h} = \mathbf{120\,\text{kWh}}\)</p>
+        <p>C&rsquo;est une consommation &eacute;norme pour une seule fen&ecirc;tre !</p>
+        <p><strong>d. &Eacute;conomie avec double vitrage :</strong><br>
+        Le flux du double vitrage est \(\Phi_{DV} = 5\,000 / 10 = 500\,\text{W}\).<br>
+        &Eacute;conomie en 24 h : \(\Delta Q = (5\,000 - 500) \times 86\,400 = 388\,800\,000\,\text{J} \approx \mathbf{388\,\text{MJ}}\),
+        soit \(\mathbf{108\,\text{kWh}}\) &eacute;conom&eacute;s par jour et par fen&ecirc;tre.
+        </p>
+      </div>
+    </details>
+  </div>
+
 </div><!-- /.c -->
 
 <script src="nav.js"></script>
+
+<script>
+/* ============================================================
+   Chart.js &mdash; Conductivit&eacute;s thermiques (logarithmic scale)
+   ============================================================ */
+(function() {
+  var ctx = document.getElementById('chartLambda');
+  if (!ctx) return;
+  var labels = ['Air', 'Polystyr\u00e8ne', 'Laine de verre', 'Bois pin', 'Bois ch\u00eane', 'Verre', 'Acier', 'Aluminium'];
+  var values = [0.025, 0.035, 0.04, 0.12, 0.17, 1.0, 50, 230];
+  var colors = [
+    '#a5b4fc','#6ee7b7','#86efac','#fde68a','#fcd34d','#93c5fd','#f87171','#fb923c'
+  ];
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: '\u03bb (W\u00b7m\u207b\u00b9\u00b7K\u207b\u00b9)',
+        data: values,
+        backgroundColor: colors,
+        borderColor: colors.map(function(c){return c;}),
+        borderWidth: 1.5
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return '\u03bb = ' + context.parsed.y + ' W\u00b7m\u207b\u00b9\u00b7K\u207b\u00b9';
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          type: 'logarithmic',
+          title: {
+            display: true,
+            text: '\u03bb (W\u00b7m\u207b\u00b9\u00b7K\u207b\u00b9) \u2014 \u00e9chelle logarithmique',
+            color: '#4a5568',
+            font: { size: 11 }
+          },
+          ticks: {
+            callback: function(value) {
+              var vals = [0.01, 0.025, 0.04, 0.1, 0.5, 1, 10, 50, 100, 230];
+              if (vals.indexOf(value) !== -1 || vals.some(function(v){ return Math.abs(v - value) < 0.001; })) {
+                return value;
+              }
+              return null;
+            },
+            color: '#4a5568'
+          },
+          grid: { color: '#e2e8f0' }
+        },
+        x: {
+          ticks: { color: '#4a5568', font: { size: 11 } },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+})();
+
+/* ============================================================
+   Canvas animation &mdash; Thermal equilibrium
+   ============================================================ */
+(function() {
+  var canvas = document.getElementById('thermoCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width;
+  var H = canvas.height;
+
+  var T_hot_init = 80;
+  var T_cold_init = 10;
+  var T_eq = (T_hot_init + T_cold_init) / 2; // 45 deg C
+  var tau = 120; // time constant in frames
+  var frame = 0;
+  var animId = null;
+  var totalFrames = 360;
+
+  function tempHot(f) {
+    return T_eq + (T_hot_init - T_eq) * Math.exp(-f / tau);
+  }
+  function tempCold(f) {
+    return T_eq - (T_eq - T_cold_init) * Math.exp(-f / tau);
+  }
+
+  // Map temperature to color (blue=cold, red=hot)
+  function tempToColor(T) {
+    // T in [10, 80], map to hue [240 (blue) .. 0 (red)]
+    var frac = (T - 10) / 70;
+    frac = Math.max(0, Math.min(1, frac));
+    var hue = Math.round(240 - frac * 240);
+    return 'hsl(' + hue + ',80%,55%)';
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    var Th = tempHot(frame);
+    var Tc = tempCold(frame);
+
+    // Background
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillRect(0, 0, W, H);
+
+    // == HOT block (left) ==
+    var blockW = 180;
+    var blockH = 120;
+    var blockY = (H - blockH) / 2;
+    var xHot = 30;
+    ctx.fillStyle = tempToColor(Th);
+    ctx.beginPath();
+    ctx.roundRect(xHot, blockY, blockW, blockH, 8);
+    ctx.fill();
+    ctx.strokeStyle = '#64748b';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Hot label
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 13px Segoe UI,sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Corps chaud', xHot + blockW / 2, blockY + 38);
+    ctx.font = 'bold 22px Segoe UI,sans-serif';
+    ctx.fillText(Th.toFixed(1) + '\u00b0C', xHot + blockW / 2, blockY + 72);
+
+    // == COLD block (right) ==
+    var xCold = W - 30 - blockW;
+    ctx.fillStyle = tempToColor(Tc);
+    ctx.beginPath();
+    ctx.roundRect(xCold, blockY, blockW, blockH, 8);
+    ctx.fill();
+    ctx.strokeStyle = '#64748b';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 13px Segoe UI,sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Corps froid', xCold + blockW / 2, blockY + 38);
+    ctx.font = 'bold 22px Segoe UI,sans-serif';
+    ctx.fillText(Tc.toFixed(1) + '\u00b0C', xCold + blockW / 2, blockY + 72);
+
+    // == Arrow between blocks ==
+    var arrowY = H / 2;
+    var xArrowStart = xHot + blockW + 8;
+    var xArrowEnd = xCold - 8;
+    var progress = (Th - T_eq) / (T_hot_init - T_eq); // 1 at start, 0 at equilibrium
+    var arrowAlpha = Math.max(0.1, progress);
+    ctx.globalAlpha = arrowAlpha;
+    ctx.strokeStyle = '#d97706';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(xArrowStart, arrowY);
+    ctx.lineTo(xArrowEnd - 10, arrowY);
+    ctx.stroke();
+    // Arrowhead
+    ctx.fillStyle = '#d97706';
+    ctx.beginPath();
+    ctx.moveTo(xArrowEnd, arrowY);
+    ctx.lineTo(xArrowEnd - 12, arrowY - 6);
+    ctx.lineTo(xArrowEnd - 12, arrowY + 6);
+    ctx.closePath();
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // Label on arrow
+    ctx.fillStyle = '#92400e';
+    ctx.font = '11px Segoe UI,sans-serif';
+    ctx.textAlign = 'center';
+    var midX = (xArrowStart + xArrowEnd) / 2;
+    ctx.fillText('Flux thermique \u03a6', midX, arrowY - 8);
+    ctx.fillText('Chaleur : chaud \u2192 froid', midX, arrowY + 20);
+
+    // Equilibrium label when close
+    if (frame > totalFrames * 0.7) {
+      var alpha = Math.min(1, (frame - totalFrames * 0.7) / (totalFrames * 0.15));
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = '#2f855a';
+      ctx.font = 'bold 12px Segoe UI,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('\u00c9quilibre thermique : T\u2081 = T\u2082 \u2248 ' + T_eq.toFixed(0) + '\u00b0C', W / 2, H - 12);
+      ctx.globalAlpha = 1;
+    }
+
+    frame++;
+    if (frame <= totalFrames) {
+      animId = requestAnimationFrame(draw);
+    }
+  }
+
+  function startAnimation() {
+    if (animId) { cancelAnimationFrame(animId); animId = null; }
+    frame = 0;
+    draw();
+  }
+
+  startAnimation();
+
+  document.getElementById('thermoBtn').addEventListener('click', startAnimation);
+
+  // Polyfill for roundRect if needed
+  if (!ctx.roundRect) {
+    CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+      this.beginPath();
+      this.moveTo(x + r, y);
+      this.lineTo(x + w - r, y);
+      this.quadraticCurveTo(x + w, y, x + w, y + r);
+      this.lineTo(x + w, y + h - r);
+      this.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      this.lineTo(x + r, y + h);
+      this.quadraticCurveTo(x, y + h, x, y + h - r);
+      this.lineTo(x, y + r);
+      this.quadraticCurveTo(x, y, x + r, y);
+      this.closePath();
+    };
+  }
+})();
+</script>
 </body>
 </html>
