@@ -164,11 +164,13 @@
 
     @media print {
       body { background: #fff; }
-      nav, header, .form-section, .mode-selector, .btn-row, .tips-box,
+      nav, header, footer, .mode-selector, .btn-row, .tips-box,
       .step-indicator, .step-nav, #template-mode, #guided-mode { display: none !important; }
       main { padding: 0; max-width: 100%; }
-      #output-zone { display: block !important; }
-      .letter-preview { border: none; padding: 20px; font-size: 11pt; }
+      #output-zone, #output-zone .form-section { display: block !important; }
+      #output-zone h2, #output-zone #char-count { display: none !important; }
+      .letter-preview { border: none; padding: 20px; font-size: 11pt; box-shadow: none; }
+      .form-section:not(#output-zone .form-section) { display: none !important; }
     }
 
     @media (max-width: 600px) {
@@ -400,6 +402,8 @@
         <div class="btn-row">
           <button class="btn-primary" onclick="copierLettre()">Copier le texte</button>
           <button class="btn-primary" onclick="window.print()">Imprimer / PDF</button>
+          <button class="btn-primary" onclick="telechargerWord()">Télécharger Word</button>
+          <button class="btn-secondary" onclick="telechargerTxt()">Télécharger .txt</button>
           <button class="btn-secondary" onclick="modifierLettre()">Modifier</button>
         </div>
       </div>
@@ -556,6 +560,40 @@
       navigator.clipboard.writeText(txt).then(function() {
         alert('Lettre copiée dans le presse-papiers !');
       });
+    }
+
+    function telechargerTxt() {
+      var txt = document.getElementById('letter-output').textContent;
+      var blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'lettre-motivation-parcoursup.txt';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function telechargerWord() {
+      var txt = document.getElementById('letter-output').textContent;
+      var paragraphs = txt.split('\n\n').filter(function(p) { return p.trim(); });
+      var body = '';
+      for (var i = 0; i < paragraphs.length; i++) {
+        var lines = paragraphs[i].split('\n');
+        for (var j = 0; j < lines.length; j++) {
+          body += '<p style="font-family:Calibri,sans-serif;font-size:11pt;line-height:1.6;margin:0 0 6pt 0;">' +
+            lines[j].replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</p>';
+        }
+        body += '<p style="font-size:11pt;margin:0 0 6pt 0;">&nbsp;</p>';
+      }
+      var html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" ' +
+        'xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">' +
+        '<head><meta charset="utf-8"><style>@page{margin:2.5cm;}</style></head>' +
+        '<body>' + body + '</body></html>';
+      var blob = new Blob([html], { type: 'application/msword' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'lettre-motivation-parcoursup.doc';
+      a.click();
+      URL.revokeObjectURL(a.href);
     }
 
     function modifierLettre() {
