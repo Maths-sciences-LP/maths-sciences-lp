@@ -46,7 +46,7 @@ th{background:#eef2f7;font-weight:600}
 <body>
 <div class="c">
 <header>
-  <div class="mama-tag">MAMA – 2nde Pro</div>
+  <div class="mama-tag">2nde Bac Pro</div>
   <h1>Chapitre 4 – Signaux électriques alternatifs</h1>
   <p class="sous-titre">Physique-Chimie 2 &nbsp;|&nbsp; Exercices d'application</p>
 </header>
@@ -194,7 +194,7 @@ th{background:#eef2f7;font-weight:600}
 
 <!-- ===================== SECTION 2 ===================== -->
 <h2>Exercices guidés</h2>
-<div class="section-intro">Des exercices avec les étapes détaillées pour progresser vers les calculs de tension efficace et les applications en atelier automobile.</div>
+<div class="section-intro">Des exercices avec les étapes détaillées pour progresser vers les calculs de tension efficace et les applications en atelier.</div>
 
 <!-- EXO 4 -->
 <div class="exo">
@@ -228,21 +228,21 @@ th{background:#eef2f7;font-weight:600}
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
-    <span class="exo-title">Alternateur automobile</span>
+    <span class="exo-title">Générateur solaire et panneau photovoltaïque</span>
     <span class="diff diff-2">Intermédiaire</span>
   </div>
-  <div class="mama-tag">MAMA – Alternateur</div>
-  <p>L'alternateur d'un véhicule tourne à <strong>1 800 tr/min</strong> et produit un signal alternatif sinusoïdal de fréquence \(f = 60\,\text{Hz}\) et d'amplitude \(U_{max} = 17\,\text{V}\).</p>
-  <p class="q"><strong>1.</strong> Calculer la période \(T\) du signal produit par l'alternateur.</p>
-  <p class="q"><strong>2.</strong> Calculer la tension efficace \(U_{eff}\) en sortie de l'alternateur (avant redressement).</p>
-  <p class="q"><strong>3.</strong> La batterie est chargée à 12 V (CC). Comparer avec \(U_{eff}\) trouvée. Que doit-on faire pour charger la batterie ?</p>
-  <p class="q"><strong>4.</strong> Nommer le composant qui transforme le CA de l'alternateur en CC pour la batterie.</p>
+  <div class="mama-tag">Énergie renouvelable</div>
+  <p>Un onduleur solaire transforme la tension continue (CC) fournie par des panneaux photovoltaïques en tension alternative (CA) pour alimenter l'atelier. Il produit un signal sinusoïdal de fréquence \(f = 50\,\text{Hz}\) et de tension efficace \(U_{eff} = 230\,\text{V}\).</p>
+  <p class="q"><strong>1.</strong> Calculer la période \(T\) du signal produit par l'onduleur.</p>
+  <p class="q"><strong>2.</strong> Calculer l'amplitude \(U_{max}\) du signal en sortie de l'onduleur.</p>
+  <p class="q"><strong>3.</strong> Les panneaux photovoltaïques fournissent une tension continue de 48 V (CC). L'onduleur doit-il élever ou abaisser cette tension pour obtenir 230 V efficaces en sortie ?</p>
+  <p class="q"><strong>4.</strong> Nommer le composant qui transforme la tension continue des panneaux en tension alternative pour l'atelier.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(T = \dfrac{1}{f} = \dfrac{1}{60} \approx 0{,}0167\,\text{s} = 16{,}7\,\text{ms}\)</p>
-    <p><strong>2.</strong> \(U_{eff} = \dfrac{U_{max}}{\sqrt{2}} = \dfrac{17}{1{,}414} \approx 12{,}0\,\text{V}\)</p>
-    <p><strong>3.</strong> \(U_{eff} \approx 12\,\text{V}\) = tension de la batterie. Pour charger la batterie, il faut convertir le CA en CC : c'est le rôle du redresseur (pont de diodes).</p>
-    <p><strong>4.</strong> Le composant s'appelle un <strong>redresseur</strong> (ou pont de Graëtz / pont de diodes).</p>
+    <p><strong>1.</strong> \(T = \dfrac{1}{f} = \dfrac{1}{50} = 0{,}02\,\text{s} = 20\,\text{ms}\)</p>
+    <p><strong>2.</strong> \(U_{max} = U_{eff} \times \sqrt{2} = 230 \times 1{,}414 \approx 325\,\text{V}\)</p>
+    <p><strong>3.</strong> La tension des panneaux (48 V CC) est bien inférieure à 230 V efficaces. L'onduleur doit <strong>élever</strong> la tension tout en la convertissant de CC en CA.</p>
+    <p><strong>4.</strong> Le composant s'appelle un <strong>onduleur</strong> (convertisseur CC → CA).</p>
   </div>
 </div>
 
@@ -254,29 +254,29 @@ th{background:#eef2f7;font-weight:600}
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Oscilloscope en diagnostic automobile</span>
+    <span class="exo-title">Oscilloscope en atelier – signal d'alimentation d'une machine</span>
     <span class="diff diff-2">Intermédiaire</span>
   </div>
-  <div class="mama-tag">MAMA – Diagnostic</div>
-  <p>Lors d'un diagnostic, un technicien branche un oscilloscope sur le circuit de charge du véhicule. Il observe un signal sinusoïdal présentant les caractéristiques suivantes :</p>
+  <div class="mama-tag">Atelier de menuiserie</div>
+  <p>Un technicien branche un oscilloscope sur l'alimentation d'une ponceuse à bande pour vérifier la qualité du signal secteur en atelier. Il observe un signal sinusoïdal présentant les caractéristiques suivantes :</p>
   <ul>
     <li>Base de temps : <strong>5 ms/div</strong></li>
     <li>Le signal complète <strong>1 période en 4 divisions</strong></li>
-    <li>Sensibilité verticale : <strong>4 V/div</strong></li>
+    <li>Sensibilité verticale : <strong>150 V/div</strong></li>
     <li>L'amplitude crête-à-crête occupe <strong>4 divisions</strong> (donc 2 div depuis l'axe)</li>
   </ul>
   <p class="q"><strong>1.</strong> Calculer la période \(T\) du signal.</p>
   <p class="q"><strong>2.</strong> Calculer la fréquence \(f\).</p>
   <p class="q"><strong>3.</strong> Calculer \(U_{max}\) (amplitude crête).</p>
   <p class="q"><strong>4.</strong> Calculer \(U_{eff}\).</p>
-  <p class="q"><strong>5.</strong> Ce signal ressemble-t-il au signal de charge d'une batterie 12 V ? Justifier.</p>
+  <p class="q"><strong>5.</strong> Ce signal est-il conforme au réseau secteur français (230 V efficaces, 50 Hz) ? Justifier.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(T = 4\,\text{div} \times 5\,\text{ms/div} = 20\,\text{ms} = 0{,}020\,\text{s}\)</p>
     <p><strong>2.</strong> \(f = \dfrac{1}{T} = \dfrac{1}{0{,}020} = 50\,\text{Hz}\)</p>
-    <p><strong>3.</strong> \(U_{max} = 2\,\text{div} \times 4\,\text{V/div} = 8\,\text{V}\)</p>
-    <p><strong>4.</strong> \(U_{eff} = \dfrac{8}{\sqrt{2}} \approx 5{,}66\,\text{V}\)</p>
-    <p><strong>5.</strong> Non. La tension efficace (~5,7 V) est inférieure aux 12 V attendus. L'alternateur/redresseur semble défaillant. Il faudrait vérifier le pont de diodes et l'alternateur.</p>
+    <p><strong>3.</strong> \(U_{max} = 2\,\text{div} \times 150\,\text{V/div} = 300\,\text{V}\)</p>
+    <p><strong>4.</strong> \(U_{eff} = \dfrac{300}{\sqrt{2}} \approx 212\,\text{V}\)</p>
+    <p><strong>5.</strong> La fréquence est bien 50 Hz (conforme). En revanche, la tension efficace (~212 V) est légèrement inférieure aux 230 V attendus. Cela peut indiquer une chute de tension sur le réseau interne de l'atelier (câbles sous-dimensionnés, rallonge trop longue). Il faudrait vérifier le câblage électrique de l'atelier.</p>
   </div>
 </div>
 
@@ -287,7 +287,7 @@ th{background:#eef2f7;font-weight:600}
     <span class="exo-title">Moteur triphasé en atelier</span>
     <span class="diff diff-2">Intermédiaire</span>
   </div>
-  <div class="mama-tag">MAMA – Moteur 3 phases</div>
+  <div class="mama-tag">Atelier – Moteur 3 phases</div>
   <p>Le compresseur de l'atelier est entraîné par un moteur triphasé alimenté par le réseau (\(f = 50\,\text{Hz}\), \(U_{eff} = 230\,\text{V}\) par phase).</p>
   <p class="q"><strong>1.</strong> Calculer la période \(T\) du réseau.</p>
   <p class="q"><strong>2.</strong> Calculer \(U_{max}\) de chaque phase.</p>
@@ -303,35 +303,35 @@ th{background:#eef2f7;font-weight:600}
 </div>
 
 <!-- ===================== SECTION 4 ===================== -->
-<h2>Contexte MAMA</h2>
-<div class="section-intro">Exercices avancés directement liés aux équipements et situations de l'atelier automobile.</div>
+<h2>Contexte professionnel &amp; &eacute;nergie</h2>
+<div class="section-intro">Exercices avancés liés aux équipements de l'atelier et aux systèmes d'alimentation électrique.</div>
 
 <!-- EXO 8 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
-    <span class="exo-title">Redresseur et chargeur de batterie</span>
+    <span class="exo-title">Alimentation d'un outillage électroportatif rechargeable</span>
     <span class="diff diff-3">Avancé</span>
   </div>
-  <div class="mama-tag">MAMA – Redresseur / Chargeur</div>
-  <p>Un chargeur de batterie est branché sur le secteur 230 V CA. Il contient un transformateur qui abaisse la tension, puis un redresseur (pont de diodes) qui transforme le CA en CC. En sortie, la tension de charge est de <strong>14 V CC</strong>.</p>
+  <div class="mama-tag">Atelier de fabrication</div>
+  <p>Une perceuse visseuse sans fil est rechargée sur le secteur 230 V CA. Le chargeur contient un transformateur qui abaisse la tension, puis un redresseur (pont de diodes) qui transforme le CA en CC. En sortie, la tension de charge de la batterie est de <strong>21 V CC</strong>.</p>
   <div class="attention">Le transformateur agit sur les tensions efficaces. Le redresseur ne change pas la valeur de la tension mais change CA→CC.</div>
   <p class="q"><strong>1.</strong> Quelle est la tension efficace \(U_{eff}\) en entrée du chargeur ?</p>
   <p class="q"><strong>2.</strong> Calculer \(U_{max}\) correspondant à 230 V efficaces.</p>
-  <p class="q"><strong>3.</strong> Le transformateur abaisse la tension à 14 V efficaces (pour avoir ~14 V CC après redressement). Calculer \(U_{max}\) en sortie du transformateur.</p>
-  <p class="q"><strong>4.</strong> Décrire schématiquement les 3 étapes de conversion : CA 230 V → transformateur → redresseur → batterie. Préciser la nature (CA/CC) et la valeur à chaque étape.</p>
+  <p class="q"><strong>3.</strong> Le transformateur abaisse la tension à 21 V efficaces. Calculer \(U_{max}\) en sortie du transformateur.</p>
+  <p class="q"><strong>4.</strong> Décrire schématiquement les étapes de conversion : CA 230 V → transformateur → redresseur → batterie. Préciser la nature (CA/CC) et la valeur à chaque étape.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(U_{eff,entrée} = 230\,\text{V}\)</p>
     <p><strong>2.</strong> \(U_{max,entrée} = 230 \times \sqrt{2} \approx 325\,\text{V}\)</p>
-    <p><strong>3.</strong> \(U_{max,sortie\,transfo} = 14 \times \sqrt{2} \approx 19{,}8\,\text{V} \approx 20\,\text{V}\)</p>
+    <p><strong>3.</strong> \(U_{max,sortie\,transfo} = 21 \times \sqrt{2} \approx 29{,}7\,\text{V} \approx 30\,\text{V}\)</p>
     <p><strong>4.</strong> Schéma de conversion :</p>
     <table>
       <tr><th>Étape</th><th>Composant</th><th>Tension entrée</th><th>Tension sortie</th><th>Type</th></tr>
       <tr><td>1</td><td>Entrée secteur</td><td>–</td><td>230 V eff</td><td>CA</td></tr>
-      <tr><td>2</td><td>Transformateur</td><td>230 V CA eff</td><td>14 V CA eff</td><td>CA → CA</td></tr>
-      <tr><td>3</td><td>Redresseur (pont diodes)</td><td>14 V CA eff</td><td>~14 V CC</td><td>CA → CC</td></tr>
-      <tr><td>4</td><td>Batterie</td><td>14 V CC</td><td>–</td><td>CC (charge)</td></tr>
+      <tr><td>2</td><td>Transformateur</td><td>230 V CA eff</td><td>21 V CA eff</td><td>CA → CA</td></tr>
+      <tr><td>3</td><td>Redresseur (pont diodes)</td><td>21 V CA eff</td><td>~21 V CC</td><td>CA → CC</td></tr>
+      <tr><td>4</td><td>Batterie outil</td><td>21 V CC</td><td>–</td><td>CC (charge)</td></tr>
     </table>
   </div>
 </div>
@@ -340,27 +340,25 @@ th{background:#eef2f7;font-weight:600}
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">Diagnostic d'alternateur à l'oscilloscope</span>
+    <span class="exo-title">Variateur de fr&eacute;quence d'une scie &agrave; ruban</span>
     <span class="diff diff-3">Avancé</span>
   </div>
-  <div class="mama-tag">MAMA – Diagnostic alternateur</div>
-  <p>Un technicien mesure avec un oscilloscope le signal de sortie d'un alternateur. Le moteur tourne à <strong>2 700 tr/min</strong>.
-  L'oscilloscope montre un signal sinusoïdal de fréquence <strong>90 Hz</strong> et de tension efficace <strong>13,8 V</strong>.</p>
+  <div class="mama-tag">Atelier de menuiserie</div>
+  <p>La scie à ruban de l'atelier est équipée d'un variateur de fréquence permettant d'adapter la vitesse de la lame selon l'essence de bois travaillée. Le moteur tourne à vitesse normale quand l'alimentation est à <strong>50 Hz</strong> et \(U_{eff} = 230\,\text{V}\). Pour couper du bois dur (chêne, hêtre), on réduit la fréquence à <strong>35 Hz</strong>.</p>
   <div class="methode">
-    <strong>Relation fréquence – vitesse rotation :</strong>
-    \(f = p \times \dfrac{n}{60}\)
-    où \(p\) = nombre de paires de pôles, \(n\) = vitesse en tr/min.
+    <strong>La fréquence du signal envoyé au moteur détermine sa vitesse de rotation.</strong><br>
+    Vitesse proportionnelle à la fréquence : si \(f\) diminue, la vitesse diminue dans le même rapport.
   </div>
-  <p class="q"><strong>1.</strong> Calculer la période \(T\) du signal observé.</p>
-  <p class="q"><strong>2.</strong> Calculer \(U_{max}\) correspondant à \(U_{eff} = 13{,}8\,\text{V}\).</p>
-  <p class="q"><strong>3.</strong> En utilisant la formule \(f = p \times \dfrac{n}{60}\), calculer le nombre de paires de pôles \(p\) de cet alternateur.</p>
-  <p class="q"><strong>4.</strong> La valeur de \(U_{eff} = 13{,}8\,\text{V}\) est-elle normale pour un système de charge ? Que conclure sur l'état de l'alternateur ?</p>
+  <p class="q"><strong>1.</strong> Calculer la période \(T\) du signal à 50 Hz.</p>
+  <p class="q"><strong>2.</strong> Calculer la période \(T'\) du signal à 35 Hz.</p>
+  <p class="q"><strong>3.</strong> Si la lame tourne à 900 tr/min à 50 Hz, quelle sera sa vitesse à 35 Hz ?</p>
+  <p class="q"><strong>4.</strong> Calculer \(U_{max}\) si \(U_{eff} = 230\,\text{V}\). Cette valeur change-t-elle quand on modifie la fréquence ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(T = \dfrac{1}{f} = \dfrac{1}{90} \approx 0{,}0111\,\text{s} \approx 11{,}1\,\text{ms}\)</p>
-    <p><strong>2.</strong> \(U_{max} = 13{,}8 \times \sqrt{2} \approx 13{,}8 \times 1{,}414 \approx 19{,}5\,\text{V}\)</p>
-    <p><strong>3.</strong> \(p = \dfrac{f \times 60}{n} = \dfrac{90 \times 60}{2700} = \dfrac{5400}{2700} = 2\) paires de pôles (soit 4 pôles au total).</p>
-    <p><strong>4.</strong> La tension de charge normale est comprise entre 13,5 V et 14,8 V. Ici, 13,8 V est dans la plage normale. L'alternateur fonctionne correctement à cette vitesse.</p>
+    <p><strong>1.</strong> \(T = \dfrac{1}{50} = 0{,}02\,\text{s} = 20\,\text{ms}\)</p>
+    <p><strong>2.</strong> \(T' = \dfrac{1}{35} \approx 0{,}0286\,\text{s} \approx 28{,}6\,\text{ms}\)</p>
+    <p><strong>3.</strong> Vitesse à 35 Hz : \(n' = 900 \times \dfrac{35}{50} = 900 \times 0{,}7 = 630\,\text{tr/min}\).</p>
+    <p><strong>4.</strong> \(U_{max} = 230 \times \sqrt{2} \approx 325\,\text{V}\). La tension efficace (et donc \(U_{max}\)) reste identique : le variateur modifie la fréquence, pas la tension.</p>
   </div>
 </div>
 

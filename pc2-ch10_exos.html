@@ -50,7 +50,7 @@ svg text{font-family:'Segoe UI',sans-serif}
 <header>
   <div class="mama-tag">PC2 - Chapitre 10</div>
   <h1>Température et capteurs thermiques</h1>
-  <p class="sous-titre">Exercices – Terminale Bac Pro MAMA | CTN, thermocouple, conversions °C/K</p>
+  <p class="sous-titre">Exercices – 2nde Bac Pro | CTN, thermocouple, conversions °C/K</p>
   <a class="nb" href="pc2-ch10.html">← Retour au cours</a>
 </header>
 
@@ -78,9 +78,9 @@ svg text{font-family:'Segoe UI',sans-serif}
     <tr><th>Température (°C)</th><th>Température (K)</th><th>Situation</th></tr>
     <tr><td>20 °C</td><td>?</td><td>Température ambiante</td></tr>
     <tr><td>?</td><td>373 K</td><td>Ébullition de l'eau</td></tr>
-    <tr><td>−40 °C</td><td>?</td><td>Grand froid / Antigel</td></tr>
+    <tr><td>−40 °C</td><td>?</td><td>Grand froid hivernal</td></tr>
     <tr><td>?</td><td>0 K</td><td>Zéro absolu</td></tr>
-    <tr><td>87 °C</td><td>?</td><td>Ouverture thermostat moteur</td></tr>
+    <tr><td>87 °C</td><td>?</td><td>Température d'étuve de séchage (réglage courant)</td></tr>
   </table>
   <p class="q"><strong>b)</strong> Pourquoi les ingénieurs utilisent-ils parfois l'échelle Kelvin plutôt que Celsius ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
@@ -106,22 +106,22 @@ svg text{font-family:'Segoe UI',sans-serif}
     <strong>Types de capteurs :</strong><br>
     - <strong>Thermomètre à liquide</strong> : précis, lecture directe, fragile, pas de signal électrique.<br>
     - <strong>Thermocouple</strong> : plage étendue (−200 à +2000 °C), robuste, signal électrique (mV).<br>
-    - <strong>CTN (Coefficient de Température Négatif)</strong> : résistance diminue quand T augmente, précis pour 0–200 °C, utilisé en électronique automobile.
+    - <strong>CTN (Coefficient de Température Négatif)</strong> : résistance diminue quand T augmente, précis pour 0–200 °C, utilisé dans les étuves de séchage et les régulateurs d'atelier.
   </div>
   <p class="q">Pour chaque application, choisir le capteur le plus adapté et justifier :</p>
   <table>
     <tr><th>Application</th><th>Plage T</th><th>Capteur choisi</th><th>Justification</th></tr>
-    <tr><td>Sonde eau moteur (tableau de bord)</td><td>−40 à 150 °C</td><td>?</td><td>?</td></tr>
+    <tr><td>Sonde d'étuve de séchage du bois</td><td>0 à 150 °C</td><td>?</td><td>?</td></tr>
     <tr><td>Thermomètre de laboratoire</td><td>0 à 100 °C</td><td>?</td><td>?</td></tr>
-    <tr><td>Température gaz d'échappement</td><td>200 à 900 °C</td><td>?</td><td>?</td></tr>
-    <tr><td>Capteur climatisation habitacle</td><td>−10 à 50 °C</td><td>?</td><td>?</td></tr>
+    <tr><td>Température brûleur four de vernissage</td><td>200 à 900 °C</td><td>?</td><td>?</td></tr>
+    <tr><td>Capteur thermostat d'atelier</td><td>−10 à 50 °C</td><td>?</td><td>?</td></tr>
   </table>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>- Sonde eau moteur : <strong>CTN</strong> → signal électrique intégrable dans le calculateur, plage adaptée, faible coût.</p>
+    <p>- Sonde d'étuve : <strong>CTN</strong> → signal électrique intégrable dans le régulateur, plage adaptée, faible coût.</p>
     <p>- Thermomètre de laboratoire : <strong>Thermomètre à liquide</strong> → simple, précis pour usage courant, pas besoin de signal électrique.</p>
-    <p>- Gaz d'échappement (haute température) : <strong>Thermocouple</strong> → seul capteur résistant aux très hautes températures.</p>
-    <p>- Climatisation habitacle : <strong>CTN</strong> → signal électrique pour le calculateur climatisation, plage adaptée à la température intérieure.</p>
+    <p>- Four de vernissage (haute température) : <strong>Thermocouple</strong> → seul capteur résistant aux très hautes températures.</p>
+    <p>- Thermostat d'atelier : <strong>CTN</strong> → signal électrique pour le régulateur, plage adaptée à la température ambiante.</p>
   </div>
 </div>
 
@@ -133,7 +133,7 @@ svg text{font-family:'Segoe UI',sans-serif}
     <span class="diff diff-1">Facile</span>
   </div>
   <div class="prop"><strong>Caractéristique CTN :</strong> La résistance <em>diminue</em> quand la température augmente. C'est le signe d'un Coefficient de Température Négatif.</div>
-  <p>Voici le tableau de caractéristiques d'une CTN de sonde eau moteur :</p>
+  <p>Voici le tableau de caractéristiques d'une CTN de sonde d'étuve :</p>
   <table>
     <tr><th>Température T (°C)</th><th>20</th><th>40</th><th>60</th><th>80</th><th>100</th></tr>
     <tr><th>Résistance R (kΩ)</th><td>10</td><td>6</td><td>3,5</td><td>2</td><td>0,8</td></tr>
@@ -194,17 +194,17 @@ svg text{font-family:'Segoe UI',sans-serif}
 
 <!-- ===== SECTION 2 ===== -->
 <h2>Exercices guidés</h2>
-<div class="section-intro">Applications guidées sur le thermostat moteur et l'interprétation de la courbe CTN.</div>
+<div class="section-intro">Applications guidées sur le thermostat d'étuve et l'interprétation de la courbe CTN.</div>
 
 <!-- EXO 4 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
-    <span class="exo-title">Thermostat moteur – Conversion et CTN</span>
+    <span class="exo-title">Thermostat d'étuve – Conversion et CTN</span>
     <span class="diff diff-2">Guidé</span>
   </div>
-  <div class="mama-tag">Contexte MAMA</div>
-  <p>Le thermostat d'un moteur essence s'ouvre à T = 87 °C pour permettre la circulation dans le grand circuit de refroidissement. La CTN du circuit eau a les valeurs suivantes :</p>
+  <div class="mama-tag">Contexte professionnel</div>
+  <p>L'étuve de séchage du bois atteint sa température de consigne à T = 87 °C pour activer la ventilation de circulation d'air chaud. La CTN du circuit de régulation a les valeurs suivantes :</p>
   <table>
     <tr><th>T (°C)</th><th>20</th><th>50</th><th>87</th><th>100</th></tr>
     <tr><th>R (kΩ)</th><td>10</td><td>4</td><td>2,5</td><td>0,8</td></tr>
@@ -220,13 +220,13 @@ svg text{font-family:'Segoe UI',sans-serif}
   <p class="q"><strong>a)</strong> Convertir T = 87 °C en Kelvin.</p>
   <p class="q"><strong>b)</strong> Quelle est la résistance de la CTN à 87 °C ? À 20 °C ?</p>
   <p class="q"><strong>c)</strong> Calculer la variation de résistance \( \Delta R = R(20°C) - R(87°C) \). Commenter le signe.</p>
-  <p class="q"><strong>d)</strong> Le calculateur moteur surveille R : si R &gt; 8 kΩ, le moteur est considéré "froid". Est-ce le cas à 20 °C ? Expliquer la conséquence sur l'injection.</p>
+  <p class="q"><strong>d)</strong> Le régulateur surveille R : si R &gt; 8 kΩ, l'étuve est considérée "froide". Est-ce le cas à 20 °C ? Expliquer la conséquence sur le chauffage.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>a)</strong> \( T(\text{K}) = 87 + 273 = \mathbf{360 \text{ K}} \)</p>
     <p><strong>b)</strong> R(87 °C) = <strong>2,5 kΩ</strong> &nbsp;; R(20 °C) = <strong>10 kΩ</strong>.</p>
     <p><strong>c)</strong> \( \Delta R = 10 - 2{,}5 = \mathbf{+7{,}5 \text{ kΩ}} \). Le signe positif confirme que R <em>diminue</em> quand T augmente → comportement CTN confirmé.</p>
-    <p><strong>d)</strong> À 20 °C, R = 10 kΩ &gt; 8 kΩ → calculateur considère le moteur <strong>froid</strong> → il enrichit le mélange (plus d'essence) et augmente le régime de ralenti pour faciliter le démarrage à froid. C'est la phase de <em>réchauffage</em>.</p>
+    <p><strong>d)</strong> À 20 °C, R = 10 kΩ &gt; 8 kΩ → le régulateur considère l'étuve <strong>froide</strong> → il maintient le chauffage pleine puissance et ne commute pas encore la ventilation. C'est la phase de <em>montée en température</em>.</p>
   </div>
 </div>
 
@@ -237,23 +237,23 @@ svg text{font-family:'Segoe UI',sans-serif}
     <span class="exo-title">Interprétation de la courbe R(T) – Température réelle</span>
     <span class="diff diff-2">Guidé</span>
   </div>
-  <div class="mama-tag">Contexte MAMA</div>
-  <p>Utiliser le tableau CTN de l'exercice 4. Le mécanicien mesure à l'ohmmètre la résistance de la sonde eau : R = 500 Ω = 0,5 kΩ.</p>
+  <div class="mama-tag">Contexte professionnel</div>
+  <p>Utiliser le tableau CTN de l'exercice 4. Le technicien mesure à l'ohmmètre la résistance de la sonde d'étuve : R = 500 Ω = 0,5 kΩ.</p>
 
   <!-- Chart CTN -->
   <div class="chart-container">
     <canvas id="chartCTN"></canvas>
   </div>
-  <p style="font-size:.85em;color:#555;text-align:center">Courbe R(T) d'une CTN – Sonde eau moteur (valeurs réalistes)</p>
+  <p style="font-size:.85em;color:#555;text-align:center">Courbe R(T) d'une CTN – Sonde d'étuve de séchage (valeurs réalistes)</p>
 
-  <p class="q"><strong>a)</strong> D'après le graphique, à quelle température correspond R = 0,5 kΩ ? Le moteur est-il chaud ou froid ?</p>
-  <p class="q"><strong>b)</strong> La plage normale de fonctionnement est 80–120 °C. R = 0,5 kΩ correspond-il à une situation normale ?</p>
+  <p class="q"><strong>a)</strong> D'après le graphique, à quelle température correspond R = 0,5 kΩ ? L'étuve est-elle chaude ou froide ?</p>
+  <p class="q"><strong>b)</strong> La plage normale de fonctionnement est 70–90 °C. R = 0,5 kΩ correspond-il à une situation normale ?</p>
   <p class="q"><strong>c)</strong> Que doit faire le technicien face à cette valeur de résistance ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>a)</strong> D'après la courbe, R = 0,5 kΩ ≈ 0,7 kΩ à 120 °C → T est <strong>supérieure à 120 °C</strong> (environ 125–130 °C). Le moteur est <strong>très chaud</strong>, potentiellement en surchauffe.</p>
-    <p><strong>b)</strong> R = 0,5 kΩ est en dehors de la plage normale → situation <strong>anormale</strong>. Le voyant de température doit être allumé ou le ventilateur de refroidissement actif.</p>
-    <p><strong>c)</strong> Le technicien doit : 1) Arrêter immédiatement le moteur pour éviter la casse. 2) Attendre le refroidissement avant toute intervention. 3) Vérifier le niveau de liquide de refroidissement, l'étanchéité du circuit, le fonctionnement du thermostat et du radiateur.</p>
+    <p><strong>a)</strong> D'après la courbe, R = 0,5 kΩ ≈ 0,7 kΩ à 120 °C → T est <strong>supérieure à 120 °C</strong> (environ 125–130 °C). L'étuve est <strong>trop chaude</strong>, situation de surchauffe.</p>
+    <p><strong>b)</strong> R = 0,5 kΩ est en dehors de la plage normale (70–90 °C) → situation <strong>anormale</strong>. L'alarme de surchauffe doit être déclenchée.</p>
+    <p><strong>c)</strong> Le technicien doit : 1) Couper l'alimentation de l'étuve immédiatement. 2) Attendre le refroidissement avant toute intervention. 3) Vérifier le régulateur de température, le capteur CTN et le système de ventilation.</p>
   </div>
 </div>
 
@@ -265,26 +265,26 @@ svg text{font-family:'Segoe UI',sans-serif}
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Climatisation automobile – Régulation par CTN</span>
+    <span class="exo-title">Thermostat d'atelier – Régulation par CTN</span>
     <span class="diff diff-2">Application</span>
   </div>
-  <div class="mama-tag">Contexte MAMA</div>
-  <p>Le capteur de température habitacle d'une voiture est une CTN. Caractéristiques :</p>
+  <div class="mama-tag">Contexte professionnel</div>
+  <p>Le capteur de température d'un thermostat d'atelier est une CTN. Caractéristiques :</p>
   <table>
     <tr><th>T (°C)</th><th>10</th><th>15</th><th>21</th><th>25</th><th>30</th></tr>
     <tr><th>R (kΩ)</th><td>12</td><td>8</td><td>5</td><td>3,5</td><td>2,5</td></tr>
   </table>
-  <p>La consigne du conducteur est réglée à 21 °C → R_consigne = 5 kΩ.</p>
-  <p class="q"><strong>a)</strong> Le calculateur lit R_mesurée = 10 kΩ. D'après le tableau, quelle est la température réelle dans l'habitacle ?</p>
+  <p>La consigne est réglée à 21 °C → R_consigne = 5 kΩ.</p>
+  <p class="q"><strong>a)</strong> Le régulateur lit R_mesurée = 10 kΩ. D'après le tableau, quelle est la température réelle dans l'atelier ?</p>
   <p class="q"><strong>b)</strong> La température réelle est-elle supérieure ou inférieure à la consigne (21 °C) ?</p>
-  <p class="q"><strong>c)</strong> Le compresseur de climatisation doit-il se mettre en marche (ON) ou rester à l'arrêt (OFF) ? Justifier.</p>
-  <p class="q"><strong>d)</strong> Si R_mesurée = 2,5 kΩ, que fait le calculateur ?</p>
+  <p class="q"><strong>c)</strong> Le système de chauffage doit-il se mettre en marche (ON) ou rester à l'arrêt (OFF) ? Justifier.</p>
+  <p class="q"><strong>d)</strong> Si R_mesurée = 2,5 kΩ, que fait le régulateur ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>a)</strong> R = 10 kΩ : cette valeur n'est pas dans le tableau mais est supérieure à 12 kΩ (10 °C) → par interpolation, T est inférieure à 10 °C. Environ <strong>7–8 °C</strong>.</p>
-    <p><strong>b)</strong> T_réelle ≈ 8 °C &lt; 21 °C → la température réelle est <strong>inférieure</strong> à la consigne. Il fait trop froid dans l'habitacle.</p>
-    <p><strong>c)</strong> Le compresseur doit rester <strong>OFF</strong> (pas besoin de refroidir). Le calculateur va plutôt activer le chauffage (résistance ou circuit eau chaude).</p>
-    <p><strong>d)</strong> R = 2,5 kΩ → T = 30 °C &gt; 21 °C → il fait trop chaud. Le calculateur met le compresseur <strong>ON</strong> pour refroidir l'habitacle.</p>
+    <p><strong>b)</strong> T_réelle ≈ 8 °C &lt; 21 °C → la température réelle est <strong>inférieure</strong> à la consigne. Il fait trop froid dans l'atelier.</p>
+    <p><strong>c)</strong> Le chauffage doit se mettre <strong>ON</strong> pour réchauffer l'atelier. Le régulateur active la résistance chauffante ou l'aérotherme.</p>
+    <p><strong>d)</strong> R = 2,5 kΩ → T = 30 °C &gt; 21 °C → il fait trop chaud. Le régulateur coupe le chauffage (<strong>OFF</strong>) et peut activer la ventilation.</p>
   </div>
 </div>
 
@@ -292,61 +292,61 @@ svg text{font-family:'Segoe UI',sans-serif}
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Alarme température huile moteur</span>
+    <span class="exo-title">Alarme température huile de lubrification d'une machine-outil</span>
     <span class="diff diff-2">Application</span>
   </div>
-  <div class="mama-tag">Contexte MAMA</div>
-  <p>La sonde de température d'huile moteur est une CTN avec le tableau suivant :</p>
+  <div class="mama-tag">Contexte professionnel</div>
+  <p>La sonde de température d'huile de lubrification d'une toupie est une CTN avec le tableau suivant :</p>
   <table>
     <tr><th>T (°C)</th><th>80</th><th>100</th><th>120</th><th>140</th><th>160</th></tr>
     <tr><th>R (Ω)</th><td>1200</td><td>700</td><td>400</td><td>200</td><td>100</td></tr>
   </table>
   <p>L'alarme de surchauffe s'allume quand T &gt; 140 °C.</p>
   <p class="q"><strong>a)</strong> Quelle est la résistance R_alarme correspondant à T = 140 °C ?</p>
-  <p class="q"><strong>b)</strong> Le calculateur surveille R. L'alarme doit s'allumer quand R &lt; R_alarme ou quand R &gt; R_alarme ? Expliquer.</p>
-  <p class="q"><strong>c)</strong> En roulage normal, T = 100 °C. Calculer R. Le voyant est-il allumé ?</p>
+  <p class="q"><strong>b)</strong> Le régulateur surveille R. L'alarme doit s'allumer quand R &lt; R_alarme ou quand R &gt; R_alarme ? Expliquer.</p>
+  <p class="q"><strong>c)</strong> En fonctionnement normal, T = 100 °C. Calculer R. Le voyant est-il allumé ?</p>
   <p class="q"><strong>d)</strong> Lors d'un essai, R tombe à 150 Ω. Quel est l'état du voyant ? Que faire ?</p>
-  <div class="attention"><strong>Attention :</strong> Une surchauffe d'huile moteur peut provoquer une dégradation de la lubrification et entraîner la destruction du moteur. Ne jamais ignorer ce voyant.</div>
+  <div class="attention"><strong>Attention :</strong> Une surchauffe de l'huile de lubrification peut provoquer une dégradation des roulements et entraîner la casse de la machine. Ne jamais ignorer ce voyant.</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>a)</strong> R_alarme = <strong>200 Ω</strong> (à 140 °C, d'après le tableau).</p>
     <p><strong>b)</strong> La CTN : R diminue quand T augmente. Si T &gt; 140 °C alors R &lt; 200 Ω. L'alarme s'allume quand <strong>R &lt; R_alarme = 200 Ω</strong>.</p>
     <p><strong>c)</strong> T = 100 °C → R = <strong>700 Ω</strong>. 700 Ω &gt; 200 Ω → voyant <strong>éteint</strong>. Situation normale.</p>
-    <p><strong>d)</strong> R = 150 Ω &lt; 200 Ω → T &gt; 140 °C → voyant <strong>allumé</strong>. Action : arrêter immédiatement le véhicule en lieu sûr, couper le moteur, attendre refroidissement, vérifier niveau et qualité d'huile, circuit de refroidissement.</p>
+    <p><strong>d)</strong> R = 150 Ω &lt; 200 Ω → T &gt; 140 °C → voyant <strong>allumé</strong>. Action : arrêter immédiatement la machine, couper l'alimentation, attendre refroidissement, vérifier niveau et qualité d'huile de lubrification, inspecter les roulements.</p>
   </div>
 </div>
 
 <!-- ===== SECTION 4 ===== -->
-<h2>Contexte MAMA</h2>
-<div class="section-intro">Diagnostics avancés de pannes liées aux capteurs thermiques.</div>
+<h2>Contexte professionnel</h2>
+<div class="section-intro">Diagnostics avancés de pannes liées aux capteurs thermiques en atelier de menuiserie.</div>
 
 <!-- EXO 8 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
-    <span class="exo-title">Diagnostic sonde eau moteur défectueuse</span>
-    <span class="diff diff-3">MAMA Avancé</span>
+    <span class="exo-title">Diagnostic sonde d'étuve défectueuse</span>
+    <span class="diff diff-3">Avancé</span>
   </div>
-  <div class="mama-tag">Contexte MAMA</div>
-  <p>Un client se plaint de consommation excessive d'essence et du ventilateur de refroidissement qui tourne <em>en permanence</em>, même moteur froid. La sonde CTN eau moteur est suspectée.</p>
-  <p class="q"><strong>a)</strong> Rappeler comment le calculateur interprète une valeur R très élevée (proche de l'infini) de la CTN. Quel défaut cela simule-t-il ?</p>
-  <p class="q"><strong>b)</strong> Si la CTN est <em>débranchée</em> (circuit ouvert), quelle résistance lit le calculateur ? (R = 0 Ω ou R → ∞ ?) Comment réagit-il sur l'injection ?</p>
-  <p class="q"><strong>c)</strong> Si la CTN est en <em>court-circuit</em> (fils qui se touchent), quelle résistance lit le calculateur ? (R = 0 Ω) Quelle température cela simule-t-il ? Comment réagit-il ?</p>
-  <p class="q"><strong>d)</strong> D'après les symptômes (ventilateur toujours ON + surconsommation), quel défaut est le plus probable : court-circuit ou circuit ouvert ? Expliquer.</p>
+  <div class="mama-tag">Contexte professionnel</div>
+  <p>Un technicien constate que l'étuve de séchage chauffe excessivement et que la résistance chauffante reste allumée en permanence, même quand la consigne est atteinte. La sonde CTN de l'étuve est suspectée.</p>
+  <p class="q"><strong>a)</strong> Rappeler comment le régulateur interprète une valeur R très élevée (proche de l'infini) de la CTN. Quel défaut cela simule-t-il ?</p>
+  <p class="q"><strong>b)</strong> Si la CTN est <em>débranchée</em> (circuit ouvert), quelle résistance lit le régulateur ? (R = 0 Ω ou R → ∞ ?) Comment réagit-il sur le chauffage ?</p>
+  <p class="q"><strong>c)</strong> Si la CTN est en <em>court-circuit</em> (fils qui se touchent), quelle résistance lit le régulateur ? (R = 0 Ω) Quelle température cela simule-t-il ? Comment réagit-il ?</p>
+  <p class="q"><strong>d)</strong> D'après les symptômes (chauffage toujours ON), quel défaut est le plus probable : court-circuit ou circuit ouvert ? Expliquer.</p>
 
   <div class="methode">
     <strong>Pour le diagnostic :</strong><br>
     - R → ∞ : circuit ouvert (fil coupé, connecteur mal enfiché) → T simulée très froide<br>
     - R = 0 Ω : court-circuit → T simulée très chaude<br>
-    Mesurer R à l'ohmmètre (moteur froid, calculateur débranché).
+    Mesurer R à l'ohmmètre (étuve froide, régulateur débranché).
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>a)</strong> R → ∞ signifie que le calculateur lit une résistance très grande. D'après la courbe CTN, une grande R correspond à une température très <em>basse</em>. Cela simule un moteur <strong>toujours froid</strong>.</p>
-    <p><strong>b)</strong> CTN débranchée → circuit ouvert → R → <strong>∞</strong> (infini). Calculateur croit que le moteur est extrêmement froid → il enrichit le mélange en permanence (surconsommation) et maintient le régime de ralenti élevé.</p>
-    <p><strong>c)</strong> Court-circuit (R = 0 Ω) → calculateur lit R très faible → T simulée très <strong>élevée</strong> (moteur chaud/surchauffe). Il active le ventilateur en permanence et peut couper l'alimentation ou afficher un code défaut moteur chaud.</p>
-    <p><strong>d)</strong> Ventilateur toujours ON → T simulée élevée → R faible → <strong>court-circuit probable</strong>. Surconsommation + ventilateur toujours ON peut aussi indiquer circuit ouvert (T simulée froide → enrichissement + ventilateur préventif). À confirmer par mesure à l'ohmmètre. Code défaut P0115/P0117/P0118 à lire avec valise diagnostique.</p>
+    <p><strong>a)</strong> R → ∞ signifie que le régulateur lit une résistance très grande. D'après la courbe CTN, une grande R correspond à une température très <em>basse</em>. Cela simule une étuve <strong>toujours froide</strong>.</p>
+    <p><strong>b)</strong> CTN débranchée → circuit ouvert → R → <strong>∞</strong> (infini). Le régulateur croit que l'étuve est froide → il maintient le chauffage allumé en permanence → surchauffe possible.</p>
+    <p><strong>c)</strong> Court-circuit (R = 0 Ω) → régulateur lit R très faible → T simulée très <strong>élevée</strong>. Il coupe le chauffage en permanence, l'étuve ne chauffe plus du tout.</p>
+    <p><strong>d)</strong> Chauffage toujours ON → T simulée froide → R très grande → <strong>circuit ouvert probable</strong> (CTN débranchée ou fil coupé). À confirmer par mesure à l'ohmmètre sur la sonde.</p>
   </div>
 </div>
 
@@ -354,26 +354,26 @@ svg text{font-family:'Segoe UI',sans-serif}
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">Capteur climatisation dérivé – Plainte client</span>
-    <span class="diff diff-3">MAMA Avancé</span>
+    <span class="exo-title">Capteur de thermostat d'atelier dérivé</span>
+    <span class="diff diff-3">Avancé</span>
   </div>
-  <div class="mama-tag">Contexte MAMA</div>
-  <p>Un client se plaint que sa climatisation chauffe trop : il règle 19 °C mais il fait chaud dans l'habitacle. La CTN du capteur habitacle a les valeurs suivantes :</p>
+  <div class="mama-tag">Contexte professionnel</div>
+  <p>Un responsable d'atelier se plaint que le chauffage reste allumé alors que l'atelier est à 25 °C : la consigne est réglée à 19 °C. La CTN du thermostat d'atelier a les valeurs suivantes :</p>
   <table>
     <tr><th>T (°C)</th><th>10</th><th>12</th><th>15</th><th>19</th><th>21</th><th>25</th></tr>
     <tr><th>R (kΩ)</th><td>14</td><td>12</td><td>9</td><td>6</td><td>5</td><td>3,5</td></tr>
   </table>
   <p>Le technicien mesure la résistance du capteur : R_mesurée = 15 kΩ.</p>
-  <p class="q"><strong>a)</strong> La consigne est 19 °C → R_consigne = 6 kΩ. Le calculateur compare R_mesurée à R_consigne. Quelle action déclenche R_mesurée = 15 kΩ (plus grand ou plus petit que R_consigne) ?</p>
+  <p class="q"><strong>a)</strong> La consigne est 19 °C → R_consigne = 6 kΩ. Le régulateur compare R_mesurée à R_consigne. Quelle action déclenche R_mesurée = 15 kΩ (plus grand ou plus petit que R_consigne) ?</p>
   <p class="q"><strong>b)</strong> D'après le tableau, à quelle température correspond R = 15 kΩ ? La température affichée (19 °C) correspond-elle à la réalité ?</p>
-  <p class="q"><strong>c)</strong> Expliquer la plainte du client : pourquoi fait-il trop chaud alors qu'il a réglé 19 °C ?</p>
+  <p class="q"><strong>c)</strong> Expliquer la plainte du responsable : pourquoi le chauffage reste allumé alors que l'atelier est chaud ?</p>
   <p class="q"><strong>d)</strong> Quelle est la solution pour le technicien ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>a)</strong> R_mesurée = 15 kΩ &gt; R_consigne = 6 kΩ. D'après la CTN, R élevée → T basse. Le calculateur croit qu'il fait <strong>froid</strong> dans l'habitacle → il active le <strong>chauffage</strong>.</p>
-    <p><strong>b)</strong> R = 15 kΩ est supérieure à 14 kΩ (T = 10 °C) → T_réelle &lt; 10 °C selon le capteur. Mais la valeur mesurée ne correspond pas à la réalité (le capteur est dérivé). La température affichée de 19 °C est <strong>fausse</strong>.</p>
-    <p><strong>c)</strong> Le capteur CTN a vieilli et dérivé : il affiche une résistance correspondant à une température plus froide que la réalité. Le calculateur croit que l'habitacle est froid et chauffe → il fait trop chaud → plainte du client.</p>
-    <p><strong>d)</strong> Solution : <strong>remplacer le capteur CTN</strong> de l'habitacle. C'est une pièce d'usure peu coûteuse. Après remplacement, vérifier la cohérence entre T affichée et T réelle mesurée avec un thermomètre étalonné.</p>
+    <p><strong>a)</strong> R_mesurée = 15 kΩ &gt; R_consigne = 6 kΩ. D'après la CTN, R élevée → T basse. Le régulateur croit qu'il fait <strong>froid</strong> dans l'atelier → il maintient le <strong>chauffage ON</strong>.</p>
+    <p><strong>b)</strong> R = 15 kΩ est supérieure à 14 kΩ (T = 10 °C) → T_réelle &lt; 10 °C selon le capteur. Mais la valeur mesurée ne correspond pas à la réalité (le capteur est dérivé). La température indiquée est <strong>fausse</strong>.</p>
+    <p><strong>c)</strong> Le capteur CTN a vieilli et dérivé : il indique une résistance correspondant à une température plus froide que la réalité. Le régulateur croit que l'atelier est froid et maintient le chauffage → il fait trop chaud → plainte du responsable.</p>
+    <p><strong>d)</strong> Solution : <strong>remplacer le capteur CTN</strong> du thermostat. C'est une pièce d'usure peu coûteuse. Après remplacement, vérifier la cohérence entre T affichée et T réelle mesurée avec un thermomètre étalonné.</p>
   </div>
 </div>
 
@@ -395,7 +395,7 @@ new Chart(ctx, {
   data: {
     labels: tempData.map(t => t + ' °C'),
     datasets: [{
-      label: 'R (kΩ) – CTN sonde eau moteur',
+      label: 'R (kΩ) – CTN sonde d\'étuve',
       data: resData,
       borderColor: '#6f42c1',
       backgroundColor: 'rgba(111,66,193,0.08)',
@@ -412,7 +412,7 @@ new Chart(ctx, {
       legend: { position: 'top' },
       title: {
         display: true,
-        text: 'Caractéristique R(T) d\'une CTN – Sonde eau moteur',
+        text: 'Caractéristique R(T) d\'une CTN – Sonde d\'étuve de séchage',
         font: { size: 14 }
       },
       tooltip: {
