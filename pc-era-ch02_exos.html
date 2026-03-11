@@ -120,7 +120,7 @@ tr:nth-child(even) td{background:#f8fafc}
 <!-- ===== GRAPHIQUE DENSITÉ D'ÉNERGIE ===== -->
 <h2>Comparaison des densités d'énergie par technologie</h2>
 <div class="methode">
-  <strong>Méthode :</strong> La densité d'énergie massique (Wh/kg) indique combien d'énergie on peut stocker par kilogramme de batterie. Plus elle est élevée, plus la batterie est légère pour une même autonomie. C'est un critère décisif pour les applications mobiles (outils sans fil, véhicules électriques).
+  <strong>Méthode :</strong> La densité d'énergie massique (Wh/kg) indique combien d'énergie on peut stocker par kilogramme de batterie. Plus elle est élevée, plus la batterie est légère pour une même autonomie. C'est un critère décisif pour les applications mobiles (outils sans fil, robots de chantier, chariots élévateurs électriques).
 </div>
 <div class="chart-wrap">
   <canvas id="chartBatterie"></canvas>
@@ -155,18 +155,18 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="exo-title">Énergie stockée dans une batterie</span>
     <span class="diff diff-1">Niveau 1</span>
   </div>
-  <p>Une batterie de véhicule est caractérisée par : tension \(U = 12\ \text{V}\), capacité \(Q = 60\ \text{Ah}\).</p>
+  <p>Une batterie d'alimentation de secours pour un atelier est caractérisée par : tension \(U = 12\ \text{V}\), capacité \(Q = 60\ \text{Ah}\).</p>
   <p class="q"><strong>1.</strong> Rappeler la formule de l'énergie en Wh à partir de \(U\) et \(Q\).</p>
   <p class="q"><strong>2.</strong> Calculer l'énergie stockée en Wh.</p>
   <p class="q"><strong>3.</strong> Convertir cette énergie en joules (\(1\ \text{Wh} = 3\,600\ \text{J}\)).</p>
-  <p class="q"><strong>4.</strong> Si un démarreur consomme un courant de 120 A, combien de temps (en secondes) peut-il fonctionner avant de décharger complètement la batterie ?</p>
+  <p class="q"><strong>4.</strong> Si l'éclairage de secours de l'atelier consomme un courant de 5 A, combien de temps (en heures puis en minutes) peut-il fonctionner avant de décharger complètement la batterie ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(E\ (\text{Wh}) = U\ (\text{V}) \times Q\ (\text{Ah})\)</p>
     <p><strong>2.</strong> \(E = 12 \times 60 = \mathbf{720\ Wh}\)</p>
     <p><strong>3.</strong> \(E = 720 \times 3\,600 = \mathbf{2\,592\,000\ J = 2{,}592\ MJ}\)</p>
-    <p><strong>4.</strong> \(t = \dfrac{Q}{I} = \dfrac{60\ \text{Ah}}{120\ \text{A}} = 0{,}5\ \text{h} = \mathbf{30\ minutes = 1\,800\ s}\)</p>
-    <p><em>En pratique, un démarreur fonctionne quelques secondes ; la batterie n'est jamais complètement déchargée par un démarrage normal.</em></p>
+    <p><strong>4.</strong> \(t = \dfrac{Q}{I} = \dfrac{60\ \text{Ah}}{5\ \text{A}} = 12\ \text{h} = \mathbf{720\ minutes}\)</p>
+    <p><em>En pratique, la batterie de secours est rechargée avant d'être complètement déchargée, pour garantir une autonomie suffisante en cas de coupure de courant prolongée.</em></p>
   </div>
 </div>
 
@@ -338,7 +338,7 @@ tr:nth-child(even) td{background:#f8fafc}
     <p>\(E_{\text{réseau}} = \dfrac{E_{\text{batterie}}}{\eta_{\text{chargeur}}} = \dfrac{24}{0{,}85} \approx \mathbf{28{,}2\ kWh}\)</p>
     <p><strong>3.</strong> Coût d'une recharge : \(c = E_{\text{réseau}} \times p = 28{,}2 \times 0{,}15 \approx \mathbf{4{,}24\ €}\)</p>
     <p><strong>4.</strong> Coût mensuel total : \(C = 5 \times 20 \times 4{,}24 = \mathbf{424\ €/\text{mois}}\)</p>
-    <p><em>Ce calcul justifie l'intérêt des contrats d'énergie adaptés (tarifs heures creuses) pour les ateliers utilisant de nombreux véhicules électriques.</em></p>
+    <p><em>Ce calcul justifie l'intérêt des contrats d'énergie adaptés (tarifs heures creuses) pour les ateliers disposant d'un parc important de chariots et d'engins électriques à recharger.</em></p>
   </div>
 </div>
 
