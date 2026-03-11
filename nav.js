@@ -30,16 +30,16 @@
         { id: '02', title: 'Statistiques à une variable' },
         { id: '03', title: 'Indicateurs statistiques' },
         { id: '04', title: 'Fluctuations et probabilités' },
-        { id: '05', title: 'Résolution de problèmes du 1er degré' },
-        { id: '06', title: 'Notion de fonction' },
-        { id: '07', title: 'Fonction affine' },
-        { id: '08', title: 'Fonctions de référence' },
-        { id: '09', title: 'Géométrie dans le triangle' },
-        { id: '10', title: 'Aires et volumes' },
-        { id: '11', title: 'Chapitre 11' },
-        { id: '12', title: 'Chapitre 12' },
-        { id: '13', title: 'Chapitre 13' },
-        { id: '14', title: 'Chapitre 14' }
+        { id: '05', title: 'Équations du premier degré' },
+        { id: '06', title: 'Inéquations du premier degré' },
+        { id: '07', title: 'Notion de fonction' },
+        { id: '08', title: 'Fonction linéaire et proportionnalité' },
+        { id: '09', title: 'Fonction affine' },
+        { id: '10', title: 'Fonction carré et variations' },
+        { id: '11', title: 'Figures planes : périmètres et aires' },
+        { id: '12', title: 'Théorème de Pythagore et réciproque' },
+        { id: '13', title: 'Théorème de Thalès dans le triangle' },
+        { id: '14', title: 'Solides, volumes et agrandissement' }
       ]
     },
 
