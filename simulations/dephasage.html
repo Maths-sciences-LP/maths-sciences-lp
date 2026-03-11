@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Déphasage & Triangle des puissances — Simulation</title>
+<style>
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+body{font-family:'Segoe UI',sans-serif;background:#f4f4f9;margin:0;padding:20px;color:#333}
+.container{max-width:880px;margin:0 auto}
+
+/* ─── Header ───────────────────────────────────────────────────────────────── */
+header{
+  background:linear-gradient(135deg,#4a2b8a,#6f42c1);
+  color:#fff;padding:22px 28px;border-radius:12px;
+  margin-bottom:22px;position:relative
+}
+.btn-back{
+  position:absolute;left:16px;top:16px;
+  background:rgba(255,255,255,.2);color:#fff;text-decoration:none;
+  padding:5px 12px;border-radius:5px;font-size:.85em
+}
+
+/* ─── Cards ────────────────────────────────────────────────────────────────── */
+.card{background:#fff;border-radius:12px;padding:22px;
+      box-shadow:0 2px 10px rgba(0,0,0,.08);margin-bottom:20px}
+.card h3{margin-top:0;color:#6f42c1;font-size:1em}
+
+/* ─── Explication ──────────────────────────────────────────────────────────── */
+.explication{
+  background:#f0eeff;border-left:4px solid #6f42c1;
+  padding:12px 16px;border-radius:0 8px 8px 0;
+  margin-bottom:20px;font-size:.94em;line-height:1.7
+}
+
+/* ─── Canvas ───────────────────────────────────────────────────────────────── */
+canvas{display:block;border-radius:8px;background:#fafafa}
+#canvasOnde{width:100%;border:1px solid #e5e7eb}
+
+/* ─── Contrôles ────────────────────────────────────────────────────────────── */
+label{font-weight:600;display:block;margin-bottom:4px}
+input[type=range]{width:100%;accent-color:#6f42c1;margin-bottom:12px}
+.val{color:#6f42c1;font-weight:bold}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:600px){.row2,.row3{grid-template-columns:1fr}}
+small{color:#718096;font-size:.83em;line-height:1.4;display:block;margin-top:2px}
+
+/* ─── Résultats ────────────────────────────────────────────────────────────── */
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+@media(max-width:560px){.res-grid{grid-template-columns:1fr 1fr}}
+.res-box{border-radius:10px;padding:12px 10px;text-align:center}
+.res-box .lbl{font-size:.75em;color:#555;font-weight:700;text-transform:uppercase;margin-bottom:4px}
+.res-box .val2{font-size:1.35em;font-weight:800}
+.box-S{background:#f3e8ff}.box-S .val2{color:#7c3aed}
+.box-P{background:#dbeafe}.box-P .val2{color:#1d4ed8}
+.box-Q{background:#fef3c7}.box-Q .val2{color:#92400e}
+.box-cos{background:#d1fae5}.box-cos .val2{color:#065f46}
+
+/* ─── Légende ──────────────────────────────────────────────────────────────── */
+.legende{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:.86em}
+.leg-item{display:flex;align-items:center;gap:7px}
+.leg-bar{width:24px;height:4px;border-radius:2px;flex-shrink:0}
+
+/* ─── Triangle/bilan côte à côte ───────────────────────────────────────────── */
+.split{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+@media(max-width:620px){.split{grid-template-columns:1fr}}
+#canvasTri{border:1px solid #e5e7eb}
+
+/* ─── Formules ─────────────────────────────────────────────────────────────── */
+.formules{background:#f3e8ff;border-radius:8px;padding:12px 14px;font-size:.9em;line-height:1.8}
+.formules strong{color:#6f42c1}
+
+/* ─── Boutons ──────────────────────────────────────────────────────────────── */
+.btns{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
+.btn{padding:8px 18px;border-radius:8px;border:none;cursor:pointer;
+     font-size:.9em;font-weight:700;transition:opacity .15s}
+.btn:hover{opacity:.85}
+.btn-pause{background:#6f42c1;color:#fff}
+.btn-reset{background:#64748b;color:#fff}
+
+/* ─── Interp ───────────────────────────────────────────────────────────────── */
+.interp{background:#f8f9fa;border-radius:8px;padding:10px 14px;font-size:.88em;
+         border-left:4px solid #6f42c1;margin-top:12px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── Header ─────────────────────────────────────────────────────────── -->
+  <header>
+    <a href="../simulations.html" class="btn-back">← Retour</a>
+    <h1 style="margin:0 0 6px">⚡ Déphasage tension / courant</h1>
+    <p style="margin:0;opacity:.9">Terminale Bac Pro — Puissance en régime sinusoïdal alternatif</p>
+  </header>
+
+  <!-- ── Explication ────────────────────────────────────────────────────── -->
+  <div class="explication">
+    <strong>Principe :</strong>
+    En courant alternatif sinusoïdal, la tension <em>u(t)</em> et le courant <em>i(t)</em> peuvent être décalés dans le temps.
+    Ce décalage est l'<strong>angle de déphasage φ</strong>.
+    Il détermine la part d'énergie réellement consommée (puissance active <strong>P</strong>)
+    et la part « stockée/restituée » sans être consommée (puissance réactive <strong>Q</strong>).
+    La puissance apparente <strong>S = U × I</strong> est le « produit brut » lu sur les appareils de mesure.
+  </div>
+
+  <!-- ── Canvas formes d'onde ────────────────────────────────────────────── -->
+  <div class="card">
+    <h3>Formes d'onde u(t) et i(t)</h3>
+    <canvas id="canvasOnde" height="210"></canvas>
+    <div class="legende">
+      <div class="leg-item"><div class="leg-bar" style="background:#2563eb"></div>Tension u(t)</div>
+      <div class="leg-item"><div class="leg-bar" style="background:#ef4444"></div>Courant i(t)</div>
+      <div class="leg-item"><div class="leg-bar" style="background:#9333ea;height:2px;border-top:2px dashed #9333ea;background:none"></div>Déphasage φ</div>
+    </div>
+  </div>
+
+  <!-- ── Contrôles ──────────────────────────────────────────────────────── -->
+  <div class="card">
+    <h3>🎛️ Paramètres</h3>
+    <div class="row3">
+      <div>
+        <label>Angle φ : <span class="val" id="vPhi">30</span>°</label>
+        <input type="range" id="phi" min="0" max="89" step="1" value="30" oninput="update()">
+        <small>0° = résistif pur · 90° = réactif pur</small>
+      </div>
+      <div>
+        <label>Tension U : <span class="val" id="vU">230</span> V</label>
+        <input type="range" id="U" min="10" max="400" step="1" value="230" oninput="update()">
+        <small>Valeur efficace (Vrms)</small>
+      </div>
+      <div>
+        <label>Courant I : <span class="val" id="vI">10</span> A</label>
+        <input type="range" id="I" min="0.5" max="50" step="0.5" value="10" oninput="update()">
+        <small>Valeur efficace (Arms)</small>
+      </div>
+    </div>
+    <div class="btns">
+      <button class="btn btn-pause" id="btnPause" onclick="togglePause()">⏸ Pause</button>
+      <button class="btn btn-reset" onclick="resetParams()">↺ Réinitialiser</button>
+    </div>
+  </div>
+
+  <!-- ── Triangle + Résultats ────────────────────────────────────────────── -->
+  <div class="card">
+    <div class="split">
+      <div>
+        <h3>Triangle des puissances</h3>
+        <canvas id="canvasTri" width="300" height="270"></canvas>
+      </div>
+      <div>
+        <h3>Résultats</h3>
+        <div class="res-grid">
+          <div class="res-box box-S">
+            <div class="lbl">S — puissance apparente</div>
+            <div class="val2" id="rS">—</div>
+            <div style="font-size:.75em;color:#7c3aed">VA</div>
+          </div>
+          <div class="res-box box-P">
+            <div class="lbl">P — puissance active</div>
+            <div class="val2" id="rP">—</div>
+            <div style="font-size:.75em;color:#1d4ed8">W</div>
+          </div>
+          <div class="res-box box-Q">
+            <div class="lbl">Q — puissance réactive</div>
+            <div class="val2" id="rQ">—</div>
+            <div style="font-size:.75em;color:#92400e">VAR</div>
+          </div>
+          <div class="res-box box-cos">
+            <div class="lbl">Facteur de puissance</div>
+            <div class="val2" id="rCos">—</div>
+            <div style="font-size:.75em;color:#065f46">cos φ</div>
+          </div>
+        </div>
+
+        <div class="formules">
+          <strong>Formules :</strong><br>
+          S = U × I<br>
+          P = S × cos φ &nbsp;(W — énergie utile)<br>
+          Q = S × sin φ &nbsp;(VAR — énergie réactive)<br>
+          S² = P² + Q² &nbsp;(théorème de Pythagore)
+        </div>
+
+        <div class="interp" id="interp">—</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// ─── État global ──────────────────────────────────────────────────────────────
+const cvOnde = document.getElementById('canvasOnde');
+const ctxO   = cvOnde.getContext('2d');
+const cvTri  = document.getElementById('canvasTri');
+const ctxT   = cvTri.getContext('2d');
+
+let animTime = 0;
+let paused   = false;
+let animId   = null;
+
+// ─── Lecture des paramètres ───────────────────────────────────────────────────
+function getP() {
+  return {
+    phi:    parseFloat(document.getElementById('phi').value) * Math.PI / 180,
+    phiDeg: parseFloat(document.getElementById('phi').value),
+    U:      parseFloat(document.getElementById('U').value),
+    I:      parseFloat(document.getElementById('I').value),
+  };
+}
+
+// ─── Mise à jour des valeurs numériques + triangle ────────────────────────────
+function update() {
+  const p = getP();
+  document.getElementById('vPhi').textContent = p.phiDeg;
+  document.getElementById('vU').textContent   = p.U;
+  document.getElementById('vI').textContent   = document.getElementById('I').value;
+
+  const S   = p.U * p.I;
+  const P   = S * Math.cos(p.phi);
+  const Q   = S * Math.sin(p.phi);
+  const cos = Math.cos(p.phi);
+
+  document.getElementById('rS').textContent   = S.toFixed(1);
+  document.getElementById('rP').textContent   = P.toFixed(1);
+  document.getElementById('rQ').textContent   = Q.toFixed(1);
+  document.getElementById('rCos').textContent = cos.toFixed(3);
+
+  // Interprétation pédagogique
+  let msg = '';
+  if      (p.phiDeg < 5)  msg = '🟢 φ ≈ 0° — Circuit résistif pur. Toute la puissance apparente est utile : P = S. Le courant et la tension sont en phase.';
+  else if (p.phiDeg < 30) msg = '🔵 Faible déphasage. Bonne utilisation de l\'énergie. Le facteur de puissance cos φ est proche de 1.';
+  else if (p.phiDeg < 60) msg = '🟡 Déphasage modéré. Une partie de la puissance est réactive. Il faut améliorer cos φ (batterie de condensateurs).';
+  else if (p.phiDeg < 85) msg = '🟠 Fort déphasage. Beaucoup de puissance réactive. Le courant dans les câbles est élevé mais peu d\'énergie est réellement utile.';
+  else                     msg = '🔴 φ ≈ 90° — Circuit purement réactif (bobine ou condensateur). La puissance active P ≈ 0 : aucune énergie n\'est consommée.';
+  document.getElementById('interp').textContent = msg;
+
+  drawTriangle(P, Q, S, p.phi);
+}
+
+// ─── TRIANGLE DES PUISSANCES ──────────────────────────────────────────────────
+function drawTriangle(P, Q, S, phi) {
+  const ctx = ctxT;
+  const W = cvTri.width, H = cvTri.height;
+  ctx.clearRect(0, 0, W, H);
+
+  // Fond
+  ctx.fillStyle = '#fafafa';
+  ctx.fillRect(0, 0, W, H);
+
+  // Marges et scaling
+  const pl = 44, pb = 44, pt = 30, pr = 18;
+  const gW = W - pl - pr, gH = H - pt - pb;
+  const scale = S > 0 ? Math.min(gW / Math.max(P, 1), gH / Math.max(Q, 1), gW, gH) : gW;
+  const px = (S > 0 ? P / S : 1) * gW; // longueur horizontale
+  const qy = (S > 0 ? Q / S : 0) * gH; // hauteur verticale
+
+  const ox = pl, oy = H - pb; // origine (coin bas-gauche)
+
+  // ── Remplissage triangle ──────────────────────────────────────────────────
+  ctx.fillStyle = 'rgba(111,66,193,.07)';
+  ctx.beginPath();
+  ctx.moveTo(ox, oy);
+  ctx.lineTo(ox + px, oy);
+  ctx.lineTo(ox + px, oy - qy);
+  ctx.closePath();
+  ctx.fill();
+
+  // ── Arc angle φ ──────────────────────────────────────────────────────────
+  if (phi > 0.02) {
+    const arcR = Math.min(38, px * 0.35, Math.max(qy * 0.35, 15));
+    ctx.strokeStyle = '#9333ea';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(ox, oy, arcR, -phi, 0);
+    ctx.stroke();
+    // Label φ
+    const midA = -phi / 2;
+    ctx.fillStyle = '#7c3aed';
+    ctx.font = 'bold 13px Segoe UI';
+    ctx.textAlign = 'left';
+    ctx.fillText('φ=' + document.getElementById('phi').value + '°',
+      ox + Math.cos(midA) * (arcR + 6),
+      oy + Math.sin(midA) * (arcR + 6) + 4);
+  }
+
+  // ── Angle droit ───────────────────────────────────────────────────────────
+  if (px > 16 && qy > 16) {
+    const sq = 10;
+    ctx.strokeStyle = '#9ca3af';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(ox + px - sq, oy);
+    ctx.lineTo(ox + px - sq, oy - sq);
+    ctx.lineTo(ox + px, oy - sq);
+    ctx.stroke();
+  }
+
+  // ── Côté P (horizontal — bleu) ────────────────────────────────────────────
+  drawSide(ctx, ox, oy, ox + px, oy, '#1d4ed8',
+           `P = ${P.toFixed(0)} W`,
+           (ox + px / 2), oy + 26, 'center');
+
+  // ── Côté Q (vertical — orange) ────────────────────────────────────────────
+  drawSide(ctx, ox + px, oy, ox + px, oy - qy, '#b45309',
+           `Q = ${Q.toFixed(0)} VAR`,
+           ox + px + 8, oy - qy / 2 + 4, 'left');
+
+  // ── Hypoténuse S (violet) ─────────────────────────────────────────────────
+  const angle = Math.atan2(-qy, px);
+  const labOffX =  Math.sin(angle) * 18;
+  const labOffY = -Math.cos(angle) * 18;
+  drawSide(ctx, ox, oy, ox + px, oy - qy, '#7c3aed',
+           `S = ${(P * P + Q * Q > 0 ? Math.sqrt(P * P + Q * Q) : 0).toFixed(0)} VA`,
+           (ox + ox + px) / 2 + labOffX,
+           (oy + oy - qy) / 2 + labOffY, 'center');
+
+  // ── Labels axes ───────────────────────────────────────────────────────────
+  ctx.fillStyle = '#9ca3af'; ctx.font = '11px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText('cos φ = P/S = ' + Math.cos(phi).toFixed(3), W / 2, H - 8);
+}
+
+function drawSide(ctx, x1, y1, x2, y2, color, label, lx, ly, align) {
+  // Ligne + flèche
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 3.5;
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+  // Tête de flèche
+  const ang = Math.atan2(y2 - y1, x2 - x1), ah = 9;
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.moveTo(x2, y2);
+  ctx.lineTo(x2 - ah * Math.cos(ang - 0.45), y2 - ah * Math.sin(ang - 0.45));
+  ctx.lineTo(x2 - ah * Math.cos(ang + 0.45), y2 - ah * Math.sin(ang + 0.45));
+  ctx.closePath(); ctx.fill();
+  // Label
+  ctx.fillStyle = color;
+  ctx.font = 'bold 12.5px Segoe UI';
+  ctx.textAlign = align;
+  ctx.fillText(label, lx, ly);
+}
+
+// ─── COURBES TEMPORELLES ──────────────────────────────────────────────────────
+function drawOnde() {
+  // Résolution native = largeur CSS
+  const cssW = cvOnde.parentElement.clientWidth - 44;
+  if (cvOnde.width !== Math.round(cssW)) {
+    cvOnde.width  = Math.max(Math.round(cssW), 320);
+    cvOnde.height = 210;
+  }
+  const W = cvOnde.width, H = cvOnde.height;
+  const ctx = ctxO;
+  const { phi, phiDeg } = getP();
+
+  // Marges
+  const pad = { l: 42, r: 14, t: 22, b: 28 };
+  const gW = W - pad.l - pad.r;
+  const gH = H - pad.t - pad.b;
+  const cy = pad.t + gH / 2; // axe horizontal central
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#fafafa';
+  ctx.fillRect(0, 0, W, H);
+
+  // ── Grille ────────────────────────────────────────────────────────────────
+  ctx.strokeStyle = '#e5e7eb'; ctx.lineWidth = 1;
+  for (let j = -2; j <= 2; j++) {
+    const y = cy + j * gH / 4;
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + gW, y); ctx.stroke();
+  }
+  // 4 divisions verticales (1 période = gW/2)
+  for (let j = 0; j <= 4; j++) {
+    const x = pad.l + j * gW / 4;
+    ctx.beginPath(); ctx.moveTo(x, pad.t); ctx.lineTo(x, pad.t + gH); ctx.stroke();
+  }
+
+  // ── Axes ──────────────────────────────────────────────────────────────────
+  ctx.strokeStyle = '#6b7280'; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(pad.l, cy); ctx.lineTo(pad.l + gW, cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, pad.t + gH); ctx.stroke();
+
+  ctx.fillStyle = '#9ca3af'; ctx.font = '11px Segoe UI'; ctx.textAlign = 'left';
+  ctx.fillText('t', pad.l + gW + 4, cy + 4);
+  ctx.textAlign = 'center';
+  ctx.fillText('T', pad.l + gW / 2, pad.t + gH + 18);
+  ctx.fillText('2T', pad.l + gW, pad.t + gH + 18);
+
+  // ── Graduation axe y ──────────────────────────────────────────────────────
+  ctx.fillStyle = '#9ca3af'; ctx.font = '10px Segoe UI'; ctx.textAlign = 'right';
+  ctx.fillText('+U', pad.l - 3, pad.t + 4);
+  ctx.fillText('0', pad.l - 3, cy + 4);
+  ctx.fillText('−U', pad.l - 3, pad.t + gH + 4);
+
+  // ── Paramètres des courbes ────────────────────────────────────────────────
+  const amp     = gH * 0.43;       // amplitude en pixels
+  const period  = gW / 2;          // 2 périodes visibles
+
+  // ── Zone remplie entre u et i (visualisation déphasage) ──────────────────
+  if (phiDeg > 1) {
+    ctx.fillStyle = 'rgba(147,51,234,.07)';
+    ctx.beginPath();
+    let first = true;
+    for (let px = 0; px <= gW; px++) {
+      const t  = px / period + animTime;
+      const yu = cy - amp * Math.sin(t * 2 * Math.PI);
+      if (first) { ctx.moveTo(pad.l + px, yu); first = false; }
+      else        ctx.lineTo(pad.l + px, yu);
+    }
+    for (let px = gW; px >= 0; px--) {
+      const t  = px / period + animTime;
+      const yi = cy - amp * Math.sin(t * 2 * Math.PI - phi);
+      ctx.lineTo(pad.l + px, yi);
+    }
+    ctx.closePath(); ctx.fill();
+  }
+
+  // ── Courbe tension u(t) — bleue ───────────────────────────────────────────
+  ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.8;
+  ctx.beginPath();
+  for (let px = 0; px <= gW; px++) {
+    const t = px / period + animTime;
+    const y = cy - amp * Math.sin(t * 2 * Math.PI);
+    if (px === 0) ctx.moveTo(pad.l + px, y);
+    else          ctx.lineTo(pad.l + px, y);
+  }
+  ctx.stroke();
+
+  // ── Courbe courant i(t) — rouge, déphasée de φ ───────────────────────────
+  ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 2.8;
+  ctx.beginPath();
+  for (let px = 0; px <= gW; px++) {
+    const t = px / period + animTime;
+    const y = cy - amp * Math.sin(t * 2 * Math.PI - phi);
+    if (px === 0) ctx.moveTo(pad.l + px, y);
+    else          ctx.lineTo(pad.l + px, y);
+  }
+  ctx.stroke();
+
+  // ── Annotation déphasage φ ────────────────────────────────────────────────
+  if (phiDeg > 2) {
+    // Calcul du premier pic de u(t) visible à gauche
+    // u(t) max quand sin(t*2π) = 1 → t = 0.25 + k
+    // t = px/period + animTime → px = (0.25 - animTime%1 + k)*period
+    const tOff = ((0.25 - animTime % 1) % 1 + 1) % 1; // fraction de période dans [0,1[
+    const uPeakPx = tOff * period;  // px relatif au départ
+
+    // Pic de i(t) = u(t) décalé de +φ/(2π)*period
+    const phaseShiftPx = (phi / (2 * Math.PI)) * period;
+    const iPeakPx = uPeakPx + phaseShiftPx;
+
+    const uX = pad.l + uPeakPx;
+    const iX = pad.l + iPeakPx;
+    const peakY = cy - amp; // y au sommet
+
+    // Dessiner seulement si les deux pics sont visibles
+    if (uX >= pad.l && iX <= pad.l + gW && iX > uX + 4) {
+      // Lignes verticales pointillées
+      ctx.strokeStyle = 'rgba(147,51,234,.55)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 4]);
+      ctx.beginPath(); ctx.moveTo(uX, peakY - 6); ctx.lineTo(uX, cy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(iX, peakY - 6); ctx.lineTo(iX, cy); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Flèche bidirectionnelle
+      const arrowY = peakY - 14;
+      ctx.strokeStyle = '#9333ea'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(uX + 5, arrowY); ctx.lineTo(iX - 5, arrowY); ctx.stroke();
+
+      // Têtes de flèche
+      ctx.fillStyle = '#9333ea';
+      arrowHead(ctx, uX, arrowY, uX + 10, arrowY);
+      arrowHead(ctx, iX, arrowY, iX - 10, arrowY);
+
+      // Label φ
+      ctx.fillStyle = '#7c3aed';
+      ctx.font = 'bold 12px Segoe UI';
+      ctx.textAlign = 'center';
+      ctx.fillText('φ = ' + phiDeg + '°', (uX + iX) / 2, arrowY - 5);
+    }
+  }
+
+  // ── Labels courbes ────────────────────────────────────────────────────────
+  ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'left';
+  ctx.fillStyle = '#2563eb';
+  ctx.fillText('u(t)', pad.l + 6, pad.t + 14);
+  ctx.fillStyle = '#ef4444';
+  ctx.fillText('i(t)', pad.l + 6, pad.t + 28);
+}
+
+function arrowHead(ctx, xTip, yTip, xBase, yBase) {
+  const ang = Math.atan2(yTip - yBase, xTip - xBase);
+  const ah = 7;
+  ctx.beginPath();
+  ctx.moveTo(xTip, yTip);
+  ctx.lineTo(xTip - ah * Math.cos(ang - 0.45), yTip - ah * Math.sin(ang - 0.45));
+  ctx.lineTo(xTip - ah * Math.cos(ang + 0.45), yTip - ah * Math.sin(ang + 0.45));
+  ctx.closePath(); ctx.fill();
+}
+
+// ─── BOUCLE D'ANIMATION ───────────────────────────────────────────────────────
+function loop() {
+  if (!paused) {
+    animTime += 0.008; // vitesse d'animation
+    drawOnde();
+  }
+  animId = requestAnimationFrame(loop);
+}
+
+// ─── CONTRÔLES ────────────────────────────────────────────────────────────────
+function togglePause() {
+  paused = !paused;
+  document.getElementById('btnPause').textContent = paused ? '▶ Reprendre' : '⏸ Pause';
+}
+
+function resetParams() {
+  document.getElementById('phi').value = '30';
+  document.getElementById('U').value   = '230';
+  document.getElementById('I').value   = '10';
+  paused = false;
+  document.getElementById('btnPause').textContent = '⏸ Pause';
+  update();
+}
+
+// ─── INITIALISATION ───────────────────────────────────────────────────────────
+window.addEventListener('resize', () => { cvOnde.width = 0; }); // force redraw
+update();
+loop();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch11 – Exercices – Transferts thermiques – 2nde Bac Pro</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;flex:1}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{background:#5a32a3}
+.intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.methode strong{color:#d97706}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.attention strong{color:#be123c}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.retenir strong{color:#0369a1}
+.schema{text-align:center;margin:18px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+</style>
+</head>
+<body>
+<div class="c">
+
+  <a href="pc-2nde-pro.html" class="nb">← Retour au sommaire</a>
+
+  <header>
+    <h1>Chapitre 11 – Transferts thermiques</h1>
+    <p class="sous-titre">Exercices — 2nde Bac Pro (Menuiserie · Agencement · Ameublement)</p>
+  </header>
+
+  <!-- ===== INTRODUCTION ===== -->
+  <div class="intro-box">
+    <strong>Objectif de la séance :</strong> Comprendre et calculer les transferts d'énergie thermique dans des situations professionnelles liées à la menuiserie et à l'agencement.<br><br>
+    <strong>Notions travaillées :</strong>
+    <ul style="margin:6px 0 0 16px;padding:0">
+      <li>Les trois modes de transfert thermique : conduction, convection, rayonnement</li>
+      <li>La formule de l'énergie thermique échangée : \(Q = m \cdot c \cdot \Delta T\)</li>
+      <li>La puissance thermique et l'isolation</li>
+      <li>Applications en atelier : séchage du bois, isolation thermique</li>
+    </ul>
+    <br>
+    <strong>Progression :</strong> Exercices de base → Exercices guidés → Exercices d'application → Exercices contextualisés en atelier
+  </div>
+
+  <!-- ===== ENCADRE METHODE ===== -->
+  <div class="methode">
+    <strong>Méthode — Utiliser \(Q = m \cdot c \cdot \Delta T\)</strong>
+    <ol style="margin:8px 0 0 16px;padding:0">
+      <li><strong>Identifier les données :</strong> masse \(m\) (kg), chaleur massique \(c\) (J·kg⁻¹·K⁻¹), variation de température \(\Delta T\) (K ou °C).</li>
+      <li><strong>Écrire la formule :</strong> \(Q = m \cdot c \cdot \Delta T\)</li>
+      <li><strong>Remplacer les lettres</strong> par les valeurs numériques avec unités.</li>
+      <li><strong>Calculer et convertir</strong> si besoin (J → kJ : diviser par 1 000).</li>
+      <li><strong>Conclure</strong> en répondant à la question posée avec l'unité.</li>
+    </ol>
+  </div>
+
+  <!-- ===== ENCADRE ATTENTION ===== -->
+  <div class="attention">
+    <strong>Attention — Kelvin vs Celsius</strong><br>
+    Dans la formule \(Q = m \cdot c \cdot \Delta T\), la variation de température \(\Delta T\) peut être exprimée indifféremment en <strong>kelvins (K)</strong> ou en <strong>degrés Celsius (°C)</strong>, car une différence de 1 K est égale à une différence de 1 °C.<br>
+    En revanche, pour d'autres formules (gaz parfaits, etc.), la <strong>température absolue en kelvins</strong> est obligatoire : \(T(\text{K}) = \theta(°\text{C}) + 273{,}15\).
+  </div>
+
+  <!-- ===== ENCADRE A RETENIR ===== -->
+  <div class="retenir">
+    <strong>À retenir — Les 3 formules clés</strong>
+    <table style="margin:10px 0">
+      <tr>
+        <th>Formule</th>
+        <th>Grandeur calculée</th>
+        <th>Unité</th>
+      </tr>
+      <tr>
+        <td>\(Q = m \cdot c \cdot \Delta T\)</td>
+        <td>Énergie thermique échangée</td>
+        <td>Joule (J)</td>
+      </tr>
+      <tr>
+        <td>\(P = \dfrac{Q}{\Delta t}\)</td>
+        <td>Puissance thermique</td>
+        <td>Watt (W)</td>
+      </tr>
+      <tr>
+        <td>\(E_c = \dfrac{1}{2} m v^2\)</td>
+        <td>Énergie cinétique (freinage)</td>
+        <td>Joule (J)</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ===== SVG SCHEMA 3 MODES ===== -->
+  <h2>Schéma — Les trois modes de transfert thermique</h2>
+  <div class="schema">
+    <svg width="780" height="220" viewBox="0 0 780 220" xmlns="http://www.w3.org/2000/svg"
+         style="max-width:100%;font-family:'Segoe UI',sans-serif;border:1px solid #e2e8f0;border-radius:10px;background:#fafafa">
+
+      <!-- Titre -->
+      <text x="390" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#6f42c1">Les trois modes de transfert thermique</text>
+
+      <!-- ====== CONDUCTION ====== -->
+      <!-- Barre métallique -->
+      <rect x="30" y="60" width="200" height="40" rx="5"
+            fill="url(#gradBarre)" stroke="#999" stroke-width="1.5"/>
+      <!-- Gradient chaud -> froid -->
+      <defs>
+        <linearGradient id="gradBarre" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient id="gradEau" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1"/>
+        </linearGradient>
+      </defs>
+      <!-- Flèche conduction -->
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#6f42c1"/>
+        </marker>
+        <marker id="arrR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#f97316"/>
+        </marker>
+      </defs>
+      <line x1="80" y1="80" x2="180" y2="80" stroke="#6f42c1" stroke-width="2.5"
+            stroke-dasharray="6,3" marker-end="url(#arr)"/>
+      <!-- Labels -->
+      <text x="130" y="56" text-anchor="middle" font-size="11" fill="#6f42c1" font-weight="bold">CONDUCTION</text>
+      <text x="42" y="118" font-size="10" fill="#ef4444" font-weight="bold">Chaud</text>
+      <text x="196" y="118" font-size="10" fill="#3b82f6" font-weight="bold">Froid</text>
+      <text x="130" y="132" text-anchor="middle" font-size="9.5" fill="#555">Transfert dans un solide (barre métallique)</text>
+      <!-- Atomes vibrants (représentés par des cercles) -->
+      <circle cx="55" cy="80" r="7" fill="#fca5a5" stroke="#ef4444" stroke-width="1.5"/>
+      <circle cx="85" cy="80" r="6" fill="#fcd34d" stroke="#f59e0b" stroke-width="1.5"/>
+      <circle cx="115" cy="80" r="5.5" fill="#6ee7b7" stroke="#10b981" stroke-width="1.5"/>
+      <circle cx="145" cy="80" r="5" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5"/>
+      <circle cx="175" cy="80" r="4.5" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1.5"/>
+      <circle cx="205" cy="80" r="4" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+
+      <!-- ====== CONVECTION ====== -->
+      <!-- Récipient fluide -->
+      <rect x="290" y="55" width="160" height="100" rx="6"
+            fill="url(#gradEau)" stroke="#6b7280" stroke-width="1.5" opacity="0.7"/>
+      <text x="370" y="50" text-anchor="middle" font-size="11" fill="#6f42c1" font-weight="bold">CONVECTION</text>
+      <!-- Flèches de circulation -->
+      <!-- Montée gauche -->
+      <path d="M320,145 C320,100 340,90 340,65" stroke="#ef4444" stroke-width="2.5"
+            fill="none" marker-end="url(#arrR)"/>
+      <!-- Descente droite -->
+      <path d="M400,65 C400,90 420,100 420,145" stroke="#3b82f6" stroke-width="2.5"
+            fill="none" marker-end="url(#arr)"/>
+      <!-- Horizontal haut -->
+      <path d="M340,68 L400,68" stroke="#f97316" stroke-width="2" fill="none" marker-end="url(#arrR)"/>
+      <!-- Horizontal bas -->
+      <path d="M420,142 L320,142" stroke="#6f42c1" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+      <!-- Source chaleur -->
+      <rect x="310" y="150" width="120" height="12" rx="3" fill="#ef4444" opacity="0.8"/>
+      <text x="370" y="161" text-anchor="middle" font-size="9" fill="#fff" font-weight="bold">Source chaude</text>
+      <text x="370" y="175" text-anchor="middle" font-size="9.5" fill="#555">Courants de fluide (air, liquide de refroidissement)</text>
+
+      <!-- ====== RAYONNEMENT ====== -->
+      <text x="600" y="50" text-anchor="middle" font-size="11" fill="#6f42c1" font-weight="bold">RAYONNEMENT</text>
+      <!-- Source (soleil / corps chaud) -->
+      <circle cx="540" cy="100" r="22" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+      <text x="540" y="105" text-anchor="middle" font-size="9" fill="#7c2d12" font-weight="bold">Corps</text>
+      <text x="540" y="116" text-anchor="middle" font-size="9" fill="#7c2d12" font-weight="bold">chaud</text>
+      <!-- Récepteur -->
+      <rect x="640" y="80" width="40" height="42" rx="4"
+            fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="660" y="106" text-anchor="middle" font-size="8.5" fill="#1e40af" font-weight="bold">Pièce</text>
+      <text x="660" y="118" text-anchor="middle" font-size="8.5" fill="#1e40af" font-weight="bold">froide</text>
+      <!-- Ondes -->
+      <line x1="563" y1="88" x2="638" y2="85" stroke="#f97316" stroke-width="1.8"
+            stroke-dasharray="4,4" marker-end="url(#arrR)"/>
+      <line x1="563" y1="100" x2="638" y2="100" stroke="#ef4444" stroke-width="1.8"
+            stroke-dasharray="4,4" marker-end="url(#arrR)"/>
+      <line x1="563" y1="112" x2="638" y2="115" stroke="#f97316" stroke-width="1.8"
+            stroke-dasharray="4,4" marker-end="url(#arrR)"/>
+      <text x="600" y="175" text-anchor="middle" font-size="9.5" fill="#555">Ondes électromagnétiques (infrarouge)</text>
+      <text x="600" y="188" text-anchor="middle" font-size="9.5" fill="#555">Pas besoin de matière</text>
+    </svg>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- ===== SECTION 1 : EXERCICES DE BASE ===== -->
+  <!-- ======================================== -->
+  <h2>Section 1 — Exercices de base</h2>
+
+  <!-- Exercice 1 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Identifier les modes de transfert thermique</span>
+      <span class="diff diff-1">Niveau 1 – Facile</span>
+    </div>
+    <p>Dans un atelier de mécanique, on observe plusieurs phénomènes liés à la chaleur. Pour chacun des exemples ci-dessous, identifie le mode de transfert thermique en jeu : <strong>conduction</strong>, <strong>convection</strong> ou <strong>rayonnement</strong>.</p>
+    <table>
+      <tr>
+        <th>N°</th>
+        <th>Situation observée dans l'atelier</th>
+        <th>Mode de transfert</th>
+      </tr>
+      <tr>
+        <td>a)</td>
+        <td>La poignée métallique d'une clé à molette devient chaude après avoir serré un écrou près d'un moteur électrique chaud de machine-outil.</td>
+        <td style="color:#6f42c1">?</td>
+      </tr>
+      <tr>
+        <td>b)</td>
+        <td>L'air chaud monte au-dessus du radiateur de l'atelier et se déplace vers le plafond.</td>
+        <td style="color:#6f42c1">?</td>
+      </tr>
+      <tr>
+        <td>c)</td>
+        <td>On ressent la chaleur d'une pièce sortant du four sans la toucher, à distance de 50 cm.</td>
+        <td style="color:#6f42c1">?</td>
+      </tr>
+      <tr>
+        <td>d)</td>
+        <td>Le fluide caloporteur circule dans l'échangeur de l'étuve de séchage et évacue la chaleur vers le radiateur de ventilation.</td>
+        <td style="color:#6f42c1">?</td>
+      </tr>
+      <tr>
+        <td>e)</td>
+        <td>La semelle d'un étau en fonte se réchauffe en contact avec un établi exposé au soleil.</td>
+        <td style="color:#6f42c1">?</td>
+      </tr>
+    </table>
+    <button class="bc" onclick="toggle('c1')">Afficher / Masquer la correction</button>
+    <div class="corr" id="c1">
+      <p><strong>a) Conduction :</strong> le métal transmet la chaleur de proche en proche par contact direct. Les atomes vibrent et transmettent l'énergie aux atomes voisins.</p>
+      <p><strong>b) Convection :</strong> l'air chaud, moins dense, monte et est remplacé par de l'air froid — c'est un courant de convection naturelle.</p>
+      <p><strong>c) Rayonnement :</strong> la chaleur est transmise sous forme d'ondes électromagnétiques infrarouges, sans contact et sans support matériel.</p>
+      <p><strong>d) Convection (forcée) :</strong> le liquide de refroidissement est mis en mouvement par la pompe à eau — c'est une convection forcée.</p>
+      <p><strong>e) Conduction :</strong> la chaleur passe par contact direct entre l'établi et la semelle de l'étau.</p>
+    </div>
+  </div>
+
+  <!-- Exercice 2 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Premier calcul avec \(Q = m \cdot c \cdot \Delta T\)</span>
+      <span class="diff diff-1">Niveau 1 – Facile</span>
+    </div>
+    <p>On chauffe un morceau d'aluminium de masse \(m = 0{,}5 \text{ kg}\) depuis la température ambiante \(\theta_1 = 20°\text{C}\) jusqu'à \(\theta_2 = 120°\text{C}\).<br>
+    La chaleur massique de l'aluminium est \(c = 900 \text{ J·kg}^{-1}\text{·K}^{-1}\).</p>
+
+    <p class="q"><strong>Q1.</strong> Calculer la variation de température \(\Delta T\).</p>
+    <p class="q"><strong>Q2.</strong> Calculer l'énergie thermique \(Q\) reçue par la pièce en aluminium.</p>
+    <p class="q"><strong>Q3.</strong> Exprimer ce résultat en kilojoules (kJ).</p>
+
+    <button class="bc" onclick="toggle('c2')">Afficher / Masquer la correction</button>
+    <div class="corr" id="c2">
+      <p><strong>Q1. Variation de température :</strong></p>
+      <p>\(\Delta T = \theta_2 - \theta_1 = 120 - 20 = 100 \text{ °C} = 100 \text{ K}\)</p>
+      <p><strong>Q2. Calcul de l'énergie thermique :</strong></p>
+      <p>\(Q = m \cdot c \cdot \Delta T = 0{,}5 \times 900 \times 100\)</p>
+      <p>\(\boxed{Q = 45\,000 \text{ J}}\)</p>
+      <p><strong>Q3. Conversion en kilojoules :</strong></p>
+      <p>\(Q = \dfrac{45\,000}{1\,000} = \boxed{45 \text{ kJ}}\)</p>
+      <p><em>Conclusion : il faut fournir 45 kJ d'énergie thermique pour chauffer cette pièce d'aluminium de 100°C.</em></p>
+    </div>
+  </div>
+
+  <!-- Exercice 3 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Lecture d'une courbe de chauffe</span>
+      <span class="diff diff-1">Niveau 1 – Facile</span>
+    </div>
+    <p>Le graphique ci-dessous représente l'évolution de la température de l'eau en fonction du temps lors d'une chauffe à puissance constante.</p>
+
+    <div class="schema">
+      <canvas id="chartTransfert" width="700" height="350" style="max-width:100%"></canvas>
+    </div>
+
+    <p class="q"><strong>Q1.</strong> Entre 0 min et 8 min, comment évolue la température ? Quel mode de transfert apporte l'énergie ici ?</p>
+    <p class="q"><strong>Q2.</strong> À quelle température observe-t-on un palier ? Que se passe-t-il physiquement ?</p>
+    <p class="q"><strong>Q3.</strong> À partir de 14 min, la température remonte au-delà de 100°C. Dans quel état est l'eau ? Comment appelle-t-on ce phénomène ?</p>
+    <p class="q"><strong>Q4.</strong> Lire la température à t = 4 min et à t = 10 min.</p>
+
+    <button class="bc" onclick="toggle('c3')">Afficher / Masquer la correction</button>
+    <div class="corr" id="c3">
+      <p><strong>Q1.</strong> Entre 0 et 8 min, la température augmente régulièrement (de 0°C à 100°C). L'énergie est apportée par la résistance chauffante, transmise à l'eau par <strong>convection</strong> (les courants dans l'eau distribuent la chaleur) et par <strong>conduction</strong> depuis la paroi du récipient.</p>
+      <p><strong>Q2.</strong> On observe un palier à <strong>100°C</strong>. C'est la température d'ébullition de l'eau à pression atmosphérique. L'énergie fournie n'augmente plus la température : elle sert à changer l'état de l'eau liquide en vapeur (énergie latente de vaporisation).</p>
+      <p><strong>Q3.</strong> Au-delà de 14 min, l'eau est à l'état de <strong>vapeur (gaz)</strong>. La vapeur surchauffée voit sa température augmenter à nouveau. Ce phénomène s'appelle la <strong>surchauffe de vapeur</strong>.</p>
+      <p><strong>Q4.</strong> D'après la courbe : à \(t = 4\) min, \(\theta \approx 50°\text{C}\) ; à \(t = 10\) min, \(\theta = 100°\text{C}\) (palier d'ébullition).</p>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- ===== SECTION 2 : EXERCICES GUIDES ===== -->
+  <!-- ========================================== -->
+  <h2>Section 2 — Exercices guidés</h2>
+
+  <!-- Exercice 4 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 4</span>
+      <span class="exo-title">Énergie pour chauffer une pièce métallique</span>
+      <span class="diff diff-2">Niveau 2 – Intermédiaire</span>
+    </div>
+    <p>Une pièce en acier de masse \(m = 2 \text{ kg}\) doit être portée de \(\theta_1 = 20°\text{C}\) à \(\theta_2 = 100°\text{C}\) pour une opération de traitement thermique.<br>
+    La chaleur massique de l'acier est \(c = 500 \text{ J·kg}^{-1}\text{·K}^{-1}\).</p>
+
+    <div class="methode" style="margin:10px 0">
+      <strong>Guide de résolution :</strong> Identifier \(m\), \(c\), \(\Delta T\) → Appliquer \(Q = m \cdot c \cdot \Delta T\) → Vérifier l'unité → Conclure.
+    </div>
+
+    <p class="q"><strong>Q1.</strong> Faire l'inventaire des données en précisant les unités.</p>
+    <p class="q"><strong>Q2.</strong> Calculer \(\Delta T\) en kelvins.</p>
+    <p class="q"><strong>Q3.</strong> Calculer l'énergie \(Q\) en joules, puis en kilojoules.</p>
+    <p class="q"><strong>Q4.</strong> Si le four fournit une puissance de \(P = 2000 \text{ W}\), combien de temps faut-il pour chauffer cette pièce ? (on suppose un rendement de 100%)</p>
+
+    <button class="bc" onclick="toggle('c4')">Afficher / Masquer la correction</button>
+    <div class="corr" id="c4">
+      <p><strong>Q1. Inventaire des données :</strong></p>
+      <p>\(m = 2 \text{ kg}\) ; \(c = 500 \text{ J·kg}^{-1}\text{·K}^{-1}\) ; \(\theta_1 = 20°\text{C}\) ; \(\theta_2 = 100°\text{C}\)</p>
+      <p><strong>Q2. Variation de température :</strong></p>
+      <p>\(\Delta T = \theta_2 - \theta_1 = 100 - 20 = 80 \text{ K}\)</p>
+      <p><strong>Q3. Calcul de l'énergie :</strong></p>
+      <p>\(Q = m \cdot c \cdot \Delta T = 2 \times 500 \times 80 = 80\,000 \text{ J}\)</p>
+      <p>\(\boxed{Q = 80\,000 \text{ J} = 80 \text{ kJ}}\)</p>
+      <p><strong>Q4. Durée de chauffe :</strong></p>
+      <p>On utilise la relation \(P = \dfrac{Q}{\Delta t}\), donc \(\Delta t = \dfrac{Q}{P} = \dfrac{80\,000}{2\,000} = 40 \text{ s}\)</p>
+      <p>\(\boxed{\Delta t = 40 \text{ secondes}}\)</p>
+      <p><em>Conclusion : le four met 40 secondes pour amener la pièce à 100°C en fournissant 80 kJ d'énergie thermique.</em></p>
+    </div>
+  </div>
+
+  <!-- Exercice 5 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 5</span>
+      <span class="exo-title">Puissance thermique perdue par un atelier — Isolation</span>
+      <span class="diff diff-2">Niveau 2 – Intermédiaire</span>
+    </div>
+    <p>Un atelier de mécanique est chauffé à \(\theta_{int} = 19°\text{C}\) alors que la température extérieure est de \(\theta_{ext} = -1°\text{C}\).<br>
+    Les parois de l'atelier ont une résistance thermique totale \(R_{th} = 0{,}04 \text{ K·W}^{-1}\).<br>
+    La puissance thermique perdue à travers les parois est donnée par :
+    \[P_{perte} = \frac{\theta_{int} - \theta_{ext}}{R_{th}}\]</p>
+
+    <p class="q"><strong>Q1.</strong> Calculer l'écart de température entre l'intérieur et l'extérieur.</p>
+    <p class="q"><strong>Q2.</strong> Calculer la puissance thermique perdue \(P_{perte}\) en watts.</p>
+    <p class="q"><strong>Q3.</strong> Si l'atelier est en fonctionnement 10 heures par jour, calculer l'énergie perdue chaque jour en kWh.</p>
+    <p class="q"><strong>Q4.</strong> Une nouvelle isolation permet de tripler la résistance thermique. Quelle est la nouvelle puissance perdue ? Quel est le gain en % ?</p>
+
+    <button class="bc" onclick="toggle('c5')">Afficher / Masquer la correction</button>
+    <div class="corr" id="c5">
+      <p><strong>Q1. Écart de température :</strong></p>
+      <p>\(\Delta \theta = \theta_{int} - \theta_{ext} = 19 - (-1) = 20 \text{ K}\)</p>
+      <p><strong>Q2. Puissance perdue :</strong></p>
+      <p>\(P_{perte} = \dfrac{20}{0{,}04} = \boxed{500 \text{ W}}\)</p>
+      <p><strong>Q3. Énergie perdue par jour :</strong></p>
+      <p>\(E = P \times \Delta t = 500 \text{ W} \times 10 \text{ h} = 5\,000 \text{ Wh} = \boxed{5 \text{ kWh}}\)</p>
+      <p><strong>Q4. Avec nouvelle isolation (\(R'_{th} = 3 \times 0{,}04 = 0{,}12 \text{ K·W}^{-1}\)) :</strong></p>
+      <p>\(P'_{perte} = \dfrac{20}{0{,}12} \approx 166{,}7 \text{ W}\)</p>
+      <p>Gain : \(\dfrac{500 - 166{,}7}{500} \times 100 \approx \boxed{66{,}7 \%}\) d'économie d'énergie !</p>
+      <p><em>Conclusion : tripler l'isolation permet de diviser par 3 les pertes thermiques et d'économiser les deux tiers de l'énergie de chauffage.</em></p>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- ===== SECTION 3 : EXERCICES D'APPLICATION ===== -->
+  <!-- ============================================= -->
+  <h2>Section 3 — Exercices d'application</h2>
+
+  <!-- Exercice 6 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 6</span>
+      <span class="exo-title">Comparaison isolation / non-isolation — Coût énergétique</span>
+      <span class="diff diff-2">Niveau 2 – Intermédiaire</span>
+    </div>
+    <p>Deux ateliers identiques sont chauffés pendant la saison froide (150 jours, 10 h/jour) :</p>
+    <ul>
+      <li><strong>Atelier A</strong> (non isolé) : perd \(P_A = 3{,}5 \text{ kW}\)</li>
+      <li><strong>Atelier B</strong> (isolé) : perd \(P_B = 1{,}2 \text{ kW}\)</li>
+    </ul>
+    <p>Le prix de l'électricité est de \(0{,}25 \text{ €/kWh}\).</p>
+
+    <p class="q"><strong>Q1.</strong> Calculer l'énergie perdue par chaque atelier sur toute la saison froide (en kWh).</p>
+    <p class="q"><strong>Q2.</strong> Calculer le coût de chauffage de chaque atelier sur la saison.</p>
+    <p class="q"><strong>Q3.</strong> Calculer l'économie réalisée grâce à l'isolation.</p>
+    <p class="q"><strong>Q4.</strong> Si le coût de l'isolation est de 4 800 €, en combien d'années est-elle amortie ?</p>
+
+    <button class="bc" onclick="toggle('c6')">Afficher / Masquer la correction</button>
+    <div class="corr" id="c6">
+      <p><strong>Q1. Durée totale de fonctionnement :</strong> \(\Delta t = 150 \times 10 = 1\,500 \text{ h}\)</p>
+      <p>\(E_A = P_A \times \Delta t = 3{,}5 \times 1\,500 = 5\,250 \text{ kWh}\)</p>
+      <p>\(E_B = P_B \times \Delta t = 1{,}2 \times 1\,500 = 1\,800 \text{ kWh}\)</p>
+      <p><strong>Q2. Coût :</strong></p>
+      <p>\(\text{Coût}_A = 5\,250 \times 0{,}25 = \boxed{1\,312{,}50 \text{ €}}\)</p>
+      <p>\(\text{Coût}_B = 1\,800 \times 0{,}25 = \boxed{450 \text{ €}}\)</p>
+      <p><strong>Q3. Économie par saison :</strong></p>
+      <p>\(\text{Économie} = 1\,312{,}50 - 450 = \boxed{862{,}50 \text{ €/saison}}\)</p>
+      <p><strong>Q4. Amortissement de l'isolation :</strong></p>
+      <p>\(n = \dfrac{4\,800}{862{,}50} \approx \boxed{5{,}6 \text{ ans}}\)</p>
+      <p><em>Conclusion : l'isolation est amortie en environ 6 saisons. Au-delà, elle génère uniquement des économies.</em></p>
+    </div>
+  </div>
+
+  <!-- Exercice 7 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 7</span>
+      <span class="exo-title">Choisir la puissance d'un radiateur pour un atelier</span>
+      <span class="diff diff-3">Niveau 3 – Difficile</span>
+    </div>
+    <p>On veut chauffer un atelier de volume \(V = 500 \text{ m}^3\) de \(\theta_1 = 5°\text{C}\) à \(\theta_2 = 18°\text{C}\) en \(\Delta t = 2 \text{ heures}\).<br>
+    La chaleur massique de l'air est \(c_{air} = 1\,000 \text{ J·kg}^{-1}\text{·K}^{-1}\) et la masse volumique de l'air est \(\rho = 1{,}2 \text{ kg·m}^{-3}\).</p>
+
+    <p class="q"><strong>Q1.</strong> Calculer la masse d'air dans l'atelier : \(m = \rho \times V\).</p>
+    <p class="q"><strong>Q2.</strong> Calculer \(\Delta T\) en kelvins.</p>
+    <p class="q"><strong>Q3.</strong> Calculer l'énergie \(Q\) nécessaire pour chauffer l'air de l'atelier.</p>
+    <p class="q"><strong>Q4.</strong> En déduire la puissance minimale \(P\) du radiateur nécessaire (en watts, puis en kilowatts).</p>
+    <p class="q"><strong>Q5.</strong> Dans le catalogue, les radiateurs sont disponibles en 1 kW, 2 kW, 3 kW, 5 kW et 10 kW. Lequel choisissez-vous ? Justifiez.</p>
+
+    <button class="bc" onclick="toggle('c7')">Afficher / Masquer la correction</button>
+    <div class="corr" id="c7">
+      <p><strong>Q1. Masse d'air :</strong></p>
+      <p>\(m = \rho \times V = 1{,}2 \times 500 = \boxed{600 \text{ kg}}\)</p>
+      <p><strong>Q2. Variation de température :</strong></p>
+      <p>\(\Delta T = 18 - 5 = 13 \text{ K}\)</p>
+      <p><strong>Q3. Énergie nécessaire :</strong></p>
+      <p>\(Q = m \cdot c \cdot \Delta T = 600 \times 1\,000 \times 13 = 7\,800\,000 \text{ J} = \boxed{7\,800 \text{ kJ}}\)</p>
+      <p><strong>Q4. Puissance minimale :</strong></p>
+      <p>\(\Delta t = 2 \text{ h} = 2 \times 3\,600 = 7\,200 \text{ s}\)</p>
+      <p>\(P = \dfrac{Q}{\Delta t} = \dfrac{7\,800\,000}{7\,200} \approx 1\,083 \text{ W} \approx \boxed{1{,}08 \text{ kW}}\)</p>
+      <p><strong>Q5. Choix du radiateur :</strong></p>
+      <p>La puissance minimale calculée est 1,08 kW. Il faut choisir un radiateur de puissance <strong>supérieure ou égale</strong> à cette valeur. De plus, cette valeur ne prend pas en compte les pertes thermiques par les parois, qui s'ajoutent. On choisit donc le <strong>radiateur de 2 kW</strong> pour avoir une marge de sécurité suffisante.</p>
+      <p><em>Attention : en pratique, il faudrait aussi calculer les pertes par les murs, le toit et les ouvertures avant de choisir le radiateur définitif.</em></p>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- ===== SECTION 4 : EXERCICES CONTEXTUALISES EN ATELIER ===== -->
+  <!-- ================================================= -->
+  <h2>Section 4 — Exercices contextualisés en atelier</h2>
+
+  <!-- Exercice 8 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 8</span>
+      <span class="exo-title">Séchage d'une pièce en bois — Énergie thermique nécessaire</span>
+      <span class="diff diff-2">Niveau 2 – Intermédiaire</span>
+    </div>
+    <p>Un lot de planches de chêne de masse totale \(m = 50 \text{ kg}\) est introduit dans une étuve à \(\theta_1 = 20°\text{C}\). L'étuve doit porter le bois à \(\theta_2 = 80°\text{C}\) pour le séchage.<br>
+    La chaleur massique du chêne est \(c_{bois} = 1\,700 \text{ J·kg}^{-1}\text{·K}^{-1}\).<br>
+    La formule de l'énergie thermique est : \(Q = m \cdot c \cdot \Delta T\)</p>
+
+    <p class="q"><strong>Q1.</strong> Calculer la variation de température \(\Delta T\) du lot de bois.</p>
+    <p class="q"><strong>Q2.</strong> Calculer l'énergie thermique \(Q\) nécessaire pour chauffer ce lot de bois.</p>
+    <p class="q"><strong>Q3.</strong> La résistance chauffante de l'étuve a une puissance \(P = 3\,000 \text{ W}\). En combien de temps (en minutes) peut-elle fournir l'énergie \(Q\) calculée ?</p>
+    <p class="q"><strong>Q4.</strong> En réalité, l'étuve a un rendement de 75% (pertes par les parois). Quelle puissance réellement utile reçoit le bois ?</p>
+    <p class="q"><strong>Q5.</strong> Pourquoi est-il important de ne pas dépasser 90°C dans l'étuve pour le chêne ?</p>
+
+    <button class="bc" onclick="toggle('c8')">Afficher / Masquer la correction</button>
+    <div class="corr" id="c8">
+      <p><strong>Q1. Variation de température :</strong></p>
+      <p>\(\Delta T = \theta_2 - \theta_1 = 80 - 20 = \boxed{60°\text{C} = 60 \text{ K}}\)</p>
+      <p><strong>Q2. Énergie thermique nécessaire :</strong></p>
+      <p>\(Q = m \cdot c_{bois} \cdot \Delta T = 50 \times 1\,700 \times 60 = \boxed{5\,100\,000 \text{ J} = 5\,100 \text{ kJ}}\)</p>
+      <p><strong>Q3. Durée de chauffe :</strong></p>
+      <p>\(t = \dfrac{Q}{P} = \dfrac{5\,100\,000}{3\,000} = 1\,700 \text{ s} \approx \boxed{28 \text{ min}}\)</p>
+      <p><strong>Q4. Puissance utile avec rendement :</strong></p>
+      <p>\(P_{utile} = \eta \times P = 0{,}75 \times 3\,000 = \boxed{2\,250 \text{ W}}\)</p>
+      <p><strong>Q5. Limite de température :</strong></p>
+      <p>Au-delà de 90°C, les fibres du bois de chêne commencent à se dégrader : les hémicelluloses se décomposent, les lignines subissent des modifications irréversibles. Le bois peut se fissurer, se déformer et perdre ses propriétés mécaniques. Il est donc essentiel de réguler précisément la température.</p>
+    </div>
+  </div>
+
+  <!-- Exercice 9 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 9</span>
+      <span class="exo-title">Brûleur de four de vernissage — Bilan énergétique</span>
+      <span class="diff diff-3">Niveau 3 – Difficile</span>
+    </div>
+    <p>Un four de vernissage (pour sécher et polymériser les vernis sur les meubles) a une puissance utile \(P_{utile} = 8 \text{ kW}\) et un rendement de \(\eta = 35\%\).<br>
+    La puissance dissipée sous forme de chaleur est répartie ainsi : 60% est récupérée par un échangeur thermique pour préchauffer l'air entrant, 40% est perdue par les parois et l'évacuation.<br><br>
+    Le circuit de préchauffage fait circuler un débit massique d'air de \(\dot{m} = 0{,}08 \text{ kg·s}^{-1}\).<br>
+    La chaleur massique de l'air est \(c_{air} = 1\,000 \text{ J·kg}^{-1}\text{·K}^{-1}\).</p>
+
+    <p class="q"><strong>Q1.</strong> Calculer la puissance totale \(P_{totale}\) consommée par le brûleur à partir de \(P_{utile}\) et \(\eta\).<br>
+    Rappel : \(\eta = \dfrac{P_{utile}}{P_{totale}}\)</p>
+    <p class="q"><strong>Q2.</strong> Calculer la puissance thermique totale \(P_{th}\) dissipée par le four.</p>
+    <p class="q"><strong>Q3.</strong> Calculer la puissance récupérée par l'échangeur de préchauffage \(P_{éch}\).</p>
+    <p class="q"><strong>Q4.</strong> L'air entre dans l'échangeur à \(\theta_{entrée} = 20°\text{C}\). En utilisant \(P_{éch} = \dot{m} \cdot c_{air} \cdot \Delta T\), calculer la température de sortie \(\theta_{sortie}\) de l'air préchauffé.</p>
+    <p class="q"><strong>Q5.</strong> Pourquoi est-il important de maintenir la température du four dans une plage précise (entre 60°C et 80°C) pour le vernissage ?</p>
+
+    <button class="bc" onclick="toggle('c9')">Afficher / Masquer la correction</button>
+    <div class="corr" id="c9">
+      <p><strong>Q1. Puissance totale consommée :</strong></p>
+      <p>\(P_{totale} = \dfrac{P_{utile}}{\eta} = \dfrac{8\,000}{0{,}35} \approx \boxed{22\,857 \text{ W} \approx 22{,}9 \text{ kW}}\)</p>
+      <p><strong>Q2. Puissance thermique dissipée :</strong></p>
+      <p>\(P_{th} = P_{totale} - P_{utile} = 22\,857 - 8\,000 = \boxed{14\,857 \text{ W} \approx 14{,}9 \text{ kW}}\)</p>
+      <p><strong>Q3. Puissance récupérée par l'échangeur :</strong></p>
+      <p>\(P_{éch} = 0{,}60 \times P_{th} = 0{,}60 \times 14\,857 \approx \boxed{8\,914 \text{ W} \approx 8{,}9 \text{ kW}}\)</p>
+      <p><strong>Q4. Température de sortie de l'air :</strong></p>
+      <p>\(\Delta T = \dfrac{P_{éch}}{\dot{m} \cdot c_{air}} = \dfrac{8\,914}{0{,}08 \times 1\,000} = \dfrac{8\,914}{80} \approx 111{,}4 \text{ K}\)</p>
+      <p>\(\theta_{sortie} = \theta_{entrée} + \Delta T = 20 + 111{,}4 \approx \boxed{131°\text{C}}\)</p>
+      <p><em>Note : cet air très chaud est ensuite mélangé à de l'air frais pour obtenir la température de consigne du four.</em></p>
+      <p><strong>Q5. Importance du contrôle de la température :</strong></p>
+      <p>En dessous de 60°C : la polymérisation du vernis est incomplète → surface collante, manque de dureté, adhérence insuffisante sur le bois.<br>
+      Au-dessus de 80°C : le vernis peut cloquer (formation de bulles), jaunir ou se fissurer. Les essences de bois fragiles peuvent se déformer. Un thermostat précis est indispensable.</p>
+    </div>
+  </div>
+
+  <!-- ===== TABLEAU RECAP ===== -->
+  <h2>Tableau récapitulatif des exercices</h2>
+  <table>
+    <tr>
+      <th>Exercice</th>
+      <th>Thème</th>
+      <th>Compétence principale</th>
+      <th>Niveau</th>
+    </tr>
+    <tr>
+      <td>Exo 1</td>
+      <td>Modes de transfert</td>
+      <td>Identifier et classer</td>
+      <td><span class="diff diff-1">Facile</span></td>
+    </tr>
+    <tr>
+      <td>Exo 2</td>
+      <td>Calcul Q = mcΔT</td>
+      <td>Appliquer la formule</td>
+      <td><span class="diff diff-1">Facile</span></td>
+    </tr>
+    <tr>
+      <td>Exo 3</td>
+      <td>Courbe de chauffe</td>
+      <td>Lire et interpréter un graphique</td>
+      <td><span class="diff diff-1">Facile</span></td>
+    </tr>
+    <tr>
+      <td>Exo 4</td>
+      <td>Traitement thermique</td>
+      <td>Calcul Q, puissance, durée</td>
+      <td><span class="diff diff-2">Intermédiaire</span></td>
+    </tr>
+    <tr>
+      <td>Exo 5</td>
+      <td>Isolation atelier</td>
+      <td>Puissance perdue, résistance thermique</td>
+      <td><span class="diff diff-2">Intermédiaire</span></td>
+    </tr>
+    <tr>
+      <td>Exo 6</td>
+      <td>Coût énergétique</td>
+      <td>Énergie, coût, amortissement</td>
+      <td><span class="diff diff-2">Intermédiaire</span></td>
+    </tr>
+    <tr>
+      <td>Exo 7</td>
+      <td>Radiateur atelier</td>
+      <td>Calcul de puissance, choix matériel</td>
+      <td><span class="diff diff-3">Difficile</span></td>
+    </tr>
+    <tr>
+      <td>Exo 8</td>
+      <td>Séchage du bois (étuve)</td>
+      <td>Calcul Q, durée de chauffe, rendement</td>
+      <td><span class="diff diff-2">Intermédiaire</span></td>
+    </tr>
+    <tr>
+      <td>Exo 9</td>
+      <td>Four de vernissage</td>
+      <td>Bilan énergétique, rendement, échangeur</td>
+      <td><span class="diff diff-3">Difficile</span></td>
+    </tr>
+  </table>
+
+  <!-- ===== PIED DE PAGE ===== -->
+  <div style="text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid #e2e8f0;color:#718096;font-size:.85em">
+    <p>Physique-Chimie — 2nde Bac Pro | Chapitre 11 — Transferts thermiques<br>
+    <a href="pc-2nde-pro.html" style="color:var(--p);font-weight:700">← Retour au sommaire du cours</a></p>
+  </div>
+
+</div><!-- fin .c -->
+
+<!-- ===== SCRIPT GRAPHIQUE Chart.js ===== -->
+<script>
+(function() {
+  // Données de la courbe de chauffe de l'eau
+  var temps = [0, 1, 2, 3, 4, 5, 6, 7, 8,
+               9, 10, 11, 12, 13, 14,
+               15, 16, 17, 18, 19, 20];
+  var temperature = [
+    0, 12, 24, 37, 50, 62, 74, 86, 98,
+    100, 100, 100, 100, 100, 101,
+    106, 110, 113, 116, 118, 120
+  ];
+
+  // Couleurs par segment : montée = orange, palier = rouge, vapeur = violet
+  var pointColors = temperature.map(function(t, i) {
+    if (t < 100) return '#f97316';
+    if (t === 100 && i <= 13) return '#ef4444';
+    return '#6f42c1';
+  });
+
+  var ctx = document.getElementById('chartTransfert').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: temps,
+      datasets: [{
+        label: 'Température de l\'eau (°C)',
+        data: temperature,
+        borderColor: '#6f42c1',
+        backgroundColor: 'rgba(111,66,193,0.08)',
+        pointBackgroundColor: pointColors,
+        pointBorderColor: pointColors,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        borderWidth: 2.5,
+        tension: 0.3,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Courbe de chauffe de l\'eau à pression atmosphérique',
+          font: { size: 14, weight: 'bold' },
+          color: '#2d3748',
+          padding: { bottom: 16 }
+        },
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: function(items) {
+              return 't = ' + items[0].label + ' min';
+            },
+            label: function(item) {
+              return 'θ = ' + item.parsed.y + ' °C';
+            }
+          }
+        },
+        annotation: {}
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Temps (minutes)',
+            font: { size: 12 },
+            color: '#4a5568'
+          },
+          grid: { color: '#e2e8f0' }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Température (°C)',
+            font: { size: 12 },
+            color: '#4a5568'
+          },
+          min: -10,
+          max: 130,
+          grid: { color: '#e2e8f0' },
+          ticks: {
+            stepSize: 20,
+            callback: function(val) { return val + ' °C'; }
+          }
+        }
+      }
+    }
+  });
+
+  // Ajouter légende manuelle sous le graphe
+  var canvas = document.getElementById('chartTransfert');
+  var legendDiv = document.createElement('div');
+  legendDiv.style.cssText = 'text-align:center;font-size:0.82em;margin-top:8px;color:#4a5568';
+  legendDiv.innerHTML =
+    '<span style="display:inline-block;width:14px;height:14px;background:#f97316;border-radius:50%;vertical-align:middle;margin-right:4px"></span>Chauffe (état liquide)&nbsp;&nbsp;' +
+    '<span style="display:inline-block;width:14px;height:14px;background:#ef4444;border-radius:50%;vertical-align:middle;margin-right:4px"></span>Palier d\'ébullition (100°C)&nbsp;&nbsp;' +
+    '<span style="display:inline-block;width:14px;height:14px;background:#6f42c1;border-radius:50%;vertical-align:middle;margin-right:4px"></span>Surchauffe vapeur';
+  canvas.parentNode.insertBefore(legendDiv, canvas.nextSibling);
+})();
+</script>
+
+<!-- ===== SCRIPT TOGGLE CORRECTIONS ===== -->
+<script>
+function toggle(id) {
+  var el = document.getElementById(id);
+  if (el.style.display === 'none' || el.style.display === '') {
+    el.style.display = 'block';
+  } else {
+    el.style.display = 'none';
+  }
+}
+</script>
+
+<script src="/nav.js"></script>
+</body>
+</html>

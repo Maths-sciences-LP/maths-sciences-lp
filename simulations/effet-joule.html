@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Effet Joule — Simulation</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
+  .container { max-width: 800px; margin: 0 auto; }
+  header { background: #e67e22; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
+  .card { background: white; border-radius: 10px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
+  label { font-weight: 600; display: block; margin-bottom: 5px; }
+  input[type=range] { width: 100%; accent-color: #e67e22; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width:500px){.row{grid-template-columns:1fr;}}
+  .val { color: #e67e22; font-weight: bold; }
+  .result { background: #fef3e2; border-radius: 8px; padding: 15px; margin-top: 20px; }
+  .result p { margin: 6px 0; font-size: 1.05em; }
+  .formule { background: #eee; border-radius: 6px; padding: 10px 15px; font-family: monospace; font-size: 0.95em; margin-top: 15px; }
+  canvas { display: block; margin: 0 auto; }
+  .explication { background: #fff8f0; border-left: 4px solid #e67e22; padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 20px; font-size: 0.95em; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">← Retour</a>
+    <h1 style="margin:0 0 5px 0;">🔥 Effet Joule</h1>
+    <p style="margin:0;opacity:0.85;">Terminale Bac Pro — Échauffement d'un conducteur par le courant électrique</p>
+  </header>
+
+  <div class="explication">
+    <strong>Principe :</strong> Lorsqu'un courant électrique traverse un conducteur résistif, une partie de l'énergie électrique est convertie en chaleur. C'est l'<strong>effet Joule</strong>.
+    <br>La puissance dissipée sous forme de chaleur est : <strong>P = R × I²</strong> (en watts)
+    <br>L'énergie thermique produite pendant un temps t est : <strong>W = P × t = R × I² × t</strong> (en joules)
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div>
+        <label>Résistance R : <span class="val" id="vR">10</span> Ω</label>
+        <input type="range" id="R" min="1" max="100" value="10" oninput="update()">
+      </div>
+      <div>
+        <label>Intensité I : <span class="val" id="vI">5</span> A</label>
+        <input type="range" id="I" min="0.1" max="20" step="0.1" value="5" oninput="update()">
+      </div>
+    </div>
+    <div style="margin-top:15px;">
+      <label>Durée t : <span class="val" id="vT">60</span> s</label>
+      <input type="range" id="T" min="1" max="600" value="60" oninput="update()">
+    </div>
+
+    <div class="result">
+      <p>⚡ Tension aux bornes : <strong>U = R × I = <span id="rU">—</span> V</strong></p>
+      <p>🔥 Puissance dissipée : <strong>P = R × I² = <span id="rP">—</span> W</strong></p>
+      <p>🌡️ Énergie thermique produite : <strong>W = P × t = <span id="rW">—</span> J</strong></p>
+      <p style="font-size:0.9em;color:#888;">Équivalent : <span id="rWh">—</span> Wh</p>
+    </div>
+    <div class="formule">P = R · I² &nbsp;|&nbsp; W = R · I² · t &nbsp;|&nbsp; U = R · I</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">Visualisation de l'échauffement</h3>
+    <canvas id="canvas" width="700" height="220"></canvas>
+    <p style="text-align:center;font-size:0.85em;color:#888;margin-top:8px;">La couleur du conducteur représente sa température relative</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">📈 Puissance en fonction de l'intensité</h3>
+    <canvas id="graphe" width="700" height="200"></canvas>
+    <p style="text-align:center;font-size:0.85em;color:#888;margin-top:4px;">P = R × I² — la puissance croît avec le carré de l'intensité</p>
+  </div>
+</div>
+
+<script>
+function update() {
+  const R = parseFloat(document.getElementById('R').value);
+  const I = parseFloat(document.getElementById('I').value);
+  const t = parseFloat(document.getElementById('T').value);
+
+  document.getElementById('vR').textContent = R;
+  document.getElementById('vI').textContent = I.toFixed(1);
+  document.getElementById('vT').textContent = t;
+
+  const U = R * I;
+  const P = R * I * I;
+  const W = P * t;
+
+  document.getElementById('rU').textContent = U.toFixed(1) + ' V';
+  document.getElementById('rP').textContent = P.toFixed(1) + ' W';
+  document.getElementById('rW').textContent = W.toFixed(0) + ' J';
+  document.getElementById('rWh').textContent = (W / 3600).toFixed(4) + ' Wh';
+
+  drawConducteur(P);
+  drawGraphe(R, I);
+}
+
+function drawConducteur(P) {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  // Normaliser la puissance (0 → froid, max → très chaud)
+  const pMax = 100 * 20 * 20; // R_max * I_max²
+  const ratio = Math.min(P / (pMax * 0.3), 1); // seuil à 30% du max pour avoir du contraste
+
+  // Couleur : bleu → orange → rouge selon la chaleur
+  let r, g, b;
+  if (ratio < 0.5) {
+    const t = ratio / 0.5;
+    r = Math.round(255 * t);
+    g = Math.round(100 + 80 * t);
+    b = Math.round(200 * (1 - t));
+  } else {
+    const t = (ratio - 0.5) / 0.5;
+    r = 255;
+    g = Math.round(180 * (1 - t));
+    b = 0;
+  }
+  const couleur = `rgb(${r},${g},${b})`;
+
+  // Fond
+  ctx.fillStyle = '#1a1a2e';
+  ctx.fillRect(0, 0, W, H);
+
+  // Conducteur (fil)
+  const cx = W / 2, cy = H / 2;
+  const larg = 560, ep = 28;
+  const x0 = cx - larg / 2, x1 = cx + larg / 2;
+
+  // Halo de chaleur
+  if (ratio > 0.05) {
+    const haloGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, ep * 3 + ratio * 60);
+    haloGrad.addColorStop(0, `rgba(${r},${g},${b},0.4)`);
+    haloGrad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = haloGrad;
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, larg / 2 + 20, ep * 3 + ratio * 60, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Fil principal
+  const grad = ctx.createLinearGradient(x0, cy - ep, x0, cy + ep);
+  grad.addColorStop(0, '#fff');
+  grad.addColorStop(0.3, couleur);
+  grad.addColorStop(0.7, couleur);
+  grad.addColorStop(1, '#333');
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.roundRect(x0, cy - ep / 2, larg, ep, 6);
+  ctx.fill();
+
+  // Bornes
+  ctx.fillStyle = '#aaa';
+  ctx.fillRect(x0 - 18, cy - 20, 18, 40);
+  ctx.fillRect(x1, cy - 20, 18, 40);
+
+  // Température affichée
+  const tempEst = Math.round(20 + ratio * 280);
+  ctx.fillStyle = 'white';
+  ctx.font = 'bold 14px Segoe UI';
+  ctx.textAlign = 'center';
+  ctx.fillText(`≈ ${tempEst} °C`, cx, cy - ep / 2 - 12);
+
+  // Légende couleur
+  const legW = 200, legH = 12;
+  const legX = W - legW - 20, legY = H - 30;
+  const legGrad = ctx.createLinearGradient(legX, 0, legX + legW, 0);
+  legGrad.addColorStop(0, 'rgb(0,100,200)');
+  legGrad.addColorStop(0.5, 'rgb(255,130,0)');
+  legGrad.addColorStop(1, 'rgb(255,0,0)');
+  ctx.fillStyle = legGrad;
+  ctx.fillRect(legX, legY, legW, legH);
+  ctx.strokeStyle = '#555';
+  ctx.strokeRect(legX, legY, legW, legH);
+  ctx.fillStyle = '#aaa';
+  ctx.font = '11px Segoe UI';
+  ctx.textAlign = 'left';
+  ctx.fillText('Froid', legX, legY - 3);
+  ctx.textAlign = 'right';
+  ctx.fillText('Chaud', legX + legW, legY - 3);
+}
+
+function drawGraphe(R, Icur) {
+  const canvas = document.getElementById('graphe');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const pad = { l: 55, r: 20, t: 15, b: 35 };
+  const gW = W - pad.l - pad.r;
+  const gH = H - pad.t - pad.b;
+
+  const Imax = 20;
+  const Pmax = R * Imax * Imax;
+
+  // Grille
+  ctx.strokeStyle = '#eee';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.t + gH - (i / 4) * gH;
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + gW, y); ctx.stroke();
+    ctx.fillStyle = '#999'; ctx.font = '11px Segoe UI'; ctx.textAlign = 'right';
+    ctx.fillText(Math.round((i / 4) * Pmax) + ' W', pad.l - 5, y + 4);
+  }
+  for (let i = 0; i <= 4; i++) {
+    const x = pad.l + (i / 4) * gW;
+    ctx.beginPath(); ctx.moveTo(x, pad.t); ctx.lineTo(x, pad.t + gH); ctx.stroke();
+    ctx.fillStyle = '#999'; ctx.font = '11px Segoe UI'; ctx.textAlign = 'center';
+    ctx.fillText((i / 4 * Imax).toFixed(0) + ' A', x, pad.t + gH + 18);
+  }
+
+  // Axes
+  ctx.strokeStyle = '#333'; ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, pad.t + gH); ctx.lineTo(pad.l + gW, pad.t + gH);
+  ctx.stroke();
+
+  // Courbe P = R·I²
+  ctx.strokeStyle = '#e67e22'; ctx.lineWidth = 3;
+  ctx.beginPath();
+  for (let px = 0; px <= gW; px++) {
+    const Iv = (px / gW) * Imax;
+    const Pv = R * Iv * Iv;
+    const x = pad.l + px;
+    const y = pad.t + gH - (Pv / Pmax) * gH;
+    if (px === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+
+  // Point courant
+  const Pcur = R * Icur * Icur;
+  const px = pad.l + (Icur / Imax) * gW;
+  const py = pad.t + gH - (Pcur / Pmax) * gH;
+  ctx.fillStyle = '#e67e22';
+  ctx.beginPath(); ctx.arc(px, py, 7, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#333';
+  ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText(`P = ${Pcur.toFixed(0)} W`, px, py - 12);
+
+  // Labels axes
+  ctx.fillStyle = '#555'; ctx.font = '12px Segoe UI';
+  ctx.textAlign = 'center';
+  ctx.fillText('Intensité I (A)', pad.l + gW / 2, H - 2);
+  ctx.save(); ctx.translate(13, pad.t + gH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('Puissance P (W)', 0, 0);
+  ctx.restore();
+}
+
+update();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

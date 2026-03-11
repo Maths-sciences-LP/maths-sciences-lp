@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch6 – Choisir une source lumineuse | ERA-MA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#2da44e;--s:#0ea5e9;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+.def{background:#f0fff4;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#e0f2fe;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#dcfce7;color:#166534}
+.label-prop{background:#e0f2fe;color:#0369a1}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.88em}
+th,td{border:1px solid #e2e8f0;padding:9px 10px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f0fff4;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.svg-wrap{text-align:center;margin:18px 0}
+.objectifs{background:#f0fff4;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #86efac}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.retenir{background:#dcfce7;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.appli{background:#f0f9ff;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.anim-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0;text-align:center}
+.anim-wrap button{background:var(--p);color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;margin:6px 4px;font-size:.85em}
+.chart-wrap{max-width:600px;margin:18px auto}
+.exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
+.step{counter-increment:step;background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin:8px 0;position:relative;padding-left:46px}
+.step::before{content:counter(step);position:absolute;left:12px;top:50%;transform:translateY(-50%);background:var(--p);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8em;font-weight:700}
+.steps{counter-reset:step}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="pc-term-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA</a>
+
+<header>
+  <h1>Chapitre 6 – Choisir une source lumineuse</h1>
+  <p class="sous-titre">Terminale Bac Pro ERA-MA | Groupement 3 | Physique – Signaux</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Exploiter le spectre d'émission d'une source lumineuse</li>
+    <li>Comparer l'efficacité énergétique de différentes sources lumineuses</li>
+    <li>Connaître les caractéristiques d'un laser et ses applications en atelier</li>
+  </ul>
+</div>
+
+<!-- INTRODUCTION -->
+<h2>1. Introduction – L'éclairage en atelier et sur chantier</h2>
+<p>Le choix d'un éclairage adapté est crucial dans les métiers ERA-MA. Un mauvais éclairage augmente les risques d'accidents, fatigue les yeux et dégrade la qualité du travail (erreurs de traçage, mauvaise perception des couleurs du bois ou du métal). De plus, l'éclairage représente en moyenne <strong>30 à 40 % de la consommation électrique</strong> d'un atelier.</p>
+
+<div class="appli">
+  <span class="label label-prop">Application ERA-MA</span><br>
+  Un chef d'atelier de menuiserie doit renouveler l'éclairage de son atelier de 500 m². Il doit choisir entre des tubes fluorescents anciens (80 lm/W) et des LED modernes (130 lm/W). Un niveau laser est utilisé pour les traçages horizontaux sur chantier. Comprendre la physique de la lumière permet de faire les bons choix techniques et économiques.
+</div>
+
+<!-- LUMIERE ET SPECTRE -->
+<h2>2. La lumière – Onde électromagnétique et spectre visible</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  La <strong>lumière</strong> est une onde électromagnétique. Le spectre visible correspond aux longueurs d'onde comprises entre <strong>380 nm (violet)</strong> et <strong>780 nm (rouge)</strong> (1 nm = 10⁻⁹ m).
+</div>
+
+<div class="formule-box">
+  Relation entre longueur d'onde, fréquence et célérité :<br>
+  \[ c = \lambda \times \nu \]
+  <small>c = 3 × 10⁸ m/s (vitesse de la lumière) | λ = longueur d'onde (m) | ν = fréquence (Hz)</small>
+</div>
+
+<!-- SVG SPECTRE ELECTROMAGNETIQUE -->
+<h2>3. Le spectre électromagnétique</h2>
+
+<div class="svg-wrap">
+  <svg width="780" height="155" viewBox="0 0 780 155" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif" style="max-width:100%">
+    <rect width="780" height="155" fill="#f8fafc" rx="10"/>
+    <text x="390" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">Spectre électromagnétique</text>
+    <!-- Bandes de domaines -->
+    <!-- Radio -->
+    <rect x="10" y="35" width="90" height="40" fill="#fde68a" rx="4"/>
+    <text x="55" y="59" text-anchor="middle" font-size="10" fill="#78350f">Radio</text>
+    <!-- Micro-ondes -->
+    <rect x="102" y="35" width="90" height="40" fill="#fcd34d" rx="4"/>
+    <text x="147" y="59" text-anchor="middle" font-size="10" fill="#78350f">Micro-ondes</text>
+    <!-- Infrarouge -->
+    <rect x="194" y="35" width="90" height="40" fill="#fb923c" rx="4"/>
+    <text x="239" y="59" text-anchor="middle" font-size="10" fill="#7c2d12">Infrarouge</text>
+    <!-- Visible (zoom) -->
+    <defs>
+      <linearGradient id="visibleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#8b5cf6"/>
+        <stop offset="14%" style="stop-color:#6366f1"/>
+        <stop offset="28%" style="stop-color:#3b82f6"/>
+        <stop offset="42%" style="stop-color:#22c55e"/>
+        <stop offset="56%" style="stop-color:#facc15"/>
+        <stop offset="71%" style="stop-color:#f97316"/>
+        <stop offset="100%" style="stop-color:#ef4444"/>
+      </linearGradient>
+    </defs>
+    <rect x="286" y="28" width="160" height="54" fill="url(#visibleGrad)" rx="4"/>
+    <rect x="286" y="28" width="160" height="54" fill="none" stroke="#374151" stroke-width="2" rx="4"/>
+    <text x="366" y="50" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff" style="text-shadow:0 0 4px #000">Visible</text>
+    <text x="295" y="94" font-size="9" fill="#6d28d9">380 nm</text>
+    <text x="420" y="94" font-size="9" fill="#991b1b" text-anchor="end">780 nm</text>
+    <!-- UV -->
+    <rect x="448" y="35" width="80" height="40" fill="#a78bfa" rx="4"/>
+    <text x="488" y="59" text-anchor="middle" font-size="10" fill="#4c1d95">UV</text>
+    <!-- Rayons X -->
+    <rect x="530" y="35" width="80" height="40" fill="#67e8f9" rx="4"/>
+    <text x="570" y="59" text-anchor="middle" font-size="10" fill="#164e63">Rayons X</text>
+    <!-- Gamma -->
+    <rect x="612" y="35" width="80" height="40" fill="#f9a8d4" rx="4"/>
+    <text x="652" y="59" text-anchor="middle" font-size="10" fill="#831843">Gamma</text>
+    <!-- Flèche longueur d'onde croissante -->
+    <defs>
+      <marker id="arrL" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#374151"/>
+      </marker>
+    </defs>
+    <line x1="700" y1="80" x2="755" y2="80" stroke="#374151" stroke-width="1.5" marker-end="url(#arrL)"/>
+    <text x="704" y="95" font-size="9" fill="#374151">λ croissante →</text>
+    <text x="700" y="109" font-size="9" fill="#374151">ν décroissante</text>
+    <!-- Zoom visible annotation -->
+    <line x1="286" y1="82" x2="286" y2="120" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="446" y1="82" x2="446" y2="120" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="286" y1="120" x2="446" y2="120" stroke="#374151" stroke-width="1"/>
+    <text x="366" y="135" text-anchor="middle" font-size="10" fill="#374151">Domaine visible : 380 nm – 780 nm</text>
+    <!-- Couleurs texte -->
+    <text x="290" y="76" font-size="8.5" fill="#7c3aed">Violet</text>
+    <text x="314" y="76" font-size="8.5" fill="#2563eb">Bleu</text>
+    <text x="338" y="76" font-size="8.5" fill="#16a34a">Vert</text>
+    <text x="362" y="76" font-size="8.5" fill="#ca8a04">Jaune</text>
+    <text x="392" y="76" font-size="8.5" fill="#ea580c">Orange</text>
+    <text x="420" y="76" font-size="8.5" fill="#dc2626">Rouge</text>
+  </svg>
+</div>
+
+<!-- SPECTRE D'EMISSION -->
+<h2>4. Spectres d'émission des sources lumineuses</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Le <strong>spectre d'émission</strong> d'une source lumineuse représente la répartition de l'énergie émise selon la longueur d'onde.
+  <ul>
+    <li><strong>Spectre continu</strong> : toutes les longueurs d'onde du visible (soleil, incandescence)</li>
+    <li><strong>Spectre de raies</strong> : seulement quelques longueurs d'onde précises (lampe à vapeur de mercure, sodium)</li>
+    <li><strong>Spectre discret / large</strong> : LED (spectre centré avec pic)</li>
+    <li><strong>Monochromatique</strong> : une seule longueur d'onde (laser)</li>
+  </ul>
+</div>
+
+<!-- ANIMATION SPECTRE VISIBLE -->
+<h2>5. Animation – Le spectre visible et les sources lumineuses</h2>
+
+<div class="anim-wrap">
+  <p style="font-size:.9em;color:#4a5568;margin-top:0">Cliquez sur un bouton pour visualiser la longueur d'onde caractéristique de chaque source.</p>
+  <canvas id="spectrumCanvas" width="580" height="130" style="border-radius:8px;border:1px solid #e2e8f0;max-width:100%"></canvas>
+  <br>
+  <button onclick="showSpectrum('laser_rouge')">Laser rouge (650 nm)</button>
+  <button onclick="showSpectrum('laser_vert')">Laser vert (532 nm)</button>
+  <button onclick="showSpectrum('led_blanc')">LED blanc</button>
+  <button onclick="showSpectrum('soleil')">Soleil (continu)</button>
+  <button onclick="showSpectrum(null)">Réinitialiser</button>
+  <p id="spectrumMsg" style="font-size:.85em;color:#374151;margin-top:8px;min-height:1.2em"></p>
+</div>
+
+<!-- EFFICACITE LUMINEUSE -->
+<h2>6. Efficacité lumineuse (ou énergétique)</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  L'<strong>efficacité lumineuse</strong> η (êta) est le rapport entre le flux lumineux produit (en lumens, lm) et la puissance électrique consommée (en watts, W).
+</div>
+
+<div class="formule-box">
+  \[ \eta = \frac{\Phi}{\,P\,} \quad (\text{lm/W}) \]
+  <small>η = efficacité lumineuse (lm/W) | Φ = flux lumineux (lm) | P = puissance consommée (W)</small>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu</span><br>
+  <strong>Une LED de 10 W produit un flux de 1 100 lm. Calculer son efficacité.</strong>
+  <div class="steps">
+    <div class="step">Identifier les données : P = 10 W, Φ = 1 100 lm.</div>
+    <div class="step">Appliquer la formule : \( \eta = \frac{\Phi}{P} = \frac{1100}{10} \)</div>
+    <div class="step">Calculer : η = <strong>110 lm/W</strong></div>
+    <div class="step">Interpréter : c'est une bonne efficacité, bien supérieure à une ampoule incandescente (≈ 15 lm/W) !</div>
+  </div>
+</div>
+
+<!-- GRAPHIQUE CHART.JS EFFICACITE -->
+<h2>7. Comparaison des efficacités lumineuses (graphique)</h2>
+<div class="chart-wrap">
+  <canvas id="chartEfficacite" height="220"></canvas>
+</div>
+
+<!-- TEMPERATURE DE COULEUR -->
+<h2>8. Température de couleur</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  La <strong>température de couleur</strong> (en Kelvin, K) caractérise la teinte de la lumière émise. Une température élevée donne une lumière "froide" (bleutée), une température basse donne une lumière "chaude" (jaunâtre).
+</div>
+
+<table>
+  <tr>
+    <th>Température (K)</th>
+    <th>Apparence</th>
+    <th>Usage typique</th>
+  </tr>
+  <tr><td>≈ 2 700 K</td><td style="background:#fffbeb;color:#78350f">Blanc chaud (jaune)</td><td>Maisons, restaurants</td></tr>
+  <tr><td>≈ 4 000 K</td><td style="background:#f0f9ff;color:#0c4a6e">Blanc neutre</td><td>Bureaux, commerces</td></tr>
+  <tr><td>≈ 6 500 K</td><td style="background:#eff6ff;color:#1e3a8a">Blanc froid (bleuté)</td><td>Ateliers, hôpitaux, zones de travail</td></tr>
+</table>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Un atelier de menuiserie ou de métallerie nécessite généralement une lumière <strong>blanc neutre à blanc froid (4 000–6 500 K)</strong> pour une bonne perception des couleurs et des contrastes lors de l'usinage et du contrôle qualité.
+</div>
+
+<!-- IRC -->
+<h2>9. Indice de Rendu des Couleurs (IRC)</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  L'<strong>IRC</strong> (Indice de Rendu des Couleurs, ou CRI en anglais) mesure la fidélité de restitution des couleurs par rapport à une lumière de référence. Il va de 0 à 100 (100 = lumière naturelle). <strong>IRC ≥ 80 recommandé pour les espaces de travail.</strong>
+</div>
+
+<!-- TABLEAU COMPARATIF -->
+<h2>10. Tableau comparatif des sources lumineuses</h2>
+
+<div style="overflow-x:auto">
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Efficacité (lm/W)</th>
+    <th>Durée de vie</th>
+    <th>IRC</th>
+    <th>Temp. couleur</th>
+    <th>Applications ERA-MA</th>
+  </tr>
+  <tr>
+    <td>Incandescence</td>
+    <td>~15</td>
+    <td>1 000 h</td>
+    <td>100</td>
+    <td>2 700 K</td>
+    <td>Obsolète (interdite)</td>
+  </tr>
+  <tr>
+    <td>Halogène</td>
+    <td>~25</td>
+    <td>2 000 h</td>
+    <td>100</td>
+    <td>3 000 K</td>
+    <td>Projecteurs chantier (ancien)</td>
+  </tr>
+  <tr>
+    <td>Fluorescent (néon)</td>
+    <td>~80</td>
+    <td>10 000 h</td>
+    <td>80–85</td>
+    <td>2 700–6 500 K</td>
+    <td>Anciens ateliers, garages</td>
+  </tr>
+  <tr style="background:#f0fff4">
+    <td><strong>LED</strong></td>
+    <td><strong>~100–150</strong></td>
+    <td><strong>25 000–50 000 h</strong></td>
+    <td><strong>80–95</strong></td>
+    <td><strong>2 700–6 500 K</strong></td>
+    <td><strong>Ateliers, chantiers, LED linéaires</strong></td>
+  </tr>
+  <tr>
+    <td>Sodium haute pression</td>
+    <td>~130</td>
+    <td>16 000 h</td>
+    <td>25</td>
+    <td>2 000 K</td>
+    <td>Éclairage voirie, entrepôts</td>
+  </tr>
+</table>
+</div>
+
+<!-- LASER -->
+<h2>11. Le laser – Caractéristiques et applications</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Le mot <strong>LASER</strong> signifie : <em>Light Amplification by Stimulated Emission of Radiation</em> (amplification de lumière par émission stimulée de rayonnement).
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Caractéristiques du laser</span>
+  <ul>
+    <li><strong>Monochromatique</strong> : une seule longueur d'onde (une seule couleur)</li>
+    <li><strong>Cohérent</strong> : toutes les ondes sont en phase (synchronisées)</li>
+    <li><strong>Très directionnel</strong> : le faisceau reste très étroit sur de grandes distances</li>
+    <li><strong>Intense</strong> : grande concentration d'énergie sur une petite surface</li>
+  </ul>
+</div>
+
+<!-- SVG COMPARAISON LUMIERE ORDINAIRE / LASER -->
+<h2>12. Comparaison – Lumière ordinaire vs Laser</h2>
+
+<div class="svg-wrap">
+  <svg width="580" height="200" viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <rect width="580" height="200" fill="#f8fafc" rx="10"/>
+    <!-- Titre gauche -->
+    <text x="130" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#374151">Lumière ordinaire</text>
+    <text x="130" y="36" text-anchor="middle" font-size="10" fill="#718096">(divergente, polychromatique)</text>
+    <!-- Source lumière ordinaire -->
+    <circle cx="30" cy="110" r="15" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+    <text x="30" y="114" text-anchor="middle" font-size="8" fill="#78350f">☀</text>
+    <!-- Rayons divergents polychromatiques -->
+    <defs>
+      <marker id="arrRay" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L6,3 z" fill="currentColor"/>
+      </marker>
+    </defs>
+    <!-- Différentes couleurs divergentes -->
+    <line x1="44" y1="104" x2="230" y2="55" stroke="#8b5cf6" stroke-width="2" opacity="0.8" marker-end="url(#arrRay)"/>
+    <line x1="44" y1="108" x2="235" y2="85" stroke="#3b82f6" stroke-width="2" opacity="0.8" marker-end="url(#arrRay)"/>
+    <line x1="45" y1="110" x2="238" y2="110" stroke="#22c55e" stroke-width="2" opacity="0.8" marker-end="url(#arrRay)"/>
+    <line x1="44" y1="113" x2="235" y2="135" stroke="#facc15" stroke-width="2" opacity="0.8" marker-end="url(#arrRay)"/>
+    <line x1="44" y1="117" x2="230" y2="163" stroke="#ef4444" stroke-width="2" opacity="0.8" marker-end="url(#arrRay)"/>
+    <text x="130" y="185" text-anchor="middle" font-size="9" fill="#718096">Rayons divergents, couleurs multiples</text>
+
+    <!-- Séparateur -->
+    <line x1="290" y1="30" x2="290" y2="180" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="5,4"/>
+
+    <!-- Titre droite -->
+    <text x="450" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#374151">Laser</text>
+    <text x="450" y="36" text-anchor="middle" font-size="10" fill="#718096">(parallèle, monochromatique)</text>
+    <!-- Source laser -->
+    <rect x="300" y="96" width="30" height="28" rx="4" fill="#374151" stroke="#1e293b" stroke-width="2"/>
+    <text x="315" y="112" text-anchor="middle" font-size="8" fill="#fff" font-weight="bold">LASER</text>
+    <!-- Faisceau laser parallèle rouge -->
+    <defs>
+      <marker id="arrLaser" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L6,3 z" fill="#ef4444"/>
+      </marker>
+    </defs>
+    <line x1="330" y1="107" x2="555" y2="107" stroke="#ef4444" stroke-width="3" marker-end="url(#arrLaser)"/>
+    <line x1="330" y1="112" x2="555" y2="112" stroke="#ef4444" stroke-width="3"/>
+    <!-- Indication monochromatique -->
+    <text x="420" y="97" text-anchor="middle" font-size="9" fill="#ef4444">λ = 650 nm</text>
+    <text x="420" y="130" text-anchor="middle" font-size="9" fill="#718096">Faisceau unique, parallèle</text>
+    <text x="450" y="185" text-anchor="middle" font-size="9" fill="#718096">Monochromatique, cohérent, directionnel</text>
+  </svg>
+</div>
+
+<div class="appli">
+  <span class="label label-prop">Applications laser en ERA-MA</span>
+  <ul>
+    <li><strong>Niveau laser</strong> : traçage de niveaux horizontaux et verticaux sur chantier (pose de cloisons, menuiseries)</li>
+    <li><strong>Télémètre laser</strong> : mesure de distances précises dans les bâtiments</li>
+    <li><strong>Découpe laser</strong> : découpe précise de tôles métalliques ou de bois dans les ateliers modernes</li>
+    <li><strong>Traceur laser</strong> : report précis de plans sur les matériaux</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Securite laser</span><br>
+  Les lasers sont classés de 1 (inoffensif) à 4 (dangereux). Les niveaux et télémètres de chantier sont en classe 2 (λ = 635 nm, rouge). <strong>Ne jamais regarder directement dans un faisceau laser !</strong> Risque de lésion irréversible de la rétine.
+</div>
+
+<!-- A RETENIR -->
+<div class="retenir">
+  <strong>A retenir – Les points clés du chapitre</strong>
+  <ul>
+    <li>Spectre visible : <strong>380 nm (violet) à 780 nm (rouge)</strong></li>
+    <li>Efficacité lumineuse : \( \eta = \frac{\Phi}{P} \) en lm/W — la LED est la plus efficace (~120 lm/W)</li>
+    <li>Température de couleur : blanc chaud (2 700 K) → blanc froid (6 500 K)</li>
+    <li>IRC ≥ 80 pour les ateliers et locaux de travail</li>
+    <li>Laser = monochromatique + cohérent + directionnel (applications sur chantier : niveau, télémètre, découpe)</li>
+  </ul>
+</div>
+
+<!-- MINI EXERCICES -->
+<h2>13. Mini exercices</h2>
+
+<div class="exo">
+  <strong>Exercice 1</strong><br>
+  Une LED consomme 10 W et produit un flux lumineux de 1 100 lm. Calculer son efficacité lumineuse.<br>
+  <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--p);font-size:.9em">Voir la réponse</summary>
+    <p style="margin:6px 0 0 0;color:#166534">
+      \( \eta = \frac{\Phi}{P} = \frac{1100}{10} = \mathbf{110 \, \text{lm/W}} \)<br>
+      C'est une excellente efficacité, environ 7 fois supérieure à une ampoule incandescente.
+    </p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2</strong><br>
+  Quelle source lumineuse a la meilleure efficacité énergétique : une ampoule incandescente (15 lm/W) ou une LED (120 lm/W) ?<br>
+  <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--p);font-size:.9em">Voir la réponse</summary>
+    <p style="margin:6px 0 0 0;color:#166534">La <strong>LED</strong> (120 lm/W) a une efficacité environ 8 fois supérieure à l'incandescence (15 lm/W). Pour un même flux lumineux, la LED consomme 8 fois moins d'énergie.</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 3</strong><br>
+  Citer 2 caractéristiques d'un laser qui le distinguent d'une source lumineuse ordinaire.<br>
+  <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--p);font-size:.9em">Voir la réponse</summary>
+    <p style="margin:6px 0 0 0;color:#166534">
+      <strong>1) Monochromatique</strong> : le laser n'émet qu'une seule longueur d'onde (une seule couleur).<br>
+      <strong>2) Directionnel</strong> : le faisceau est très étroit et reste parallèle sur de grandes distances.<br>
+      (On peut aussi citer : <em>cohérent</em> = toutes les ondes sont en phase.)
+    </p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 4</strong><br>
+  Un atelier de menuiserie doit renouveler son éclairage. Quel IRC minimum est recommandé pour bien percevoir les couleurs et les défauts du bois ?<br>
+  <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--p);font-size:.9em">Voir la réponse</summary>
+    <p style="margin:6px 0 0 0;color:#166534">Un <strong>IRC ≥ 80</strong> est recommandé pour les ateliers et locaux de travail nécessitant une bonne perception des couleurs. Les LED modernes atteignent IRC 80 à 95.</p>
+  </details>
+</div>
+
+<div class="att">
+  <span class="label label-att">Erreurs fréquentes à éviter</span>
+  <ul>
+    <li>Confondre <em>flux lumineux</em> (lm) et <em>puissance</em> (W) : le lumen mesure la lumière utile perçue par l'œil, le watt mesure la consommation électrique</li>
+    <li>Croire qu'une source "froide" en couleur est physiquement froide : blanc froid = température de couleur élevée (6 500 K), mais pas de rapport avec la température physique de la lampe</li>
+    <li>Penser que plus c'est puissant, plus c'est lumineux : non, l'efficacité (lm/W) est ce qui compte !</li>
+    <li>Négliger l'IRC : une lampe sodium (IRC = 25) donne d'excellents lm/W mais les couleurs apparaissent faussées – inutilisable pour contrôler la qualité d'une finition</li>
+  </ul>
+</div>
+
+<p style="text-align:center;font-size:.8em;color:#a0aec0;margin-top:30px">Terminale Bac Pro ERA-MA – Groupement 3 – Physique/Signaux – Ch.6</p>
+</div>
+
+<script>
+// === GRAPHIQUE EFFICACITE LUMINEUSE ===
+(function(){
+  const ctx = document.getElementById('chartEfficacite').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Incandescence', 'Halogène', 'Fluorescent', 'LED', 'Sodium HP'],
+      datasets: [{
+        label: 'Efficacité lumineuse (lm/W)',
+        data: [15, 25, 80, 120, 130],
+        backgroundColor: [
+          '#fca5a5',
+          '#fcd34d',
+          '#6ee7b7',
+          '#34d399',
+          '#60a5fa'
+        ],
+        borderColor: [
+          '#dc2626',
+          '#d97706',
+          '#059669',
+          '#047857',
+          '#2563eb'
+        ],
+        borderWidth: 2,
+        borderRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Efficacité lumineuse des différentes sources (lm/W)',
+          font: { size: 13 }
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.raw} lm/W`
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'Efficacité (lm/W)' },
+          grid: { color: '#e2e8f0' }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+})();
+
+// === ANIMATION SPECTRE VISIBLE ===
+const specCanvas = document.getElementById('spectrumCanvas');
+const specCtx = specCanvas.getContext('2d');
+const W = specCanvas.width, H = specCanvas.height;
+
+const SOURCES = {
+  laser_rouge: { nm: 650, label: 'Laser rouge – 650 nm | Monochromatique, directionnel, cohérent. Utilisé : niveau laser, télémètre.' },
+  laser_vert:  { nm: 532, label: 'Laser vert – 532 nm | Monochromatique. Plus visible que le rouge. Utilisé : pointeur laser, traceur.' },
+  led_blanc:   { nm: null, label: 'LED blanc – spectre large centré sur 450 nm + phosphore jaune → lumière blanche. IRC 80–95.' },
+  soleil:      { nm: null, label: 'Soleil – spectre continu : toutes les longueurs d\'onde du visible sont présentes avec IRC = 100.' }
+};
+
+function nmToRgb(nm) {
+  let r = 0, g = 0, b = 0;
+  if (nm >= 380 && nm < 440) { r = -(nm - 440) / 60; g = 0; b = 1; }
+  else if (nm >= 440 && nm < 490) { r = 0; g = (nm - 440) / 50; b = 1; }
+  else if (nm >= 490 && nm < 510) { r = 0; g = 1; b = -(nm - 510) / 20; }
+  else if (nm >= 510 && nm < 580) { r = (nm - 510) / 70; g = 1; b = 0; }
+  else if (nm >= 580 && nm < 645) { r = 1; g = -(nm - 645) / 65; b = 0; }
+  else if (nm >= 645 && nm <= 780) { r = 1; g = 0; b = 0; }
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+}
+
+function drawSpectrum(highlight) {
+  specCtx.clearRect(0, 0, W, H);
+  // Fond
+  specCtx.fillStyle = '#111827';
+  specCtx.fillRect(0, 0, W, H);
+
+  const specX0 = 30, specX1 = W - 30;
+  const specY0 = 25, specH = 60;
+  const nmMin = 380, nmMax = 780;
+
+  // Dégradé spectre
+  for (let x = specX0; x <= specX1; x++) {
+    const nm = nmMin + (x - specX0) / (specX1 - specX0) * (nmMax - nmMin);
+    const [r, g, b] = nmToRgb(nm);
+    specCtx.fillStyle = `rgb(${r},${g},${b})`;
+    specCtx.fillRect(x, specY0, 1, specH);
+  }
+
+  // Contour spectre
+  specCtx.strokeStyle = '#374151';
+  specCtx.lineWidth = 1;
+  specCtx.strokeRect(specX0, specY0, specX1 - specX0, specH);
+
+  // Labels nm
+  const labels = [380, 450, 500, 550, 600, 650, 700, 780];
+  specCtx.font = '9px Segoe UI';
+  specCtx.textAlign = 'center';
+  for (const nm of labels) {
+    const x = specX0 + (nm - nmMin) / (nmMax - nmMin) * (specX1 - specX0);
+    specCtx.fillStyle = '#9ca3af';
+    specCtx.fillText(nm + '', x, specY0 + specH + 13);
+    specCtx.fillStyle = '#374151';
+    specCtx.fillRect(x, specY0 + specH, 1, 5);
+  }
+  specCtx.fillStyle = '#9ca3af';
+  specCtx.font = '9px Segoe UI';
+  specCtx.fillText('λ (nm)', specX1 - 10, specY0 + specH + 22);
+
+  // Couleurs label
+  const colorLabels = [
+    {nm: 410, label:'Violet'}, {nm: 460, label:'Bleu'}, {nm: 510, label:'Vert'},
+    {nm: 575, label:'Jaune'}, {nm: 620, label:'Orange'}, {nm: 700, label:'Rouge'}
+  ];
+  for (const cl of colorLabels) {
+    const x = specX0 + (cl.nm - nmMin) / (nmMax - nmMin) * (specX1 - specX0);
+    const [r, g, b] = nmToRgb(cl.nm);
+    specCtx.fillStyle = `rgb(${r},${g},${b})`;
+    specCtx.font = '9px Segoe UI';
+    specCtx.textAlign = 'center';
+    specCtx.fillText(cl.label, x, specY0 - 6);
+  }
+
+  // Source LED blanc
+  if (highlight === 'led_blanc') {
+    // Pic LED autour de 450 nm + large
+    for (let x = specX0; x <= specX1; x++) {
+      const nm = nmMin + (x - specX0) / (specX1 - specX0) * (nmMax - nmMin);
+      let intensity = 0.18 + 0.7 * Math.exp(-Math.pow((nm - 450) / 30, 2)) + 0.5 * Math.exp(-Math.pow((nm - 560) / 80, 2));
+      intensity = Math.min(1, intensity);
+      specCtx.fillStyle = `rgba(255,255,255,${intensity * 0.55})`;
+      specCtx.fillRect(x, specY0, 1, specH);
+    }
+    specCtx.fillStyle = '#fff';
+    specCtx.font = 'bold 11px Segoe UI';
+    specCtx.textAlign = 'center';
+    specCtx.fillText('LED blanc – spectre large', W/2, specY0 + specH + 27);
+  }
+
+  // Source soleil
+  if (highlight === 'soleil') {
+    specCtx.fillStyle = 'rgba(255,255,255,0.3)';
+    specCtx.fillRect(specX0, specY0, specX1 - specX0, specH);
+    specCtx.fillStyle = '#fff';
+    specCtx.font = 'bold 11px Segoe UI';
+    specCtx.textAlign = 'center';
+    specCtx.fillText('Soleil – spectre continu (toutes les longueurs d\'onde)', W/2, specY0 + specH + 27);
+  }
+
+  // Laser monochromatique
+  if (highlight && SOURCES[highlight] && SOURCES[highlight].nm !== null) {
+    const nm = SOURCES[highlight].nm;
+    const x = specX0 + (nm - nmMin) / (nmMax - nmMin) * (specX1 - specX0);
+    const [r, g, b] = nmToRgb(nm);
+    // Ligne laser brillante
+    specCtx.strokeStyle = `rgb(${r},${g},${b})`;
+    specCtx.lineWidth = 3;
+    specCtx.shadowColor = `rgb(${r},${g},${b})`;
+    specCtx.shadowBlur = 10;
+    specCtx.beginPath();
+    specCtx.moveTo(x, specY0 - 2);
+    specCtx.lineTo(x, specY0 + specH + 2);
+    specCtx.stroke();
+    specCtx.shadowBlur = 0;
+    specCtx.lineWidth = 1;
+    // Label nm
+    specCtx.fillStyle = `rgb(${r},${g},${b})`;
+    specCtx.font = 'bold 12px Segoe UI';
+    specCtx.textAlign = 'center';
+    specCtx.fillText(`${nm} nm`, x, specY0 - 12);
+    // Triangle pointeur
+    specCtx.beginPath();
+    specCtx.moveTo(x - 6, specY0 - 2);
+    specCtx.lineTo(x + 6, specY0 - 2);
+    specCtx.lineTo(x, specY0 + 4);
+    specCtx.fillStyle = `rgb(${r},${g},${b})`;
+    specCtx.fill();
+  }
+}
+
+function showSpectrum(type) {
+  drawSpectrum(type);
+  const msg = document.getElementById('spectrumMsg');
+  if (type && SOURCES[type]) {
+    msg.textContent = SOURCES[type].label;
+  } else {
+    msg.textContent = 'Cliquez sur un bouton pour explorer une source lumineuse.';
+  }
+}
+
+// Init
+drawSpectrum(null);
+document.getElementById('spectrumMsg').textContent = 'Cliquez sur un bouton pour explorer une source lumineuse.';
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

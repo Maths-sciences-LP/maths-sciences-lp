@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 3 – Rayonnement thermique & effet de serre | ERA-MA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#2da44e;--s:#0ea5e9;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+.def{background:#f0fff4;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#e0f2fe;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#dcfce7;color:#166534}
+.label-prop{background:#e0f2fe;color:#0369a1}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f0fff4;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.svg-wrap{text-align:center;margin:18px 0}
+.objectifs{background:#f0fff4;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #86efac}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.retenir{background:#dcfce7;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.appli{background:#f0f9ff;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.anim-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0;text-align:center}
+.anim-wrap button{background:var(--p);color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;margin:6px 4px;font-size:.85em}
+.chart-wrap{max-width:580px;margin:18px auto}
+.exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
+.exo-title{font-weight:700;color:var(--p);margin-bottom:8px}
+.step{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin:8px 0}
+.step-num{display:inline-block;background:var(--p);color:#fff;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;font-size:.8em;font-weight:700;margin-right:8px}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="pc-term-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA</a>
+
+<header>
+  <h1>Chapitre 3 – Rayonnement thermique &amp; effet de serre</h1>
+  <p class="sous-titre">Terminale Bac Pro ERA-MA | Groupement 3 | Physique – Thermique</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Comprendre que tout corps émet un rayonnement thermique dépendant de sa température</li>
+    <li>Identifier le domaine infrarouge du rayonnement thermique usuel</li>
+    <li>Exploiter des images de caméra thermique</li>
+    <li>Expliquer le principe de l'effet de serre et le rôle des gaz à effet de serre (GES)</li>
+  </ul>
+</div>
+
+<!-- ===== INTRODUCTION ===== -->
+<h2>1. Introduction – Un outil essentiel dans le bâtiment</h2>
+
+<div class="appli">
+  <span class="label label-prop">Contexte ERA-MA</span><br>
+  Sur un chantier de rénovation, un technicien pointe une <strong>caméra thermique</strong> vers la facade d'une maison. Sur l'écran, certaines zones apparaissent en rouge vif : ce sont les <strong>ponts thermiques</strong>, les endroits où la chaleur s'échappe le plus. Ces caméras ne "voient" pas la lumière visible, mais le <strong>rayonnement infrarouge</strong> émis par les bâtiments. Pour comprendre cet outil indispensable à la rénovation énergétique, il faut comprendre le rayonnement thermique.
+</div>
+
+<p>Toute matière émet constamment de l'énergie sous forme de rayonnement électromagnétique. Ce phénomène s'appelle le <strong>rayonnement thermique</strong>. Sa nature dépend directement de la température du corps.</p>
+
+<!-- ===== SPECTRE ÉLECTROMAGNÉTIQUE ===== -->
+<h2>2. Le spectre électromagnétique</h2>
+
+<div class="svg-wrap">
+  <!-- SVG Spectre électromagnétique -->
+  <svg width="800" height="120" viewBox="0 0 800 120" style="max-width:100%;font-family:'Segoe UI',sans-serif;">
+    <!-- Fond dégradé représentant le spectre -->
+    <defs>
+      <linearGradient id="spectre" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#8b00ff"/>
+        <stop offset="12%" style="stop-color:#8b00ff"/>
+        <stop offset="18%" style="stop-color:#4b0082"/>
+        <stop offset="24%" style="stop-color:#0000ff"/>
+        <stop offset="30%" style="stop-color:#00ff00"/>
+        <stop offset="36%" style="stop-color:#ffff00"/>
+        <stop offset="42%" style="stop-color:#ff7700"/>
+        <stop offset="48%" style="stop-color:#ff0000"/>
+        <stop offset="55%" style="stop-color:#8b1a1a"/>
+        <stop offset="100%" style="stop-color:#3d0000"/>
+      </linearGradient>
+    </defs>
+    <!-- Zones colorées -->
+    <rect x="10" y="30" width="130" height="40" fill="#c8a0ff" rx="4"/>
+    <rect x="145" y="30" width="160" height="40" fill="url(#spectre)" rx="4"/>
+    <rect x="310" y="30" width="460" height="40" fill="#ff6b6b" rx="4" opacity="0.6"/>
+    <!-- Labels zones -->
+    <text x="75" y="55" text-anchor="middle" fill="#4a0080" font-size="13" font-weight="700">UV</text>
+    <text x="225" y="48" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">VISIBLE</text>
+    <text x="225" y="64" text-anchor="middle" fill="#fff" font-size="10">(400–700 nm)</text>
+    <text x="540" y="48" text-anchor="middle" fill="#8b1a1a" font-size="13" font-weight="700">INFRAROUGE (IR)</text>
+    <text x="540" y="64" text-anchor="middle" fill="#8b1a1a" font-size="10">700 nm – 1 mm</text>
+    <!-- Flèche longueur d'onde -->
+    <line x1="10" y1="85" x2="770" y2="85" stroke="#2d3748" stroke-width="2" marker-end="url(#arrow)"/>
+    <defs>
+      <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#2d3748"/>
+      </marker>
+    </defs>
+    <text x="390" y="105" text-anchor="middle" fill="#4a5568" font-size="12">Longueur d'onde croissante →</text>
+    <!-- Marqueurs ERA-MA -->
+    <line x1="225" y1="30" x2="225" y2="10" stroke="#0ea5e9" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="225" y="8" text-anchor="middle" fill="#0ea5e9" font-size="10">Soleil (pic ~500 nm)</text>
+    <line x1="500" y1="30" x2="500" y2="10" stroke="#c53030" stroke-width="1.5" stroke-dasharray="3"/>
+    <text x="500" y="8" text-anchor="middle" fill="#c53030" font-size="10">Terre (pic ~10 µm)</text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px">Figure 1 – Le spectre électromagnétique simplifié</p>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Le <strong>rayonnement thermique</strong> est un rayonnement électromagnétique émis par tout corps dont la température est supérieure au zéro absolu (0 K = -273 °C). Il transporte de l'énergie sans nécessiter de support matériel (il se propage dans le vide).
+</div>
+
+<!-- ===== NOTIONS ESSENTIELLES ===== -->
+<h2>3. Rayonnement et température</h2>
+
+<p>La nature du rayonnement émis dépend directement de la <strong>température</strong> du corps. Plus un corps est chaud, plus il rayonne dans des longueurs d'onde courtes (donc plus énergétiques).</p>
+
+<div class="prop">
+  <span class="label label-prop">Loi de déplacement de Wien (qualitative)</span><br>
+  Plus la température d'un corps est <strong>élevée</strong>, plus le rayonnement émis se déplace vers des <strong>longueurs d'onde courtes</strong> (vers le visible, voire l'UV).<br>
+  <br>
+  Formule : \( \lambda_{\max} = \dfrac{b}{T} \) avec \(b = 2{,}898 \times 10^{-3}\ \text{m·K}\) et \(T\) en Kelvin (K)
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple numérique</span><br>
+  <div class="step"><span class="step-num">1</span> <strong>Le Soleil</strong> a une température de surface T ≈ 5800 K</div>
+  <div class="step"><span class="step-num">2</span> Son pic d'émission : \(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{5800} \approx 5 \times 10^{-7}\ \text{m} = 500\ \text{nm}\) → dans le <strong>visible</strong> (jaune-vert)</div>
+  <div class="step"><span class="step-num">3</span> <strong>La Terre</strong> a une température moyenne T ≈ 290 K</div>
+  <div class="step"><span class="step-num">4</span> Son pic d'émission : \(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{290} \approx 10 \times 10^{-6}\ \text{m} = 10\ \mu\text{m}\) → dans l'<strong>infrarouge</strong></div>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Corps</th><th>Température</th><th>Type de rayonnement</th><th>Visible à l'œil ?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Bâtiment (mur)</td><td>~20 °C (293 K)</td><td>Infrarouge lointain</td><td>Non</td></tr>
+    <tr><td>Fer chauffé (forge)</td><td>~700 °C (973 K)</td><td>IR + début rouge visible</td><td>Oui (rouge sombre)</td></tr>
+    <tr><td>Filament lampe</td><td>~2500 °C (2773 K)</td><td>IR + visible (blanc chaud)</td><td>Oui</td></tr>
+    <tr><td>Soleil</td><td>~5800 K</td><td>UV + visible + IR</td><td>Oui (brillant)</td></tr>
+  </tbody>
+</table>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Le rayonnement infrarouge émis par les bâtiments est <strong>invisible à l'œil nu</strong>. Seule une <strong>caméra thermique</strong> équipée d'un capteur spécial peut le détecter et le convertir en image colorée.
+</div>
+
+<!-- ===== ANIMATION RAYONNEMENT ===== -->
+<h2>4. Animation – Rayonnement thermique</h2>
+
+<div class="anim-wrap">
+  <p style="margin:0 0 8px;font-size:.9em;color:#4a5568"><strong>Simulation :</strong> Observez comment le rayonnement change avec la température</p>
+  <canvas id="animRay" width="580" height="220" style="background:#1a1a2e;border-radius:8px;max-width:100%"></canvas>
+  <br>
+  <button onclick="chauffer()">Chauffer +</button>
+  <button onclick="refroidir()">Refroidir –</button>
+  <button onclick="resetTemp()">Réinitialiser</button>
+  <p id="tempDisplay" style="margin:6px 0;font-size:.9em;font-weight:700;color:var(--p)">Température : 20 °C | Rayonnement : Infrarouge (invisible)</p>
+</div>
+
+<!-- ===== CAMÉRA THERMIQUE ===== -->
+<h2>5. La caméra thermique – Application au bâtiment</h2>
+
+<div class="appli">
+  <span class="label label-prop">Application ERA-MA – Diagnostic thermique</span><br>
+  Une caméra thermique détecte les <strong>rayonnements infrarouges</strong> émis par les surfaces d'un bâtiment. Elle convertit ces rayonnements en image colorée :<br>
+  <ul>
+    <li><strong>Rouge/blanc</strong> → zones chaudes → fuites thermiques, ponts thermiques</li>
+    <li><strong>Bleu/violet</strong> → zones froides → bien isolées ou zones ombragées</li>
+  </ul>
+  Utilisations en ERA-MA : isolation des murs et toitures, détection de ponts thermiques, audit énergétique (DPE), contrôle des installations de chauffage.
+</div>
+
+<div class="svg-wrap">
+  <!-- SVG Caméra thermique - bâtiment -->
+  <svg width="520" height="260" viewBox="0 0 520 260" style="max-width:100%;font-family:'Segoe UI',sans-serif;">
+    <!-- Bâtiment -->
+    <rect x="60" y="80" width="200" height="140" fill="#e2e8f0" stroke="#a0aec0" stroke-width="2"/>
+    <!-- Toit -->
+    <polygon points="40,80 160,20 280,80" fill="#cbd5e0" stroke="#a0aec0" stroke-width="2"/>
+    <!-- Fenêtre chaude (pont thermique) -->
+    <rect x="90" y="110" width="60" height="50" fill="#ff4500" opacity="0.8" rx="2"/>
+    <text x="120" y="140" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Pont<br/>thermique</text>
+    <!-- Mur bien isolé (froid) -->
+    <rect x="180" y="110" width="55" height="80" fill="#4a90d9" opacity="0.5" rx="2"/>
+    <text x="207" y="155" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">Isolé</text>
+    <!-- Porte (fuite) -->
+    <rect x="120" y="170" width="45" height="50" fill="#ff8c00" opacity="0.7" rx="2"/>
+    <text x="142" y="200" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">Fuite</text>
+    <!-- Flèches IR -->
+    <line x1="120" y1="130" x2="360" y2="90" stroke="#ff4500" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.8"/>
+    <line x1="207" y1="150" x2="360" y2="105" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.8"/>
+    <line x1="142" y1="185" x2="360" y2="120" stroke="#ff8c00" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.8"/>
+    <!-- Caméra -->
+    <rect x="355" y="75" width="80" height="55" fill="#2d3748" rx="8"/>
+    <rect x="365" y="83" width="35" height="35" fill="#4a5568" rx="4"/>
+    <circle cx="382" cy="100" r="12" fill="#1a202c" stroke="#718096" stroke-width="2"/>
+    <circle cx="382" cy="100" r="6" fill="#e2e8f0"/>
+    <rect x="400" y="88" width="30" height="20" fill="#3d4a5c" rx="3"/>
+    <text x="415" y="102" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="700">LCD</text>
+    <text x="395" y="148" text-anchor="middle" fill="#2d3748" font-size="11" font-weight="700">Caméra IR</text>
+    <!-- Légende -->
+    <rect x="420" y="70" width="12" height="12" fill="#ff4500" rx="2"/>
+    <text x="436" y="81" fill="#c53030" font-size="10" font-weight="700">Chaud</text>
+    <rect x="420" y="90" width="12" height="12" fill="#4a90d9" rx="2"/>
+    <text x="436" y="101" fill="#0369a1" font-size="10" font-weight="700">Froid</text>
+    <!-- Labels -->
+    <text x="160" y="248" text-anchor="middle" fill="#4a5568" font-size="11">Façade du bâtiment</text>
+    <text x="160" y="262" text-anchor="middle" fill="#718096" font-size="9">(vue thermique simulée)</text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px">Figure 2 – Diagnostic thermique par caméra infrarouge</p>
+</div>
+
+<!-- ===== GRAPHIQUE SPECTRAL ===== -->
+<h2>6. Comparaison des spectres d'émission – Soleil vs Terre</h2>
+
+<p>Le graphique ci-dessous compare la répartition de l'énergie rayonnée par le <strong>Soleil</strong> (pic dans le visible) et par la <strong>Terre</strong> (pic dans l'infrarouge) en fonction de la longueur d'onde.</p>
+
+<div class="chart-wrap">
+  <canvas id="chartSpectre" height="300"></canvas>
+</div>
+<p style="font-size:.85em;color:#718096;text-align:center">Figure 3 – Spectres d'émission simplifié du Soleil et de la Terre (intensités relatives normalisées)</p>
+
+<!-- ===== EFFET DE SERRE ===== -->
+<h2>7. L'effet de serre atmosphérique</h2>
+
+<p>L'effet de serre est un phénomène <strong>naturel et indispensable à la vie</strong> sur Terre. Sans lui, la température moyenne serait d'environ <strong>-18 °C</strong> au lieu de +15 °C.</p>
+
+<div class="meth">
+  <span class="label label-meth">Mécanisme de l'effet de serre – étape par étape</span>
+  <div class="step"><span class="step-num">1</span> Le <strong>Soleil</strong> émet des rayonnements visibles et UV (courtes longueurs d'onde)</div>
+  <div class="step"><span class="step-num">2</span> Ces rayonnements <strong>traversent l'atmosphère</strong> presque sans être absorbés et arrivent à la surface terrestre</div>
+  <div class="step"><span class="step-num">3</span> La <strong>Terre absorbe</strong> ces rayonnements et se réchauffe</div>
+  <div class="step"><span class="step-num">4</span> La Terre (à ~15 °C) <strong>réémet en infrarouge</strong> (grandes longueurs d'onde)</div>
+  <div class="step"><span class="step-num">5</span> Les <strong>GES absorbent</strong> ces IR et les réémettent dans toutes les directions, dont vers la Terre</div>
+  <div class="step"><span class="step-num">6</span> La Terre se <strong>réchauffe davantage</strong> → effet de serre</div>
+</div>
+
+<div class="svg-wrap">
+  <!-- SVG Effet de serre -->
+  <svg width="680" height="320" viewBox="0 0 680 320" style="max-width:100%;font-family:'Segoe UI',sans-serif;">
+    <defs>
+      <marker id="arr-sol" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#f59e0b"/>
+      </marker>
+      <marker id="arr-ir" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/>
+      </marker>
+      <marker id="arr-ges" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#8b5cf6"/>
+      </marker>
+    </defs>
+
+    <!-- Ciel/Atmosphère -->
+    <rect x="0" y="0" width="680" height="240" fill="#dbeafe" rx="0" opacity="0.5"/>
+    <!-- Sol -->
+    <rect x="0" y="240" width="680" height="80" fill="#a7f3d0" opacity="0.7"/>
+    <text x="340" y="285" text-anchor="middle" fill="#065f46" font-size="14" font-weight="700">SURFACE TERRESTRE</text>
+
+    <!-- Atmosphère label -->
+    <text x="340" y="25" text-anchor="middle" fill="#1e40af" font-size="13" font-weight="700">ATMOSPHÈRE</text>
+    <text x="340" y="42" text-anchor="middle" fill="#3b82f6" font-size="10">(GES : H₂O, CO₂, CH₄, N₂O)</text>
+
+    <!-- Couche GES nuage -->
+    <ellipse cx="340" cy="110" rx="280" ry="35" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.8"/>
+    <text x="340" y="106" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="700">Gaz à Effet de Serre (GES)</text>
+    <text x="340" y="122" text-anchor="middle" fill="#1e40af" font-size="9">Absorbent les IR et les réémettent</text>
+
+    <!-- Soleil -->
+    <circle cx="80" cy="50" r="35" fill="#fbbf24" opacity="0.9"/>
+    <text x="80" y="54" text-anchor="middle" fill="#7c2d12" font-size="12" font-weight="700">SOLEIL</text>
+    <text x="80" y="97" text-anchor="middle" fill="#92400e" font-size="10">T ≈ 5800 K</text>
+
+    <!-- Rayonnements solaires (jaune/orange) -->
+    <line x1="113" y1="65" x2="290" y2="235" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arr-sol)"/>
+    <text x="175" y="140" transform="rotate(-55, 175, 140)" fill="#d97706" font-size="10" font-weight="700">Visible + UV</text>
+
+    <!-- Rayonnements IR de la Terre (rouge) -->
+    <line x1="340" y1="240" x2="340" y2="150" stroke="#ef4444" stroke-width="2" marker-end="url(#arr-ir)"/>
+    <text x="352" y="200" fill="#dc2626" font-size="10" font-weight="700">IR (10 µm)</text>
+
+    <!-- Renvoi GES vers Terre (violet) -->
+    <path d="M 390 120 Q 430 170 380 238" stroke="#8b5cf6" stroke-width="2" fill="none" marker-end="url(#arr-ges)"/>
+    <text x="440" y="175" fill="#7c3aed" font-size="10" font-weight="700">Réémis vers</text>
+    <text x="440" y="188" fill="#7c3aed" font-size="10" font-weight="700">la Terre</text>
+
+    <!-- Échappement vers espace -->
+    <line x1="310" y1="75" x2="310" y2="5" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-ir)"/>
+    <text x="240" y="55" fill="#dc2626" font-size="9">IR partiellement</text>
+    <text x="240" y="68" fill="#dc2626" font-size="9">réémis vers l'espace</text>
+
+    <!-- Légende -->
+    <rect x="540" y="190" width="130" height="75" fill="#fff" rx="6" stroke="#e2e8f0"/>
+    <line x1="548" y1="205" x2="568" y2="205" stroke="#f59e0b" stroke-width="2"/>
+    <text x="572" y="209" fill="#2d3748" font-size="10">Rayonnement solaire</text>
+    <line x1="548" y1="220" x2="568" y2="220" stroke="#ef4444" stroke-width="2"/>
+    <text x="572" y="224" fill="#2d3748" font-size="10">Infrarouge Terre</text>
+    <line x1="548" y1="235" x2="568" y2="235" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="572" y="239" fill="#2d3748" font-size="10">Renvoi GES</text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px">Figure 4 – Schéma de l'effet de serre atmosphérique</p>
+</div>
+
+<!-- ===== GES ===== -->
+<h2>8. Les gaz à effet de serre (GES)</h2>
+
+<table>
+  <thead>
+    <tr><th>Gaz</th><th>Formule</th><th>Origine</th><th>Rôle</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Vapeur d'eau</td><td>H₂O</td><td>Naturelle (évaporation)</td><td>GES le plus puissant</td></tr>
+    <tr><td>Dioxyde de carbone</td><td>CO₂</td><td>Naturelle + combustion fossile</td><td>2e GES, amplifié par l'homme</td></tr>
+    <tr><td>Méthane</td><td>CH₄</td><td>Élevage, décharges, gaz naturel</td><td>25× plus puissant que CO₂</td></tr>
+    <tr><td>Protoxyde d'azote</td><td>N₂O</td><td>Agriculture (engrais)</td><td>298× plus puissant que CO₂</td></tr>
+  </tbody>
+</table>
+
+<div class="def">
+  <span class="label label-def">Effet de serre naturel vs amplifié</span><br>
+  <ul>
+    <li><strong>Effet de serre naturel</strong> : existait avant l'activité humaine, maintient la Terre à +15 °C (sans lui : -18 °C). Il est <em>indispensable à la vie</em>.</li>
+    <li><strong>Effet de serre amplifié</strong> : depuis la révolution industrielle, les activités humaines (combustion d'énergies fossiles, déforestation, élevage) augmentent la concentration de GES → réchauffement climatique.</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention aux erreurs fréquentes</span><br>
+  <ul>
+    <li>L'effet de serre n'est <strong>pas le "trou dans la couche d'ozone"</strong> : ce sont deux phénomènes distincts.</li>
+    <li>L'effet de serre n'est <strong>pas uniquement négatif</strong> : l'effet naturel est vital. C'est son amplification par l'homme qui pose problème.</li>
+    <li>Une caméra thermique ne mesure pas la température directement : elle mesure le <strong>rayonnement IR émis</strong> et calcule la température.</li>
+  </ul>
+</div>
+
+<div class="retenir">
+  <strong>À retenir – Rayonnement thermique</strong>
+  <ul>
+    <li>Tout corps émet un rayonnement thermique qui dépend de sa <strong>température T</strong></li>
+    <li>À T ambiante (~20 °C) : rayonnement <strong>infrarouge (IR)</strong>, invisible à l'œil nu</li>
+    <li>Loi de Wien : plus T est élevée → pic vers les courtes longueurs d'onde (visible, UV)</li>
+    <li>La Terre réémet en <strong>IR (~10 µm)</strong>, le Soleil rayonne dans le <strong>visible (~500 nm)</strong></li>
+    <li>Les GES (H₂O, CO₂, CH₄, N₂O) absorbent les IR terrestres → <strong>effet de serre</strong></li>
+    <li>La caméra thermique est un outil clé en <strong>diagnostic de bâtiment</strong></li>
+  </ul>
+</div>
+
+<!-- ===== APPLICATIONS ERA-MA ===== -->
+<h2>9. Applications concrètes ERA-MA</h2>
+
+<div class="appli">
+  <span class="label label-prop">Métiers du Bâtiment</span><br>
+  <strong>Diagnostic énergétique :</strong> La caméra IR permet de visualiser les déperditions thermiques (ponts thermiques, fenêtres mal isolées, infiltrations d'air). Ce diagnostic est obligatoire pour le DPE (Diagnostic de Performance Énergétique).<br><br>
+  <strong>Rénovation énergétique :</strong> Comprendre le rayonnement thermique permet de choisir les bons matériaux isolants (laine de verre, ouate de cellulose) et de réduire les pertes par rayonnement.<br><br>
+  <strong>Toitures :</strong> Les toitures sombres absorbent plus de rayonnement solaire qu'un toit clair (réflexion). Les toits végétalisés réduisent les îlots de chaleur urbains.
+</div>
+
+<div class="appli">
+  <span class="label label-prop">Métiers de la Métallerie</span><br>
+  <strong>Traitement thermique des métaux :</strong> En forgeant ou en soudant, on chauffe le métal à très haute température. La couleur de l'incandescence (rouge sombre, orange, blanc) est une indication visuelle de la température – c'est le rayonnement thermique en action.<br><br>
+  <strong>Protection contre le rayonnement :</strong> Les équipements de protection individuelle (EPI) des soudeurs tiennent compte du rayonnement IR et UV émis par l'arc électrique.
+</div>
+
+<!-- ===== EXERCICES ===== -->
+<h2>10. Mini exercices</h2>
+
+<div class="exo">
+  <div class="exo-title">Exercice 1</div>
+  <p>Pourquoi les bâtiments mal isolés "brillent" en rouge sur une image infrarouge ?</p>
+  <details>
+    <summary style="cursor:pointer;color:var(--p);font-weight:700">Voir la réponse</summary>
+    <div class="def" style="margin-top:8px">
+      Les zones mal isolées laissent échapper de la chaleur. Leur surface est plus chaude, donc elles émettent un rayonnement IR plus intense. La caméra thermique détecte ce rayonnement IR plus fort et l'affiche en rouge (couleur conventionnelle pour les zones chaudes). Les zones bien isolées, plus froides, apparaissent en bleu.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-title">Exercice 2</div>
+  <p>Citez 3 gaz à effet de serre d'origine naturelle.</p>
+  <details>
+    <summary style="cursor:pointer;color:var(--p);font-weight:700">Voir la réponse</summary>
+    <div class="def" style="margin-top:8px">
+      Les trois principaux GES naturels sont : <strong>la vapeur d'eau (H₂O)</strong>, le <strong>dioxyde de carbone (CO₂)</strong> et le <strong>méthane (CH₄)</strong>. Le protoxyde d'azote (N₂O) peut également être cité.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-title">Exercice 3</div>
+  <p>La Terre a une température moyenne d'environ 288 K. À quelle longueur d'onde environ émet-elle son rayonnement maximum ? Quel type de rayonnement est-ce ?</p>
+  <details>
+    <summary style="cursor:pointer;color:var(--p);font-weight:700">Voir la réponse</summary>
+    <div class="def" style="margin-top:8px">
+      En appliquant la loi de Wien :<br>
+      \(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{288} \approx 1 \times 10^{-5}\ \text{m} = 10\ \mu\text{m}\)<br>
+      C'est un rayonnement <strong>infrarouge</strong>, invisible à l'œil nu. C'est ce rayonnement qui est absorbé par les GES dans l'atmosphère.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-title">Exercice 4</div>
+  <p>Quelle est la différence entre l'effet de serre naturel et l'effet de serre amplifié par l'homme ?</p>
+  <details>
+    <summary style="cursor:pointer;color:var(--p);font-weight:700">Voir la réponse</summary>
+    <div class="def" style="margin-top:8px">
+      <strong>Effet de serre naturel :</strong> présent depuis toujours, indispensable à la vie. Il maintient la Terre à +15 °C en moyenne (sans lui : -18 °C).<br><br>
+      <strong>Effet de serre amplifié :</strong> depuis la révolution industrielle, les activités humaines (combustion de pétrole, gaz, charbon ; déforestation ; agriculture intensive) augmentent la concentration de GES (surtout CO₂ et CH₄) dans l'atmosphère. Cela renforce l'effet de serre et provoque un réchauffement climatique supplémentaire.
+    </div>
+  </details>
+</div>
+
+</div><!-- /.c -->
+
+<script>
+// ===== ANIMATION RAYONNEMENT THERMIQUE =====
+const canvas = document.getElementById('animRay');
+const ctx = canvas.getContext('2d');
+let temp = 20; // en °C
+let animFrame;
+let time = 0;
+
+function getBodyColor(t) {
+  if (t < 0) return '#1a1a3e';
+  if (t < 100) return `rgb(${Math.floor(30+t*0.5)}, ${Math.floor(30+t*0.3)}, ${Math.floor(80+t*0.5)})`;
+  if (t < 400) return `rgb(${Math.floor(80+t*0.5)}, ${Math.floor(30+t*0.05)}, 30)`;
+  if (t < 700) return `rgb(${Math.min(255,80+t*0.4)}, ${Math.floor(t*0.15)}, 20)`;
+  if (t < 1000) return `rgb(255, ${Math.floor((t-700)*0.5)}, 20)`;
+  return `rgb(255, ${Math.min(255, Math.floor((t-1000)*0.3)+150)}, ${Math.min(200, Math.floor((t-1000)*0.2))})`;
+}
+
+function getWaveColor(t) {
+  if (t < 300) return '#8b1a8b'; // IR lointain (violet foncé)
+  if (t < 600) return '#cc0000'; // IR moyen (rouge)
+  if (t < 900) return '#ff6600'; // IR proche (orange)
+  return '#ffcc00'; // visible (jaune)
+}
+
+function getRayType(t) {
+  if (t < 300) return 'Infrarouge lointain (invisible)';
+  if (t < 600) return 'Infrarouge (invisible)';
+  if (t < 800) return 'IR proche + début rouge visible';
+  return 'Visible (rouge orange)';
+}
+
+function drawAnim() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  time += 0.08;
+
+  // Fond étoilé
+  ctx.fillStyle = '#0d0d1a';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Étoiles
+  for (let i = 0; i < 40; i++) {
+    let sx = (i * 127 + 43) % 580;
+    let sy = (i * 89 + 17) % 120;
+    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+    ctx.beginPath();
+    ctx.arc(sx, sy, 0.8, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  // Objet central (corps émetteur)
+  const bodyColor = getBodyColor(temp);
+  const waveColor = getWaveColor(temp);
+  const cx2 = 290, cy2 = 140;
+
+  // Halo de chaleur
+  if (temp > 50) {
+    const alpha = Math.min(0.3, (temp-50)/2000);
+    const grad = ctx.createRadialGradient(cx2, cy2, 20, cx2, cy2, 80);
+    grad.addColorStop(0, waveColor.replace(')', `,${alpha})`).replace('rgb', 'rgba'));
+    grad.addColorStop(1, 'transparent');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(cx2, cy2, 80, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  // Corps
+  ctx.fillStyle = bodyColor;
+  ctx.strokeStyle = '#ffffff22';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.roundRect(cx2-30, cy2-30, 60, 60, 8);
+  ctx.fill();
+  ctx.stroke();
+
+  // Label température sur le corps
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 11px Segoe UI';
+  ctx.textAlign = 'center';
+  ctx.fillText(`${temp}°C`, cx2, cy2+4);
+
+  // Ondes IR rayonnantes
+  const numWaves = Math.min(6, Math.floor(temp/100)+2);
+  const directions = [
+    [-1,-1], [0,-1], [1,-1], [1,0], [1,1], [0,1], [-1,1], [-1,0]
+  ];
+
+  directions.slice(0, Math.min(8, numWaves*2)).forEach((dir, i) => {
+    const waveSpeed = 0.6 + temp/2000;
+    const offset = (time * waveSpeed + i * 0.8) % 3;
+    const len = 35 + offset * 20;
+    const alpha = Math.max(0, 1 - offset/3);
+
+    ctx.beginPath();
+    ctx.strokeStyle = waveColor;
+    ctx.lineWidth = 1.5;
+    ctx.globalAlpha = alpha * Math.min(1, temp/100);
+    ctx.moveTo(cx2 + dir[0]*32, cy2 + dir[1]*32);
+    ctx.lineTo(cx2 + dir[0]*len, cy2 + dir[1]*len);
+    ctx.stroke();
+
+    // Tête de flèche
+    if (alpha > 0.3) {
+      const angle = Math.atan2(dir[1], dir[0]);
+      ctx.beginPath();
+      ctx.moveTo(cx2 + dir[0]*len, cy2 + dir[1]*len);
+      ctx.lineTo(
+        cx2 + dir[0]*len - 6*Math.cos(angle-0.4),
+        cy2 + dir[1]*len - 6*Math.sin(angle-0.4)
+      );
+      ctx.lineTo(
+        cx2 + dir[0]*len - 6*Math.cos(angle+0.4),
+        cy2 + dir[1]*len - 6*Math.sin(angle+0.4)
+      );
+      ctx.closePath();
+      ctx.fillStyle = waveColor;
+      ctx.fill();
+    }
+  });
+  ctx.globalAlpha = 1;
+
+  // Barre de température
+  const barW = 400;
+  const barX = (canvas.width - barW)/2;
+  const barY = 200;
+  const grad2 = ctx.createLinearGradient(barX, 0, barX+barW, 0);
+  grad2.addColorStop(0, '#1a1a3e');
+  grad2.addColorStop(0.4, '#4a0000');
+  grad2.addColorStop(0.7, '#cc4400');
+  grad2.addColorStop(1, '#ffee44');
+  ctx.fillStyle = '#ffffff22';
+  ctx.fillRect(barX-2, barY-2, barW+4, 18);
+  ctx.fillStyle = grad2;
+  ctx.fillRect(barX, barY, barW, 14);
+
+  // Curseur
+  const maxT = 1500, minT = -20;
+  const frac = Math.max(0, Math.min(1, (temp-minT)/(maxT-minT)));
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(barX + frac*barW - 2, barY-4, 4, 22);
+
+  ctx.fillStyle = '#aaa';
+  ctx.font = '9px Segoe UI';
+  ctx.textAlign = 'left';
+  ctx.fillText(`${minT}°C`, barX, barY+28);
+  ctx.textAlign = 'right';
+  ctx.fillText(`${maxT}°C`, barX+barW, barY+28);
+
+  animFrame = requestAnimationFrame(drawAnim);
+}
+
+function updateDisplay() {
+  document.getElementById('tempDisplay').textContent =
+    `Température : ${temp} °C | Rayonnement : ${getRayType(temp)}`;
+}
+
+function chauffer() {
+  temp = Math.min(1500, temp + 100);
+  updateDisplay();
+}
+function refroidir() {
+  temp = Math.max(-20, temp - 100);
+  updateDisplay();
+}
+function resetTemp() {
+  temp = 20;
+  updateDisplay();
+}
+
+drawAnim();
+
+// ===== GRAPHIQUE SPECTRES =====
+const labels = [];
+const soleilData = [];
+const terreData = [];
+
+// Génération des données spectrales (normalisées, courbe gaussienne simplifiée)
+function gaussian(x, mu, sigma) {
+  return Math.exp(-0.5 * Math.pow((x-mu)/sigma, 2));
+}
+
+// Axe X en log-espace de 100nm à 100000nm
+const points = 80;
+const xMin = Math.log10(100);
+const xMax = Math.log10(100000);
+
+for (let i = 0; i < points; i++) {
+  const logX = xMin + (xMax - xMin) * i / (points-1);
+  const x = Math.pow(10, logX); // en nm
+  labels.push(x < 1000 ? `${Math.round(x)} nm` : `${(x/1000).toFixed(1)} µm`);
+
+  // Soleil : pic à 500 nm, largeur en log
+  const logMuSol = Math.log10(500);
+  const solVal = gaussian(logX, logMuSol, 0.35);
+  soleilData.push(solVal);
+
+  // Terre : pic à 10000 nm = 10 µm
+  const logMuTerre = Math.log10(10000);
+  const terreVal = gaussian(logX, logMuTerre, 0.3) * 0.9;
+  terreData.push(terreVal);
+}
+
+// Labels espacés
+const displayLabels = labels.map((l, i) => (i % 8 === 0 ? l : ''));
+
+const chartCtx = document.getElementById('chartSpectre').getContext('2d');
+new Chart(chartCtx, {
+  type: 'line',
+  data: {
+    labels: displayLabels,
+    datasets: [
+      {
+        label: 'Soleil (~5800 K) — pic visible',
+        data: soleilData,
+        borderColor: '#f59e0b',
+        backgroundColor: 'rgba(245,158,11,0.12)',
+        borderWidth: 2.5,
+        fill: true,
+        pointRadius: 0,
+        tension: 0.4
+      },
+      {
+        label: 'Terre (~290 K) — pic infrarouge',
+        data: terreData,
+        borderColor: '#ef4444',
+        backgroundColor: 'rgba(239,68,68,0.12)',
+        borderWidth: 2.5,
+        fill: true,
+        pointRadius: 0,
+        tension: 0.4
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'top' },
+      tooltip: { mode: 'index' },
+      annotation: {}
+    },
+    scales: {
+      x: {
+        title: { display: true, text: 'Longueur d\'onde (échelle logarithmique)' },
+        ticks: { maxRotation: 45, font: { size: 9 } }
+      },
+      y: {
+        title: { display: true, text: 'Intensité relative' },
+        min: 0, max: 1.05,
+        ticks: { font: { size: 10 } }
+      }
+    }
+  }
+});
+</script>
+
+<script src="/nav.js"></script>
+</body>
+</html>

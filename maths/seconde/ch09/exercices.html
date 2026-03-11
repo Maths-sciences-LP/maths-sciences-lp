@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – Exercices : Fonction affine – 2nde MAMA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:28px;padding-bottom:16px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
+.sous-titre{color:#718096;font-size:.93em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nb:hover{text-decoration:underline}
+
+.niveau-header{border-radius:8px;padding:10px 16px;margin:30px 0 16px;display:flex;align-items:center;gap:12px}
+.niv1{background:#d1fae5;border-left:5px solid #059669}
+.niv2{background:#dbeafe;border-left:5px solid var(--p)}
+.niv3{background:#fef3c7;border-left:5px solid var(--o)}
+.niv4{background:#fce7f3;border-left:5px solid #db2777}
+.niv1 h2,.niv2 h2,.niv3 h2,.niv4 h2{margin:0;border:none;padding:0;font-size:1em}
+.badge-niv{font-size:.72em;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.badge-1{background:#059669;color:#fff}
+.badge-2{background:var(--p);color:#fff}
+.badge-3{background:var(--o);color:#fff}
+.badge-4{background:#db2777;color:#fff}
+
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px 24px;margin:14px 0}
+.exo-num{font-size:.78em;font-weight:700;text-transform:uppercase;color:#718096;letter-spacing:.05em;margin-bottom:6px}
+.exo-titre{font-weight:700;font-size:1em;color:var(--t);margin-bottom:10px}
+.mama-tag{display:inline-block;background:#fce7f3;border:1px solid #f9a8d4;border-radius:4px;font-size:.75em;font-weight:700;color:#9d174d;padding:2px 8px;margin-bottom:10px;text-transform:uppercase}
+
+.retenir{background:#f0fff4;border:2px solid var(--s);border-radius:10px;padding:16px 20px;margin:20px 0}
+.retenir h3{color:var(--s);margin:0 0 8px;font-size:1em}
+.meth{background:#fffbeb;border-left:5px solid var(--o);border-radius:0 8px 8px 0;padding:13px 18px;margin:14px 0}
+.meth strong{color:var(--o);display:block;margin-bottom:4px}
+.att{background:#fff5f5;border-left:5px solid var(--d);border-radius:0 8px 8px 0;padding:13px 18px;margin:14px 0}
+.att strong{color:var(--d);display:block;margin-bottom:4px}
+
+.guide{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:12px 0}
+.guide-step{display:flex;gap:12px;margin:8px 0;align-items:flex-start}
+.guide-num{background:var(--p);color:#fff;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-size:.8em;font-weight:700;flex-shrink:0;margin-top:1px}
+
+.zone-rep{border:1.5px dashed #cbd5e0;border-radius:6px;padding:10px 14px;margin:12px 0;min-height:44px;background:#fcfcfd;font-size:.88em;color:#a0aec0;font-style:italic}
+.q{margin:10px 0 4px;padding-left:4px;font-size:.95em}
+
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:12px;border-radius:0 10px 10px 0;display:none;font-size:.93em}
+.corr p,.corr li{margin:5px 0}
+.corr ul,.corr ol{padding-left:20px}
+.etape{font-weight:700;color:var(--s);margin-top:8px;display:block}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 18px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px;transition:background .2s}
+.bc:hover{background:#004494}
+
+.qcm-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+@media(max-width:600px){.qcm-grid{grid-template-columns:1fr}}
+.qcm-item{border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;font-size:.9em;background:#fafafa}
+.qcm-item strong{display:block;margin-bottom:6px;color:var(--p)}
+.qcm-item ul{margin:4px 0 0;padding-left:0;list-style:none}
+.qcm-item ul li{padding:2px 0}
+.qcm-item ul li::before{content:'☐  ';color:#cbd5e0}
+.qcm-item ul li.ok::before{content:'✔  ';color:var(--s);font-weight:700}
+.qcm-item ul li.ok{color:var(--s);font-weight:600}
+.bcq{background:var(--p);color:#fff;border:none;padding:4px 11px;border-radius:5px;cursor:pointer;font-size:.78em;margin-top:8px}
+.bcq:hover{background:#004494}
+.qcm-corr{display:none;margin-top:8px;background:#f0fff4;border-left:3px solid var(--s);padding:8px 12px;border-radius:0 6px 6px 0;font-size:.87em}
+
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.91em}
+th,td{border:1px solid #e2e8f0;padding:9px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600;color:var(--t)}
+td:first-child{text-align:left;font-weight:500}
+tr:nth-child(even) td{background:#f8fafc}
+.cell-blank{color:#a0aec0;font-style:italic}
+
+.chart-wrapper{max-width:540px;margin:14px auto;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:14px}
+.chart-wrapper h3{font-size:.9em;color:var(--p);margin:0 0 10px;text-align:center}
+
+.sep{border:none;border-top:2px dashed #e2e8f0;margin:32px 0}
+
+.intro-box{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Chapitre 9 – Exercices</h1>
+  <p class="sous-titre">Fonction affine &nbsp;|&nbsp; 2<sup>de</sup> Pro MA-MA</p>
+</header>
+
+<div class="intro-box">
+  <strong>Au programme :</strong> identifier et calculer des images, tracer des droites, lire le coefficient directeur, déterminer l'expression d'une fonction affine, résoudre graphiquement un système d'équations.<br>
+  <em>Les exercices sont progressifs : commence par le niveau 1, puis avance à ton rythme.</em>
+</div>
+
+<div class="retenir">
+  <h3>📌 À retenir</h3>
+  <p><strong>Fonction affine :</strong> \(f(x) = ax + b\) — courbe : une <strong>droite</strong></p>
+  <ul>
+    <li>\(a\) = coefficient directeur (pente) &nbsp;|&nbsp; \(b\) = ordonnée à l'origine (\(f(0) = b\))</li>
+    <li>\(a > 0\) → croissante &nbsp;|&nbsp; \(a < 0\) → décroissante &nbsp;|&nbsp; \(a = 0\) → constante</li>
+    <li>Coefficient directeur : \(a = \dfrac{f(x_2) - f(x_1)}{x_2 - x_1}\)</li>
+    <li>Droites parallèles ↔ même coefficient directeur \(a\)</li>
+    <li>Système 2×2 : la solution est l'<strong>intersection des deux droites</strong></li>
+  </ul>
+</div>
+
+<!-- ============================================================
+     NIVEAU 1 — BASE
+============================================================ -->
+<div class="niveau-header niv1">
+  <span class="badge-niv badge-1">🟢 Niveau 1</span>
+  <h2>Exercices de base — Vérifier les connaissances du cours</h2>
+</div>
+
+<!-- EXERCICE 1 -->
+<div class="exo">
+  <div class="exo-num">Exercice 1</div>
+  <div class="exo-titre">Identifier a et b, calculer des images</div>
+  <p>Pour chacune des fonctions suivantes, identifier le coefficient directeur \(a\) et l'ordonnée à l'origine \(b\), puis calculer les images demandées.</p>
+
+  <div class="q"><strong>1.</strong> \(f(x) = 3x + 5\) &nbsp; — &nbsp; Calculer \(f(0)\), \(f(2)\), \(f(-1)\).</div>
+  <div class="q"><strong>2.</strong> \(g(x) = -2x + 6\) &nbsp; — &nbsp; Calculer \(g(0)\), \(g(3)\), \(g(-2)\).</div>
+  <div class="q"><strong>3.</strong> \(h(x) = 4x\) &nbsp; — &nbsp; Calculer \(h(0)\), \(h(2{,}5)\). Quelle est la valeur de \(b\) ?</div>
+  <div class="q"><strong>4.</strong> \(k(x) = -7\) &nbsp; — &nbsp; Calculer \(k(0)\), \(k(100)\). Que remarque-t-on ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">1. f(x) = 3x + 5 : a = 3, b = 5</span>
+    <p>\(f(0) = 3 \times 0 + 5 = \mathbf{5}\) &nbsp;|&nbsp; \(f(2) = 6 + 5 = \mathbf{11}\) &nbsp;|&nbsp; \(f(-1) = -3 + 5 = \mathbf{2}\)</p>
+    <span class="etape">2. g(x) = −2x + 6 : a = −2, b = 6</span>
+    <p>\(g(0) = \mathbf{6}\) &nbsp;|&nbsp; \(g(3) = -6 + 6 = \mathbf{0}\) &nbsp;|&nbsp; \(g(-2) = 4 + 6 = \mathbf{10}\)</p>
+    <span class="etape">3. h(x) = 4x : a = 4, b = 0</span>
+    <p>\(h(0) = \mathbf{0}\) &nbsp;|&nbsp; \(h(2{,}5) = 4 \times 2{,}5 = \mathbf{10}\). &nbsp; \(b = 0\) : la droite passe par l'origine.</p>
+    <span class="etape">4. k(x) = −7 : a = 0, b = −7</span>
+    <p>\(k(0) = k(100) = \mathbf{-7}\). La valeur est toujours \(-7\) quelle que soit \(x\) : c'est une <strong>fonction constante</strong>, la droite est horizontale.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 2 -->
+<div class="exo">
+  <div class="exo-num">Exercice 2</div>
+  <div class="exo-titre">Compléter un tableau de valeurs</div>
+  <p>Compléter les tableaux de valeurs suivants.</p>
+
+  <div class="q"><strong>1.</strong> \(f(x) = 2x - 3\)</div>
+  <table>
+    <tr><th>\(x\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th><th>\(4\)</th></tr>
+    <tr><td>\(f(x)\)</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td></tr>
+  </table>
+
+  <div class="q"><strong>2.</strong> \(g(x) = -x + 4\)</div>
+  <table>
+    <tr><th>\(x\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th><th>\(4\)</th></tr>
+    <tr><td>\(g(x)\)</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td><td class="cell-blank">?</td></tr>
+  </table>
+
+  <div class="q"><strong>3.</strong> Pour quelle valeur de \(x\) a-t-on \(f(x) = g(x)\) ? Calculer.</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">1. f(x) = 2x − 3 :</span>
+    <table>
+      <tr><th>\(x\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th><th>\(4\)</th></tr>
+      <tr><td>\(f(x)\)</td><td><strong>−7</strong></td><td><strong>−5</strong></td><td><strong>−3</strong></td><td><strong>−1</strong></td><td><strong>1</strong></td><td><strong>3</strong></td><td><strong>5</strong></td></tr>
+    </table>
+    <span class="etape">2. g(x) = −x + 4 :</span>
+    <table>
+      <tr><th>\(x\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th><th>\(4\)</th></tr>
+      <tr><td>\(g(x)\)</td><td><strong>6</strong></td><td><strong>5</strong></td><td><strong>4</strong></td><td><strong>3</strong></td><td><strong>2</strong></td><td><strong>1</strong></td><td><strong>0</strong></td></tr>
+    </table>
+    <span class="etape">3. Résoudre f(x) = g(x) :</span>
+    <p>\(2x - 3 = -x + 4 \Rightarrow 3x = 7 \Rightarrow x = \dfrac{7}{3} \approx 2{,}33\)</p>
+    <p>On peut vérifier dans le tableau : entre \(x = 2\) et \(x = 3\), les valeurs se croisent (f passe de 1 à 3, g passe de 2 à 1).</p>
+  </div>
+</div>
+
+<!-- EXERCICE 3 — QCM -->
+<div class="exo">
+  <div class="exo-num">Exercice 3</div>
+  <div class="exo-titre">QCM — Propriétés de la fonction affine</div>
+  <p style="font-size:.9em;color:#718096;margin:0 0 10px">Une seule bonne réponse par question.</p>
+  <div class="qcm-grid">
+
+    <div class="qcm-item">
+      <strong>1. La courbe de \(f(x)=2x+1\) est :</strong>
+      <ul>
+        <li>a. une parabole</li>
+        <li class="ok">b. une droite</li>
+        <li>c. un cercle</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q1')">Vérifier</button>
+      <div class="qcm-corr" id="q1">✔ Réponse b — Toute fonction affine \(f(x)=ax+b\) a pour courbe une <strong>droite</strong>.</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>2. Pour \(f(x) = -3x + 7\), le coefficient directeur est :</strong>
+      <ul>
+        <li class="ok">a. \(-3\)</li>
+        <li>b. \(7\)</li>
+        <li>c. \(3\)</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q2')">Vérifier</button>
+      <div class="qcm-corr" id="q2">✔ Réponse a — Dans \(f(x) = ax + b\), \(a\) est devant \(x\). Ici \(a = \mathbf{-3}\).</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>3. \(f(x) = 5x - 2\) est :</strong>
+      <ul>
+        <li class="ok">a. croissante</li>
+        <li>b. décroissante</li>
+        <li>c. constante</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q3')">Vérifier</button>
+      <div class="qcm-corr" id="q3">✔ Réponse a — \(a = 5 > 0\) donc \(f\) est <strong>croissante</strong> sur \(\mathbb{R}\).</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>4. La droite de \(f(x) = 3x + 4\) coupe l'axe \(y\) en :</strong>
+      <ul>
+        <li>a. \((3\,;\,0)\)</li>
+        <li class="ok">b. \((0\,;\,4)\)</li>
+        <li>c. \((0\,;\,3)\)</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q4')">Vérifier</button>
+      <div class="qcm-corr" id="q4">✔ Réponse b — \(f(0) = 3 \times 0 + 4 = 4\). Le point de croisement avec l'axe \(y\) est \((0\,;\,4)\).</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>5. \(f(x) = 2x + 1\) et \(g(x) = 2x - 5\) sont :</strong>
+      <ul>
+        <li class="ok">a. parallèles</li>
+        <li>b. sécantes</li>
+        <li>c. confondues</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q5')">Vérifier</button>
+      <div class="qcm-corr" id="q5">✔ Réponse a — Même coefficient directeur \(a = 2\), ordonnées à l'origine différentes → droites <strong>parallèles</strong>.</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>6. \(f(0)\) pour \(f(x) = -4x + 9\) vaut :</strong>
+      <ul>
+        <li>a. \(-4\)</li>
+        <li class="ok">b. \(9\)</li>
+        <li>c. \(0\)</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q6')">Vérifier</button>
+      <div class="qcm-corr" id="q6">✔ Réponse b — \(f(0) = -4 \times 0 + 9 = \mathbf{9}\). L'ordonnée à l'origine est toujours \(b\).</div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ============================================================
+     NIVEAU 2 — GUIDÉ
+============================================================ -->
+<div class="niveau-header niv2">
+  <span class="badge-niv badge-2">🔵 Niveau 2</span>
+  <h2>Exercices guidés — Raisonnement étape par étape</h2>
+</div>
+
+<!-- EXERCICE 4 -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <div class="exo-titre">Tracer des droites et lire le coefficient directeur</div>
+
+  <div class="chart-wrapper">
+    <h3>Trois droites dans un repère</h3>
+    <canvas id="chartDroites" height="280"></canvas>
+  </div>
+
+  <div class="q"><strong>1.</strong> Lire graphiquement \(f(1)\), \(f(2)\) et \(g(0)\), \(g(3)\).</div>
+  <div class="q"><strong>2.</strong> Calculer le coefficient directeur de \(f\) à partir de deux points lus sur la courbe bleue.</div>
+  <div class="q"><strong>3.</strong> Calculer le coefficient directeur de \(g\) (courbe rouge). Quel est son sens de variation ?</div>
+  <div class="q"><strong>4.</strong> Les droites \(f\) et \(h\) (courbe verte) sont-elles parallèles ? Justifier.</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le graphique représente : \(f(x) = 2x + 1\) (bleu), \(g(x) = -x + 4\) (rouge), \(h(x) = 2x - 2\) (vert).</p>
+    <span class="etape">1. Lectures graphiques :</span>
+    <p>\(f(1) = 3\) &nbsp;|&nbsp; \(f(2) = 5\) &nbsp;|&nbsp; \(g(0) = 4\) &nbsp;|&nbsp; \(g(3) = 1\)</p>
+    <span class="etape">2. Coefficient directeur de f :</span>
+    <p>On prend \(A(0\,;\,1)\) et \(B(2\,;\,5)\) : \(a = \dfrac{5 - 1}{2 - 0} = \dfrac{4}{2} = \mathbf{2}\)</p>
+    <span class="etape">3. Coefficient directeur de g :</span>
+    <p>On prend \(A(0\,;\,4)\) et \(B(3\,;\,1)\) : \(a = \dfrac{1 - 4}{3 - 0} = \dfrac{-3}{3} = \mathbf{-1}\)<br>
+    \(a = -1 < 0\) → \(g\) est <strong>décroissante</strong>.</p>
+    <span class="etape">4. Parallélisme f et h :</span>
+    <p>\(f\) : \(a = 2\) &nbsp;|&nbsp; \(h\) : \(a = 2\). Même coefficient directeur → <strong>droites parallèles</strong>. Elles ne se croisent jamais.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 5 -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <div class="exo-titre">Déterminer l'expression d'une fonction affine</div>
+
+  <div class="guide">
+    <p style="margin:0 0 8px;font-weight:700;color:var(--p)">Guide — Trouver f(x) = ax + b à partir de deux points :</p>
+    <div class="guide-step"><div class="guide-num">1</div><div>Calculer \(a = \dfrac{y_2 - y_1}{x_2 - x_1}\) avec les deux points donnés.</div></div>
+    <div class="guide-step"><div class="guide-num">2</div><div>Remplacer \(a\) et les coordonnées d'un point dans \(y = ax + b\).</div></div>
+    <div class="guide-step"><div class="guide-num">3</div><div>En déduire \(b\), puis écrire l'expression complète de \(f\).</div></div>
+    <div class="guide-step"><div class="guide-num">4</div><div>Vérifier avec le deuxième point.</div></div>
+  </div>
+
+  <div class="q"><strong>1.</strong> Déterminer \(f(x) = ax + b\) sachant que \(f(0) = 3\) et \(f(2) = 7\).</div>
+  <div class="q"><strong>2.</strong> Déterminer \(g(x) = ax + b\) sachant que \(g(1) = 5\) et \(g(4) = -1\).</div>
+  <div class="q"><strong>3.</strong> Une droite passe par \(A(0\,;\,-2)\) et \(B(5\,;\,8)\). Déterminer son équation.</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">1. f avec f(0)=3 et f(2)=7 :</span>
+    <p>\(a = \dfrac{7 - 3}{2 - 0} = \dfrac{4}{2} = 2\)</p>
+    <p>\(f(0) = 3 \Rightarrow b = 3\)</p>
+    <p>Donc \(\mathbf{f(x) = 2x + 3}\). Vérif : \(f(2) = 4 + 3 = 7\) ✔</p>
+    <span class="etape">2. g avec g(1)=5 et g(4)=−1 :</span>
+    <p>\(a = \dfrac{-1 - 5}{4 - 1} = \dfrac{-6}{3} = -2\)</p>
+    <p>\(g(1) = 5 \Rightarrow -2 \times 1 + b = 5 \Rightarrow b = 7\)</p>
+    <p>Donc \(\mathbf{g(x) = -2x + 7}\). Vérif : \(g(4) = -8 + 7 = -1\) ✔</p>
+    <span class="etape">3. Droite par A(0 ; −2) et B(5 ; 8) :</span>
+    <p>\(a = \dfrac{8 - (-2)}{5 - 0} = \dfrac{10}{5} = 2\)</p>
+    <p>\(A(0\,;\,-2) \Rightarrow b = -2\)</p>
+    <p>Équation : \(\mathbf{y = 2x - 2}\)</p>
+  </div>
+</div>
+
+<!-- EXERCICE 6 -->
+<div class="exo">
+  <div class="exo-num">Exercice 6</div>
+  <div class="exo-titre">Résolution graphique d'un système</div>
+
+  <div class="meth">
+    <strong>Méthode — Résoudre graphiquement un système :</strong>
+    Tracer les deux droites dans le même repère, puis lire les coordonnées du point d'intersection.
+    C'est la solution du système.
+  </div>
+
+  <p>On considère le système : \(\begin{cases} y = 3x - 1 \\ y = -x + 7 \end{cases}\)</p>
+
+  <div class="q"><strong>1.</strong> Compléter les tableaux de valeurs pour chaque droite (\(x = 0, 1, 2, 3\)).</div>
+  <div class="q"><strong>2.</strong> Tracer les deux droites dans le repère et lire le point d'intersection.</div>
+  <div class="q"><strong>3.</strong> Vérifier algébriquement : remplacer les valeurs trouvées dans les deux équations.</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">1. Tableaux de valeurs :</span>
+    <table>
+      <tr><th>\(x\)</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>
+      <tr><td>\(y = 3x - 1\)</td><td><strong>−1</strong></td><td><strong>2</strong></td><td><strong>5</strong></td><td><strong>8</strong></td></tr>
+      <tr><td>\(y = -x + 7\)</td><td><strong>7</strong></td><td><strong>6</strong></td><td><strong>5</strong></td><td><strong>4</strong></td></tr>
+    </table>
+    <span class="etape">2. Point d'intersection :</span>
+    <p>En \(x = 2\), les deux droites donnent \(y = 5\). Le point d'intersection est \(\mathbf{(2\,;\,5)}\).</p>
+    <span class="etape">3. Vérification :</span>
+    <p>\(3 \times 2 - 1 = 5\) ✔ &nbsp;&nbsp; \(-2 + 7 = 5\) ✔</p>
+    <p>Solution du système : \(\mathbf{x = 2}\) et \(\mathbf{y = 5}\).</p>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ============================================================
+     NIVEAU 3 — APPLICATION
+============================================================ -->
+<div class="niveau-header niv3">
+  <span class="badge-niv badge-3">🟡 Niveau 3</span>
+  <h2>Exercices d'application — Mobiliser plusieurs notions</h2>
+</div>
+
+<!-- EXERCICE 7 -->
+<div class="exo">
+  <div class="exo-num">Exercice 7</div>
+  <div class="exo-titre">Comparer des fonctions affines</div>
+
+  <div class="chart-wrapper">
+    <h3>Visualiser les droites</h3>
+    <canvas id="chartCompar" height="260"></canvas>
+  </div>
+
+  <p>On considère \(f(x) = 2x + 1\), \(g(x) = 2x - 3\), \(h(x) = -x + 4\), \(p(x) = 5\).</p>
+  <div class="q"><strong>1.</strong> Classer \(f\), \(g\) et \(h\) selon leur sens de variation.</div>
+  <div class="q"><strong>2.</strong> Parmi ces fonctions, lesquelles ont des droites parallèles ? Justifier.</div>
+  <div class="q"><strong>3.</strong> Pour quelle valeur de \(x\) a-t-on \(f(x) = p(x)\) ? Résoudre algébriquement.</div>
+  <div class="q"><strong>4.</strong> Pour quels \(x\) a-t-on \(h(x) > p(x)\) ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">1. Sens de variation :</span>
+    <p>\(f\) : \(a = 2 > 0\) → <strong>croissante</strong> &nbsp;|&nbsp; \(g\) : \(a = 2 > 0\) → <strong>croissante</strong> &nbsp;|&nbsp; \(h\) : \(a = -1 < 0\) → <strong>décroissante</strong> &nbsp;|&nbsp; \(p\) : \(a = 0\) → <strong>constante</strong></p>
+    <span class="etape">2. Droites parallèles :</span>
+    <p>\(f\) et \(g\) ont toutes deux \(a = 2\) → leurs droites sont <strong>parallèles</strong>.</p>
+    <span class="etape">3. Résoudre f(x) = p(x) :</span>
+    <p>\(2x + 1 = 5 \Rightarrow 2x = 4 \Rightarrow \mathbf{x = 2}\)</p>
+    <span class="etape">4. Résoudre h(x) > p(x) :</span>
+    <p>\(-x + 4 > 5 \Rightarrow -x > 1 \Rightarrow x < -1\)<br>
+    Solution : \(\mathcal{S} = ]-\infty\,;\,-1[\)</p>
+  </div>
+</div>
+
+<!-- EXERCICE 8 -->
+<div class="exo">
+  <div class="exo-num">Exercice 8</div>
+  <div class="exo-titre">Système d'équations — Résolution graphique et vérification</div>
+
+  <p>Résoudre graphiquement le système, puis vérifier algébriquement :</p>
+  \[\begin{cases} y = \dfrac{1}{2}x + 2 \\ y = -2x + 7 \end{cases}\]
+
+  <div class="q"><strong>1.</strong> Compléter les tableaux pour \(x = 0, 2, 4\).</div>
+  <div class="q"><strong>2.</strong> Tracer les droites et lire le point d'intersection.</div>
+  <div class="q"><strong>3.</strong> Vérifier en remplaçant dans les deux équations.</div>
+  <div class="q"><strong>4.</strong> Sans tracer, expliquer pourquoi ces deux droites ne sont pas parallèles.</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">1. Tableaux de valeurs :</span>
+    <table>
+      <tr><th>\(x\)</th><th>0</th><th>2</th><th>4</th></tr>
+      <tr><td>\(y = \frac{1}{2}x + 2\)</td><td><strong>2</strong></td><td><strong>3</strong></td><td><strong>4</strong></td></tr>
+      <tr><td>\(y = -2x + 7\)</td><td><strong>7</strong></td><td><strong>3</strong></td><td><strong>−1</strong></td></tr>
+    </table>
+    <span class="etape">2. Point d'intersection :</span>
+    <p>En \(x = 2\), les deux droites donnent \(y = 3\). Intersection : \(\mathbf{(2\,;\,3)}\).</p>
+    <span class="etape">3. Vérification :</span>
+    <p>\(\frac{1}{2} \times 2 + 2 = 1 + 2 = 3\) ✔ &nbsp;&nbsp; \(-2 \times 2 + 7 = -4 + 7 = 3\) ✔</p>
+    <span class="etape">4. Parallélisme :</span>
+    <p>Les coefficients directeurs sont \(\frac{1}{2}\) et \(-2\), qui sont différents. Donc les droites ne sont pas parallèles : elles se croisent en un seul point.</p>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- ============================================================
+     NIVEAU 4 — CONTEXTUALISÉ MAMA
+============================================================ -->
+<div class="niveau-header niv4">
+  <span class="badge-niv badge-4">🔴 Niveau 4</span>
+  <h2>Exercices contextualisés — Métiers de l'Agencement et de la Menuiserie</h2>
+</div>
+
+<!-- EXERCICE 9 -->
+<div class="exo">
+  <div class="exo-num">Exercice 9</div>
+  <span class="mama-tag">🪵 Menuiserie</span>
+  <div class="exo-titre">Tarification d'une intervention</div>
+
+  <p>Un menuisier facture ses interventions selon la formule :</p>
+  \[C(h) = 45h + 60 \quad \text{(en euros)}\]
+  <p>où \(h\) est le nombre d'heures de travail. Le forfait de déplacement est de <strong>60 €</strong> et le taux horaire est de <strong>45 €/h</strong>.</p>
+
+  <div class="q"><strong>1.</strong> Identifier \(a\) et \(b\). Que représentent-ils concrètement ?</div>
+  <div class="q"><strong>2.</strong> Calculer le coût pour 2 h, 3 h et 5 h de travail.</div>
+  <div class="q"><strong>3.</strong> Un client a un budget de 330 €. Combien d'heures de travail peut-il commander ?</div>
+  <div class="q"><strong>4.</strong> Un concurrent facture \(D(h) = 60h\) (pas de forfait). Pour quel nombre d'heures les deux devis sont-ils identiques ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">1. Paramètres :</span>
+    <p>\(a = 45\) : le taux horaire (45 € par heure supplémentaire).<br>
+    \(b = 60\) : le forfait déplacement fixe, indépendant du nombre d'heures.</p>
+    <span class="etape">2. Calculs :</span>
+    <p>\(C(2) = 90 + 60 = \mathbf{150\,€}\) &nbsp;|&nbsp; \(C(3) = 135 + 60 = \mathbf{195\,€}\) &nbsp;|&nbsp; \(C(5) = 225 + 60 = \mathbf{285\,€}\)</p>
+    <span class="etape">3. Budget 330 € :</span>
+    <p>\(45h + 60 = 330 \Rightarrow 45h = 270 \Rightarrow h = 6\)</p>
+    <p>Le client peut commander <strong>6 heures</strong> de travail.</p>
+    <span class="etape">4. Comparaison des devis :</span>
+    <p>\(C(h) = D(h) \Rightarrow 45h + 60 = 60h \Rightarrow 60 = 15h \Rightarrow h = 4\)</p>
+    <p>Pour <strong>4 heures</strong>, les deux devis sont identiques (\(C(4) = D(4) = 240\,€\)).<br>
+    En dessous de 4 h : le concurrent est moins cher. Au-delà de 4 h : le menuisier est moins cher.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 10 -->
+<div class="exo">
+  <div class="exo-num">Exercice 10</div>
+  <span class="mama-tag">🏠 Agencement</span>
+  <div class="exo-titre">Deux entreprises — Choisir le meilleur devis</div>
+
+  <p>Deux entreprises d'agencement proposent leurs tarifs pour poser un parquet (en euros, selon le nombre de m² posés) :</p>
+  <ul>
+    <li><strong>Entreprise A :</strong> \(T_A(x) = 35x + 150\) &nbsp; (35 €/m² + 150 € de forfait)</li>
+    <li><strong>Entreprise B :</strong> \(T_B(x) = 50x\) &nbsp; (50 €/m², sans forfait)</li>
+  </ul>
+
+  <div class="q"><strong>1.</strong> Compléter le tableau pour \(x = 0, 5, 10, 15, 20\) m².</div>
+  <div class="q"><strong>2.</strong> Tracer les deux droites dans le repère ci-dessous et lire le point d'intersection.</div>
+  <div class="q"><strong>3.</strong> Pour quelle surface les deux devis sont-ils égaux ? Vérifier algébriquement.</div>
+  <div class="q"><strong>4.</strong> Pour une surface de 12 m², quelle entreprise choisir ? Et pour 8 m² ?</div>
+
+  <div class="chart-wrapper">
+    <h3>Comparaison des deux tarifs</h3>
+    <canvas id="chartDevis" height="260"></canvas>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">1. Tableau de valeurs :</span>
+    <table>
+      <tr><th>\(x\) (m²)</th><th>0</th><th>5</th><th>10</th><th>15</th><th>20</th></tr>
+      <tr><td>\(T_A(x)\)</td><td><strong>150</strong></td><td><strong>325</strong></td><td><strong>500</strong></td><td><strong>675</strong></td><td><strong>850</strong></td></tr>
+      <tr><td>\(T_B(x)\)</td><td><strong>0</strong></td><td><strong>250</strong></td><td><strong>500</strong></td><td><strong>750</strong></td><td><strong>1000</strong></td></tr>
+    </table>
+    <span class="etape">2 & 3. Point d'intersection :</span>
+    <p>\(T_A(x) = T_B(x) \Rightarrow 35x + 150 = 50x \Rightarrow 150 = 15x \Rightarrow \mathbf{x = 10 \text{ m}^2}\)</p>
+    <p>Pour 10 m² : \(T_A(10) = T_B(10) = 500\,€\). Les deux devis sont identiques.</p>
+    <span class="etape">4. Comparaisons :</span>
+    <p><strong>12 m² :</strong> \(T_A(12) = 570\,€\) et \(T_B(12) = 600\,€\) → <strong>Entreprise A moins chère</strong> (au-delà de 10 m²).</p>
+    <p><strong>8 m² :</strong> \(T_A(8) = 430\,€\) et \(T_B(8) = 400\,€\) → <strong>Entreprise B moins chère</strong> (en dessous de 10 m²).</p>
+  </div>
+</div>
+
+</div>
+
+<script>
+/* Toggles */
+function toggle(btn){
+  const c=btn.nextElementSibling;
+  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
+  else{c.style.display='block';btn.textContent='Masquer la correction';}
+}
+function showQcm(btn,id){
+  const d=document.getElementById(id);
+  if(d.style.display==='block'){d.style.display='none';btn.textContent='Vérifier';}
+  else{d.style.display='block';btn.textContent='Masquer';}
+}
+
+/* Chart droites ex4 */
+(function(){
+  const xs=[-1,0,1,2,3,4];
+  new Chart(document.getElementById('chartDroites'),{
+    type:'scatter',
+    data:{datasets:[
+      {label:'f(x) = 2x + 1',data:xs.map(x=>({x,y:2*x+1})),borderColor:'#0056b3',showLine:true,borderWidth:2.5,pointRadius:3,fill:false,tension:0},
+      {label:'g(x) = −x + 4',data:xs.map(x=>({x,y:-x+4})),borderColor:'#c53030',showLine:true,borderWidth:2.5,pointRadius:3,fill:false,tension:0},
+      {label:'h(x) = 2x − 2',data:xs.map(x=>({x,y:2*x-2})),borderColor:'#2f855a',showLine:true,borderWidth:2,borderDash:[5,3],pointRadius:3,fill:false,tension:0}
+    ]},
+    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},
+    scales:{x:{title:{display:true,text:'x'},min:-1,max:4,grid:{color:'#f0f0f0'}},y:{title:{display:true,text:'y'},min:-3,max:8,grid:{color:'#f0f0f0'}}}}
+  });
+})();
+
+/* Chart comparaison ex7 */
+(function(){
+  const xs=[-2,-1,0,1,2,3,4];
+  new Chart(document.getElementById('chartCompar'),{
+    type:'scatter',
+    data:{datasets:[
+      {label:'f(x) = 2x+1',data:xs.map(x=>({x,y:2*x+1})),borderColor:'#0056b3',showLine:true,borderWidth:2,pointRadius:2,fill:false,tension:0},
+      {label:'g(x) = 2x−3',data:xs.map(x=>({x,y:2*x-3})),borderColor:'#2f855a',showLine:true,borderWidth:2,borderDash:[5,3],pointRadius:2,fill:false,tension:0},
+      {label:'h(x) = −x+4',data:xs.map(x=>({x,y:-x+4})),borderColor:'#c53030',showLine:true,borderWidth:2,pointRadius:2,fill:false,tension:0},
+      {label:'p(x) = 5',data:xs.map(x=>({x,y:5})),borderColor:'#d97706',showLine:true,borderWidth:2,borderDash:[3,3],pointRadius:0,fill:false,tension:0}
+    ]},
+    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},
+    scales:{x:{title:{display:true,text:'x'},min:-2,max:4,grid:{color:'#f0f0f0'}},y:{title:{display:true,text:'y'},min:-5,max:9,grid:{color:'#f0f0f0'}}}}
+  });
+})();
+
+/* Chart devis ex10 */
+(function(){
+  const xs=[0,5,10,15,20];
+  new Chart(document.getElementById('chartDevis'),{
+    type:'scatter',
+    data:{datasets:[
+      {label:'Entreprise A : 35x + 150',data:xs.map(x=>({x,y:35*x+150})),borderColor:'#0056b3',showLine:true,borderWidth:2.5,pointRadius:4,fill:false,tension:0},
+      {label:'Entreprise B : 50x',data:xs.map(x=>({x,y:50*x})),borderColor:'#c53030',showLine:true,borderWidth:2.5,pointRadius:4,fill:false,tension:0},
+      {label:'Intersection (10 ; 500)',data:[{x:10,y:500}],borderColor:'#d97706',backgroundColor:'#d97706',pointRadius:9,pointStyle:'star',showLine:false}
+    ]},
+    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},
+    scales:{x:{title:{display:true,text:'Surface (m²)'},min:0,max:20,grid:{color:'#f0f0f0'}},y:{title:{display:true,text:'Tarif (€)'},min:0,max:1050,grid:{color:'#f0f0f0'}}}}
+  });
+})();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

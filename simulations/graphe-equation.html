@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Résolution graphique – Simulation – 2nde MAMA</title>
+<style>
+:root { --p:#0056b3; --s:#2f855a; --d:#c53030; --o:#d97706; --t:#2d3748; }
+body { font-family:'Segoe UI',system-ui,sans-serif; background:#f8fafc; color:var(--t); line-height:1.7; margin:0; padding:20px; }
+.c  { max-width:860px; margin:auto; background:#fff; padding:35px; border-radius:12px; border:1px solid #e2e8f0; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+
+header { text-align:center; border-bottom:3px solid var(--p); margin-bottom:22px; padding-bottom:14px; }
+h1 { margin:0 0 4px; color:var(--p); font-size:1.55em; }
+.sous-titre { color:#718096; font-size:.9em; margin:0; }
+
+/* Équation affichée */
+.eq-display { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; align-items:center; margin:14px 0; }
+.eq-box { background:#ebf5ff; border:2px solid var(--p); border-radius:10px; padding:12px 24px; text-align:center; }
+.eq-box .eq-text { font-size:1.6em; font-weight:700; color:var(--p); }
+.eq-box .eq-sub { font-size:.8em; color:#718096; margin-top:2px; }
+.eq-sep { font-size:1.8em; color:#94a3b8; }
+
+/* Canvas */
+.canvas-wrap { background:#fafafa; border:1px solid #e2e8f0; border-radius:10px; padding:8px; margin:16px 0; text-align:center; overflow-x:auto; }
+canvas { display:block; margin:0 auto; max-width:100%; }
+
+/* Légende */
+.legend { display:flex; gap:18px; flex-wrap:wrap; justify-content:center; margin:8px 0 16px; font-size:.88em; }
+.legend-item { display:flex; align-items:center; gap:7px; }
+.legend-line { width:32px; height:3px; border-radius:2px; }
+.l-blue { background:#2563eb; }
+.l-red  { background:#dc2626; }
+.l-dot  { width:12px; height:12px; border-radius:50%; background:#16a34a; }
+
+/* Sliders */
+.sliders-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:14px; margin:16px 0; }
+.slider-row { background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; }
+.slider-row label { font-weight:600; font-size:.88em; display:block; margin-bottom:6px; }
+.slider-row input[type=range] { width:100%; accent-color:var(--p); }
+.slider-row .val-badge { display:inline-block; background:var(--p); color:#fff; border-radius:5px; padding:2px 9px; font-size:.85em; font-weight:700; min-width:36px; text-align:center; margin-left:6px; }
+
+/* Solution */
+.sol-box { border-radius:10px; padding:14px 20px; text-align:center; margin:14px 0; font-size:.95em; transition:all .3s; }
+.sol-found { background:#d1fae5; border:2px solid var(--s); }
+.sol-not-found { background:#fff5f5; border:2px solid var(--d); }
+.sol-out { background:#fffbeb; border:2px solid var(--o); }
+.sol-box .sol-val { font-size:1.7em; font-weight:700; margin:6px 0; }
+.sol-found .sol-val { color:#047857; }
+.sol-not-found .sol-val { color:var(--d); font-size:1.1em; }
+.sol-out .sol-val { color:#92400e; font-size:1em; }
+
+/* Explication */
+.expl-box { background:#fffbeb; border-left:4px solid var(--o); border-radius:0 8px 8px 0; padding:12px 16px; margin:14px 0; font-size:.9em; color:#92400e; }
+
+/* À retenir */
+.retenir { background:#dbeafe; border:2px solid var(--p); border-radius:10px; padding:14px 20px; margin:18px 0; }
+.retenir h3 { margin:0 0 8px; color:#1e3a8a; font-size:.95em; }
+
+/* Boutons */
+.btn-row { display:flex; gap:10px; flex-wrap:wrap; margin:10px 0; }
+.btn-new { padding:9px 20px; border-radius:7px; border:none; background:var(--o); color:#fff; font-size:.88em; font-weight:600; cursor:pointer; transition:.2s; }
+.btn-new:hover { background:#b45309; }
+
+/* Nav */
+.nb { display:block; margin-bottom:14px; text-decoration:none; color:var(--p); font-size:.85em; font-weight:700; }
+.nav-footer { display:flex; justify-content:space-between; margin-top:28px; padding-top:14px; border-top:1px solid #e2e8f0; flex-wrap:wrap; gap:10px; }
+.nav-link { text-decoration:none; font-size:.85em; font-weight:600; padding:8px 16px; border-radius:6px; color:var(--p); border:1px solid var(--p); transition:.2s; }
+.nav-link:hover { background:var(--p); color:#fff; }
+.objectifs { background:#ebf5ff; border-radius:8px; padding:12px 16px; margin-bottom:18px; border:1px solid #93c5fd; font-size:.9em; }
+.objectifs ul { margin:4px 0 0; padding-left:18px; }
+</style>
+</head>
+<body>
+<div class="c">
+<a href="ch05_lecon.html" class="nb">← Retour au cours – Ch05</a>
+
+<header>
+  <h1>📈 Résolution graphique d'une équation</h1>
+  <p class="sous-titre">Simulation interactive – Intersection de deux droites – 2nde Bac Pro MAMA</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectif :</strong> Résoudre l'équation <strong>ax + b = c</strong> revient à trouver l'abscisse du point d'intersection des droites <em>y = ax + b</em> et <em>y = c</em>.
+  <ul>
+    <li>Déplace les curseurs pour modifier l'équation</li>
+    <li>Observe comment le point d'intersection change</li>
+    <li>La solution <em>x</em> est directement lisible sur l'axe horizontal</li>
+  </ul>
+</div>
+
+<!-- Équation affichée -->
+<div class="eq-display">
+  <div class="eq-box">
+    <div class="eq-text" id="eqDisplay">2x + 1 = 7</div>
+    <div class="eq-sub">Équation à résoudre</div>
+  </div>
+  <span class="eq-sep">⟺</span>
+  <div class="eq-box" style="background:#f0fff4;border-color:var(--s)">
+    <div class="eq-text" style="color:var(--s)" id="intersDisplay">y = 2x+1 et y = 7</div>
+    <div class="eq-sub">Intersection des deux droites</div>
+  </div>
+</div>
+
+<!-- Légende -->
+<div class="legend">
+  <span class="legend-item"><span class="legend-line l-blue"></span> y = ax + b</span>
+  <span class="legend-item"><span class="legend-line l-red" style="height:3px;border-top:3px dashed #dc2626"></span> y = c (droite horizontale)</span>
+  <span class="legend-item"><span class="legend-line" style="width:12px;height:12px;border-radius:50%;background:#16a34a"></span> Point d'intersection → solution</span>
+</div>
+
+<!-- Canvas graphique -->
+<div class="canvas-wrap">
+  <canvas id="graph" width="700" height="380"></canvas>
+</div>
+
+<!-- Sliders -->
+<div class="sliders-grid">
+  <div class="slider-row">
+    <label>Coefficient <em>a</em> &nbsp;<span class="val-badge" id="va">2</span></label>
+    <input type="range" id="sa" min="-5" max="5" step="0.5" value="2" oninput="sliderChange()">
+    <small style="color:#718096;font-size:.78em">Pente de la droite y = ax + b</small>
+  </div>
+  <div class="slider-row">
+    <label>Constante <em>b</em> &nbsp;<span class="val-badge" id="vb">1</span></label>
+    <input type="range" id="sb" min="-15" max="15" step="1" value="1" oninput="sliderChange()">
+    <small style="color:#718096;font-size:.78em">Ordonnée à l'origine</small>
+  </div>
+  <div class="slider-row">
+    <label>Constante <em>c</em> &nbsp;<span class="val-badge" id="vc">7</span></label>
+    <input type="range" id="sc" min="-15" max="15" step="1" value="7" oninput="sliderChange()">
+    <small style="color:#718096;font-size:.78em">Valeur de la droite horizontale</small>
+  </div>
+</div>
+
+<!-- Solution -->
+<div class="sol-box sol-found" id="solBox">
+  <div class="sol-val" id="solVal">x = 3</div>
+  <div id="solDetail"></div>
+</div>
+
+<!-- Explication -->
+<div class="expl-box" id="explBox">
+  Résoudre <strong>2x + 1 = 7</strong> revient à chercher pour quelle valeur de <em>x</em> les deux expressions sont égales.
+  L'abscisse du point d'intersection des deux droites donne directement la solution.
+</div>
+
+<!-- Bouton nouvelle équation -->
+<div class="btn-row">
+  <button class="btn-new" onclick="newEquation()">🎲 Nouvelle équation</button>
+</div>
+
+<!-- À retenir -->
+<div class="retenir">
+  <h3>📌 À retenir</h3>
+  <ul style="margin:0;padding-left:18px">
+    <li>Résoudre <strong>ax + b = c</strong> graphiquement = trouver l'abscisse du point d'intersection entre <em>y = ax + b</em> et <em>y = c</em>.</li>
+    <li>Si <em>a = 0</em> et <em>b = c</em>, les deux droites sont identiques → infinité de solutions.</li>
+    <li>Si <em>a = 0</em> et <em>b ≠ c</em>, les droites sont parallèles → aucune solution.</li>
+    <li>Dans tous les autres cas, il y a <strong>une seule solution</strong> : x = (c − b) / a.</li>
+  </ul>
+</div>
+
+<!-- Nav -->
+<div class="nav-footer">
+  <a href="ch05_lecon.html" class="nav-link">← Cours Ch05</a>
+  <a href="ch05_exos.html" class="nav-link">Exercices →</a>
+  <a href="simu-balance.html" class="nav-link">⚖ Balance →</a>
+</div>
+</div>
+
+<script>
+/* ============================================================
+   RÉSOLUTION GRAPHIQUE — Canvas interactif
+   2nde Bac Pro MAMA — Ch05
+   ============================================================ */
+
+const canvas = document.getElementById('graph');
+const ctx    = canvas.getContext('2d');
+const CW = 700, CH = 380;
+
+// Paramètres graphique : x de -8 à 8, y de -12 à 16
+const X_MIN = -8, X_MAX = 8;
+const Y_MIN = -10, Y_MAX = 14;
+
+let params = { a: 2, b: 1, c: 7 };
+
+/* ── Conversion coordonnées mathématiques → pixels ── */
+function toPixX(x) { return (x - X_MIN) / (X_MAX - X_MIN) * CW; }
+function toPixY(y) { return CH - (y - Y_MIN) / (Y_MAX - Y_MIN) * CH; }
+function fromPixX(px) { return px / CW * (X_MAX - X_MIN) + X_MIN; }
+
+/* ── Formater l'expression ── */
+function fmtEq(a, b) {
+  if (a === 0) return '' + b;
+  let xs = a === 1 ? 'x' : a === -1 ? '−x' : a + 'x';
+  if (b === 0)  return xs;
+  if (b > 0)    return xs + ' + ' + b;
+  return xs + ' − ' + Math.abs(b);
+}
+
+/* ── Dessiner le graphique ── */
+function draw() {
+  ctx.clearRect(0, 0, CW, CH);
+
+  const { a, b, c } = params;
+
+  // ── Fond ──
+  ctx.fillStyle = '#fafafa';
+  ctx.fillRect(0, 0, CW, CH);
+
+  // ── Quadrillage ──
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  for (let x = Math.ceil(X_MIN); x <= X_MAX; x++) {
+    ctx.beginPath();
+    ctx.moveTo(toPixX(x), 0);
+    ctx.lineTo(toPixX(x), CH);
+    ctx.stroke();
+  }
+  for (let y = Math.ceil(Y_MIN); y <= Y_MAX; y++) {
+    ctx.beginPath();
+    ctx.moveTo(0, toPixY(y));
+    ctx.lineTo(CW, toPixY(y));
+    ctx.stroke();
+  }
+
+  // ── Axes ──
+  const ox = toPixX(0), oy = toPixY(0);
+  ctx.strokeStyle = '#4a5568';
+  ctx.lineWidth = 2;
+  // Axe X
+  ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(CW, oy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(CW, oy); ctx.lineTo(CW - 12, oy - 5); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(CW, oy); ctx.lineTo(CW - 12, oy + 5); ctx.stroke();
+  // Axe Y
+  ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox, CH); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox - 5, 12); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox + 5, 12); ctx.stroke();
+
+  // ── Labels des axes ──
+  ctx.fillStyle = '#4a5568';
+  ctx.font = '12px Segoe UI, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'top';
+  ctx.fillText('x', CW - 4, oy + 5);
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'bottom';
+  ctx.fillText('y', ox + 5, 12);
+
+  // Graduations X
+  ctx.fillStyle = '#718096';
+  ctx.font = '11px Segoe UI, sans-serif';
+  ctx.textAlign = 'center';
+  for (let x = X_MIN; x <= X_MAX; x++) {
+    if (x === 0) continue;
+    const px = toPixX(x);
+    ctx.beginPath(); ctx.moveTo(px, oy-3); ctx.lineTo(px, oy+3); ctx.stroke();
+    ctx.fillText(x, px, oy + 6);
+  }
+  // Graduations Y
+  ctx.textAlign = 'right';
+  for (let y = Y_MIN; y <= Y_MAX; y++) {
+    if (y === 0) continue;
+    const py = toPixY(y);
+    ctx.beginPath(); ctx.moveTo(ox-3, py); ctx.lineTo(ox+3, py); ctx.stroke();
+    ctx.fillText(y, ox - 5, py + 4);
+  }
+
+  // ── Droite y = ax + b ──
+  if (a !== 0) {
+    const y0 = a * X_MIN + b;
+    const y1 = a * X_MAX + b;
+    ctx.beginPath();
+    ctx.moveTo(toPixX(X_MIN), toPixY(y0));
+    ctx.lineTo(toPixX(X_MAX), toPixY(y1));
+    ctx.strokeStyle = '#2563eb';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    // Label y = ax + b
+    const labelY = Math.max(Y_MIN + 1, Math.min(Y_MAX - 1, a * (X_MAX - 1) + b));
+    ctx.fillStyle = '#2563eb';
+    ctx.font = 'bold 12px Segoe UI, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText('y = ' + fmtEq(a, b), toPixX(X_MAX) - 130, toPixY(labelY) - 4);
+  } else {
+    // a = 0 : droite horizontale y = b
+    ctx.beginPath();
+    ctx.moveTo(0, toPixY(b));
+    ctx.lineTo(CW, toPixY(b));
+    ctx.strokeStyle = '#2563eb';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+  }
+
+  // ── Droite horizontale y = c ──
+  ctx.beginPath();
+  ctx.moveTo(0, toPixY(c));
+  ctx.lineTo(CW, toPixY(c));
+  ctx.strokeStyle = '#dc2626';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([8, 5]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Label y = c
+  ctx.fillStyle = '#dc2626';
+  ctx.font = 'bold 12px Segoe UI, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'bottom';
+  ctx.fillText('y = ' + c, CW - 6, toPixY(c) - 4);
+
+  // ── Point d'intersection ──
+  const sol = computeSolution(a, b, c);
+  if (sol !== null && sol >= X_MIN && sol <= X_MAX) {
+    const iy = a * sol + b; // = c
+    if (iy >= Y_MIN && iy <= Y_MAX) {
+      const px = toPixX(sol), py = toPixY(iy);
+
+      // Lignes pointillées vers les axes
+      ctx.setLineDash([4, 3]);
+      ctx.strokeStyle = '#16a34a';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, oy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(ox, py); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Point
+      ctx.beginPath();
+      ctx.arc(px, py, 7, 0, Math.PI * 2);
+      ctx.fillStyle = '#16a34a';
+      ctx.fill();
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Label du point
+      const labelX = sol > 0 ? sol - 0.3 : sol + 0.3;
+      const labelAlign = sol > 0 ? 'right' : 'left';
+      ctx.fillStyle = '#065f46';
+      ctx.font = 'bold 13px Segoe UI, sans-serif';
+      ctx.textAlign = labelAlign;
+      ctx.textBaseline = 'bottom';
+      ctx.fillText('x = ' + formatNum(sol), px + (sol > 0 ? -10 : 10), py - 8);
+    }
+  }
+
+  // ── Origine ──
+  ctx.fillStyle = '#4a5568';
+  ctx.font = '11px Segoe UI';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'top';
+  ctx.fillText('0', ox - 4, oy + 2);
+}
+
+/* ── Calculer la solution ── */
+function computeSolution(a, b, c) {
+  if (a === 0) return null; // Pas de solution ou infinité
+  return (c - b) / a;
+}
+
+function formatNum(n) {
+  if (Number.isInteger(n)) return '' + n;
+  return Math.round(n * 100) / 100;
+}
+
+/* ── Mettre à jour l'affichage texte ── */
+function updateText() {
+  const { a, b, c } = params;
+  const sol = computeSolution(a, b, c);
+
+  // Équation
+  document.getElementById('eqDisplay').textContent = fmtEq(a, b) + ' = ' + c;
+  document.getElementById('intersDisplay').textContent = 'y = ' + fmtEq(a, b) + '  et  y = ' + c;
+
+  // Solution
+  const solBox  = document.getElementById('solBox');
+  const solVal  = document.getElementById('solVal');
+  const solDet  = document.getElementById('solDetail');
+  const explBox = document.getElementById('explBox');
+
+  if (a === 0) {
+    if (b === c) {
+      solBox.className = 'sol-box sol-not-found';
+      solVal.textContent = 'Infinité de solutions';
+      solDet.textContent = 'Les deux droites sont confondues : b = c = ' + c;
+    } else {
+      solBox.className = 'sol-box sol-not-found';
+      solVal.textContent = 'Aucune solution';
+      solDet.textContent = 'Les deux droites sont parallèles et ne se croisent jamais.';
+    }
+    explBox.innerHTML = 'Quand <em>a = 0</em>, les deux expressions ne dépendent pas de x. Il n\'y a pas de valeur unique de x à trouver.';
+    return;
+  }
+
+  if (sol < X_MIN || sol > X_MAX) {
+    solBox.className = 'sol-box sol-out';
+    solVal.textContent = 'x = ' + formatNum(sol);
+    solDet.textContent = '⚠ La solution existe mais est hors de la fenêtre graphique. Modifie les curseurs pour la voir.';
+  } else {
+    solBox.className = 'sol-box sol-found';
+    solVal.textContent = 'x = ' + formatNum(sol);
+    solDet.textContent = 'Vérification : ' + fmtEq(a, b).replace('x', '×' + formatNum(sol)) + ' = ' + formatNum(a * sol + b) + ' = ' + c + ' ✔';
+  }
+
+  explBox.innerHTML = 'Résoudre <strong>' + fmtEq(a, b) + ' = ' + c + '</strong> revient à trouver le point où les deux droites se croisent. ' +
+    'Ce point a pour abscisse <strong>x = ' + formatNum(sol) + '</strong>, qui est la solution de l\'équation.';
+}
+
+/* ── Mise à jour depuis les sliders ── */
+function sliderChange() {
+  params.a = parseFloat(document.getElementById('sa').value);
+  params.b = parseInt(document.getElementById('sb').value);
+  params.c = parseInt(document.getElementById('sc').value);
+
+  document.getElementById('va').textContent = params.a;
+  document.getElementById('vb').textContent = params.b;
+  document.getElementById('vc').textContent = params.c;
+
+  draw();
+  updateText();
+}
+
+/* ── Nouvelle équation aléatoire ── */
+function newEquation() {
+  const a = [1, 2, 3, 4, -1, -2, -3][Math.floor(Math.random() * 7)];
+  const xSol = Math.floor(Math.random() * 7) - 2; // -2 à 4
+  const b = Math.floor(Math.random() * 11) - 5;   // -5 à 5
+  const c = a * xSol + b;
+
+  document.getElementById('sa').value = a;
+  document.getElementById('sb').value = b;
+  document.getElementById('sc').value = Math.max(-15, Math.min(15, c));
+
+  sliderChange();
+}
+
+/* ── DÉMARRAGE ── */
+draw();
+updateText();
+</script>
+
+<script src="/nav.js"></script>
+</body>
+</html>

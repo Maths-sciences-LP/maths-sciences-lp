@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 &ndash; Loi d&apos;Ohm et caract&eacute;ristiques d&apos;un dip&ocirc;le &ndash; Cours</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.formule{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.1em;font-weight:700;color:var(--p)}
+.formule small{display:block;margin-top:6px;font-size:.75em;font-weight:400;color:#718096}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-ret{background:#c4b5fd;color:#3b0764}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+th{background:#f3f0ff;font-weight:600;color:var(--p)}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+.objectifs ul{margin:6px 0 0;padding-left:20px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+.exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+details.corr summary{cursor:pointer;font-weight:600;color:var(--s);font-size:.88em;margin-top:10px;padding:4px 0}
+details.corr summary:hover{text-decoration:underline}
+details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+.triangle-container{display:flex;justify-content:center;margin:16px 0}
+.triangle-uir{width:140px;height:120px;position:relative;user-select:none}
+.triangle-uir svg{width:100%;height:100%}
+.chart-container{position:relative;max-width:560px;margin:18px auto;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+<header>
+  <h1>Chapitre 3 &mdash; Loi d&apos;Ohm et caract&eacute;ristiques d&apos;un dip&ocirc;le</h1>
+  <p class="sous-titre">2<sup>de</sup> Bac Pro &nbsp;|&nbsp; Physique-Chimie &nbsp;|&nbsp; &Eacute;lectricit&eacute;</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Conna&icirc;tre et appliquer la loi d&apos;Ohm (\(U = RI\))</li>
+    <li>Calculer la tension, l&apos;intensit&eacute; ou la r&eacute;sistance selon les donn&eacute;es disponibles</li>
+    <li>Tracer et interpr&eacute;ter la caract&eacute;ristique courant-tension U(I) d&apos;un dip&ocirc;le</li>
+    <li>Calculer la r&eacute;sistance &eacute;quivalente de r&eacute;sistances en s&eacute;rie et en parall&egrave;le</li>
+    <li>Calculer la puissance et l&apos;&eacute;nergie consomm&eacute;es par un appareil &eacute;lectrique</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>1. La loi d&apos;Ohm</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition &mdash; Dip&ocirc;le ohmique</span><br>
+  Un <strong>dip&ocirc;le ohmique</strong> (ou r&eacute;sistance) est un composant &eacute;lectrique pour lequel la tension \(U\) &agrave; ses bornes est proportionnelle &agrave; l&apos;intensit&eacute; \(I\) qui le traverse. La constante de proportionnalit&eacute; est la <strong>r&eacute;sistance \(R\)</strong>, exprim&eacute;e en ohms (&Omega;).
+</div>
+
+<div class="formule">
+  \[ U = R \times I \]
+  <small>U en volts (V) &nbsp;&bull;&nbsp; R en ohms (&Omega;) &nbsp;&bull;&nbsp; I en amp&egrave;res (A)</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propri&eacute;t&eacute; graphique</span><br>
+  Pour un dip&ocirc;le ohmique, la courbe repr&eacute;sentant \(U\) en fonction de \(I\) est une <strong>droite passant par l&apos;origine</strong>. Sa pente est &eacute;gale &agrave; la r&eacute;sistance \(R\) :
+  \[ R = \frac{\Delta U}{\Delta I} = \text{pente de la droite} \]
+  Plus la r&eacute;sistance est grande, plus la droite est inclin&eacute;e.
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention &mdash; Unit&eacute;s</span><br>
+  Avant tout calcul, v&eacute;rifier que les grandeurs sont dans les unit&eacute;s SI :<br>
+  &bull; \(U\) en <strong>V</strong> (et non en mV ou kV)<br>
+  &bull; \(I\) en <strong>A</strong> (et non en mA ou &mu;A)<br>
+  &bull; \(R\) en <strong>&Omega;</strong> (et non en k&Omega; ou M&Omega;)
+</div>
+
+<!-- ============================================================ -->
+<h2>2. Calculs avec la loi d&apos;Ohm</h2>
+
+<h3>Triangle U / R / I</h3>
+<p>Le triangle m&eacute;moire permet de retrouver chaque formule selon la grandeur recherch&eacute;e :</p>
+
+<div class="triangle-container">
+  <div class="triangle-uir">
+    <svg viewBox="0 0 140 120">
+      <!-- Triangle -->
+      <polygon points="70,8 10,112 130,112" fill="#ede9fe" stroke="#6f42c1" stroke-width="2"/>
+      <!-- Ligne de s&eacute;paration horizontale -->
+      <line x1="10" y1="62" x2="130" y2="62" stroke="#6f42c1" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <!-- Ligne verticale milieu bas -->
+      <line x1="70" y1="62" x2="70" y2="112" stroke="#6f42c1" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <!-- Lettres -->
+      <text x="70" y="50" text-anchor="middle" font-size="22" font-weight="900" fill="#6f42c1">U</text>
+      <text x="35" y="100" text-anchor="middle" font-size="18" font-weight="900" fill="#2f855a">R</text>
+      <text x="105" y="100" text-anchor="middle" font-size="18" font-weight="900" fill="#d97706">I</text>
+    </svg>
+  </div>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">M&eacute;thode &mdash; utiliser le triangle</span><br>
+  &bull; Pour trouver <strong>U</strong> : cacher U &rarr; \( U = R \times I \)<br>
+  &bull; Pour trouver <strong>R</strong> : cacher R &rarr; \( R = \dfrac{U}{I} \)<br>
+  &bull; Pour trouver <strong>I</strong> : cacher I &rarr; \( I = \dfrac{U}{R} \)
+</div>
+
+<div class="two-col">
+  <div class="formule" style="font-size:.95em">
+    Trouver U<br>
+    \[ U = R \times I \]
+    <small>Connaissant R et I</small>
+  </div>
+  <div class="formule" style="font-size:.95em">
+    Trouver R<br>
+    \[ R = \frac{U}{I} \]
+    <small>Connaissant U et I</small>
+  </div>
+</div>
+<div class="formule" style="max-width:300px;margin:0 auto 14px">
+  Trouver I<br>
+  \[ I = \frac{U}{R} \]
+  <small>Connaissant U et R</small>
+</div>
+
+<h3>Exemples contextualis&eacute;s en atelier</h3>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 1 &mdash; Moteur de ponceuse orbitale</span><br>
+  Une ponceuse orbitale est aliment&eacute;e sous 230&nbsp;V et son moteur a une r&eacute;sistance de 46&nbsp;&Omega;.<br>
+  <strong>Calculer l&apos;intensit&eacute; absorb&eacute;e.</strong><br><br>
+  Formule : \( I = \dfrac{U}{R} \)<br>
+  Application : \( I = \dfrac{230}{46} = \mathbf{5\,A} \)<br>
+  <em>Le fusible doit &ecirc;tre calibr&eacute; &agrave; au moins 5&nbsp;A.</em>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 2 &mdash; R&eacute;sistance de chauffage d&apos;atelier</span><br>
+  Un convecteur d&apos;atelier est aliment&eacute; sous 230&nbsp;V et consomme 10&nbsp;A.<br>
+  <strong>Calculer sa r&eacute;sistance interne.</strong><br><br>
+  Formule : \( R = \dfrac{U}{I} \)<br>
+  Application : \( R = \dfrac{230}{10} = \mathbf{23\,\Omega} \)
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 3 &mdash; Voyant LED d&apos;une machine</span><br>
+  Un voyant LED de machine est aliment&eacute; en 12&nbsp;V via une r&eacute;sistance de protection de 560&nbsp;&Omega;.<br>
+  <strong>Calculer la tension aux bornes de la r&eacute;sistance quand I = 20&nbsp;mA = 0,020&nbsp;A.</strong><br><br>
+  Formule : \( U = R \times I \)<br>
+  Application : \( U = 560 \times 0{,}020 = \mathbf{11{,}2\,V} \)
+</div>
+
+<!-- ============================================================ -->
+<h2>3. Caract&eacute;ristique courant-tension U(I)</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition &mdash; Caract&eacute;ristique d&apos;un dip&ocirc;le</span><br>
+  La <strong>caract&eacute;ristique U(I)</strong> d&apos;un dip&ocirc;le est la courbe repr&eacute;sentant la tension \(U\) (en ordoNN&eacute;e) en fonction de l&apos;intensit&eacute; \(I\) (en abscisse), pour diff&eacute;rentes valeurs mesur&eacute;es exp&eacute;rimentalement.<br><br>
+  &bull; <strong>Dip&ocirc;le ohmique</strong> (r&eacute;sistance) : caract&eacute;ristique <em>lin&eacute;aire</em> (droite passant par O) &rarr; \(U = RI\)<br>
+  &bull; <strong>Dip&ocirc;le non ohmique</strong> (diode, lampe &agrave; incandescence&hellip;) : caract&eacute;ristique <em>non lin&eacute;aire</em> (courbe)
+</div>
+
+<div class="chart-container">
+  <canvas id="chartUI" height="300"></canvas>
+  <p style="text-align:center;font-size:.82em;color:#718096;margin-top:8px">
+    Caract&eacute;ristique U(I) : r&eacute;sistance 100&nbsp;&Omega; (droite violette) vs diode (courbe orange)
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Lecture de la caract&eacute;ristique</span><br>
+  &bull; Pour une <strong>r&eacute;sistance</strong> : la pente de la droite donne directement \(R = \dfrac{\Delta U}{\Delta I}\).<br>
+  &bull; Pour une <strong>diode</strong> : elle ne conduit qu&apos;au-del&agrave; d&apos;une tension seuil (~0,6&nbsp;V pour le silicium) ; en-dessous, le courant est quasi nul.<br>
+  &bull; La caract&eacute;ristique permet de lire graphiquement le point de fonctionnement d&apos;un composant.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Lecture graphique</span><br>
+  Sur la caract&eacute;ristique de la r&eacute;sistance, lorsque \(I = 60\,\text{mA} = 0{,}060\,\text{A}\) :<br>
+  \( U = R \times I = 100 \times 0{,}060 = 6\,\text{V} \)<br>
+  V&eacute;rification : sur le graphique, le point (60&nbsp;mA ; 6&nbsp;V) est bien sur la droite.
+</div>
+
+<!-- ============================================================ -->
+<h2>4. R&eacute;sistances en s&eacute;rie</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Lorsque plusieurs r&eacute;sistances sont branch&eacute;es en <strong>s&eacute;rie</strong>, la r&eacute;sistance &eacute;quivalente \(R_{eq}\) est &eacute;gale &agrave; la <strong>somme</strong> de toutes les r&eacute;sistances.
+</div>
+
+<div class="formule">
+  \[ R_{eq} = R_1 + R_2 + R_3 + \ldots \]
+  <small>La r&eacute;sistance &eacute;quivalente est toujours sup&eacute;rieure &agrave; chaque r&eacute;sistance seule.</small>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple &mdash; Diviseur de tension pour capteur</span><br>
+  Deux r&eacute;sistances \(R_1 = 470\,\Omega\) et \(R_2 = 330\,\Omega\) sont branch&eacute;es en s&eacute;rie sous une tension d&apos;alimentation de 5&nbsp;V.<br><br>
+  <strong>1. R&eacute;sistance &eacute;quivalente :</strong><br>
+  \( R_{eq} = 470 + 330 = \mathbf{800\,\Omega} \)<br><br>
+  <strong>2. Intensit&eacute; dans le circuit :</strong><br>
+  \( I = \dfrac{U}{R_{eq}} = \dfrac{5}{800} = 6{,}25 \times 10^{-3}\,\text{A} = \mathbf{6{,}25\,mA} \)<br><br>
+  <strong>3. Tension aux bornes de R&#x2082; :</strong><br>
+  \( U_2 = R_2 \times I = 330 \times 6{,}25 \times 10^{-3} = \mathbf{2{,}0625\,V} \approx 2{,}06\,V \)
+</div>
+
+<!-- ============================================================ -->
+<h2>5. R&eacute;sistances en parall&egrave;le</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Lorsque plusieurs r&eacute;sistances sont branch&eacute;es en <strong>parall&egrave;le</strong>, l&apos;inverse de la r&eacute;sistance &eacute;quivalente est &eacute;gal &agrave; la somme des inverses de chaque r&eacute;sistance.
+</div>
+
+<div class="formule">
+  \[ \frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} + \ldots \]
+  <small>La r&eacute;sistance &eacute;quivalente est toujours inf&eacute;rieure &agrave; la plus petite r&eacute;sistance (\(R_{eq} &lt; R_{min}\)).</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Cas de deux r&eacute;sistances en parall&egrave;le</span><br>
+  Pour seulement deux r&eacute;sistances, on peut utiliser la formule simplifi&eacute;e du <em>produit sur la somme</em> :
+  \[ R_{eq} = \frac{R_1 \times R_2}{R_1 + R_2} \]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 1 &mdash; Deux r&eacute;sistances en parall&egrave;le</span><br>
+  Deux r&eacute;sistances \(R_1 = 60\,\Omega\) et \(R_2 = 40\,\Omega\) sont en parall&egrave;le sous 12&nbsp;V.<br><br>
+  <strong>1. R&eacute;sistance &eacute;quivalente (produit sur somme) :</strong><br>
+  \( R_{eq} = \dfrac{60 \times 40}{60 + 40} = \dfrac{2400}{100} = \mathbf{24\,\Omega} \)<br>
+  Remarque : \( R_{eq} = 24\,\Omega < R_2 = 40\,\Omega \) &#10003;<br><br>
+  <strong>2. Intensit&eacute; totale :</strong><br>
+  \( I = \dfrac{U}{R_{eq}} = \dfrac{12}{24} = \mathbf{0{,}5\,A} \)<br><br>
+  <strong>V&eacute;rification avec la loi des n&oelig;uds :</strong><br>
+  \( I_1 = \dfrac{12}{60} = 0{,}2\,\text{A} \) &bull; \( I_2 = \dfrac{12}{40} = 0{,}3\,\text{A} \) &bull; \( I_1 + I_2 = 0{,}5\,\text{A} = I \) &#10003;
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 2 &mdash; Trois r&eacute;sistances en parall&egrave;le</span><br>
+  \(R_1 = 120\,\Omega\), \(R_2 = 60\,\Omega\), \(R_3 = 40\,\Omega\) en parall&egrave;le.<br><br>
+  \( \dfrac{1}{R_{eq}} = \dfrac{1}{120} + \dfrac{1}{60} + \dfrac{1}{40} = \dfrac{1}{120} + \dfrac{2}{120} + \dfrac{3}{120} = \dfrac{6}{120} = \dfrac{1}{20} \)<br>
+  Donc \( R_{eq} = \mathbf{20\,\Omega} \) &bull; Bien inf&eacute;rieur &agrave; \(R_3 = 40\,\Omega\) &#10003;
+</div>
+
+<!-- ============================================================ -->
+<h2>6. Puissance et &eacute;nergie &eacute;lectrique</h2>
+
+<h3>La puissance &eacute;lectrique</h3>
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  La <strong>puissance &eacute;lectrique</strong> \(P\) repr&eacute;sente l&apos;&eacute;nergie consomm&eacute;e ou fournie par seconde. Elle s&apos;exprime en <strong>watts (W)</strong>.
+</div>
+
+<div class="formule">
+  \[ P = U \times I \]
+  <small>P en watts (W) &nbsp;&bull;&nbsp; U en volts (V) &nbsp;&bull;&nbsp; I en amp&egrave;res (A)</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Formules &eacute;quivalentes de la puissance</span><br>
+  En combinant \(P = UI\) avec la loi d&apos;Ohm \(U = RI\), on obtient trois &eacute;critures &eacute;quivalentes :
+  \[ P = U \times I \qquad P = R \times I^2 \qquad P = \frac{U^2}{R} \]
+  On choisit la formule en fonction des donn&eacute;es disponibles.
+</div>
+
+<h3>L&apos;&eacute;nergie &eacute;lectrique</h3>
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  L&apos;<strong>&eacute;nergie &eacute;lectrique</strong> \(W\) est la puissance multipli&eacute;e par la dur&eacute;e de fonctionnement :
+</div>
+
+<div class="formule">
+  \[ W = P \times t \]
+  <small>W en joules (J) si t est en secondes &nbsp;|&nbsp; W en watt-heures (Wh) si t est en heures</small>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Conversion d&apos;&eacute;nergie</span><br>
+  &bull; \(1\,\text{Wh} = 3\,600\,\text{J}\)<br>
+  &bull; \(1\,\text{kWh} = 1\,000\,\text{Wh} = 3\,600\,000\,\text{J}\)<br>
+  &bull; Sur la <strong>facture &eacute;lectrique</strong>, l&apos;&eacute;nergie est factur&eacute;e en kWh.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple &mdash; Consommation d&apos;outils en atelier de menuiserie</span><br>
+  <table>
+    <tr>
+      <th>Outil</th>
+      <th>Tension</th>
+      <th>Intensit&eacute;</th>
+      <th>Puissance P = UI</th>
+      <th>&Eacute;nergie (4h/jour)</th>
+    </tr>
+    <tr>
+      <td>Ponceuse orbitale</td>
+      <td>230 V</td>
+      <td>2 A</td>
+      <td>460 W</td>
+      <td>1 840 Wh = 1,84 kWh</td>
+    </tr>
+    <tr>
+      <td>Scie circulaire</td>
+      <td>230 V</td>
+      <td>10 A</td>
+      <td>2 300 W = 2,3 kW</td>
+      <td>9 200 Wh = 9,2 kWh</td>
+    </tr>
+    <tr>
+      <td>Lampe d&apos;atelier LED</td>
+      <td>230 V</td>
+      <td>0,35 A</td>
+      <td>80 W</td>
+      <td>320 Wh = 0,32 kWh</td>
+    </tr>
+  </table>
+  <em>Pour une facture &agrave; 0,25&nbsp;&euro;/kWh, la scie circulaire co&ucirc;te 9,2 &times; 0,25 = <strong>2,30 &euro;</strong> par jour d&apos;utilisation.</em>
+</div>
+
+<!-- ============================================================ -->
+<h2>7. Tableau de synth&egrave;se</h2>
+
+<table>
+  <tr>
+    <th>Grandeur</th>
+    <th>Formule(s)</th>
+    <th>Unit&eacute;</th>
+    <th>Remarque</th>
+  </tr>
+  <tr>
+    <td>Tension \(U\)</td>
+    <td>\(U = R \times I\)</td>
+    <td>Volt (V)</td>
+    <td>Mesur&eacute;e au voltm&egrave;tre (parall&egrave;le)</td>
+  </tr>
+  <tr>
+    <td>Intensit&eacute; \(I\)</td>
+    <td>\(I = \dfrac{U}{R}\)</td>
+    <td>Amp&egrave;re (A)</td>
+    <td>Mesur&eacute;e &agrave; l&apos;amp&egrave;rem&egrave;tre (s&eacute;rie)</td>
+  </tr>
+  <tr>
+    <td>R&eacute;sistance \(R\)</td>
+    <td>\(R = \dfrac{U}{I}\)</td>
+    <td>Ohm (&Omega;)</td>
+    <td>Pente de la caract&eacute;ristique U(I)</td>
+  </tr>
+  <tr>
+    <td>R&eacute;sistances s&eacute;rie</td>
+    <td>\(R_{eq} = R_1 + R_2 + \ldots\)</td>
+    <td>Ohm (&Omega;)</td>
+    <td>\(R_{eq} > R_{max}\)</td>
+  </tr>
+  <tr>
+    <td>R&eacute;sistances parall&egrave;le</td>
+    <td>\(\dfrac{1}{R_{eq}} = \dfrac{1}{R_1} + \dfrac{1}{R_2} + \ldots\)</td>
+    <td>Ohm (&Omega;)</td>
+    <td>\(R_{eq} &lt; R_{min}\)</td>
+  </tr>
+  <tr>
+    <td>Puissance \(P\)</td>
+    <td>\(P = UI = RI^2 = \dfrac{U^2}{R}\)</td>
+    <td>Watt (W)</td>
+    <td>1 kW = 1 000 W</td>
+  </tr>
+  <tr>
+    <td>&Eacute;nergie \(W\)</td>
+    <td>\(W = P \times t\)</td>
+    <td>Joule (J) ou Wh</td>
+    <td>1 Wh = 3 600 J</td>
+  </tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>8. &Agrave; retenir</h2>
+
+<div class="retenir">
+  <span class="label label-ret">&Agrave; retenir absolument</span>
+  <ol>
+    <li>Loi d&apos;Ohm : \(U = R \times I\). La caract&eacute;ristique d&apos;une r&eacute;sistance est une <strong>droite passant par l&apos;origine</strong>, de pente \(R\).</li>
+    <li>En <strong>s&eacute;rie</strong> : \(R_{eq} = R_1 + R_2 + \ldots\) (la r&eacute;sistance augmente).</li>
+    <li>En <strong>parall&egrave;le</strong> : \(\dfrac{1}{R_{eq}} = \dfrac{1}{R_1} + \dfrac{1}{R_2} + \ldots\) (la r&eacute;sistance diminue ; \(R_{eq} &lt; R_{min}\)).</li>
+    <li>Puissance &eacute;lectrique : \(P = U \times I\) en watts. Trois &eacute;critures : \(P = UI = RI^2 = \dfrac{U^2}{R}\).</li>
+    <li>&Eacute;nergie consomm&eacute;e : \(W = P \times t\) en joules ou en watt-heures. La facture EDF est en <strong>kWh</strong>.</li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2>9. Mini-exercices</h2>
+
+<div class="exo">
+  <div class="exo-num">Exercice 1 &mdash; Lecture d&apos;une caract&eacute;ristique U(I)</div>
+  <p>On r&eacute;alise l&apos;exp&eacute;rience suivante avec une r&eacute;sistance inconnue :</p>
+  <table>
+    <tr>
+      <th>Intensit&eacute; I (mA)</th>
+      <td>0</td>
+      <td>20</td>
+      <td>40</td>
+      <td>60</td>
+      <td>80</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Tension U (V)</th>
+      <td>0</td>
+      <td>4,7</td>
+      <td>9,4</td>
+      <td>14,1</td>
+      <td>18,8</td>
+      <td>23,5</td>
+    </tr>
+  </table>
+  <ol>
+    <li>Les points sont-ils align&eacute;s sur une droite passant par l&apos;origine ? Comment s&apos;appelle ce type de dip&ocirc;le ?</li>
+    <li>Calculez la r&eacute;sistance \(R\) en utilisant les valeurs \(I = 80\,\text{mA}\) et \(U = 18{,}8\,\text{V}\).</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>1.</strong> Oui, les points sont align&eacute;s sur une droite passant par l&apos;origine (U proportionnel &agrave; I). C&apos;est un <strong>dip&ocirc;le ohmique</strong> (r&eacute;sistance).</p>
+      <p><strong>2.</strong> Attention &agrave; la conversion : \(I = 80\,\text{mA} = 0{,}080\,\text{A}\)<br>
+        \( R = \dfrac{U}{I} = \dfrac{18{,}8}{0{,}080} = \mathbf{235\,\Omega} \)<br>
+        V&eacute;rification : \( U = 235 \times 0{,}020 = 4{,}7\,\text{V} \) &#10003;
+      </p>
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 2 &mdash; R&eacute;sistances en parall&egrave;le</div>
+  <p>Dans l&apos;atelier, deux r&eacute;sistances de chauffage sont branch&eacute;es en parall&egrave;le sur le r&eacute;seau 230&nbsp;V :</p>
+  <ul>
+    <li>\(R_1 = 46\,\Omega\) (radiateur 1)</li>
+    <li>\(R_2 = 115\,\Omega\) (radiateur 2)</li>
+  </ul>
+  <ol>
+    <li>Calculez la r&eacute;sistance &eacute;quivalente du montage.</li>
+    <li>Calculez l&apos;intensit&eacute; totale absorb&eacute;e par le tableau &eacute;lectrique.</li>
+    <li>Calculez la puissance totale dissip&eacute;e.</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>1.</strong> Formule produit/somme :<br>
+        \( R_{eq} = \dfrac{R_1 \times R_2}{R_1 + R_2} = \dfrac{46 \times 115}{46 + 115} = \dfrac{5290}{161} \approx \mathbf{32{,}9\,\Omega} \)<br>
+        V&eacute;rification : \( R_{eq} = 32{,}9\,\Omega < R_1 = 46\,\Omega \) &#10003;
+      </p>
+      <p><strong>2.</strong> \( I = \dfrac{U}{R_{eq}} = \dfrac{230}{32{,}9} \approx \mathbf{7\,A} \)</p>
+      <p><strong>3.</strong> \( P = U \times I = 230 \times 7 = \mathbf{1\,610\,W} \approx 1{,}6\,\text{kW} \)</p>
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 3 &mdash; Puissance et &eacute;nergie d&apos;un outil</div>
+  <p>Une d&eacute;fonceuse de menuiserie porte la plaque signalitique : <strong>230 V &ndash; 6 A</strong>.</p>
+  <ol>
+    <li>Calculez la puissance &eacute;lectrique absorb&eacute;e par la d&eacute;fonceuse.</li>
+    <li>Calculez la r&eacute;sistance &eacute;quivalente du moteur.</li>
+    <li>Si la d&eacute;fonceuse est utilis&eacute;e 2&nbsp;heures par jour, calculez l&apos;&eacute;nergie consomm&eacute;e en kWh.</li>
+    <li>Le prix du kWh est de 0,25&nbsp;&euro;. Quel est le co&ucirc;t &eacute;lectrique journalier ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>1.</strong> \( P = U \times I = 230 \times 6 = \mathbf{1\,380\,W} = 1{,}38\,\text{kW} \)</p>
+      <p><strong>2.</strong> \( R = \dfrac{U}{I} = \dfrac{230}{6} \approx \mathbf{38{,}3\,\Omega} \)</p>
+      <p><strong>3.</strong> \( W = P \times t = 1{,}38\,\text{kW} \times 2\,\text{h} = \mathbf{2{,}76\,\text{kWh}} \)</p>
+      <p><strong>4.</strong> Co&ucirc;t = \( 2{,}76 \times 0{,}25 = \mathbf{0{,}69\,\text{&euro;}} \) par jour (environ 69 centimes).</p>
+    </div>
+  </details>
+</div>
+
+</div>
+
+<script>
+// Graphique Chart.js &mdash; Caract&eacute;ristique U(I)
+(function(){
+  // Donn&eacute;es axe I (mA) de 0 &agrave; 100
+  var labels = [];
+  for(var i = 0; i <= 100; i += 5) labels.push(i);
+
+  // R&eacute;sistance ohmique 100 Ohms : U = R*I = 0.1 * I (I en mA &rarr; U en V)
+  var dataResistance = labels.map(function(i){ return +(0.1 * i).toFixed(2); });
+
+  // Diode : courbe exponentielle approch&eacute;e, blocage avant ~60mA puis mont&eacute;e
+  // Mod&egrave;le simplifi&eacute; : U = 0.6 + 0.026 * ln(1 + I/10) si I > 0, U&asymp;0 si I &lt;= 0
+  // On utilise un mod&egrave;le visuellement repr&eacute;sentatif
+  var dataDiode = labels.map(function(i){
+    if(i === 0) return 0;
+    var u = 0.55 + 0.026 * Math.log(1 + i / 0.5);
+    return +(Math.min(u, 1.2)).toFixed(3);
+  });
+
+  var ctx = document.getElementById('chartUI').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'R\u00e9sistance 100 \u03a9 (dip\u00f4le ohmique)',
+          data: dataResistance,
+          borderColor: '#6f42c1',
+          backgroundColor: 'rgba(111,66,193,0.07)',
+          borderWidth: 2.5,
+          pointRadius: 0,
+          tension: 0
+        },
+        {
+          label: 'Diode (dip\u00f4le non ohmique)',
+          data: dataDiode,
+          borderColor: '#d97706',
+          backgroundColor: 'rgba(217,119,6,0.07)',
+          borderWidth: 2.5,
+          pointRadius: 0,
+          tension: 0.35
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { font: { size: 12 } }
+        },
+        title: {
+          display: true,
+          text: 'Caract\u00e9ristique U(I) d\u2019un dip\u00f4le',
+          font: { size: 13, weight: 'bold' },
+          color: '#2d3748'
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Intensit\u00e9 I (mA)',
+            font: { size: 12, weight: 'bold' },
+            color: '#4a5568'
+          },
+          grid: { color: 'rgba(0,0,0,0.06)' }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Tension U (V)',
+            font: { size: 12, weight: 'bold' },
+            color: '#4a5568'
+          },
+          min: 0,
+          grid: { color: 'rgba(0,0,0,0.06)' }
+        }
+      }
+    }
+  });
+})();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

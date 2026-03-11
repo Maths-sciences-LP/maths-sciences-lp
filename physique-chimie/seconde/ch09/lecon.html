@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch09 &mdash; Caract&eacute;ristiques d&rsquo;un son &mdash; 2nde Bac Pro</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+    body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+    .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+    h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+    .sous-titre{color:#718096;font-size:.95em;margin:0}
+    h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+    h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+    .def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+    .retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+    .formule{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.1em;font-weight:700;color:var(--p)}
+    .formule small{display:block;margin-top:6px;font-size:.75em;font-weight:400;color:#718096}
+    .label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+    .label-def{background:#ede9fe;color:#5b21b6}
+    .label-prop{background:#d1fae5;color:#065f46}
+    .label-att{background:#fee2e2;color:#991b1b}
+    .label-meth{background:#fef3c7;color:#92400e}
+    .label-ex{background:#e2e8f0;color:#4a5568}
+    .label-ret{background:#c4b5fd;color:#3b0764}
+    table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+    th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+    th{background:#f3f0ff;font-weight:600;color:var(--p)}
+    .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+    .objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+    .objectifs ul{margin:6px 0 0;padding-left:20px}
+    .exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+    .exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+    details.corr summary{cursor:pointer;font-weight:600;color:#2f855a;font-size:.88em;margin-top:10px;padding:4px 0}
+    details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+    .chart-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0}
+  </style>
+</head>
+<body>
+<div class="c">
+  <header>
+    <p class="sous-titre">Physique-Chimie &mdash; 2nde Bac Pro &mdash; Menuiserie, Agencement, Ameublement</p>
+    <h1>Chapitre 9 &mdash; Caract&eacute;ristiques d&rsquo;un son</h1>
+    <p class="sous-titre">Acoustique, protection auditive et ultrasons en atelier</p>
+  </header>
+
+  <a href="pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+  <a href="#exercices" class="nb">&#8595; Aller aux exercices</a>
+
+  <div class="objectifs">
+    <strong>Objectifs du chapitre</strong>
+    <ul>
+      <li>D&eacute;crire la nature physique d&rsquo;un son et ses conditions de propagation.</li>
+      <li>D&eacute;finir la fr&eacute;quence, identifier infra/ultra/sons audibles et relier fr&eacute;quence &agrave; hauteur.</li>
+      <li>D&eacute;finir le niveau sonore en dB et citer les seuils d&rsquo;audibilit&eacute; et de danger.</li>
+      <li>Calculer une longueur d&rsquo;onde \(\lambda\) et une distance ou une dur&eacute;e avec \(v = d/t\).</li>
+      <li>Relier les propri&eacute;t&eacute;s acoustiques aux exigences de s&eacute;curit&eacute; en atelier de menuiserie.</li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>1. Nature d&rsquo;un son</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    Un <strong>son</strong> est une <strong>vibration m&eacute;canique</strong> qui se propage dans un milieu mat&eacute;riel (solide, liquide ou gazeux) sous forme d&rsquo;onde de pression. Il cr&eacute;e des zones alternant <strong>compression</strong> (surpression) et <strong>d&eacute;pression</strong> (basse pression).
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Pas de son dans le vide</span><br>
+    Le son ne peut pas se propager dans le <strong>vide</strong>, car il n&rsquo;existe pas de milieu mat&eacute;riel pour transmettre les vibrations. Contrairement &agrave; la lumi&egrave;re, le son a besoin d&rsquo;un support.
+  </div>
+
+  <h3>Production d&rsquo;un son</h3>
+  <p>Tout objet en <strong>vibration</strong> produit un son :</p>
+  <ul>
+    <li><strong>Corde vibrante</strong> : guitare, violon, scie &agrave; ruban en d&eacute;placement.</li>
+    <li><strong>Membrane vibrante</strong> : haut-parleur, peau de tambour.</li>
+    <li><strong>Colonne d&rsquo;air vibrante</strong> : fl&ucirc;te, tuyau d&rsquo;orgue.</li>
+    <li><strong>Outil en contact avec le bois</strong> : ponceuse, scie circulaire, d&eacute;fonceuse.</li>
+  </ul>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>2. La fr&eacute;quence &mdash; hauteur du son</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    La <strong>fr&eacute;quence</strong> \(f\) est le nombre de vibrations (oscillations) par seconde. Son unit&eacute; est le <strong>hertz (Hz)</strong>. Plus la fr&eacute;quence est &eacute;lev&eacute;e, plus le son est <strong>aigu</strong> ; plus elle est basse, plus le son est <strong>grave</strong>.
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Type d&rsquo;onde</th><th>Plage de fr&eacute;quences</th><th>Perception</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Infrasons</strong></td><td>\(f < 20\,\text{Hz}\)</td><td>Non percept&icirc;ble par l&rsquo;oreille humaine</td></tr>
+      <tr><td><strong>Sons audibles</strong></td><td>\(20\,\text{Hz} \leq f \leq 20\,000\,\text{Hz}\)</td><td>Percept&icirc;bles par l&rsquo;oreille humaine</td></tr>
+      <tr><td><strong>Ultrasons</strong></td><td>\(f > 20\,000\,\text{Hz}\)</td><td>Non percept&icirc;bles par l&rsquo;oreille humaine</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Exemples de fr&eacute;quences</h3>
+  <table>
+    <thead>
+      <tr><th>Source sonore</th><th>Fr&eacute;quence typique</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Voix grave (homme adulte)</td><td>environ 100&nbsp;Hz</td></tr>
+      <tr><td>Voix aigu&euml; (femme adulte)</td><td>environ 200&nbsp;Hz</td></tr>
+      <tr><td>La musical (diapason)</td><td>440&nbsp;Hz</td></tr>
+      <tr><td>Limite sup&eacute;rieure audition humaine</td><td>20&nbsp;000&nbsp;Hz</td></tr>
+      <tr><td>Ultrasons contr&ocirc;le du bois</td><td>100&nbsp;kHz &agrave; 1&nbsp;MHz</td></tr>
+    </tbody>
+  </table>
+
+  <div class="prop">
+    <span class="label label-prop">Application &mdash; Ultrasons et bois</span><br>
+    Les <strong>ultrasons</strong> (fr&eacute;quences &gt; 20&nbsp;kHz) sont utilis&eacute;s en <strong>contr&ocirc;le non destructif (CND)</strong> pour d&eacute;tecter des d&eacute;fauts internes dans le bois (noeuds, fissures, zones pourries) sans d&eacute;couper la pi&egrave;ce. Un &eacute;metteur envoie une impulsion ultrasonore&nbsp;; le temps de trajet et l&rsquo;att&eacute;nuation du signal renseignent sur la qualit&eacute; du mat&eacute;riau.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>3. L&rsquo;amplitude &mdash; intensit&eacute; sonore</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    L&rsquo;<strong>amplitude</strong> d&rsquo;une vibration sonore est la valeur maximale de la variation de pression. Plus l&rsquo;amplitude est grande, plus le son est <strong>fort</strong> (puissant). On quantifie l&rsquo;intensit&eacute; sonore par le <strong>niveau sonore \(L\)</strong>, exprim&eacute; en <strong>d&eacute;cibels (dB)</strong>.
+  </div>
+
+  <h3>Seuils de r&eacute;f&eacute;rence</h3>
+  <table>
+    <thead>
+      <tr><th>Seuil / Situation</th><th>Niveau sonore \(L\) (dB)</th><th>Remarque</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Seuil d&rsquo;audibilit&eacute;</td><td>0&nbsp;dB</td><td>Son le plus faible perceptible</td></tr>
+      <tr><td>Chuchotement</td><td>30&nbsp;dB</td><td>Tr&egrave;s calme</td></tr>
+      <tr><td>Conversation normale</td><td>60&nbsp;dB</td><td>Confortable</td></tr>
+      <tr><td>Ponceuse &agrave; bande</td><td>95&nbsp;dB</td><td style="color:#c53030;font-weight:600;">Zone de danger (EPI obligatoire)</td></tr>
+      <tr><td>Scie circulaire / table</td><td>102&nbsp;dB</td><td style="color:#c53030;font-weight:600;">Tr&egrave;s dangereux sans protection</td></tr>
+      <tr><td>Seuil de douleur</td><td>120&nbsp;dB</td><td style="color:#c53030;font-weight:600;">Dommages imm&eacute;diats</td></tr>
+    </tbody>
+  </table>
+
+  <div class="att">
+    <span class="label label-att">Seuil l&eacute;gal &mdash; Danger auditif</span><br>
+    En France, le <strong>Code du travail</strong> impose des mesures de protection auditive d&egrave;s <strong>80&nbsp;dB(A)</strong> d&rsquo;exposition quotidienne (valeur d&rsquo;exposition inf&eacute;rieure). Au-del&agrave; de <strong>85&nbsp;dB(A)</strong>, le port de protecteurs auditifs est <strong>obligatoire</strong>. L&rsquo;exposition r&eacute;guli&egrave;re sans protection entra&icirc;ne une <strong>surdité irr&eacute;versible</strong>.
+  </div>
+
+  <h3>Graphique des niveaux sonores en atelier de menuiserie</h3>
+  <div class="chart-wrap">
+    <canvas id="chartSon" height="260"></canvas>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>4. Le timbre</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    Le <strong>timbre</strong> est la qualit&eacute; d&rsquo;un son qui permet de distinguer deux sources sonores jouant la m&ecirc;me note &agrave; la m&ecirc;me intensit&eacute;. Il d&eacute;pend de la <strong>forme de l&rsquo;onde sonore</strong> et de la pr&eacute;sence d&rsquo;<strong>harmoniques</strong> (multiples de la fr&eacute;quence fondamentale).
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple</span><br>
+    Un violon et une fl&ucirc;te jouent tous deux le La &agrave; 440&nbsp;Hz. La fr&eacute;quence fondamentale est identique, mais la forme des vibrations diff&egrave;re&nbsp;: le violon produit des harmoniques intenses qui donnent un son chaud et riche, la fl&ucirc;te un son plus pur. C&rsquo;est le <strong>timbre</strong> qui les diff&eacute;rencie.
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Retenir</span><br>
+    Le timbre <strong>ne d&eacute;pend ni de la fr&eacute;quence</strong> (hauteur) <strong>ni de l&rsquo;amplitude</strong> (intensit&eacute;) &agrave; elles seules, mais de la richesse harmonique du signal.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>5. La c&eacute;l&eacute;rit&eacute; du son</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    La <strong>c&eacute;l&eacute;rit&eacute;</strong> (vitesse de propagation) \(v\) du son d&eacute;pend du <strong>milieu de propagation</strong> et de la <strong>temp&eacute;rature</strong>. Elle est exprim&eacute;e en m&middot;s&#8315;&sup1;.
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Milieu</th><th>C&eacute;l&eacute;rit&eacute; \(v\) (m/s)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Air &agrave; 20&nbsp;&deg;C</td><td>340</td></tr>
+      <tr><td>Eau &agrave; 20&nbsp;&deg;C</td><td>1&nbsp;500</td></tr>
+      <tr><td>Bois (selon essence)</td><td>3&nbsp;000 &agrave; 5&nbsp;000</td></tr>
+      <tr><td>Acier</td><td>5&nbsp;000</td></tr>
+      <tr><td>Verre</td><td>5&nbsp;200</td></tr>
+    </tbody>
+  </table>
+
+  <div class="prop">
+    <span class="label label-prop">Observation</span><br>
+    Le son se propage beaucoup plus vite dans les <strong>solides</strong> que dans les gaz. C&rsquo;est pourquoi les vibrations d&rsquo;une machine se transmettent efficacement &agrave; travers les pi&egrave;ces de bois ou les structures m&eacute;talliques d&rsquo;un atelier.
+  </div>
+
+  <div class="formule">
+    \[ v = \frac{d}{t} \]
+    <small>\(v\) c&eacute;l&eacute;rit&eacute; en m/s &mdash; \(d\) distance parcourue en m &mdash; \(t\) dur&eacute;e de propagation en s</small>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>6. Relation fr&eacute;quence &mdash; longueur d&rsquo;onde</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    La <strong>longueur d&rsquo;onde</strong> \(\lambda\) (lambda) est la distance entre deux compressions successives, c&rsquo;est-&agrave;-dire la distance parcourue par l&rsquo;onde pendant une p&eacute;riode. Elle s&rsquo;exprime en <strong>m&egrave;tres (m)</strong>.
+  </div>
+
+  <div class="formule">
+    \[ \lambda = \frac{v}{f} \]
+    <small>\(\lambda\) longueur d&rsquo;onde en m &mdash; \(v\) c&eacute;l&eacute;rit&eacute; en m/s &mdash; \(f\) fr&eacute;quence en Hz</small>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple r&eacute;solu &mdash; La musical 440&nbsp;Hz dans l&rsquo;air</span><br>
+    \(v = 340\,\text{m/s}\) ; \(f = 440\,\text{Hz}\)<br>
+    \[ \lambda = \frac{v}{f} = \frac{340}{440} \approx 0{,}77\,\text{m} \]
+    La longueur d&rsquo;onde du La 440&nbsp;Hz dans l&rsquo;air est d&rsquo;environ 77&nbsp;cm.
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple &mdash; Ultrasonie dans le bois (500&nbsp;kHz)</span><br>
+    \(v = 4\,000\,\text{m/s}\) ; \(f = 500\,000\,\text{Hz}\)<br>
+    \[ \lambda = \frac{4\,000}{500\,000} = 0{,}008\,\text{m} = 8\,\text{mm} \]
+    Cette faible longueur d&rsquo;onde permet de d&eacute;tecter des d&eacute;fauts de taille millim&eacute;trique dans le bois.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>7. Applications acoustiques en atelier de menuiserie</h2>
+
+  <h3>Isolation phonique des ateliers</h3>
+  <p>Pour limiter la propagation du bruit entre ateliers ou vers l&rsquo;ext&eacute;rieur, on utilise :</p>
+  <ul>
+    <li>Des <strong>mat&eacute;riaux absorbants</strong> (laines min&eacute;rales, panneaux de mousse) qui dissipent l&rsquo;&eacute;nergie sonore.</li>
+    <li>Des <strong>parois lourdes et &eacute;tanches</strong> (doubles cloisons, vitrage feuillet&eacute;) qui r&eacute;fl&eacute;chissent les ondes.</li>
+    <li>Des <strong>d&eacute;couplages m&eacute;caniques</strong> (plots anti-vibration sous les machines) pour &eacute;viter la propagation des vibrations dans le sol.</li>
+  </ul>
+
+  <h3>Seuils l&eacute;gaux et EPI acoustiques</h3>
+  <div class="att">
+    <span class="label label-att">R&eacute;glementation</span><br>
+    <ul>
+      <li><strong>80&nbsp;dB(A)</strong> : valeur d&rsquo;exposition inf&eacute;rieure &rarr; information et mise &agrave; disposition d&rsquo;EPI.</li>
+      <li><strong>85&nbsp;dB(A)</strong> : valeur d&rsquo;exposition sup&eacute;rieure &rarr; port des protecteurs auditifs <strong>obligatoire</strong>.</li>
+      <li><strong>87&nbsp;dB(A)</strong> : valeur limite d&rsquo;exposition ne devant jamais &ecirc;tre d&eacute;pass&eacute;e.</li>
+    </ul>
+    Les EPI acoustiques comprennent&nbsp;: <strong>bouchons d&rsquo;oreilles</strong> (jusqu&rsquo;&agrave; &minus;37&nbsp;dB) et <strong>casques anti-bruit</strong> (jusqu&rsquo;&agrave; &minus;34&nbsp;dB). Voir chapitre 01 pour les EPI.
+  </div>
+
+  <h3>Ultrasons pour tester le bois</h3>
+  <p>Les ultrasons permettent&nbsp;:</p>
+  <ul>
+    <li>La <strong>d&eacute;tection de noeuds, fissures et zones d&eacute;shydrat&eacute;es</strong> sans d&eacute;couper la pi&egrave;ce.</li>
+    <li>La <strong>mesure du module d&rsquo;&eacute;lasticit&eacute;</strong> du bois (la c&eacute;l&eacute;rit&eacute; des ultrasons augmente avec la rigidit&eacute;).</li>
+    <li>Le <strong>contr&ocirc;le de qualit&eacute;</strong> des assemblages coll&eacute;s (d&eacute;tection de d&eacute;faut de collage).</li>
+  </ul>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>8. Tableau de synth&egrave;se</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Caract&eacute;ristique</th>
+        <th>Grandeur physique</th>
+        <th>Symbole</th>
+        <th>Unit&eacute;</th>
+        <th>Formule</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hauteur</td>
+        <td>Fr&eacute;quence</td>
+        <td>\(f\)</td>
+        <td>Hz</td>
+        <td>\(f = v / \lambda\)</td>
+      </tr>
+      <tr>
+        <td>Intensit&eacute; (force)</td>
+        <td>Niveau sonore</td>
+        <td>\(L\)</td>
+        <td>dB</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td>Timbre (qualit&eacute;)</td>
+        <td>Forme de l&rsquo;onde / harmoniques</td>
+        <td>&mdash;</td>
+        <td>&mdash;</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td>Propagation</td>
+        <td>C&eacute;l&eacute;rit&eacute;</td>
+        <td>\(v\)</td>
+        <td>m&middot;s&#8315;&sup1;</td>
+        <td>\(v = d / t\)</td>
+      </tr>
+      <tr>
+        <td>Longueur d&rsquo;onde</td>
+        <td>&mdash;</td>
+        <td>\(\lambda\)</td>
+        <td>m</td>
+        <td>\(\lambda = v / f\)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2>9. &Agrave; retenir</h2>
+
+  <div class="retenir">
+    <span class="label label-ret">&Agrave; retenir</span>
+    <ol>
+      <li>Le son est une <strong>vibration m&eacute;canique</strong>&nbsp;: il ne se propage <strong>pas dans le vide</strong> et il est plus rapide dans les solides que dans l&rsquo;air.</li>
+      <li>La <strong>fr&eacute;quence</strong> \(f\) (en Hz) d&eacute;termine la <strong>hauteur</strong> du son&nbsp;: aigu (haute fr&eacute;quence) ou grave (basse fr&eacute;quence). Sons audibles&nbsp;: 20&nbsp;Hz &agrave; 20&nbsp;000&nbsp;Hz.</li>
+      <li>Le <strong>niveau sonore</strong> \(L\) (en dB) d&eacute;termine la <strong>force</strong> du son&nbsp;: au-del&agrave; de <strong>85&nbsp;dB(A)</strong> en atelier, le port d&rsquo;EPI auditifs est <strong>obligatoire</strong>.</li>
+      <li>La <strong>longueur d&rsquo;onde</strong> se calcule par \(\lambda = v/f\)&nbsp;: plus la fr&eacute;quence est &eacute;lev&eacute;e, plus \(\lambda\) est petite, ce qui permet de d&eacute;tecter des d&eacute;tails fins (ultrasons).</li>
+      <li>Le <strong>timbre</strong> permet de distinguer deux instruments jouant la m&ecirc;me note&nbsp;: il d&eacute;pend de la forme de l&rsquo;onde et de ses harmoniques, pas seulement de \(f\) ou de \(L\).</li>
+    </ol>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <h2 id="exercices">10. Mini-exercices</h2>
+
+  <!-- Exercice 1 -->
+  <div class="exo">
+    <div class="exo-num">Exercice 1 &mdash; Calculer une longueur d&rsquo;onde</div>
+    <p>Une d&eacute;fonceuse produit un bruit dont la fr&eacute;quence fondamentale est \(f = 1\,700\,\text{Hz}\). La c&eacute;l&eacute;rit&eacute; du son dans l&rsquo;air est \(v = 340\,\text{m/s}\).</p>
+    <ol>
+      <li>Calculer la longueur d&rsquo;onde \(\lambda\) de ce son dans l&rsquo;air.</li>
+      <li>Ce son est-il grave ou aigu par rapport au La 440&nbsp;Hz&nbsp;?</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <ol>
+          <li>\(\displaystyle \lambda = \frac{v}{f} = \frac{340}{1\,700} = \mathbf{0{,}20\,\text{m}}\) soit 20&nbsp;cm.</li>
+          <li>\(f = 1\,700\,\text{Hz} > 440\,\text{Hz}\), donc le son de la d&eacute;fonceuse est <strong>plus aigu</strong> que le La musical.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <!-- Exercice 2 -->
+  <div class="exo">
+    <div class="exo-num">Exercice 2 &mdash; Distance et tonnerre</div>
+    <p>Un &eacute;clair est aper&ccedil;u, puis le tonnerre est entendu <strong>3&nbsp;s</strong> plus tard. La c&eacute;l&eacute;rit&eacute; du son dans l&rsquo;air est \(v = 340\,\text{m/s}\).</p>
+    <ol>
+      <li>Calculer la distance \(d\) entre l&rsquo;observateur et l&rsquo;&eacute;clair.</li>
+      <li>Si l&rsquo;on entend le tonnerre apr&egrave;s seulement 0,5&nbsp;s, &agrave; quelle distance se trouve l&rsquo;&eacute;clair&nbsp;?</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <ol>
+          <li>\(d = v \times t = 340 \times 3 = \mathbf{1\,020\,\text{m}} \approx 1\,\text{km}\)</li>
+          <li>\(d = 340 \times 0{,}5 = \mathbf{170\,\text{m}}\) &mdash; l&rsquo;&eacute;clair est tr&egrave;s proche, situation dangereuse.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <!-- Exercice 3 -->
+  <div class="exo">
+    <div class="exo-num">Exercice 3 &mdash; Classification des ondes selon la fr&eacute;quence</div>
+    <p>Classer les signaux sonores suivants dans la bonne cat&eacute;gorie (infrason, son audible, ultrason) et indiquer s&rsquo;ils pr&eacute;sentent un risque auditif direct&nbsp;:</p>
+    <ol>
+      <li>\(f_1 = 15\,\text{Hz}\) (vibration de la structure d&rsquo;un b&acirc;timent)</li>
+      <li>\(f_2 = 440\,\text{Hz}\) (La musical)</li>
+      <li>\(f_3 = 18\,000\,\text{Hz}\) (sifflement &agrave; haute fr&eacute;quence)</li>
+      <li>\(f_4 = 500\,\text{kHz}\) (sonde &agrave; ultrasons pour contr&ocirc;le du bois)</li>
+    </ol>
+    <details class="corr">
+      <summary>Voir la correction</summary>
+      <div class="corr-body">
+        <ol>
+          <li>\(f_1 = 15\,\text{Hz} < 20\,\text{Hz}\) &rarr; <strong>infrason</strong>, non audible. Pas de risque auditif direct, mais peut provoquer mal de t&ecirc;te et inconfort.</li>
+          <li>\(f_2 = 440\,\text{Hz}\) &rarr; <strong>son audible</strong>. Risque auditif si le niveau sonore d&eacute;passe 85&nbsp;dB(A).</li>
+          <li>\(f_3 = 18\,000\,\text{Hz}\) &rarr; <strong>son audible</strong> (juste en dessous de 20&nbsp;kHz). Audible par les jeunes oreilles&nbsp;; risque auditif possible selon le niveau.</li>
+          <li>\(f_4 = 500\,000\,\text{Hz} > 20\,000\,\text{Hz}\) &rarr; <strong>ultrason</strong>, non audible. Pas de risque auditif direct &agrave; faible puissance.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+</div><!-- /.c -->
+
+<script>
+(function () {
+  var labels = [
+    'Chuchotement',
+    'Conversation normale',
+    'Aspirateur',
+    'Trafic routier',
+    'Ponceuse \u00e0 bande',
+    'Scie circulaire / table',
+    'Seuil de douleur'
+  ];
+  var data = [30, 60, 70, 80, 95, 102, 120];
+  var colors = data.map(function (v) {
+    if (v < 60)  return 'rgba(47,133,90,0.75)';
+    if (v <= 85) return 'rgba(217,119,6,0.75)';
+    return 'rgba(197,48,48,0.80)';
+  });
+  var borderColors = data.map(function (v) {
+    if (v < 60)  return '#2f855a';
+    if (v <= 85) return '#d97706';
+    return '#c53030';
+  });
+
+  var ctx = document.getElementById('chartSon').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Niveau sonore (dB)',
+        data: data,
+        backgroundColor: colors,
+        borderColor: borderColors,
+        borderWidth: 1.5,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Niveaux sonores repr\u00e9sentatifs en atelier de menuiserie',
+          color: '#2d3748',
+          font: { size: 13, weight: '600' },
+          padding: { bottom: 10 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function (ctx) { return ctx.parsed.x + ' dB'; }
+          }
+        }
+      },
+      scales: {
+        x: {
+          min: 0,
+          max: 130,
+          title: { display: true, text: 'Niveau sonore L (dB)', color: '#4a5568' },
+          grid: { color: '#e2e8f0' },
+          ticks: {
+            callback: function (v) { return v + ' dB'; }
+          }
+        },
+        y: {
+          grid: { display: false },
+          ticks: { color: '#4a5568', font: { size: 12 } }
+        }
+      }
+    }
+  });
+
+  /* Ligne de danger &agrave; 85 dB */
+  Chart.register({
+    id: 'dangerLine',
+    afterDraw: function (chart) {
+      var ctx2 = chart.ctx;
+      var xAxis = chart.scales.x;
+      var yAxis = chart.scales.y;
+      var x85 = xAxis.getPixelForValue(85);
+      ctx2.save();
+      ctx2.beginPath();
+      ctx2.moveTo(x85, yAxis.top);
+      ctx2.lineTo(x85, yAxis.bottom);
+      ctx2.strokeStyle = '#c53030';
+      ctx2.lineWidth = 2;
+      ctx2.setLineDash([6, 4]);
+      ctx2.stroke();
+      ctx2.fillStyle = '#c53030';
+      ctx2.font = '600 11px Segoe UI, sans-serif';
+      ctx2.fillText('85 dB \u2014 EPI obligatoire', x85 + 5, yAxis.top + 14);
+      ctx2.restore();
+    }
+  });
+})();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

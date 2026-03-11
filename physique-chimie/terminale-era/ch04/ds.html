@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS – Ch04 – Vitesse et accélération | ERA-MA Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#2da44e;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.ds-info{display:flex;justify-content:space-between;align-items:center;background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:12px 20px;margin-bottom:28px;flex-wrap:wrap;gap:8px;font-size:.92em}
+.ds-info span{color:#2d3748}
+.ds-info strong{color:var(--p)}
+.bareme-table{width:100%;border-collapse:collapse;margin-bottom:28px;font-size:.88em}
+.bareme-table th{background:var(--p);color:#fff;padding:7px 12px;text-align:center}
+.bareme-table td{border:1px solid #e2e8f0;padding:7px 12px;text-align:center}
+.bareme-table tr:nth-child(even) td{background:#f8fafc}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:22px;margin:28px 0;page-break-inside:avoid}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;border-bottom:2px solid #e2e8f0;padding-bottom:12px}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.95em;padding:5px 14px;border-radius:20px}
+.exo-title{font-weight:700;flex:1;font-size:1.05em}
+.pts{font-size:.85em;color:#718096;font-weight:600}
+.q{margin:12px 0 4px;padding-left:4px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.q-num{font-weight:700;min-width:20px}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap;align-self:center}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.pts-q{font-size:.78em;color:#718096;font-weight:600;margin-left:auto;min-width:40px;text-align:right}
+.rep-zone{border:1px dashed #cbd5e0;border-radius:6px;min-height:50px;margin:6px 0 14px;padding:6px;background:#fafafa;font-size:.85em;color:#a0aec0}
+.intro-box{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:.93em}
+.donnees{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;margin:14px 0;font-size:.9em}
+.donnees strong{color:#92400e}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb{display:none}.rep-zone{background:#fff}}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:6px;margin-bottom:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:4px}
+.bc:hover{opacity:.85}
+</style>
+</head>
+<body><div class="c">
+<a href="pc-term-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Devoir Surveillé — Ch04 — Vitesse et accélération</h1>
+  <p class="sous-titre">ERA-MA — Groupement 3 — Terminale Bac Pro</p>
+</header>
+
+<div class="ds-info">
+  <span><strong>Durée :</strong> 1 heure</span>
+  <span><strong>Barème :</strong> /20 points</span>
+  <span><strong>Documents :</strong> Calculatrice autorisée — aucun document</span>
+  <span><strong>Nom :</strong> ________________________</span>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser/Raisonner</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<table class="bareme-table">
+  <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
+  <tr><td>Exercice 1 — Convoyeur à vitesse variable</td><td>Q1 à Q4</td><td>APP, REA, REA, VAL</td><td>10 pts</td></tr>
+  <tr><td>Exercice 2 — Rotation d'un moteur</td><td>Q1 à Q5</td><td>APP, REA, ANA, REA, COM</td><td>10 pts</td></tr>
+  <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
+</table>
+
+<!-- EXERCICE 1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Convoyeur à vitesse variable</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> L'atelier de montage dispose d'un tapis convoyeur équipé d'un variateur de vitesse électronique. Le technicien ERA-MA doit régler les paramètres de démarrage pour éviter la chute des caisses lors de l'accélération. La vitesse maximale de consigne est \(v_{max} = 1{,}5\,\text{m/s}\) et l'accélération maximale autorisée est \(a_{max} = 0{,}6\,\text{m/s}^2\).
+  </div>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Rappeler les formules de la vitesse moyenne et de l'accélération moyenne :<br>
+    \(v = \dfrac{d}{t}\) et \(a = \dfrac{\Delta v}{\Delta t} = \dfrac{v_f - v_i}{\Delta t}\)<br>
+    Pour chaque formule, identifier les grandeurs et préciser leur unité SI.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(v = \dfrac{d}{t}\) &nbsp; avec \(v\) en m/s, \(d\) en m, \(t\) en s</p>
+    <p>\(a = \dfrac{\Delta v}{\Delta t}\) &nbsp; avec \(a\) en m/s², \(\Delta v\) en m/s, \(\Delta t\) en s</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Lors d'un essai, le tapis convoyeur parcourt une distance de \(d = 12\,\text{m}\) en \(t = 8\,\text{s}\) à vitesse constante. Calculer la vitesse du tapis en m/s. Convertir également cette vitesse en km/h.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:75px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(v = \dfrac{d}{t} = \dfrac{12}{8} = 1{,}5\,\text{m/s}\)</p>
+    <p>Conversion : \(1{,}5 \times 3{,}6 = 5{,}4\,\text{km/h}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-rea">REA</span>
+    Lors du démarrage, le tapis passe de \(v_i = 0\,\text{m/s}\) à \(v_f = 1{,}5\,\text{m/s}\) en \(\Delta t = 3\,\text{s}\). Calculer l'accélération \(a\) du convoyeur lors de cette phase de démarrage. Donner l'unité du résultat.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(a = \dfrac{\Delta v}{\Delta t} = \dfrac{1{,}5 - 0}{3} = 0{,}5\,\text{m/s}^2\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-val">VAL</span>
+    L'accélération maximale autorisée pour éviter la chute des caisses sur le convoyeur est \(a_{max} = 0{,}6\,\text{m/s}^2\). Comparer l'accélération calculée à la question 3 à cette valeur limite. Le réglage est-il conforme ? Si non, quel temps de montée en vitesse minimal faudrait-il imposer ?
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(a\) calculée \(= 0{,}5\,\text{m/s}^2 &lt; a_{max} = 0{,}6\,\text{m/s}^2\)</p>
+    <p>La valeur est inférieure à la limite → le convoyeur est <strong>conforme</strong>. Les caisses ne risquent pas de tomber lors du démarrage.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Rotation d'un moteur</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Le convoyeur est entraîné par un moteur asynchrone triphasé tournant à \(n = 1\,450\,\text{tr/min}\). Une poulie de rayon \(r = 0{,}12\,\text{m}\) est montée sur l'arbre du moteur et entraîne le tapis par l'intermédiaire d'une courroie.
+  </div>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Rappeler la relation entre la vitesse angulaire \(\omega\) (en rad/s) et la vitesse de rotation \(n\) (en tr/min) :
+    \(\omega = \dfrac{2\pi n}{60}\). Identifier chaque grandeur et préciser ses unités.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\omega = \dfrac{2\pi n}{60}\) &nbsp; avec \(\omega\) en rad/s, \(n\) en tr/min</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Calculer la vitesse angulaire \(\omega\) pour un moteur tournant à \(n = 1\,450\,\text{tr/min}\). Donner le résultat en rad/s, arrondi à l'unité.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\omega = \dfrac{2\pi \times 1\,450}{60} = \dfrac{2\pi \times 1\,450}{60} \approx 151{,}8\,\text{rad/s} \approx 152\,\text{rad/s}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-ana">ANA</span>
+    La vitesse linéaire \(v\) en périphérie de la poulie (rayon \(r\)) est liée à la vitesse angulaire par : \(v = \omega \cdot r\). Identifier chaque grandeur, préciser son unité. Expliquer en quoi cette vitesse linéaire correspond à la vitesse du tapis convoyeur.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(v = \omega \times r\) &nbsp; avec \(v\) en m/s, \(\omega\) en rad/s, \(r\) en m (rayon de la roue)</p>
+    <p>La courroie est entraînée par la périphérie de la poulie → la vitesse du tapis est égale à la vitesse linéaire en périphérie de la poulie.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-rea">REA</span>
+    Calculer la vitesse linéaire \(v\) en bout de poulie (\(r = 0{,}12\,\text{m}\)) en utilisant la valeur de \(\omega\) calculée à la question 2. Donner le résultat en m/s.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(v = \omega \times r = 152 \times 0{,}12 \approx 18{,}2\,\text{m/s}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">5.</span>
+    <span class="comp comp-com">COM</span>
+    Expliquer en quelques lignes l'intérêt d'utiliser un variateur de fréquence (onduleur) pour commander ce moteur de convoyeur plutôt qu'un démarrage direct. Citer au moins deux avantages liés à la sécurité et à l'efficacité énergétique.
+    <span class="pts-q">1 pt</span>
+  </p>
+  <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Un variateur de fréquence permet de modifier la fréquence du courant alternatif alimentant le moteur, ce qui change sa vitesse de rotation.</p>
+    <p><strong>Avantages :</strong> démarrage progressif (réduit les à-coups mécaniques et les chutes de caisses), économies d'énergie, adaptation de la vitesse à la production.</p>
+  </div>
+</div>
+
+</div>
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
+<script src="/nav.js"></script>
+</body>
+</html>

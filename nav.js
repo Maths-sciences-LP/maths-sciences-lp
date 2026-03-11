@@ -2,14 +2,16 @@
  * nav.js  —  Navigation automatique pour pages de cours / exercices / DS
  *
  * UTILISATION (ajouter à chaque page HTML) :
- *   1. Dans <head>    : <link rel="stylesheet" href="nav.css">
- *   2. Avant </body>  : <script src="nav.js"></script>
+ *   Avant </body> : <script src="/nav.js"></script>
  *
- * Le script détecte automatiquement la page courante (filename),
+ * Le script détecte automatiquement la page courante via le chemin URL,
  * puis injecte : fil d'Ariane, menu du chapitre, navigation ch. précédent/suivant,
  * bouton retour en haut.
  *
- * Aucune modification de structure de fichiers requise.
+ * Structure attendue :
+ *   /maths/seconde/ch01/lecon.html
+ *   /physique-chimie/terminale-iccer/ch01/exercices.html
+ *   /simulations/equations.html
  */
 (function () {
   'use strict';
@@ -17,12 +19,36 @@
   /* ── Base de données des séries ────────────────────────────────────── */
   var SERIES = {
 
+    /* Mathématiques — 2nde Pro MAMA */
+    'maths/seconde': {
+      summary:      'maths-2nde-mama.html',
+      summaryLabel: '2nde Pro MAMA',
+      subject:      'Mathématiques',
+      types: { lecon: 'Cours', exercices: 'Exercices', ds: 'Devoir surveillé' },
+      chapters: [
+        { id: '01', title: 'Proportionnalité et pourcentages' },
+        { id: '02', title: 'Statistiques à une variable' },
+        { id: '03', title: 'Indicateurs statistiques' },
+        { id: '04', title: 'Fluctuations et probabilités' },
+        { id: '05', title: 'Résolution de problèmes du 1er degré' },
+        { id: '06', title: 'Notion de fonction' },
+        { id: '07', title: 'Fonction affine' },
+        { id: '08', title: 'Fonctions de référence' },
+        { id: '09', title: 'Géométrie dans le triangle' },
+        { id: '10', title: 'Aires et volumes' },
+        { id: '11', title: 'Chapitre 11' },
+        { id: '12', title: 'Chapitre 12' },
+        { id: '13', title: 'Chapitre 13' },
+        { id: '14', title: 'Chapitre 14' }
+      ]
+    },
+
     /* Mathématiques — Terminale Bac Pro (TICCER & TERA-TMA) */
-    't-ch': {
+    'maths/terminale': {
       summary:      'maths-term-iccer.html',
       summaryLabel: 'Terminale Bac Pro',
       subject:      'Mathématiques',
-      types: { lecon: 'Cours', exos: 'Exercices', ds: 'Devoir surveillé' },
+      types: { lecon: 'Cours', exercices: 'Exercices', ds: 'Devoir surveillé' },
       chapters: [
         { id: '01', title: 'Statistiques à deux variables' },
         { id: '02', title: 'Probabilités' },
@@ -38,50 +64,12 @@
       ]
     },
 
-    /* Mathématiques — 2nde Pro MAMA */
-    'ch': {
-      summary:      'maths-2nde-mama.html',
-      summaryLabel: '2nde Pro MAMA',
-      subject:      'Mathématiques',
-      types: { lecon: 'Cours', exos: 'Exercices', ds: 'Devoir surveillé' },
-      chapters: [
-        { id: '01', title: 'Proportionnalité et pourcentages' },
-        { id: '02', title: 'Statistiques à une variable' },
-        { id: '03', title: 'Indicateurs statistiques' },
-        { id: '04', title: 'Fluctuations et probabilités' },
-        { id: '05', title: 'Résolution de problèmes du 1er degré' },
-        { id: '06', title: 'Notion de fonction' },
-        { id: '07', title: 'Fonction affine' },
-        { id: '08', title: 'Fonctions de référence' },
-        { id: '09', title: 'Géométrie dans le triangle' },
-        { id: '10', title: 'Aires et volumes' }
-      ]
-    },
-
-    /* Physique-Chimie — Terminale ICCER */
-    'pc-t-ch': {
-      summary:      'pc-term-iccer.html',
-      summaryLabel: 'Terminale ICCER',
-      subject:      'Physique-Chimie',
-      types: { lecon: 'Cours', exos: 'Exercices', ds: 'Devoir surveillé' },
-      chapters: [
-        { id: '01', title: 'Évaluer la puissance consommée' },
-        { id: '02', title: 'Courant alternatif et courant continu' },
-        { id: '03', title: 'Énergie mécanique et moteur électrique' },
-        { id: '07', title: 'Rayonnement thermique et effet de serre' },
-        { id: '08', title: 'Pression dans un fluide immobile' },
-        { id: '09', title: 'Transport de masse par un fluide en mouvement' },
-        { id: '10', title: "Réaction d'oxydoréduction et protection des métaux" },
-        { id: '11', title: "Propagation d'un signal sonore" }
-      ]
-    },
-
     /* Physique-Chimie — 2nde Pro MAMA */
-    'pc2-ch': {
+    'physique-chimie/seconde': {
       summary:      'pc-2nde-pro.html',
       summaryLabel: '2nde Pro MAMA',
       subject:      'Physique-Chimie',
-      types: { lecon: 'Cours', exos: 'Exercices', ds: 'Devoir surveillé' },
+      types: { lecon: 'Cours', exercices: 'Exercices', ds: 'Devoir surveillé' },
       chapters: [
         { id: '01', title: 'Sécurité en laboratoire et en atelier' },
         { id: '02', title: 'Grandeurs électriques et circuits' },
@@ -100,36 +88,42 @@
       ]
     },
 
+    /* Physique-Chimie — Terminale ICCER */
+    'physique-chimie/terminale-iccer': {
+      summary:      'pc-term-iccer.html',
+      summaryLabel: 'Terminale ICCER',
+      subject:      'Physique-Chimie',
+      types: { lecon: 'Cours', exercices: 'Exercices', ds: 'Devoir surveillé' },
+      chapters: [
+        { id: '01', title: 'Évaluer la puissance consommée' },
+        { id: '02', title: 'Courant alternatif et courant continu' },
+        { id: '03', title: 'Énergie mécanique et moteur électrique' },
+        { id: '07', title: 'Rayonnement thermique et effet de serre' },
+        { id: '08', title: 'Pression dans un fluide immobile' },
+        { id: '09', title: 'Transport de masse par un fluide en mouvement' },
+        { id: '10', title: 'Réaction d\'oxydoréduction et protection des métaux' },
+        { id: '11', title: 'Propagation d\'un signal sonore' }
+      ]
+    },
+
     /* Physique-Chimie — Terminale ERA-MA */
-    'pc-era-ch': {
+    'physique-chimie/terminale-era': {
       summary:      'pc-term-erama.html',
       summaryLabel: 'Terminale ERA-MA',
       subject:      'Physique-Chimie',
-      types: { lecon: 'Cours' },
+      types: { lecon: 'Cours', exercices: 'Exercices', ds: 'Devoir surveillé' },
       chapters: [
-        { id: '01', title: "Transporter l'énergie sous forme électrique" },
-        { id: '02', title: "Stocker l'énergie — système électrochimique" },
+        { id: '01', title: 'Transporter l\'énergie sous forme électrique' },
+        { id: '02', title: 'Stocker l\'énergie — système électrochimique' },
         { id: '03', title: 'Rayonnement thermique et effet de serre' },
-        { id: '04', title: "Accélération et vitesse d'un objet" },
+        { id: '04', title: 'Accélération et vitesse d\'un objet' },
         { id: '05', title: 'Oxydoréduction et protection des métaux' },
         { id: '06', title: 'Choisir une source lumineuse' },
-        { id: '07', title: "Transmettre l'information" },
+        { id: '07', title: 'Transmettre l\'information' },
         { id: '08', title: 'Atténuer une onde sonore par transmission' }
       ]
     }
   };
-
-  /* ── Fonction utilitaire : chargement de nav.css ───────────────────── */
-  function injectCss() {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var j = 0; j < links.length; j++) {
-      if (links[j].href && links[j].href.indexOf('nav.css') !== -1) return;
-    }
-    var cssLink = document.createElement('link');
-    cssLink.rel  = 'stylesheet';
-    cssLink.href = 'nav.css';
-    document.head.appendChild(cssLink);
-  }
 
   /* ── Pages sommaires (affichage simple ← Accueil) ──────────────────── */
   var SUMMARY_PAGES = {
@@ -142,44 +136,70 @@
     'simulations.html':      { label: 'Simulations interactives' }
   };
 
-  /* ── Détection du fichier courant ──────────────────────────────────── */
-  var filename = (window.location.pathname.split('/').pop() || '').replace(/\?.*$/, '');
-  if (!filename) return;
+  /* ── Détection du chemin courant ───────────────────────────────────── */
+  var pathname = window.location.pathname;
+  var parts    = pathname.split('/').filter(function (p) { return p !== ''; });
 
-  /* Cas 1 : page sommaire → fil d'Ariane minimal */
+  if (!parts.length) return;
+
+  /* Calcul du préfixe racine (ex : '../../../' depuis un chapitre depth 4) */
+  var rootPrefix = parts.length > 1 ? '../'.repeat(parts.length - 1) : '';
+
+  /* ── Helpers ───────────────────────────────────────────────────────── */
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function injectCss() {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var j = 0; j < links.length; j++) {
+      if (links[j].href && links[j].href.indexOf('nav.css') !== -1) return;
+    }
+    var cssLink  = document.createElement('link');
+    cssLink.rel  = 'stylesheet';
+    cssLink.href = rootPrefix + 'nav.css';
+    document.head.appendChild(cssLink);
+  }
+
+  /* ── Cas 1 : page sommaire (à la racine) ───────────────────────────── */
+  var filename = parts[parts.length - 1];
   if (SUMMARY_PAGES[filename]) {
-    var info = SUMMARY_PAGES[filename];
-    var sumBC = document.createElement('nav');
+    var info   = SUMMARY_PAGES[filename];
+    var sumBC  = document.createElement('nav');
     sumBC.className = 'sn-breadcrumb';
     sumBC.setAttribute('aria-label', "Fil d'Ariane");
     sumBC.innerHTML =
-      '<a href="index.html">Accueil</a>' +
+      '<a href="' + rootPrefix + 'index.html">Accueil</a>' +
       '<span class="sn-sep">›</span>' +
       '<span class="sn-bc-current">' + esc(info.label) + '</span>';
 
-    /* Injecter au début du conteneur */
     var wrap = document.querySelector('.container') ||
                document.querySelector('.c') ||
                document.body;
     wrap.insertBefore(sumBC, wrap.firstChild);
-
-    /* Charger nav.css si absent */
     injectCss();
     return;
   }
 
-  /* Cas 2 : page chapitre */
-  /* Regex : (prefix)(numéro)_(type).html
-     Exemples : t-ch05_lecon.html  |  pc-era-ch03_lecon.html  |  ch01_exos.html */
-  var m = filename.match(/^(pc-era-ch|pc-t-ch|pc2-ch|t-ch|ch)(\d+)_(lecon|exos|ds)\.html$/);
-  if (!m) return;
+  /* ── Cas 2 : page chapitre ─────────────────────────────────────────── */
+  /* Attendu : parts = ['matiere', 'niveau', 'chXX', 'type.html'] */
+  if (parts.length < 4) return;
 
-  var prefix   = m[1];
-  var chId     = m[2];
-  var pageType = m[3];
-  var serie    = SERIES[prefix];
+  var pageFile = parts[parts.length - 1];            /* lecon.html       */
+  var chFolder = parts[parts.length - 2];            /* ch01             */
+  var pageType = pageFile.replace('.html', '');       /* lecon            */
+  var chId     = chFolder.replace('ch', '');          /* 01               */
+  var serieKey = parts.slice(0, parts.length - 2).join('/'); /* maths/seconde */
+
+  var serie = SERIES[serieKey];
   if (!serie) return;
 
+  /* Vérifier que le type est valide */
+  if (!serie.types[pageType]) return;
+
+  /* Trouver le chapitre dans la liste */
   var chIndex = -1;
   for (var i = 0; i < serie.chapters.length; i++) {
     if (serie.chapters[i].id === chId) { chIndex = i; break; }
@@ -188,20 +208,17 @@
 
   var chapter = serie.chapters[chIndex];
 
-  /* ── Helpers ───────────────────────────────────────────────────────── */
   function typeLabel(t) { return serie.types[t] || t; }
-
-  function esc(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
 
   /* ── Fil d'Ariane ──────────────────────────────────────────────────── */
   function buildBreadcrumb() {
     return [
       '<nav class="sn-breadcrumb" aria-label="Fil d\'Ariane">',
-        '<a href="index.html">Accueil</a>',
+        '<a href="' + rootPrefix + 'index.html">Accueil</a>',
         '<span class="sn-sep">›</span>',
-        '<a href="' + serie.summary + '">' + esc(serie.subject) + ' — ' + esc(serie.summaryLabel) + '</a>',
+        '<a href="' + rootPrefix + serie.summary + '">' +
+          esc(serie.subject) + ' — ' + esc(serie.summaryLabel) +
+        '</a>',
         '<span class="sn-sep">›</span>',
         '<span>Ch' + chId + ' — ' + esc(chapter.title) + '</span>',
         '<span class="sn-sep">›</span>',
@@ -214,8 +231,8 @@
   function buildChMenu() {
     var tabs = Object.keys(serie.types).map(function (t) {
       var active = (t === pageType) ? ' sn-tab-active' : '';
-      var url    = prefix + chId + '_' + t + '.html';
-      return '<a href="' + url + '" class="sn-tab' + active + '">' + esc(typeLabel(t)) + '</a>';
+      return '<a href="' + t + '.html" class="sn-tab' + active + '">' +
+             esc(typeLabel(t)) + '</a>';
     }).join('');
     return '<div class="sn-ch-menu">' + tabs + '</div>';
   }
@@ -226,15 +243,16 @@
     var next = chIndex < serie.chapters.length - 1 ? serie.chapters[chIndex + 1] : null;
 
     var prevBtn = prev
-      ? '<a href="' + prefix + prev.id + '_' + pageType + '.html" class="sn-btn sn-btn-prev" title="' + esc(prev.title) + '">' +
+      ? '<a href="../ch' + prev.id + '/' + pageType + '.html" class="sn-btn sn-btn-prev" title="' + esc(prev.title) + '">' +
           '&#8592; Ch' + prev.id + ' — ' + esc(prev.title) +
         '</a>'
       : '<span class="sn-btn-disabled">&#8592; Premier chapitre</span>';
 
-    var summaryBtn = '<a href="' + serie.summary + '" class="sn-btn sn-btn-summary">&#9783; Sommaire</a>';
+    var summaryBtn = '<a href="' + rootPrefix + serie.summary +
+                    '" class="sn-btn sn-btn-summary">&#9783; Sommaire</a>';
 
     var nextBtn = next
-      ? '<a href="' + prefix + next.id + '_' + pageType + '.html" class="sn-btn sn-btn-next" title="' + esc(next.title) + '">' +
+      ? '<a href="../ch' + next.id + '/' + pageType + '.html" class="sn-btn sn-btn-next" title="' + esc(next.title) + '">' +
           'Ch' + next.id + ' — ' + esc(next.title) + ' &#8594;' +
         '</a>'
       : '<span class="sn-btn-disabled">Dernier chapitre &#8594;</span>';
@@ -244,7 +262,8 @@
 
   /* ── Bouton retour en haut ─────────────────────────────────────────── */
   function buildBackTop() {
-    return '<a href="#" id="sn-back-top" class="sn-back-top" title="Retour en haut de la page" aria-label="Retour en haut">&#8679;</a>';
+    return '<a href="#" id="sn-back-top" class="sn-back-top" ' +
+           'title="Retour en haut de la page" aria-label="Retour en haut">&#8679;</a>';
   }
 
   /* ── Injection dans la page ────────────────────────────────────────── */
@@ -287,7 +306,6 @@
   footerBlock.className = 'sn-footer-block';
   footerBlock.innerHTML = buildChNav() +
     '<p style="text-align:center;margin-top:14px">' + buildBackTop() + '</p>';
-  /* On insère avant le dernier enfant si c'est </div> ou à la fin */
   container.appendChild(footerBlock);
 
   /* ── Comportement du bouton retour en haut ─────────────────────────── */

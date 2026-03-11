@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch13 – Exercices – Réflexion et réfraction – 2nde Bac Pro</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nb:hover{text-decoration:underline}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;flex:1}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{background:#5a32a3}
+.intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.methode strong{color:#d97706}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.attention strong{color:#be123c}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.retenir strong{color:#0369a1}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.svg-wrap{text-align:center;margin:20px 0}
+.svg-wrap figcaption{font-size:.85em;color:#718096;margin-top:6px;font-style:italic}
+.chart-wrap{max-width:600px;margin:24px auto}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+
+<header>
+  <h1>Chapitre 13 &ndash; Exercices</h1>
+  <p class="sous-titre">R&eacute;flexion et r&eacute;fraction de la lumi&egrave;re &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<!-- ============================================================ INTRO -->
+<div class="intro-box">
+  <strong>Objectifs :</strong> Appliquer les lois de Snell-Descartes, distinguer r&eacute;flexion et r&eacute;fraction, calculer des angles r&eacute;fract&eacute;s, d&eacute;terminer l&rsquo;angle critique de r&eacute;flexion totale interne, et relier ces ph&eacute;nom&egrave;nes &agrave; des situations concr&egrave;tes de la menuiserie (miroir de contr&ocirc;le, fibre optique CNC, capteur laser).
+  <br><br>
+  <strong>Rappel des lois de Snell-Descartes :</strong>
+  <ul style="margin:6px 0 0 18px">
+    <li><em>R&eacute;flexion :</em> \(\theta_r = \theta_i\) (l&rsquo;angle r&eacute;fl&eacute;chi est &eacute;gal &agrave; l&rsquo;angle incident, tous deux mesur&eacute;s par rapport &agrave; la normale).</li>
+    <li><em>R&eacute;fraction :</em> \(n_1 \sin\theta_1 = n_2 \sin\theta_2\) o&ugrave; \(n\) est l&rsquo;indice de r&eacute;fraction du milieu.</li>
+    <li><em>Angle critique (r&eacute;flexion totale interne) :</em> \(\sin\theta_c = \dfrac{n_2}{n_1}\) avec \(n_1 > n_2\).</li>
+  </ul>
+  <br>
+  <strong>Progression :</strong> Base &rarr; Guid&eacute; &rarr; Application &rarr; Contextualisation en atelier.
+</div>
+
+<!-- ============================================================ ENCADRÉS -->
+<div class="methode">
+  <strong>Méthode &mdash; Appliquer Snell-Descartes en 4 étapes</strong>
+  <ol style="margin:8px 0 0 18px">
+    <li>Identifier les deux milieux (milieu 1 et milieu 2) et leurs indices \(n_1\) et \(n_2\).</li>
+    <li>Rep&eacute;rer l&rsquo;interface et tracer la normale &agrave; l&rsquo;interface au point d&rsquo;incidence.</li>
+    <li>Mesurer (ou lire) l&rsquo;angle incident \(\theta_1\) entre le rayon incident et la normale.</li>
+    <li>Appliquer \(n_1 \sin\theta_1 = n_2 \sin\theta_2\) pour trouver \(\theta_2 = \arcsin\!\left(\dfrac{n_1 \sin\theta_1}{n_2}\right)\).</li>
+  </ol>
+</div>
+
+<div class="attention">
+  <strong>Attention !</strong> Les angles de Snell-Descartes se mesurent toujours par rapport &agrave; la <strong>normale</strong> &agrave; l&rsquo;interface, et <strong>non</strong> par rapport &agrave; la surface elle-m&ecirc;me. Une erreur classique est de prendre l&rsquo;angle compl&eacute;mentaire.
+</div>
+
+<div class="retenir">
+  <strong>&Agrave; retenir &mdash; Formules essentielles</strong>
+  <ul style="margin:6px 0 0 18px">
+    <li>Indice de r&eacute;fraction : \(n = \dfrac{c}{v}\) &nbsp;(&nbsp;\(c = 3 \times 10^8\) m/s dans le vide&nbsp;)</li>
+    <li>Loi de la r&eacute;fraction : \(n_1 \sin\theta_1 = n_2 \sin\theta_2\)</li>
+    <li>Angle critique : \(\sin\theta_c = \dfrac{n_2}{n_1}\) &nbsp;(avec \(n_1 > n_2\))</li>
+    <li>Si \(\theta_i > \theta_c\) : r&eacute;flexion totale interne (aucun rayon r&eacute;fract&eacute;)</li>
+  </ul>
+</div>
+
+<!-- ============================================================ SECTION 1 -->
+<h2>Exercices de base</h2>
+
+<!-- EXO 1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Loi de la r&eacute;flexion sur un miroir plan</span>
+    <span class="diff diff-1">&#9733; Facile</span>
+  </div>
+
+  <p>Le sch&eacute;ma ci-dessous repr&eacute;sente un rayon lumineux frappant un miroir plan.</p>
+
+  <!-- SVG miroir simple -->
+  <div class="svg-wrap">
+    <figure>
+      <svg width="420" height="260" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" aria-label="Schéma réflexion miroir plan">
+        <!-- Miroir -->
+        <rect x="40" y="200" width="340" height="8" rx="2" fill="#94a3b8"/>
+        <text x="210" y="225" text-anchor="middle" font-size="13" fill="#64748b">Miroir plan</text>
+        <!-- Hachures miroir -->
+        <line x1="50"  y1="208" x2="40"  y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="80"  y1="208" x2="70"  y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="110" y1="208" x2="100" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="140" y1="208" x2="130" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="170" y1="208" x2="160" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="200" y1="208" x2="190" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="230" y1="208" x2="220" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="260" y1="208" x2="250" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="290" y1="208" x2="280" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="320" y1="208" x2="310" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="350" y1="208" x2="340" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="380" y1="208" x2="370" y2="222" stroke="#94a3b8" stroke-width="1.5"/>
+        <!-- Normale (pointillés) -->
+        <line x1="210" y1="20" x2="210" y2="200" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6,4"/>
+        <text x="215" y="30" font-size="12" fill="#64748b">Normale</text>
+        <!-- Rayon incident -->
+        <line x1="80" y1="60" x2="210" y2="200" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arr-inc)"/>
+        <text x="100" y="110" font-size="13" fill="#6f42c1" transform="rotate(-48,100,110)">Rayon incident</text>
+        <!-- Rayon réfléchi -->
+        <line x1="210" y1="200" x2="340" y2="60" stroke="#2f855a" stroke-width="2.5" marker-end="url(#arr-ref)"/>
+        <text x="275" y="110" font-size="13" fill="#2f855a" transform="rotate(48,275,110)">Rayon réfléchi</text>
+        <!-- Arcs d'angles -->
+        <path d="M 210 170 A 30 30 0 0 0 184 156" stroke="#6f42c1" stroke-width="1.5" fill="none"/>
+        <text x="176" y="168" font-size="13" fill="#6f42c1">\(\theta_i\)</text>
+        <path d="M 210 170 A 30 30 0 0 1 236 156" stroke="#2f855a" stroke-width="1.5" fill="none"/>
+        <text x="238" y="168" font-size="13" fill="#2f855a">\(\theta_r\)</text>
+        <!-- Flèches defs -->
+        <defs>
+          <marker id="arr-inc" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#6f42c1"/>
+          </marker>
+          <marker id="arr-ref" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#2f855a"/>
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>R&eacute;flexion d&rsquo;un rayon lumineux sur un miroir plan &mdash; angle incident \(\theta_i\) et angle r&eacute;fl&eacute;chi \(\theta_r\)</figcaption>
+    </figure>
+  </div>
+
+  <div class="q"><strong>1.</strong> En observant le sch&eacute;ma, que peut-on dire de la relation entre \(\theta_i\) et \(\theta_r\) ?</div>
+  <div class="q"><strong>2.</strong> Un rayon arrive sur un miroir avec un angle incident de 35&deg; par rapport &agrave; la normale. Quel est l&rsquo;angle r&eacute;fl&eacute;chi ?</div>
+  <div class="q"><strong>3.</strong> Un autre rayon fait un angle de 60&deg; avec la <em>surface</em> du miroir. Calculer l&rsquo;angle r&eacute;fl&eacute;chi par rapport &agrave; la normale.</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> D&rsquo;apr&egrave;s la loi de la r&eacute;flexion : \(\theta_r = \theta_i\). L&rsquo;angle r&eacute;fl&eacute;chi est &eacute;gal &agrave; l&rsquo;angle incident (tous deux mesur&eacute;s par rapport &agrave; la normale).</p>
+    <p><strong>2.</strong> \(\theta_r = \theta_i = 35°\)</p>
+    <p><strong>3.</strong> L&rsquo;angle par rapport &agrave; la <em>surface</em> est 60&deg;, donc l&rsquo;angle par rapport &agrave; la <em>normale</em> est \(90° - 60° = 30°\). Ainsi \(\theta_i = 30°\) et \(\theta_r = 30°\).</p>
+  </div>
+</div>
+
+<!-- EXO 2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Vocabulaire optique &mdash; Interface air / verre</span>
+    <span class="diff diff-1">&#9733; Facile</span>
+  </div>
+
+  <p>On consid&egrave;re un rayon lumineux passant de l&rsquo;air dans une plaque de verre.</p>
+  <div class="q"><strong>1.</strong> D&eacute;finir les termes suivants : <em>rayon incident</em>, <em>rayon r&eacute;fract&eacute;</em>, <em>normale &agrave; l&rsquo;interface</em>, <em>interface</em>.</div>
+  <div class="q"><strong>2.</strong> Dans quel milieu se trouve le rayon incident ? Le rayon r&eacute;fract&eacute; ?</div>
+  <div class="q"><strong>3.</strong> Lorsqu&rsquo;un rayon passe de l&rsquo;air (\(n_{air}=1\)) vers le verre (\(n_{verre}=1{,}5\)), le rayon r&eacute;fract&eacute; se rapproche-t-il ou s&rsquo;&eacute;loigne-t-il de la normale ? Justifier.</div>
+  <div class="q"><strong>4.</strong> M&ecirc;me question pour un rayon passant du verre vers l&rsquo;air.</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <ul style="margin:4px 0 4px 18px">
+      <li><strong>Rayon incident :</strong> rayon lumineux arrivant sur l&rsquo;interface avant d&rsquo;&ecirc;tre d&eacute;vi&eacute;.</li>
+      <li><strong>Rayon r&eacute;fract&eacute; :</strong> rayon qui p&eacute;n&egrave;tre dans le second milieu apr&egrave;s avoir travers&eacute; l&rsquo;interface.</li>
+      <li><strong>Normale &agrave; l&rsquo;interface :</strong> droite perpendiculaire &agrave; la surface de s&eacute;paration au point d&rsquo;incidence.</li>
+      <li><strong>Interface :</strong> surface de s&eacute;paration entre deux milieux transparents de nature diff&eacute;rente.</li>
+    </ul>
+    <p><strong>2.</strong> Le rayon incident est dans l&rsquo;air (milieu 1) ; le rayon r&eacute;fract&eacute; est dans le verre (milieu 2).</p>
+    <p><strong>3.</strong> Air &rarr; verre : \(n_2 > n_1\), donc \(\sin\theta_2 < \sin\theta_1\), soit \(\theta_2 < \theta_1\). Le rayon <strong>se rapproche</strong> de la normale en p&eacute;n&eacute;trant dans le verre (milieu plus r&eacute;fractant).</p>
+    <p><strong>4.</strong> Verre &rarr; air : \(n_2 < n_1\), donc \(\theta_2 > \theta_1\). Le rayon <strong>s&rsquo;&eacute;loigne</strong> de la normale en sortant dans l&rsquo;air (milieu moins r&eacute;fractant).</p>
+  </div>
+</div>
+
+<!-- EXO 3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Tableau des indices de r&eacute;fraction</span>
+    <span class="diff diff-1">&#9733; Facile</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Milieu</th><th>Indice de r&eacute;fraction \(n\)</th><th>Vitesse de la lumi&egrave;re \(v\) (m/s)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Vide</td><td>1,000</td><td>\(3{,}00 \times 10^8\)</td></tr>
+      <tr><td>Air</td><td>1,000 (approx.)</td><td>\(\approx 3{,}00 \times 10^8\)</td></tr>
+      <tr><td>Eau</td><td>1,33</td><td>&hellip;</td></tr>
+      <tr><td>Verre ordinaire</td><td>1,50</td><td>&hellip;</td></tr>
+      <tr><td>Verre crown</td><td>1,52</td><td>&hellip;</td></tr>
+      <tr><td>Diamant</td><td>2,42</td><td>&hellip;</td></tr>
+    </tbody>
+  </table>
+
+  <div class="q"><strong>1.</strong> Compl&eacute;ter le tableau en calculant la vitesse de la lumi&egrave;re dans chaque milieu &agrave; l&rsquo;aide de la relation \(v = c/n\) avec \(c = 3{,}00 \times 10^8\) m/s.</div>
+  <div class="q"><strong>2.</strong> Quel milieu ralentit le plus la lumi&egrave;re ? Quel milieu la ralentit le moins (hors vide) ?</div>
+  <div class="q"><strong>3.</strong> Le diamant a un indice &eacute;lev&eacute; : quelle cons&eacute;quence cela a-t-il sur la r&eacute;fraction de la lumi&egrave;re le traversant ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> On applique \(v = c/n\) :</p>
+    <ul style="margin:4px 0 4px 18px">
+      <li>Eau : \(v = 3{,}00 \times 10^8 / 1{,}33 \approx 2{,}26 \times 10^8\) m/s</li>
+      <li>Verre ordinaire : \(v = 3{,}00 \times 10^8 / 1{,}50 = 2{,}00 \times 10^8\) m/s</li>
+      <li>Verre crown : \(v = 3{,}00 \times 10^8 / 1{,}52 \approx 1{,}97 \times 10^8\) m/s</li>
+      <li>Diamant : \(v = 3{,}00 \times 10^8 / 2{,}42 \approx 1{,}24 \times 10^8\) m/s</li>
+    </ul>
+    <p><strong>2.</strong> Le <strong>diamant</strong> ralentit le plus la lumi&egrave;re (\(v \approx 1{,}24 \times 10^8\) m/s). L&rsquo;<strong>air</strong> la ralentit le moins (quasi identique au vide).</p>
+    <p><strong>3.</strong> Un indice &eacute;lev&eacute; signifie une d&eacute;viation plus importante vers la normale lors de l&rsquo;entr&eacute;e dans le diamant, et donc un angle critique tr&egrave;s petit (\(\theta_c = \arcsin(1/2{,}42) \approx 24{,}4°\)), ce qui explique les nombreux reflets internes et l&rsquo;&eacute;clat du diamant.</p>
+  </div>
+</div>
+
+<!-- ============================================================ SECTION 2 -->
+<h2>Exercices guid&eacute;s</h2>
+
+<!-- SVG réfraction -->
+<div class="svg-wrap">
+  <figure>
+    <svg width="460" height="320" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg" aria-label="Schéma réfraction air vers verre">
+      <!-- Interface -->
+      <rect x="0" y="160" width="460" height="160" rx="0" fill="#dbeafe" opacity="0.5"/>
+      <text x="380" y="195" font-size="13" fill="#1d4ed8">Verre</text>
+      <text x="380" y="140" font-size="13" fill="#4b5563">Air</text>
+      <line x1="0" y1="160" x2="460" y2="160" stroke="#64748b" stroke-width="2"/>
+      <text x="200" y="156" font-size="11" fill="#64748b">Interface air / verre</text>
+      <!-- Normale -->
+      <line x1="230" y1="20" x2="230" y2="310" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="7,5"/>
+      <text x="235" y="32" font-size="12" fill="#64748b">Normale</text>
+      <!-- Rayon incident (air) -->
+      <line x1="70" y1="30" x2="230" y2="160" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arr-i2)"/>
+      <text x="100" y="75" font-size="13" fill="#7c3aed">Rayon incident</text>
+      <!-- Rayon réfracté (verre) -->
+      <line x1="230" y1="160" x2="310" y2="300" stroke="#0369a1" stroke-width="2.5" marker-end="url(#arr-r2)"/>
+      <text x="305" y="255" font-size="13" fill="#0369a1">Rayon réfracté</text>
+      <!-- Rayon réfléchi (faible, pointillé) -->
+      <line x1="230" y1="160" x2="390" y2="30" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+      <text x="330" y="75" font-size="11" fill="#7c3aed" opacity="0.7">Réfléchi (faible)</text>
+      <!-- Arc angle incident θ1 -->
+      <path d="M 230 130 A 30 30 0 0 0 206 118" stroke="#7c3aed" stroke-width="1.5" fill="none"/>
+      <text x="185" y="138" font-size="14" fill="#7c3aed">\(\theta_1\)</text>
+      <!-- Arc angle réfracté θ2 -->
+      <path d="M 230 192 A 32 32 0 0 1 250 205" stroke="#0369a1" stroke-width="1.5" fill="none"/>
+      <text x="253" y="200" font-size="14" fill="#0369a1">\(\theta_2\)</text>
+      <!-- Labels milieux -->
+      <text x="14" y="100" font-size="12" fill="#4b5563">n\(_1\) = 1 (air)</text>
+      <text x="14" y="220" font-size="12" fill="#1d4ed8">n\(_2\) = 1,5 (verre)</text>
+      <defs>
+        <marker id="arr-i2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#7c3aed"/>
+        </marker>
+        <marker id="arr-r2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#0369a1"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>R&eacute;fraction d&rsquo;un rayon de l&rsquo;air (\(n_1=1\)) vers le verre (\(n_2=1{,}5\)) : \(\theta_2 < \theta_1\), le rayon se rapproche de la normale.</figcaption>
+  </figure>
+</div>
+
+<!-- EXO 4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Calcul de l&rsquo;angle r&eacute;fract&eacute; &mdash; Air vers verre</span>
+    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+  </div>
+
+  <p>Un rayon lumineux passe de l&rsquo;air (\(n_1 = 1{,}00\)) dans du verre (\(n_2 = 1{,}50\)). L&rsquo;angle d&rsquo;incidence est \(\theta_1 = 30°\).</p>
+
+  <div class="q"><strong>1.</strong> &Eacute;crire la loi de Snell-Descartes pour ce passage.</div>
+  <div class="q"><strong>2.</strong> Isoler \(\sin\theta_2\) puis calculer \(\theta_2\).</div>
+  <div class="q"><strong>3.</strong> Le rayon r&eacute;fract&eacute; se rapproche-t-il ou s&rsquo;&eacute;loigne-t-il de la normale ? &Eacute;tait-ce pr&eacute;visible ?</div>
+  <div class="q"><strong>4.</strong> M&ecirc;me calcul pour \(\theta_1 = 45°\).</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(n_1 \sin\theta_1 = n_2 \sin\theta_2\) soit \(1{,}00 \times \sin 30° = 1{,}50 \times \sin\theta_2\).</p>
+    <p><strong>2.</strong>
+      \(\sin\theta_2 = \dfrac{n_1 \sin\theta_1}{n_2} = \dfrac{1{,}00 \times \sin 30°}{1{,}50} = \dfrac{0{,}500}{1{,}50} = 0{,}333\)
+      <br>
+      \(\theta_2 = \arcsin(0{,}333) \approx 19{,}5°\)
+    </p>
+    <p><strong>3.</strong> \(\theta_2 = 19{,}5° < \theta_1 = 30°\) : le rayon <strong>se rapproche</strong> de la normale. C&rsquo;&eacute;tait pr&eacute;visible car le rayon p&eacute;n&egrave;tre dans un milieu plus dense (\(n_2 > n_1\)).</p>
+    <p><strong>4.</strong> Pour \(\theta_1 = 45°\) :
+      <br>\(\sin\theta_2 = \dfrac{1{,}00 \times \sin 45°}{1{,}50} = \dfrac{0{,}707}{1{,}50} = 0{,}471\)
+      <br>\(\theta_2 = \arcsin(0{,}471) \approx 28{,}1°\)
+    </p>
+  </div>
+</div>
+
+<!-- EXO 5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Calcul de l&rsquo;angle r&eacute;fract&eacute; &mdash; Verre vers air</span>
+    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+  </div>
+
+  <p>Un rayon lumineux passe du verre (\(n_1 = 1{,}50\)) vers l&rsquo;air (\(n_2 = 1{,}00\)). L&rsquo;angle d&rsquo;incidence est \(\theta_1 = 20°\).</p>
+
+  <div class="q"><strong>1.</strong> Appliquer Snell-Descartes et calculer \(\theta_2\).</div>
+  <div class="q"><strong>2.</strong> Comparer \(\theta_2\) et \(\theta_1\). Que se passe-t-il physiquement ?</div>
+  <div class="q"><strong>3.</strong> On augmente progressivement \(\theta_1\). &Agrave; quelle valeur de \(\theta_1\) le rayon r&eacute;fract&eacute; rasera-t-il l&rsquo;interface (\(\theta_2 = 90°\)) ?</div>
+  <div class="q"><strong>4.</strong> Que se passe-t-il si \(\theta_1\) d&eacute;passe cette valeur ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(n_1 \sin\theta_1 = n_2 \sin\theta_2\) :
+      <br>\(\sin\theta_2 = \dfrac{1{,}50 \times \sin 20°}{1{,}00} = 1{,}50 \times 0{,}342 = 0{,}513\)
+      <br>\(\theta_2 = \arcsin(0{,}513) \approx 30{,}9°\)
+    </p>
+    <p><strong>2.</strong> \(\theta_2 \approx 30{,}9° > \theta_1 = 20°\) : le rayon <strong>s&rsquo;&eacute;loigne</strong> de la normale. Normal : on passe d&rsquo;un milieu dense &agrave; un milieu moins dense.</p>
+    <p><strong>3.</strong> L&rsquo;angle limite (critique) v&eacute;rifie \(\theta_2 = 90°\) :
+      <br>\(n_1 \sin\theta_c = n_2 \times 1\)
+      <br>\(\sin\theta_c = \dfrac{n_2}{n_1} = \dfrac{1{,}00}{1{,}50} = 0{,}667\)
+      <br>\(\theta_c = \arcsin(0{,}667) \approx 41{,}8°\)
+    </p>
+    <p><strong>4.</strong> Si \(\theta_1 > \theta_c \approx 41{,}8°\) : <strong>r&eacute;flexion totale interne</strong> — aucun rayon ne sort dans l&rsquo;air, toute la lumi&egrave;re est r&eacute;fl&eacute;chie &agrave; l&rsquo;int&eacute;rieur du verre.</p>
+  </div>
+</div>
+
+<!-- ============================================================ SECTION 3 -->
+<h2>Exercices d&rsquo;application</h2>
+
+<!-- EXO 6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Angle critique &mdash; Verre ordinaire / Air</span>
+    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+  </div>
+
+  <p>On &eacute;tudie l&rsquo;interface entre du verre ordinaire (\(n_1 = 1{,}50\)) et l&rsquo;air (\(n_2 = 1{,}00\)).</p>
+
+  <div class="q"><strong>1.</strong> Rappeler la condition pour observer une r&eacute;flexion totale interne.</div>
+  <div class="q"><strong>2.</strong> Calculer l&rsquo;angle critique \(\theta_c\) pour cette interface.</div>
+  <div class="q"><strong>3.</strong> Un rayon interne fait un angle de 35° avec la normale. Sera-t-il r&eacute;fract&eacute; ou totalement r&eacute;fl&eacute;chi ?</div>
+  <div class="q"><strong>4.</strong> M&ecirc;me question pour un angle de 50°.</div>
+  <div class="q"><strong>5.</strong> Calculer l&rsquo;angle critique pour l&rsquo;interface eau/air (\(n_{eau} = 1{,}33\)). Comparer avec le verre.</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> La r&eacute;flexion totale interne n&rsquo;existe que si le rayon va d&rsquo;un milieu <strong>plus dense vers un milieu moins dense</strong> (\(n_1 > n_2\)) et si l&rsquo;angle d&rsquo;incidence est <strong>sup&eacute;rieur &agrave; l&rsquo;angle critique</strong> \(\theta_c\).</p>
+    <p><strong>2.</strong>
+      \(\sin\theta_c = \dfrac{n_2}{n_1} = \dfrac{1{,}00}{1{,}50} = 0{,}6\overline{6}\)
+      <br>\(\theta_c = \arcsin(0{,}667) \approx \mathbf{41{,}8°}\)
+    </p>
+    <p><strong>3.</strong> 35° &lt; 41,8° : le rayon sera <strong>r&eacute;fract&eacute;</strong> (il sort dans l&rsquo;air).</p>
+    <p><strong>4.</strong> 50° &gt; 41,8° : le rayon subit une <strong>r&eacute;flexion totale interne</strong> (il reste dans le verre).</p>
+    <p><strong>5.</strong>
+      \(\sin\theta_c = \dfrac{1{,}00}{1{,}33} = 0{,}752\)
+      <br>\(\theta_c = \arcsin(0{,}752) \approx \mathbf{48{,}8°}\)
+      <br>L&rsquo;angle critique de l&rsquo;eau est plus grand que celui du verre (48,8° vs 41,8°) : la r&eacute;flexion totale interne est plus difficile &agrave; atteindre dans l&rsquo;eau que dans le verre.
+    </p>
+  </div>
+</div>
+
+<!-- SVG réflexion totale interne -->
+<div class="svg-wrap">
+  <figure>
+    <svg width="460" height="300" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" aria-label="Schéma réflexion totale interne">
+      <!-- Verre (milieu dense) -->
+      <rect x="0" y="0" width="460" height="180" fill="#dbeafe" opacity="0.55"/>
+      <text x="16" y="24" font-size="13" fill="#1d4ed8">Verre (n = 1,5)</text>
+      <!-- Air (milieu moins dense) -->
+      <rect x="0" y="180" width="460" height="120" fill="#f0fdf4" opacity="0.6"/>
+      <text x="16" y="270" font-size="13" fill="#166534">Air (n = 1,0)</text>
+      <!-- Interface -->
+      <line x1="0" y1="180" x2="460" y2="180" stroke="#64748b" stroke-width="2"/>
+      <text x="170" y="175" font-size="11" fill="#64748b">Interface verre / air</text>
+      <!-- Normale -->
+      <line x1="230" y1="30" x2="230" y2="280" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="7,5"/>
+      <text x="235" y="44" font-size="11" fill="#64748b">Normale</text>
+      <!-- Rayon incident (dans le verre, angle > theta_c) -->
+      <line x1="60" y1="30" x2="230" y2="180" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arr-ti1)"/>
+      <text x="70" y="85" font-size="12" fill="#7c3aed">Rayon incident</text>
+      <!-- Rayon totalement réfléchi (dans le verre) -->
+      <line x1="230" y1="180" x2="400" y2="30" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arr-ti2)"/>
+      <text x="305" y="85" font-size="12" fill="#dc2626">Rayon réfléchi</text>
+      <!-- Rayon réfracté absent - croix -->
+      <line x1="230" y1="200" x2="310" y2="270" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+      <text x="310" y="262" font-size="11" fill="#94a3b8" opacity="0.9">Pas de rayon</text>
+      <text x="310" y="276" font-size="11" fill="#94a3b8" opacity="0.9">réfracté</text>
+      <!-- Arc theta_i -->
+      <path d="M 230 150 A 30 30 0 0 0 204 140" stroke="#7c3aed" stroke-width="1.5" fill="none"/>
+      <text x="178" y="156" font-size="13" fill="#7c3aed">\(\theta_i\)</text>
+      <!-- Arc theta_r -->
+      <path d="M 230 150 A 30 30 0 0 1 256 140" stroke="#dc2626" stroke-width="1.5" fill="none"/>
+      <text x="258" y="156" font-size="13" fill="#dc2626">\(\theta_r\)</text>
+      <!-- Annotation angle > theta_c -->
+      <text x="110" y="195" font-size="12" fill="#7c3aed">\(\theta_i > \theta_c\) : réflexion totale !</text>
+      <defs>
+        <marker id="arr-ti1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#7c3aed"/>
+        </marker>
+        <marker id="arr-ti2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#dc2626"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>R&eacute;flexion totale interne : lorsque \(\theta_i > \theta_c\), aucun rayon ne sort dans l&rsquo;air &mdash; toute la lumi&egrave;re est r&eacute;fl&eacute;chie dans le verre.</figcaption>
+  </figure>
+</div>
+
+<!-- EXO 7 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Principe de la fibre optique</span>
+    <span class="diff diff-3">&#9733;&#9733;&#9733; Avanc&eacute;</span>
+  </div>
+
+  <p>Une fibre optique est constitu&eacute;e d&rsquo;un c&oelig;ur en verre d&rsquo;indice \(n_c = 1{,}52\) entour&eacute; d&rsquo;une gaine en verre d&rsquo;indice \(n_g = 1{,}42\).</p>
+
+  <div class="q"><strong>1.</strong> Pourquoi utilise-t-on une gaine d&rsquo;indice <em>plus faible</em> que le c&oelig;ur ?</div>
+  <div class="q"><strong>2.</strong> Calculer l&rsquo;angle critique &agrave; l&rsquo;interface c&oelig;ur/gaine.</div>
+  <div class="q"><strong>3.</strong> Un rayon dans le c&oelig;ur fait un angle de 75° avec la normale &agrave; l&rsquo;interface. Est-il confin&eacute; dans la fibre ?</div>
+  <div class="q"><strong>4.</strong> D&eacute;crire en une phrase le trajet de la lumi&egrave;re dans une fibre optique.</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> On veut que la lumi&egrave;re reste confin&eacute;e dans le c&oelig;ur par r&eacute;flexion totale interne &agrave; l&rsquo;interface c&oelig;ur/gaine. Pour cela il faut \(n_c > n_g\) : le c&oelig;ur doit &ecirc;tre plus dense que la gaine.</p>
+    <p><strong>2.</strong>
+      \(\sin\theta_c = \dfrac{n_g}{n_c} = \dfrac{1{,}42}{1{,}52} = 0{,}934\)
+      <br>\(\theta_c = \arcsin(0{,}934) \approx \mathbf{69{,}2°}\)
+    </p>
+    <p><strong>3.</strong> 75° &gt; 69,2° : \(\theta_i > \theta_c\), donc le rayon subit une <strong>r&eacute;flexion totale interne</strong> et reste confin&eacute; dans la fibre. Il ne s&rsquo;&eacute;chappe pas dans la gaine.</p>
+    <p><strong>4.</strong> Dans une fibre optique, la lumi&egrave;re se propage en subissant une succession de r&eacute;flexions totales internes &agrave; l&rsquo;interface c&oelig;ur/gaine, ce qui la confine dans le c&oelig;ur sur de tr&egrave;s grandes distances sans pertes significatives.</p>
+  </div>
+</div>
+
+<!-- ============================================================ SECTION 4 -->
+<h2>Exercices contextualis&eacute;s en atelier</h2>
+
+<!-- EXO 8 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Miroir de contr&ocirc;le en atelier &mdash; Angle de r&eacute;flexion et champ de vision</span>
+    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+  </div>
+
+  <p>Dans un atelier de menuiserie, un miroir plan de contr&ocirc;le est orient&eacute; de fa&ccedil;on &agrave; permettre &agrave; l&rsquo;op&eacute;rateur de v&eacute;rifier l&rsquo;arri&egrave;re d&rsquo;une pi&egrave;ce en cours d&rsquo;usinage sans d&eacute;placer la pi&egrave;ce.</p>
+
+  <div class="q"><strong>1.</strong> Un faisceau lumineux provenant d&rsquo;une zone de la pi&egrave;ce situ&eacute;e derri&egrave;re arrive sur le miroir avec un angle incident de 40° par rapport &agrave; la normale. Dans quelle direction repart le rayon r&eacute;fl&eacute;chi vers les yeux de l&rsquo;op&eacute;rateur ?</div>
+  <div class="q"><strong>2.</strong> L&rsquo;op&eacute;rateur tourne le miroir de 5° pour mieux voir une zone. De combien l&rsquo;angle du rayon r&eacute;fl&eacute;chi change-t-il ? (Rappel : une rotation du miroir de \(\alpha\) fait tourner le rayon r&eacute;fl&eacute;chi de \(2\alpha\).)</div>
+  <div class="q"><strong>3.</strong> La zone invisible d&rsquo;un miroir de contr&ocirc;le correspond &agrave; la zone que l&rsquo;op&eacute;rateur ne peut pas voir. Expliquer qualitativement pourquoi orienter correctement le miroir r&eacute;duit cette zone aveugle.</div>
+  <div class="q"><strong>4.</strong> En atelier, on utilise parfois un miroir convexe (l&eacute;g&egrave;rement courb&eacute;). Quel avantage cela pr&eacute;sente-t-il par rapport &agrave; un miroir plan pour &eacute;largir le champ de vision ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> D&rsquo;apr&egrave;s la loi de la r&eacute;flexion : \(\theta_r = \theta_i = 40°\). Le rayon r&eacute;fl&eacute;chi repart &agrave; 40° de la normale, du c&ocirc;t&eacute; oppos&eacute; au rayon incident, vers les yeux de l&rsquo;op&eacute;rateur.</p>
+    <p><strong>2.</strong> Une rotation du miroir de 5° provoque une rotation du rayon r&eacute;fl&eacute;chi de \(2 \times 5° = 10°\). C&rsquo;est pourquoi le r&eacute;glage d&rsquo;un miroir de contr&ocirc;le est tr&egrave;s sensible : un petit d&eacute;placement modifie beaucoup la zone visible.</p>
+    <p><strong>3.</strong> En orientant correctement le miroir, l&rsquo;op&eacute;rateur maximise le champ de vision vers les zones &agrave; inspecter. La zone non visible d&eacute;pend directement de l&rsquo;orientation du miroir : une inclinaison optimale dirige la r&eacute;flexion vers les surfaces les plus importantes &agrave; contr&ocirc;ler.</p>
+    <p><strong>4.</strong> Un miroir convexe diverge les rayons lumineux r&eacute;fl&eacute;chis, ce qui &eacute;largit le champ de vision angulaire. On voit une zone plus large, m&ecirc;me si les objets apparaissent plus petits. En atelier, cela permet de surveiller une plus grande surface de la pi&egrave;ce d&rsquo;un seul coup d&rsquo;&oelig;il.</p>
+  </div>
+</div>
+
+<!-- EXO 9 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Fibre optique en atelier de menuiserie &mdash; Commande de machine CNC</span>
+    <span class="diff diff-3">&#9733;&#9733;&#9733; Avanc&eacute;</span>
+  </div>
+
+  <p>Dans un atelier de menuiserie &eacute;quip&eacute; d&rsquo;une machine CNC &agrave; commande num&eacute;rique, les signaux de commande et de retour d&rsquo;&eacute;tat sont transmis via un c&acirc;ble &agrave; fibre optique reliant le pupitre de commande &agrave; la machine. La fibre optique utilis&eacute;e poss&egrave;de les caract&eacute;ristiques suivantes :</p>
+  <ul style="margin:6px 0 6px 18px">
+    <li>C&oelig;ur : verre de silice, \(n_c = 1{,}46\)</li>
+    <li>Gaine : polymère, \(n_g = 1{,}40\)</li>
+    <li>Longueur du c&acirc;ble : 3 m</li>
+  </ul>
+
+  <div class="q"><strong>1.</strong> Expliquer bri&egrave;vement pourquoi la fibre optique est pr&eacute;f&eacute;rable &agrave; un fil &eacute;lectrique en cuivre pour transmettre des donn&eacute;es de commande dans un atelier (penser aux interf&eacute;rences &eacute;lectromagn&eacute;tiques des moteurs et outils &eacute;lectriques).</div>
+  <div class="q"><strong>2.</strong> Calculer l&rsquo;angle critique \(\theta_c\) &agrave; l&rsquo;interface c&oelig;ur/gaine de cette fibre.</div>
+  <div class="q"><strong>3.</strong> Un rayon lumineux entre dans la fibre avec un angle de 80° par rapport &agrave; la normale &agrave; l&rsquo;interface c&oelig;ur/gaine. La lumi&egrave;re est-elle confin&eacute;e ? Justifier.</div>
+  <div class="q"><strong>4.</strong> La vitesse de la lumi&egrave;re dans le c&oelig;ur vaut \(v = c/n_c\). Calculer le temps mis par un signal lumineux pour parcourir les 3 m du c&acirc;ble (en nanosecondes). (\(c = 3{,}00 \times 10^8\) m/s ; 1 ns = \(10^{-9}\) s)</div>
+  <div class="q"><strong>5.</strong> Comparer avec un signal &eacute;lectrique dans un c&acirc;ble en cuivre o&ugrave; la vitesse de propagation est d&rsquo;environ \(2 \times 10^8\) m/s. Quelle technologie est la plus rapide ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Les moteurs &eacute;lectriques de toupies, d&eacute;fonceuses, raboteuses et autres machines-outils g&eacute;n&egrave;rent des champs &eacute;lectromagn&eacute;tiques importants qui peuvent induire des courants parasites (bruit) dans les fils cuivre, faussant les signaux de commande. La fibre optique transmet de la lumi&egrave;re, qui n&rsquo;est pas affect&eacute;e par les champs &eacute;lectromagn&eacute;tiques &rarr; transmission plus fiable en environnement parasit&eacute;.</p>
+    <p><strong>2.</strong>
+      \(\sin\theta_c = \dfrac{n_g}{n_c} = \dfrac{1{,}40}{1{,}46} = 0{,}959\)
+      <br>\(\theta_c = \arcsin(0{,}959) \approx \mathbf{73{,}5°}\)
+    </p>
+    <p><strong>3.</strong> 80° &gt; 73,5° : \(\theta_i > \theta_c\), donc la lumi&egrave;re subit une r&eacute;flexion totale interne. Elle est bien <strong>confin&eacute;e</strong> dans le c&oelig;ur et se propage sans fuite dans la gaine.</p>
+    <p><strong>4.</strong>
+      Vitesse dans le c&oelig;ur :
+      \(v = \dfrac{c}{n_c} = \dfrac{3{,}00 \times 10^8}{1{,}46} \approx 2{,}055 \times 10^8 \text{ m/s}\)
+      <br>Temps de parcours :
+      \(t = \dfrac{d}{v} = \dfrac{3}{2{,}055 \times 10^8} \approx 1{,}46 \times 10^{-8} \text{ s} = \mathbf{14{,}6 \text{ ns}}\)
+    </p>
+    <p><strong>5.</strong>
+      Dans le cuivre : \(t_{Cu} = \dfrac{3}{2 \times 10^8} = 1{,}50 \times 10^{-8} \text{ s} = 15{,}0 \text{ ns}\)
+      <br>Les deux valeurs sont tr&egrave;s proches pour 3 m. La fibre est tr&egrave;s l&eacute;g&egrave;rement plus rapide ici, mais l&rsquo;avantage r&eacute;el de la fibre n&rsquo;est pas la vitesse brute sur courte distance, mais l&rsquo;<strong>insensibilit&eacute; aux interf&eacute;rences</strong>, la <strong>bande passante</strong> bien plus &eacute;lev&eacute;e et les <strong>pertes quasi nulles</strong> sur de longues distances.
+    </p>
+  </div>
+</div>
+
+<!-- ============================================================ SECTION BONUS -->
+<h2>Pour aller plus loin</h2>
+
+<!-- EXO 10 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Prisme optique en atelier &mdash; D&eacute;viation d&rsquo;un rayon et contr&ocirc;le de teinte</span>
+    <span class="diff diff-3">&#9733;&#9733;&#9733; Avanc&eacute;</span>
+  </div>
+
+  <p>Un prisme triangulaire en verre (\(n = 1{,}50\)) &agrave; angle au sommet \(A = 30°\) est utilis&eacute; dans un capteur optique pour contr&ocirc;ler la teinte des lasures et peintures bois appliqu&eacute;es en atelier. Un rayon lumineux p&eacute;n&egrave;tre dans la premi&egrave;re face du prisme avec un angle d&rsquo;incidence \(\theta_1 = 45°\).</p>
+
+  <div class="q"><strong>1.</strong> Calculer l&rsquo;angle de r&eacute;fraction \(\theta_2\) &agrave; l&rsquo;entr&eacute;e du prisme (passage air &rarr; verre).</div>
+  <div class="q"><strong>2.</strong> Dans le prisme, le rayon frappe la deuxi&egrave;me face avec un angle d&rsquo;incidence \(\theta_3 = A - \theta_2\). Calculer \(\theta_3\).</div>
+  <div class="q"><strong>3.</strong> Calculer l&rsquo;angle \(\theta_4\) de sortie du prisme (passage verre &rarr; air) &agrave; la deuxi&egrave;me face.</div>
+  <div class="q"><strong>4.</strong> L&rsquo;angle de d&eacute;viation total est \(D = (\theta_1 - \theta_2) + (\theta_4 - \theta_3)\). Calculer \(D\).</div>
+  <div class="q"><strong>5.</strong> Application concr&egrave;te : un capteur colorim&eacute;trique en atelier utilise un prisme pour s&eacute;parer les couleurs et mesurer pr&eacute;cis&eacute;ment la teinte d&rsquo;une lasure avant de valider le lot. Quel ph&eacute;nom&egrave;ne permet cette s&eacute;paration des couleurs ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Entr&eacute;e air &rarr; verre :
+      \(n_{air} \sin\theta_1 = n_v \sin\theta_2\)
+      <br>\(\sin\theta_2 = \dfrac{1{,}00 \times \sin 45°}{1{,}50} = \dfrac{0{,}707}{1{,}50} = 0{,}471\)
+      <br>\(\theta_2 = \arcsin(0{,}471) \approx \mathbf{28{,}1°}\)
+    </p>
+    <p><strong>2.</strong> \(\theta_3 = A - \theta_2 = 30° - 28{,}1° = \mathbf{1{,}9°}\)</p>
+    <p><strong>3.</strong> Sortie verre &rarr; air :
+      \(n_v \sin\theta_3 = n_{air} \sin\theta_4\)
+      <br>\(\sin\theta_4 = 1{,}50 \times \sin(1{,}9°) = 1{,}50 \times 0{,}0332 = 0{,}0498\)
+      <br>\(\theta_4 = \arcsin(0{,}0498) \approx \mathbf{2{,}85°}\)
+    </p>
+    <p><strong>4.</strong>
+      \(D = (45° - 28{,}1°) + (2{,}85° - 1{,}9°) = 16{,}9° + 0{,}95° \approx \mathbf{17{,}9°}\)
+    </p>
+    <p><strong>5.</strong> La <strong>dispersion</strong> : l&rsquo;indice de r&eacute;fraction \(n\) varie avec la longueur d&rsquo;onde de la lumi&egrave;re. Le rouge est moins d&eacute;vi&eacute; que le violet, ce qui &eacute;tale les couleurs comme dans un arc-en-ciel. Le capteur colorim&eacute;trique mesure l&rsquo;intensit&eacute; de chaque longueur d&rsquo;onde s&eacute;par&eacute;e par le prisme pour valider la teinte de la lasure appliqu&eacute;e.</p>
+  </div>
+</div>
+
+<!-- ============================================================ CHART.JS -->
+<h2>Comparaison des indices de r&eacute;fraction</h2>
+<p style="font-size:.93em;color:#718096">Le graphique suivant permet de comparer visuellement les indices de r&eacute;fraction de plusieurs milieux courants. Plus l&rsquo;indice est &eacute;lev&eacute;, plus la lumi&egrave;re est ralentie et r&eacute;fract&eacute;e fortement. On remarque que l&rsquo;indice du vide (et de l&rsquo;air) vaut exactement 1 par d&eacute;finition, et que le diamant, avec \(n = 2{,}42\), est un des milieux les plus r&eacute;fractants rencontr&eacute;s dans la vie courante.</p>
+<div class="chart-wrap">
+  <canvas id="chartIndices" width="600" height="370"></canvas>
+</div>
+
+<!-- ============================================================ SYNTHÈSE ERREURS CLASSIQUES -->
+<div class="attention" style="margin-top:28px">
+  <strong>Erreurs fr&eacute;quentes &agrave; &eacute;viter</strong>
+  <ul style="margin:8px 0 0 18px">
+    <li><strong>Angle par rapport &agrave; la surface :</strong> toujours mesurer \(\theta\) par rapport &agrave; la <em>normale</em>, jamais par rapport &agrave; la surface. Si l&rsquo;&eacute;nonc&eacute; donne un angle par rapport &agrave; la surface, soustraire &agrave; 90° avant de calculer.</li>
+    <li><strong>Sens du passage :</strong> bien identifier le milieu 1 (o&ugrave; est le rayon incident) et le milieu 2 (o&ugrave; va le rayon r&eacute;fract&eacute;) avant d&rsquo;&eacute;crire Snell-Descartes.</li>
+    <li><strong>R&eacute;flexion totale interne :</strong> n&rsquo;est possible que si on va d&rsquo;un milieu <em>plus dense</em> vers un milieu <em>moins dense</em> (\(n_1 > n_2\)).</li>
+    <li><strong>Utilisation de la calculatrice :</strong> v&eacute;rifier que la calculatrice est en mode degr&eacute;s (DEG) et non en radians (RAD) quand on calcule \(\arcsin\).</li>
+    <li><strong>Indice de l&rsquo;air :</strong> on prend \(n_{air} \approx 1{,}00\) sauf indication contraire (l&rsquo;indice exact est 1,0003, n&eacute;gligeable en 2nde Pro).</li>
+  </ul>
+</div>
+
+<!-- ============================================================ ENCADRÉ FINAL -->
+<div class="retenir" style="margin-top:22px">
+  <strong>R&eacute;cap complet &mdash; Ce qu&rsquo;il faut savoir faire</strong>
+  <ul style="margin:8px 0 0 18px">
+    <li>Appliquer \(\theta_r = \theta_i\) pour la r&eacute;flexion sur un miroir.</li>
+    <li>Appliquer \(n_1 \sin\theta_1 = n_2 \sin\theta_2\) pour calculer un angle r&eacute;fract&eacute;.</li>
+    <li>D&eacute;terminer dans quel sens le rayon d&eacute;vie selon \(n_1\) et \(n_2\).</li>
+    <li>Calculer \(\theta_c = \arcsin(n_2/n_1)\) et conclure sur la r&eacute;flexion totale interne.</li>
+    <li>Relier le principe de la fibre optique &agrave; la r&eacute;flexion totale interne.</li>
+    <li>Calculer \(v = c/n\) et une dur&eacute;e de trajet.</li>
+    <li>Lire et interpr&eacute;ter un sch&eacute;ma avec rayons, normale et angles.</li>
+  </ul>
+  <p style="margin:10px 0 0;font-size:.9em;color:#0369a1">
+    <strong>Formules &agrave; retenir :</strong>
+    &nbsp;&nbsp;\(n = c/v\)
+    &nbsp;&nbsp;|&nbsp;&nbsp;\(n_1 \sin\theta_1 = n_2 \sin\theta_2\)
+    &nbsp;&nbsp;|&nbsp;&nbsp;\(\sin\theta_c = n_2/n_1\) (avec \(n_1 > n_2\))
+    &nbsp;&nbsp;|&nbsp;&nbsp;\(\theta_r = \theta_i\) (r&eacute;flexion)
+  </p>
+</div>
+
+<div class="methode" style="margin-top:20px">
+  <strong>Aide m&eacute;moire &mdash; Utiliser sa calculatrice scientifique</strong>
+  <ol style="margin:8px 0 0 18px">
+    <li>V&eacute;rifier : mode <kbd>DEG</kbd> (degr&eacute;s).</li>
+    <li>Calculer \(\sin 30°\) : touche <kbd>SIN</kbd> puis <kbd>30</kbd> puis <kbd>=</kbd> &rarr; 0,5.</li>
+    <li>Calculer \(\arcsin(0{,}667)\) : touche <kbd>SHIFT</kbd> (ou <kbd>2nd</kbd>) puis <kbd>SIN</kbd> puis <kbd>0.667</kbd> puis <kbd>=</kbd> &rarr; 41,8°.</li>
+    <li>Si le r&eacute;sultat de \(\arcsin\) semble en radians (ex : 0,73 rad au lieu de 41,8°), changer le mode de la calculatrice.</li>
+  </ol>
+</div>
+
+</div><!-- /.c -->
+
+<script>
+function toggle(btn) {
+  const c = btn.nextElementSibling;
+  if (c.style.display === 'block') {
+    c.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    c.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+
+// Chart.js — Indices de réfraction
+(function() {
+  const ctx = document.getElementById('chartIndices').getContext('2d');
+  const labels = ['Vide', 'Air', 'Eau', 'Verre ordinaire', 'Verre crown', 'Saphir', 'Diamant'];
+  const data   = [1.000, 1.000, 1.330, 1.500, 1.520, 1.770, 2.420];
+  const colors = [
+    '#a78bfa', '#c4b5fd', '#60a5fa', '#34d399', '#2dd4bf', '#f59e0b', '#ef4444'
+  ];
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Indice de réfraction n',
+        data: data,
+        backgroundColor: colors,
+        borderColor: colors.map(c => c),
+        borderWidth: 1,
+        borderRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Indices de réfraction de différents milieux',
+          font: { size: 14 },
+          color: '#2d3748'
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return 'n = ' + context.parsed.y.toFixed(3);
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: false,
+          min: 0.9,
+          max: 2.6,
+          title: {
+            display: true,
+            text: 'Indice n',
+            color: '#6f42c1',
+            font: { weight: 'bold' }
+          },
+          grid: { color: '#e2e8f0' }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { font: { size: 11 } }
+        }
+      }
+    }
+  });
+})();
+</script>
+<script src="/nav.js"></script>
+<!--
+  Chapitre 13 – Réflexion et réfraction de la lumière
+  2nde Bac Pro – Physique-Chimie
+  Exercices couvrant :
+    - Loi de la réflexion (miroir plan)
+    - Vocabulaire optique (rayon incident, réfracté, normale, interface)
+    - Tableau des indices de réfraction
+    - Application de Snell-Descartes (air→verre, verre→air)
+    - Angle critique et réflexion totale interne
+    - Fibre optique (principe, confinement, durée de trajet)
+    - Miroir de contrôle en atelier (menuiserie)
+    - Fibre optique CNC en atelier menuiserie
+    - Prisme et dispersion (atelier – capteur optique de mesure de couleur)
+  Ressources : MathJax 3, Chart.js, SVG inline
+-->
+</body>
+</html>

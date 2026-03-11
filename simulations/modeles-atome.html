@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation - Histoire du Modèle de l'Atome</title>
+    <style>
+        :root {
+            --primary: #6f42c1;
+            --secondary: #ffb000;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --view-bg: #0f172a;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: #1e293b;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .btn-retour {
+            align-self: flex-start;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-retour:hover {
+            color: var(--primary);
+        }
+
+        .sim-container {
+            max-width: 900px;
+            width: 100%;
+            background: var(--card);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary);
+        }
+
+        h2 { color: var(--primary); margin-top: 0; text-align: center; }
+
+        .view-area {
+            height: 380px;
+            background: var(--view-bg);
+            border-radius: 15px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-model {
+            padding: 12px;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            background: transparent;
+            color: var(--primary);
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .btn-model:hover { background: #f3f0ff; }
+        .btn-model.active { background: var(--primary); color: white; }
+
+        .desc-box {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 10px;
+            min-height: 80px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .history-context {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Éléments graphiques */
+        .nucleus { width: 16px; height: 16px; background: #f87171; border-radius: 50%; box-shadow: 0 0 15px #f87171; z-index: 10; position: relative; }
+        .electron { position: absolute; width: 6px; height: 6px; background: #3b82f6; border-radius: 50%; box-shadow: 0 0 8px #3b82f6; pointer-events: none; }
+        
+        .orbit {
+            position: absolute;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantum-cloud {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 70%);
+            border-radius: 50%;
+            animation: breathe 4s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+        }
+
+        .dalton-sphere { width: 120px; height: 120px; background: radial-gradient(circle at 30% 30%, #94a3b8, #1e293b); border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .thomson-pudding { width: 150px; height: 150px; background: rgba(248, 113, 113, 0.25); border: 2px dashed #f87171; border-radius: 50%; position: relative; }
+    </style>
+</head>
+<body>
+
+    <a href="../simulations.html" class="btn-retour">← Retour au labo de simulations</a>
+
+    <div class="sim-container">
+        <h2>🔬 Évolution des Modèles de l'Atome</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">Une chronologie interactive de la structure de la matière</p>
+
+        <div class="view-area" id="view-area">
+            <!-- Rendu dynamique -->
+        </div>
+
+        <div class="controls">
+            <button class="btn-model" id="btn-dalton" onclick="selectModel('dalton')">Dalton (1808)</button>
+            <button class="btn-model" id="btn-thomson" onclick="selectModel('thomson')">Thomson (1904)</button>
+            <button class="btn-model" id="btn-rutherford" onclick="selectModel('rutherford')">Rutherford (1911)</button>
+            <button class="btn-model" id="btn-bohr" onclick="selectModel('bohr')">Bohr (1913)</button>
+            <button class="btn-model" id="btn-quantique" onclick="selectModel('quantique')">Quantique (1926)</button>
+        </div>
+
+        <div class="desc-box" id="desc-box">
+            Sélectionnez un modèle pour explorer sa structure.
+        </div>
+
+        <div class="history-context" id="history-context">
+            Chaque modèle est né d'une nouvelle découverte expérimentale.
+        </div>
+    </div>
+
+    <script>
+        let animationFrame;
+
+        const models = {
+            dalton: {
+                title: "Modèle de Dalton",
+                text: "L'atome est une sphère pleine et indivisible. Dalton jette les bases de la théorie atomique moderne en classant les atomes par leur masse.",
+                history: "Contexte : Dalton s'appuie sur la loi des proportions définies pour prouver l'existence des atomes."
+            },
+            thomson: {
+                title: "Modèle de Thomson",
+                text: "Découverte de l'électron : l'atome est une boule positive parsemée de charges négatives, comme un 'plum pudding'.",
+                history: "Expérience : Thomson utilise des tubes à rayons cathodiques pour découvrir des particules chargées négativement."
+            },
+            rutherford: {
+                title: "Modèle de Rutherford",
+                text: "L'atome est constitué à 99,9% de vide. Un noyau positif minuscule au centre concentre presque toute la masse.",
+                history: "Expérience : La célèbre feuille d'or bombardée de particules alpha révèle que l'atome est lacunaire."
+            },
+            bohr: {
+                title: "Modèle de Bohr",
+                text: "Les électrons ne peuvent circuler que sur des orbites circulaires précises, correspondant à des niveaux d'énergie quantifiés.",
+                history: "Découverte : Bohr explique les spectres d'émission de la lumière émise par les atomes d'hydrogène."
+            },
+            quantique: {
+                title: "Modèle Quantique",
+                text: "L'électron est décrit par une fonction d'onde. On parle d'orbitales : zones de probabilité de présence autour du noyau.",
+                history: "Concepts : Schrödinger et Heisenberg introduisent la dualité onde-particule et l'incertitude de position."
+            }
+        };
+
+        function selectModel(modelId) {
+            const area = document.getElementById('view-area');
+            const desc = document.getElementById('desc-box');
+            const context = document.getElementById('history-context');
+            
+            if (animationFrame) cancelAnimationFrame(animationFrame);
+            
+            document.querySelectorAll('.btn-model').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + modelId).classList.add('active');
+
+            area.innerHTML = '';
+            desc.innerHTML = `<strong>${models[modelId].title} :</strong> ${models[modelId].text}`;
+            context.innerHTML = `<em>${models[modelId].history}</em>`;
+
+            if (modelId === 'dalton') {
+                area.innerHTML = '<div class="dalton-sphere"></div>';
+            } 
+            else if (modelId === 'thomson') {
+                const pudding = document.createElement('div');
+                pudding.className = 'thomson-pudding';
+                for(let i=0; i<8; i++) {
+                    const e = document.createElement('div');
+                    e.className = 'electron';
+                    const angle = Math.random() * Math.PI * 2;
+                    const dist = Math.random() * 60;
+                    e.style.left = (75 + Math.cos(angle)*dist - 3) + 'px';
+                    e.style.top = (75 + Math.sin(angle)*dist - 3) + 'px';
+                    pudding.appendChild(e);
+                }
+                area.appendChild(pudding);
+            }
+            else if (modelId === 'rutherford') {
+                area.innerHTML = '<div class="nucleus"></div>';
+                for(let i=0; i<3; i++) {
+                    createAnimatedElectron(area, 80 + i*35, true);
+                }
+            }
+            else if (modelId === 'bohr') {
+                area.innerHTML = '<div class="nucleus"></div>';
+                createBohrOrbit(area, 100, 2);
+                createBohrOrbit(area, 180, 4);
+            }
+            else if (modelId === 'quantique') {
+                area.innerHTML = '<div class="quantum-cloud"></div><div class="nucleus"></div>';
+                createQuantumEffect(area);
+            }
+        }
+
+        function createAnimatedElectron(parent, radius, randomOrbit) {
+            const e = document.createElement('div');
+            e.className = 'electron';
+            parent.appendChild(e);
+            let angle = Math.random() * Math.PI * 2;
+            const speed = 0.03 + Math.random() * 0.02;
+            const tilt = randomOrbit ? (Math.random() * 360) : 0;
+
+            function animate() {
+                angle += speed;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * (randomOrbit ? radius * 0.35 : radius);
+                const rotatedX = x * Math.cos(tilt) - y * Math.sin(tilt);
+                const rotatedY = x * Math.sin(tilt) + y * Math.cos(tilt);
+                e.style.transform = `translate(${rotatedX}px, ${rotatedY}px)`;
+                animationFrame = requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        function createBohrOrbit(parent, size, count) {
+            const orbit = document.createElement('div');
+            orbit.className = 'orbit';
+            orbit.style.width = size + 'px';
+            orbit.style.height = size + 'px';
+            parent.appendChild(orbit);
+            const radius = size / 2;
+
+            for(let i=0; i<count; i++) {
+                const e = document.createElement('div');
+                e.className = 'electron';
+                orbit.appendChild(e);
+                let angle = (i * 2 * Math.PI) / count;
+                function animate() {
+                    angle += 0.02;
+                    e.style.left = (radius + Math.cos(angle) * radius - 3) + 'px';
+                    e.style.top = (radius + Math.sin(angle) * radius - 3) + 'px';
+                    animationFrame = requestAnimationFrame(animate);
+                }
+                animate();
+            }
+        }
+
+        function createQuantumEffect(parent) {
+            const electrons = [];
+            for(let i=0; i<15; i++) {
+                const e = document.createElement('div');
+                e.className = 'electron';
+                e.style.opacity = '0';
+                e.style.width = '4px';
+                e.style.height = '4px';
+                parent.appendChild(e);
+                electrons.push({ el: e, timer: Math.random() * 100 });
+            }
+
+            function animate() {
+                electrons.forEach(obj => {
+                    obj.timer--;
+                    if(obj.timer <= 0) {
+                        const angle = Math.random() * Math.PI * 2;
+                        const dist = Math.abs(normalRandom() * 80); 
+                        obj.el.style.transform = `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist}px)`;
+                        obj.el.style.opacity = Math.random() * 0.8;
+                        obj.timer = 5 + Math.random() * 20;
+                    }
+                });
+                animationFrame = requestAnimationFrame(animate);
+            }
+            function normalRandom() {
+                let u = 0, v = 0;
+                while(u === 0) u = Math.random();
+                while(v === 0) v = Math.random();
+                return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+            }
+            animate();
+        }
+
+        window.onload = () => selectModel('dalton');
+    </script>
+<script src="/nav.js"></script>
+</body>
+</html>

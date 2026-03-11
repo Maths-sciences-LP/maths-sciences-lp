@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch05 &ndash; Fonctions exponentielles et logarithme d&eacute;cimal</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root{--p:#0969da;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+    body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+    .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+    h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+    .sous-titre{color:#718096;font-size:.95em;margin:0}
+    h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+    h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px}
+    .def{background:#ebf5ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+    .biv{background:#fdf4ff;border-left:5px solid #9333ea;padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+    .label-def{background:#dbeafe;color:#1e40af}
+    .label-prop{background:#d1fae5;color:#065f46}
+    .label-att{background:#fee2e2;color:#991b1b}
+    .label-meth{background:#fef3c7;color:#92400e}
+    .label-ex{background:#e2e8f0;color:#4a5568}
+    .label-biv{background:#f3e8ff;color:#7c3aed}
+    table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+    th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+    th{background:#eef2f7;font-weight:600}
+    .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+    .retenir{background:#dbeafe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+    .objectifs{background:#ebf5ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #93c5fd}
+    .objectifs ul{margin:6px 0 0 0;padding-left:20px}
+    .exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
+    details summary{cursor:pointer;font-weight:600;color:var(--p);margin-top:8px}
+    details[open] summary{margin-bottom:6px}
+    details p,details div{margin:6px 0 0 0;color:#4a5568}
+    .anim-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0;text-align:center}
+    .anim-wrap button{background:var(--p);color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;margin:6px 4px;font-size:.85em}
+    .anim-wrap button:hover{background:#0851b0}
+    .chart-wrap{max-width:620px;margin:18px auto}
+    .interactif-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    @media(max-width:600px){.interactif-grid{grid-template-columns:1fr}}
+    input[type=range]{width:100%;accent-color:var(--p)}
+    input[type=number]{border:1px solid #cbd5e0;border-radius:6px;padding:5px 10px;font-size:.95em;width:90px}
+    .result-box{background:#fff;border:1px solid #93c5fd;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:.95em;min-height:32px}
+    .era-badge{background:#fff7ed;border:1px solid #fed7aa;border-radius:6px;padding:3px 10px;font-size:.8em;font-weight:700;color:#c2410c;display:inline-block;margin-right:6px}
+    .iccer-badge{background:#f0fdf4;border:1px solid #86efac;border-radius:6px;padding:3px 10px;font-size:.8em;font-weight:700;color:#166534;display:inline-block;margin-right:6px}
+    hr.sep{border:none;border-top:1px solid #e2e8f0;margin:30px 0}
+    /* Tableaux de variations */
+    .tv-wrap{display:flex;flex-wrap:wrap;gap:20px;margin:14px 0}
+    .tv{width:auto;min-width:280px;border-collapse:collapse}
+    .tv td{border:1px solid #94a3b8;padding:8px 16px;text-align:center;font-size:.95em}
+    .tv .tv-var{background:#eef2f7;font-weight:600;text-align:left;min-width:120px}
+    .tv .tv-inf{background:#f8fafc;color:#718096;font-style:italic}
+    .tv .tv-val{background:#fff;font-weight:700;color:#0969da}
+    .tv .tv-fleche{font-size:1.8em;background:#fff;padding:4px 30px;color:#2f855a}
+    .tv .tv-up{color:#2f855a}
+    .tv .tv-down{color:#c53030}
+    /* Section hors programme */
+    .hors-prog{background:#f5f0ff;border:2px solid #9333ea;border-radius:10px;padding:18px 22px;margin:18px 0}
+    .hors-prog h3{color:#7c3aed;margin-top:14px}
+  </style>
+</head>
+<body>
+<div class="c">
+
+  <!-- NAVIGATION -->
+  <a href="maths-term-iccer.html" class="nb">&larr; Retour au sommaire</a>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Ch05 &mdash; Fonctions exponentielles et logarithme d&eacute;cimal</h1>
+    <p class="sous-titre">Terminale Bac Pro &mdash; classes ERA &bull; TMA &bull; ICCER &mdash; 8 mars 2026</p>
+  </header>
+
+  <!-- OBJECTIFS -->
+  <div class="objectifs">
+    <strong>Objectifs du chapitre</strong>
+    <ul>
+      <li>Conna&icirc;tre et utiliser la fonction exponentielle \(f(x)=a^x\) et ses propri&eacute;t&eacute;s.</li>
+      <li>Conna&icirc;tre et utiliser le logarithme d&eacute;cimal \(\log(x)\) et ses propri&eacute;t&eacute;s.</li>
+      <li>R&eacute;soudre des &eacute;quations et <strong>in&eacute;quations</strong> exponentielles et logarithmiques.</li>
+      <li>Faire le lien avec les suites g&eacute;om&eacute;triques et les mod&egrave;les de croissance/d&eacute;croissance.</li>
+      <li>Appliquer dans des contextes professionnels&nbsp;: d&eacute;pr&eacute;ciation, d&eacute;cibels, rendement.</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>Introduction &mdash; Pourquoi des fonctions exponentielles&nbsp;?</h2>
+
+  <p>Dans de nombreuses situations r&eacute;elles, une quantit&eacute; est multipli&eacute;e par un m&ecirc;me coefficient &agrave; chaque &eacute;tape&nbsp;: on parle alors de <strong>mod&egrave;le de croissance ou de d&eacute;croissance exponentielle</strong>.</p>
+
+  <div class="def">
+    <span class="label label-def">Mod&egrave;le de croissance/d&eacute;croissance</span><br>
+    Si une quantit&eacute; est multipli&eacute;e par un facteur constant \(q\) &agrave; chaque unit&eacute; de temps, alors apr&egrave;s \(t\) unit&eacute;s de temps&nbsp;:
+    \[ Q(t) = Q_0 \times q^t \]
+    o&ugrave; \(Q_0\) est la valeur initiale et \(q &gt; 0\), \(q \neq 1\).
+  </div>
+
+  <h3>Trois exemples concrets</h3>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 1 &mdash; Population de bact&eacute;ries</span><br>
+    Une colonie de bact&eacute;ries double toutes les heures. Si on part de \(P_0\) bact&eacute;ries&nbsp;:
+    \[ P(t) = P_0 \times 2^t \]
+    Apr&egrave;s 10 heures&nbsp;: \(P(10) = P_0 \times 2^{10} = P_0 \times 1024\).
+    La population est <strong>multipli&eacute;e par plus de 1000</strong> en seulement 10 heures&nbsp;!
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 2 &mdash; Capital avec int&eacute;r&ecirc;ts compos&eacute;s</span><br>
+    Un capital de \(C_0\) euros plac&eacute; &agrave; <strong>5&nbsp;% par an</strong> donne, apr&egrave;s \(n\) ann&eacute;es&nbsp;:
+    \[ C(n) = C_0 \times 1{,}05^n \]
+    Apr&egrave;s 20 ans&nbsp;: \(C(20) = C_0 \times 1{,}05^{20} \approx C_0 \times 2{,}65\). Le capital est <strong>multipli&eacute; par 2,65</strong>.
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 3 &mdash; Att&eacute;nuation d&rsquo;un signal</span><br>
+    Dans certains syst&egrave;mes &eacute;lectroniques, un signal perd 20&nbsp;% de son intensit&eacute; &agrave; chaque &eacute;tape de transmission&nbsp;:
+    \[ I(n) = I_0 \times 0{,}8^n \]
+    Apr&egrave;s 5 &eacute;tapes&nbsp;: \(I(5) = I_0 \times 0{,}8^5 \approx 0{,}328 \cdot I_0\). L&rsquo;intensit&eacute; n&rsquo;est plus que <strong>32,8&nbsp;%</strong> de sa valeur initiale.
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>1. Fonction exponentielle de base \(a\)</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    Soit \(a > 0\) et \(a \neq 1\). La <strong>fonction exponentielle de base \(a\)</strong> est&nbsp;:
+    \[ f : x \longmapsto a^x \]
+    d&eacute;finie pour tout r&eacute;el \(x\). Le domaine de d&eacute;finition est \(\mathbb{R}\).
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Propri&eacute;t&eacute;s alg&eacute;briques</span><br>
+    Pour tous r&eacute;els \(x\) et \(y\), avec \(a > 0\), \(a \neq 1\)&nbsp;:
+    <ul>
+      <li>\(a^{x+y} = a^x \times a^y\)</li>
+      <li>\(a^{x-y} = \dfrac{a^x}{a^y}\)</li>
+      <li>\(\left(a^x\right)^y = a^{x \cdot y}\)</li>
+      <li>\(a^0 = 1\) &nbsp;&mdash;&nbsp; \(a^1 = a\) &nbsp;&mdash;&nbsp; \(a^{-x} = \dfrac{1}{a^x}\)</li>
+    </ul>
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Variations</span><br>
+    <ul>
+      <li>Si \(a > 1\)&nbsp;: \(f\) est <strong>strictement croissante</strong> sur \(\mathbb{R}\) &mdash; quand \(x\) augmente, \(a^x\) augmente.</li>
+      <li>Si \(0 &lt; a &lt; 1\)&nbsp;: \(f\) est <strong>strictement d&eacute;croissante</strong> sur \(\mathbb{R}\) &mdash; quand \(x\) augmente, \(a^x\) diminue.</li>
+      <li>La courbe passe toujours par \((0\,;\,1)\) car \(a^0 = 1\).</li>
+      <li>\(a^x > 0\) pour tout \(x\)&nbsp;: la courbe est toujours <strong>strictement positive</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- Tableaux de variations -->
+  <h3>Tableaux de variations</h3>
+  <div class="tv-wrap">
+    <table class="tv">
+      <tr>
+        <td class="tv-var">\(x\)</td>
+        <td class="tv-inf">\(-\infty\)</td>
+        <td></td>
+        <td class="tv-inf">\(+\infty\)</td>
+      </tr>
+      <tr>
+        <td class="tv-var">\(f(x) = 2^x\)</td>
+        <td class="tv-val">\(\to 0^+\)</td>
+        <td class="tv-fleche tv-up">&#x2197;</td>
+        <td class="tv-val">\(+\infty\)</td>
+      </tr>
+    </table>
+    <table class="tv">
+      <tr>
+        <td class="tv-var">\(x\)</td>
+        <td class="tv-inf">\(-\infty\)</td>
+        <td></td>
+        <td class="tv-inf">\(+\infty\)</td>
+      </tr>
+      <tr>
+        <td class="tv-var">\(f(x) = (0{,}5)^x\)</td>
+        <td class="tv-val">\(+\infty\)</td>
+        <td class="tv-fleche tv-down">&#x2198;</td>
+        <td class="tv-val">\(\to 0^+\)</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Attention</span><br>
+    \(a^x\) est <strong>toujours strictement positif</strong>. Il n&rsquo;existe aucun r&eacute;el \(x\) tel que \(a^x \leq 0\).<br>
+    De plus, l&rsquo;axe des abscisses est une <strong>asymptote horizontale</strong>&nbsp;: la courbe s&rsquo;en rapproche sans jamais la toucher.
+  </div>
+
+  <!-- Graphique comparatif Chart.js -->
+  <h3>Graphique comparatif&nbsp;: \(f(x)=2^x\), \(g(x)=0{,}5^x\), \(h(x)=10^x\)</h3>
+  <div class="chart-wrap">
+    <canvas id="chartExpo"></canvas>
+  </div>
+
+  <!-- Tableau de valeurs -->
+  <h3>Tableau de valeurs comparatif pour diff&eacute;rentes bases</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>\(x\)</th>
+        <th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th>
+        <th>\(1\)</th><th>\(2\)</th><th>\(3\)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>\(2^x\)</th>
+        <td>0,125</td><td>0,25</td><td>0,5</td><td><strong>1</strong></td>
+        <td>2</td><td>4</td><td>8</td>
+      </tr>
+      <tr>
+        <th>\(0{,}5^x\)</th>
+        <td>8</td><td>4</td><td>2</td><td><strong>1</strong></td>
+        <td>0,5</td><td>0,25</td><td>0,125</td>
+      </tr>
+      <tr>
+        <th>\(3^x\)</th>
+        <td>&approx;0,037</td><td>&approx;0,111</td><td>&approx;0,333</td><td><strong>1</strong></td>
+        <td>3</td><td>9</td><td>27</td>
+      </tr>
+      <tr>
+        <th>\(10^x\)</th>
+        <td>0,001</td><td>0,01</td><td>0,1</td><td><strong>1</strong></td>
+        <td>10</td><td>100</td><td>1000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ex">
+    <span class="label label-ex">Exemples calcul&eacute;s</span><br>
+    <strong>1.</strong> \(2^5 = 32\) &nbsp;&nbsp;;&nbsp;&nbsp; \(2^{-3} = \dfrac{1}{2^3} = \dfrac{1}{8} = 0{,}125\)<br>
+    <strong>2.</strong> V&eacute;rification de \(a^{x+y}=a^x \cdot a^y\)&nbsp;: &nbsp;\(2^3 \times 2^4 = 8 \times 16 = 128 = 2^7\) &#10003;<br>
+    <strong>3.</strong> \((3^2)^4 = 3^{2\times4} = 3^8 = 6561\)<br>
+    <strong>4.</strong> \(5^0 = 1\)&nbsp;; &nbsp;\(5^1 = 5\)&nbsp;; &nbsp;\(5^{-2} = \dfrac{1}{25} = 0{,}04\)
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>2. Logarithme d&eacute;cimal</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    Le <strong>logarithme d&eacute;cimal</strong> (not&eacute; \(\log\) ou \(\log_{10}\)) est la fonction r&eacute;ciproque de \(x \mapsto 10^x\).<br><br>
+    Pour tout r&eacute;el \(x > 0\)&nbsp;:
+    \[ y = \log(x) \iff 10^y = x \]
+    Le domaine de d&eacute;finition est \(]0\,;\,+\infty[\). <strong>\(\log(x)\) n&rsquo;existe pas pour \(x \leq 0\).</strong>
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Valeurs remarquables</span><br>
+    <table style="max-width:580px;margin:10px auto;">
+      <thead>
+        <tr><th>\(x\)</th><th>0,001</th><th>0,01</th><th>0,1</th><th>1</th><th>10</th><th>100</th><th>1000</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>\(\log(x)\)</td><td>&minus;3</td><td>&minus;2</td><td>&minus;1</td><td><strong>0</strong></td><td><strong>1</strong></td><td>2</td><td>3</td></tr>
+      </tbody>
+    </table>
+    En particulier&nbsp;: \(\log(1) = 0\) &nbsp;et&nbsp; \(\log(10) = 1\).
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Propri&eacute;t&eacute;s alg&eacute;briques</span><br>
+    Pour tous r&eacute;els \(a > 0\), \(b > 0\) et tout entier \(n\)&nbsp;:
+    \[\log(a \times b) = \log(a) + \log(b)\]
+    \[\log\!\left(\frac{a}{b}\right) = \log(a) - \log(b)\]
+    \[\log(a^n) = n \times \log(a)\]
+    \[\log\!\left(\frac{1}{a}\right) = -\log(a)\]
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Variations de \(\log\)</span><br>
+    La fonction \(\log\) est <strong>strictement croissante</strong> sur \(]0\,;\,+\infty[\)&nbsp;:
+    \[ 0 &lt; a &lt; b \implies \log(a) &lt; \log(b) \]
+    De plus&nbsp;: \(\log(a) &lt; 0\) si \(0&lt;a&lt;1\) &nbsp;;&nbsp; \(\log(a) = 0\) si \(a=1\) &nbsp;;&nbsp; \(\log(a) &gt; 0\) si \(a &gt; 1\).
+  </div>
+
+  <!-- Tableau de variations log -->
+  <h3>Tableau de variations de \(\log\)</h3>
+  <div class="tv-wrap">
+    <table class="tv">
+      <tr>
+        <td class="tv-var">\(x\)</td>
+        <td class="tv-inf">\(0^+\)</td>
+        <td></td>
+        <td class="tv-inf">\(+\infty\)</td>
+      </tr>
+      <tr>
+        <td class="tv-var">\(\log(x)\)</td>
+        <td class="tv-val">\(-\infty\)</td>
+        <td class="tv-fleche tv-up">&#x2197;</td>
+        <td class="tv-val">\(+\infty\)</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Graphique log -->
+  <h3>Courbe repr&eacute;sentative de \(y = \log(x)\)</h3>
+  <div class="chart-wrap">
+    <canvas id="chartLog"></canvas>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemples calcul&eacute;s (avec \(\log 2 \approx 0{,}301\))</span><br>
+    <strong>1.</strong> \(\log(1000) = \log(10^3) = 3 \times \log(10) = 3\)<br>
+    <strong>2.</strong> \(\log(0{,}01) = \log(10^{-2}) = -2\)<br>
+    <strong>3.</strong> \(\log(200) = \log(2 \times 100) = \log(2) + \log(100) = 0{,}301 + 2 = 2{,}301\)<br>
+    <strong>4.</strong> \(\log(5) = \log\!\left(\dfrac{10}{2}\right) = 1 - 0{,}301 = 0{,}699\)<br>
+    <strong>5.</strong> \(\log(8) = \log(2^3) = 3 \times 0{,}301 = 0{,}903\)
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>3. R&eacute;solution d&rsquo;&eacute;quations exponentielles et logarithmiques</h2>
+
+  <div class="meth">
+    <span class="label label-meth">M&eacute;thode &mdash; r&eacute;soudre \(a^x = b\)</span><br>
+    Avec \(a > 0\), \(a \neq 1\), \(b > 0\), on applique \(\log\) des deux membres&nbsp;:
+    \[ a^x = b \implies \log(a^x) = \log(b) \implies x \cdot \log(a) = \log(b) \implies \boxed{x = \frac{\log(b)}{\log(a)}} \]
+    La fonction \(\log\) &eacute;tant croissante, elle conserve les &eacute;quivalences.
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">M&eacute;thode &mdash; r&eacute;soudre \(\log(x) = k\)</span><br>
+    \[ \log(x) = k \implies x = 10^k \]
+    <strong>Exemple&nbsp;:</strong> \(\log(x) = 2{,}5 \implies x = 10^{2{,}5} \approx 316\)
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 1 &mdash; &eacute;quation \(2^x = 50\)</span><br>
+    \(\log(2^x) = \log(50)\)<br>
+    \(x \cdot \log(2) = \log(50)\)<br>
+    \(x = \dfrac{\log(50)}{\log(2)} = \dfrac{1{,}699}{0{,}301} \approx \mathbf{5{,}64}\)<br>
+    <em>V&eacute;rification&nbsp;: \(2^{5{,}64} \approx 50\) &#10003;</em>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 2 &mdash; &eacute;quation logarithmique \(\log(x) = 3{,}2\)</span><br>
+    \(\log(x) = 3{,}2 \implies x = 10^{3{,}2} \approx \mathbf{1585}\)<br>
+    <em>V&eacute;rification&nbsp;: \(\log(1585) \approx 3{,}2\) &#10003;</em>
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>4. R&eacute;solution d&rsquo;in&eacute;quations exponentielles et logarithmiques</h2>
+
+  <div class="meth">
+    <span class="label label-meth">M&eacute;thode &mdash; r&eacute;soudre \(q^x \geq a\) (ou \(\leq\), \(&lt;\), \(&gt;\))</span><br>
+    On applique \(\log\) des deux membres, puis on divise par \(\log(q)\). <strong>Attention au signe&nbsp;!</strong><br><br>
+    &bull; Si \(q > 1\) c&rsquo;est-&agrave;-dire \(\log(q) > 0\)&nbsp;: on divise sans changer le sens de l&rsquo;in&eacute;galit&eacute;.<br>
+    &bull; Si \(0 &lt; q &lt; 1\) c&rsquo;est-&agrave;-dire \(\log(q) &lt; 0\)&nbsp;: <strong>le sens s&rsquo;INVERSE</strong> lors de la division.
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">M&eacute;thode &mdash; r&eacute;soudre \(\log(x) \geq a\)</span><br>
+    Comme \(\log\) est une fonction <strong>croissante</strong>, le sens de l&rsquo;in&eacute;galit&eacute; est <strong>conserv&eacute;</strong>&nbsp;:
+    \[ \log(x) \geq a \iff x \geq 10^a \]
+    (valable pour \(x > 0\), condition de d&eacute;finition du logarithme)
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 1 &mdash; \(2^x \geq 8\) (base \(q = 2 > 1\))</span><br>
+    On remarque que \(8 = 2^3\), donc&nbsp;: \(2^x \geq 2^3\). Comme \(f(x)=2^x\) est croissante&nbsp;:
+    \[ x \geq 3 \]
+    <em>M&eacute;thode log&nbsp;: \(x \cdot \log(2) \geq \log(8)\) ; \(\log(2) > 0\) donc \(x \geq \dfrac{\log(8)}{\log(2)} = \dfrac{3 \times 0{,}301}{0{,}301} = 3\) &#10003;</em>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 2 &mdash; \(2^x \leq 50\) (base \(q = 2 > 1\))</span><br>
+    Application du logarithme&nbsp;:<br>
+    \(x \cdot \log(2) \leq \log(50)\)<br>
+    \(\log(2) = 0{,}301 &gt; 0\) &rArr; sens <strong>conserv&eacute;</strong><br>
+    \[ x \leq \frac{\log(50)}{\log(2)} = \frac{1{,}699}{0{,}301} \approx \mathbf{5{,}64} \]
+    Solution&nbsp;: \(x \leq 5{,}64\).
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 3 &mdash; \((0{,}85)^n &lt; 0{,}5\) (base \(q = 0{,}85 &lt; 1\)) &#x26A0;&#xFE0F; Inversion&nbsp;!</span><br>
+    Application du logarithme&nbsp;:<br>
+    \(n \cdot \log(0{,}85) &lt; \log(0{,}5)\)<br>
+    \(\log(0{,}85) \approx -0{,}0706 &lt; 0\) &rArr; <strong>le sens s&rsquo;INVERSE</strong> lors de la division&nbsp;!<br>
+    \[ n &gt; \frac{\log(0{,}5)}{\log(0{,}85)} = \frac{-0{,}301}{-0{,}0706} \approx 4{,}26 \]
+    Puisque \(n\) est un entier&nbsp;: \(\mathbf{n \geq 5}\).<br>
+    <em>V&eacute;rification&nbsp;: \(0{,}85^4 \approx 0{,}522 &gt; 0{,}5\) &nbsp;;&nbsp; \(0{,}85^5 \approx 0{,}444 &lt; 0{,}5\) &#10003;</em>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 4 &mdash; \(\log(x) \geq 2\)</span><br>
+    \(\log\) est croissante, donc&nbsp;:
+    \[ \log(x) \geq 2 \iff x \geq 10^2 = \mathbf{100} \]
+    Solution&nbsp;: \(x \geq 100\) (et \(x > 0\) pour que \(\log\) soit d&eacute;finie).
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 5 &mdash; \(\log(x) &lt; -1\)</span><br>
+    \(\log\) est croissante, donc&nbsp;:
+    \[ \log(x) &lt; -1 \iff x &lt; 10^{-1} = 0{,}1 \]
+    On combine avec la condition de d&eacute;finition \(x > 0\)&nbsp;:
+    \[ \mathbf{0 &lt; x &lt; 0{,}1} \]
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>5. Lien avec les suites g&eacute;om&eacute;triques</h2>
+
+  <div class="def">
+    <span class="label label-def">Rappel</span><br>
+    Une <strong>suite g&eacute;om&eacute;trique</strong> de premier terme \(u_0\) et de raison \(q\) v&eacute;rifie&nbsp;:
+    \[ u_n = u_0 \times q^n \]
+    Ces suites mod&eacute;lisent toute &eacute;volution par multiplication successive d&rsquo;un m&ecirc;me coefficient (croissance, d&eacute;croissance, int&eacute;r&ecirc;ts compos&eacute;s, d&eacute;pr&eacute;ciation&hellip;).
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Trouver le rang \(n\) tel que \(u_n &lt; S\)</span><br>
+    \[ u_0 \times q^n &lt; S \implies q^n &lt; \frac{S}{u_0} \]
+    On applique \(\log\) puis on divise par \(\log(q)\) en prenant garde &agrave; son signe.
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple</span><br>
+    Soit \(u_n = 5000 \times 0{,}9^n\). &Agrave; partir de quel rang \(n\) a-t-on \(u_n &lt; 1000\)&nbsp;?<br>
+    \(0{,}9^n &lt; \dfrac{1000}{5000} = 0{,}2\)<br>
+    \(n \cdot \log(0{,}9) &lt; \log(0{,}2)\)<br>
+    \(\log(0{,}9) \approx -0{,}0458\) (n&eacute;gatif) &rArr; sens inverse<br>
+    \(n &gt; \dfrac{\log(0{,}2)}{\log(0{,}9)} = \dfrac{-0{,}699}{-0{,}0458} \approx 15{,}27\)<br>
+    Donc &agrave; partir de \(n = 16\).
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>6. Application ERA&nbsp;/ TMA &mdash; D&eacute;pr&eacute;ciation d&rsquo;un outil</h2>
+
+  <div class="biv">
+    <span class="label label-biv"><span class="era-badge">ERA</span><span class="era-badge">TMA</span> Contexte professionnel</span><br>
+    Un outil industriel co&ucirc;te <strong>12&nbsp;000&nbsp;&euro;</strong> &agrave; l&rsquo;achat. Sa valeur diminue de <strong>15&nbsp;%</strong> chaque ann&eacute;e (d&eacute;pr&eacute;ciation).<br>
+    On note \(V(n)\) sa valeur apr&egrave;s \(n\) ann&eacute;es.
+    \[ V(n) = 12\,000 \times 0{,}85^n \]
+    <strong>Questions&nbsp;:</strong><br>
+    1. Quelle est la valeur apr&egrave;s 5 ans&nbsp;?<br>
+    2. Au bout de combien d&rsquo;ann&eacute;es la valeur passe-t-elle sous 2&nbsp;000&nbsp;&euro;&nbsp;?
+  </div>
+
+  <h3>R&eacute;ponse 1 &mdash; Valeur apr&egrave;s 5 ans</h3>
+  <div class="ex">
+    \(V(5) = 12\,000 \times 0{,}85^5\)<br>
+    Calcul pas &agrave; pas&nbsp;: \(0{,}85^2 = 0{,}7225\)&nbsp;;&nbsp;\(0{,}85^4 = (0{,}85^2)^2 = 0{,}7225^2 \approx 0{,}5220\)&nbsp;;&nbsp;\(0{,}85^5 = 0{,}5220 \times 0{,}85 \approx 0{,}4437\)<br>
+    \(V(5) = 12\,000 \times 0{,}4437 \approx \mathbf{5\,324\ \euro{}}\)
+  </div>
+
+  <h3>R&eacute;ponse 2 &mdash; Recherche du seuil 2&nbsp;000&nbsp;&euro;</h3>
+  <div class="meth">
+    <span class="label label-meth">R&eacute;solution</span><br>
+    On cherche \(n\) tel que \(V(n) &lt; 2\,000\)&nbsp;:
+    \[ 12\,000 \times 0{,}85^n &lt; 2\,000 \]
+    \[ 0{,}85^n &lt; \frac{2\,000}{12\,000} = \frac{1}{6} \approx 0{,}1\overline{6} \]
+    Application du logarithme&nbsp;:<br>
+    \[ n \cdot \log(0{,}85) &lt; \log\!\left(\frac{1}{6}\right) \]
+    \(\log(0{,}85) \approx -0{,}0706\) &nbsp;(n&eacute;gatif&nbsp;!)&nbsp;;&nbsp;\(\log(1/6) = -\log(6) \approx -0{,}7782\)<br>
+    Division par \(\log(0{,}85) &lt; 0\) &rArr; <strong>le sens s&rsquo;inverse</strong>&nbsp;:
+    \[ n &gt; \frac{-0{,}7782}{-0{,}0706} \approx 11{,}02 \]
+    &rArr; &Agrave; partir de \(\mathbf{n = 12}\) ann&eacute;es, \(V(n) &lt; 2\,000\,\euro{}\).
+  </div>
+
+  <h3>Tableau de d&eacute;pr&eacute;ciation</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Ann&eacute;es \(n\)</th><th>0</th><th>2</th><th>4</th><th>6</th><th>8</th><th>10</th><th>12</th><th>15</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Valeur (\(\euro{}\))</strong></td>
+        <td>12&nbsp;000</td><td>8&nbsp;670</td><td>6&nbsp;265</td><td>4&nbsp;528</td><td>3&nbsp;272</td><td>2&nbsp;364</td><td>1&nbsp;709</td><td>1&nbsp;067</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="chart-wrap">
+    <canvas id="chartDeprec"></canvas>
+  </div>
+
+  <div class="anim-wrap">
+    <strong>Simulateur interactif de d&eacute;pr&eacute;ciation</strong>
+    <div class="interactif-grid" style="max-width:540px;margin:12px auto 0;text-align:left;">
+      <div>
+        Valeur initiale \(V_0\) (&euro;)&nbsp;:<br>
+        <input type="number" id="v0Input" value="12000" min="100" step="100">
+      </div>
+      <div>
+        Taux de perte annuel (%)&nbsp;:<br>
+        <input type="number" id="tauxInput" value="15" min="1" max="99" step="1">
+      </div>
+      <div>
+        Seuil cible (&euro;)&nbsp;:<br>
+        <input type="number" id="seuilInput" value="2000" min="0" step="100">
+      </div>
+      <div style="display:flex;align-items:flex-end;">
+        <button onclick="calcDeprec()">Calculer</button>
+      </div>
+    </div>
+    <div class="result-box" id="resultatDeprec">Cliquez sur &laquo;&nbsp;Calculer&nbsp;&raquo; pour voir le r&eacute;sultat.</div>
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>7. Application ICCER &mdash; Niveau sonore en d&eacute;cibels</h2>
+
+  <div class="biv">
+    <span class="label label-biv"><span class="iccer-badge">ICCER</span> Acoustique industrielle</span><br>
+    En acoustique, le <strong>niveau sonore en d&eacute;cibels (dB)</strong> est d&eacute;fini par&nbsp;:
+    \[ L = 10 \times \log\!\left(\frac{I}{I_0}\right) \]
+    o&ugrave; \(I\) est l&rsquo;intensit&eacute; sonore (W/m&sup2;) et \(I_0 = 10^{-12}\) W/m&sup2; est le seuil d&rsquo;audibilit&eacute;.
+  </div>
+
+  <h3>Niveaux sonores de r&eacute;f&eacute;rence</h3>
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Niveau \(L\) (dB)</th><th>Intensit&eacute; \(I\) (W/m&sup2;)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Seuil d&rsquo;audibilit&eacute;</td><td>0</td><td>\(10^{-12}\)</td></tr>
+      <tr><td>Conversation normale</td><td>60</td><td>\(10^{-6}\)</td></tr>
+      <tr><td>Machine-outil</td><td>90</td><td>\(10^{-3}\)</td></tr>
+      <tr><td>Marteau-piqueur</td><td>100</td><td>\(10^{-2}\)</td></tr>
+      <tr><td>Seuil de la douleur</td><td>120</td><td>\(1\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 1 &mdash; Calculer le niveau en dB</span><br>
+    Une machine produit une intensit&eacute; \(I = 5 \times 10^{-4}\) W/m&sup2;.<br>
+    \[ L = 10 \times \log\!\left(\frac{5 \times 10^{-4}}{10^{-12}}\right) = 10 \times \log(5 \times 10^{8}) \]
+    \[ = 10 \times \left[\log(5) + \log(10^8)\right] = 10 \times (0{,}699 + 8) = 10 \times 8{,}699 \approx \mathbf{87\ dB} \]
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 2 &mdash; Trouver l&rsquo;intensit&eacute; &agrave; partir du niveau</span><br>
+    Un panneau de contr&ocirc;le indique \(L = 85\) dB. Calculer \(I\).<br>
+    \[ 85 = 10 \times \log\!\left(\frac{I}{10^{-12}}\right) \implies \log\!\left(\frac{I}{10^{-12}}\right) = 8{,}5 \]
+    \[ \frac{I}{10^{-12}} = 10^{8{,}5} \approx 3{,}162 \times 10^8 \implies I \approx 3{,}16 \times 10^{-4}\ \text{W/m}^2 \]
+  </div>
+
+  <div class="anim-wrap">
+    <strong>Calculateur de niveau sonore</strong>
+    <div class="interactif-grid" style="max-width:500px;margin:12px auto 0;text-align:left;">
+      <div>
+        Entrer \(I\) (W/m&sup2;)&nbsp;:<br>
+        <input type="number" id="intensiteInput" value="0.001" step="0.0001" style="width:130px">
+      </div>
+      <div style="display:flex;align-items:flex-end;">
+        <button onclick="calcDecibels()">Calculer \(L\) (dB)</button>
+      </div>
+    </div>
+    <div class="result-box" id="resultatDB">R&eacute;sultat ici.</div>
+
+    <div style="border-top:1px solid #e2e8f0;margin:12px 0 6px;"></div>
+    <div class="interactif-grid" style="max-width:500px;margin:6px auto 0;text-align:left;">
+      <div>
+        Entrer \(L\) (dB)&nbsp;:<br>
+        <input type="number" id="niveauInput" value="85" step="1" style="width:100px">
+      </div>
+      <div style="display:flex;align-items:flex-end;">
+        <button onclick="calcIntensite()">Calculer \(I\) (W/m&sup2;)</button>
+      </div>
+    </div>
+    <div class="result-box" id="resultatI">R&eacute;sultat ici.</div>
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>8. Explorateur interactif</h2>
+
+  <h3>Calculer \(a^x\) et \(\log(v)\)</h3>
+  <div class="anim-wrap">
+    <div class="interactif-grid" style="max-width:580px;margin:10px auto 0;text-align:left;">
+      <div>
+        Base \(a\)&nbsp;:<br>
+        <input type="number" id="baseInput" value="2" min="0.01" step="0.1">
+        <small style="color:#718096;display:block">\(a &gt; 0\), \(a \neq 1\)</small>
+      </div>
+      <div>
+        Exposant \(x\)&nbsp;:<br>
+        <input type="number" id="expInput" value="3" step="0.5">
+      </div>
+      <div>
+        Valeur pour \(\log\)&nbsp;:<br>
+        <input type="number" id="logInput" value="100" min="0.001" step="1">
+      </div>
+      <div style="display:flex;align-items:flex-end;">
+        <button onclick="calcExpLog()">Calculer</button>
+      </div>
+    </div>
+    <div class="result-box" id="resultatExpLog">Cliquez sur Calculer.</div>
+  </div>
+
+  <h3>Graphique interactif de \(f(x) = a^x\)</h3>
+  <div class="anim-wrap">
+    Base \(a\) = <strong id="valeurA">2,00</strong>
+    <br>
+    <input type="range" id="sliderA" min="0.10" max="5" step="0.05" value="2" oninput="updateCourbeA()" style="max-width:420px;margin-top:8px">
+    <div class="chart-wrap" style="margin-top:10px">
+      <canvas id="chartInteractif"></canvas>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>9. Tableau r&eacute;capitulatif des propri&eacute;t&eacute;s</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Propri&eacute;t&eacute;</th>
+        <th>Fonction expo \(a^x\)</th>
+        <th>Logarithme d&eacute;cimal \(\log(x)\)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Domaine de d&eacute;finition</td><td>\(\mathbb{R}\) (tout r&eacute;el)</td><td>\(]0\,;\,+\infty[\)</td></tr>
+      <tr><td>Valeur remarquable</td><td>\(a^0 = 1\)</td><td>\(\log(1) = 0\) &nbsp;;&nbsp; \(\log(10) = 1\)</td></tr>
+      <tr><td>Signe</td><td>Toujours \(&gt; 0\)</td><td>N&eacute;gatif si \(0&lt;x&lt;1\), positif si \(x&gt;1\)</td></tr>
+      <tr><td>Croissance (\(a&gt;1\))</td><td>Croissante</td><td>Croissante (toujours)</td></tr>
+      <tr><td>Produit / somme</td><td>\(a^{x+y}=a^x \cdot a^y\)</td><td>\(\log(ab)=\log a+\log b\)</td></tr>
+      <tr><td>Quotient / diff&eacute;rence</td><td>\(a^{x-y}=a^x/a^y\)</td><td>\(\log(a/b)=\log a - \log b\)</td></tr>
+      <tr><td>Puissance / coefficient</td><td>\((a^x)^y=a^{xy}\)</td><td>\(\log(a^n)=n\log a\)</td></tr>
+      <tr><td>Lien r&eacute;ciproque</td><td colspan="2">\(\log(10^x)=x\) &nbsp;;&nbsp; \(10^{\log x}=x\) &nbsp;;&nbsp; \(a^x = 10^{x\log a}\)</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>10. &Agrave; retenir</h2>
+
+  <div class="retenir">
+    <strong>Les formules essentielles du chapitre&nbsp;:</strong>
+    <ul>
+      <li>\(a^x\) d&eacute;finie sur \(\mathbb{R}\), toujours \(&gt; 0\), vaut \(1\) en \(x=0\).</li>
+      <li>\(\log(x)\) d&eacute;finie sur \(]0;+\infty[\)&nbsp;;&nbsp;\(\log(1)=0\)&nbsp;;&nbsp;\(\log(10)=1\).</li>
+      <li>Propri&eacute;t&eacute;s&nbsp;: \(\log(ab)=\log a+\log b\)&nbsp;;&nbsp;\(\log(a^n)=n\log a\).</li>
+      <li>R&eacute;soudre \(a^x=b\)&nbsp;: \(x = \dfrac{\log b}{\log a}\).</li>
+      <li>In&eacute;quation avec \(\log(q)&lt;0\) (base \(0&lt;q&lt;1\))&nbsp;: le sens de l&rsquo;in&eacute;galit&eacute; <strong>s&rsquo;inverse</strong>.</li>
+      <li>Suite g&eacute;om&eacute;trique&nbsp;: \(u_n = u_0 \times q^n\).</li>
+      <li>Niveau sonore&nbsp;: \(L = 10\times\log(I/I_0)\) avec \(I_0=10^{-12}\) W/m&sup2;.</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>11. Erreurs fr&eacute;quentes</h2>
+
+  <div class="att">
+    <span class="label label-att">Erreur 1 &mdash; Log d&rsquo;une somme</span><br>
+    \(\log(a+b) \neq \log(a) + \log(b)\)<br>
+    <em>Exemple&nbsp;: \(\log(10 + 90) = \log(100) = 2\), mais \(\log(10) + \log(90) = 1 + 1{,}954 = 2{,}954 \neq 2\).</em>
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Erreur 2 &mdash; Log d&rsquo;un produit vs produit de logs</span><br>
+    \(\log(a \times b) \neq \log(a) \times \log(b)\)<br>
+    La bonne formule est&nbsp;: \(\log(a \times b) = \log(a) + \log(b)\) (addition, pas multiplication).<br>
+    <em>Exemple&nbsp;: \(\log(2 \times 5) = \log(10) = 1\), mais \(\log(2) \times \log(5) \approx 0{,}301 \times 0{,}699 \approx 0{,}21 \neq 1\).</em>
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Erreur 3 &mdash; Oublier d&rsquo;inverser le sens avec base \(0 &lt; q &lt; 1\)</span><br>
+    Lorsqu&rsquo;on r&eacute;sout \(q^x &lt; k\) avec \(0 &lt; q &lt; 1\), diviser par \(\log(q) &lt; 0\) <strong>inverse le sens de l&rsquo;in&eacute;galit&eacute;</strong>&nbsp;!<br>
+    <em>Exemple&nbsp;: \(0{,}5^x &lt; 0{,}25 = 0{,}5^2 \implies x &gt; 2\) (car \(0{,}5^x\) est d&eacute;croissante).</em>
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Erreur 4 &mdash; Confondre exponentielle et puissance</span><br>
+    \(a^x\) (exponentielle) est tr&egrave;s diff&eacute;rent de \(x^a\) (puissance)&nbsp;:<br>
+    &bull; \(2^x\)&nbsp;: l&rsquo;exposant est la variable, la base est fixe &rarr; croissance tr&egrave;s rapide.<br>
+    &bull; \(x^2\)&nbsp;: la base est la variable, l&rsquo;exposant est fixe &rarr; parabole.<br>
+    <em>Exemple&nbsp;: \(2^{10} = 1024\) mais \(10^2 = 100\). Pour de grandes valeurs, \(2^x \gg x^2\).</em>
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Erreur 5 &mdash; Domaine de d&eacute;finition du logarithme</span><br>
+    \(\log(0)\) n&rsquo;existe <strong>pas</strong>. \(\log\) d&rsquo;un nombre n&eacute;gatif n&rsquo;existe <strong>pas</strong>.<br>
+    Le domaine de d&eacute;finition de \(\log\) est strictement \(]0\,;\,+\infty[\).<br>
+    <em>Attention&nbsp;: quand on r&eacute;sout \(\log(x) = k\), la solution \(x = 10^k\) est automatiquement \(&gt; 0\).</em>
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Erreur 6 &mdash; Confondre \(2^x\) et \(2 \times x\)</span><br>
+    \(2^x \neq 2 \times x\).<br>
+    <em>Exemples&nbsp;: \(2^3 = 8\) mais \(2 \times 3 = 6\)&nbsp;;&nbsp; \(2^{10} = 1024\) mais \(2 \times 10 = 20\).</em>
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>12. Mini-exercices corrig&eacute;s</h2>
+
+  <!-- Exercice 1 -->
+  <div class="exo">
+    <span class="label label-ex">Exercice 1 &mdash; Calculs logarithmiques sans calculatrice</span>
+    <p>Calculer&nbsp;:<br>
+    <strong>a)</strong> \(\log(10^7)\) &nbsp;&nbsp;&nbsp;
+    <strong>b)</strong> \(\log(0{,}001)\) &nbsp;&nbsp;&nbsp;
+    <strong>c)</strong> \(\log(400)\) &nbsp;(on donne \(\log 2 \approx 0{,}301\))</p>
+    <details>
+      <summary>Voir la correction</summary>
+      <div>
+        <strong>a)</strong> \(\log(10^7) = 7 \times \log(10) = 7 \times 1 = \mathbf{7}\)<br><br>
+        <strong>b)</strong> \(\log(0{,}001) = \log(10^{-3}) = -3 \times \log(10) = \mathbf{-3}\)<br><br>
+        <strong>c)</strong> \(\log(400) = \log(4 \times 100) = \log(4) + \log(100)\)<br>
+        \(\log(4) = \log(2^2) = 2 \times 0{,}301 = 0{,}602\)&nbsp;;&nbsp;\(\log(100)=2\)<br>
+        Donc \(\log(400) = 0{,}602 + 2 = \mathbf{2{,}602}\)
+      </div>
+    </details>
+  </div>
+
+  <!-- Exercice 2 -->
+  <div class="exo">
+    <span class="label label-ex">Exercice 2 &mdash; &Eacute;quations exponentielles et logarithmiques</span>
+    <p>R&eacute;soudre dans \(\mathbb{R}\)&nbsp;:<br>
+    <strong>a)</strong> \(3^x = 27\) &nbsp;&nbsp;&nbsp;
+    <strong>b)</strong> \(5^x = 200\) &nbsp;&nbsp;&nbsp;
+    <strong>c)</strong> \(\log(x) = 3{,}2\)</p>
+    <details>
+      <summary>Voir la correction</summary>
+      <div>
+        <strong>a)</strong> \(3^x = 27 = 3^3\) &rArr; par identification&nbsp;: \(x = \mathbf{3}\)<br><br>
+        <strong>b)</strong> \(5^x = 200\)<br>
+        \(x \cdot \log(5) = \log(200)\)<br>
+        \(x = \dfrac{\log(200)}{\log(5)} = \dfrac{2{,}301}{0{,}699} \approx \mathbf{3{,}29}\)<br><br>
+        <strong>c)</strong> \(\log(x) = 3{,}2 \implies x = 10^{3{,}2} \approx \mathbf{1\,585}\)
+      </div>
+    </details>
+  </div>
+
+  <!-- Exercice 3 ERA/TMA -->
+  <div class="exo">
+    <span class="label label-ex">Exercice 3 &mdash; <span class="era-badge">ERA / TMA</span> D&eacute;pr&eacute;ciation d&rsquo;un v&eacute;hicule</span>
+    <p>Un v&eacute;hicule utilitaire est achet&eacute; 28&nbsp;000&nbsp;&euro;. Sa valeur diminue de 12&nbsp;% chaque ann&eacute;e.<br>
+    <strong>a)</strong> &Eacute;crire la formule de \(V(n)\) apr&egrave;s \(n\) ann&eacute;es.<br>
+    <strong>b)</strong> Calculer \(V(3)\).<br>
+    <strong>c)</strong> Apr&egrave;s combien d&rsquo;ann&eacute;es sa valeur est-elle inf&eacute;rieure &agrave; 10&nbsp;000&nbsp;&euro;&nbsp;?</p>
+    <details>
+      <summary>Voir la correction</summary>
+      <div>
+        <strong>a)</strong> Perte de 12&nbsp;% par an &rArr; coefficient multiplicateur \(1-0{,}12 = 0{,}88\).
+        \[V(n) = 28\,000 \times 0{,}88^n\]<br>
+        <strong>b)</strong> \(V(3) = 28\,000 \times 0{,}88^3 = 28\,000 \times 0{,}6815 \approx \mathbf{19\,082\ \euro{}}\)<br><br>
+        <strong>c)</strong> On r&eacute;sout \(28\,000 \times 0{,}88^n &lt; 10\,000\)&nbsp;:<br>
+        \(0{,}88^n &lt; \dfrac{10\,000}{28\,000} \approx 0{,}3571\)<br>
+        \(n \cdot \log(0{,}88) &lt; \log(0{,}3571)\)<br>
+        \(\log(0{,}88) \approx -0{,}0555\) (n&eacute;gatif) &rArr; sens inverse<br>
+        \(n &gt; \dfrac{\log(0{,}3571)}{\log(0{,}88)} = \dfrac{-0{,}4472}{-0{,}0555} \approx 8{,}06\)<br>
+        &rArr; &Agrave; partir de \(\mathbf{n = 9}\) ans.
+      </div>
+    </details>
+  </div>
+
+  <!-- Exercice 4 ICCER -->
+  <div class="exo">
+    <span class="label label-ex">Exercice 4 &mdash; <span class="iccer-badge">ICCER</span> Acoustique industrielle</span>
+    <p>Dans un atelier, on mesure \(L = 92\) dB pr&egrave;s d&rsquo;une machine.<br>
+    On rappelle&nbsp;: \(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\) avec \(I_0 = 10^{-12}\) W/m&sup2;.<br>
+    <strong>a)</strong> Calculer l&rsquo;intensit&eacute; sonore \(I\) en W/m&sup2;.<br>
+    <strong>b)</strong> Apr&egrave;s isolation, le niveau tombe &agrave; 78 dB. Par quel facteur l&rsquo;intensit&eacute; a-t-elle &eacute;t&eacute; divis&eacute;e&nbsp;?</p>
+    <details>
+      <summary>Voir la correction</summary>
+      <div>
+        <strong>a)</strong> \(92 = 10 \times \log\!\left(\dfrac{I}{10^{-12}}\right)\)<br>
+        \(\log\!\left(\dfrac{I}{10^{-12}}\right) = 9{,}2\)<br>
+        \(\dfrac{I}{10^{-12}} = 10^{9{,}2}\)<br>
+        \(I = 10^{9{,}2} \times 10^{-12} = 10^{-2{,}8} \approx \mathbf{1{,}585 \times 10^{-3}}\) W/m&sup2;<br><br>
+        <strong>b)</strong> \(I' = 10^{7{,}8-12} = 10^{-4{,}2} \approx 6{,}31 \times 10^{-5}\) W/m&sup2;<br>
+        Rapport&nbsp;: \(\dfrac{I}{I'} = \dfrac{10^{-2{,}8}}{10^{-4{,}2}} = 10^{-2{,}8+4{,}2} = 10^{1{,}4} \approx \mathbf{25}\)<br>
+        L&rsquo;intensit&eacute; a &eacute;t&eacute; divis&eacute;e par environ <strong>25</strong>.<br>
+        <em>Remarque&nbsp;: une diff&eacute;rence de 14 dB correspond toujours &agrave; un rapport d&rsquo;intensit&eacute; de \(10^{1{,}4} \approx 25\).</em>
+      </div>
+    </details>
+  </div>
+
+  <!-- Exercice 5 - Inequations -->
+  <div class="exo">
+    <span class="label label-ex">Exercice 5 &mdash; In&eacute;quations exponentielles</span>
+    <p>R&eacute;soudre&nbsp;:<br>
+    <strong>a)</strong> \(3^x \leq 100\)<br>
+    <strong>b)</strong> \((0{,}7)^n &lt; 0{,}1\) &nbsp;&mdash;&nbsp; donner la valeur enti&egrave;re minimale de \(n\).</p>
+    <details>
+      <summary>Voir la correction</summary>
+      <div>
+        <strong>a)</strong> \(3^x \leq 100\)<br>
+        \(x \cdot \log(3) \leq \log(100)\)<br>
+        \(\log(3) \approx 0{,}477 &gt; 0\) &rArr; sens <strong>conserv&eacute;</strong><br>
+        \(x \leq \dfrac{\log(100)}{\log(3)} = \dfrac{2}{0{,}477} \approx \mathbf{4{,}19}\)<br>
+        Solution&nbsp;: \(x \leq 4{,}19\).<br><br>
+        <strong>b)</strong> \((0{,}7)^n &lt; 0{,}1\)<br>
+        \(n \cdot \log(0{,}7) &lt; \log(0{,}1) = -1\)<br>
+        \(\log(0{,}7) \approx -0{,}155 &lt; 0\) &rArr; sens <strong>invers&eacute;</strong>&nbsp;!<br>
+        \(n &gt; \dfrac{-1}{-0{,}155} \approx 6{,}45\)<br>
+        Valeur enti&egrave;re minimale&nbsp;: \(\mathbf{n = 7}\).<br>
+        <em>V&eacute;rification&nbsp;: \(0{,}7^6 \approx 0{,}118 &gt; 0{,}1\)&nbsp;; \(0{,}7^7 \approx 0{,}082 &lt; 0{,}1\) &#10003;</em>
+      </div>
+    </details>
+  </div>
+
+  <!-- Exercice 6 - Inequations log -->
+  <div class="exo">
+    <span class="label label-ex">Exercice 6 &mdash; In&eacute;quations logarithmiques</span>
+    <p>R&eacute;soudre&nbsp;:<br>
+    <strong>a)</strong> \(\log(x) \geq 1{,}5\)<br>
+    <strong>b)</strong> \(\log(x) &lt; -2\)</p>
+    <details>
+      <summary>Voir la correction</summary>
+      <div>
+        <strong>a)</strong> \(\log\) est croissante, donc&nbsp;:<br>
+        \(\log(x) \geq 1{,}5 \iff x \geq 10^{1{,}5} \approx \mathbf{31{,}6}\)<br>
+        Solution&nbsp;: \(x \geq 10^{1{,}5} \approx 31{,}6\).<br><br>
+        <strong>b)</strong> \(\log\) est croissante, donc&nbsp;:<br>
+        \(\log(x) &lt; -2 \iff x &lt; 10^{-2} = 0{,}01\)<br>
+        Avec la condition \(x &gt; 0\)&nbsp;: \(\mathbf{0 &lt; x &lt; 0{,}01}\).
+      </div>
+    </details>
+  </div>
+
+  <!-- ============================================================ -->
+  <hr class="sep">
+  <h2>13. Pour aller plus loin &mdash; Hors programme</h2>
+
+  <div class="hors-prog">
+    <div class="biv">
+      <span class="label label-biv">&#9888; Hors programme &mdash; pour les &eacute;l&egrave;ves curieux</span><br>
+      Cette section pr&eacute;sente des notions qui vont au-del&agrave; du programme de Terminale Bac Pro. Elles ne seront <strong>pas &eacute;valu&eacute;es</strong> lors des contr&ocirc;les, mais peuvent satisfaire votre curiosit&eacute; et constituent une introduction aux &eacute;tudes sup&eacute;rieures.
+    </div>
+
+    <h3>1. Le logarithme naturel (n&eacute;p&eacute;rien) \(\ln\)</h3>
+    <p>En plus du logarithme d&eacute;cimal \(\log_{10}\), il existe le <strong>logarithme naturel</strong> (ou n&eacute;p&eacute;rien), not&eacute; \(\ln\), qui utilise la base \(e \approx 2{,}71828\ldots\) (constante d&rsquo;Euler).</p>
+    <div class="def">
+      <span class="label label-def">D&eacute;finition</span><br>
+      \(\ln(x) = \log_e(x)\) &mdash; le logarithme en base \(e\).<br>
+      Formule de conversion&nbsp;: \(\ln(x) = \dfrac{\log(x)}{\log(e)} \approx \dfrac{\log(x)}{0{,}4343}\)
+    </div>
+    <p>Le logarithme naturel est <strong>tr&egrave;s utilis&eacute;</strong> en math&eacute;matiques appliqu&eacute;es, en physique, en chimie et en &eacute;conomie. En Terminale g&eacute;n&eacute;rale, \(\ln\) est au programme &agrave; la place de \(\log\).</p>
+
+    <h3>2. D&eacute;croissance exponentielle &mdash; Radioactivit&eacute;</h3>
+    <p>Un atome radioactif se d&eacute;sint&egrave;gre de mani&egrave;re exponentielle. Le nombre d&rsquo;atomes au temps \(t\) est&nbsp;:</p>
+    \[ N(t) = N_0 \times e^{-\lambda t} \]
+    <p>o&ugrave; \(\lambda\) est la constante de d&eacute;sint&egrave;gration et \(N_0\) le nombre initial d&rsquo;atomes. La <strong>demi-vie</strong> \(T_{1/2}\) est le temps n&eacute;cessaire pour que la moiti&eacute; des atomes se soient d&eacute;sint&eacute;gr&eacute;s&nbsp;: \(T_{1/2} = \dfrac{\ln(2)}{\lambda} \approx \dfrac{0{,}693}{\lambda}\).</p>
+
+    <h3>3. Changement de base</h3>
+    <p>Pour calculer le logarithme dans une base quelconque \(b\), on utilise la formule de changement de base&nbsp;:</p>
+    \[ \log_b(a) = \frac{\log(a)}{\log(b)} \]
+    <p><em>Exemples&nbsp;: \(\log_2(32) = \dfrac{\log(32)}{\log(2)} = \dfrac{5 \times 0{,}301}{0{,}301} = 5\)&nbsp;;
+    \(\log_3(100) = \dfrac{\log(100)}{\log(3)} = \dfrac{2}{0{,}477} \approx 4{,}19\).</em></p>
+    <p>C&rsquo;est ainsi qu&rsquo;une calculatrice scientifique calcule les logarithmes dans toute base&nbsp;: elle n&rsquo;en conna&icirc;t que deux (\(\log\) et \(\ln\)), mais peut tout d&eacute;duire.</p>
+
+    <h3>4. Lien exponentielle &mdash; logarithme naturel</h3>
+    <p>Tout comme \(\log\) et \(10^x\) sont fonctions r&eacute;ciproques, \(\ln\) et \(e^x\) le sont aussi&nbsp;:</p>
+    \[ e^{\ln(x)} = x \quad \text{et} \quad \ln(e^x) = x \]
+    <p>La fonction \(e^x\) (exponentielle de base \(e\)) a la propri&eacute;t&eacute; remarquable d&rsquo;&ecirc;tre &eacute;gale &agrave; sa propre d&eacute;riv&eacute;e, ce qui en fait l&rsquo;outil central du calcul diff&eacute;rentiel et int&eacute;gral.</p>
+  </div>
+
+</div><!-- fin .c -->
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+/* ----- utilitaire range ----- */
+function range(start, end, step) {
+  const arr = [];
+  for (let x = start; x <= end + 1e-9; x += step)
+    arr.push(parseFloat(x.toFixed(6)));
+  return arr;
+}
+
+/* ----- 1. Graphique exponentielles comparatif ----- */
+(function () {
+  const xs = range(-3, 4, 0.2);
+  const ctx = document.getElementById('chartExpo').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: xs,
+      datasets: [
+        {
+          label: 'f(x) = 2^x',
+          data: xs.map(x => Math.pow(2, x)),
+          borderColor: '#0969da', backgroundColor: 'rgba(9,105,218,0.07)',
+          tension: 0.35, pointRadius: 2, borderWidth: 2
+        },
+        {
+          label: 'g(x) = 0,5^x',
+          data: xs.map(x => Math.pow(0.5, x)),
+          borderColor: '#d97706', backgroundColor: 'rgba(217,119,6,0.07)',
+          tension: 0.35, pointRadius: 2, borderWidth: 2
+        },
+        {
+          label: 'h(x) = 10^x (axe droit)',
+          data: xs.map(x => Math.pow(10, x)),
+          borderColor: '#2f855a', backgroundColor: 'rgba(47,133,90,0.07)',
+          tension: 0.35, pointRadius: 2, borderWidth: 2,
+          yAxisID: 'y2'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top' },
+        title: { display: true, text: 'Comparaison de fonctions exponentielles', font: { size: 13 } }
+      },
+      scales: {
+        x: { title: { display: true, text: 'x' } },
+        y: { min: 0, max: 12, title: { display: true, text: '2^x et 0,5^x' }, position: 'left' },
+        y2: { min: 0, max: 1200, title: { display: true, text: '10^x' }, position: 'right', grid: { drawOnChartArea: false } }
+      }
+    }
+  });
+})();
+
+/* ----- 2. Graphique logarithme decimal ----- */
+(function () {
+  const xs = [];
+  for (let x = 0.05; x <= 12; x += 0.1) xs.push(parseFloat(x.toFixed(3)));
+  const ctx = document.getElementById('chartLog').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: xs,
+      datasets: [
+        {
+          label: 'y = log(x)',
+          data: xs.map(x => Math.log10(x)),
+          borderColor: '#0969da', backgroundColor: 'rgba(9,105,218,0.06)',
+          tension: 0.3, pointRadius: 0, borderWidth: 2.5, fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        title: { display: true, text: 'Courbe de y = log(x)', font: { size: 13 } }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'x' },
+          ticks: {
+            maxTicksLimit: 8,
+            callback: function (val) {
+              const v = parseFloat(this.getLabelForValue(val));
+              return Number.isInteger(v) ? v : '';
+            }
+          }
+        },
+        y: {
+          min: -2, max: 2,
+          title: { display: true, text: 'log(x)' },
+          grid: {
+            color: ctx => ctx.tick && ctx.tick.value === 0 ? '#94a3b8' : '#e2e8f0'
+          }
+        }
+      }
+    }
+  });
+})();
+
+/* ----- 3. Graphique depreciation ----- */
+(function () {
+  const ns = Array.from({ length: 21 }, (_, i) => i);
+  const ctx = document.getElementById('chartDeprec').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ns,
+      datasets: [
+        {
+          label: 'V(n) = 12 000 x 0,85n',
+          data: ns.map(n => Math.round(12000 * Math.pow(0.85, n))),
+          borderColor: '#0969da', backgroundColor: 'rgba(9,105,218,0.08)',
+          fill: true, tension: 0.25, pointRadius: 3, borderWidth: 2
+        },
+        {
+          label: 'Seuil 2 000 EUR',
+          data: ns.map(() => 2000),
+          borderColor: '#c53030', borderDash: [6, 4],
+          pointRadius: 0, borderWidth: 1.5, fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        title: { display: true, text: 'Depreciation : V(n) = 12 000 x 0,85n', font: { size: 13 } }
+      },
+      scales: {
+        x: { title: { display: true, text: 'Annees (n)' } },
+        y: {
+          min: 0, max: 13000,
+          title: { display: true, text: 'Valeur (EUR)' },
+          ticks: { callback: v => v.toLocaleString('fr') + ' EUR' }
+        }
+      }
+    }
+  });
+})();
+
+/* ----- 4. Graphique interactif a^x avec slider ----- */
+let chartInteractif = null;
+
+function buildInteractifChart(a) {
+  const xs = range(-4, 4, 0.2);
+  const datasets = [{
+    label: 'f(x) = ' + a.toFixed(2) + '^x',
+    data: xs.map(x => Math.pow(a, x)),
+    borderColor: '#0969da', backgroundColor: 'rgba(9,105,218,0.07)',
+    fill: true, tension: 0.3, pointRadius: 2, borderWidth: 2
+  }];
+
+  if (chartInteractif) {
+    chartInteractif.data.labels = xs;
+    chartInteractif.data.datasets = datasets;
+    chartInteractif.update('none');
+    return;
+  }
+  const ctx = document.getElementById('chartInteractif').getContext('2d');
+  chartInteractif = new Chart(ctx, {
+    type: 'line',
+    data: { labels: xs, datasets },
+    options: {
+      responsive: true,
+      animation: false,
+      plugins: {
+        legend: { position: 'top' },
+        title: { display: true, text: 'f(x) = ax (modifiez le curseur)', font: { size: 13 } }
+      },
+      scales: {
+        x: { title: { display: true, text: 'x' } },
+        y: { min: 0, max: 12, title: { display: true, text: 'a^x' } }
+      }
+    }
+  });
+}
+
+function updateCourbeA() {
+  const a = parseFloat(document.getElementById('sliderA').value);
+  document.getElementById('valeurA').textContent = a.toFixed(2);
+  buildInteractifChart(a);
+}
+
+buildInteractifChart(2);
+
+/* ----- 5. Simulateur depreciation ----- */
+function calcDeprec() {
+  const v0 = parseFloat(document.getElementById('v0Input').value);
+  const taux = parseFloat(document.getElementById('tauxInput').value);
+  const seuil = parseFloat(document.getElementById('seuilInput').value);
+  const el = document.getElementById('resultatDeprec');
+
+  if (isNaN(v0) || isNaN(taux) || isNaN(seuil) || taux <= 0 || taux >= 100 || v0 <= 0) {
+    el.textContent = 'Valeurs invalides. Veuillez corriger les saisies.';
+    return;
+  }
+  if (seuil >= v0) {
+    el.textContent = 'Le seuil doit etre strictement inferieur a la valeur initiale.';
+    return;
+  }
+
+  const q = 1 - taux / 100;
+  const rapport = seuil / v0;
+  const n = Math.log(rapport) / Math.log(q);
+  const nEntier = Math.ceil(n);
+  const vApresN = v0 * Math.pow(q, nEntier);
+
+  el.innerHTML =
+    'Formule : <em>V(n) = ' + v0.toLocaleString('fr') + ' &times; ' + q.toFixed(2) + '<sup>n</sup></em><br>' +
+    'Resolution : <em>n &gt; log(' + rapport.toFixed(4) + ') / log(' + q.toFixed(2) + ') = ' + n.toFixed(3) + '</em><br>' +
+    '&rarr; A partir de <strong>n = ' + nEntier + ' an(s)</strong>, V passe sous ' + seuil.toLocaleString('fr') + '\u00a0\u20ac' +
+    ' (V(' + nEntier + ') &asymp; ' + Math.round(vApresN).toLocaleString('fr') + '\u00a0\u20ac)';
+}
+
+/* ----- 6. Calculateurs decibels ----- */
+const I0 = 1e-12;
+
+function calcDecibels() {
+  const I = parseFloat(document.getElementById('intensiteInput').value);
+  const el = document.getElementById('resultatDB');
+  if (isNaN(I) || I <= 0) { el.textContent = 'Valeur invalide (I doit etre > 0).'; return; }
+  const rapport = I / I0;
+  const L = 10 * Math.log10(rapport);
+  el.innerHTML =
+    'L = 10 &times; log(' + I.toExponential(3) + ' / 10<sup>&minus;12</sup>) = 10 &times; log(' + rapport.toExponential(3) + ') ' +
+    '&asymp; <strong>' + L.toFixed(1) + ' dB</strong>';
+}
+
+function calcIntensite() {
+  const L = parseFloat(document.getElementById('niveauInput').value);
+  const el = document.getElementById('resultatI');
+  if (isNaN(L)) { el.textContent = 'Valeur invalide.'; return; }
+  const I = I0 * Math.pow(10, L / 10);
+  el.innerHTML =
+    'I = 10<sup>&minus;12</sup> &times; 10<sup>' + (L / 10).toFixed(2) + '</sup> &asymp; <strong>' + I.toExponential(3) + ' W/m&sup2;</strong>';
+}
+
+/* ----- 7. Calculateur exp/log general ----- */
+function calcExpLog() {
+  const a = parseFloat(document.getElementById('baseInput').value);
+  const x = parseFloat(document.getElementById('expInput').value);
+  const v = parseFloat(document.getElementById('logInput').value);
+  const el = document.getElementById('resultatExpLog');
+  let html = '';
+
+  if (!isNaN(a) && a > 0 && Math.abs(a - 1) > 1e-9 && !isNaN(x)) {
+    const res = Math.pow(a, x);
+    html += '<strong>' + a.toFixed(2) + '<sup>' + x + '</sup> = ' + res.toFixed(6) + '</strong><br>';
+    html += 'log(' + a.toFixed(2) + ') = ' + Math.log10(a).toFixed(6) + '<br>';
+    const xCheck = Math.log10(res) / Math.log10(a);
+    html += 'Verification : log(' + res.toFixed(4) + ') / log(' + a.toFixed(2) + ') = ' + xCheck.toFixed(6) + '<br>';
+  }
+  if (!isNaN(v) && v > 0) {
+    html += '<br><strong>log(' + v + ') = ' + Math.log10(v).toFixed(6) + '</strong><br>';
+    html += '10<sup>log(' + v + ')</sup> = ' + Math.pow(10, Math.log10(v)).toFixed(4) + ' &#10003;';
+  }
+  el.innerHTML = html || 'Renseignez les champs ci-dessus.';
+}
+</script>
+
+<script src="/nav.js"></script>
+</body>
+</html>

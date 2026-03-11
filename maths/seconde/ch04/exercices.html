@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 &ndash; Exercices : Probabilit&eacute;s et fluctuation des fr&eacute;quences &ndash; 2nde MAMA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:28px;padding-bottom:16px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
+.sous-titre{color:#718096;font-size:.92em;margin:0}
+.maj{font-size:.78em;color:#a0aec0;text-align:center;margin-top:4px}
+
+.niveau-header{display:flex;align-items:center;gap:14px;margin:36px 0 16px;padding:12px 18px;border-radius:8px}
+.niveau-header h2{margin:0;font-size:1.1em;color:inherit}
+.niveau-1{background:#ebf5ff;border-left:5px solid var(--p);color:#1e40af}
+.niveau-2{background:#f0fff4;border-left:5px solid var(--s);color:#065f46}
+.niveau-3{background:#fffbeb;border-left:5px solid var(--o);color:#92400e}
+.niveau-4{background:#fff5f5;border-left:5px solid var(--d);color:#991b1b}
+.badge-niv{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.badge-1{background:#dbeafe;color:#1e40af}
+.badge-2{background:#d1fae5;color:#065f46}
+.badge-3{background:#fef3c7;color:#92400e}
+.badge-4{background:#fee2e2;color:#991b1b}
+
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;margin:14px 0;background:#fafafa}
+.exo-num{font-weight:700;color:var(--p);font-size:1em;margin-bottom:6px}
+.exo-titre{font-weight:700;font-size:1em;margin-bottom:10px}
+.enonce{background:#fff;border-radius:6px;padding:12px 14px;border:1px solid #e2e8f0;margin:10px 0;font-size:.95em}
+.context-tag{display:inline-block;background:#fef3c7;color:#92400e;border-radius:4px;font-size:.72em;font-weight:700;text-transform:uppercase;padding:2px 8px;margin-bottom:8px;letter-spacing:.03em}
+
+.zone-rep{margin:12px 0}
+.zone-rep label{font-size:.85em;color:#718096;font-weight:600;display:block;margin-bottom:4px}
+.zone-rep textarea{width:100%;min-height:70px;border:1px dashed #cbd5e0;border-radius:6px;padding:8px;font-size:.9em;color:var(--t);background:#fff;resize:vertical;box-sizing:border-box;font-family:inherit}
+.zone-rep textarea:focus{outline:none;border-color:var(--p);background:#f0f7ff}
+
+details.corr-wrap{margin-top:12px}
+details.corr-wrap summary{cursor:pointer;font-size:.88em;font-weight:700;color:var(--s);padding:7px 12px;background:#f0fff4;border-radius:6px;border:1px solid #a7f3d0;display:inline-flex;align-items:center;gap:6px;user-select:none}
+details.corr-wrap summary:hover{background:#d1fae5}
+details.corr-wrap summary::marker{display:none}
+details.corr-wrap summary::-webkit-details-marker{display:none}
+details.corr-wrap[open] summary{border-radius:6px 6px 0 0;background:#d1fae5}
+.corr-body{background:#f0fff4;border:1px solid #a7f3d0;border-top:none;border-radius:0 6px 6px 6px;padding:14px 18px;font-size:.93em}
+.corr-body ol{padding-left:20px;margin:6px 0}
+.corr-body li{margin:5px 0}
+.corr-rep{background:#d1fae5;border-left:4px solid var(--s);padding:8px 12px;border-radius:0 6px 6px 0;margin-top:10px;font-weight:600;color:#065f46}
+.att-corr{background:#fff5f5;border-left:4px solid var(--d);padding:8px 12px;border-radius:0 6px 6px 0;margin:8px 0;font-size:.9em}
+
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.91em}
+th,td{border:1px solid #e2e8f0;padding:9px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+td.tl{text-align:left}
+
+.schema{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin:10px 0;text-align:center}
+.schema figcaption{font-size:.8em;color:#718096;margin-top:6px}
+
+.nb{margin-bottom:16px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nav-footer{display:flex;justify-content:space-between;margin-top:36px;padding-top:16px;border-top:1px solid #e2e8f0;flex-wrap:wrap;gap:10px}
+.nav-btn{text-decoration:none;font-size:.85em;font-weight:600;padding:8px 16px;border-radius:6px;color:var(--p);border:1px solid var(--p);transition:.2s}
+.nav-btn:hover{background:var(--p);color:#fff}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Exercices &ndash; Probabilit&eacute;s et fluctuation des fr&eacute;quences</h1>
+  <p class="sous-titre">Seconde Bac Pro MAMA &nbsp;|&nbsp; Chapitre 4 &nbsp;|&nbsp; Math&eacute;matiques</p>
+  <p class="maj">Derni&egrave;re mise &agrave; jour : 9 mars 2026</p>
+</header>
+
+<p style="font-size:.92em;color:#4a5568;background:#ebf5ff;border-radius:8px;padding:12px 16px;border:1px solid #93c5fd;margin-bottom:28px">
+  <strong>Mode d&rsquo;emploi :</strong> R&eacute;sous chaque exercice dans la zone pr&eacute;vue, puis clique sur <em>&laquo;&nbsp;Voir la correction&nbsp;&raquo;</em> pour v&eacute;rifier ton travail.
+  Les exercices sont class&eacute;s du plus simple au plus complexe &mdash; avance &agrave; ton rythme&nbsp;!
+</p>
+
+
+<!-- ============================================================ -->
+<!--  NIVEAU 1 – VÉRIFIER LES BASES                               -->
+<!-- ============================================================ -->
+<div class="niveau-header niveau-1">
+  <span class="badge-niv badge-1">Niveau 1</span>
+  <h2>V&eacute;rifier les bases</h2>
+</div>
+
+<!-- EX 1 -->
+<div class="exo">
+  <div class="exo-num">Exercice 1</div>
+  <div class="exo-titre">Identifier une exp&eacute;rience al&eacute;atoire</div>
+  <div class="enonce">
+    Pour chaque situation, dire si elle est <strong>al&eacute;atoire</strong> (r&eacute;sultat impr&eacute;visible) ou <strong>d&eacute;terministe</strong> (r&eacute;sultat certain). Justifier.
+    <br><br>
+    <strong>a)</strong> Lancer un d&eacute; &agrave; 6 faces et observer le num&eacute;ro obtenu.<br>
+    <strong>b)</strong> Calculer le r&eacute;sultat de \(3 \times 4\).<br>
+    <strong>c)</strong> Tirer une carte dans un jeu de 52 cartes.<br>
+    <strong>d)</strong> Chauffer de l&rsquo;eau &agrave; 100&deg;C sous pression atmosphique normale et observer si elle bout.
+  </div>
+  <div class="zone-rep">
+    <label>Mes r&eacute;ponses :</label>
+    <textarea placeholder="a) ...&#10;b) ...&#10;c) ...&#10;d) ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a)</strong> Lancer un d&eacute; &rarr; <strong>al&eacute;atoire</strong>. On ne sait pas &agrave; l&rsquo;avance quel num&eacute;ro va sortir.<br><br>
+      <strong>b)</strong> Calculer \(3 \times 4\) &rarr; <strong>d&eacute;terministe</strong>. Le r&eacute;sultat est toujours 12, sans hasard possible.<br><br>
+      <strong>c)</strong> Tirer une carte &rarr; <strong>al&eacute;atoire</strong>. On ne conna&icirc;t pas la carte qui va &ecirc;tre tir&eacute;e &agrave; l&rsquo;avance.<br><br>
+      <strong>d)</strong> Chauffer l&rsquo;eau &agrave; 100&deg;C &rarr; <strong>d&eacute;terministe</strong>. L&rsquo;eau bout toujours &agrave; 100&deg;C sous pression atmosph&eacute;rique normale ; le r&eacute;sultat est certain et pr&eacute;visible.
+      <div class="corr-rep">&#10004; Al&eacute;atoires : a) et c). D&eacute;terministes : b) et d).</div>
+    </div>
+  </details>
+</div>
+
+<!-- EX 2 -->
+<div class="exo">
+  <div class="exo-num">Exercice 2</div>
+  <div class="exo-titre">Univers et issues</div>
+  <div class="enonce">
+    Pour chaque exp&eacute;rience, &eacute;crire l&rsquo;univers \(\Omega\) et compter le nombre d&rsquo;issues.
+    <br><br>
+    <strong>a)</strong> Lancer un d&eacute; &agrave; 6 faces.<br>
+    <strong>b)</strong> Lancer une pi&egrave;ce de monnaie.<br>
+    <strong>c)</strong> Tirer une carte parmi un ensemble de 4 cartes : Roi, Dame, Valet, As.
+  </div>
+  <div class="zone-rep">
+    <label>Mes r&eacute;ponses :</label>
+    <textarea placeholder="a) Omega = { ... } → ... issues&#10;b) Omega = { ... } → ... issues&#10;c) Omega = { ... } → ... issues"></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a)</strong> D&eacute; &agrave; 6 faces :
+      \[\Omega = \{1, 2, 3, 4, 5, 6\} \quad \rightarrow \quad 6 \text{ issues}\]
+      <strong>b)</strong> Pi&egrave;ce de monnaie :
+      \[\Omega = \{\text{Pile}, \text{Face}\} \quad \rightarrow \quad 2 \text{ issues}\]
+      <strong>c)</strong> 4 cartes :
+      \[\Omega = \{\text{Roi}, \text{Dame}, \text{Valet}, \text{As}\} \quad \rightarrow \quad 4 \text{ issues}\]
+      <div class="corr-rep">&#10004; Le nombre d&rsquo;issues correspond au nombre d&rsquo;&eacute;l&eacute;ments dans \(\Omega\).</div>
+    </div>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  NIVEAU 2 – APPLICATION DIRECTE                              -->
+<!-- ============================================================ -->
+<div class="niveau-header niveau-2">
+  <span class="badge-niv badge-2">Niveau 2</span>
+  <h2>Application directe</h2>
+</div>
+
+<!-- EX 3 -->
+<div class="exo">
+  <div class="exo-num">Exercice 3</div>
+  <div class="exo-titre">Probabilit&eacute;s simples avec un d&eacute;</div>
+  <div class="enonce">
+    On lance un d&eacute; &agrave; 6 faces &eacute;quilibr&eacute;. Calculer les probabilit&eacute;s suivantes. Donner le r&eacute;sultat sous forme de fraction et de d&eacute;cimal.
+    <br><br>
+    <strong>a)</strong> P(obtenir 3)<br>
+    <strong>b)</strong> P(obtenir un nombre impair)<br>
+    <strong>c)</strong> P(obtenir un nombre strictement inf&eacute;rieur &agrave; 5)
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) Issues favorables : { ... } → P = .../6 = ...&#10;b) Issues favorables : { ... } → P = .../6 = ...&#10;c) Issues favorables : { ... } → P = .../6 = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      L&rsquo;univers est \(\Omega = \{1, 2, 3, 4, 5, 6\}\), 6 issues &eacute;quiprobables.<br><br>
+      <strong>a)</strong> Obtenir 3 : une seule issue favorable \(\{3\}\).
+      \[P(3) = \frac{1}{6} \approx 0{,}17\]
+      <strong>b)</strong> Obtenir un nombre impair : issues favorables \(\{1, 3, 5\}\), soit 3 issues.
+      \[P(\text{impair}) = \frac{3}{6} = \frac{1}{2} = 0{,}5\]
+      <strong>c)</strong> Obtenir un nombre &lt; 5 : issues favorables \(\{1, 2, 3, 4\}\), soit 4 issues.
+      \[P(<5) = \frac{4}{6} = \frac{2}{3} \approx 0{,}67\]
+      <div class="corr-rep">&#10004; R&eacute;sultats : a) 1/6, b) 1/2, c) 2/3.</div>
+    </div>
+  </details>
+</div>
+
+<!-- EX 4 -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <div class="exo-titre">Fr&eacute;quence observ&eacute;e</div>
+  <div class="enonce">
+    On lance une pi&egrave;ce de monnaie &eacute;quilibr&eacute;e 50 fois. On obtient Pile 28 fois.
+    <br><br>
+    <strong>a)</strong> Calculer la fr&eacute;quence observ&eacute;e de l&rsquo;&eacute;v&eacute;nement &laquo;&nbsp;obtenir Pile&nbsp;&raquo;.<br>
+    <strong>b)</strong> Quelle est la probabilit&eacute; th&eacute;orique d&rsquo;obtenir Pile&nbsp;?<br>
+    <strong>c)</strong> Comparer la fr&eacute;quence et la probabilit&eacute;. Ce r&eacute;sultat est-il coh&eacute;rent&nbsp;? Expliquer.
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) f = .../50 = ...&#10;b) P(Pile) = ...&#10;c) ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a)</strong> Fr&eacute;quence observ&eacute;e :
+      \[f(\text{Pile}) = \frac{28}{50} = 0{,}56 = 56\%\]
+      <strong>b)</strong> Probabilit&eacute; th&eacute;orique :
+      \[P(\text{Pile}) = \frac{1}{2} = 0{,}5 = 50\%\]
+      <strong>c)</strong> La fr&eacute;quence (0,56) est proche de la probabilit&eacute; th&eacute;orique (0,5), mais elles ne sont pas &eacute;gales.
+      C&rsquo;est tout &agrave; fait coh&eacute;rent&nbsp;: avec seulement 50 lancers, il est normal que la fr&eacute;quence fluctue un peu autour de 0,5.
+      <div class="corr-rep">&#10004; f = 0,56 ; P = 0,5. L&rsquo;&eacute;cart (0,06) est d&ucirc; &agrave; la fluctuation des fr&eacute;quences, c&rsquo;est normal.</div>
+      <div class="att-corr">Rappel : la fr&eacute;quence est observ&eacute;e (r&eacute;elle), la probabilit&eacute; est th&eacute;orique. Elles ne sont &eacute;gales qu&rsquo;en moyenne, sur un tr&egrave;s grand nombre d&rsquo;exp&eacute;riences (loi des grands nombres).</div>
+    </div>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  NIVEAU 3 – CONTEXTE PROFESSIONNEL                           -->
+<!-- ============================================================ -->
+<div class="niveau-header niveau-3">
+  <span class="badge-niv badge-3">Niveau 3</span>
+  <h2>Contexte professionnel MAMA</h2>
+</div>
+
+<!-- EX 5 -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <div class="exo-titre">Contr&ocirc;le qualit&eacute; MAMA</div>
+  <span class="context-tag">Menuiserie &ndash; Contr&ocirc;le qualit&eacute;</span>
+  <div class="enonce">
+    Un atelier re&ccedil;oit un lot de 150 planches de bois. Apr&egrave;s contr&ocirc;le, 12 planches sont jug&eacute;es d&eacute;fectueuses (noeuds, fissures, d&eacute;faut d&rsquo;&eacute;paisseur).
+    <br><br>
+    <strong>a)</strong> Calculer la fr&eacute;quence de d&eacute;faut dans ce lot.<br>
+    <strong>b)</strong> Estimer la probabilit&eacute; qu&rsquo;une planche choisie au hasard soit d&eacute;fectueuse.<br>
+    <strong>c)</strong> Sur un prochain lot de 500 planches, combien de planches d&eacute;fectueuses peut-on pr&eacute;voir (approximativement)&nbsp;?
+  </div>
+  <div class="zone-rep">
+    <label>Ma d&eacute;marche :</label>
+    <textarea placeholder="a) f = .../150 = ...&#10;b) P(défectueuse) ≈ ...&#10;c) Nombre prévu = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a)</strong> Fr&eacute;quence de d&eacute;faut :
+      \[f = \frac{12}{150} = 0{,}08 = 8\%\]
+      <strong>b)</strong> On estime la probabilit&eacute; &agrave; partir de la fr&eacute;quence observ&eacute;e :
+      \[P(\text{d\'{e}fectueuse}) \approx 0{,}08 = 8\%\]
+      <strong>c)</strong> Sur 500 planches, on pr&eacute;voit :
+      \[500 \times 0{,}08 = 40 \text{ planches d\'{e}fectueuses}\]
+      <div class="corr-rep">&#10004; Fr&eacute;quence : 8&nbsp;%. Estimation : environ 40 planches d&eacute;fectueuses sur 500.</div>
+      <div class="att-corr">Attention : il s&rsquo;agit d&rsquo;une <em>estimation</em>. Le nombre r&eacute;el peut &ecirc;tre l&eacute;g&egrave;rement diff&eacute;rent (fluctuation). Cette m&eacute;thode est cependant tr&egrave;s utile pour pr&eacute;voir les besoins en contr&ocirc;le qualit&eacute; et r&eacute;duire les pertes.</div>
+    </div>
+  </details>
+</div>
+
+<!-- EX 6 -->
+<div class="exo">
+  <div class="exo-num">Exercice 6</div>
+  <div class="exo-titre">Fluctuation des fr&eacute;quences &ndash; Observation</div>
+  <span class="context-tag">Statistiques &ndash; Probabilit&eacute;s</span>
+  <div class="enonce">
+    Quatre &eacute;l&egrave;ves r&eacute;alisent chacun 30 lancers d&rsquo;une pi&egrave;ce de monnaie &eacute;quilibr&eacute;e. Voici leurs r&eacute;sultats :
+    <br><br>
+    <table>
+      <tr><th>El&egrave;ve</th><th>Nombre de lancers</th><th>Nombre de Pile</th><th>Fr&eacute;quence de Pile</th></tr>
+      <tr><td>Alix</td><td>30</td><td>14</td><td>&agrave; calculer</td></tr>
+      <tr><td>Bruno</td><td>30</td><td>18</td><td>&agrave; calculer</td></tr>
+      <tr><td>Clara</td><td>30</td><td>12</td><td>&agrave; calculer</td></tr>
+      <tr><td>David</td><td>30</td><td>16</td><td>&agrave; calculer</td></tr>
+    </table>
+    <br>
+    <strong>a)</strong> Calculer la fr&eacute;quence de Pile pour chaque &eacute;l&egrave;ve (arrondir au centi&egrave;me).<br>
+    <strong>b)</strong> Calculer le nombre total de Pile et la fr&eacute;quence globale sur les 4 s&eacute;ries combin&eacute;es.<br>
+    <strong>c)</strong> Conclure sur la probabilit&eacute; estim&eacute;e d&rsquo;obtenir Pile et sur le ph&eacute;nom&egrave;ne observ&eacute;.
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) Alix : f = 14/30 = ...  Bruno : f = 18/30 = ...  Clara : ...  David : ...&#10;b) Total Pile = ... sur ... lancers → f globale = ...&#10;c) ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a)</strong> Fr&eacute;quences individuelles :
+      <ul style="padding-left:18px;margin:6px 0">
+        <li>Alix : \(f = \dfrac{14}{30} \approx 0{,}47\)</li>
+        <li>Bruno : \(f = \dfrac{18}{30} = 0{,}60\)</li>
+        <li>Clara : \(f = \dfrac{12}{30} = 0{,}40\)</li>
+        <li>David : \(f = \dfrac{16}{30} \approx 0{,}53\)</li>
+      </ul>
+      Les fr&eacute;quences varient entre 0,40 et 0,60 : c&rsquo;est la <strong>fluctuation des fr&eacute;quences</strong>.<br><br>
+      <strong>b)</strong> Total Pile : \(14 + 18 + 12 + 16 = 60\). Nombre total de lancers : \(4 \times 30 = 120\).
+      \[f_{\text{globale}} = \frac{60}{120} = 0{,}50 = 50\%\]
+      <strong>c)</strong> La fr&eacute;quence globale (0,50) est &eacute;gale &agrave; la probabilit&eacute; th&eacute;orique (0,5). En combinant les s&eacute;ries, on augmente le nombre d&rsquo;exp&eacute;riences et la fr&eacute;quence se rapproche de la probabilit&eacute; : c&rsquo;est la <strong>loi des grands nombres</strong>.
+      <div class="corr-rep">&#10004; Fr&eacute;quences individuelles entre 0,40 et 0,60. Fr&eacute;quence globale = 0,50. La fluctuation diminue quand n augmente.</div>
+    </div>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  NIVEAU 4 – PROBLÈMES COMPLETS                               -->
+<!-- ============================================================ -->
+<div class="niveau-header niveau-4">
+  <span class="badge-niv badge-4">Niveau 4</span>
+  <h2>Probl&egrave;mes complets</h2>
+</div>
+
+<!-- EX 7 -->
+<div class="exo">
+  <div class="exo-num">Exercice 7</div>
+  <div class="exo-titre">Comparaison de deux machines</div>
+  <span class="context-tag">Agencement &ndash; Contr&ocirc;le qualit&eacute;</span>
+  <div class="enonce">
+    Un atelier d&rsquo;agencement dispose de deux machines pour d&eacute;couper des panneaux de bois.
+    Apr&egrave;s une s&eacute;rie de contr&ocirc;les, on a relev&eacute; :
+    <br><br>
+    <table>
+      <tr><th>Machine</th><th>Pi&egrave;ces produites</th><th>Pi&egrave;ces d&eacute;fectueuses</th><th>Fr&eacute;quence de d&eacute;faut</th></tr>
+      <tr><td><strong>Machine A</strong></td><td>80</td><td>5</td><td>&agrave; calculer</td></tr>
+      <tr><td><strong>Machine B</strong></td><td>100</td><td>8</td><td>&agrave; calculer</td></tr>
+    </table>
+    <br>
+    <strong>a)</strong> Calculer la fr&eacute;quence de d&eacute;faut pour chaque machine. Arrondir au millier.
+    <br>
+    <strong>b)</strong> Quelle machine est la plus fiable&nbsp;? Justifier avec les calculs.
+    <br>
+    <strong>c)</strong> Sur une production de 400 pi&egrave;ces par la machine la <em>moins</em> fiable, combien de pi&egrave;ces d&eacute;fectueuses peut-on pr&eacute;voir&nbsp;?
+  </div>
+  <div class="zone-rep">
+    <label>Ma d&eacute;marche :</label>
+    <textarea placeholder="a) Machine A : f_A = 5/80 = ...   Machine B : f_B = 8/100 = ...&#10;b) La plus fiable est ...&#10;c) Nombre prévu = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a)</strong> Fr&eacute;quences de d&eacute;faut :
+      \[f_A = \frac{5}{80} = 0{,}0625 \approx 6{,}25\%\]
+      \[f_B = \frac{8}{100} = 0{,}08 = 8\%\]
+      <strong>b)</strong> La machine A a une fr&eacute;quence de d&eacute;faut plus faible (6,25&nbsp;% &lt; 8&nbsp;%).
+      <div class="corr-rep">&#10004; La machine A est la plus fiable : elle produit moins de d&eacute;fauts en proportion.</div>
+      <strong>c)</strong> La machine la moins fiable est la machine B (f = 8&nbsp;%).
+      \[\text{Nombre pr\'{e}vu} = 400 \times 0{,}08 = 32 \text{ pi\`{e}ces d\'{e}fectueuses}\]
+      <div class="corr-rep">&#10004; On pr&eacute;voit environ 32 pi&egrave;ces d&eacute;fectueuses sur 400 produites par la machine B.</div>
+    </div>
+  </details>
+</div>
+
+<!-- EX 8 -->
+<div class="exo">
+  <div class="exo-num">Exercice 8 &#9733;</div>
+  <div class="exo-titre">Jeu de cartes &ndash; 32 cartes</div>
+  <div class="enonce">
+    Un jeu de 32 cartes comporte 8 valeurs (7, 8, 9, 10, Valet, Dame, Roi, As) r&eacute;parties en 4 couleurs (&eacute;gales : pique, c&oelig;ur, carreau, tr&egrave;fle).
+    On tire une carte au hasard dans ce jeu m&eacute;lang&eacute;.
+    <br><br>
+    <strong>a)</strong> Calculer P(tirer un As).<br>
+    <strong>b)</strong> Calculer P(tirer une carte de c&oelig;ur).<br>
+    <strong>c)</strong> Calculer P(tirer l&rsquo;As de c&oelig;ur).<br>
+    <strong>d)</strong> Calculer P(tirer une figure : Valet, Dame ou Roi).<br>
+    <strong>e)</strong> V&eacute;rifier que P(figure) + P(non-figure) = 1.
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="Univers : 32 cartes équiprobables&#10;a) P(As) = .../32 = ...&#10;b) P(coeur) = .../32 = ...&#10;c) P(As de coeur) = .../32 = ...&#10;d) P(figure) = .../32 = ...&#10;e) P(figure) + P(non-figure) = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      L&rsquo;univers contient 32 cartes &eacute;quiprobables.<br>
+      Structure : 8 valeurs &times; 4 couleurs = 32 cartes.<br><br>
+      <strong>a)</strong> Il y a 4 As (un par couleur), soit 4 issues favorables.
+      \[P(\text{As}) = \frac{4}{32} = \frac{1}{8} = 0{,}125 = 12{,}5\%\]
+      <strong>b)</strong> Il y a 8 cartes de c&oelig;ur (une par valeur), soit 8 issues favorables.
+      \[P(\text{c\oe{ur}}) = \frac{8}{32} = \frac{1}{4} = 0{,}25 = 25\%\]
+      <strong>c)</strong> Il n&rsquo;existe qu&rsquo;une seule carte &laquo;&nbsp;As de c&oelig;ur&nbsp;&raquo;, soit 1 issue favorable.
+      \[P(\text{As de c\oe{ur}}) = \frac{1}{32} \approx 0{,}03 = 3{,}125\%\]
+      <strong>d)</strong> Les figures sont : Valet, Dame, Roi. Il y en a 3 &times; 4 = 12 cartes.
+      \[P(\text{figure}) = \frac{12}{32} = \frac{3}{8} = 0{,}375 = 37{,}5\%\]
+      <strong>e)</strong> Les non-figures sont les 20 autres cartes (7, 8, 9, 10, As) &times; 4 couleurs.
+      \[P(\text{non-figure}) = \frac{20}{32} = \frac{5}{8} = 0{,}625\]
+      V&eacute;rification :
+      \[P(\text{figure}) + P(\text{non-figure}) = \frac{12}{32} + \frac{20}{32} = \frac{32}{32} = 1 \quad \checkmark\]
+      <div class="corr-rep">&#10004; R&eacute;sultats : P(As) = 1/8, P(c&oelig;ur) = 1/4, P(As de c&oelig;ur) = 1/32, P(figure) = 3/8.</div>
+      <div class="att-corr">La relation P(A) + P(&Acirc;) = 1 est toujours vraie : un &eacute;v&eacute;nement et son contraire couvrent toujours tout l&rsquo;univers.</div>
+    </div>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  BILAN                                                        -->
+<!-- ============================================================ -->
+<div style="background:#ebf5ff;border-radius:10px;padding:18px 22px;margin:32px 0;border:1px solid #93c5fd">
+  <strong style="color:#1e40af">Bilan des comp&eacute;tences travaill&eacute;es</strong>
+  <table style="margin:12px 0">
+    <tr><th>Comp&eacute;tence</th><th>Exercices</th></tr>
+    <tr><td class="tl">Identifier une exp&eacute;rience al&eacute;atoire / d&eacute;terministe</td><td>Ex 1</td></tr>
+    <tr><td class="tl">D&eacute;crire l&rsquo;univers et les issues</td><td>Ex 2</td></tr>
+    <tr><td class="tl">Calculer une probabilit&eacute; simple</td><td>Ex 3, 8</td></tr>
+    <tr><td class="tl">Calculer une fr&eacute;quence observ&eacute;e</td><td>Ex 4, 5, 6</td></tr>
+    <tr><td class="tl">Identifier la fluctuation des fr&eacute;quences</td><td>Ex 4, 6</td></tr>
+    <tr><td class="tl">Appliquer la loi des grands nombres</td><td>Ex 6</td></tr>
+    <tr><td class="tl">R&eacute;soudre un probl&egrave;me en contexte professionnel MAMA</td><td>Ex 5, 7</td></tr>
+    <tr><td class="tl">Utiliser l&rsquo;&eacute;v&eacute;nement contraire</td><td>Ex 8</td></tr>
+  </table>
+</div>
+
+<!-- NAV -->
+<div class="nav-footer">
+  <a href="ch04_lecon.html" class="nav-btn">&larr; Cours Ch04</a>
+  <a href="maths-2nde-mama.html" class="nav-btn">Sommaire</a>
+  <a href="ch05_lecon.html" class="nav-btn">Ch05 &ndash; &Eacute;quations &rarr;</a>
+</div>
+
+</div><!-- fin .c -->
+<script src="/nav.js"></script>
+</body>
+</html>

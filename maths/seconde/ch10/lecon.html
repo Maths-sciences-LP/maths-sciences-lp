@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Fonction carré et variations – 2nde MAMA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:28px;padding-bottom:16px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
+.sous-titre{color:#718096;font-size:.93em;margin:0}
+.maj{font-size:.78em;color:#a0aec0;text-align:center;margin-top:4px}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:36px;margin-bottom:14px}
+h3{font-size:1em;color:var(--t);margin-top:20px;margin-bottom:8px;font-weight:700}
+
+.def{background:#ebf5ff;border-left:5px solid var(--p);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.def strong{color:var(--p)}
+.prop{background:#f0fff4;border-left:5px solid var(--s);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.prop strong{color:var(--s)}
+.att{background:#fff5f5;border-left:5px solid var(--d);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.att strong{color:var(--d)}
+.meth{background:#fffbeb;border-left:5px solid var(--o);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.meth strong{color:var(--o)}
+.retenir{background:#f0fff4;border:2px solid var(--s);border-radius:10px;padding:18px 22px;margin:24px 0}
+.retenir h3{color:var(--s);margin:0 0 10px}
+.situation{background:#fdf4ff;border:2px dashed #a855f7;border-radius:10px;padding:16px 20px;margin:16px 0}
+.situation h3{color:#7c3aed;margin:0 0 8px;font-size:1em}
+
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;margin:16px 0}
+.ex-titre{font-weight:700;color:var(--p);margin-bottom:10px}
+.etape{display:flex;gap:12px;margin:8px 0;align-items:flex-start}
+.nc{background:var(--p);color:#fff;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-size:.8em;font-weight:700;margin-top:2px;flex-shrink:0}
+
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;margin:16px 0}
+.zone-rep{width:100%;padding:8px 10px;border:1px solid #e2e8f0;border-radius:6px;margin-top:6px;font-family:inherit;font-size:.95em;box-sizing:border-box;background:#fff;resize:vertical}
+details.corr-wrap{margin-top:10px}
+summary.corr-btn{cursor:pointer;font-size:.85em;font-weight:700;color:var(--s);padding:6px 12px;background:#f0fff4;border-radius:6px;border:1px solid #a7f3d0;display:inline-block;list-style:none}
+summary.corr-btn::-webkit-details-marker{display:none}
+.corr-body{background:#f0fff4;border-left:4px solid var(--s);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:8px;font-size:.92em;line-height:1.8}
+.corr-rep{background:#065f46;color:#fff;border-radius:5px;padding:2px 8px;font-weight:700;display:inline-block;font-size:.95em}
+
+table{border-collapse:collapse;margin:12px 0;font-size:.93em}
+table.full{width:100%}
+th,td{border:1px solid #e2e8f0;padding:9px 14px;text-align:center}
+th{background:#ebf5ff;color:var(--p);font-weight:700}
+td.tv-x{background:#f0f7ff;font-weight:600;color:var(--p)}
+td.ok{background:#d1fae5;font-weight:700}
+td.min{background:#fef3c7;font-weight:700;color:var(--o)}
+
+.tv-vari{max-width:520px;margin:14px auto}
+.tv-vari td,.tv-vari th{padding:12px 16px}
+.fleche-d{font-size:1.6em;color:var(--d)}
+.fleche-c{font-size:1.6em;color:var(--s)}
+
+.chart-wrapper{max-width:580px;margin:16px auto;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px}
+canvas.anim{display:block;margin:12px auto;border-radius:10px;border:1px solid #e2e8f0;background:#fff}
+.ctrl-vis{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0;align-items:center;font-size:.9em}
+.ctrl-vis input[type=range]{width:160px;accent-color:var(--p)}
+.ctrl-vis label{display:flex;align-items:center;gap:6px}
+.anim-result{text-align:center;font-size:1em;font-weight:700;color:var(--p);min-height:1.6em;margin-top:6px}
+.svg-wrap{text-align:center;margin:16px 0}
+.svg-leg{font-size:.82em;color:#718096;text-align:center;margin-top:6px;font-style:italic}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+
+.nb{margin-bottom:16px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nav-footer{display:flex;justify-content:space-between;margin-top:36px;padding-top:16px;border-top:1px solid #e2e8f0;flex-wrap:wrap;gap:10px}
+.nav-btn{text-decoration:none;font-size:.85em;font-weight:600;padding:8px 18px;border-radius:6px;color:var(--p);border:1px solid var(--p);transition:.2s}
+.nav-btn:hover{background:var(--p);color:#fff}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Chapitre 10 – Fonction carré et variations</h1>
+  <p class="sous-titre">Seconde Bac Pro MAMA &nbsp;|&nbsp; Algèbre – Analyse &nbsp;|&nbsp; Mathématiques</p>
+  <p class="maj">Dernière mise à jour : 9 mars 2026</p>
+</header>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>1. Introduction — La surface dans les métiers</h2>
+
+<div class="situation">
+  <h3>🪵 Situation professionnelle — Atelier MAMA</h3>
+  <p>
+    Un agenceur doit poser un revêtement de sol dans une pièce carrée de côté \(c\) mètres.<br>
+    La surface à couvrir est : \(A = c \times c = c^2\)<br>
+    Plus le côté est grand, plus la surface augmente — mais pas de façon proportionnelle.
+  </p>
+  <p>
+    Si on passe d'un côté de 2 m à 4 m (on double), la surface passe de 4 m² à 16 m² — elle est <strong>multipliée par 4</strong>.<br>
+    C'est la propriété fondamentale de la <strong>fonction carré</strong> : \(f(c) = c^2\).
+  </p>
+</div>
+
+<p>La fonction carré est la première fonction <strong>non linéaire</strong> étudiée. Sa courbe, en forme de U, s'appelle une <strong>parabole</strong>.</p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>2. Définition et calcul d'images</h2>
+
+<div class="def">
+  <strong>Définition :</strong><br>
+  La <strong>fonction carré</strong> est définie sur \(\mathbb{R}\) par :
+  \[f(x) = x^2\]
+  Elle associe à tout réel \(x\) son carré \(x^2 = x \times x\).
+</div>
+
+<div class="att">
+  <strong>⚠ Attention — Erreur très fréquente :</strong><br>
+  \((-3)^2 = (-3) \times (-3) = \mathbf{9}\) et <strong>non</strong> \(-9\).<br>
+  On calcule d'abord le produit, puis on place le signe. Le carré d'un nombre est <strong>toujours positif ou nul</strong>.
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Calculs d'images</div>
+  \(f(4) = 4^2 = 16\) &nbsp;|&nbsp;
+  \(f(-4) = (-4)^2 = 16\) &nbsp;|&nbsp;
+  \(f(0) = 0^2 = 0\)<br>
+  \(f(1{,}5) = (1{,}5)^2 = 2{,}25\) &nbsp;|&nbsp;
+  \(f(-2{,}5) = (-2{,}5)^2 = 6{,}25\)
+</div>
+
+<div class="prop">
+  <strong>Propriété — Symétrie :</strong><br>
+  Pour tout réel \(x\) : \(f(-x) = (-x)^2 = x^2 = f(x)\)<br>
+  Deux nombres <strong>opposés</strong> ont toujours la <strong>même image</strong> : \(f(3) = f(-3) = 9\).
+</div>
+
+<!-- Animation machine à calcul -->
+<h3>Animation — Explorer la fonction carré</h3>
+<p style="font-size:.9em;color:#718096">Déplace le curseur pour observer l'image de \(x\) par la fonction \(f(x) = x^2\).</p>
+<div class="ctrl-vis">
+  <label>\(x\) = <input type="range" id="slXcarre" min="-5" max="5" step="0.5" value="3"> <strong id="lblXcarre">3</strong></label>
+</div>
+<canvas id="canvasCarre" class="anim" width="560" height="120"></canvas>
+<div class="anim-result" id="resuCarre"></div>
+<script>
+(function(){
+  const cv=document.getElementById('canvasCarre'),ctx=cv.getContext('2d');
+  const sl=document.getElementById('slXcarre'),lbl=document.getElementById('lblXcarre');
+  function draw(){
+    const x=parseFloat(sl.value); lbl.textContent=x;
+    const fx=Math.round(x*x*100)/100;
+    ctx.clearRect(0,0,cv.width,cv.height);
+    ctx.fillStyle='#f8fafc'; ctx.fillRect(0,0,cv.width,cv.height);
+    const bx=130,by=30,bw=160,bh=50;
+    ctx.fillStyle='#ebf5ff'; ctx.strokeStyle='#0056b3'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.roundRect(bx,by,bw,bh,8); ctx.fill(); ctx.stroke();
+    ctx.fillStyle='#0056b3'; ctx.font='bold 15px Segoe UI,sans-serif'; ctx.textAlign='center';
+    ctx.fillText('f(x) = x²', bx+bw/2, by+bh/2+5);
+    ctx.fillStyle='#2d3748'; ctx.font='14px Segoe UI,sans-serif';
+    ctx.fillText('x = '+x, bx-55, by+bh/2+5);
+    ctx.strokeStyle='#4a5568'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(bx-25,by+bh/2); ctx.lineTo(bx-5,by+bh/2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(bx-10,by+bh/2-5); ctx.lineTo(bx-5,by+bh/2); ctx.lineTo(bx-10,by+bh/2+5); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(bx+bw+5,by+bh/2); ctx.lineTo(bx+bw+40,by+bh/2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(bx+bw+35,by+bh/2-5); ctx.lineTo(bx+bw+40,by+bh/2); ctx.lineTo(bx+bw+35,by+bh/2+5); ctx.stroke();
+    const rx=bx+bw+48,ry=by,rw=130,rh=bh;
+    ctx.fillStyle='#f0fff4'; ctx.strokeStyle='#2f855a'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.roundRect(rx,ry,rw,rh,8); ctx.fill(); ctx.stroke();
+    ctx.fillStyle='#2f855a'; ctx.font='bold 17px Segoe UI,sans-serif';
+    ctx.fillText('f('+x+') = '+fx, rx+rw/2, ry+rh/2+6);
+    const note = x===0?'minimum = 0':x<0?'opposé de '+(Math.abs(x))+' → même image':'';
+    ctx.fillStyle='#718096'; ctx.font='11px Segoe UI,sans-serif';
+    ctx.fillText(note, cv.width/2, cv.height-8);
+    document.getElementById('resuCarre').textContent='f('+x+') = ('+x+')² = '+fx;
+  }
+  sl.addEventListener('input',draw); draw();
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>3. Tableau de valeurs</h2>
+
+<table class="full">
+  <tr>
+    <th>\(x\)</th>
+    <td class="tv-x">\(-4\)</td><td class="tv-x">\(-3\)</td><td class="tv-x">\(-2\)</td><td class="tv-x">\(-1\)</td>
+    <td class="tv-x">\(0\)</td>
+    <td class="tv-x">\(1\)</td><td class="tv-x">\(2\)</td><td class="tv-x">\(3\)</td><td class="tv-x">\(4\)</td>
+  </tr>
+  <tr>
+    <th>\(f(x)=x^2\)</th>
+    <td>16</td><td>9</td><td>4</td><td>1</td>
+    <td class="min">0</td>
+    <td>1</td><td>4</td><td>9</td><td>16</td>
+  </tr>
+</table>
+
+<p>On remarque que les valeurs sont <strong>symétriques</strong> par rapport à \(x = 0\) et que le minimum est \(\mathbf{0}\), atteint en \(x = 0\).</p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>4. Représentation graphique — La parabole</h2>
+
+<div class="def">
+  <strong>Vocabulaire :</strong><br>
+  La courbe représentative de \(f(x) = x^2\) est une <strong>parabole</strong>.<br>
+  Elle est symétrique par rapport à l'<strong>axe des ordonnées</strong> (axe \(y\)).<br>
+  Son point le plus bas s'appelle le <strong>sommet</strong> : ici \(S(0\,;\,0)\).
+</div>
+
+<div class="chart-wrapper">
+  <canvas id="chartParabole"></canvas>
+</div>
+<script>
+(function(){
+  const xs=[];
+  for(let x=-4.2;x<=4.2;x+=0.2) xs.push(Math.round(x*10)/10);
+  new Chart(document.getElementById('chartParabole'),{
+    type:'line',
+    data:{
+      labels:xs,
+      datasets:[{
+        label:'f(x) = x²',
+        data:xs.map(x=>Math.round(x*x*100)/100),
+        borderColor:'#0056b3',backgroundColor:'rgba(0,86,179,0.07)',
+        borderWidth:2.5,pointRadius:0,tension:.3,fill:true
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{position:'bottom',labels:{font:{size:12}}},
+        title:{display:true,text:'Parabole de f(x) = x² — sommet S(0 ; 0)',font:{size:12}}
+      },
+      scales:{
+        x:{title:{display:true,text:'x'},ticks:{maxTicksLimit:9},grid:{color:'#f0f0f0'}},
+        y:{title:{display:true,text:'f(x)'},min:-1,max:18,grid:{color:'#f0f0f0'}}
+      }
+    }
+  });
+})();
+</script>
+
+<div class="meth">
+  <strong>Méthode — Lire graphiquement :</strong>
+  <ul style="margin:6px 0">
+    <li><strong>Image d'un nombre :</strong> repérer \(x\) sur l'axe horizontal → monter jusqu'à la courbe → lire \(y\) sur l'axe vertical.</li>
+    <li><strong>Antécédent(s) :</strong> repérer \(y\) sur l'axe vertical → tracer une droite horizontale → lire les abscisses des points d'intersection (souvent deux solutions symétriques).</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>5. Sens de variation et tableau de variations</h2>
+
+<div class="prop">
+  <strong>Variations de f(x) = x² :</strong>
+  <ul>
+    <li>Sur \(]-\infty\,;\,0]\) : \(f\) est <strong>décroissante</strong> — la courbe descend vers le sommet.</li>
+    <li>Sur \([0\,;\,+\infty[\) : \(f\) est <strong>croissante</strong> — la courbe monte depuis le sommet.</li>
+    <li>\(f\) admet un <strong>minimum</strong> égal à \(0\), atteint en \(x = 0\).</li>
+    <li>\(f\) n'a <strong>pas de maximum</strong> : la parabole monte sans limite.</li>
+  </ul>
+</div>
+
+<h3>Tableau de variations</h3>
+<table class="tv-vari">
+  <tr>
+    <th style="text-align:left">\(x\)</th>
+    <th>\(-\infty\)</th>
+    <td style="border:none;background:#fff;width:60px"></td>
+    <th>\(0\)</th>
+    <td style="border:none;background:#fff;width:60px"></td>
+    <th>\(+\infty\)</th>
+  </tr>
+  <tr>
+    <th style="text-align:left">Variations</th>
+    <td style="vertical-align:top;color:var(--p);font-weight:700">\(+\infty\)</td>
+    <td class="fleche-d" style="border:none;background:#fff;text-align:center">↘</td>
+    <td class="min">\(0\)<br><small style="font-size:.75em">(min)</small></td>
+    <td class="fleche-c" style="border:none;background:#fff;text-align:center">↗</td>
+    <td style="vertical-align:top;color:var(--p);font-weight:700">\(+\infty\)</td>
+  </tr>
+</table>
+
+<!-- Mini exercice -->
+<div class="exo">
+  <strong>Mini exercice 1</strong> — Calculer et compléter :<br>
+  \(f(-5) = \) <input type="text" style="width:60px;border:1px solid #e2e8f0;border-radius:4px;padding:2px 6px"> &nbsp;
+  \(f(5) = \) <input type="text" style="width:60px;border:1px solid #e2e8f0;border-radius:4px;padding:2px 6px"> &nbsp;
+  Que remarque-t-on ?
+  <details class="corr-wrap">
+    <summary class="corr-btn">Voir la correction</summary>
+    <div class="corr-body">
+      \(f(-5) = (-5)^2 = \)<span class="corr-rep">25</span> &nbsp; et &nbsp; \(f(5) = 5^2 = \)<span class="corr-rep">25</span><br>
+      Les deux résultats sont égaux. C'est la propriété de symétrie : \(f(-x) = f(x)\).
+    </div>
+  </details>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>6. Transformation — f(x) + k : déplacement vertical</h2>
+
+<div class="def">
+  <strong>Définition :</strong><br>
+  La fonction \(g(x) = x^2 + k\) (avec \(k\) réel) a pour courbe la <strong>même parabole que \(f(x) = x^2\), décalée verticalement de \(k\) unités</strong>.
+  <ul style="margin:6px 0">
+    <li>Si \(k > 0\) : la parabole est <strong>décalée vers le haut</strong> — le minimum est \(k\).</li>
+    <li>Si \(k < 0\) : la parabole est <strong>décalée vers le bas</strong> — le minimum est \(k\).</li>
+  </ul>
+  Le sommet se déplace en \(S(0\,;\,k)\). Les variations restent les mêmes.
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — g(x) = x² + 3</div>
+  <table class="full">
+    <tr>
+      <th>\(x\)</th>
+      <td class="tv-x">\(-3\)</td><td class="tv-x">\(-2\)</td><td class="tv-x">\(-1\)</td>
+      <td class="tv-x">\(0\)</td>
+      <td class="tv-x">\(1\)</td><td class="tv-x">\(2\)</td><td class="tv-x">\(3\)</td>
+    </tr>
+    <tr>
+      <th>\(g(x)=x^2+3\)</th>
+      <td>12</td><td>7</td><td>4</td><td class="min">3</td><td>4</td><td>7</td><td>12</td>
+    </tr>
+  </table>
+  Minimum de \(g\) : \(\mathbf{3}\) en \(x = 0\). La parabole est décalée de 3 vers le haut.
+</div>
+
+<div class="meth">
+  <strong>Méthode — Déduire les variations de g(x) = f(x) + k :</strong><br>
+  Les intervalles de croissance et décroissance de \(g\) sont les <strong>mêmes</strong> que ceux de \(f\).<br>
+  On ajoute simplement \(k\) à toutes les valeurs du tableau de variations de \(f\).
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>7. Transformation — kx² : étirement ou aplatissement</h2>
+
+<div class="def">
+  <strong>Définition :</strong><br>
+  La fonction \(h(x) = k \cdot x^2\) (avec \(k\) réel, \(k \neq 0\)) a pour courbe une parabole de même sommet \(S(0\,;\,0)\), mais d'allure différente.
+  <ul style="margin:6px 0">
+    <li>\(k > 1\) : parabole <strong>plus resserrée</strong> (plus étroite).</li>
+    <li>\(0 < k < 1\) : parabole <strong>plus ouverte</strong> (plus large).</li>
+    <li>\(k < 0\) : parabole <strong>retournée</strong> — ouverte vers le bas, maximum en \(0\).</li>
+  </ul>
+</div>
+
+<div class="chart-wrapper">
+  <canvas id="chartTransfo"></canvas>
+</div>
+<script>
+(function(){
+  const xs=[];
+  for(let x=-4;x<=4;x+=0.25) xs.push(Math.round(x*10)/10);
+  new Chart(document.getElementById('chartTransfo'),{
+    type:'line',
+    data:{
+      labels:xs,
+      datasets:[
+        {label:'f(x) = x²',data:xs.map(x=>x*x),borderColor:'#0056b3',borderWidth:2.5,pointRadius:0,tension:.3,fill:false},
+        {label:'g(x) = x² + 3',data:xs.map(x=>x*x+3),borderColor:'#2f855a',borderWidth:2,borderDash:[6,3],pointRadius:0,tension:.3,fill:false},
+        {label:'h(x) = 2x²',data:xs.map(x=>2*x*x),borderColor:'#d97706',borderWidth:2,borderDash:[4,3],pointRadius:0,tension:.3,fill:false},
+        {label:'p(x) = 0,5x²',data:xs.map(x=>0.5*x*x),borderColor:'#7c3aed',borderWidth:2,borderDash:[3,3],pointRadius:0,tension:.3,fill:false},
+        {label:'q(x) = −x²',data:xs.map(x=>-x*x),borderColor:'#c53030',borderWidth:2,borderDash:[5,2],pointRadius:0,tension:.3,fill:false}
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{position:'bottom',labels:{font:{size:10},boxWidth:20}},
+        title:{display:true,text:'Transformations de f(x) = x²',font:{size:12}}
+      },
+      scales:{
+        x:{title:{display:true,text:'x'},ticks:{maxTicksLimit:9},grid:{color:'#f0f0f0'}},
+        y:{title:{display:true,text:'f(x)'},min:-10,max:20,grid:{color:'#f0f0f0'}}
+      }
+    }
+  });
+})();
+</script>
+
+<h3>Animation — Explorer kx²</h3>
+<div class="ctrl-vis">
+  <label>Coefficient \(k\) = <input type="range" id="slK" min="-3" max="3" step="0.5" value="1"> <strong id="lblK">1</strong></label>
+</div>
+<canvas id="canvasK" class="anim" width="560" height="200"></canvas>
+<div class="anim-result" id="resuK"></div>
+<script>
+(function(){
+  const cv=document.getElementById('canvasK'), ctx=cv.getContext('2d');
+  const sl=document.getElementById('slK'), lbl=document.getElementById('lblK');
+  function draw(){
+    const k=parseFloat(sl.value); lbl.textContent=k;
+    ctx.clearRect(0,0,cv.width,cv.height);
+    ctx.fillStyle='#f8fafc'; ctx.fillRect(0,0,cv.width,cv.height);
+    const W=cv.width, H=cv.height;
+    const ox=W/2, oy=H*0.7, scale=30;
+    // Axes
+    ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(20,oy); ctx.lineTo(W-20,oy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox,10); ctx.lineTo(ox,H-10); ctx.stroke();
+    // Référence f(x)=x² en gris
+    ctx.strokeStyle='#cbd5e0'; ctx.lineWidth=1.5;
+    ctx.beginPath();
+    for(let px=20;px<=W-20;px++){
+      const x=(px-ox)/scale, y=x*x;
+      const py=oy-y*scale;
+      px===20?ctx.moveTo(px,py):ctx.lineTo(px,py);
+    }
+    ctx.stroke();
+    // h(x)=kx² en couleur
+    const col=k>0?'#0056b3':'#c53030';
+    ctx.strokeStyle=col; ctx.lineWidth=2.5;
+    ctx.beginPath();
+    let started=false;
+    for(let px=20;px<=W-20;px++){
+      const x=(px-ox)/scale, y=k*x*x;
+      const py=oy-y*scale;
+      if(py>H-10||py<10){started=false;continue;}
+      started?ctx.lineTo(px,py):ctx.moveTo(px,py);
+      started=true;
+    }
+    ctx.stroke();
+    // Labels
+    ctx.fillStyle=col; ctx.font='bold 13px Segoe UI,sans-serif'; ctx.textAlign='left';
+    ctx.fillText('h(x) = '+k+'x²', ox+10, oy-scale*k*1.5);
+    ctx.fillStyle='#94a3b8'; ctx.font='11px Segoe UI,sans-serif';
+    ctx.fillText('f(x) = x² (référence)', ox+10, oy-scale*1.5+14);
+    // Sommet
+    ctx.fillStyle=col; ctx.beginPath(); ctx.arc(ox,oy,5,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#2d3748'; ctx.font='11px Segoe UI,sans-serif'; ctx.textAlign='center';
+    ctx.fillText('S(0 ; 0)', ox, oy+16);
+    const desc=k>1?'Parabole plus resserrée que f':k===1?'Identique à f(x) = x²':k>0&&k<1?'Parabole plus ouverte que f':k===0?'Droite y = 0':'Parabole retournée (max en 0)';
+    document.getElementById('resuK').textContent=desc;
+  }
+  sl.addEventListener('input',draw); draw();
+})();
+</script>
+
+<div class="meth">
+  <strong>Méthode — Déduire les variations de h(x) = k·f(x) :</strong>
+  <ul style="margin:6px 0">
+    <li>Si \(k > 0\) : \(h\) a les <strong>mêmes sens de variation</strong> que \(f\). Le minimum reste \(0\) en \(x = 0\).</li>
+    <li>Si \(k < 0\) : les sens de variation sont <strong>inversés</strong>. La fonction a un <strong>maximum</strong> de \(0\) en \(x = 0\).</li>
+  </ul>
+</div>
+
+<div class="exo">
+  <strong>Mini exercice 2</strong> — \(h(x) = 3x^2\). Calculer \(h(2)\) et \(h(-2)\), puis comparer à \(f(2)\).
+  <details class="corr-wrap">
+    <summary class="corr-btn">Voir la correction</summary>
+    <div class="corr-body">
+      \(h(2) = 3 \times 2^2 = 3 \times 4 = \)<span class="corr-rep">12</span><br>
+      \(h(-2) = 3 \times (-2)^2 = 3 \times 4 = \)<span class="corr-rep">12</span><br>
+      \(f(2) = 4\), donc \(h(2) = 3 \times f(2)\). La parabole de \(h\) est 3 fois plus resserrée que celle de \(f\).
+    </div>
+  </details>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>8. Résolution de f(x) = c et f(x) &lt; c</h2>
+
+<div class="meth">
+  <strong>Méthode — Résolution graphique :</strong>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div>Tracer (ou utiliser) la parabole de \(f(x) = x^2\) dans un repère.</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div>Tracer la droite horizontale d'équation \(y = c\).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div><strong>\(f(x) = c\)</strong> : lire les abscisses des points d'intersection → les solutions.</div>
+  </div>
+  <div class="etape">
+    <div class="nc">4</div>
+    <div><strong>\(f(x) < c\)</strong> : repérer les \(x\) pour lesquels la courbe est <em>en dessous</em> de la droite \(y = c\).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">5</div>
+    <div><strong>\(f(x) > c\)</strong> : repérer les \(x\) pour lesquels la courbe est <em>au-dessus</em> de la droite \(y = c\).</div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Résoudre f(x) = 9, f(x) ≤ 9 et f(x) > 9</div>
+  La droite \(y = 9\) coupe la parabole en \(x = -3\) et \(x = 3\) (car \((-3)^2 = 9\) et \(3^2 = 9\)).<br><br>
+  <strong>\(f(x) = 9\) :</strong> &nbsp; \(\mathcal{S} = \{-3\,;\,3\}\)<br>
+  <strong>\(f(x) \leq 9\) :</strong> &nbsp; la courbe est en dessous entre les deux points → \(\mathcal{S} = [-3\,;\,3]\)<br>
+  <strong>\(f(x) > 9\) :</strong> &nbsp; la courbe est au-dessus à l'extérieur → \(\mathcal{S} = ]-\infty\,;\,-3[ \cup ]3\,;\,+\infty[\)
+</div>
+
+<div class="att">
+  <strong>⚠ Attention — Pas de solution si c &lt; 0 :</strong><br>
+  \(f(x) = x^2 \geq 0\) toujours. L'équation \(f(x) = -4\) n'a <strong>aucune solution</strong> dans \(\mathbb{R}\). \(\mathcal{S} = \emptyset\).
+</div>
+
+<h3>Animation — Résolution graphique de f(x) = c</h3>
+<div class="ctrl-vis">
+  <label>\(c\) = <input type="range" id="slC" min="0" max="16" step="1" value="4"> <strong id="lblC">4</strong></label>
+</div>
+<canvas id="canvasResol" class="anim" width="560" height="220"></canvas>
+<div class="anim-result" id="resuResol"></div>
+<script>
+(function(){
+  const cv=document.getElementById('canvasResol'),ctx=cv.getContext('2d');
+  const sl=document.getElementById('slC'),lbl=document.getElementById('lblC');
+  function draw(){
+    const c=parseFloat(sl.value); lbl.textContent=c;
+    ctx.clearRect(0,0,cv.width,cv.height);
+    ctx.fillStyle='#f8fafc'; ctx.fillRect(0,0,cv.width,cv.height);
+    const W=cv.width,H=cv.height,ox=W/2,oy=H-20,scale=12;
+    // Axes
+    ctx.strokeStyle='#94a3b8'; ctx.lineWidth=1.2;
+    ctx.beginPath(); ctx.moveTo(20,oy); ctx.lineTo(W-20,oy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ox,10); ctx.lineTo(ox,oy+5); ctx.stroke();
+    // Grad x
+    ctx.fillStyle='#94a3b8'; ctx.font='10px Segoe UI,sans-serif'; ctx.textAlign='center';
+    for(let xi=-4;xi<=4;xi++){
+      if(xi===0) continue;
+      ctx.fillText(xi, ox+xi*scale*3, oy+12);
+      ctx.beginPath(); ctx.moveTo(ox+xi*scale*3,oy-3); ctx.lineTo(ox+xi*scale*3,oy+3); ctx.stroke();
+    }
+    // Parabole
+    ctx.strokeStyle='#0056b3'; ctx.lineWidth=2.5;
+    ctx.beginPath();
+    let s=false;
+    for(let px=20;px<W-20;px++){
+      const x=(px-ox)/(scale*3);
+      const y=x*x;
+      const py=oy-y*scale;
+      if(py<8){s=false;continue;}
+      s?ctx.lineTo(px,py):ctx.moveTo(px,py); s=true;
+    }
+    ctx.stroke();
+    // Droite y=c
+    const yc=oy-c*scale;
+    ctx.strokeStyle='#c53030'; ctx.lineWidth=1.8; ctx.setLineDash([6,4]);
+    ctx.beginPath(); ctx.moveTo(20,yc); ctx.lineTo(W-20,yc); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#c53030'; ctx.font='bold 11px Segoe UI,sans-serif'; ctx.textAlign='left';
+    ctx.fillText('y = '+c, W-55, yc-5);
+    // Points intersection
+    if(c>=0){
+      const sqrtC=Math.sqrt(c);
+      const pxPos=ox+sqrtC*scale*3, pxNeg=ox-sqrtC*scale*3;
+      ctx.fillStyle='#d97706';
+      if(c===0){
+        ctx.beginPath(); ctx.arc(ox,oy,5,0,Math.PI*2); ctx.fill();
+      } else {
+        ctx.beginPath(); ctx.arc(pxPos,yc,5,0,Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(pxNeg,yc,5,0,Math.PI*2); ctx.fill();
+        // Lignes pointillées vers axe x
+        ctx.strokeStyle='#d97706'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+        ctx.beginPath(); ctx.moveTo(pxPos,yc); ctx.lineTo(pxPos,oy); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(pxNeg,yc); ctx.lineTo(pxNeg,oy); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle='#d97706'; ctx.font='bold 11px Segoe UI,sans-serif'; ctx.textAlign='center';
+        const sv=Math.round(sqrtC*100)/100;
+        ctx.fillText(sv, pxPos, oy+13);
+        ctx.fillText(-sv, pxNeg, oy+13);
+      }
+      const sv=Math.round(sqrtC*100)/100;
+      const msg=c===0?'f(x) = 0 : une seule solution x = 0 (minimum)':'f(x) = '+c+' → solutions : x = −'+sv+' et x = '+sv;
+      document.getElementById('resuResol').textContent=msg;
+    }
+  }
+  sl.addEventListener('input',draw); draw();
+})();
+</script>
+
+<div class="exo">
+  <strong>Mini exercice 3</strong> — Résoudre graphiquement \(f(x) \leq 16\). Donner l'ensemble solution.
+  <details class="corr-wrap">
+    <summary class="corr-btn">Voir la correction</summary>
+    <div class="corr-body">
+      On cherche pour quels \(x\) la courbe est en dessous de la droite \(y = 16\).<br>
+      La droite \(y = 16\) coupe la parabole en \(x = -4\) et \(x = 4\) (car \(4^2 = 16\)).<br>
+      La courbe est en dessous entre ces deux points.<br>
+      Solution : <span class="corr-rep">\(\mathcal{S} = [-4\,;\,4]\)</span>
+    </div>
+  </details>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>9. Application — Métiers MAMA</h2>
+
+<div class="situation">
+  <h3>🏠 Situation — Agencement d'une pièce carrée</h3>
+  <p>
+    Un agenceur doit poser un revêtement de sol dans une pièce carrée de côté \(c\) mètres.<br>
+    Le coût total est : \(C(c) = 45c^2 + 120\) euros.<br>
+    (\(45\,€/\text{m}^2\) de revêtement + \(120\,€\) de forfait déplacement.)
+  </p>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Questions</div>
+  <p><strong>1. Calculer le coût pour \(c = 3\) m :</strong><br>
+  \(C(3) = 45 \times 3^2 + 120 = 45 \times 9 + 120 = 405 + 120 = \mathbf{525\,€}\)</p>
+
+  <p><strong>2. Budget de 750 € — quel côté maximal ?</strong><br>
+  \(C(c) \leq 750 \Rightarrow 45c^2 + 120 \leq 750 \Rightarrow 45c^2 \leq 630 \Rightarrow c^2 \leq 14\)<br>
+  Graphiquement : \(c \leq \sqrt{14} \approx 3{,}74 \text{ m}\). La pièce peut mesurer au maximum environ <strong>3,74 m de côté</strong>.</p>
+
+  <p><strong>3. Si on double le côté, que se passe-t-il ?</strong><br>
+  \(C(2c) = 45(2c)^2 + 120 = 45 \times 4c^2 + 120\). La partie revêtement est multipliée par <strong>4</strong>.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>10. Résumé — À retenir</h2>
+
+<div class="retenir">
+  <h3>📌 L'essentiel du chapitre</h3>
+  <ul>
+    <li><strong>Expression :</strong> \(f(x) = x^2\), définie sur \(\mathbb{R}\).</li>
+    <li><strong>Courbe :</strong> parabole, symétrique par rapport à l'axe des ordonnées.</li>
+    <li><strong>Minimum :</strong> \(0\) en \(x = 0\). Pas de maximum.</li>
+    <li><strong>Décroissante</strong> sur \(]-\infty\,;\,0]\), <strong>croissante</strong> sur \([0\,;\,+\infty[\).</li>
+    <li>\(f(x) \geq 0\) pour tout \(x\) — le carré est toujours positif ou nul.</li>
+    <li>\(f(-x) = f(x)\) — deux opposés ont la même image.</li>
+    <li>\(g(x) = x^2 + k\) → parabole décalée de \(k\) vers le haut (ou bas).</li>
+    <li>\(h(x) = kx^2\) → parabole resserrée (\(k > 1\)), élargie (\(0 < k < 1\)), retournée (\(k < 0\)).</li>
+    <li>\(f(x) = c\) → deux solutions \(x = \pm\sqrt{c}\) si \(c > 0\), une si \(c = 0\), aucune si \(c < 0\).</li>
+  </ul>
+</div>
+
+<div class="nav-footer">
+  <a href="ch09_lecon.html" class="nav-btn">← Ch09 – Fonction affine</a>
+  <a href="maths-2nde-mama.html" class="nav-btn">Sommaire</a>
+  <a href="ch10_exos.html" class="nav-btn">Exercices Ch10 →</a>
+</div>
+
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oxydoréduction — Simulation</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
+  .container { max-width: 820px; margin: 0 auto; }
+  header { background: #b45309; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
+  .card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
+  h3 { margin-top: 0; color: #b45309; }
+  canvas { display: block; margin: 0 auto; }
+  .info { background: #fef3c7; border-radius: 8px; padding: 12px 15px; font-size: 0.95em; margin-top: 12px; }
+  label { font-weight: 600; display: block; margin-bottom: 4px; }
+  input[type=range] { width: 100%; accent-color: #b45309; margin-bottom: 14px; }
+  select { padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 0.95em; width: 100%; margin-bottom: 14px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width:500px){.row{grid-template-columns:1fr;}}
+  .formule { font-family: monospace; background: #eee; border-radius: 6px; padding: 10px; margin-top: 10px; font-size: 0.9em; line-height: 1.7; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 8px 12px; text-align: center; border: 1px solid #ddd; font-size: 0.9em; }
+  th { background: #fef3c7; font-weight: 700; }
+  .oxyd { color: #dc2626; }
+  .redu { color: #2563eb; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">← Retour</a>
+    <h1 style="margin:0 0 5px 0;">🧪 Oxydoréduction</h1>
+    <p style="margin:0;opacity:0.9;">Ch07 — Réactions redox, corrosion, protection des métaux</p>
+  </header>
+
+  <div class="card">
+    <h3>Pile galvanique — Réaction d'oxydoréduction</h3>
+    <div class="row">
+      <div>
+        <label>Métal à l'anode (s'oxyde) :</label>
+        <select id="anode" onchange="updatePile()">
+          <option value="Zn,Zn2+,0.76">Zinc (Zn / Zn²⁺)</option>
+          <option value="Fe,Fe2+,0.44">Fer (Fe / Fe²⁺)</option>
+          <option value="Cu,Cu2+,-0.34">Cuivre (Cu / Cu²⁺)</option>
+          <option value="Al,Al3+,1.66">Aluminium (Al / Al³⁺)</option>
+        </select>
+        <label>Métal à la cathode (se réduit) :</label>
+        <select id="cathode" onchange="updatePile()">
+          <option value="Cu,Cu2+,0.34">Cuivre (Cu²⁺ / Cu)</option>
+          <option value="Ag,Ag+,0.80">Argent (Ag⁺ / Ag)</option>
+          <option value="Fe,Fe2+,-0.44">Fer (Fe²⁺ / Fe)</option>
+          <option value="H2,H+,0">Hydrogène (H⁺ / H₂)</option>
+        </select>
+        <div class="info" id="infoCalc"></div>
+      </div>
+      <div>
+        <canvas id="canvas" width="300" height="280"></canvas>
+      </div>
+    </div>
+    <div class="formule" id="equations"></div>
+  </div>
+
+  <div class="card">
+    <h3>Nombres d'oxydation — Tableau de référence</h3>
+    <table>
+      <tr><th>Couple redox</th><th>Oxydant</th><th>Réducteur</th><th>E° (V)</th></tr>
+      <tr><td>Al³⁺ / Al</td><td class="oxyd">Al³⁺</td><td class="redu">Al</td><td>−1,66</td></tr>
+      <tr><td>Zn²⁺ / Zn</td><td class="oxyd">Zn²⁺</td><td class="redu">Zn</td><td>−0,76</td></tr>
+      <tr><td>Fe²⁺ / Fe</td><td class="oxyd">Fe²⁺</td><td class="redu">Fe</td><td>−0,44</td></tr>
+      <tr><td>H⁺ / H₂</td><td class="oxyd">H⁺</td><td class="redu">H₂</td><td>0,00</td></tr>
+      <tr><td>Cu²⁺ / Cu</td><td class="oxyd">Cu²⁺</td><td class="redu">Cu</td><td>+0,34</td></tr>
+      <tr><td>Ag⁺ / Ag</td><td class="oxyd">Ag⁺</td><td class="redu">Ag</td><td>+0,80</td></tr>
+    </table>
+    <div class="info" style="margin-top:12px;">
+      💡 <b>Règle du gamma (γ) :</b> l'oxydant du couple le plus élevé réagit avec le réducteur du couple le moins élevé.<br>
+      La réaction est <b>spontanée</b> si E°<sub>cathode</sub> &gt; E°<sub>anode</sub>.
+    </div>
+  </div>
+</div>
+
+<script>
+function parseCouple(val) {
+  const [metal, ion, e0str] = val.split(',');
+  return { metal, ion, e0: parseFloat(e0str) };
+}
+
+function updatePile() {
+  const anodeData = document.getElementById('anode').value;
+  const cathodeData = document.getElementById('cathode').value;
+  const an = parseCouple(anodeData);
+  const ca = parseCouple(cathodeData);
+
+  const fem = ca.e0 - an.e0;
+  const spontane = fem > 0;
+
+  document.getElementById('infoCalc').innerHTML =
+    `E°<sub>anode</sub> = ${an.e0.toFixed(2)} V<br>
+     E°<sub>cathode</sub> = ${ca.e0.toFixed(2)} V<br>
+     <b>FEM = E°<sub>cat</sub> − E°<sub>an</sub> = ${fem.toFixed(2)} V</b><br>
+     Réaction ${spontane ? '<span style="color:#16a34a">✅ spontanée</span>' : '<span style="color:#dc2626">❌ non spontanée</span>'}`;
+
+  document.getElementById('equations').innerHTML =
+    `<span class="oxyd">Anode (oxydation) :</span> ${an.metal} → ${an.ion} + e⁻<br>
+     <span class="redu">Cathode (réduction) :</span> ${ca.ion} + e⁻ → ${ca.metal}<br>
+     Bilan : ${an.metal} + ${ca.ion} → ${an.ion} + ${ca.metal}`;
+
+  drawPile(an, ca, fem, spontane);
+}
+
+function drawPile(an, ca, fem, spontane) {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  // Électrolyte
+  ctx.fillStyle = '#dbeafe';
+  ctx.fillRect(30, 80, W - 60, 140);
+  ctx.strokeStyle = '#93c5fd'; ctx.lineWidth = 2;
+  ctx.strokeRect(30, 80, W - 60, 140);
+  ctx.fillStyle = '#1d4ed8'; ctx.font = '11px Segoe UI';
+  ctx.fillText('Solution électrolytique', W/2 - 55, 155);
+
+  // Anode (gauche, rouge)
+  ctx.fillStyle = '#fca5a5';
+  ctx.fillRect(50, 40, 40, 160);
+  ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 2; ctx.strokeRect(50, 40, 40, 160);
+  ctx.fillStyle = '#dc2626'; ctx.font = 'bold 13px Segoe UI';
+  ctx.fillText('ANODE', 45, 30);
+  ctx.font = '11px Segoe UI';
+  ctx.fillText('(−)', 60, 215);
+  ctx.fillText(an.metal, 58, 125);
+
+  // Cathode (droite, bleu)
+  ctx.fillStyle = '#bfdbfe';
+  ctx.fillRect(W - 90, 40, 40, 160);
+  ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2; ctx.strokeRect(W - 90, 40, 40, 160);
+  ctx.fillStyle = '#2563eb'; ctx.font = 'bold 13px Segoe UI';
+  ctx.fillText('CATHODE', W - 98, 30);
+  ctx.font = '11px Segoe UI';
+  ctx.fillText('(+)', W - 80, 215);
+  ctx.fillText(ca.metal, W - 82, 125);
+
+  // Fil conducteur
+  ctx.strokeStyle = spontane ? '#16a34a' : '#dc2626';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(90, 60); ctx.lineTo(W/2 - 20, 60);
+  ctx.moveTo(W/2 + 20, 60); ctx.lineTo(W - 90, 60);
+  ctx.stroke();
+
+  // Voltmètre
+  ctx.beginPath(); ctx.arc(W/2, 55, 22, 0, 2*Math.PI);
+  ctx.fillStyle = '#f0fdf4'; ctx.fill();
+  ctx.strokeStyle = '#555'; ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.fillStyle = spontane ? '#16a34a' : '#dc2626';
+  ctx.font = 'bold 11px Segoe UI';
+  ctx.fillText(Math.abs(fem).toFixed(2) + 'V', W/2 - 17, 58);
+
+  // Flèche électrons
+  const eDir = spontane ? 1 : -1;
+  ctx.fillStyle = '#555'; ctx.font = '11px Segoe UI';
+  ctx.fillText('e⁻ ' + (spontane ? '→' : '←'), W/2 - 12, 48);
+}
+
+updatePile();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

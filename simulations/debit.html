@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Débit d'un fluide — Simulation</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
+  .container { max-width: 820px; margin: 0 auto; }
+  header { background: #0284c7; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
+  .card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
+  label { font-weight: 600; display: block; margin-bottom: 4px; }
+  input[type=range] { width: 100%; accent-color: #0284c7; margin-bottom: 14px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width:500px){.row{grid-template-columns:1fr;}}
+  .info { background: #e0f2fe; border-radius: 8px; padding: 12px 15px; font-size: 0.95em; }
+  canvas { display: block; margin: 0 auto; }
+  .formule { font-family: monospace; background: #eee; border-radius: 6px; padding: 10px; margin-top: 10px; font-size: 0.9em; }
+  h3 { margin-top: 0; color: #0284c7; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">← Retour</a>
+    <h1 style="margin:0 0 5px 0;">🌊 Débit volumique d'un fluide</h1>
+    <p style="margin:0;opacity:0.9;">Ch06 — Qv = S·v, équation de continuité</p>
+  </header>
+
+  <div class="card">
+    <h3>Débit volumique Qv = S × v</h3>
+    <div class="row">
+      <div>
+        <label>Section S₁ : <span id="vS1">50</span> cm²</label>
+        <input type="range" id="S1" min="5" max="200" value="50" oninput="update()">
+        <label>Vitesse v₁ : <span id="vV1">2</span> m/s</label>
+        <input type="range" id="V1" min="0.1" max="20" step="0.1" value="2" oninput="update()">
+        <label>Section S₂ : <span id="vS2">25</span> cm²</label>
+        <input type="range" id="S2" min="5" max="200" value="25" oninput="update()">
+      </div>
+      <div>
+        <div class="info" id="infoDebit"></div>
+        <div class="formule" style="margin-top:12px;">
+          Qv = S₁ × v₁ = S₂ × v₂<br>
+          Qm = ρ × Qv &nbsp;(kg/s)
+        </div>
+      </div>
+    </div>
+    <canvas id="canvas" width="680" height="200" style="margin-top:15px;"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>Temps de remplissage d'un réservoir</h3>
+    <div class="row">
+      <div>
+        <label>Volume du réservoir V : <span id="vVol">1000</span> L</label>
+        <input type="range" id="vol" min="10" max="5000" step="10" value="1000" oninput="updateRemplissage()">
+        <label>Débit Qv : <span id="vQr">10</span> L/min</label>
+        <input type="range" id="Qr" min="1" max="200" step="1" value="10" oninput="updateRemplissage()">
+      </div>
+      <div class="info" id="infoRemplissage"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+let particles = [];
+
+function update() {
+  const S1 = parseFloat(document.getElementById('S1').value);
+  const V1 = parseFloat(document.getElementById('V1').value);
+  const S2 = parseFloat(document.getElementById('S2').value);
+  document.getElementById('vS1').textContent = S1;
+  document.getElementById('vV1').textContent = V1.toFixed(1);
+  document.getElementById('vS2').textContent = S2;
+
+  const Qv = (S1 / 1e4) * V1; // m³/s
+  const V2 = Qv / (S2 / 1e4);
+  const QvL = (Qv * 1000).toFixed(2);
+  const QvLmin = (Qv * 1000 * 60).toFixed(1);
+
+  document.getElementById('infoDebit').innerHTML =
+    `<b>Qv = S₁ × v₁</b> = ${(S1/1e4).toExponential(2)} × ${V1.toFixed(1)}<br>
+     Qv = <b>${Qv.toFixed(4)} m³/s = ${QvL} L/s = ${QvLmin} L/min</b><br><br>
+     Équation de continuité : S₁·v₁ = S₂·v₂<br>
+     v₂ = Qv / S₂ = <b>${V2.toFixed(2)} m/s</b> ${V2 > V1 ? '⬆️ accélère' : '⬇️ ralentit'}`;
+
+  drawPipe(S1, V1, S2, V2);
+}
+
+function drawPipe(S1, V1, S2, V2) {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const cy = H / 2;
+  const maxR = 70, minR = 15;
+  const normS1 = Math.sqrt(S1 / 200) * maxR;
+  const normS2 = Math.sqrt(S2 / 200) * maxR;
+
+  const x1 = 30, xMid = W / 2, x2 = W - 30;
+
+  // Tuyau
+  ctx.fillStyle = '#bae6fd';
+  ctx.beginPath();
+  ctx.moveTo(x1, cy - normS1);
+  ctx.lineTo(xMid - 40, cy - normS1);
+  ctx.lineTo(xMid + 40, cy - normS2);
+  ctx.lineTo(x2, cy - normS2);
+  ctx.lineTo(x2, cy + normS2);
+  ctx.lineTo(xMid + 40, cy + normS2);
+  ctx.lineTo(xMid - 40, cy + normS1);
+  ctx.lineTo(x1, cy + normS1);
+  ctx.closePath();
+  ctx.fill();
+  ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 2.5; ctx.stroke();
+
+  // Flèches vitesse
+  const arrow = (x, y, len, color, label) => {
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + len, y);
+    ctx.strokeStyle = color; ctx.lineWidth = 3; ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x + len, y);
+    ctx.lineTo(x + len - 10, y - 6);
+    ctx.lineTo(x + len - 10, y + 6);
+    ctx.closePath(); ctx.fillStyle = color; ctx.fill();
+    ctx.fillStyle = color; ctx.font = 'bold 12px Segoe UI';
+    ctx.fillText(label, x + 5, y - 8);
+  };
+
+  const l1 = Math.min(V1 * 10, xMid - x1 - 60);
+  const l2 = Math.min(V2 * 10, x2 - xMid - 60);
+  arrow(x1 + 10, cy, l1, '#1d4ed8', 'v₁=' + V1.toFixed(1) + ' m/s');
+  arrow(xMid + 50, cy, l2, '#dc2626', 'v₂=' + V2.toFixed(2) + ' m/s');
+
+  // Labels sections
+  ctx.fillStyle = '#555'; ctx.font = '12px Segoe UI';
+  ctx.fillText('S₁ = ' + S1 + ' cm²', x1, cy + normS1 + 18);
+  ctx.fillText('S₂ = ' + S2 + ' cm²', x2 - 80, cy + normS2 + 18);
+}
+
+function updateRemplissage() {
+  const V = parseFloat(document.getElementById('vol').value);
+  const Q = parseFloat(document.getElementById('Qr').value);
+  document.getElementById('vVol').textContent = V;
+  document.getElementById('vQr').textContent = Q;
+  const t_min = V / Q;
+  const t_h = Math.floor(t_min / 60);
+  const t_s = Math.round((t_min % 1) * 60);
+  const t_min_int = Math.floor(t_min);
+  document.getElementById('infoRemplissage').innerHTML =
+    `t = V / Qv = ${V} / ${Q} = <b>${t_min.toFixed(1)} min</b><br>
+     ${t_h > 0 ? `Soit <b>${t_h}h ${t_min_int - t_h*60}min</b>` : `Soit <b>${t_min_int}min ${t_s}s</b>`}`;
+}
+
+update();
+updateRemplissage();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

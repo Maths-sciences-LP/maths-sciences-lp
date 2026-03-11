@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Exercices – Transporter l'énergie électrique | ERA-MA Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#2da44e;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;flex:1}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{opacity:.85}
+.intro-box{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.methode strong{color:#d97706}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.attention strong{color:#be123c}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.retenir strong{color:#0369a1}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.svg-wrap{text-align:center;margin:24px 0}
+.chart-wrap{max-width:600px;margin:24px auto}
+</style>
+</head>
+<body><div class="c">
+<a href="pc-term-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch01 – Transporter l'énergie électrique</h1>
+  <p class="sous-titre">Exercices | Terminale Bac Pro ERA-MA – Groupement 3</p>
+</header>
+
+<!-- ===== INTRODUCTION ===== -->
+<div class="intro-box">
+  <strong>Rappels du cours</strong>
+  <p>Le réseau électrique achemine l'énergie depuis les centrales (production) jusqu'aux consommateurs via plusieurs niveaux de tension : <strong>HT (400 kV)</strong> pour le transport longue distance, <strong>MT (20 kV)</strong> pour la distribution régionale, <strong>BT (230/400 V)</strong> pour les usages domestiques et industriels.</p>
+  <p>Formules essentielles :</p>
+  <ul>
+    <li><strong>Puissance active</strong> (monophasé) : \(P = U \cdot I \cdot \cos\varphi\) (W)</li>
+    <li><strong>Puissance active</strong> (triphasé) : \(P = \sqrt{3} \cdot U \cdot I \cdot \cos\varphi\) (W)</li>
+    <li><strong>Pertes Joule</strong> : \(P_{\text{pertes}} = R \cdot I^2\) (W)</li>
+    <li><strong>Rendement</strong> : \(\eta = \dfrac{P_{\text{utile}}}{P_{\text{totale}}} \times 100\) (%)</li>
+    <li><strong>Rapport de transformation</strong> : \(\dfrac{U_1}{U_2} = \dfrac{N_1}{N_2}\) et \(U_1 \cdot I_1 = U_2 \cdot I_2\)</li>
+  </ul>
+</div>
+
+<div class="attention">
+  <strong>Attention !</strong> Le facteur de puissance \(\cos\varphi\) est compris entre 0 et 1. Pour un récepteur purement résistif (lampe, radiateur) \(\cos\varphi = 1\). Pour un moteur, \(\cos\varphi\) est typiquement compris entre 0,7 et 0,9. Ne jamais oublier de l'intégrer dans les calculs de puissance !
+</div>
+
+<!-- ===== SVG RÉSEAU ÉLECTRIQUE ===== -->
+<h2>Schéma du réseau électrique</h2>
+<div class="svg-wrap">
+<svg width="780" height="160" viewBox="0 0 780 160" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <!-- Centrale -->
+  <rect x="10" y="55" width="90" height="50" rx="6" fill="#2da44e" stroke="#2f855a" stroke-width="2"/>
+  <text x="55" y="75" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Centrale</text>
+  <text x="55" y="91" text-anchor="middle" fill="white" font-size="10">production</text>
+  <!-- Ligne HT -->
+  <line x1="100" y1="80" x2="180" y2="80" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- Pylône HT -->
+  <polygon points="195,40 180,120 210,120" fill="none" stroke="#718096" stroke-width="2"/>
+  <line x1="185" y1="65" x2="205" y2="65" stroke="#718096" stroke-width="1.5"/>
+  <line x1="183" y1="80" x2="207" y2="80" stroke="#718096" stroke-width="1.5"/>
+  <circle cx="183" cy="65" r="3" fill="#e2e8f0"/>
+  <circle cx="207" cy="65" r="3" fill="#e2e8f0"/>
+  <circle cx="183" cy="80" r="3" fill="#e2e8f0"/>
+  <circle cx="207" cy="80" r="3" fill="#e2e8f0"/>
+  <text x="195" y="140" text-anchor="middle" fill="#718096" font-size="10">Pylône HT</text>
+  <text x="195" y="152" text-anchor="middle" fill="#718096" font-size="10">400 kV</text>
+  <!-- Ligne vers transfo HT/MT -->
+  <line x1="215" y1="80" x2="290" y2="80" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- Transformateur HT/MT -->
+  <rect x="290" y="50" width="90" height="60" rx="6" fill="#f0fff4" stroke="#2da44e" stroke-width="2"/>
+  <text x="335" y="72" text-anchor="middle" fill="#2da44e" font-size="10" font-weight="bold">Transfo</text>
+  <text x="335" y="86" text-anchor="middle" fill="#2da44e" font-size="10">400 kV</text>
+  <text x="335" y="100" text-anchor="middle" fill="#2da44e" font-size="10">→ 20 kV</text>
+  <!-- Ligne MT -->
+  <line x1="380" y1="80" x2="460" y2="80" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- Transformateur MT/BT -->
+  <rect x="460" y="50" width="90" height="60" rx="6" fill="#f0fff4" stroke="#2da44e" stroke-width="2"/>
+  <text x="505" y="72" text-anchor="middle" fill="#2da44e" font-size="10" font-weight="bold">Transfo</text>
+  <text x="505" y="86" text-anchor="middle" fill="#2da44e" font-size="10">20 kV</text>
+  <text x="505" y="100" text-anchor="middle" fill="#2da44e" font-size="10">→ 400 V</text>
+  <!-- Ligne BT -->
+  <line x1="550" y1="80" x2="620" y2="80" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- Prise / consommateur -->
+  <rect x="620" y="55" width="90" height="50" rx="6" fill="#2d3748" stroke="#4a5568" stroke-width="2"/>
+  <text x="665" y="75" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Usines /</text>
+  <text x="665" y="91" text-anchor="middle" fill="white" font-size="10">Logements</text>
+  <!-- Labels tension -->
+  <text x="140" y="70" text-anchor="middle" fill="#2da44e" font-size="9" font-weight="bold">HT 400 kV</text>
+  <text x="420" y="70" text-anchor="middle" fill="#d97706" font-size="9" font-weight="bold">MT 20 kV</text>
+  <text x="585" y="70" text-anchor="middle" fill="#c53030" font-size="9" font-weight="bold">BT 400 V</text>
+</svg>
+</div>
+
+<!-- ===== GRAPHIQUE PERTES JOULE ===== -->
+<h2>Courbe des pertes Joule en fonction du courant</h2>
+<div class="methode">
+  <strong>Méthode :</strong> Les pertes Joule augmentent avec le <em>carré</em> du courant : \(P_{\text{pertes}} = R \cdot I^2\). Doubler le courant multiplie les pertes par 4. C'est pourquoi on transporte l'énergie à très haute tension (courant faible) pour minimiser ces pertes.
+</div>
+<div class="chart-wrap">
+  <canvas id="chartPertes"></canvas>
+</div>
+
+<!-- ===== EXERCICES DE BASE ===== -->
+<h2>Exercices de base</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Calcul de puissance – outil électroportatif</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Un technicien utilise une perceuse électrique alimentée sous <strong>230 V</strong> absorbant un courant de <strong>5 A</strong>. Le récepteur est considéré comme purement résistif (\(\cos\varphi = 1\)).</p>
+  <p class="q"><strong>1.</strong> Rappeler la formule de la puissance active en monophasé.</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance absorbée par la perceuse.</p>
+  <p class="q"><strong>3.</strong> Quelle énergie (en Wh) consomme-t-elle en 30 minutes de travail ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = U \cdot I \cdot \cos\varphi\)</p>
+    <p><strong>2.</strong> \(P = 230 \times 5 \times 1 = \mathbf{1\,150\ W}\)</p>
+    <p><strong>3.</strong> \(W = P \times t = 1\,150 \times 0{,}5\ \text{h} = \mathbf{575\ Wh}\)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Pertes Joule dans un câble</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Un câble de chantier a une résistance totale \(R = 0{,}5\ \Omega\). Il est parcouru par un courant \(I = 10\ \text{A}\).</p>
+  <p class="q"><strong>1.</strong> Écrire la formule des pertes Joule.</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance dissipée par effet Joule dans ce câble.</p>
+  <p class="q"><strong>3.</strong> Cette dissipation est-elle utile ? Que devient-elle ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{\text{pertes}} = R \cdot I^2\)</p>
+    <p><strong>2.</strong> \(P_{\text{pertes}} = 0{,}5 \times 10^2 = 0{,}5 \times 100 = \mathbf{50\ W}\)</p>
+    <p><strong>3.</strong> Non, cette puissance n'est pas utile. Elle est dissipée sous forme de <strong>chaleur</strong> dans le câble, ce qui représente une perte d'énergie et peut provoquer un échauffement du conducteur.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Rapport de transformation</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Un transformateur de poste MT/BT possède les caractéristiques suivantes :</p>
+  <ul>
+    <li>Tension primaire : \(U_1 = 20\,000\ \text{V}\)</li>
+    <li>Nombre de spires primaire : \(N_1 = 1\,000\)</li>
+    <li>Nombre de spires secondaire : \(N_2 = 50\)</li>
+  </ul>
+  <p class="q"><strong>1.</strong> Écrire la relation liant \(U_1\), \(U_2\), \(N_1\) et \(N_2\).</p>
+  <p class="q"><strong>2.</strong> Calculer la tension secondaire \(U_2\).</p>
+  <p class="q"><strong>3.</strong> Ce transformateur est-il élévateur ou abaisseur ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\dfrac{U_1}{U_2} = \dfrac{N_1}{N_2}\)</p>
+    <p><strong>2.</strong> \(U_2 = U_1 \times \dfrac{N_2}{N_1} = 20\,000 \times \dfrac{50}{1\,000} = \mathbf{1\,000\ V}\)</p>
+    <p><strong>3.</strong> \(U_2 < U_1\) donc c'est un transformateur <strong>abaisseur</strong>.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICES GUIDÉS ===== -->
+<h2>Exercices guidés</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Rendement d'une ligne électrique</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Une ligne monophasée 230 V alimente une charge de puissance \(P = 2\,300\ \text{W}\) (\(\cos\varphi = 1\)). La résistance totale du câble aller-retour est \(R = 2\ \Omega\).</p>
+  <div class="methode">
+    <strong>Méthode :</strong> Calculer d'abord le courant de ligne avec \(I = P / (U \cdot \cos\varphi)\), puis les pertes Joule, et enfin le rendement.
+  </div>
+  <p class="q"><strong>1.</strong> Calculer le courant en ligne \(I\).</p>
+  <p class="q"><strong>2.</strong> Calculer les pertes Joule \(P_{\text{pertes}}\).</p>
+  <p class="q"><strong>3.</strong> Calculer la puissance totale fournie par la source \(P_{\text{totale}} = P + P_{\text{pertes}}\).</p>
+  <p class="q"><strong>4.</strong> Calculer le rendement \(\eta\) de la ligne (en %).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(I = \dfrac{P}{U \cdot \cos\varphi} = \dfrac{2\,300}{230 \times 1} = \mathbf{10\ A}\)</p>
+    <p><strong>2.</strong> \(P_{\text{pertes}} = R \cdot I^2 = 2 \times 10^2 = \mathbf{200\ W}\)</p>
+    <p><strong>3.</strong> \(P_{\text{totale}} = 2\,300 + 200 = \mathbf{2\,500\ W}\)</p>
+    <p><strong>4.</strong> \(\eta = \dfrac{P_{\text{utile}}}{P_{\text{totale}}} \times 100 = \dfrac{2\,300}{2\,500} \times 100 = \mathbf{92\ \%}\)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Puissance transmise par un transformateur</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un transformateur reçoit une puissance primaire de \(P_1 = 10\ \text{kW}\). Son rendement est \(\eta = 0{,}95\) (95 %).</p>
+  <p class="q"><strong>1.</strong> Exprimer \(P_2\) (puissance secondaire) en fonction de \(\eta\) et \(P_1\).</p>
+  <p class="q"><strong>2.</strong> Calculer \(P_2\).</p>
+  <p class="q"><strong>3.</strong> Calculer les pertes \(P_{\text{pertes}}\) dans le transformateur.</p>
+  <p class="q"><strong>4.</strong> Sous quelles formes se manifestent ces pertes dans un transformateur réel ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\eta = \dfrac{P_2}{P_1}\) donc \(P_2 = \eta \times P_1\)</p>
+    <p><strong>2.</strong> \(P_2 = 0{,}95 \times 10\,000 = \mathbf{9\,500\ W = 9{,}5\ kW}\)</p>
+    <p><strong>3.</strong> \(P_{\text{pertes}} = P_1 - P_2 = 10\,000 - 9\,500 = \mathbf{500\ W}\)</p>
+    <p><strong>4.</strong> Les pertes se manifestent sous forme de <strong>chaleur</strong> : pertes par effet Joule dans les enroulements (pertes cuivre) et pertes dans le circuit magnétique (pertes fer : hystérésis et courants de Foucault).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICES D'APPLICATION ===== -->
+<h2>Exercices d'application</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Intérêt du transport à haute tension</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Une puissance de \(P = 100\ \text{kW}\) doit être transportée sur une ligne de résistance totale \(R = 10\ \Omega\) (\(\cos\varphi = 1\) dans les deux cas).</p>
+  <table>
+    <tr><th>Tension de transport</th><th>230 V</th><th>20 000 V</th></tr>
+    <tr><td>Puissance transportée</td><td>100 kW</td><td>100 kW</td></tr>
+    <tr><td>Courant \(I\)</td><td>?</td><td>?</td></tr>
+    <tr><td>Pertes Joule \(P_{\text{pertes}}\)</td><td>?</td><td>?</td></tr>
+    <tr><td>Rendement</td><td>?</td><td>?</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Compléter le tableau (calculs détaillés requis).</p>
+  <p class="q"><strong>2.</strong> Conclure sur l'intérêt du transport à haute tension.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>À 230 V :</strong></p>
+    <p>\(I_{230} = \dfrac{P}{U} = \dfrac{100\,000}{230} \approx 434{,}8\ \text{A}\)</p>
+    <p>\(P_{\text{pertes, 230}} = 10 \times 434{,}8^2 \approx 1\,890\,380\ \text{W} \approx \mathbf{1\,890\ kW}\)</p>
+    <p>Les pertes sont 18,9 fois supérieures à la puissance utile ! Rendement pratiquement nul.</p>
+    <p><strong>À 20 000 V :</strong></p>
+    <p>\(I_{20k} = \dfrac{100\,000}{20\,000} = \mathbf{5\ A}\)</p>
+    <p>\(P_{\text{pertes, 20k}} = 10 \times 5^2 = 10 \times 25 = \mathbf{250\ W}\)</p>
+    <p>\(\eta = \dfrac{100\,000}{100\,250} \times 100 \approx \mathbf{99{,}75\ \%}\)</p>
+    <p><strong>Conclusion :</strong> Le transport à haute tension réduit considérablement les pertes Joule. Multiplier la tension par \(n\) divise le courant par \(n\) et divise les pertes par \(n^2\). Ici, multiplier la tension par \(\approx 87\) divise les pertes par \(\approx 7\,500\).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Dimensionnement d'un câble</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un câble d'alimentation de chantier doit alimenter une charge de \(P = 4\,600\ \text{W}\) sous \(U = 230\ \text{V}\) (\(\cos\varphi = 1\)). La chute de tension admissible est limitée à \(\Delta U_{\max} = 5\ \%\) de la tension nominale.</p>
+  <div class="retenir">
+    <strong>À retenir :</strong> La chute de tension dans un câble est \(\Delta U = R \cdot I\). La résistance d'un conducteur est \(R = \dfrac{\rho \cdot L}{S}\) avec \(\rho_{\text{cuivre}} = 1{,}7 \times 10^{-8}\ \Omega\cdot\text{m}\), \(L\) la longueur totale aller-retour, \(S\) la section en m².
+  </div>
+  <p class="q"><strong>1.</strong> Calculer le courant \(I\) absorbé par la charge.</p>
+  <p class="q"><strong>2.</strong> Calculer la chute de tension maximale admissible \(\Delta U_{\max}\) (en V).</p>
+  <p class="q"><strong>3.</strong> En déduire la résistance maximale admissible \(R_{\max}\) du câble.</p>
+  <p class="q"><strong>4.</strong> Pour une longueur aller-retour de 50 m, calculer la section minimale \(S\) du câble en mm².</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(I = \dfrac{P}{U} = \dfrac{4\,600}{230} = \mathbf{20\ A}\)</p>
+    <p><strong>2.</strong> \(\Delta U_{\max} = 0{,}05 \times 230 = \mathbf{11{,}5\ V}\)</p>
+    <p><strong>3.</strong> \(R_{\max} = \dfrac{\Delta U_{\max}}{I} = \dfrac{11{,}5}{20} = \mathbf{0{,}575\ \Omega}\)</p>
+    <p><strong>4.</strong> \(S = \dfrac{\rho \cdot L}{R_{\max}} = \dfrac{1{,}7 \times 10^{-8} \times 50}{0{,}575} \approx \dfrac{8{,}5 \times 10^{-7}}{0{,}575} \approx 1{,}48 \times 10^{-6}\ \text{m}^2 \approx \mathbf{1{,}5\ mm^2}\)</p>
+    <p>On choisira donc un câble de section normalisée <strong>2,5 mm²</strong> (section immédiatement supérieure disponible dans le commerce).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICES CONTEXTUALISÉS ERA-MA ===== -->
+<h2>Exercices contextualisés ERA-MA</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Alimentation d'un moteur triphasé sur chantier</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Lors d'une opération de maintenance sur un site industriel, un technicien ERA-MA doit alimenter un moteur triphasé ayant les caractéristiques plaque signalétique suivantes :</p>
+  <table>
+    <tr><th>Paramètre</th><th>Valeur</th></tr>
+    <tr><td>Tension nominale</td><td>400 V (triphasé)</td></tr>
+    <tr><td>Facteur de puissance</td><td>\(\cos\varphi = 0{,}8\)</td></tr>
+    <tr><td>Rendement moteur</td><td>\(\eta_{\text{moteur}} = 0{,}90\)</td></tr>
+    <tr><td>Puissance mécanique utile</td><td>7,5 kW</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Calculer la puissance électrique absorbée par le moteur.</p>
+  <p class="q"><strong>2.</strong> Rappeler la formule de la puissance active en triphasé.</p>
+  <p class="q"><strong>3.</strong> Calculer le courant de ligne \(I\) absorbé.</p>
+  <p class="q"><strong>4.</strong> Quel est le calibre minimum du disjoncteur de protection à choisir parmi : 10 A, 16 A, 20 A, 25 A ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{\text{élec}} = \dfrac{P_{\text{mécanique}}}{\eta_{\text{moteur}}} = \dfrac{7\,500}{0{,}90} \approx \mathbf{8\,333\ W \approx 8{,}33\ kW}\)</p>
+    <p><strong>2.</strong> \(P = \sqrt{3} \cdot U \cdot I \cdot \cos\varphi\)</p>
+    <p><strong>3.</strong> \(I = \dfrac{P}{\sqrt{3} \cdot U \cdot \cos\varphi} = \dfrac{8\,333}{\sqrt{3} \times 400 \times 0{,}8} = \dfrac{8\,333}{554{,}3} \approx \mathbf{15{,}0\ A}\)</p>
+    <p><strong>4.</strong> Le courant nominal est 15 A. On choisit le calibre immédiatement supérieur : <strong>16 A</strong> (avec vérification de la courbe de déclenchement selon le type de démarrage).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Poste de transformation 20 kV / 400 V sur site industriel</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un technicien ERA-MA intervient sur un poste de transformation d'un site industriel. Le transformateur HTA/BT a les caractéristiques suivantes :</p>
+  <ul>
+    <li>Tension primaire : \(U_1 = 20\,000\ \text{V}\)</li>
+    <li>Tension secondaire nominale : \(U_2 = 400\ \text{V}\)</li>
+    <li>Puissance apparente nominale : \(S = 630\ \text{kVA}\)</li>
+    <li>Facteur de puissance du site : \(\cos\varphi = 0{,}85\)</li>
+    <li>Rendement du transformateur : \(\eta = 0{,}98\)</li>
+  </ul>
+  <p class="q"><strong>1.</strong> Calculer le rapport de transformation \(m = U_2 / U_1\).</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance active nominale \(P = S \cdot \cos\varphi\).</p>
+  <p class="q"><strong>3.</strong> Calculer le courant nominal côté secondaire \(I_2\) (rappel : \(S = \sqrt{3} \cdot U_2 \cdot I_2\)).</p>
+  <p class="q"><strong>4.</strong> Calculer le courant côté primaire \(I_1\) en utilisant la conservation de la puissance apparente.</p>
+  <p class="q"><strong>5.</strong> Calculer la puissance dissipée dans le transformateur à pleine charge.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(m = \dfrac{U_2}{U_1} = \dfrac{400}{20\,000} = \mathbf{0{,}02}\) (rapport abaisseur 1/50)</p>
+    <p><strong>2.</strong> \(P = S \times \cos\varphi = 630\,000 \times 0{,}85 = \mathbf{535\,500\ W \approx 535{,}5\ kW}\)</p>
+    <p><strong>3.</strong> \(I_2 = \dfrac{S}{\sqrt{3} \cdot U_2} = \dfrac{630\,000}{\sqrt{3} \times 400} = \dfrac{630\,000}{692{,}8} \approx \mathbf{909\ A}\)</p>
+    <p><strong>4.</strong> \(S = \sqrt{3} \cdot U_1 \cdot I_1\) donc \(I_1 = \dfrac{S}{\sqrt{3} \cdot U_1} = \dfrac{630\,000}{\sqrt{3} \times 20\,000} \approx \dfrac{630\,000}{34\,641} \approx \mathbf{18{,}2\ A}\)</p>
+    <p><em>Vérification par rapport de transformation : \(I_1 = m \times I_2 = 0{,}02 \times 909 \approx 18{,}2\ A\)</em></p>
+    <p><strong>5.</strong> \(P_{\text{pertes}} = P_{\text{entrée}} - P_{\text{sortie}} = \dfrac{P}{\eta} - P = P \left(\dfrac{1}{\eta} - 1\right) = 535\,500 \times \left(\dfrac{1}{0{,}98} - 1\right) \approx 535\,500 \times 0{,}0204 \approx \mathbf{10\,920\ W \approx 10{,}9\ kW}\)</p>
+  </div>
+</div>
+
+<!-- ===== À RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir – Essentiel du chapitre</strong>
+  <ul>
+    <li>Le réseau électrique transporte l'énergie via : HT (400 kV) → MT (20 kV) → BT (400 V / 230 V).</li>
+    <li>Les pertes Joule \(P_{\text{pertes}} = R \cdot I^2\) sont inévitables mais minimisées en transportant à haute tension (courant faible).</li>
+    <li>Le transformateur modifie la tension selon \(U_1/U_2 = N_1/N_2\) tout en conservant (presque) la puissance.</li>
+    <li>Le rendement \(\eta = P_{\text{utile}} / P_{\text{totale}}\) est toujours inférieur à 1 (pertes Joule + pertes fer).</li>
+    <li>En triphasé : \(P = \sqrt{3} \cdot U \cdot I \cdot \cos\varphi\). Ne jamais oublier \(\cos\varphi\) !</li>
+  </ul>
+</div>
+
+</div>
+<script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
+<script>
+(function(){
+  const labels = [];
+  const data = [];
+  const R = 1;
+  for(let I = 0; I <= 100; I += 5){
+    labels.push(I);
+    data.push(R * I * I);
+  }
+  const ctx = document.getElementById('chartPertes').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Pertes Joule P = R·I² (R = 1 Ω)',
+        data: data,
+        borderColor: '#2da44e',
+        backgroundColor: 'rgba(45,164,78,0.10)',
+        borderWidth: 2.5,
+        pointRadius: 3,
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        title: {
+          display: true,
+          text: 'Pertes Joule en fonction du courant (R = 1 Ω)',
+          color: '#2d3748',
+          font: { size: 14 }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Courant I (A)', color: '#2d3748' }
+        },
+        y: {
+          title: { display: true, text: 'Pertes Joule P_pertes (W)', color: '#2d3748' },
+          beginAtZero: true
+        }
+      }
+    }
+  });
+})();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

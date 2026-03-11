@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pression des gaz — Simulation</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
+  .container { max-width: 860px; margin: 0 auto; }
+  header { background: #0284c7; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
+  .card { background: white; border-radius: 10px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
+  label { font-weight: 600; display: block; margin-bottom: 5px; }
+  input[type=range] { width: 100%; accent-color: #0284c7; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width:500px){.row{grid-template-columns:1fr;}}
+  .val { color: #0284c7; font-weight: bold; }
+  .result { background: #e0f2fe; border-radius: 8px; padding: 15px; margin-top: 20px; }
+  .result p { margin: 6px 0; font-size: 1.05em; }
+  .formule { background: #eee; border-radius: 6px; padding: 10px 15px; font-family: monospace; font-size: 0.95em; margin-top: 15px; }
+  canvas { display: block; margin: 0 auto; }
+  .explication { background: #f0f9ff; border-left: 4px solid #0284c7; padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 20px; font-size: 0.95em; line-height: 1.6; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+  .tab { padding: 7px 16px; border-radius: 20px; border: 2px solid #0284c7; background: white; cursor: pointer; font-size: 0.9em; font-weight: 600; color: #0284c7; transition: 0.2s; }
+  .tab.active { background: #0284c7; color: white; }
+  .mode { display: none; }
+  .mode.active { display: block; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">← Retour</a>
+    <h1 style="margin:0 0 5px 0;">💨 Pression des Gaz</h1>
+    <p style="margin:0;opacity:0.85;">Terminale Bac Pro — Loi de Boyle-Mariotte · Loi de Gay-Lussac</p>
+  </header>
+
+  <div class="explication">
+    <strong>À température constante (loi de Boyle-Mariotte) :</strong> P × V = constante
+    &nbsp;⟹&nbsp; si le volume diminue, la pression augmente.
+    <br><strong>À volume constant (loi de Gay-Lussac) :</strong> P / T = constante
+    &nbsp;⟹&nbsp; si la température augmente, la pression augmente.
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showMode('boyle', this)">Boyle-Mariotte (T fixe)</button>
+    <button class="tab" onclick="showMode('gaylussac', this)">Gay-Lussac (V fixe)</button>
+  </div>
+
+  <!-- Mode Boyle-Mariotte -->
+  <div id="mode-boyle" class="mode active">
+    <div class="card">
+      <div class="row">
+        <div>
+          <label>Volume V : <span class="val" id="vV">5</span> L</label>
+          <input type="range" id="V" min="1" max="20" step="0.1" value="5" oninput="updateBoyle()">
+        </div>
+        <div>
+          <label>Pression initiale P₀ : <span class="val" id="vP0">2</span> bar</label>
+          <input type="range" id="P0" min="0.5" max="10" step="0.1" value="2" oninput="updateBoyle()">
+        </div>
+      </div>
+      <p style="font-size:0.85em;color:#666;margin-top:8px;">Volume de référence V₀ = <span id="vV0">10</span> L (position initiale du piston)</p>
+      <div class="result">
+        <p>📐 Volume V = <strong><span id="rV">—</span> L</strong></p>
+        <p>🌬️ Pression P = P₀ × V₀ / V = <strong><span id="rP">—</span> bar</strong></p>
+        <p>📊 Variation de pression : <strong><span id="rDelta">—</span></strong></p>
+      </div>
+      <div class="formule">P₁ × V₁ = P₂ × V₂ = constante &nbsp;(à T fixe)</div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">Visualisation du cylindre</h3>
+      <canvas id="canvasBoyle" width="700" height="260"></canvas>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">📈 Courbe P = f(V)</h3>
+      <canvas id="grapheBoyle" width="700" height="200"></canvas>
+    </div>
+  </div>
+
+  <!-- Mode Gay-Lussac -->
+  <div id="mode-gaylussac" class="mode">
+    <div class="card">
+      <div class="row">
+        <div>
+          <label>Température T : <span class="val" id="vTgl">300</span> K (<span id="vTgC">27</span> °C)</label>
+          <input type="range" id="Tgl" min="200" max="600" step="1" value="300" oninput="updateGayLussac()">
+        </div>
+        <div>
+          <label>Pression initiale P₀ : <span class="val" id="vP0gl">1</span> bar</label>
+          <input type="range" id="P0gl" min="0.5" max="5" step="0.1" value="1" oninput="updateGayLussac()">
+        </div>
+      </div>
+      <p style="font-size:0.85em;color:#666;margin-top:8px;">Température de référence T₀ = 300 K (27 °C)</p>
+      <div class="result">
+        <p>🌡️ Température T = <strong><span id="rTgl">—</span> K</strong></p>
+        <p>🌬️ Pression P = P₀ × T / T₀ = <strong><span id="rPgl">—</span> bar</strong></p>
+        <p>📊 Variation : <strong><span id="rDeltagl">—</span></strong></p>
+      </div>
+      <div class="formule">P₁ / T₁ = P₂ / T₂ = constante &nbsp;(à V fixe) &nbsp;|&nbsp; T en Kelvin</div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">Visualisation de la bonbonne</h3>
+      <canvas id="canvasGL" width="700" height="260"></canvas>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">📈 Courbe P = f(T)</h3>
+      <canvas id="grapheGL" width="700" height="200"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+// --- Onglets ---
+function showMode(mode, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.mode').forEach(m => m.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('mode-' + mode).classList.add('active');
+  if (mode === 'boyle') updateBoyle();
+  else updateGayLussac();
+}
+
+// --- Boyle-Mariotte ---
+const V0_ref = 10; // volume de référence en L
+document.getElementById('vV0').textContent = V0_ref;
+
+function updateBoyle() {
+  const V = parseFloat(document.getElementById('V').value);
+  const P0 = parseFloat(document.getElementById('P0').value);
+  document.getElementById('vV').textContent = V.toFixed(1);
+  document.getElementById('vP0').textContent = P0.toFixed(1);
+
+  const P = (P0 * V0_ref) / V;
+  const ratio = P / P0;
+
+  document.getElementById('rV').textContent = V.toFixed(1);
+  document.getElementById('rP').textContent = P.toFixed(2);
+  document.getElementById('rDelta').textContent = ratio >= 1
+    ? `× ${ratio.toFixed(2)} (augmentation)`
+    : `× ${ratio.toFixed(2)} (diminution)`;
+
+  drawCylindre(V, P, P0);
+  drawGrapheBoyle(P0, V);
+}
+
+function drawCylindre(V, P, P0) {
+  const canvas = document.getElementById('canvasBoyle');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const cylX = 80, cylY = 40, cylW = 500, cylH = 160;
+  const maxV = 20, minV = 1;
+  // Position du piston : fraction du volume
+  const pistonFrac = V / maxV; // 0→1
+  const pistonX = cylX + pistonFrac * cylW;
+
+  // Fond (gaz)
+  const ratio = P / P0;
+  const blueInt = Math.max(0, Math.min(255, Math.round(100 + (ratio - 1) * 60)));
+  ctx.fillStyle = `rgb(${Math.max(0,200-blueInt*0.7)},${Math.max(0,220-blueInt*0.5)},255)`;
+  ctx.fillRect(cylX, cylY, pistonX - cylX, cylH);
+
+  // Parois du cylindre
+  ctx.strokeStyle = '#555'; ctx.lineWidth = 4;
+  ctx.strokeRect(cylX, cylY, cylW, cylH);
+
+  // Piston
+  ctx.fillStyle = '#888';
+  ctx.fillRect(pistonX - 10, cylY, 12, cylH);
+  ctx.strokeStyle = '#444'; ctx.lineWidth = 2;
+  ctx.strokeRect(pistonX - 10, cylY, 12, cylH);
+
+  // Flèches de pression (molécules)
+  const nMol = Math.round(4 + (P / P0) * 6);
+  ctx.fillStyle = 'rgba(0,100,220,0.6)';
+  ctx.font = '16px serif';
+  const gasW = pistonX - cylX - 20;
+  const gasH = cylH - 20;
+  for (let i = 0; i < nMol; i++) {
+    const mx = cylX + 10 + Math.random() * gasW;
+    const my = cylY + 10 + Math.random() * gasH;
+    ctx.fillText('⚬', mx, my);
+  }
+
+  // Jauge de pression
+  const jX = cylX + cylW + 30, jY = cylY, jH = cylH;
+  const jW = 30;
+  ctx.fillStyle = '#eee';
+  ctx.fillRect(jX, jY, jW, jH);
+  ctx.strokeStyle = '#aaa'; ctx.lineWidth = 1;
+  ctx.strokeRect(jX, jY, jW, jH);
+  const fillH = Math.min(jH, (P / (P0 * maxV / minV)) * jH * 3);
+  ctx.fillStyle = fillH > jH * 0.7 ? '#e74c3c' : '#0284c7';
+  ctx.fillRect(jX, jY + jH - fillH, jW, fillH);
+  ctx.fillStyle = '#333'; ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText('P', jX + jW / 2, jY - 6);
+  ctx.fillText(P.toFixed(1) + ' bar', jX + jW / 2, jY + jH + 18);
+
+  // Labels
+  ctx.fillStyle = '#333'; ctx.font = '13px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText(`V = ${V.toFixed(1)} L`, cylX + (pistonX - cylX) / 2, cylY + cylH + 22);
+}
+
+function drawGrapheBoyle(P0, Vcur) {
+  const canvas = document.getElementById('grapheBoyle');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const pad = { l: 60, r: 20, t: 15, b: 35 };
+  const gW = W - pad.l - pad.r, gH = H - pad.t - pad.b;
+  const Vmin = 1, Vmax = 20;
+  const Pmax = (P0 * V0_ref) / Vmin;
+
+  // Grille
+  ctx.strokeStyle = '#eee'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.t + (i / 4) * gH;
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + gW, y); ctx.stroke();
+    ctx.fillStyle = '#999'; ctx.font = '11px Segoe UI'; ctx.textAlign = 'right';
+    ctx.fillText(((1 - i / 4) * Pmax).toFixed(1), pad.l - 4, y + 4);
+  }
+  for (let i = 0; i <= 4; i++) {
+    const x = pad.l + (i / 4) * gW;
+    ctx.beginPath(); ctx.moveTo(x, pad.t); ctx.lineTo(x, pad.t + gH); ctx.stroke();
+    ctx.fillStyle = '#999'; ctx.font = '11px Segoe UI'; ctx.textAlign = 'center';
+    ctx.fillText((Vmin + (i / 4) * (Vmax - Vmin)).toFixed(0) + ' L', x, pad.t + gH + 18);
+  }
+
+  // Axes
+  ctx.strokeStyle = '#333'; ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, pad.t + gH); ctx.lineTo(pad.l + gW, pad.t + gH);
+  ctx.stroke();
+
+  // Courbe P = P0*V0/V
+  ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 3;
+  ctx.beginPath();
+  let first = true;
+  for (let px = 0; px <= gW; px++) {
+    const Vv = Vmin + (px / gW) * (Vmax - Vmin);
+    const Pv = (P0 * V0_ref) / Vv;
+    const x = pad.l + px;
+    const y = pad.t + gH - (Pv / Pmax) * gH;
+    if (first) { ctx.moveTo(x, y); first = false; } else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+
+  // Point courant
+  const Pcur = (P0 * V0_ref) / Vcur;
+  const px2 = pad.l + ((Vcur - Vmin) / (Vmax - Vmin)) * gW;
+  const py2 = pad.t + gH - (Pcur / Pmax) * gH;
+  ctx.fillStyle = '#0284c7';
+  ctx.beginPath(); ctx.arc(px2, py2, 7, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#333'; ctx.font = 'bold 11px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText(`P=${Pcur.toFixed(2)} bar`, px2, py2 - 12);
+
+  ctx.fillStyle = '#555'; ctx.font = '12px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText('Volume V (L)', pad.l + gW / 2, H - 2);
+  ctx.save(); ctx.translate(13, pad.t + gH / 2); ctx.rotate(-Math.PI / 2);
+  ctx.fillText('Pression P (bar)', 0, 0); ctx.restore();
+}
+
+// --- Gay-Lussac ---
+const T0_ref = 300;
+
+function updateGayLussac() {
+  const T = parseFloat(document.getElementById('Tgl').value);
+  const P0 = parseFloat(document.getElementById('P0gl').value);
+  document.getElementById('vTgl').textContent = T;
+  document.getElementById('vTgC').textContent = (T - 273).toFixed(0);
+  document.getElementById('vP0gl').textContent = P0.toFixed(1);
+
+  const P = (P0 * T) / T0_ref;
+  const ratio = P / P0;
+  document.getElementById('rTgl').textContent = T;
+  document.getElementById('rPgl').textContent = P.toFixed(2);
+  document.getElementById('rDeltagl').textContent = ratio >= 1
+    ? `× ${ratio.toFixed(2)} (augmentation)`
+    : `× ${ratio.toFixed(2)} (diminution)`;
+
+  drawBonbonne(T, P, P0);
+  drawGrapheGL(P0, T);
+}
+
+function drawBonbonne(T, P, P0) {
+  const canvas = document.getElementById('canvasGL');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const cx = W / 2, cy = H / 2;
+  const rx = 120, ry = 90;
+
+  // Couleur selon température
+  const tRatio = (T - 200) / (600 - 200);
+  const r = Math.round(50 + tRatio * 205);
+  const g = Math.round(120 - tRatio * 100);
+  const b = Math.round(255 - tRatio * 255);
+  const gazColor = `rgb(${r},${g},${b})`;
+
+  // Halo
+  if (tRatio > 0.3) {
+    const halo = ctx.createRadialGradient(cx, cy, ry * 0.5, cx, cy, ry * 1.5);
+    halo.addColorStop(0, `rgba(${r},${g},${b},0.3)`);
+    halo.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = halo;
+    ctx.beginPath(); ctx.ellipse(cx, cy, rx * 1.5, ry * 1.5, 0, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // Corps de la bonbonne
+  const grad = ctx.createRadialGradient(cx - rx * 0.3, cy - ry * 0.3, 10, cx, cy, rx);
+  grad.addColorStop(0, `rgba(${r},${g},${b},1)`);
+  grad.addColorStop(1, `rgba(${Math.max(0,r-60)},${Math.max(0,g-40)},${Math.max(0,b-60)},1)`);
+  ctx.fillStyle = grad;
+  ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.strokeStyle = '#444'; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2); ctx.stroke();
+
+  // Robinet
+  ctx.fillStyle = '#888';
+  ctx.fillRect(cx - 12, cy - ry - 25, 24, 20);
+  ctx.beginPath(); ctx.arc(cx, cy - ry - 25, 10, 0, Math.PI * 2); ctx.fill();
+
+  // Molécules
+  const nMol = Math.round(5 + tRatio * 10);
+  ctx.font = '14px serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.7)';
+  for (let i = 0; i < nMol; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const dist = Math.random() * 0.8;
+    const mx = cx + Math.cos(angle) * rx * dist;
+    const my = cy + Math.sin(angle) * ry * dist;
+    ctx.fillText('•', mx, my);
+  }
+
+  // Température et pression
+  ctx.fillStyle = 'white'; ctx.font = 'bold 16px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText(`${T} K`, cx, cy - 10);
+  ctx.font = '14px Segoe UI';
+  ctx.fillText(`(${(T - 273).toFixed(0)} °C)`, cx, cy + 14);
+
+  // Manomètre
+  const mX = cx + rx + 60, mY = cy;
+  const mR = 45;
+  ctx.fillStyle = '#f5f5f5';
+  ctx.beginPath(); ctx.arc(mX, mY, mR, 0, Math.PI * 2); ctx.fill();
+  ctx.strokeStyle = '#888'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.arc(mX, mY, mR, 0, Math.PI * 2); ctx.stroke();
+  // Aiguille
+  const pRatio = Math.min(P / (P0 * 4), 1);
+  const angle = -Math.PI * 0.75 + pRatio * Math.PI * 1.5;
+  ctx.strokeStyle = '#e74c3c'; ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(mX, mY);
+  ctx.lineTo(mX + Math.cos(angle) * (mR - 10), mY + Math.sin(angle) * (mR - 10));
+  ctx.stroke();
+  ctx.fillStyle = '#333'; ctx.font = '11px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText('P (bar)', mX, mY + mR + 14);
+  ctx.font = 'bold 12px Segoe UI';
+  ctx.fillText(P.toFixed(2), mX, mY + mR + 28);
+}
+
+function drawGrapheGL(P0, Tcur) {
+  const canvas = document.getElementById('grapheGL');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const pad = { l: 60, r: 20, t: 15, b: 35 };
+  const gW = W - pad.l - pad.r, gH = H - pad.t - pad.b;
+  const Tmin = 200, Tmax = 600;
+  const Pmax = (P0 * Tmax) / T0_ref;
+
+  ctx.strokeStyle = '#eee'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.t + (i / 4) * gH;
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + gW, y); ctx.stroke();
+    ctx.fillStyle = '#999'; ctx.font = '11px Segoe UI'; ctx.textAlign = 'right';
+    ctx.fillText(((1 - i / 4) * Pmax).toFixed(2), pad.l - 4, y + 4);
+    const x = pad.l + (i / 4) * gW;
+    ctx.beginPath(); ctx.moveTo(x, pad.t); ctx.lineTo(x, pad.t + gH); ctx.stroke();
+    ctx.fillStyle = '#999'; ctx.textAlign = 'center';
+    ctx.fillText((Tmin + (i / 4) * (Tmax - Tmin)).toFixed(0) + ' K', x, pad.t + gH + 18);
+  }
+
+  ctx.strokeStyle = '#333'; ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, pad.t + gH); ctx.lineTo(pad.l + gW, pad.t + gH);
+  ctx.stroke();
+
+  ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 3;
+  ctx.beginPath();
+  for (let px = 0; px <= gW; px++) {
+    const Tv = Tmin + (px / gW) * (Tmax - Tmin);
+    const Pv = (P0 * Tv) / T0_ref;
+    const x = pad.l + px;
+    const y = pad.t + gH - (Pv / Pmax) * gH;
+    if (px === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+
+  const Pcur = (P0 * Tcur) / T0_ref;
+  const px2 = pad.l + ((Tcur - Tmin) / (Tmax - Tmin)) * gW;
+  const py2 = pad.t + gH - (Pcur / Pmax) * gH;
+  ctx.fillStyle = '#0284c7';
+  ctx.beginPath(); ctx.arc(px2, py2, 7, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#333'; ctx.font = 'bold 11px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText(`P=${Pcur.toFixed(2)} bar`, px2, py2 - 12);
+
+  ctx.fillStyle = '#555'; ctx.font = '12px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText('Température T (K)', pad.l + gW / 2, H - 2);
+  ctx.save(); ctx.translate(13, pad.t + gH / 2); ctx.rotate(-Math.PI / 2);
+  ctx.fillText('Pression P (bar)', 0, 0); ctx.restore();
+}
+
+updateBoyle();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

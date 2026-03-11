@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courbe de chauffage — Ch12 Changements d'état — 2nde Bac Pro</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
+  .container { max-width: 880px; margin: 0 auto; }
+  header { background: #e67e22; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 20px; position: relative; }
+  .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
+  .card { background: white; border-radius: 10px; padding: 20px 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 16px; }
+  label { font-weight: 600; display: block; margin-bottom: 4px; font-size: 0.92em; }
+  input[type=range] { width: 100%; accent-color: #e67e22; margin: 4px 0; }
+  select { padding: 7px 10px; border-radius: 6px; border: 2px solid #ddd; font-size: 0.95em; width: 100%; cursor: pointer; }
+  .row3 { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
+  @media(max-width:620px) { .row3 { grid-template-columns: 1fr; } }
+  .val { color: #e67e22; font-weight: bold; }
+  .btn-play { background: #e67e22; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-size: 1em; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+  .btn-play:hover { background: #cf6d17; }
+  .btn-reset { background: #6b7280; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-size: 1em; cursor: pointer; transition: background 0.2s; }
+  .btn-reset:hover { background: #4b5563; }
+  canvas { display: block; max-width: 100%; height: auto; }
+  .phase-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-weight: 700; font-size: 0.92em; margin-right: 8px; }
+  .badge-solid   { background: #dbeafe; color: #1d4ed8; }
+  .badge-fusion  { background: #fee2e2; color: #dc2626; }
+  .badge-liquid  { background: #dcfce7; color: #16a34a; }
+  .badge-vap     { background: #fef9c3; color: #a16207; }
+  .badge-gas     { background: #f3f4f6; color: #6b7280; }
+  .badge-idle    { background: #f1f5f9; color: #94a3b8; }
+  .info-box { background: #fff8f0; border-left: 4px solid #e67e22; padding: 10px 16px; border-radius: 0 8px 8px 0; font-size: 0.92em; line-height: 1.6; margin-bottom: 16px; }
+  .data-table { border-collapse: collapse; width: 100%; font-size: 0.88em; }
+  .data-table th { background: #f8f9fa; padding: 7px 10px; text-align: left; border: 1px solid #e5e7eb; }
+  .data-table td { padding: 6px 10px; border: 1px solid #e5e7eb; }
+  .legend-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 0.88em; }
+  .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+  .contexte-txt { font-size: 0.82em; color: #6b7280; margin: 6px 0 0; line-height: 1.4; font-style: italic; }
+  .status-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .stat { font-size: 0.9em; color: #6b7280; }
+  .stat strong { color: #333; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">← Retour</a>
+    <h1 style="margin:0 0 5px 0">🌡️ Courbe de chauffage</h1>
+    <p style="margin:0;opacity:0.85">Ch12 — Changements d'état &bull; 2<sup>nde</sup> Bac Pro</p>
+  </header>
+
+  <div class="info-box">
+    Lors d'un changement d'état d'un <strong>corps pur</strong>, la <strong>température reste constante</strong> (palier) même si on continue à chauffer. Toute l'énergie absorbée sert à modifier l'état physique, pas à augmenter la température.
+  </div>
+
+  <!-- Contrôles -->
+  <div class="card">
+    <div class="row3">
+      <div>
+        <label>Corps pur :</label>
+        <select id="subst" onchange="onSubstChange()">
+          <option value="eau">💧 Eau</option>
+          <option value="paraffine">🕯️ Paraffine</option>
+          <option value="colle">🔫 Colle thermofusible (EVA)</option>
+          <option value="etain">🔩 Étain (soudure)</option>
+        </select>
+        <p class="contexte-txt" id="contexte-txt"></p>
+      </div>
+      <div>
+        <label>Masse m : <span class="val" id="vM">0.5</span> kg</label>
+        <input type="range" id="slM" min="0.1" max="2" step="0.1" value="0.5" oninput="onParamChange()">
+        <label style="margin-top:12px">Puissance P : <span class="val" id="vP">500</span> W</label>
+        <input type="range" id="slP" min="50" max="2000" step="50" value="500" oninput="onParamChange()">
+      </div>
+      <div>
+        <label>Vitesse animation : <span class="val" id="vSpeed">5×</span></label>
+        <input type="range" id="slSpeed" min="1" max="10" step="1" value="5"
+               oninput="document.getElementById('vSpeed').textContent = this.value + '×'">
+        <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn-play" id="btnPlay" onclick="togglePlay()">▶ Chauffer</button>
+          <button class="btn-reset" onclick="resetAnim()">↺ Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Courbe animée -->
+  <div class="card">
+    <div class="status-bar">
+      <div>
+        <span class="phase-badge badge-idle" id="phaseLabel">— en attente —</span>
+        <span style="font-size:1.1em">T = <strong id="curT">—</strong> °C</span>
+      </div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <span class="stat">Énergie absorbée : <strong id="curQ">0</strong> kJ</span>
+        <span class="stat">Temps simulé : <strong id="curTime">0</strong> s</span>
+      </div>
+    </div>
+    <canvas id="cvCourbe" width="820" height="340"></canvas>
+  </div>
+
+  <!-- Données et légende -->
+  <div class="card">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div>
+        <h3 style="margin-top:0;font-size:1em">📋 Données du corps sélectionné</h3>
+        <div id="datatable"></div>
+      </div>
+      <div>
+        <h3 style="margin-top:0;font-size:1em">🎨 Légende des phases</h3>
+        <div class="legend-row"><div class="legend-dot" style="background:#3b82f6"></div><span><strong>Solide ↑</strong> — T monte (Q = m·c<sub>s</sub>·ΔT)</span></div>
+        <div class="legend-row"><div class="legend-dot" style="background:#ef4444"></div><span><strong>Fusion (palier)</strong> — T = T<sub>f</sub> (Q = m·L<sub>f</sub>)</span></div>
+        <div class="legend-row"><div class="legend-dot" style="background:#22c55e"></div><span><strong>Liquide ↑</strong> — T monte (Q = m·c<sub>l</sub>·ΔT)</span></div>
+        <div class="legend-row"><div class="legend-dot" style="background:#eab308"></div><span><strong>Ébullition (palier)</strong> — T = T<sub>v</sub> (Q = m·L<sub>v</sub>)</span></div>
+        <div class="legend-row"><div class="legend-dot" style="background:#9ca3af"></div><span><strong>Gaz ↑</strong> — T monte (vapeur)</span></div>
+
+        <div style="margin-top:16px;background:#f8fafc;border-radius:8px;padding:12px;font-size:0.88em">
+          <div style="font-weight:700;margin-bottom:6px">Formules :</div>
+          <div>Phase de chauffe : <strong>Q = m × c × ΔT</strong></div>
+          <div style="margin-top:4px">Changement d'état : <strong>Q = m × L</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+const substances = {
+  eau: {
+    nom: 'Eau', emoji: '💧',
+    Tinit: -20, Tf: 0, Tv: 100,
+    cs: 2090, cl: 4186,
+    Lf: 334000, Lv: 2260000,
+    couleur: '#3b82f6',
+    contexte: "L'eau est utilisée dans les étuves de séchage du bois pour éliminer l'humidité des planches."
+  },
+  paraffine: {
+    nom: 'Paraffine', emoji: '🕯️',
+    Tinit: 20, Tf: 55, Tv: null,
+    cs: 1800, cl: 2100,
+    Lf: 200000, Lv: null,
+    couleur: '#f59e0b',
+    contexte: "La paraffine fond vers 55 °C. Utilisée pour imperméabiliser et traiter les surfaces en bois (parquets, meubles)."
+  },
+  colle: {
+    nom: 'Colle thermofusible (EVA)', emoji: '🔫',
+    Tinit: 20, Tf: 75, Tv: null,
+    cs: 2000, cl: 2300,
+    Lf: 150000, Lv: null,
+    couleur: '#f97316',
+    contexte: "La colle EVA fond vers 75 °C. Indispensable en atelier de menuiserie-agencement pour assembler moulures et plaquages."
+  },
+  etain: {
+    nom: 'Étain (soudure)', emoji: '🔩',
+    Tinit: 20, Tf: 232, Tv: null,
+    cs: 226, cl: 240,
+    Lf: 59000, Lv: null,
+    couleur: '#6b7280',
+    contexte: "L'étain fond à 232 °C. Utilisé dans les soudures électroniques des équipements de l'atelier."
+  }
+};
+
+// Phase definitions
+function computePhases(s, mass, power) {
+  const ph = [];
+  // Solid warming: Tinit → Tf
+  {
+    const dT = s.Tf - s.Tinit;
+    const dur = (mass * s.cs * dT) / power;
+    ph.push({ type: 'ramp', name: 'Solide ↑', badge: 'badge-solid', col: '#3b82f6', Tstart: s.Tinit, Tend: s.Tf, duration: dur });
+  }
+  // Fusion plateau
+  {
+    const dur = (mass * s.Lf) / power;
+    ph.push({ type: 'plateau', name: 'Fusion (palier)', badge: 'badge-fusion', col: '#ef4444', T: s.Tf, duration: dur });
+  }
+  // Liquid warming: Tf → Tv (only if Tv exists)
+  if (s.Tv !== null) {
+    const dT = s.Tv - s.Tf;
+    const dur = (mass * s.cl * dT) / power;
+    ph.push({ type: 'ramp', name: 'Liquide ↑', badge: 'badge-liquid', col: '#22c55e', Tstart: s.Tf, Tend: s.Tv, duration: dur });
+    // Vaporization plateau
+    {
+      const dur2 = (mass * s.Lv) / power;
+      ph.push({ type: 'plateau', name: 'Ébullition (palier)', badge: 'badge-vap', col: '#eab308', T: s.Tv, duration: dur2 });
+    }
+    // Gas warming: Tv → Tv+30
+    {
+      const dT2 = 30;
+      const cg = 2000;
+      const dur3 = (mass * cg * dT2) / power;
+      ph.push({ type: 'ramp', name: 'Gaz ↑', badge: 'badge-gas', col: '#9ca3af', Tstart: s.Tv, Tend: s.Tv + dT2, duration: dur3 });
+    }
+  } else {
+    // Liquid warming: Tf → Tf+40 (just to show the liquid phase)
+    const dT = 40;
+    const dur = (mass * s.cl * dT) / power;
+    ph.push({ type: 'ramp', name: 'Liquide ↑', badge: 'badge-liquid', col: '#22c55e', Tstart: s.Tf, Tend: s.Tf + dT, duration: dur });
+  }
+  return ph;
+}
+
+function getTotalTime(phases) {
+  return phases.reduce((a, p) => a + p.duration, 0);
+}
+
+function getTfromTime(phases, t) {
+  let elapsed = 0;
+  for (const ph of phases) {
+    if (t <= elapsed + ph.duration) {
+      const f = (t - elapsed) / ph.duration;
+      return ph.type === 'plateau' ? ph.T : ph.Tstart + f * (ph.Tend - ph.Tstart);
+    }
+    elapsed += ph.duration;
+  }
+  const last = phases[phases.length - 1];
+  return last.type === 'plateau' ? last.T : last.Tend;
+}
+
+function getPhaseAtTime(phases, t) {
+  let elapsed = 0;
+  for (let i = 0; i < phases.length; i++) {
+    if (t <= elapsed + phases[i].duration) return i;
+    elapsed += phases[i].duration;
+  }
+  return phases.length - 1;
+}
+
+// Animation state
+let animId = null;
+let isPlaying = false;
+let totalSimFrac = 0; // 0..1 progress
+let lastTs = null;
+
+function togglePlay() {
+  if (isPlaying) {
+    cancelAnimationFrame(animId);
+    animId = null;
+    isPlaying = false;
+    document.getElementById('btnPlay').textContent = '▶ Continuer';
+  } else {
+    if (totalSimFrac >= 1) resetAnim();
+    isPlaying = true;
+    lastTs = null;
+    document.getElementById('btnPlay').textContent = '⏸ Pause';
+    animId = requestAnimationFrame(animate);
+  }
+}
+
+function resetAnim() {
+  if (animId) { cancelAnimationFrame(animId); animId = null; }
+  isPlaying = false;
+  totalSimFrac = 0;
+  document.getElementById('btnPlay').textContent = '▶ Chauffer';
+  updateInfo(0);
+  draw();
+}
+
+function animate(ts) {
+  if (!isPlaying) return;
+  if (lastTs === null) { lastTs = ts; animId = requestAnimationFrame(animate); return; }
+  const speed = parseInt(document.getElementById('slSpeed').value);
+  const dtWall = Math.min((ts - lastTs) / 1000, 0.05); // cap at 50ms for tab switching
+  lastTs = ts;
+
+  totalSimFrac += dtWall * speed / 12; // speed=5 → completes in ~2.4s; speed=1 → ~12s
+  if (totalSimFrac >= 1) {
+    totalSimFrac = 1;
+    isPlaying = false;
+    document.getElementById('btnPlay').textContent = '▶ Chauffer';
+  }
+
+  const s = substances[document.getElementById('subst').value];
+  const mass = parseFloat(document.getElementById('slM').value);
+  const power = parseFloat(document.getElementById('slP').value);
+  const phases = computePhases(s, mass, power);
+  const tTotal = getTotalTime(phases);
+  const tCur = totalSimFrac * tTotal;
+
+  updateInfo(tCur, s, phases, power);
+  draw(s, phases, tTotal, tCur);
+
+  if (isPlaying) animId = requestAnimationFrame(animate);
+}
+
+function onSubstChange() {
+  resetAnim();
+  const s = substances[document.getElementById('subst').value];
+  document.getElementById('contexte-txt').textContent = s.contexte;
+  updateDataTable(s);
+  const mass = parseFloat(document.getElementById('slM').value);
+  const power = parseFloat(document.getElementById('slP').value);
+  const phases = computePhases(s, mass, power);
+  const tTotal = getTotalTime(phases);
+  draw(s, phases, tTotal, 0);
+}
+
+function onParamChange() {
+  document.getElementById('vM').textContent = parseFloat(document.getElementById('slM').value).toFixed(1);
+  document.getElementById('vP').textContent = document.getElementById('slP').value;
+  resetAnim();
+}
+
+function updateInfo(tCur, s, phases, P) {
+  if (!s) {
+    s = substances[document.getElementById('subst').value];
+    const mass = parseFloat(document.getElementById('slM').value);
+    P = parseFloat(document.getElementById('slP').value);
+    phases = computePhases(s, mass, P);
+  }
+  if (tCur === 0) {
+    document.getElementById('curT').textContent = '—';
+    document.getElementById('curQ').textContent = '0';
+    document.getElementById('curTime').textContent = '0';
+    const badge = document.getElementById('phaseLabel');
+    badge.textContent = '— en attente —';
+    badge.className = 'phase-badge badge-idle';
+    return;
+  }
+  const T = getTfromTime(phases, tCur);
+  const phIdx = getPhaseAtTime(phases, tCur);
+  const ph = phases[phIdx];
+  document.getElementById('curT').textContent = T.toFixed(1);
+  document.getElementById('curQ').textContent = (P * tCur / 1000).toFixed(1);
+  document.getElementById('curTime').textContent = tCur.toFixed(0);
+  const badge = document.getElementById('phaseLabel');
+  badge.textContent = ph.name;
+  badge.className = 'phase-badge ' + ph.badge;
+}
+
+function draw(s, phases, tTotal, tCur) {
+  if (!s) {
+    s = substances[document.getElementById('subst').value];
+    const mass = parseFloat(document.getElementById('slM').value);
+    const power = parseFloat(document.getElementById('slP').value);
+    phases = computePhases(s, mass, power);
+    tTotal = getTotalTime(phases);
+    tCur = totalSimFrac * tTotal;
+  }
+
+  const canvas = document.getElementById('cvCourbe');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const pad = { l: 62, r: 20, t: 24, b: 48 };
+  const gW = W - pad.l - pad.r;
+  const gH = H - pad.t - pad.b;
+
+  // Y range from all phase temperatures
+  const allT = phases.flatMap(ph => ph.type === 'plateau' ? [ph.T] : [ph.Tstart, ph.Tend]);
+  const Tmin = Math.min(...allT) - 8;
+  const Tmax = Math.max(...allT) + 8;
+
+  function xOf(t) { return pad.l + (t / tTotal) * gW; }
+  function yOf(T) { return pad.t + gH - ((T - Tmin) / (Tmax - Tmin)) * gH; }
+
+  // Phase background zones
+  const bgColors = { 'badge-solid': '#eff6ff', 'badge-fusion': '#fff1f2', 'badge-liquid': '#f0fdf4', 'badge-vap': '#fefce8', 'badge-gas': '#f9fafb' };
+  let tEl = 0;
+  phases.forEach(ph => {
+    const x1 = xOf(tEl);
+    const x2 = xOf(tEl + ph.duration);
+    ctx.fillStyle = bgColors[ph.badge] || '#fafafa';
+    ctx.fillRect(x1, pad.t, x2 - x1, gH);
+    // Phase label at top
+    if (x2 - x1 > 28) {
+      ctx.fillStyle = '#bbb';
+      ctx.font = '9px Segoe UI';
+      ctx.textAlign = 'center';
+      ctx.fillText(ph.name, (x1 + x2) / 2, pad.t + 11);
+    }
+    // Dashed horizontal line at plateau temperature
+    if (ph.type === 'plateau') {
+      const yP = yOf(ph.T);
+      ctx.setLineDash([5, 4]);
+      ctx.strokeStyle = '#d1d5db';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(pad.l, yP); ctx.lineTo(pad.l + gW, yP); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#6b7280';
+      ctx.font = 'bold 11px Segoe UI';
+      ctx.textAlign = 'left';
+      ctx.fillText(ph.T + ' °C', pad.l + 3, yP - 4);
+    }
+    tEl += ph.duration;
+  });
+
+  // Grid lines (horizontal)
+  ctx.strokeStyle = '#e5e7eb'; ctx.lineWidth = 1;
+  const nTicks = 5;
+  for (let i = 0; i <= nTicks; i++) {
+    const Tv = Tmin + (i / nTicks) * (Tmax - Tmin);
+    const y = yOf(Tv);
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + gW, y); ctx.stroke();
+    ctx.fillStyle = '#9ca3af'; ctx.font = '10px Segoe UI'; ctx.textAlign = 'right';
+    ctx.fillText(Tv.toFixed(0) + '°', pad.l - 4, y + 4);
+  }
+
+  // Axes
+  ctx.strokeStyle = '#6b7280'; ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, pad.t + gH); ctx.lineTo(pad.l + gW, pad.t + gH);
+  ctx.stroke();
+
+  // Axis labels
+  ctx.fillStyle = '#555'; ctx.font = '11px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText('Temps (s)', pad.l + gW / 2, H - 6);
+  ctx.save(); ctx.translate(13, pad.t + gH / 2); ctx.rotate(-Math.PI / 2);
+  ctx.fillText('Température (°C)', 0, 0); ctx.restore();
+
+  // X ticks (5)
+  for (let i = 0; i <= 5; i++) {
+    const t = (i / 5) * tTotal;
+    const x = xOf(t);
+    ctx.strokeStyle = '#d1d5db'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x, pad.t + gH); ctx.lineTo(x, pad.t + gH + 4); ctx.stroke();
+    ctx.fillStyle = '#9ca3af'; ctx.font = '10px Segoe UI'; ctx.textAlign = 'center';
+    ctx.fillText(t.toFixed(0), x, pad.t + gH + 17);
+  }
+
+  // Preview curve (very faint gray)
+  ctx.strokeStyle = '#e5e7eb'; ctx.lineWidth = 2; ctx.setLineDash([]);
+  ctx.beginPath();
+  const N = 400;
+  for (let i = 0; i <= N; i++) {
+    const t = (i / N) * tTotal;
+    const T = getTfromTime(phases, t);
+    const x = xOf(t), y = yOf(T);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+
+  // Animated curve (colored by phase)
+  if (tCur > 0) {
+    let tSegStart = 0;
+    for (const ph of phases) {
+      if (tSegStart >= tCur) break;
+      const tSegEnd = Math.min(tSegStart + ph.duration, tCur);
+      const steps = Math.max(2, Math.round((tSegEnd - tSegStart) / tTotal * 300));
+
+      ctx.strokeStyle = ph.col;
+      ctx.lineWidth = 3.5;
+      ctx.beginPath();
+      for (let i = 0; i <= steps; i++) {
+        const t = tSegStart + (i / steps) * (tSegEnd - tSegStart);
+        const T = getTfromTime(phases, t);
+        const x = xOf(t), y = yOf(T);
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      tSegStart += ph.duration;
+    }
+
+    // Current point dot
+    const Tcur = getTfromTime(phases, tCur);
+    const phIdx = getPhaseAtTime(phases, tCur);
+    const cx2 = xOf(tCur), cy2 = yOf(Tcur);
+    ctx.fillStyle = phases[phIdx].col;
+    ctx.beginPath(); ctx.arc(cx2, cy2, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'white';
+    ctx.beginPath(); ctx.arc(cx2, cy2, 3, 0, Math.PI * 2); ctx.fill();
+    // Label next to dot
+    const lblX = cx2 + (cx2 > pad.l + gW * 0.8 ? -50 : 10);
+    ctx.fillStyle = '#1e293b'; ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'left';
+    ctx.fillText(Tcur.toFixed(1) + ' °C', lblX, cy2 - 8);
+  }
+}
+
+function updateDataTable(s) {
+  const fmtL = v => v != null ? (v / 1000).toFixed(0) + ' kJ/kg' : '<em style="color:#aaa">—</em>';
+  const fmtC = v => v + ' J/(kg·K)';
+  const fmtT = v => v != null ? v + ' °C' : '<em style="color:#aaa">—</em>';
+  document.getElementById('datatable').innerHTML = `
+    <table class="data-table">
+      <tr><th>Grandeur</th><th>Valeur</th></tr>
+      <tr><td>T<sub>f</sub> (fusion)</td><td><strong>${fmtT(s.Tf)}</strong></td></tr>
+      <tr><td>T<sub>v</sub> (ébullition)</td><td><strong>${fmtT(s.Tv)}</strong></td></tr>
+      <tr><td>L<sub>f</sub> (fusion)</td><td><strong>${fmtL(s.Lf)}</strong></td></tr>
+      <tr><td>L<sub>v</sub> (vaporisation)</td><td><strong>${fmtL(s.Lv)}</strong></td></tr>
+      <tr><td>c solide</td><td>${fmtC(s.cs)}</td></tr>
+      <tr><td>c liquide</td><td>${fmtC(s.cl)}</td></tr>
+    </table>`;
+}
+
+// Init
+(function() {
+  const s = substances['eau'];
+  document.getElementById('contexte-txt').textContent = s.contexte;
+  document.getElementById('vM').textContent = '0.5';
+  document.getElementById('vP').textContent = '500';
+  updateDataTable(s);
+  const phases = computePhases(s, 0.5, 500);
+  draw(s, phases, getTotalTime(phases), 0);
+})();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

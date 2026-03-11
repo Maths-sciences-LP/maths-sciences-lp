@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch11 – Figures planes : périmètres et aires – 2nde MAMA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:28px;padding-bottom:16px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
+.sous-titre{color:#718096;font-size:.93em;margin:0}
+.maj{font-size:.78em;color:#a0aec0;text-align:center;margin-top:4px}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:36px;margin-bottom:14px}
+h3{font-size:1em;color:var(--t);margin-top:20px;margin-bottom:8px;font-weight:700}
+
+.def{background:#ebf5ff;border-left:5px solid var(--p);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.def strong{color:var(--p)}
+.prop{background:#f0fff4;border-left:5px solid var(--s);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.prop strong{color:var(--s)}
+.att{background:#fff5f5;border-left:5px solid var(--d);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.att strong{color:var(--d)}
+.meth{background:#fffbeb;border-left:5px solid var(--o);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0}
+.meth strong{color:var(--o)}
+.retenir{background:#f0fff4;border:2px solid var(--s);border-radius:10px;padding:18px 22px;margin:24px 0}
+.retenir h3{color:var(--s);margin:0 0 10px}
+.situation{background:#fdf4ff;border:2px dashed #a855f7;border-radius:10px;padding:16px 20px;margin:16px 0}
+.situation h3{color:#7c3aed;margin:0 0 8px;font-size:1em}
+
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;margin:16px 0}
+.ex-titre{font-weight:700;color:var(--p);margin-bottom:10px}
+.etape{display:flex;gap:12px;margin:8px 0;align-items:flex-start}
+.nc{background:var(--p);color:#fff;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-size:.8em;font-weight:700;margin-top:2px;flex-shrink:0}
+
+details.corr-wrap{margin-top:10px}
+summary.corr-btn{cursor:pointer;font-size:.85em;font-weight:700;color:var(--s);padding:6px 12px;background:#f0fff4;border-radius:6px;border:1px solid #a7f3d0;display:inline-block;list-style:none}
+summary.corr-btn::-webkit-details-marker{display:none}
+.corr-body{background:#f0fff4;border-left:4px solid var(--s);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:8px;font-size:.92em;line-height:1.8}
+.corr-rep{background:#065f46;color:#fff;border-radius:5px;padding:2px 8px;font-weight:700;display:inline-block;font-size:.95em}
+
+table{border-collapse:collapse;margin:12px 0;font-size:.93em}
+table.full{width:100%}
+th,td{border:1px solid #e2e8f0;padding:9px 14px;text-align:center}
+th{background:#ebf5ff;color:var(--p);font-weight:700}
+td:first-child{text-align:left}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+.card-fig{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-align:center}
+.card-fig svg{display:block;margin:0 auto 8px}
+.card-fig strong{display:block;color:var(--p);font-size:.95em;margin-bottom:4px}
+.card-fig .formule{font-size:.9em;background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:6px 10px;margin-top:6px}
+
+.conv-table{text-align:center}
+.conv-table td,.conv-table th{padding:8px 10px;font-size:.88em}
+.arrow-cell{color:var(--d);font-weight:700;font-size:1em;border:none;background:none}
+
+.nb{margin-bottom:16px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nav-footer{display:flex;justify-content:space-between;margin-top:36px;padding-top:16px;border-top:1px solid #e2e8f0;flex-wrap:wrap;gap:10px}
+.nav-btn{text-decoration:none;font-size:.85em;font-weight:600;padding:8px 18px;border-radius:6px;color:var(--p);border:1px solid var(--p);transition:.2s}
+.nav-btn:hover{background:var(--p);color:#fff}
+canvas.anim{display:block;margin:12px auto;border-radius:10px;border:1px solid #e2e8f0;background:#fff}
+.ctrl-vis{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:10px 0;align-items:center;font-size:.92em}
+.ctrl-vis input[type=range]{width:160px;accent-color:var(--p)}
+.anim-result{text-align:center;font-size:.98em;font-weight:700;color:var(--p);min-height:1.6em;margin-top:6px}
+.anim-box{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;margin:20px 0}
+.anim-box h3{color:var(--p);margin:0 0 10px;font-size:.95em}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Chapitre 11 – Figures planes : périmètres et aires</h1>
+  <p class="sous-titre">Seconde Bac Pro MAMA &nbsp;|&nbsp; Géométrie &nbsp;|&nbsp; Mathématiques</p>
+  <p class="maj">Dernière mise à jour : 9 mars 2026</p>
+</header>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>1. Figures planes usuelles</h2>
+
+<div class="situation">
+  <h3>🪵 Situation professionnelle — Agencement d'une pièce</h3>
+  <p>Un poseur de parquet doit calculer la surface à couvrir et la longueur de plinthe à acheter pour une pièce rectangulaire de 4,5 m × 3,2 m. Il a besoin de connaître l'<strong>aire</strong> (pour les lames) et le <strong>périmètre</strong> (pour les plinthes).</p>
+</div>
+
+<div class="def">
+  <strong>Définition — Figure plane :</strong><br>
+  Une figure plane est tracée entièrement dans un plan (surface à 2 dimensions). Les principales sont : le <strong>triangle</strong>, les <strong>quadrilatères</strong> (carré, rectangle, losange, trapèze, parallélogramme) et le <strong>cercle</strong>.
+</div>
+
+<h3>Rappels sur les angles d'un triangle</h3>
+
+<div class="prop">
+  <strong>Propriété — Somme des angles :</strong><br>
+  Dans tout triangle ABC, la somme des mesures des trois angles est toujours égale à <strong>180°</strong> :
+  \[\hat{A} + \hat{B} + \hat{C} = 180°\]
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Trouver un angle manquant</div>
+  <p>Dans un triangle, deux angles mesurent 48° et 65°. Quel est le troisième angle ?</p>
+  <div class="etape"><div class="nc">1</div><div>Somme des trois angles = 180°</div></div>
+  <div class="etape"><div class="nc">2</div><div>\(48 + 65 + \hat{C} = 180 \Rightarrow \hat{C} = 180 - 113 = \mathbf{67°}\)</div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>2. Périmètres</h2>
+
+<div class="def">
+  <strong>Définition :</strong> Le <strong>périmètre</strong> d'une figure plane est la longueur totale de son contour (en unités de longueur : cm, m…).
+</div>
+
+<div class="grid2">
+  <div class="card-fig">
+    <svg width="120" height="80" viewBox="0 0 120 80">
+      <rect x="10" y="10" width="100" height="60" fill="none" stroke="#0056b3" stroke-width="2"/>
+      <text x="60" y="75" text-anchor="middle" font-size="11" fill="#0056b3">L</text>
+      <text x="115" y="42" text-anchor="middle" font-size="11" fill="#0056b3">l</text>
+    </svg>
+    <strong>Rectangle</strong>
+    <div class="formule">\(P = 2(L + l)\)</div>
+  </div>
+  <div class="card-fig">
+    <svg width="120" height="80" viewBox="0 0 120 80">
+      <rect x="20" y="10" width="80" height="60" fill="none" stroke="#0056b3" stroke-width="2"/>
+      <text x="60" y="76" text-anchor="middle" font-size="11" fill="#0056b3">a</text>
+    </svg>
+    <strong>Carré</strong>
+    <div class="formule">\(P = 4a\)</div>
+  </div>
+  <div class="card-fig">
+    <svg width="120" height="80" viewBox="0 0 120 80">
+      <polygon points="60,8 10,72 110,72" fill="none" stroke="#0056b3" stroke-width="2"/>
+    </svg>
+    <strong>Triangle</strong>
+    <div class="formule">\(P = a + b + c\)</div>
+  </div>
+  <div class="card-fig">
+    <svg width="120" height="80" viewBox="0 0 120 80">
+      <circle cx="60" cy="40" r="32" fill="none" stroke="#0056b3" stroke-width="2"/>
+      <line x1="60" y1="40" x2="92" y2="40" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="76" y="36" font-size="10" fill="#d97706">r</text>
+    </svg>
+    <strong>Cercle</strong>
+    <div class="formule">\(P = 2\pi r = \pi d\)</div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Périmètre d'une pièce rectangulaire</div>
+  <p>Une pièce mesure 4,5 m × 3,2 m. Longueur de plinthe nécessaire ?</p>
+  <div class="etape"><div class="nc">1</div><div>Formule : \(P = 2(L + l) = 2(4{,}5 + 3{,}2) = 2 \times 7{,}7\)</div></div>
+  <div class="etape"><div class="nc">2</div><div>\(P = \mathbf{15{,}4\,\text{m}}\) de plinthe (+ ajout pour les chutes de coupe)</div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>3. Aires des figures planes</h2>
+
+<div class="def">
+  <strong>Définition :</strong> L'<strong>aire</strong> (ou surface) d'une figure est la mesure de sa superficie (en unités d'aire : cm², m², …).
+</div>
+
+<div class="grid2">
+  <div class="card-fig">
+    <svg width="120" height="80" viewBox="0 0 120 80">
+      <rect x="10" y="10" width="100" height="60" fill="#ebf5ff" stroke="#0056b3" stroke-width="2"/>
+      <text x="60" y="75" text-anchor="middle" font-size="11" fill="#0056b3">L</text>
+      <text x="115" y="42" text-anchor="middle" font-size="11" fill="#0056b3">l</text>
+    </svg>
+    <strong>Rectangle</strong>
+    <div class="formule">\(\mathcal{A} = L \times l\)</div>
+  </div>
+  <div class="card-fig">
+    <svg width="120" height="80" viewBox="0 0 120 80">
+      <rect x="20" y="10" width="80" height="60" fill="#ebf5ff" stroke="#0056b3" stroke-width="2"/>
+      <text x="60" y="76" text-anchor="middle" font-size="11" fill="#0056b3">a</text>
+    </svg>
+    <strong>Carré</strong>
+    <div class="formule">\(\mathcal{A} = a^2\)</div>
+  </div>
+  <div class="card-fig">
+    <svg width="120" height="80" viewBox="0 0 120 80">
+      <polygon points="60,8 10,72 110,72" fill="#ebf5ff" stroke="#0056b3" stroke-width="2"/>
+      <line x1="60" y1="8" x2="60" y2="72" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="67" y="45" font-size="10" fill="#d97706">h</text>
+      <text x="60" y="76" text-anchor="middle" font-size="11" fill="#0056b3">b</text>
+    </svg>
+    <strong>Triangle</strong>
+    <div class="formule">\(\mathcal{A} = \dfrac{b \times h}{2}\)</div>
+  </div>
+  <div class="card-fig">
+    <svg width="120" height="80" viewBox="0 0 120 80">
+      <circle cx="60" cy="40" r="32" fill="#ebf5ff" stroke="#0056b3" stroke-width="2"/>
+      <line x1="60" y1="40" x2="92" y2="40" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="76" y="36" font-size="10" fill="#d97706">r</text>
+    </svg>
+    <strong>Disque</strong>
+    <div class="formule">\(\mathcal{A} = \pi r^2\)</div>
+  </div>
+</div>
+
+<h3>Trapèze et parallélogramme</h3>
+<table class="full">
+  <tr><th>Figure</th><th>Formule de l'aire</th><th>Paramètres</th></tr>
+  <tr><td>Trapèze</td><td>\(\mathcal{A} = \dfrac{(B + b) \times h}{2}\)</td><td>B = grande base, b = petite base, h = hauteur</td></tr>
+  <tr><td>Parallélogramme</td><td>\(\mathcal{A} = b \times h\)</td><td>b = base, h = hauteur (⊥ à la base)</td></tr>
+  <tr><td>Losange</td><td>\(\mathcal{A} = \dfrac{d_1 \times d_2}{2}\)</td><td>d₁, d₂ = diagonales</td></tr>
+</table>
+
+<div class="att">
+  <strong>Attention — hauteur ≠ côté :</strong><br>
+  La hauteur d'un triangle ou d'un parallélogramme est la <em>perpendiculaire</em> à la base, pas le côté oblique.
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Surface de parquet</div>
+  <p>Une pièce rectangulaire fait 4,5 m × 3,2 m. Combien de m² de parquet commander (avec 10 % de chutes) ?</p>
+  <div class="etape"><div class="nc">1</div><div>Aire nette : \(\mathcal{A} = 4{,}5 \times 3{,}2 = 14{,}4\,\text{m}^2\)</div></div>
+  <div class="etape"><div class="nc">2</div><div>Avec 10 % de chutes : \(14{,}4 \times 1{,}10 = \mathbf{15{,}84\,\text{m}^2}\) → Commander <strong>16 m²</strong></div></div>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Aire d'un panneau triangulaire</div>
+  <p>Un habillage triangulaire a une base de 80 cm et une hauteur de 55 cm.</p>
+  <div class="etape"><div class="nc">1</div><div>\(\mathcal{A} = \dfrac{80 \times 55}{2} = \dfrac{4400}{2} = \mathbf{2200\,\text{cm}^2} = 0{,}22\,\text{m}^2\)</div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>4. Cercle et disque — Formules à retenir</h2>
+
+<div class="prop">
+  <strong>Formules du cercle :</strong><br>
+  \(r\) = rayon &nbsp;|&nbsp; \(d = 2r\) = diamètre &nbsp;|&nbsp; \(\pi \approx 3{,}14159\)
+  <table class="full" style="margin-top:10px">
+    <tr><th>Grandeur</th><th>Formule</th></tr>
+    <tr><td>Périmètre (circonférence)</td><td>\(P = 2\pi r = \pi d\)</td></tr>
+    <tr><td>Aire du disque</td><td>\(\mathcal{A} = \pi r^2\)</td></tr>
+    <tr><td>Longueur d'un arc (angle \(\alpha\) en °)</td><td>\(l = \dfrac{\alpha}{360} \times 2\pi r\)</td></tr>
+    <tr><td>Aire d'un secteur angulaire</td><td>\(\mathcal{A} = \dfrac{\alpha}{360} \times \pi r^2\)</td></tr>
+  </table>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Panneau circulaire</div>
+  <p>Un miroir circulaire a un diamètre de 60 cm. Calculer son périmètre et son aire.</p>
+  <div class="etape"><div class="nc">1</div><div>\(r = 30\,\text{cm}\)</div></div>
+  <div class="etape"><div class="nc">2</div><div>\(P = 2\pi \times 30 \approx 188{,}5\,\text{cm}\)</div></div>
+  <div class="etape"><div class="nc">3</div><div>\(\mathcal{A} = \pi \times 30^2 = 900\pi \approx \mathbf{2827\,\text{cm}^2} \approx 0{,}28\,\text{m}^2\)</div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>5. Unités et conversions</h2>
+
+<h3>Longueurs</h3>
+<table class="full conv-table">
+  <tr><th>km</th><td class="arrow-cell">÷1000 →</td><th>m</th><td class="arrow-cell">÷100 →</td><th>cm</th><td class="arrow-cell">÷10 →</td><th>mm</th></tr>
+  <tr><td></td><td class="arrow-cell">← ×1000</td><td></td><td class="arrow-cell">← ×100</td><td></td><td class="arrow-cell">← ×10</td><td></td></tr>
+</table>
+
+<h3>Aires</h3>
+<div class="meth">
+  <strong>Règle :</strong> Pour convertir des aires, le coefficient est <strong>au carré</strong>.
+  <table class="full conv-table" style="margin-top:8px">
+    <tr><th>km²</th><td class="arrow-cell">÷10⁶ →</td><th>m²</th><td class="arrow-cell">÷10⁴ →</td><th>cm²</th><td class="arrow-cell">÷100 →</td><th>mm²</th></tr>
+    <tr><td></td><td class="arrow-cell">← ×10⁶</td><td></td><td class="arrow-cell">← ×10⁴</td><td></td><td class="arrow-cell">← ×100</td><td></td></tr>
+  </table>
+  <p style="margin-top:8px"><strong>Exemples :</strong> 1 m² = 10 000 cm² &nbsp;|&nbsp; 1 cm² = 100 mm² &nbsp;|&nbsp; 1 m² = 1 000 000 mm²</p>
+</div>
+
+<div class="att">
+  <strong>Erreur fréquente :</strong><br>
+  1 m = 100 cm, donc 1 m² ≠ 100 cm² mais 1 m² = (100 cm)² = <strong>10 000 cm²</strong>.
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Conversion d'unités</div>
+  <p>Convertir 2,4 m² en cm², puis en mm².</p>
+  <div class="etape"><div class="nc">1</div><div>\(2{,}4\,\text{m}^2 = 2{,}4 \times 10\,000 = \mathbf{24\,000\,\text{cm}^2}\)</div></div>
+  <div class="etape"><div class="nc">2</div><div>\(24\,000\,\text{cm}^2 = 24\,000 \times 100 = \mathbf{2\,400\,000\,\text{mm}^2}\)</div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>6. Figures composées</h2>
+
+<div class="meth">
+  <strong>Méthode — Aire d'une figure composée :</strong><br>
+  Décomposer la figure en figures simples connues. L'aire totale est la <strong>somme</strong> (ou la <strong>différence</strong>) des aires des parties.
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Fenêtre arrondie (MAMA)</div>
+  <p>Une fenêtre est formée d'un rectangle (80 cm × 120 cm) surmonté d'un demi-cercle de diamètre 80 cm.</p>
+  <div class="etape"><div class="nc">1</div><div>Aire rectangle : \(\mathcal{A}_1 = 80 \times 120 = 9\,600\,\text{cm}^2\)</div></div>
+  <div class="etape"><div class="nc">2</div><div>Rayon demi-cercle : \(r = 40\,\text{cm}\). Aire demi-disque : \(\mathcal{A}_2 = \dfrac{\pi \times 40^2}{2} \approx 2\,513\,\text{cm}^2\)</div></div>
+  <div class="etape"><div class="nc">3</div><div>Aire totale : \(\mathcal{A} = 9\,600 + 2\,513 = \mathbf{12\,113\,\text{cm}^2} \approx 1{,}21\,\text{m}^2\)</div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>7. Animation — Explorer périmètre et aire d'un rectangle</h2>
+
+<div class="anim-box">
+  <h3>🎮 Simulation interactive — Change les dimensions et observe !</h3>
+  <div class="ctrl-vis">
+    <label>Longueur \(L\) = <input type="range" id="slL" min="1" max="12" step="0.5" value="6"> <strong id="lblL">6</strong> cm</label>
+    <label>Largeur \(l\) = <input type="range" id="sll" min="1" max="8" step="0.5" value="3"> <strong id="lbll">3</strong> cm</label>
+  </div>
+  <canvas id="canvasRect" class="anim" width="560" height="200"></canvas>
+  <div class="anim-result" id="resuRect"></div>
+</div>
+
+<script>
+(function(){
+  const slL=document.getElementById('slL'),
+        sll=document.getElementById('sll'),
+        lblL=document.getElementById('lblL'),
+        lbll=document.getElementById('lbll'),
+        cv=document.getElementById('canvasRect'),
+        ctx=cv.getContext('2d'),
+        res=document.getElementById('resuRect');
+
+  function draw(){
+    const L=parseFloat(slL.value), l=parseFloat(sll.value);
+    lblL.textContent=L; lbll.textContent=l;
+    const P=2*(L+l), A=L*l;
+    const W=cv.width, H=cv.height;
+    ctx.clearRect(0,0,W,H);
+    const scale=Math.min((W-120)/(L), (H-80)/(l));
+    const rw=L*scale, rh=l*scale;
+    const ox=(W-rw)/2, oy=(H-rh)/2;
+    // Rectangle rempli
+    ctx.fillStyle='rgba(0,86,179,0.10)';
+    ctx.fillRect(ox,oy,rw,rh);
+    ctx.strokeStyle='#0056b3'; ctx.lineWidth=2.5;
+    ctx.strokeRect(ox,oy,rw,rh);
+    // Flèches dimensions
+    ctx.fillStyle='#d97706'; ctx.font='bold 13px Segoe UI'; ctx.textAlign='center';
+    ctx.fillText('L = '+L+' cm', ox+rw/2, oy+rh+20);
+    ctx.save(); ctx.translate(ox-20, oy+rh/2); ctx.rotate(-Math.PI/2);
+    ctx.fillText('l = '+l+' cm',0,0); ctx.restore();
+    // Angles droits
+    const sq=10;
+    ctx.strokeStyle='#c53030'; ctx.lineWidth=1.5;
+    [[ox,oy],[ox+rw,oy],[ox,oy+rh],[ox+rw,oy+rh]].forEach(([cx,cy],i)=>{
+      const dx=i%2===0?sq:-sq, dy=i<2?sq:-sq;
+      ctx.beginPath(); ctx.moveTo(cx+dx,cy); ctx.lineTo(cx+dx,cy+dy); ctx.lineTo(cx,cy+dy); ctx.stroke();
+    });
+    res.innerHTML='Périmètre : <span style="color:#0056b3">P = 2×('+L+'+'+l+') = <strong>'+P.toFixed(1)+' cm</strong></span> &nbsp;|&nbsp; Aire : <span style="color:#2f855a">A = '+L+'×'+l+' = <strong>'+A.toFixed(2)+' cm²</strong></span>';
+  }
+  slL.oninput=sll.oninput=draw; draw();
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="retenir">
+  <h3>📌 L'essentiel du chapitre</h3>
+  <table class="full">
+    <tr><th>Figure</th><th>Périmètre</th><th>Aire</th></tr>
+    <tr><td>Carré (côté a)</td><td>\(4a\)</td><td>\(a^2\)</td></tr>
+    <tr><td>Rectangle (L × l)</td><td>\(2(L+l)\)</td><td>\(L \times l\)</td></tr>
+    <tr><td>Triangle (a, b, c / base b, h)</td><td>\(a+b+c\)</td><td>\(\dfrac{b \times h}{2}\)</td></tr>
+    <tr><td>Disque (rayon r)</td><td>\(2\pi r\)</td><td>\(\pi r^2\)</td></tr>
+    <tr><td>Trapèze (B, b, h)</td><td>somme des côtés</td><td>\(\dfrac{(B+b) \times h}{2}\)</td></tr>
+  </table>
+  <p style="margin-top:10px"><strong>Angles d'un triangle :</strong> \(\hat{A} + \hat{B} + \hat{C} = 180°\)</p>
+  <p><strong>Conversions :</strong> 1 m² = 10 000 cm² &nbsp;|&nbsp; 1 cm² = 100 mm²</p>
+</div>
+
+<div class="nav-footer">
+  <a href="ch10_lecon.html" class="nav-btn">← Ch10 Fonction carré</a>
+  <a href="ch11_exos.html" class="nav-btn">Exercices Ch11 →</a>
+</div>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

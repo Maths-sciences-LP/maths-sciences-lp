@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Ch08 – Caractériser la pression dans un fluide immobile – Exercices</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+    body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+    .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+    h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+    .sous-titre{color:#718096;font-size:.95em;margin:0}
+    .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+    .intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+    h2{font-size:1.05em;color:var(--p);margin-top:32px;margin-bottom:8px;border-left:4px solid var(--p);padding-left:10px}
+    .qcm-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+    @media(max-width:600px){.qcm-grid{grid-template-columns:1fr}}
+    .qcm-item{border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;font-size:.91em}
+    .qcm-item strong{display:block;margin-bottom:4px;color:var(--p)}
+    .qcm-item ul{margin:4px 0 0 0;padding-left:16px;list-style:none}
+    .qcm-item ul li::before{content:'☐ ';color:#999}
+    .qcm-item ul li.ok::before{content:'☑ ';color:var(--s);font-weight:700}
+    .qcm-item ul li.ok{color:var(--s);font-weight:600}
+    .bcq{background:var(--p);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.82em;margin-top:10px}
+    .bcq:hover{background:#5a32a3}
+    .qcm-corr{display:none;margin-top:10px;background:#f0fff4;border-left:3px solid var(--s);padding:8px 12px;border-radius:0 6px 6px 0;font-size:.88em}
+    .exo{border:1px solid #e2e8f0;border-radius:10px;padding:22px;margin:22px 0}
+    .exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+    .exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.88em;padding:4px 12px;border-radius:20px;white-space:nowrap}
+    .exo-title{font-weight:600;font-size:1em}
+    .diff{font-size:.78em;padding:2px 8px;border-radius:4px;font-weight:600}
+    .diff-1{background:#d1fae5;color:#065f46}
+    .diff-2{background:#fef3c7;color:#92400e}
+    .diff-3{background:#fee2e2;color:#991b1b}
+    .q{margin:10px 0 4px;padding-left:4px}
+    .enonce{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin:10px 0;font-size:.93em}
+    .corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+    .corr p{margin:6px 0}
+    .bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+    .bc:hover{background:#5a32a3}
+    table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.91em}
+    th,td{border:1px solid #e2e8f0;padding:8px 10px;text-align:center}
+    th{background:#eef2f7;font-weight:600}
+    .section-sep{border:none;border-top:2px dashed #e2e8f0;margin:32px 0}
+    .section-label{font-size:.82em;font-weight:700;text-transform:uppercase;color:#718096;letter-spacing:.05em;margin-bottom:8px}
+    .plaque{background:#1e3a5f;color:#fff;border-radius:8px;display:inline-block;padding:10px 24px;font-family:'Courier New',monospace;font-size:.93em;margin:10px 0;text-align:left;line-height:1.9}
+    .plaque strong{color:#ffd700}
+  </style>
+</head>
+<body>
+<div class="c">
+  <a href="pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+  <header>
+    <h1>Chapitre 8 – Exercices</h1>
+    <p class="sous-titre">Caractériser la pression dans un fluide immobile &nbsp;|&nbsp; Terminale Bac Pro ICCER</p>
+  </header>
+  <div class="intro-box">
+    <strong>Compétences travaillées :</strong> calculer une pression &nbsp;|&nbsp; appliquer la loi statique des fluides &nbsp;|&nbsp; utiliser le principe de Pascal &nbsp;|&nbsp; calculer la poussée d’Archimède.
+  </div>
+
+  <h2>Je teste mes acquis – QCM</h2>
+  <p style="font-size:.9em;color:#718096">Cocher la (ou les) bonne(s) réponse(s), puis vérifier.</p>
+  <div class="qcm-grid">
+    <div class="qcm-item">
+      <strong>1. La pression est définie par :</strong>
+      <ul>
+        <li>a. P = F × S</li>
+        <li class="ok">b. P = F / S ✓</li>
+        <li>c. P = S / F</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,1)">Voir la réponse</button>
+      <div class="qcm-corr" id="qcm1">Réponse b — La pression = force divisée par la surface.</div>
+    </div>
+    <div class="qcm-item">
+      <strong>2. L’unité de la pression est :</strong>
+      <ul>
+        <li class="ok">a. le pascal (Pa) ✓</li>
+        <li>b. le newton (N)</li>
+        <li>c. le joule (J)</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,2)">Voir la réponse</button>
+      <div class="qcm-corr" id="qcm2">Réponse a — 1 Pa = 1 N/m².</div>
+    </div>
+    <div class="qcm-item">
+      <strong>3. Dans un fluide au repos, la pression :</strong>
+      <ul>
+        <li>a. diminue avec la profondeur</li>
+        <li class="ok">b. augmente avec la profondeur ✓</li>
+        <li>c. reste constante partout</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,3)">Voir la réponse</button>
+      <div class="qcm-corr" id="qcm3">Réponse b — P_B - P_A = ρgh avec h positif vers le bas.</div>
+    </div>
+    <div class="qcm-item">
+      <strong>4. Le principe de Pascal concerne :</strong>
+      <ul>
+        <li class="ok">a. la transmission de la pression dans les fluides ✓</li>
+        <li>b. la flottabilité</li>
+        <li>c. la variation de pression avec la profondeur</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,4)">Voir la réponse</button>
+      <div class="qcm-corr" id="qcm4">Réponse a — Pascal : toute variation de pression se transmet intégralement.</div>
+    </div>
+    <div class="qcm-item">
+      <strong>5. La poussée d’Archimède est :</strong>
+      <ul>
+        <li>a. horizontale</li>
+        <li class="ok">b. verticale vers le haut ✓</li>
+        <li>c. verticale vers le bas</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,5)">Voir la réponse</button>
+      <div class="qcm-corr" id="qcm5">Réponse b — La poussée d’Archimède est toujours dirigée vers le haut.</div>
+    </div>
+    <div class="qcm-item">
+      <strong>6. Un objet flotte si :</strong>
+      <ul>
+        <li class="ok">a. sa masse volumique est inférieure à celle du fluide ✓</li>
+        <li>b. sa masse volumique est supérieure à celle du fluide</li>
+        <li>c. sa masse volumique est nulle</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,6)">Voir la réponse</button>
+      <div class="qcm-corr" id="qcm6">Réponse a — Si ρ_objet &lt; ρ_fluide, la poussée d’Archimède est supérieure au poids.</div>
+    </div>
+    <div class="qcm-item">
+      <strong>7. 1 bar est égal à :</strong>
+      <ul>
+        <li>a. 1 Pa</li>
+        <li>b. 1 000 Pa</li>
+        <li class="ok">c. 100 000 Pa ✓</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,7)">Voir la réponse</button>
+      <div class="qcm-corr" id="qcm7">Réponse c — 1 bar = 10<sup>5</sup> Pa = 100 000 Pa.</div>
+    </div>
+    <div class="qcm-item">
+      <strong>8. Un manomètre indique :</strong>
+      <ul>
+        <li>a. la pression absolue</li>
+        <li class="ok">b. la pression relative ✓</li>
+        <li>c. la pression atmosphérique</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,8)">Voir la réponse</button>
+      <div class="qcm-corr" id="qcm8">Réponse b — Les manomètres industriels mesurent la pression relative (par rapport à P<sub>atm</sub>).</div>
+    </div>
+  </div>
+
+  <hr class="section-sep">
+  <div class="section-label">Je m’exerce – exercices guidés</div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Calcul de pression – semelle de ski</span>
+      <span class="diff diff-1">★ Facile</span>
+    </div>
+    <p class="enonce">Les deux semelles de ski d’une skieuse ont une surface totale de S = 1 600 cm². La skieuse pesa 65 kg.</p>
+    <div class="q"><strong>1.</strong> Convertir la surface en m².</div>
+    <div class="q"><strong>2.</strong> Calculer le poids de la skieuse (g = 9,81 m/s²).</div>
+    <div class="q"><strong>3.</strong> Calculer la pression exercée sur la neige.</div>
+    <div class="q"><strong>4.</strong> Exprimer le résultat en bar.</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> S = 1 600 cm² = 1 600 × 10<sup>−4</sup> m² = 0,16 m²</p>
+      <p><strong>2.</strong> F = m × g = 65 × 9,81 = 637,65 N</p>
+      <p><strong>3.</strong> \(P = \dfrac{F}{S} = \dfrac{637{,}65}{0{,}16} \approx \mathbf{3\,985\text{ Pa}}\)</p>
+      <p><strong>4.</strong> 3 985 Pa ÷ 100 000 = <strong>0,040 bar</strong></p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Pression manmétrique – pneu de voiture</span>
+      <span class="diff diff-1">★ Facile</span>
+    </div>
+    <p class="enonce">Un pneu de voiture est gonflé à 2,2 bar en pression relative.</p>
+    <div class="q"><strong>1.</strong> Quelle est la pression relative en Pa ?</div>
+    <div class="q"><strong>2.</strong> La pression atmosphérique vaut P<sub>atm</sub> = 1,013 bar. Calculer la pression absolue du pneu en bar, puis en Pa.</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> P<sub>rel</sub> = 2,2 × 100 000 = <strong>220 000 Pa</strong></p>
+      <p><strong>2.</strong> P<sub>abs</sub> = P<sub>atm</sub> + P<sub>rel</sub> = 1,013 + 2,2 = <strong>3,213 bar</strong><br>
+      En Pa : 3,213 × 100 000 = <strong>321 300 Pa</strong></p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Pression dans un réservoir d’eau</span>
+      <span class="diff diff-2">★★ Intermédiaire</span>
+    </div>
+    <p class="enonce">Un château d’eau est rempli d’eau (ρ = 1 000 kg/m³) jusqu’à une hauteur de 12 m. La surface libre est à la pression atmosphérique (P<sub>atm</sub> = 101 325 Pa, g = 9,81 m/s²).</p>
+    <div class="q"><strong>1.</strong> Écrire la loi fondamentale de la statique des fluides.</div>
+    <div class="q"><strong>2.</strong> Calculer la pression absolue au bas du réservoir.</div>
+    <div class="q"><strong>3.</strong> Calculer la pression relative au bas du réservoir. L’exprimer en bar.</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(P_B - P_A = \rho \times g \times h\)</p>
+      <p><strong>2.</strong> \(P_B = P_{atm} + \rho g h = 101\,325 + 1\,000 \times 9{,}81 \times 12\)
+         \(= 101\,325 + 117\,720 = \mathbf{219\,045\text{ Pa}}\)</p>
+      <p><strong>3.</strong> P<sub>rel</sub> = P<sub>abs</sub> − P<sub>atm</sub> = 219 045 − 101 325 = 117 720 Pa<br>
+      En bar : 117 720 ÷ 100 000 = <strong>1,18 bar</strong></p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 4</span>
+      <span class="exo-title">Vérin hydraulique – presse</span>
+      <span class="diff diff-2">★★ Intermédiaire</span>
+    </div>
+    <p class="enonce">Une presse hydraulique industrielle comprend un petit piston (surface S<sub>1</sub> = 5 cm²) et un grand piston (surface S<sub>2</sub> = 250 cm²). On appuie sur le petit piston avec une force F<sub>1</sub> = 200 N.</p>
+    <div class="q"><strong>1.</strong> Rappeler le principe de Pascal.</div>
+    <div class="q"><strong>2.</strong> Calculer la pression dans le circuit hydraulique.</div>
+    <div class="q"><strong>3.</strong> Calculer la force F<sub>2</sub> exercée par le grand piston.</div>
+    <div class="q"><strong>4.</strong> Quel est le rapport de multiplication de la force ?</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> Toute variation de pression appliquée en un point d’un fluide incompressible au repos se transmet intégralement et instantanément en tout point de ce fluide.</p>
+      <p><strong>2.</strong> S<sub>1</sub> = 5 cm² = 5 × 10<sup>−4</sup> m²<br>
+      \(P = \dfrac{F_1}{S_1} = \dfrac{200}{5 \times 10^{-4}} = \mathbf{400\,000\text{ Pa}} = 4\text{ bar}\)</p>
+      <p><strong>3.</strong> S<sub>2</sub> = 250 cm² = 250 × 10<sup>−4</sup> m² = 2,5 × 10<sup>−2</sup> m²<br>
+      \(F_2 = P \times S_2 = 400\,000 \times 2{,}5 \times 10^{-2} = \mathbf{10\,000\text{ N}}\)</p>
+      <p><strong>4.</strong> Rapport = F<sub>2</sub>/F<sub>1</sub> = 10 000/200 = <strong>50</strong>. La force est multipliée par 50.</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 5</span>
+      <span class="exo-title">Poussée d’Archimède – sous-marin</span>
+      <span class="diff diff-2">★★ Intermédiaire</span>
+    </div>
+    <p class="enonce">Un sous-marin a un volume total de 2 800 m³ et une masse de 2 500 tonnes (2 500 000 kg). Il évolue en eau de mer (ρ = 1 025 kg/m³). Donnée : g = 9,81 m/s².</p>
+    <div class="q"><strong>1.</strong> Calculer la poussée d’Archimède quand le sous-marin est totalement immergé.</div>
+    <div class="q"><strong>2.</strong> Calculer le poids du sous-marin.</div>
+    <div class="q"><strong>3.</strong> Le sous-marin monte-t-il, descend-il, ou est-il en équilibre ? Justifier.</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(\Pi = \rho_{eau} \times g \times V = 1\,025 \times 9{,}81 \times 2\,800 = \mathbf{28\,151\,700\text{ N}}\)</p>
+      <p><strong>2.</strong> \(P_{poids} = m \times g = 2\,500\,000 \times 9{,}81 = \mathbf{24\,525\,000\text{ N}}\)</p>
+      <p><strong>3.</strong> Π (28 151 700 N) &gt; Poids (24 525 000 N) → le sous-marin <strong>monte (remonte en surface)</strong>.<br>Pour plonger, le sous-marin doit remplir ses ballasts d’eau de mer pour augmenter sa masse.</p>
+    </div>
+  </div>
+
+  <hr class="section-sep">
+  <div class="section-label">J’approfondis – exercices avancés</div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 6</span>
+      <span class="exo-title">Circuit hydraulique de frein</span>
+      <span class="diff diff-3">★★★ Avancé</span>
+    </div>
+    <p class="enonce">Le circuit de freinage hydraulique d’une voiture fonctionne comme suit : le conducteur appuie sur la pédale qui pousse un piston maître (S<sub>1</sub> = 3,14 cm²) avec une force F<sub>1</sub> = 300 N. L’étrier de frein comporte deux pistons récepteurs (chacun de surface S<sub>2</sub> = 28 cm²).</p>
+    <div class="q"><strong>1.</strong> Calculer la pression dans le circuit de frein.</div>
+    <div class="q"><strong>2.</strong> Calculer la force exercée par chaque piston récepteur.</div>
+    <div class="q"><strong>3.</strong> Calculer la force totale exercée sur le disque par les deux pistons.</div>
+    <div class="q"><strong>4.</strong> Quel est l’avantage de ce système hydraulique ?</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> S<sub>1</sub> = 3,14 × 10<sup>−4</sup> m²<br>
+      \(P = \dfrac{F_1}{S_1} = \dfrac{300}{3{,}14 \times 10^{-4}} \approx \mathbf{955\,414\text{ Pa}} \approx 9{,}55\text{ bar}\)</p>
+      <p><strong>2.</strong> S<sub>2</sub> = 28 × 10<sup>−4</sup> m² = 2,8 × 10<sup>−3</sup> m²<br>
+      \(F_2 = P \times S_2 = 955\,414 \times 2{,}8 \times 10^{-3} \approx \mathbf{2\,675\text{ N}}\)</p>
+      <p><strong>3.</strong> Force totale = 2 × F<sub>2</sub> = 2 × 2 675 = <strong>5 350 N</strong></p>
+      <p><strong>4.</strong> Une faible force sur la pédale (300 N) produit une grande force de serrage sur le disque (≈5 350 N). Le système hydraulique <strong>multiplie la force</strong> et permet un freinage efficace avec peu d’effort.</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 7</span>
+      <span class="exo-title">Flottaison d’un ice-berg</span>
+      <span class="diff diff-3">★★★ Avancé</span>
+    </div>
+    <p class="enonce">Un ice-berg a une masse volumique ρ<sub>glace</sub> = 920 kg/m³ et évolue en eau de mer (ρ<sub>mer</sub> = 1 025 kg/m³). On appelle V<sub>T</sub> le volume total de l’ice-berg et V<sub>i</sub> le volume immergé.</p>
+    <div class="q"><strong>1.</strong> Pour que l’ice-berg flotte à l’équilibre, quelle relation doit-on avoir entre la poussée d’Archimède et le poids ?</div>
+    <div class="q"><strong>2.</strong> En déduire l’expression de V<sub>i</sub>/V<sub>T</sub>.</div>
+    <div class="q"><strong>3.</strong> Calculer ce rapport. Quelle fraction du volume de l’ice-berg est visible hors de l’eau ?</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> À l’équilibre : Π = Poids, soit \(\rho_{mer} \times g \times V_i = \rho_{glace} \times g \times V_T\)</p>
+      <p><strong>2.</strong> \(\frac{V_i}{V_T} = \frac{\rho_{glace}}{\rho_{mer}}\)</p>
+      <p><strong>3.</strong> \(\frac{V_i}{V_T} = \frac{920}{1\,025} \approx 0{,}90\) soit <strong>90 % du volume est immergé</strong>.<br>
+      La fraction visible est 1 − 0,90 = <strong>10 %</strong> seulement. D’où l’expression « la partie émergée de l’ice-berg ».</p>
+    </div>
+  </div>
+</div>
+<script>
+function toggle(btn){
+  const c=btn.nextElementSibling;
+  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
+  else{c.style.display='block';btn.textContent='Masquer la correction';}
+}
+function showQcm(btn,n){
+  const d=document.getElementById('qcm'+n);
+  if(d.style.display==='block'){d.style.display='none';btn.textContent='Voir la réponse';}
+  else{d.style.display='block';btn.textContent='Masquer la réponse';}
+}
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

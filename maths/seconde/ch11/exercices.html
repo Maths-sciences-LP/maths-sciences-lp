@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch11 – Exercices : Figures planes — périmètres et aires — 2nde MAMA</title>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:28px;padding-bottom:16px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
+.sous-titre{color:#718096;font-size:.93em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nb:hover{text-decoration:underline}
+.niveau-header{border-radius:8px;padding:10px 16px;margin:30px 0 16px;display:flex;align-items:center;gap:12px}
+.niv1{background:#d1fae5;border-left:5px solid #059669}
+.niv2{background:#dbeafe;border-left:5px solid var(--p)}
+.niv3{background:#fef3c7;border-left:5px solid var(--o)}
+.niv4{background:#fce7f3;border-left:5px solid #db2777}
+.niv1 h2,.niv2 h2,.niv3 h2,.niv4 h2{margin:0;border:none;padding:0;font-size:1em}
+.badge-niv{font-size:.72em;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.badge-1{background:#059669;color:#fff}
+.badge-2{background:var(--p);color:#fff}
+.badge-3{background:var(--o);color:#fff}
+.badge-4{background:#db2777;color:#fff}
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px 24px;margin:14px 0}
+.exo-num{font-size:.78em;font-weight:700;text-transform:uppercase;color:#718096;letter-spacing:.05em;margin-bottom:6px}
+.exo-titre{font-weight:700;font-size:1em;color:var(--t);margin-bottom:10px}
+.mama-tag{display:inline-block;background:#fce7f3;border:1px solid #f9a8d4;border-radius:4px;font-size:.75em;font-weight:700;color:#9d174d;padding:2px 8px;margin-bottom:10px;text-transform:uppercase}
+.retenir{background:#f0fff4;border:2px solid var(--s);border-radius:10px;padding:16px 20px;margin:20px 0}
+.retenir h3{color:var(--s);margin:0 0 8px;font-size:1em}
+.meth{background:#fffbeb;border-left:5px solid var(--o);border-radius:0 8px 8px 0;padding:13px 18px;margin:14px 0}
+.meth strong{color:var(--o);display:block;margin-bottom:4px}
+.att{background:#fff5f5;border-left:5px solid var(--d);border-radius:0 8px 8px 0;padding:13px 18px;margin:14px 0}
+.att strong{color:var(--d);display:block;margin-bottom:4px}
+.guide{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:12px 0}
+.guide-step{display:flex;gap:12px;margin:8px 0;align-items:flex-start}
+.guide-num{background:var(--p);color:#fff;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-size:.8em;font-weight:700;flex-shrink:0;margin-top:1px}
+.zone-rep{border:1.5px dashed #cbd5e0;border-radius:6px;padding:10px 14px;margin:12px 0;min-height:44px;background:#fcfcfd;font-size:.88em;color:#a0aec0;font-style:italic}
+.q{margin:10px 0 4px;padding-left:4px;font-size:.95em}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:12px;border-radius:0 10px 10px 0;display:none;font-size:.93em}
+.corr p,.corr li{margin:5px 0}
+.corr ul,.corr ol{padding-left:20px}
+.etape{font-weight:700;color:var(--s);margin-top:8px;display:block}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 18px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px;transition:background .2s}
+.bc:hover{background:#004494}
+.qcm-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+@media(max-width:600px){.qcm-grid{grid-template-columns:1fr}}
+.qcm-item{border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;font-size:.9em;background:#fafafa}
+.qcm-item strong{display:block;margin-bottom:6px;color:var(--p)}
+.qcm-item ul{margin:4px 0 0;padding-left:0;list-style:none}
+.qcm-item ul li{padding:2px 0}
+.qcm-item ul li::before{content:'☐  ';color:#cbd5e0}
+.qcm-item ul li.ok::before{content:'✔  ';color:var(--s);font-weight:700}
+.qcm-item ul li.ok{color:var(--s);font-weight:600}
+.bcq{background:var(--p);color:#fff;border:none;padding:4px 11px;border-radius:5px;cursor:pointer;font-size:.78em;margin-top:8px}
+.bcq:hover{background:#004494}
+.qcm-corr{display:none;margin-top:8px;background:#f0fff4;border-left:3px solid var(--s);padding:8px 12px;border-radius:0 6px 6px 0;font-size:.87em}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.91em}
+th,td{border:1px solid #e2e8f0;padding:9px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600;color:var(--t)}
+td:first-child{text-align:left;font-weight:500}
+tr:nth-child(even) td{background:#f8fafc}
+.cell-blank{color:#a0aec0;font-style:italic}
+.sep{border:none;border-top:2px dashed #e2e8f0;margin:32px 0}
+.intro-box{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+</style>
+</head>
+<body>
+<div class="c">
+
+<header>
+  <h1>Chapitre 11 – Exercices</h1>
+  <p class="sous-titre">Figures planes : périmètres et aires | 2de Pro MA-MA</p>
+</header>
+
+<a class="nb" href="index.html">&#8592; Retour à l'accueil</a>
+
+<div class="intro-box">
+  Ces exercices portent sur le calcul des <strong>périmètres</strong> et des <strong>aires</strong> des figures planes usuelles : carré, rectangle, triangle, disque. Les exercices de niveau 4 sont directement liés aux métiers de la Menuiserie-Agencement.
+</div>
+
+<!-- ================= NIVEAU 1 ================= -->
+<div class="niveau-header niv1">
+  <span class="badge-niv badge-1">Niveau 1</span>
+  <h2>Base — Calculs directs</h2>
+</div>
+
+<!-- EX 1 -->
+<div class="exo">
+  <div class="exo-num">Exercice 1</div>
+  <div class="exo-titre">Calculer des périmètres</div>
+  <p>Calculer le périmètre de chacune des figures suivantes. Donner les résultats en cm, arrondis au centième si nécessaire.</p>
+  <p class="q"><strong>a)</strong> Un carré de côté \(a = 7\) cm.</p>
+  <p class="q"><strong>b)</strong> Un rectangle de longueur \(L = 5\) cm et de largeur \(l = 3\) cm.</p>
+  <p class="q"><strong>c)</strong> Un triangle de côtés \(4\) cm, \(6\) cm et \(8\) cm.</p>
+  <p class="q"><strong>d)</strong> Un cercle de rayon \(r = 5\) cm.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">a) Carré de côté a = 7 cm</span>
+    <p>Formule : \(P = 4 \times a\)</p>
+    <p>\(P = 4 \times 7 = \mathbf{28 \text{ cm}}\)</p>
+    <span class="etape">b) Rectangle 5 cm × 3 cm</span>
+    <p>Formule : \(P = 2 \times (L + l)\)</p>
+    <p>\(P = 2 \times (5 + 3) = 2 \times 8 = \mathbf{16 \text{ cm}}\)</p>
+    <span class="etape">c) Triangle de côtés 4, 6 et 8 cm</span>
+    <p>Le périmètre est la somme des trois côtés :</p>
+    <p>\(P = 4 + 6 + 8 = \mathbf{18 \text{ cm}}\)</p>
+    <span class="etape">d) Cercle de rayon r = 5 cm</span>
+    <p>Formule : \(P = 2\pi r\)</p>
+    <p>\(P = 2 \times \pi \times 5 = 10\pi \approx \mathbf{31{,}42 \text{ cm}}\)</p>
+  </div>
+</div>
+
+<!-- EX 2 -->
+<div class="exo">
+  <div class="exo-num">Exercice 2</div>
+  <div class="exo-titre">Calculer des aires</div>
+  <p>Calculer l'aire de chacune des figures suivantes. Donner les résultats en cm², arrondis au centième si nécessaire.</p>
+  <p class="q"><strong>a)</strong> Un carré de côté \(a = 9\) cm.</p>
+  <p class="q"><strong>b)</strong> Un rectangle de longueur \(L = 12\) cm et de largeur \(l = 8\) cm.</p>
+  <p class="q"><strong>c)</strong> Un triangle de base \(b = 10\) cm et de hauteur \(h = 6\) cm.</p>
+  <p class="q"><strong>d)</strong> Un disque de rayon \(r = 7\) cm.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">a) Carré de côté a = 9 cm</span>
+    <p>Formule : \(\mathcal{A} = a^2\)</p>
+    <p>\(\mathcal{A} = 9^2 = \mathbf{81 \text{ cm}^2}\)</p>
+    <span class="etape">b) Rectangle 12 cm × 8 cm</span>
+    <p>Formule : \(\mathcal{A} = L \times l\)</p>
+    <p>\(\mathcal{A} = 12 \times 8 = \mathbf{96 \text{ cm}^2}\)</p>
+    <span class="etape">c) Triangle base = 10 cm, hauteur = 6 cm</span>
+    <p>Formule : \(\mathcal{A} = \dfrac{b \times h}{2}\)</p>
+    <p>\(\mathcal{A} = \dfrac{10 \times 6}{2} = \dfrac{60}{2} = \mathbf{30 \text{ cm}^2}\)</p>
+    <span class="etape">d) Disque de rayon r = 7 cm</span>
+    <p>Formule : \(\mathcal{A} = \pi r^2\)</p>
+    <p>\(\mathcal{A} = \pi \times 7^2 = 49\pi \approx \mathbf{153{,}94 \text{ cm}^2}\)</p>
+  </div>
+</div>
+
+<!-- EX 3 QCM -->
+<div class="exo">
+  <div class="exo-num">Exercice 3</div>
+  <div class="exo-titre">QCM — Formules et notions de base</div>
+  <p>Pour chaque question, une seule réponse est correcte. Cliquez sur « Vérifier » pour révéler la bonne réponse.</p>
+  <div class="qcm-grid">
+
+    <div class="qcm-item">
+      <strong>Q1 — Périmètre d'un rectangle</strong>
+      <ul>
+        <li>A. \(P = L \times l\)</li>
+        <li class="ok">B. \(P = 2(L + l)\)</li>
+        <li>C. \(P = L + l\)</li>
+        <li>D. \(P = 4L\)</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q11a')">Vérifier</button>
+      <div class="qcm-corr" id="q11a"><strong>Réponse B.</strong> Le périmètre d'un rectangle vaut \(P = 2(L + l)\). La réponse A est la formule de l'aire.</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>Q2 — Aire d'un triangle</strong>
+      <ul>
+        <li>A. \(\mathcal{A} = b \times h\)</li>
+        <li>B. \(\mathcal{A} = \dfrac{b + h}{2}\)</li>
+        <li class="ok">C. \(\mathcal{A} = \dfrac{b \times h}{2}\)</li>
+        <li>D. \(\mathcal{A} = b^2\)</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q11b')">Vérifier</button>
+      <div class="qcm-corr" id="q11b"><strong>Réponse C.</strong> L'aire d'un triangle est \(\mathcal{A} = \dfrac{b \times h}{2}\) où \(b\) est la base et \(h\) la hauteur associée.</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>Q3 — Angle manquant</strong>
+      <p style="font-size:.88em;margin:4px 0">Un triangle a deux angles de 48° et 65°. Le troisième angle vaut :</p>
+      <ul>
+        <li>A. 113°</li>
+        <li>B. 47°</li>
+        <li class="ok">C. 67°</li>
+        <li>D. 180°</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q11c')">Vérifier</button>
+      <div class="qcm-corr" id="q11c"><strong>Réponse C.</strong> La somme des angles d'un triangle est 180°. Troisième angle \(= 180 - 48 - 65 = 67°\).</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>Q4 — Disque et cercle</strong>
+      <ul>
+        <li>A. Le disque est le contour, le cercle est la surface</li>
+        <li class="ok">B. Le cercle est le contour, le disque est la surface</li>
+        <li>C. Disque et cercle sont synonymes</li>
+        <li>D. Le rayon ne s'applique qu'au cercle</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q11d')">Vérifier</button>
+      <div class="qcm-corr" id="q11d"><strong>Réponse B.</strong> Le <em>cercle</em> désigne la courbe (le contour) ; le <em>disque</em> désigne la surface délimitée par ce cercle.</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>Q5 — Conversion d'aires</strong>
+      <p style="font-size:.88em;margin:4px 0">\(1 \text{ m}^2\) vaut :</p>
+      <ul>
+        <li>A. \(100 \text{ cm}^2\)</li>
+        <li>B. \(1\,000 \text{ cm}^2\)</li>
+        <li class="ok">C. \(10\,000 \text{ cm}^2\)</li>
+        <li>D. \(1\,000\,000 \text{ cm}^2\)</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q11e')">Vérifier</button>
+      <div class="qcm-corr" id="q11e"><strong>Réponse C.</strong> \(1 \text{ m} = 100 \text{ cm}\), donc \(1 \text{ m}^2 = 100^2 = 10\,000 \text{ cm}^2\).</div>
+    </div>
+
+    <div class="qcm-item">
+      <strong>Q6 — Comparer deux aires</strong>
+      <p style="font-size:.88em;margin:4px 0">Un carré de côté 5 cm ou un disque de rayon 3 cm : lequel a la plus grande aire ?</p>
+      <ul>
+        <li>A. Le carré (\(\mathcal{A} = 25 \text{ cm}^2\))</li>
+        <li class="ok">B. Le disque (\(\mathcal{A} \approx 28{,}27 \text{ cm}^2\))</li>
+        <li>C. Ils ont la même aire</li>
+        <li>D. On ne peut pas comparer</li>
+      </ul>
+      <button class="bcq" onclick="showQcm(this,'q11f')">Vérifier</button>
+      <div class="qcm-corr" id="q11f"><strong>Réponse B.</strong> Carré : \(5^2 = 25 \text{ cm}^2\). Disque : \(\pi \times 3^2 \approx 28{,}27 \text{ cm}^2\). Le disque est plus grand. Il faut toujours calculer pour comparer !</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= NIVEAU 2 ================= -->
+<div class="niveau-header niv2">
+  <span class="badge-niv badge-2">Niveau 2</span>
+  <h2>Guidé — Raisonnement en étapes</h2>
+</div>
+
+<!-- EX 4 -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <div class="exo-titre">Trouver les dimensions d'un rectangle</div>
+  <p>Un rectangle a un périmètre de \(P = 36\) cm. Sa longueur est le double de sa largeur : \(L = 2l\).</p>
+  <p>Déterminer la longueur et la largeur de ce rectangle.</p>
+  <div class="guide">
+    <strong style="color:var(--p);display:block;margin-bottom:8px">Guide de résolution</strong>
+    <div class="guide-step">
+      <div class="guide-num">1</div>
+      <div>Écrire la formule du périmètre d'un rectangle : \(P = 2(L + l)\).</div>
+    </div>
+    <div class="guide-step">
+      <div class="guide-num">2</div>
+      <div>Remplacer \(L\) par \(2l\) dans la formule et substituer \(P = 36\).</div>
+    </div>
+    <div class="guide-step">
+      <div class="guide-num">3</div>
+      <div>Résoudre l'équation pour trouver \(l\).</div>
+    </div>
+    <div class="guide-step">
+      <div class="guide-num">4</div>
+      <div>En déduire \(L = 2l\), puis vérifier que \(P = 36\) cm.</div>
+    </div>
+  </div>
+  <div class="zone-rep">Votre réponse…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">Étape 1 — Formule du périmètre</span>
+    <p>\(P = 2(L + l)\)</p>
+    <span class="etape">Étape 2 — Substitution de L = 2l et P = 36</span>
+    <p>\(36 = 2(2l + l) = 2 \times 3l = 6l\)</p>
+    <span class="etape">Étape 3 — Résolution</span>
+    <p>\(l = \dfrac{36}{6} = 6 \text{ cm}\)</p>
+    <span class="etape">Étape 4 — Calcul de L et vérification</span>
+    <p>\(L = 2 \times 6 = 12 \text{ cm}\)</p>
+    <p><strong>Vérification :</strong> \(P = 2(12 + 6) = 2 \times 18 = 36 \text{ cm}\) ✓</p>
+    <p><strong>Conclusion :</strong> la largeur vaut \(l = 6 \text{ cm}\) et la longueur vaut \(L = 12 \text{ cm}\).</p>
+  </div>
+</div>
+
+<!-- EX 5 -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <div class="exo-titre">Aire d'une figure composée — pièce avec alcôve semi-circulaire</div>
+  <p>Une pièce rectangulaire mesure \(6\) m de long et \(4\) m de large. À une de ses extrémités, une alcôve semi-circulaire de diamètre \(d = 4\) m (rayon \(r = 2\) m) vient s'ajouter.</p>
+  <p>Calculer l'aire totale de la pièce (rectangle + demi-disque).</p>
+  <div class="guide">
+    <strong style="color:var(--p);display:block;margin-bottom:8px">Guide de résolution</strong>
+    <div class="guide-step">
+      <div class="guide-num">1</div>
+      <div>Calculer l'aire du rectangle : \(\mathcal{A}_{\text{rect}} = L \times l\).</div>
+    </div>
+    <div class="guide-step">
+      <div class="guide-num">2</div>
+      <div>Calculer l'aire du demi-disque : \(\mathcal{A}_{\text{demi}} = \dfrac{\pi r^2}{2}\).</div>
+    </div>
+    <div class="guide-step">
+      <div class="guide-num">3</div>
+      <div>Additionner les deux résultats.</div>
+    </div>
+  </div>
+  <div class="zone-rep">Votre réponse…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">Étape 1 — Aire du rectangle</span>
+    <p>\(\mathcal{A}_{\text{rect}} = 6 \times 4 = 24 \text{ m}^2\)</p>
+    <span class="etape">Étape 2 — Aire du demi-disque (r = 2 m)</span>
+    <p>\(\mathcal{A}_{\text{demi}} = \dfrac{\pi \times 2^2}{2} = \dfrac{4\pi}{2} = 2\pi \approx 6{,}28 \text{ m}^2\)</p>
+    <span class="etape">Étape 3 — Aire totale</span>
+    <p>\(\mathcal{A}_{\text{totale}} = 24 + 2\pi \approx 24 + 6{,}28 \approx \mathbf{30{,}28 \text{ m}^2}\)</p>
+  </div>
+</div>
+
+<!-- EX 6 -->
+<div class="exo">
+  <div class="exo-num">Exercice 6</div>
+  <div class="exo-titre">Convertir des aires</div>
+  <p>Effectuer les conversions suivantes.</p>
+  <p class="q"><strong>a)</strong> Convertir \(3{,}5 \text{ m}^2\) en \(\text{cm}^2\).</p>
+  <p class="q"><strong>b)</strong> Convertir \(75\,000 \text{ cm}^2\) en \(\text{m}^2\).</p>
+  <p class="q"><strong>c)</strong> Convertir \(0{,}04 \text{ m}^2\) en \(\text{mm}^2\).</p>
+  <div class="meth">
+    <strong>Rappel — Conversions d'aires</strong>
+    \(1 \text{ m}^2 = 10\,000 \text{ cm}^2\) &nbsp;|&nbsp; \(1 \text{ cm}^2 = 100 \text{ mm}^2\) &nbsp;|&nbsp; \(1 \text{ m}^2 = 1\,000\,000 \text{ mm}^2\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">a) 3,5 m² en cm²</span>
+    <p>On multiplie par \(10\,000\) : \(3{,}5 \times 10\,000 = \mathbf{35\,000 \text{ cm}^2}\)</p>
+    <span class="etape">b) 75 000 cm² en m²</span>
+    <p>On divise par \(10\,000\) : \(75\,000 \div 10\,000 = \mathbf{7{,}5 \text{ m}^2}\)</p>
+    <span class="etape">c) 0,04 m² en mm²</span>
+    <p>On multiplie par \(1\,000\,000\) : \(0{,}04 \times 1\,000\,000 = \mathbf{40\,000 \text{ mm}^2}\)</p>
+  </div>
+</div>
+
+<!-- ================= NIVEAU 3 ================= -->
+<div class="niveau-header niv3">
+  <span class="badge-niv badge-3">Niveau 3</span>
+  <h2>Application — Raisonnement autonome</h2>
+</div>
+
+<!-- EX 7 -->
+<div class="exo">
+  <div class="exo-num">Exercice 7</div>
+  <div class="exo-titre">Comparer deux surfaces</div>
+  <p>On dispose de deux figures :</p>
+  <ul>
+    <li>Un carré de côté \(a = 8\) m.</li>
+    <li>Un disque de rayon \(r = 4{,}6\) m.</li>
+  </ul>
+  <p class="q"><strong>a)</strong> Calculer l'aire de chaque figure (résultats arrondis au centième de m²).</p>
+  <p class="q"><strong>b)</strong> Laquelle des deux figures a la plus grande aire ?</p>
+  <p class="q"><strong>c)</strong> Calculer la différence d'aire entre les deux figures.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">a) Calcul des aires</span>
+    <p>Carré : \(\mathcal{A}_\square = 8^2 = 64{,}00 \text{ m}^2\)</p>
+    <p>Disque : \(\mathcal{A}_\circ = \pi \times (4{,}6)^2 = \pi \times 21{,}16 \approx 66{,}48 \text{ m}^2\)</p>
+    <span class="etape">b) Comparaison</span>
+    <p>\(66{,}48 > 64{,}00\) donc <strong>le disque a la plus grande aire</strong>.</p>
+    <p class="att" style="padding:6px 10px;margin:6px 0">Attention : malgré un rayon apparent plus petit que le côté du carré, le disque est plus grand. Toujours calculer avant de conclure !</p>
+    <span class="etape">c) Différence d'aire</span>
+    <p>\(\Delta\mathcal{A} = 66{,}48 - 64{,}00 = \mathbf{2{,}48 \text{ m}^2}\)</p>
+    <p>Le disque est plus grand d'environ \(2{,}48 \text{ m}^2\).</p>
+  </div>
+</div>
+
+<!-- EX 8 -->
+<div class="exo">
+  <div class="exo-num">Exercice 8</div>
+  <div class="exo-titre">Angles dans des triangles</div>
+  <p class="q"><strong>a)</strong> Dans un triangle ABC, \(\hat{A} = 52°\) et \(\hat{B} = 73°\). Calculer \(\hat{C}\).</p>
+  <p class="q"><strong>b)</strong> Dans un triangle DEF, \(\hat{D} = 90°\) et \(\hat{E} = 37°\). Calculer \(\hat{F}\).</p>
+  <p class="q"><strong>c)</strong> Un triangle isocèle IJK a deux angles de base égaux à \(65°\) chacun. Calculer le troisième angle. Ce triangle peut-il avoir un angle droit ? Justifier.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">a) Triangle ABC</span>
+    <p>La somme des angles d'un triangle est 180°.</p>
+    <p>\(\hat{C} = 180 - 52 - 73 = \mathbf{55°}\)</p>
+    <span class="etape">b) Triangle DEF</span>
+    <p>\(\hat{F} = 180 - 90 - 37 = \mathbf{53°}\)</p>
+    <p>Ce triangle est rectangle en D (\(\hat{D} = 90°\)).</p>
+    <span class="etape">c) Triangle isocèle IJK</span>
+    <p>Troisième angle : \(\hat{K} = 180 - 65 - 65 = \mathbf{50°}\)</p>
+    <p>Les angles du triangle IJK sont 65°, 65° et 50° : <strong>aucun ne vaut 90°</strong>, donc ce triangle n'a pas d'angle droit.</p>
+    <p>Pour qu'un triangle isocèle soit rectangle, il faudrait que son angle au sommet vaille 90°, ce qui imposerait deux angles de base de 45° chacun.</p>
+  </div>
+</div>
+
+<!-- ================= NIVEAU 4 MAMA ================= -->
+<div class="niveau-header niv4">
+  <span class="badge-niv badge-4">Niveau 4</span>
+  <h2>MAMA — Mise en situation professionnelle</h2>
+</div>
+
+<!-- EX 9 -->
+<div class="exo">
+  <div class="exo-num">Exercice 9</div>
+  <span class="mama-tag">Parquet &amp; plinthes</span>
+  <div class="exo-titre">Surface à carreler et longueur de plinthe — pièce en L</div>
+  <p>Une pièce a une forme en L composée de deux rectangles :</p>
+  <ul>
+    <li>Rectangle 1 : \(5 \text{ m} \times 4 \text{ m}\)</li>
+    <li>Rectangle 2 : \(3 \text{ m} \times 2 \text{ m}\) (dans le prolongement de la largeur du rectangle 1)</li>
+  </ul>
+  <p class="q"><strong>a)</strong> Calculer la surface totale de la pièce.</p>
+  <p class="q"><strong>b)</strong> Calculer le périmètre total de la pièce en L (la figure a 6 côtés).</p>
+  <p class="q"><strong>c)</strong> Les plinthes sont vendues en barres de 2,40 m. Combien de barres faut-il commander, en prévoyant 10 % de chutes ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">a) Surface totale</span>
+    <p>\(\mathcal{A}_{\text{totale}} = (5 \times 4) + (3 \times 2) = 20 + 6 = \mathbf{26 \text{ m}^2}\)</p>
+    <span class="etape">b) Périmètre de la pièce en L</span>
+    <p>En reconstituant les 6 côtés de la figure en L :</p>
+    <table>
+      <tr><th>Côté</th><th>Longueur</th><th>Explication</th></tr>
+      <tr><td>Bas</td><td>5 m</td><td>longueur totale du bas</td></tr>
+      <tr><td>Droite basse</td><td>2 m</td><td>hauteur du rectangle 2</td></tr>
+      <tr><td>Retour horizontal</td><td>3 m</td><td>largeur du rectangle 2</td></tr>
+      <tr><td>Retour vertical</td><td>\(4 - 2 = 2\) m</td><td>différence de hauteur</td></tr>
+      <tr><td>Haut</td><td>\(5 - 3 = 2\) m</td><td>retour en haut</td></tr>
+      <tr><td>Gauche</td><td>4 m</td><td>hauteur totale gauche</td></tr>
+    </table>
+    <p>\(P = 5 + 2 + 3 + 2 + 2 + 4 = \mathbf{18 \text{ m}}\)</p>
+    <span class="etape">c) Nombre de barres de plinthe</span>
+    <p>Longueur à commander avec 10 % de chutes : \(18 \times 1{,}10 = 19{,}8 \text{ m}\)</p>
+    <p>Nombre de barres : \(\dfrac{19{,}8}{2{,}40} \approx 8{,}25\)</p>
+    <p>On arrondit à l'entier supérieur : <strong>9 barres</strong> de plinthe de 2,40 m.</p>
+  </div>
+</div>
+
+<!-- EX 10 -->
+<div class="exo">
+  <div class="exo-num">Exercice 10</div>
+  <span class="mama-tag">Panneau de façade</span>
+  <div class="exo-titre">Panneau rectangulaire avec découpes circulaires</div>
+  <p>Un panneau rectangulaire mesure \(1{,}20\) m de long et \(0{,}80\) m de large. Il comporte <strong>3 découpes circulaires</strong> de rayon \(r = 8\) cm chacune (passages pour luminaires encastrés).</p>
+  <p class="q"><strong>a)</strong> Calculer l'aire du panneau rectangulaire (en m²).</p>
+  <p class="q"><strong>b)</strong> Calculer l'aire d'une découpe circulaire en m² (convertir d'abord le rayon en mètres).</p>
+  <p class="q"><strong>c)</strong> Calculer la surface de panneau restante après les 3 découpes.</p>
+  <div class="att">
+    <strong>Attention aux unités !</strong>
+    Le rayon est donné en cm et les dimensions du panneau en m. Il faut tout exprimer dans la même unité avant de calculer.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">a) Aire du panneau</span>
+    <p>\(\mathcal{A}_{\text{panneau}} = 1{,}20 \times 0{,}80 = \mathbf{0{,}96 \text{ m}^2}\)</p>
+    <span class="etape">b) Aire d'une découpe circulaire</span>
+    <p>Conversion : \(r = 8 \text{ cm} = 0{,}08 \text{ m}\)</p>
+    <p>\(\mathcal{A}_{\text{disque}} = \pi \times (0{,}08)^2 = \pi \times 0{,}0064 \approx 0{,}020\,1 \text{ m}^2\)</p>
+    <span class="etape">c) Surface restante</span>
+    <p>\(\mathcal{A}_{\text{reste}} = 0{,}96 - 3 \times 0{,}020\,1 \approx 0{,}96 - 0{,}060\,3 \approx \mathbf{0{,}90 \text{ m}^2}\)</p>
+    <p>Il reste environ \(0{,}90 \text{ m}^2\) de panneau après les trois découpes.</p>
+  </div>
+</div>
+
+<hr class="sep">
+<p style="text-align:center;font-size:.82em;color:#a0aec0">Chapitre 11 — Figures planes : périmètres et aires | 2de Pro MA-MA</p>
+
+</div>
+
+<script>
+function toggle(btn){
+  const c=btn.nextElementSibling;
+  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
+  else{c.style.display='block';btn.textContent='Masquer la correction';}
+}
+function showQcm(btn,id){
+  const d=document.getElementById(id);
+  if(d.style.display==='block'){d.style.display='none';btn.textContent='Vérifier';}
+  else{d.style.display='block';btn.textContent='Masquer';}
+}
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

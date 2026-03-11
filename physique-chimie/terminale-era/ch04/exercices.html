@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Exercices – Vitesse et accélération | ERA-MA Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#2da44e;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;flex:1}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{opacity:.85}
+.intro-box{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.methode strong{color:#d97706}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.attention strong{color:#be123c}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.retenir strong{color:#0369a1}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.svg-wrap{overflow-x:auto;margin:20px 0}
+.formules{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+.formule-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 16px;flex:1;min-width:180px;text-align:center}
+.formule-card .label{font-size:.82em;color:#718096;margin-bottom:4px}
+</style>
+</head>
+<body><div class="c">
+
+<a href="pc-term-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch04 – Vitesse et accélération</h1>
+  <p class="sous-titre">Exercices — Terminale Bac Pro ERA-MA (Groupement 3)</p>
+</header>
+
+<!-- INTRODUCTION -->
+<div class="intro-box">
+  <strong>Rappels du cours</strong>
+  <ul style="margin:8px 0 0 0">
+    <li><strong>Vitesse moyenne</strong> : \( v = \dfrac{\Delta d}{\Delta t} = \dfrac{d_2 - d_1}{t_2 - t_1} \) (en m/s)</li>
+    <li><strong>MRU</strong> (Mouvement Rectiligne Uniforme) : \(v\) constante, \( x(t) = x_0 + v \cdot t \)</li>
+    <li><strong>MRUA</strong> (Mouvement Rectiligne Uniformément Accéléré) : \(a\) constante,<br>
+      \( v(t) = v_0 + a \cdot t \) et \( x(t) = x_0 + v_0 \cdot t + \frac{1}{2} a \cdot t^2 \)</li>
+    <li><strong>Distance de freinage</strong> : \( v^2 = v_0^2 - 2 \cdot a \cdot d \Rightarrow d = \dfrac{v_0^2 - v^2}{2a} \)</li>
+    <li><strong>Conversions</strong> : \( 1\ \text{km/h} = \dfrac{1}{3{,}6}\ \text{m/s} \approx 0{,}278\ \text{m/s} \) ; \( 1\ \text{m/s} = 3{,}6\ \text{km/h} \)</li>
+  </ul>
+</div>
+
+<div class="formules">
+  <div class="formule-card">
+    <div class="label">Vitesse moyenne</div>
+    \( v = \dfrac{d}{t} \)
+  </div>
+  <div class="formule-card">
+    <div class="label">MRU – position</div>
+    \( x(t) = x_0 + v \cdot t \)
+  </div>
+  <div class="formule-card">
+    <div class="label">MRUA – vitesse</div>
+    \( v(t) = v_0 + a \cdot t \)
+  </div>
+  <div class="formule-card">
+    <div class="label">MRUA – position</div>
+    \( x(t) = x_0 + v_0 t + \tfrac{1}{2}at^2 \)
+  </div>
+  <div class="formule-card">
+    <div class="label">Freinage (v finale)</div>
+    \( v^2 = v_0^2 - 2ad \)
+  </div>
+</div>
+
+<div class="attention">
+  <strong>Attention aux unités !</strong> Toujours travailler en <strong>m/s</strong> et <strong>m/s²</strong> dans les formules. Convertir km/h en m/s avant tout calcul : diviser par 3,6.
+</div>
+
+<!-- SVG : graphe v(t) -->
+<h2>Graphe v(t) – Phases d'un déplacement</h2>
+<div class="svg-wrap">
+<svg width="700" height="280" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:'Segoe UI',sans-serif">
+  <!-- Axes -->
+  <line x1="60" y1="230" x2="660" y2="230" stroke="#2d3748" stroke-width="2"/>
+  <line x1="60" y1="30"  x2="60"  y2="230" stroke="#2d3748" stroke-width="2"/>
+  <!-- Flèches axes -->
+  <polygon points="660,226 668,230 660,234" fill="#2d3748"/>
+  <polygon points="56,30 60,22 64,30" fill="#2d3748"/>
+  <!-- Labels axes -->
+  <text x="670" y="234" font-size="14" fill="#2d3748">t (s)</text>
+  <text x="30"  y="28"  font-size="14" fill="#2d3748">v (m/s)</text>
+
+  <!-- Graduations axe t -->
+  <line x1="160" y1="225" x2="160" y2="235" stroke="#555" stroke-width="1.5"/>
+  <line x1="360" y1="225" x2="360" y2="235" stroke="#555" stroke-width="1.5"/>
+  <line x1="540" y1="225" x2="540" y2="235" stroke="#555" stroke-width="1.5"/>
+  <text x="156" y="248" font-size="12" fill="#555">t₁</text>
+  <text x="356" y="248" font-size="12" fill="#555">t₂</text>
+  <text x="536" y="248" font-size="12" fill="#555">t₃</text>
+
+  <!-- Graduations axe v -->
+  <line x1="55" y1="80"  x2="65" y2="80"  stroke="#555" stroke-width="1.5"/>
+  <text x="30" y="84"  font-size="12" fill="#555">v_max</text>
+
+  <!-- Phase 1 : MRUA (accélération) -->
+  <line x1="60" y1="230" x2="160" y2="80" stroke="#2da44e" stroke-width="3"/>
+  <!-- Phase 2 : MRU (vitesse constante) -->
+  <line x1="160" y1="80" x2="360" y2="80" stroke="#2f855a" stroke-width="3"/>
+  <!-- Phase 3 : MRUA (freinage) -->
+  <line x1="360" y1="80" x2="540" y2="230" stroke="#c53030" stroke-width="3"/>
+
+  <!-- Points charnières -->
+  <circle cx="60"  cy="230" r="5" fill="#2d3748"/>
+  <circle cx="160" cy="80"  r="5" fill="#2da44e"/>
+  <circle cx="360" cy="80"  r="5" fill="#2f855a"/>
+  <circle cx="540" cy="230" r="5" fill="#c53030"/>
+
+  <!-- Lignes pointillées verticales -->
+  <line x1="160" y1="80" x2="160" y2="230" stroke="#aaa" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="360" y1="80" x2="360" y2="230" stroke="#aaa" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="540" y1="80" x2="540" y2="230" stroke="#aaa" stroke-width="1" stroke-dasharray="5,4"/>
+
+  <!-- Annotations phases -->
+  <rect x="68"  y="140" width="84"  height="22" rx="4" fill="#d1fae5" opacity="0.85"/>
+  <text x="110" y="155" font-size="12" text-anchor="middle" fill="#065f46" font-weight="bold">Accélération</text>
+  <rect x="170" y="55"  width="65"  height="22" rx="4" fill="#fef3c7" opacity="0.85"/>
+  <text x="242" y="70"  font-size="12" text-anchor="middle" fill="#92400e" font-weight="bold">MRU</text>
+  <rect x="368" y="140" width="70"  height="22" rx="4" fill="#fee2e2" opacity="0.85"/>
+  <text x="450" y="155" font-size="12" text-anchor="middle" fill="#991b1b" font-weight="bold">Freinage</text>
+
+  <!-- Flèches de pente -->
+  <text x="72"  y="130" font-size="11" fill="#2da44e">a &gt; 0</text>
+  <text x="380" y="130" font-size="11" fill="#c53030">a &lt; 0</text>
+  <text x="225" y="72"  font-size="11" fill="#2f855a">a = 0</text>
+</svg>
+</div>
+
+<!-- EXERCICES DE BASE -->
+<h2>Exercices de base</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Vitesse moyenne d'un engin de manutention</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+
+  <div class="methode">
+    <strong>Méthode :</strong> Identifier la distance totale et la durée totale du déplacement, puis appliquer \( v = d / t \). Vérifier les unités avant de calculer.
+  </div>
+
+  <p><strong>Contexte :</strong> Un chariot de manutention dans un atelier ERA-MA parcourt 120 m en 8 s pour rejoindre un poste de travail.</p>
+
+  <p class="q"><strong>Q1.</strong> Calculer la vitesse moyenne \(v\) en m/s.</p>
+  <p class="q"><strong>Q2.</strong> Convertir cette vitesse en km/h.</p>
+  <p class="q"><strong>Q3.</strong> Le chariot effectue 15 allers-retours identiques dans la journée. Quelle distance totale parcourt-il ?</p>
+  <p class="q"><strong>Q4.</strong> Si le chariot s'arrête 30 s à chaque poste, calculer la durée totale de travail de ce chariot pour 15 allers-retours (déplacements + arrêts).</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \( v = \dfrac{d}{t} = \dfrac{120}{8} = 15\ \text{m/s} \)</p>
+    <p><strong>Q2.</strong> \( v = 15 \times 3{,}6 = 54\ \text{km/h} \)</p>
+    <p><strong>Q3.</strong> Un aller-retour = 120 × 2 = 240 m. Pour 15 allers-retours : \(15 \times 240 = 3\ 600\ \text{m} = 3{,}6\ \text{km}\).</p>
+    <p><strong>Q4.</strong> Temps de déplacement par aller-retour : \(2 \times 8 = 16\ \text{s}\). Arrêts : 2 par aller-retour (départ et arrivée) × 30 s = 60 s par aller-retour.
+      <br>Durée totale = \(15 \times (16 + 60) = 15 \times 76 = 1\ 140\ \text{s} = 19\ \text{min}\).
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">MRU – Distance parcourue par un convoyeur</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Un convoyeur de pièces mécaniques se déplace à vitesse constante \(v = 0{,}5\ \text{m/s}\).</p>
+
+  <p class="q"><strong>Q1.</strong> Calculer la distance parcourue en 10 s.</p>
+  <p class="q"><strong>Q2.</strong> Calculer la distance parcourue en 2 min.</p>
+  <p class="q"><strong>Q3.</strong> Une pièce est déposée en \(x_0 = 2\ \text{m}\) du début du convoyeur à \(t = 0\). Donner l'équation \(x(t)\) de la pièce et calculer sa position à \(t = 30\ \text{s}\).</p>
+  <p class="q"><strong>Q4.</strong> Le convoyeur a une longueur de 25 m. Au bout de combien de temps la pièce atteint-elle la fin du convoyeur ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \( d = v \cdot t = 0{,}5 \times 10 = 5\ \text{m} \)</p>
+    <p><strong>Q2.</strong> 2 min = 120 s : \( d = 0{,}5 \times 120 = 60\ \text{m} \)</p>
+    <p><strong>Q3.</strong> \( x(t) = 2 + 0{,}5 \cdot t \). À \(t = 30\ \text{s}\) : \( x = 2 + 0{,}5 \times 30 = 17\ \text{m} \)</p>
+    <p><strong>Q4.</strong> \( 25 = 2 + 0{,}5 \cdot t \Rightarrow t = \dfrac{25 - 2}{0{,}5} = \dfrac{23}{0{,}5} = 46\ \text{s} \)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Conversions km/h ↔ m/s</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+
+  <div class="methode">
+    <strong>Méthode :</strong> Pour convertir km/h en m/s : diviser par 3,6. Pour convertir m/s en km/h : multiplier par 3,6.
+  </div>
+
+  <p class="q"><strong>Q1.</strong> Convertir 36 km/h en m/s.</p>
+  <p class="q"><strong>Q2.</strong> Convertir 90 km/h en m/s.</p>
+  <p class="q"><strong>Q3.</strong> Convertir 2,5 m/s en km/h.</p>
+  <p class="q"><strong>Q4.</strong> Un robot de soudage avance à 0,2 m/s. Exprimer cette vitesse en cm/s, en mm/s, et en km/h.</p>
+  <p class="q"><strong>Q5.</strong> Un engin de chantier roule à 25 km/h. Un piéton marche à 5 km/h. Calculer les deux vitesses en m/s. Lequel se déplace le plus vite, et d'un rapport combien ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \( 36 / 3{,}6 = 10\ \text{m/s} \)</p>
+    <p><strong>Q2.</strong> \( 90 / 3{,}6 = 25\ \text{m/s} \)</p>
+    <p><strong>Q3.</strong> \( 2{,}5 \times 3{,}6 = 9\ \text{km/h} \)</p>
+    <p><strong>Q4.</strong> \(0{,}2\ \text{m/s} = 20\ \text{cm/s} = 200\ \text{mm/s} = 0{,}2 \times 3{,}6 = 0{,}72\ \text{km/h}\)</p>
+    <p><strong>Q5.</strong> Engin : \(25/3{,}6 \approx 6{,}94\ \text{m/s}\). Piéton : \(5/3{,}6 \approx 1{,}39\ \text{m/s}\). L'engin est 5 fois plus rapide.</p>
+  </div>
+</div>
+
+<!-- EXERCICES GUIDÉS -->
+<h2>Exercices guidés</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">MRUA – Accélération d'un bras robotique</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Un axe linéaire d'un robot industriel démarre de l'arrêt (\(v_0 = 0\)) avec une accélération constante \(a = 2\ \text{m/s}^2\) pendant \(t = 5\ \text{s}\).</p>
+
+  <p class="q"><strong>Q1.</strong> Écrire les équations \(v(t)\) et \(x(t)\) pour ce mouvement (\(x_0 = 0\)).</p>
+  <p class="q"><strong>Q2.</strong> Calculer la vitesse atteinte à \(t = 5\ \text{s}\).</p>
+  <p class="q"><strong>Q3.</strong> Calculer la distance parcourue pendant ces 5 s.</p>
+  <p class="q"><strong>Q4.</strong> Dresser un tableau de valeurs \(v(t)\) et \(x(t)\) pour \(t = 0, 1, 2, 3, 4, 5\ \text{s}\).</p>
+  <p class="q"><strong>Q5.</strong> Si le robot freine ensuite avec la même valeur d'accélération (\(a = -2\ \text{m/s}^2\)), en combien de temps s'arrête-t-il ? Quelle distance supplémentaire parcourt-il pendant le freinage ?</p>
+
+  <div class="methode">
+    <strong>Méthode :</strong> Pour le freinage, la vitesse initiale est la vitesse finale de la phase d'accélération. On cherche \(t\) tel que \(v(t) = 0\), ou on utilise la formule \(v^2 = v_0^2 - 2ad\).
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \( v(t) = 0 + 2t = 2t\ \text{(m/s)} \) ; \( x(t) = 0 + 0 + \frac{1}{2} \times 2 \times t^2 = t^2\ \text{(m)} \)</p>
+    <p><strong>Q2.</strong> \( v(5) = 2 \times 5 = 10\ \text{m/s} \)</p>
+    <p><strong>Q3.</strong> \( x(5) = 5^2 = 25\ \text{m} \)</p>
+    <p><strong>Q4.</strong></p>
+    <table>
+      <tr><th>t (s)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+      <tr><td>v (m/s)</td><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr>
+      <tr><td>x (m)</td><td>0</td><td>1</td><td>4</td><td>9</td><td>16</td><td>25</td></tr>
+    </table>
+    <p><strong>Q5.</strong> Phase de freinage : \(v_0 = 10\ \text{m/s}\), \(a = -2\ \text{m/s}^2\).
+      <br>\( v(t) = 10 - 2t = 0 \Rightarrow t = 5\ \text{s} \)
+      <br>Distance de freinage : \( d = v_0 t + \frac{1}{2}at^2 = 10 \times 5 + \frac{1}{2}(-2)(5)^2 = 50 - 25 = 25\ \text{m} \)
+      <br>Ou par la formule directe : \( d = \dfrac{v_0^2}{2a} = \dfrac{100}{4} = 25\ \text{m} \)
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Freinage d'un véhicule industriel</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Un véhicule de transport interne circule à \(v_0 = 72\ \text{km/h}\) dans un couloir de l'usine. Le conducteur freine avec une décélération \(a = 4\ \text{m/s}^2\).</p>
+
+  <p class="q"><strong>Q1.</strong> Convertir \(v_0 = 72\ \text{km/h}\) en m/s.</p>
+  <p class="q"><strong>Q2.</strong> Calculer la distance d'arrêt (\(v = 0\)).</p>
+  <p class="q"><strong>Q3.</strong> Calculer le temps nécessaire pour s'arrêter.</p>
+  <p class="q"><strong>Q4.</strong> Un obstacle est détecté à 40 m devant le véhicule. Le véhicule peut-il s'arrêter avant l'obstacle ? Justifier.</p>
+  <p class="q"><strong>Q5.</strong> Si la vitesse maximale autorisée dans les couloirs est 30 km/h, calculer la distance d'arrêt à cette vitesse. Quel est le gain en distance de freinage ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \( v_0 = 72 / 3{,}6 = 20\ \text{m/s} \)</p>
+    <p><strong>Q2.</strong> \( d = \dfrac{v_0^2}{2a} = \dfrac{20^2}{2 \times 4} = \dfrac{400}{8} = 50\ \text{m} \)</p>
+    <p><strong>Q3.</strong> \( t = \dfrac{v_0}{a} = \dfrac{20}{4} = 5\ \text{s} \)</p>
+    <p><strong>Q4.</strong> La distance d'arrêt est de 50 m, l'obstacle est à 40 m : le véhicule <strong>ne peut pas s'arrêter à temps</strong>, il percuterait l'obstacle. Risque d'accident grave.</p>
+    <p><strong>Q5.</strong> \(v_{max} = 30/3{,}6 \approx 8{,}33\ \text{m/s}\)
+      <br>\( d = \dfrac{(8{,}33)^2}{2 \times 4} = \dfrac{69{,}4}{8} \approx 8{,}7\ \text{m} \)
+      <br>Gain : \(50 - 8{,}7 = 41{,}3\ \text{m}\). La réduction de vitesse divise la distance d'arrêt par presque 6 (rapport des vitesses au carré : \((72/30)^2 = 5{,}76\)). La limitation de vitesse est donc une mesure de sécurité majeure.
+    </p>
+  </div>
+</div>
+
+<!-- EXERCICES D'APPLICATION -->
+<h2>Exercices d'application</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Lecture et analyse d'un graphe v(t)</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Le graphe v(t) ci-dessous décrit le déplacement d'un engin automatisé dans un entrepôt. On relève les valeurs suivantes :</p>
+
+  <table>
+    <tr><th>Instant (s)</th><th>Vitesse (m/s)</th><th>Phase</th></tr>
+    <tr><td>0</td><td>0</td><td>Départ arrêté</td></tr>
+    <tr><td>4</td><td>8</td><td>Fin accélération</td></tr>
+    <tr><td>14</td><td>8</td><td>Fin MRU</td></tr>
+    <tr><td>20</td><td>0</td><td>Arrêt</td></tr>
+  </table>
+
+  <p class="q"><strong>Q1.</strong> Identifier les trois phases du mouvement et les intervalles de temps correspondants.</p>
+  <p class="q"><strong>Q2.</strong> Calculer l'accélération lors de la phase 1 (de t=0 à t=4 s).</p>
+  <p class="q"><strong>Q3.</strong> Calculer la décélération lors de la phase 3 (de t=14 à t=20 s).</p>
+  <p class="q"><strong>Q4.</strong> Calculer la distance parcourue lors de chaque phase (aire sous la courbe v(t)).</p>
+  <p class="q"><strong>Q5.</strong> Calculer la vitesse moyenne sur l'ensemble du déplacement.</p>
+
+  <div class="methode">
+    <strong>Méthode :</strong> La distance parcourue est l'aire sous la courbe v(t) :
+    <ul>
+      <li>Phase MRUA (triangle) : \(d = \frac{1}{2} \times \Delta t \times v_{max}\)</li>
+      <li>Phase MRU (rectangle) : \(d = v \times \Delta t\)</li>
+      <li>Phase freinage (triangle) : \(d = \frac{1}{2} \times \Delta t \times v_{max}\)</li>
+    </ul>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong>
+      <br>Phase 1 (accélération MRUA) : t = 0 à 4 s
+      <br>Phase 2 (MRU vitesse constante) : t = 4 à 14 s
+      <br>Phase 3 (freinage MRUA) : t = 14 à 20 s
+    </p>
+    <p><strong>Q2.</strong> \( a_1 = \dfrac{\Delta v}{\Delta t} = \dfrac{8 - 0}{4 - 0} = 2\ \text{m/s}^2 \)</p>
+    <p><strong>Q3.</strong> \( a_3 = \dfrac{0 - 8}{20 - 14} = \dfrac{-8}{6} \approx -1{,}33\ \text{m/s}^2 \)</p>
+    <p><strong>Q4.</strong>
+      <br>Phase 1 : \( d_1 = \frac{1}{2} \times 4 \times 8 = 16\ \text{m} \)
+      <br>Phase 2 : \( d_2 = 8 \times 10 = 80\ \text{m} \)
+      <br>Phase 3 : \( d_3 = \frac{1}{2} \times 6 \times 8 = 24\ \text{m} \)
+      <br>Distance totale : \( d = 16 + 80 + 24 = 120\ \text{m} \)
+    </p>
+    <p><strong>Q5.</strong> Durée totale : 20 s. \( v_{moy} = \dfrac{120}{20} = 6\ \text{m/s} = 21{,}6\ \text{km/h} \)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Chariot automatisé AGV – Programmation de déplacement</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Un AGV (Automated Guided Vehicle) doit parcourir un couloir de <strong>50 m</strong> en ligne droite. Les contraintes de programmation sont :</p>
+  <ul>
+    <li>Vitesse maximale autorisée : \(v_{max} = 1{,}5\ \text{m/s}\)</li>
+    <li>Accélération maximale : \(a_{acc} = 0{,}5\ \text{m/s}^2\)</li>
+    <li>Décélération maximale : \(a_{dec} = 0{,}75\ \text{m/s}^2\)</li>
+    <li>L'AGV part de l'arrêt et doit s'arrêter précisément à la fin du couloir.</li>
+  </ul>
+
+  <p class="q"><strong>Q1.</strong> Calculer le temps d'accélération de 0 à \(v_{max}\).</p>
+  <p class="q"><strong>Q2.</strong> Calculer la distance parcourue pendant la phase d'accélération.</p>
+  <p class="q"><strong>Q3.</strong> Calculer la distance parcourue pendant la phase de freinage (de \(v_{max}\) à 0).</p>
+  <p class="q"><strong>Q4.</strong> Calculer la distance disponible pour la phase MRU.</p>
+  <p class="q"><strong>Q5.</strong> Calculer le temps de la phase MRU, puis le temps total du trajet.</p>
+  <p class="q"><strong>Q6.</strong> Si la longueur du couloir est réduite à 10 m, l'AGV peut-il atteindre \(v_{max}\) ? Justifier et calculer la vitesse maximale effectivement atteinte dans ce cas.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \( t_{acc} = \dfrac{v_{max}}{a_{acc}} = \dfrac{1{,}5}{0{,}5} = 3\ \text{s} \)</p>
+    <p><strong>Q2.</strong> \( d_{acc} = \dfrac{v_{max}^2}{2 \cdot a_{acc}} = \dfrac{1{,}5^2}{2 \times 0{,}5} = \dfrac{2{,}25}{1} = 2{,}25\ \text{m} \)</p>
+    <p><strong>Q3.</strong> \( d_{frein} = \dfrac{v_{max}^2}{2 \cdot a_{dec}} = \dfrac{2{,}25}{2 \times 0{,}75} = \dfrac{2{,}25}{1{,}5} = 1{,}5\ \text{m} \)</p>
+    <p><strong>Q4.</strong> \( d_{MRU} = 50 - 2{,}25 - 1{,}5 = 46{,}25\ \text{m} \)</p>
+    <p><strong>Q5.</strong> Temps MRU : \( t_{MRU} = \dfrac{46{,}25}{1{,}5} \approx 30{,}83\ \text{s} \)
+      <br>Temps freinage : \( t_{frein} = \dfrac{1{,}5}{0{,}75} = 2\ \text{s} \)
+      <br>Temps total : \( 3 + 30{,}83 + 2 = 35{,}83\ \text{s} \approx 35{,}8\ \text{s} \)
+    </p>
+    <p><strong>Q6.</strong> Distance minimale pour atteindre \(v_{max}\) puis freiner : \(d_{acc} + d_{frein} = 2{,}25 + 1{,}5 = 3{,}75\ \text{m}\).
+      <br>Puisque 10 m > 3,75 m, l'AGV <em>peut</em> atteindre \(v_{max}\) avec une phase MRU de \(10 - 3{,}75 = 6{,}25\ \text{m}\).
+      <br><em>Si on supposait un couloir de seulement 2 m (inférieur à 3,75 m), l'AGV ne pourrait pas atteindre \(v_{max}\).</em> La vitesse max atteinte \(v_p\) vérifie :
+      <br>\( \dfrac{v_p^2}{2 \times 0{,}5} + \dfrac{v_p^2}{2 \times 0{,}75} = L \Rightarrow v_p^2 (1 + 0{,}667) = L \Rightarrow v_p = \sqrt{\dfrac{L}{1{,}667}} \)
+      <br>Pour L = 2 m : \( v_p = \sqrt{2/1{,}667} \approx 1{,}095\ \text{m/s} \)
+    </p>
+  </div>
+</div>
+
+<!-- EXERCICES CONTEXTUALISÉS ERA-MA -->
+<h2>Exercices contextualisés ERA-MA</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Robot de soudage – Calcul de temps de cycle</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+
+  <p><strong>Contexte professionnel :</strong> Un robot de soudage MIG effectue un cordon de soudure sur une pièce métallique. La tête de soudage se déplace à <strong>vitesse constante</strong> \(v = 0{,}2\ \text{m/s}\) sur une longueur de \(L = 1{,}5\ \text{m}\). Après chaque cordon, le robot repositionne sa tête en 3 s, puis attend 2 s pour le refroidissement avant de démarrer le cordon suivant.</p>
+
+  <p class="q"><strong>Q1.</strong> Calculer le temps de soudure pour un cordon de 1,5 m à v = 0,2 m/s.</p>
+  <p class="q"><strong>Q2.</strong> Calculer le temps de cycle total pour un cordon (soudure + repositionnement + attente).</p>
+  <p class="q"><strong>Q3.</strong> Une pièce nécessite 6 cordons identiques. Calculer la durée de production d'une pièce.</p>
+  <p class="q"><strong>Q4.</strong> En une journée de 7 h de production effective, combien de pièces peuvent être fabriquées ?</p>
+  <p class="q"><strong>Q5.</strong> Le service méthodes souhaite augmenter la cadence de 20 %. Quelle vitesse de soudage faut-il atteindre, si les temps de repositionnement et d'attente restent inchangés ?</p>
+
+  <div class="methode">
+    <strong>Méthode :</strong> Le temps de cycle se décompose en plusieurs phases. Bien distinguer le temps de soudure (mouvement) du temps mort (repositionnement, attente). La cadence = nombre de pièces / durée totale.
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \( t_{soudure} = \dfrac{L}{v} = \dfrac{1{,}5}{0{,}2} = 7{,}5\ \text{s} \)</p>
+    <p><strong>Q2.</strong> \( t_{cycle} = 7{,}5 + 3 + 2 = 12{,}5\ \text{s par cordon} \)</p>
+    <p><strong>Q3.</strong> \( t_{pièce} = 6 \times 12{,}5 = 75\ \text{s} = 1\ \text{min}\ 15\ \text{s} \)</p>
+    <p><strong>Q4.</strong> 7 h = 25 200 s. Nombre de pièces = \( \lfloor 25\ 200 / 75 \rfloor = 336\ \text{pièces} \)</p>
+    <p><strong>Q5.</strong> Cadence actuelle : 336 pièces/7h. Cadence souhaitée : \(336 \times 1{,}2 = 403{,}2 \rightarrow 403\ \text{pièces}\).
+      <br>Nouveau \(t_{pièce} = 25\ 200 / 403 \approx 62{,}5\ \text{s}\).
+      <br>Nouveau \(t_{cycle} = 62{,}5 / 6 \approx 10{,}42\ \text{s}\).
+      <br>Nouveau \(t_{soudure} = 10{,}42 - 3 - 2 = 5{,}42\ \text{s}\).
+      <br>\( v_{nouvelle} = 1{,}5 / 5{,}42 \approx 0{,}277\ \text{m/s} \approx 16{,}6\ \text{cm/s} \)
+      <br>Il faudra vérifier que la vitesse de soudage accrue ne dégrade pas la qualité du cordon (paramètres procédé MIG).
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Chariot élévateur – Freinage d'urgence et analyse du risque</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Un chariot élévateur (masse totale avec charge : 3 500 kg) circule à \(v_0 = 6\ \text{km/h}\) dans un entrepôt. Un piéton surgit brusquement devant lui à une distance de <strong>3 m</strong>. Le chauffeur freine en urgence.</p>
+
+  <p class="q"><strong>Q1.</strong> Convertir \(v_0 = 6\ \text{km/h}\) en m/s.</p>
+  <p class="q"><strong>Q2.</strong> Pour s'arrêter en 3 m exactement, calculer l'accélération de freinage nécessaire (en m/s²). Préciser le signe.</p>
+  <p class="q"><strong>Q3.</strong> La force de freinage est \(F = m \times |a|\). Calculer la force nécessaire (en N).</p>
+  <p class="q"><strong>Q4.</strong> Le système de freinage du chariot peut exercer une force maximale de 4 200 N. Le chariot peut-il s'arrêter en 3 m ? Calculer la distance d'arrêt réelle avec la force maximale disponible.</p>
+  <p class="q"><strong>Q5.</strong> Si le temps de réaction du chauffeur est de 0,5 s avant qu'il appuie sur la pédale, calculer la distance parcourue pendant ce temps de réaction. En déduire la distance totale d'arrêt (réaction + freinage).</p>
+  <p class="q"><strong>Q6.</strong> Analyse du risque : proposer deux mesures de prévention pour éviter ce type d'accident dans un entrepôt ERA-MA.</p>
+
+  <div class="attention">
+    <strong>Attention :</strong> En situation de freinage d'urgence, ne pas oublier le temps de réaction (distance parcourue avant le début effectif du freinage). La distance totale d'arrêt = distance de réaction + distance de freinage.
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \( v_0 = 6 / 3{,}6 = 1{,}667\ \text{m/s} \)</p>
+    <p><strong>Q2.</strong> \( v^2 = v_0^2 - 2 \cdot a \cdot d \) avec \(v = 0\), \(d = 3\ \text{m}\) :
+      <br>\( 0 = v_0^2 - 2ad \Rightarrow a = \dfrac{v_0^2}{2d} = \dfrac{(1{,}667)^2}{2 \times 3} = \dfrac{2{,}78}{6} \approx 0{,}463\ \text{m/s}^2 \)
+      <br>L'accélération de freinage est \(a = -0{,}463\ \text{m/s}^2\) (signe négatif car décélération).
+    </p>
+    <p><strong>Q3.</strong> \( F = m \times |a| = 3\ 500 \times 0{,}463 \approx 1\ 620\ \text{N} \)</p>
+    <p><strong>Q4.</strong> La force disponible (4 200 N) est supérieure à la force nécessaire (1 620 N) : le chariot peut s'arrêter en 3 m.
+      <br>Décélération réelle : \( a_{max} = F_{max}/m = 4\ 200 / 3\ 500 = 1{,}2\ \text{m/s}^2 \)
+      <br>Distance réelle : \( d = \dfrac{v_0^2}{2 \times 1{,}2} = \dfrac{2{,}78}{2{,}4} \approx 1{,}16\ \text{m} \)
+    </p>
+    <p><strong>Q5.</strong> Distance de réaction : \( d_{réaction} = v_0 \times t_{réaction} = 1{,}667 \times 0{,}5 = 0{,}833\ \text{m} \)
+      <br>Distance totale : \( d_{totale} = 0{,}833 + 1{,}16 = 1{,}99\ \text{m} \approx 2\ \text{m} \)
+      <br>Le chariot s'arrête en 2 m, soit avant le piéton qui était à 3 m. L'accident est évité — mais de peu !
+    </p>
+    <p><strong>Q6. Mesures de prévention ERA-MA :</strong>
+      <br>1. Séparation physique des voies piétons et engins (marquage au sol, barrières, trottoirs surélevés) — mesure de prévention collective prioritaire.
+      <br>2. Limitation de vitesse stricte à 5 km/h en zone de coactivité piéton/engin, avec détecteurs de présence et ralentissement automatique.
+      <br>Autres mesures possibles : miroirs aux angles, gyrophare sur l'engin, formation des conducteurs et piétons, zones de croisement dédiées.
+    </p>
+  </div>
+</div>
+
+<!-- GRAPHIQUE MRUA -->
+<h2>Courbe x(t) pour un MRUA – Exemple</h2>
+
+<div class="retenir">
+  <strong>À retenir :</strong> Pour un MRUA depuis l'arrêt (\(v_0 = 0\), \(x_0 = 0\)), la position évolue en \(x(t) = \frac{1}{2}at^2\) : c'est une <strong>parabole</strong>. La courbe x(t) est de plus en plus pentue au fil du temps (accélération visible).
+</div>
+
+<canvas id="chartMRUA" style="max-height:340px;margin:20px 0"></canvas>
+
+<script>
+(function(){
+  const a = 2; // m/s²
+  const tMax = 10;
+  const labels = [];
+  const posData = [];
+  const velData = [];
+  for(let t = 0; t <= tMax; t += 0.5){
+    labels.push(t.toFixed(1));
+    posData.push(0.5 * a * t * t);
+    velData.push(a * t);
+  }
+  const ctx = document.getElementById('chartMRUA').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'x(t) – Position (m)',
+          data: posData,
+          borderColor: '#2da44e',
+          backgroundColor: 'rgba(45,164,78,0.08)',
+          borderWidth: 2.5,
+          pointRadius: 3,
+          fill: true,
+          yAxisID: 'yPos'
+        },
+        {
+          label: 'v(t) – Vitesse (m/s)',
+          data: velData,
+          borderColor: '#c53030',
+          backgroundColor: 'rgba(197,48,48,0.05)',
+          borderWidth: 2,
+          pointRadius: 3,
+          fill: false,
+          borderDash: [6, 3],
+          yAxisID: 'yVel'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        title: {
+          display: true,
+          text: 'MRUA : x(t) et v(t) pour a = 2 m/s², v₀ = 0, x₀ = 0',
+          font: { size: 13 }
+        },
+        legend: { display: true }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Temps t (s)' }
+        },
+        yPos: {
+          type: 'linear',
+          position: 'left',
+          title: { display: true, text: 'Position x (m)', color: '#2da44e' },
+          ticks: { color: '#2da44e' }
+        },
+        yVel: {
+          type: 'linear',
+          position: 'right',
+          title: { display: true, text: 'Vitesse v (m/s)', color: '#c53030' },
+          ticks: { color: '#c53030' },
+          grid: { drawOnChartArea: false }
+        }
+      }
+    }
+  });
+})();
+</script>
+
+<div class="methode">
+  <strong>Méthode – Récapitulatif des formules MRUA :</strong>
+  <table>
+    <tr><th>Grandeur cherchée</th><th>Formule</th><th>Conditions</th></tr>
+    <tr><td>Vitesse à l'instant t</td><td>\(v = v_0 + a \cdot t\)</td><td>a constante</td></tr>
+    <tr><td>Position à l'instant t</td><td>\(x = x_0 + v_0 t + \frac{1}{2}at^2\)</td><td>a constante</td></tr>
+    <tr><td>Distance de freinage</td><td>\(d = \dfrac{v_0^2 - v^2}{2a}\)</td><td>v finale connue</td></tr>
+    <tr><td>Temps de freinage</td><td>\(t = \dfrac{v_0 - v}{a}\)</td><td>a = décélération &gt; 0</td></tr>
+    <tr><td>Accélération</td><td>\(a = \dfrac{\Delta v}{\Delta t}\)</td><td>Pente du graphe v(t)</td></tr>
+  </table>
+</div>
+
+<div class="attention">
+  <strong>Attention aux unités !</strong> Toujours vérifier que vitesses sont en <strong>m/s</strong>, distances en <strong>m</strong>, temps en <strong>s</strong> et accélérations en <strong>m/s²</strong> avant d'appliquer les formules. La conversion km/h → m/s (÷ 3,6) est indispensable dans les exercices ERA-MA avec engins de chantier.
+</div>
+
+<div class="retenir">
+  <strong>À retenir – Synthèse MRU / MRUA :</strong>
+  <ul style="margin:8px 0 0 0">
+    <li><strong>MRU</strong> : v constante, droite sur le graphe x(t), a = 0 sur le graphe v(t) (horizontal).</li>
+    <li><strong>MRUA accélération</strong> : v croissante, droite montante sur v(t), parabole sur x(t).</li>
+    <li><strong>MRUA freinage</strong> : v décroissante, droite descendante sur v(t), parabole ralentie sur x(t).</li>
+    <li>La pente du graphe v(t) donne directement l'accélération a (en m/s²).</li>
+    <li>L'aire sous la courbe v(t) donne la distance parcourue (en m).</li>
+  </ul>
+</div>
+
+</div>
+<script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
+<script src="/nav.js"></script>
+</body>
+</html>

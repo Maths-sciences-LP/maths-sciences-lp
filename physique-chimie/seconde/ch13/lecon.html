@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch.13 &mdash; R&eacute;flexion, r&eacute;fraction et signaux lumineux &mdash; 2nde Bac Pro</title>
+<script>
+MathJax = {tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#ede9fe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.formule{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.1em;font-weight:700;color:var(--p)}
+.formule small{display:block;margin-top:6px;font-size:.75em;font-weight:400;color:#718096}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-ret{background:#c4b5fd;color:#3b0764}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:left}
+th{background:#f3f0ff;font-weight:600;color:var(--p)}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #c4b5fd}
+.objectifs ul{margin:6px 0 0;padding-left:20px}
+.exo{background:#fafafa;border:1px dashed #c4b5fd;border-radius:8px;padding:16px 18px;margin:14px 0}
+.exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
+details.corr summary{cursor:pointer;font-weight:600;color:#2f855a;font-size:.88em;margin-top:10px;padding:4px 0}
+details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
+.svg-wrap{text-align:center;margin:22px 0}
+.chart-wrap{max-width:560px;margin:22px auto}
+.anim-wrap{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:10px;padding:20px;margin:22px 0;text-align:center}
+.anim-wrap canvas{border-radius:8px;max-width:100%}
+.anim-controls{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.anim-btn{background:#0369a1;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.88em;font-weight:600}
+.anim-btn:hover{opacity:.85}
+.anim-label{font-size:.88em;color:#4a5568;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="c">
+<header>
+  <h1>Chapitre 13 &mdash; R&eacute;flexion, r&eacute;fraction et signaux lumineux</h1>
+  <p class="sous-titre">Physique-Chimie &mdash; 2<sup>nde</sup> Bac Pro &mdash; Ann&eacute;e 2025-2026</p>
+</header>
+
+<a class="nb" href="index.html">&larr; Retour au sommaire</a>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre :</strong>
+  <ul>
+    <li>Conna&icirc;tre les caract&eacute;ristiques de la propagation de la lumi&egrave;re</li>
+    <li>Appliquer les lois de Descartes pour la r&eacute;flexion et la r&eacute;fraction</li>
+    <li>Comprendre le principe de la r&eacute;flexion totale interne et de la fibre optique</li>
+    <li>Relier ces ph&eacute;nom&egrave;nes aux applications dans les m&eacute;tiers de la menuiserie (brillance du bois, domotique, machines CNC, laser)</li>
+  </ul>
+</div>
+
+<!-- ===== SECTION 1 ===== -->
+<h2>1. La lumi&egrave;re et sa propagation</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  La <strong>lumi&egrave;re</strong> est une <strong>onde &eacute;lectromagn&eacute;tique</strong> qui se propage dans le vide et dans certains milieux transparents. Contrairement au son, elle n&apos;a pas besoin d&apos;un milieu mat&eacute;riel pour se propager.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propri&eacute;t&eacute;s</span><br>
+  &bull; Dans un milieu homog&egrave;ne et transparent, la lumi&egrave;re se propage en <strong>ligne droite</strong> (principe de propagation rectiligne).<br>
+  &bull; La vitesse de la lumi&egrave;re dans le vide : \(c = 3{,}0 \times 10^8\) m/s (300&nbsp;000 km/s).<br>
+  &bull; Dans un milieu mat&eacute;riel, la lumi&egrave;re se propage &agrave; une vitesse <strong>inf&eacute;rieure</strong> &agrave; \(c\).<br>
+  &bull; Un <strong>rayon lumineux</strong> est une repr&eacute;sentation g&eacute;om&eacute;trique du trajet de la lumi&egrave;re (fl&egrave;che).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Ombre et p&eacute;nombre</span><br>
+  La propagation rectiligne explique la formation des ombres. Avec une source ponctu&eacute;e, on obtient une <strong>ombre nette</strong>. Avec une source &eacute;tendue, on obtient une <strong>ombre et une p&eacute;nombre</strong> (zone partiellement &eacute;clair&eacute;e).
+</div>
+
+<!-- ===== SECTION 2 ===== -->
+<h2>2. La r&eacute;flexion de la lumi&egrave;re</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  La <strong>r&eacute;flexion</strong> est le renvoi d&apos;un rayon lumineux sur une surface. Elle ob&eacute;it aux <strong>lois de Descartes</strong>.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Lois de Descartes &mdash; R&eacute;flexion</span><br>
+  <strong>1<sup>&egrave;re</sup> loi :</strong> Le rayon incident, la <strong>normale</strong> &agrave; la surface au point d&apos;incidence et le rayon r&eacute;fl&eacute;chi sont dans le <strong>m&ecirc;me plan</strong>.<br><br>
+  <strong>2<sup>e</sup> loi :</strong> L&apos;angle de r&eacute;flexion est &eacute;gal &agrave; l&apos;angle d&apos;incidence :
+  \[ i_r = i_1 \]
+  Les angles se mesurent par rapport &agrave; la <strong>normale</strong> &agrave; la surface (et non par rapport &agrave; la surface elle-m&ecirc;me).
+</div>
+
+<!-- SVG Réflexion et réfraction côte à côte -->
+<div class="svg-wrap">
+<svg width="600" height="220" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sch&eacute;mas de r&eacute;flexion et r&eacute;fraction c&ocirc;te &agrave; c&ocirc;te">
+  <rect width="600" height="220" fill="#f8fafc" rx="10"/>
+
+  <!-- ===== PARTIE GAUCHE : RÉFLEXION ===== -->
+  <!-- Surface réfléchissante -->
+  <rect x="20" y="120" width="240" height="8" fill="#94a3b8" rx="2"/>
+  <text x="30" y="148" font-family="Segoe UI,sans-serif" font-size="10" fill="#475569">Surface r&eacute;fl&eacute;chissante</text>
+
+  <!-- Normale (tirets) -->
+  <line x1="140" y1="15" x2="140" y2="120" stroke="#64748b" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <line x1="140" y1="120" x2="140" y2="185" stroke="#64748b" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <text x="144" y="26" font-family="Segoe UI,sans-serif" font-size="9" fill="#64748b">Normale</text>
+
+  <!-- Marqueurs -->
+  <defs>
+    <marker id="arrOrange" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/>
+    </marker>
+    <marker id="arrRed" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrBlue" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrOrange2" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/>
+    </marker>
+    <marker id="arrBlue2" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- Rayon incident (orange) -->
+  <line x1="50" y1="35" x2="138" y2="118" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrOrange)"/>
+  <text x="28" y="32" font-family="Segoe UI,sans-serif" font-size="9" fill="#c2410c" font-weight="bold">Incident</text>
+
+  <!-- Rayon réfléchi (rouge) -->
+  <line x1="142" y1="118" x2="228" y2="35" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arrRed)"/>
+  <text x="210" y="32" font-family="Segoe UI,sans-serif" font-size="9" fill="#991b1b" font-weight="bold">R&eacute;fl&eacute;chi</text>
+
+  <!-- Arc angle i -->
+  <path d="M140,68 A28,28 0 0,0 115,88" fill="none" stroke="#ea580c" stroke-width="1.2"/>
+  <text x="104" y="78" font-family="Segoe UI,sans-serif" font-size="11" fill="#c2410c" font-style="italic">i</text>
+
+  <!-- Arc angle r -->
+  <path d="M164,88 A28,28 0 0,0 140,68" fill="none" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="160" y="78" font-family="Segoe UI,sans-serif" font-size="11" fill="#991b1b" font-style="italic">r</text>
+
+  <!-- Légende i = r -->
+  <rect x="90" y="162" width="100" height="22" fill="#fee2e2" rx="5" stroke="#dc2626" stroke-width="1"/>
+  <text x="140" y="177" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="11" fill="#991b1b" font-weight="bold">i = r</text>
+
+  <!-- Titre partie gauche -->
+  <text x="140" y="205" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#475569" font-weight="bold">R&eacute;flexion</text>
+
+  <!-- Séparateur -->
+  <line x1="300" y1="10" x2="300" y2="210" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- ===== PARTIE DROITE : RÉFRACTION ===== -->
+  <!-- Milieu 1 : haut (n1) -->
+  <rect x="310" y="10" width="275" height="105" fill="#dbeafe" rx="0" opacity="0.5"/>
+  <text x="320" y="26" font-family="Segoe UI,sans-serif" font-size="9" fill="#1e40af" font-weight="bold">Milieu 1 &mdash; n&#8321; (air)</text>
+
+  <!-- Milieu 2 : bas (n2 > n1) -->
+  <rect x="310" y="115" width="275" height="95" fill="#c7d2fe" rx="0" opacity="0.55"/>
+  <text x="320" y="198" font-family="Segoe UI,sans-serif" font-size="9" fill="#3730a3" font-weight="bold">Milieu 2 &mdash; n&#8322; (verre, n&#8322; &gt; n&#8321;)</text>
+
+  <!-- Interface -->
+  <line x1="310" y1="115" x2="585" y2="115" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- Normale (tirets) -->
+  <line x1="448" y1="12" x2="448" y2="115" stroke="#64748b" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <line x1="448" y1="115" x2="448" y2="210" stroke="#64748b" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <text x="452" y="23" font-family="Segoe UI,sans-serif" font-size="9" fill="#64748b">Normale</text>
+
+  <!-- Rayon incident (orange) -->
+  <line x1="360" y1="30" x2="446" y2="113" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrOrange2)"/>
+  <text x="325" y="28" font-family="Segoe UI,sans-serif" font-size="9" fill="#c2410c" font-weight="bold">Incident</text>
+
+  <!-- Rayon réfracté (bleu, plus proche de la normale) -->
+  <line x1="450" y1="117" x2="508" y2="205" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrBlue2)"/>
+  <text x="510" y="190" font-family="Segoe UI,sans-serif" font-size="9" fill="#1d4ed8" font-weight="bold">R&eacute;fract&eacute;</text>
+
+  <!-- Arc angle i1 -->
+  <path d="M448,70 A30,30 0 0,0 420,88" fill="none" stroke="#ea580c" stroke-width="1.2"/>
+  <text x="408" y="78" font-family="Segoe UI,sans-serif" font-size="11" fill="#c2410c" font-style="italic">i</text>
+
+  <!-- Arc angle t (réfraction) -->
+  <path d="M448,148 A30,30 0 0,1 468,140" fill="none" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="468" y="150" font-family="Segoe UI,sans-serif" font-size="11" fill="#1d4ed8" font-style="italic">t</text>
+
+  <!-- Annotation n1 < n2 -->
+  <text x="530" y="88" font-family="Segoe UI,sans-serif" font-size="9" fill="#065f46">n&#8321; &lt; n&#8322;</text>
+  <text x="526" y="100" font-family="Segoe UI,sans-serif" font-size="8" fill="#065f46">&rarr; t &lt; i</text>
+
+  <!-- Titre partie droite -->
+  <text x="448" y="214" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#475569" font-weight="bold">R&eacute;fraction</text>
+</svg>
+<p style="font-size:.82em;color:#718096;margin-top:4px">Figure 1 &mdash; &Agrave; gauche : r&eacute;flexion (i = r). &Agrave; droite : r&eacute;fraction (rayon se rapproche de la normale si n&#8322; &gt; n&#8321;)</p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Applications en atelier</span><br>
+  &bull; <strong>Bois poli / verni</strong> : la surface lisse cr&eacute;e une r&eacute;flexion sp&eacute;culaire (angle sortant = angle entrant) &rarr; aspect brillant. Plus le ponc&ccedil;age est fin, plus la r&eacute;flexion est miroir.<br>
+  &bull; <strong>Bois mat</strong> : surface rugueuse &rarr; r&eacute;flexion diffuse (les rayons repartent dans toutes les directions) &rarr; aspect mat sans reflet.<br>
+  &bull; <strong>Surface vitr&eacute;e</strong> (vitrine, huisserie) : r&eacute;flexion partielle et transmission simultan&eacute;es.
+</div>
+
+<!-- ===== SECTION 3 ===== -->
+<h2>3. La r&eacute;fraction de la lumi&egrave;re</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  La <strong>r&eacute;fraction</strong> est le changement de direction d&apos;un rayon lumineux lorsqu&apos;il passe d&apos;un milieu &agrave; un autre. Ce ph&eacute;nom&egrave;ne est d&ucirc; au changement de vitesse de la lumi&egrave;re.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Indice de r&eacute;fraction</span><br>
+  L&apos;<strong>indice de r&eacute;fraction</strong> \(n\) d&apos;un milieu est d&eacute;fini par :
+  \[ n = \frac{c}{v} \]
+  o&ugrave; \(c = 3{,}0 \times 10^8\) m/s est la vitesse dans le vide et \(v\) est la vitesse de la lumi&egrave;re dans le milieu. L&apos;indice \(n \geq 1\) toujours.
+</div>
+
+<table>
+  <thead>
+    <tr><th>Milieu</th><th>Indice de r&eacute;fraction \(n\)</th><th>Vitesse approximative</th><th>Remarque</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Vide</td><td>1,000</td><td>300 000 km/s</td><td>R&eacute;f&eacute;rence</td></tr>
+    <tr><td>Air</td><td>1,003 (&asymp;1)</td><td>&asymp; 299 100 km/s</td><td>Quasi identique au vide</td></tr>
+    <tr><td>Eau</td><td>1,33</td><td>&asymp; 225 000 km/s</td><td>Piscine, vernis &agrave; base d&apos;eau</td></tr>
+    <tr><td>Plexiglas (PMMA)</td><td>1,49</td><td>&asymp; 201 000 km/s</td><td>Vitres, panneaux d&eacute;coratifs</td></tr>
+    <tr><td>Verre ordinaire</td><td>1,50</td><td>200 000 km/s</td><td>Fen&ecirc;tres, miroirs</td></tr>
+    <tr><td>Diamant</td><td>2,42</td><td>&asymp; 124 000 km/s</td><td>Taille de pierre</td></tr>
+  </tbody>
+</table>
+
+<!-- Chart.js : indice vs vitesse -->
+<div class="chart-wrap">
+  <canvas id="chartIndice" height="260"></canvas>
+  <p style="font-size:.82em;color:#718096;text-align:center;margin-top:4px">Figure 2 &mdash; Vitesse de la lumi&egrave;re (km/s) dans diff&eacute;rents milieux selon leur indice de r&eacute;fraction</p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Loi de Snell-Descartes &mdash; R&eacute;fraction</span><br>
+  \[ \boxed{n_1 \cdot \sin(i_1) = n_2 \cdot \sin(i_2)} \]
+  &bull; Si \(n_2 > n_1\) (passage vers un milieu plus dense) : \(\sin(i_2) < \sin(i_1)\) donc \(i_2 < i_1\) &rarr; le rayon se <strong>rapproche</strong> de la normale.<br>
+  &bull; Si \(n_2 < n_1\) (passage vers un milieu moins dense) : le rayon s&apos;<strong>&eacute;loigne</strong> de la normale.
+</div>
+
+<div class="meth">
+  <span class="label label-meth">M&eacute;thode &mdash; Calculer l&apos;angle r&eacute;fract&eacute;</span><br>
+  Un rayon lumineux passe de l&apos;air (\(n_1 = 1{,}00\)) dans le verre (\(n_2 = 1{,}50\)) avec un angle d&apos;incidence \(i_1 = 40°\). Calculer \(i_2\).<br><br>
+  \[ n_1 \sin(i_1) = n_2 \sin(i_2) \implies \sin(i_2) = \frac{n_1 \sin(i_1)}{n_2} = \frac{1{,}00 \times \sin(40°)}{1{,}50} = \frac{0{,}643}{1{,}50} = 0{,}429 \]
+  \[ i_2 = \arcsin(0{,}429) \approx 25{,}4° \]
+  Le rayon r&eacute;fract&eacute; fait un angle de <strong>25,4&deg;</strong> avec la normale, inf&eacute;rieur &agrave; 40&deg; : il se rapproche bien de la normale.
+</div>
+
+<!-- Animation Canvas interactive : réfraction avec Snell-Descartes -->
+<h3>Animation interactive &mdash; Loi de Snell-Descartes</h3>
+<div class="anim-wrap">
+  <canvas id="canvasRefrac" width="500" height="220"></canvas>
+  <div class="anim-controls">
+    <button class="anim-btn" id="btnDecrease">&#8722; Diminuer angle</button>
+    <button class="anim-btn" id="btnIncrease">&#43; Augmenter angle</button>
+  </div>
+  <div class="anim-label" id="labelAngles">Angle incident i&#8321; = 30° &mdash; Angle r&eacute;fract&eacute; i&#8322; = 19,5°</div>
+  <div id="labelTotalRefl" style="color:#dc2626;font-weight:700;font-size:.9em;min-height:1.4em;margin-top:4px"></div>
+</div>
+
+<!-- ===== SECTION 4 ===== -->
+<h2>4. La r&eacute;flexion totale interne</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition</span><br>
+  Lorsqu&apos;un rayon lumineux voyage dans un milieu dense et tente de passer vers un milieu moins dense (\(n_1 > n_2\)), si l&apos;angle d&apos;incidence d&eacute;passe une valeur appel&eacute;e <strong>angle limite</strong> \(i_\ell\), le rayon est <strong>totalement r&eacute;fl&eacute;chi</strong> : il ne passe plus dans le deuxi&egrave;me milieu.
+</div>
+
+<div class="formule">
+  \[ \sin(i_\ell) = \frac{n_2}{n_1} \]
+  <small>Valable seulement si \(n_1 > n_2\) (passage d&apos;un milieu dense vers un milieu moins dense)</small>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple : fibre optique</span><br>
+  Dans une fibre optique en verre (\(n_1 = 1{,}50\)) entour&eacute;e d&apos;une gaine (\(n_2 = 1{,}45\)) :<br>
+  \[\sin(i_\ell) = \frac{1{,}45}{1{,}50} = 0{,}967 \implies i_\ell \approx 75{,}2°\]
+  Tout rayon arrivant avec un angle sup&eacute;rieur &agrave; 75,2&deg; est totalement r&eacute;fl&eacute;chi et reste confin&eacute; dans le c&oelig;ur : la lumi&egrave;re se propage sur des kilom&egrave;tres sans s&apos;affaiblir.
+</div>
+
+<!-- SVG réflexion totale interne — fibre optique (coupe) enrichi -->
+<div class="svg-wrap">
+<svg width="500" height="160" viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sch&eacute;ma de r&eacute;flexion totale interne dans une fibre optique">
+  <rect width="500" height="160" fill="#f8fafc" rx="10"/>
+
+  <!-- Gaine (gris clair) -->
+  <rect x="15" y="20" width="470" height="120" fill="#e5e7eb" rx="10" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="24" y="36" font-family="Segoe UI,sans-serif" font-size="10" fill="#6b7280" font-weight="bold">Gaine &mdash; n&#8322; (faible)</text>
+  <text x="360" y="150" font-family="Segoe UI,sans-serif" font-size="9" fill="#6b7280">n&#8322; &lt; n&#8321;</text>
+
+  <!-- Coeur (bleu clair) -->
+  <rect x="15" y="55" width="470" height="60" fill="#bfdbfe" rx="6" stroke="#3b82f6" stroke-width="2"/>
+  <text x="24" y="71" font-family="Segoe UI,sans-serif" font-size="10" fill="#1d4ed8" font-weight="bold">C&oelig;ur &mdash; n&#8321; (fort, n&#8321; &gt; n&#8322;)</text>
+
+  <!-- Interface haut et bas du coeur -->
+  <line x1="15" y1="55" x2="485" y2="55" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.5"/>
+  <line x1="15" y1="115" x2="485" y2="115" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.5"/>
+
+  <!-- Rayon lumineux en zigzag dans le coeur -->
+  <defs>
+    <marker id="arrFib" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#ea580c"/>
+    </marker>
+  </defs>
+  <polyline points="22,85 90,58 160,85 230,58 300,85 370,58 440,85 480,72"
+            fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrFib)"/>
+
+  <!-- Points de réflexion -->
+  <circle cx="90" cy="58" r="3.5" fill="#dc2626"/>
+  <circle cx="160" cy="85" r="3.5" fill="#dc2626"/>
+  <circle cx="230" cy="58" r="3.5" fill="#dc2626"/>
+  <circle cx="300" cy="85" r="3.5" fill="#dc2626"/>
+  <circle cx="370" cy="58" r="3.5" fill="#dc2626"/>
+
+  <!-- Annotation angle critique -->
+  <path d="M90,58 L90,75" stroke="#4a5568" stroke-width="1" stroke-dasharray="3,2"/>
+  <path d="M90,58 A14,14 0 0,1 104,65" fill="none" stroke="#4a5568" stroke-width="1"/>
+  <text x="97" y="60" font-family="Segoe UI,sans-serif" font-size="9" fill="#4a5568" font-style="italic">&#952;c</text>
+
+  <!-- Légende -->
+  <text x="80" y="140" font-family="Segoe UI,sans-serif" font-size="9.5" fill="#475569">R&eacute;flexions totales internes successives (i &gt; &#952;c)</text>
+</svg>
+<p style="font-size:.82em;color:#718096;margin-top:4px">Figure 3 &mdash; Fibre optique en coupe : le rayon rebondit par r&eacute;flexion totale interne dans le c&oelig;ur (n&#8321; &gt; n&#8322;)</p>
+</div>
+
+<!-- ===== SECTION 5 ===== -->
+<h2>5. Signaux lumineux et fibres optiques</h2>
+
+<div class="def">
+  <span class="label label-def">Principe de la fibre optique</span><br>
+  Une fibre optique est compos&eacute;e de deux parties :<br>
+  &bull; Le <strong>c&oelig;ur</strong> (verre ou plastique, indice &eacute;lev&eacute;) : o&ugrave; se propage la lumi&egrave;re par r&eacute;flexion totale interne.<br>
+  &bull; La <strong>gaine optique</strong> (verre ou plastique, indice plus faible) : r&eacute;fl&eacute;chit la lumi&egrave;re vers le c&oelig;ur.
+</div>
+
+<!-- SVG fibre optique schématique -->
+<div class="svg-wrap">
+<svg width="420" height="140" viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sch&eacute;ma d&apos;une fibre optique">
+  <rect width="420" height="140" fill="#f8fafc" rx="10"/>
+
+  <!-- Gaine -->
+  <rect x="20" y="30" width="380" height="80" fill="#dbeafe" rx="8" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="30" y="24" font-family="Segoe UI,sans-serif" font-size="11" fill="#1e40af">Gaine optique (n&#8322; faible)</text>
+
+  <!-- Coeur -->
+  <rect x="20" y="55" width="380" height="30" fill="#ede9fe" rx="4" stroke="#6f42c1" stroke-width="2"/>
+  <text x="30" y="72" font-family="Segoe UI,sans-serif" font-size="11" fill="#5b21b6" font-weight="bold">C&oelig;ur (n&#8321; &eacute;lev&eacute;)</text>
+
+  <!-- Rayon lumineux en zigzag dans le coeur -->
+  <defs>
+    <marker id="arr13f" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
+    </marker>
+  </defs>
+  <polyline points="30,70 80,58 130,72 180,58 230,72 280,58 330,72 390,58" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arr13f)"/>
+
+  <!-- Points de réflexion -->
+  <circle cx="80" cy="58" r="3" fill="#c53030"/>
+  <circle cx="130" cy="72" r="3" fill="#c53030"/>
+  <circle cx="180" cy="58" r="3" fill="#c53030"/>
+  <circle cx="230" cy="72" r="3" fill="#c53030"/>
+  <circle cx="280" cy="58" r="3" fill="#c53030"/>
+  <circle cx="330" cy="72" r="3" fill="#c53030"/>
+
+  <text x="80" y="125" font-family="Segoe UI,sans-serif" font-size="10" fill="#718096">R&eacute;flexions totales internes successives</text>
+</svg>
+<p style="font-size:.82em;color:#718096;margin-top:4px">Figure 4 &mdash; Propagation de la lumi&egrave;re dans une fibre optique par r&eacute;flexions totales internes</p>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Avantage</th><th>Explication</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Tr&egrave;s haut d&eacute;bit</td><td>La lumi&egrave;re peut coder des milliards d&apos;impulsions par seconde</td></tr>
+    <tr><td>Faibles pertes</td><td>Att&eacute;nuation de 0,2 dB/km contre 3 dB/km pour le cuivre</td></tr>
+    <tr><td>Insensible aux perturbations &eacute;lectromagn&eacute;tiques</td><td>Pas de signal &eacute;lectrique = pas de parasites</td></tr>
+    <tr><td>L&eacute;g&egrave;ret&eacute;</td><td>Fibre de quelques microns de diam&egrave;tre</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== SECTION 6 ===== -->
+<h2>6. Applications en atelier de menuiserie</h2>
+
+<div class="prop">
+  <span class="label label-prop">1. Vernis brillant et mat &mdash; r&eacute;flexion et diffusion</span><br>
+  Un bois poli au grain 400 puis verni cr&eacute;e une <strong>r&eacute;flexion sp&eacute;culaire</strong> (angle sortant = angle entrant) &rarr; aspect brillant tr&egrave;s marqu&eacute;. Une surface rugueuse ou mate diffuse la lumi&egrave;re dans toutes les directions (&laquo;&nbsp;r&eacute;flexion diffuse&nbsp;&raquo;) : pas de reflet net. Le choix du niveau de brillance (mat 5&ndash;10&deg;, satin 20&deg;, brillant 85&deg;) d&eacute;pend du cahier des charges client et de la classe d&apos;usage (PEFC, NF Ameublement). En atelier, la mesure du brillant se fait au <strong>glossm&egrave;tre</strong> (unit&eacute; : GU &mdash; Gloss Unit).
+</div>
+
+<div class="prop">
+  <span class="label label-prop">2. Capteur de pr&eacute;sence &agrave; photodiode &mdash; r&eacute;flexion infrarouge</span><br>
+  Les machines &agrave; bois modernes (platines d&apos;usinage, convoyeurs) int&egrave;grent des <strong>capteurs &agrave; r&eacute;flexion infrarouge</strong> : une LED IR &eacute;met un faisceau qui se r&eacute;fl&eacute;chit sur la pi&egrave;ce et revient sur une photodiode. Si la pi&egrave;ce est absente, aucun signal n&apos;est re&ccedil;u &rarr; la machine s&apos;arr&ecirc;te. Ce principe exploite directement la loi de r&eacute;flexion (angle incident = angle r&eacute;fl&eacute;chi). Le r&eacute;glage de la distance de d&eacute;tection d&eacute;pend de l&apos;angle d&apos;installation du capteur.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">3. Fibre optique dans les machines CNC &mdash; r&eacute;flexion totale interne</span><br>
+  Les centres d&apos;usinage CNC pour le bois et l&apos;aluminium utilisent des <strong>liaisons en fibre optique</strong> pour transmettre les signaux de commande num&eacute;rique entre le pupitre, le calculateur et les servomoteurs. La r&eacute;flexion totale interne garantit :<br>
+  &bull; Aucune perte de signal li&eacute;e aux perturbations &eacute;lectromagn&eacute;tiques des moteurs et variateurs.<br>
+  &bull; Une transmission &agrave; tr&egrave;s haute vitesse pour les cycles d&apos;interpolation (G01, G02) en temps r&eacute;el.<br>
+  &bull; Une fiabilit&eacute; accrue en environnement d&apos;atelier (poussi&egrave;re, huile, vibrations).
+</div>
+
+<div class="prop">
+  <span class="label label-prop">4. Laser de d&eacute;coupe bois &mdash; guidage par r&eacute;flexion sur miroirs</span><br>
+  Dans une machine de d&eacute;coupe ou gravure laser (CO&#8322;, fibre), le faisceau laser est produit dans un tube fixe puis guid&eacute; jusqu&apos;au mat&eacute;riau par un syst&egrave;me de <strong>miroirs orientables</strong>. Chaque miroir exploite la loi de r&eacute;flexion pour d&eacute;vier le faisceau avec pr&eacute;cision (tol&eacute;rance &lt; 0,1 mm). Une lentille focalisante concentre ensuite la lumi&egrave;re sur le bois, portant la temp&eacute;rature locale &agrave; plusieurs centaines de degr&eacute;s. En atelier de menuiserie, ces machines permettent la d&eacute;coupe de contr&eplaqu&eacute;, MDF, acrylique, et la gravure de motifs d&eacute;coratifs sans contact.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Tableau r&eacute;capitulatif &mdash; Applications en atelier</span><br>
+  <table>
+    <thead>
+      <tr><th>Application</th><th>Ph&eacute;nom&egrave;ne optique</th><th>Principe cl&eacute;</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Vernis brillant / mat</td><td>R&eacute;flexion sp&eacute;culaire ou diffuse</td><td>Surface lisse &rarr; angle r&eacute;fl&eacute;chi = angle incident</td></tr>
+      <tr><td>Capteur photodiode IR</td><td>R&eacute;flexion infrarouge</td><td>D&eacute;tection de pi&egrave;ces sur convoyeur</td></tr>
+      <tr><td>Commande CNC par fibre</td><td>R&eacute;flexion totale interne</td><td>Signal sans perte &eacute;lectromagn&eacute;tique</td></tr>
+      <tr><td>Laser de d&eacute;coupe</td><td>R&eacute;flexion sur miroirs orientables</td><td>Guidage pr&eacute;cis du faisceau</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== SECTION 7 ===== -->
+<h2>7. Tableau de synth&egrave;se</h2>
+
+<table>
+  <thead>
+    <tr><th>Ph&eacute;nom&egrave;ne</th><th>Loi / formule</th><th>Application</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>R&eacute;flexion</strong></td>
+      <td>\(i_r = i_1\)<br>Angles par rapport &agrave; la normale</td>
+      <td>Miroirs, bois poli, surfaces vitr&eacute;es, laser</td>
+    </tr>
+    <tr>
+      <td><strong>R&eacute;fraction</strong></td>
+      <td>\(n_1 \sin i_1 = n_2 \sin i_2\)</td>
+      <td>Verres, lentilles, vitrages, capteurs</td>
+    </tr>
+    <tr>
+      <td><strong>Indice</strong></td>
+      <td>\(n = c/v\), air&nbsp;&asymp;&nbsp;1, verre&nbsp;=&nbsp;1,5</td>
+      <td>Caract&eacute;riser un milieu transparent</td>
+    </tr>
+    <tr>
+      <td><strong>R&eacute;flexion totale</strong></td>
+      <td>\(\sin i_\ell = n_2/n_1\) (si \(n_1 > n_2\))</td>
+      <td>Fibre optique, CNC, domotique</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== SECTION 8 ===== -->
+<h2>8. &Agrave; retenir</h2>
+
+<div class="retenir">
+  <span class="label label-ret">Essentiel</span>
+  <ol>
+    <li>La lumi&egrave;re se propage en <strong>ligne droite</strong> dans un milieu homog&egrave;ne &agrave; \(c = 3 \times 10^8\) m/s dans le vide.</li>
+    <li>Lors d&apos;une <strong>r&eacute;flexion</strong>, l&apos;angle de r&eacute;flexion &eacute;gale l&apos;angle d&apos;incidence : \(i_r = i_1\) (par rapport &agrave; la normale).</li>
+    <li>Lors d&apos;une <strong>r&eacute;fraction</strong>, la loi de Snell-Descartes donne : \(n_1 \sin i_1 = n_2 \sin i_2\). Le rayon se rapproche de la normale en entrant dans un milieu plus dense.</li>
+    <li>La <strong>r&eacute;flexion totale interne</strong> se produit si \(i_1 > i_\ell\) avec \(\sin i_\ell = n_2/n_1\) : principe de la <strong>fibre optique</strong>.</li>
+    <li>En atelier de menuiserie : la <strong>brillance du bois verni</strong> r&eacute;sulte de la r&eacute;flexion sp&eacute;culaire ; la <strong>fibre optique</strong> est utilis&eacute;e en CNC et domotique ; les <strong>miroirs orientables</strong> guident le laser de d&eacute;coupe.</li>
+  </ol>
+</div>
+
+<!-- ===== SECTION 9 ===== -->
+<h2>9. Mini-exercices</h2>
+
+<div class="exo">
+  <div class="exo-num">Exercice 1 &mdash; Loi de r&eacute;flexion</div>
+  <p>Un rayon lumineux frappe un miroir plan avec un angle d&apos;incidence \(i_1 = 35°\) (mesur&eacute; par rapport &agrave; la normale).</p>
+  <ol type="a">
+    <li>Quel est l&apos;angle de r&eacute;flexion \(i_r\) ?</li>
+    <li>Si le miroir tourne de 10°, de combien tourne le rayon r&eacute;fl&eacute;chi ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      a) D&apos;apr&egrave;s la loi de Descartes : \(i_r = i_1 = \mathbf{35°}\).<br>
+      b) Si le miroir tourne de 10°, la normale tourne aussi de 10°. L&apos;angle d&apos;incidence varie de 10° et l&apos;angle de r&eacute;flexion aussi, donc le rayon r&eacute;fl&eacute;chi tourne de <strong>2 &times; 10° = 20°</strong> (propri&eacute;t&eacute; du miroir tournant).
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 2 &mdash; Calcul de l&apos;angle r&eacute;fract&eacute;</div>
+  <p>Un rayon lumineux passe de l&apos;eau (\(n_1 = 1{,}33\)) vers l&apos;air (\(n_2 = 1{,}00\)) avec un angle d&apos;incidence \(i_1 = 25°\).</p>
+  <ol type="a">
+    <li>Calculer l&apos;angle r&eacute;fract&eacute; \(i_2\).</li>
+    <li>Le rayon se rapproche-t-il ou s&apos;&eacute;loigne-t-il de la normale ? Justifier.</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      a) \(n_1 \sin i_1 = n_2 \sin i_2\)<br>
+      \[\sin i_2 = \frac{n_1 \sin i_1}{n_2} = \frac{1{,}33 \times \sin(25°)}{1{,}00} = 1{,}33 \times 0{,}423 = 0{,}562\]
+      \[i_2 = \arcsin(0{,}562) \approx \mathbf{34{,}2°}\]<br>
+      b) Le rayon <strong>s&apos;&eacute;loigne</strong> de la normale car \(i_2 = 34{,}2° > i_1 = 25°\). Cela est coh&eacute;rent : on passe d&apos;un milieu dense (eau, \(n = 1{,}33\)) vers un milieu moins dense (air, \(n = 1{,}00\)).
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 3 &mdash; R&eacute;flexion totale interne</div>
+  <p>Le c&oelig;ur d&apos;une fibre optique a un indice \(n_1 = 1{,}50\) et sa gaine a un indice \(n_2 = 1{,}42\).</p>
+  <ol type="a">
+    <li>Calculer l&apos;angle limite de r&eacute;flexion totale \(i_\ell\).</li>
+    <li>Un rayon arrive avec un angle \(i = 80°\). Y a-t-il r&eacute;flexion totale ? Justifier.</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      a) \(\sin i_\ell = \dfrac{n_2}{n_1} = \dfrac{1{,}42}{1{,}50} = 0{,}947\)<br>
+      \[i_\ell = \arcsin(0{,}947) \approx \mathbf{71{,}4°}\]<br>
+      b) L&apos;angle d&apos;incidence \(i = 80° > i_\ell = 71{,}4°\) : il y a bien <strong>r&eacute;flexion totale interne</strong>. Le rayon reste confin&eacute; dans le c&oelig;ur de la fibre et se propage sans sortir.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 4 &mdash; Application en atelier : capteur laser de d&eacute;coupe</div>
+  <p>Dans une machine de d&eacute;coupe laser, un miroir &agrave; 45° d&eacute;vie le faisceau laser. Le faisceau arrive horizontalement sur le miroir.</p>
+  <ol type="a">
+    <li>Quel est l&apos;angle d&apos;incidence du faisceau par rapport &agrave; la normale du miroir ?</li>
+    <li>Dans quelle direction repart le faisceau r&eacute;fl&eacute;chi (vers le haut, le bas, horizontalement) ?</li>
+    <li>Pourquoi utilise-t-on des miroirs plut&ocirc;t que des fibres optiques pour guider le faisceau laser CO&#8322; ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      a) La normale &agrave; un miroir &agrave; 45° fait 45° avec la surface. Un faisceau horizontal a donc un angle d&apos;incidence de <strong>45°</strong> par rapport &agrave; la normale.<br>
+      b) D&apos;apr&egrave;s la loi de r&eacute;flexion : \(i_r = i_1 = 45°\). Le faisceau repart &agrave; <strong>90°</strong> du faisceau incident, donc <strong>verticalement vers le bas</strong> (vers la t&ecirc;te de coupe).<br>
+      c) Les fibres optiques classiques ne transmettent pas efficacement la longueur d&apos;onde du laser CO&#8322; (10,6 &micro;m, infrarouge lointain). Les miroirs en cuivre ou molybd&egrave;ne r&eacute;fl&eacute;chissent &gt; 99 % de l&apos;&eacute;nergie &agrave; cette longueur d&apos;onde.
+    </div>
+  </details>
+</div>
+
+</div><!-- .c -->
+
+<!-- ===== SECTION 10 ===== -->
+<div class="c" style="margin-top:18px">
+<h2>10. Pour aller plus loin &mdash; Vocabulaire technique</h2>
+<table>
+  <thead>
+    <tr><th>Terme</th><th>D&eacute;finition rapide</th><th>Contexte professionnel</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>R&eacute;flexion sp&eacute;culaire</td><td>Toute la lumi&egrave;re repart dans une seule direction</td><td>Surface miroir, verre poli, m&eacute;tal bross&eacute;</td></tr>
+    <tr><td>R&eacute;flexion diffuse</td><td>Lumi&egrave;re r&eacute;partie dans toutes les directions</td><td>Bois mat, peinture mate, pl&acirc;tre</td></tr>
+    <tr><td>Indice de r&eacute;fraction</td><td>\(n = c/v\), sans unit&eacute;, toujours &ge; 1</td><td>Choix du mat&eacute;riau de vitre ou de fibre</td></tr>
+    <tr><td>Angle critique (&#952;c)</td><td>Angle limite au-del&agrave; duquel la r&eacute;flexion totale se produit</td><td>C&oelig;ur de fibre optique CNC</td></tr>
+    <tr><td>Glossm&egrave;tre</td><td>Instrument mesurant le brillant en GU (Gloss Unit)</td><td>Contr&ocirc;le qualit&eacute; des finitions laquees</td></tr>
+    <tr><td>LED IR (infrarouge)</td><td>Diode &eacute;mettant dans l&apos;infrarouge (invisible)</td><td>Capteurs de pr&eacute;sence sur convoyeurs</td></tr>
+    <tr><td>Laser CO&#8322;</td><td>Laser &agrave; gaz, &lambda; = 10,6 &micro;m, puissant</td><td>D&eacute;coupe bois, MDF, acrylique</td></tr>
+  </tbody>
+</table>
+</div>
+
+<script>
+// ===== Chart.js : indice de réfraction vs vitesse de la lumière =====
+(function(){
+  var ctx = document.getElementById('chartIndice');
+  if(!ctx) return;
+  var milieux = ['Vide', 'Air', 'Eau', 'Verre', 'Diamant'];
+  var vitesses = [300000, 299100, 225000, 200000, 124000];
+  var indices = [1.000, 1.003, 1.333, 1.500, 2.420];
+  var colors = [
+    'rgba(59,130,246,0.85)',
+    'rgba(96,165,250,0.85)',
+    'rgba(37,99,235,0.85)',
+    'rgba(29,78,216,0.85)',
+    'rgba(30,27,75,0.85)'
+  ];
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: milieux.map(function(m, i){ return m + ' (n=' + indices[i].toFixed(3) + ')'; }),
+      datasets: [{
+        label: 'Vitesse de la lumière (km/s)',
+        data: vitesses,
+        backgroundColor: colors,
+        borderColor: colors.map(function(c){ return c.replace('0.85','1'); }),
+        borderWidth: 1.5,
+        borderRadius: 5
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx){
+              return ' ' + ctx.parsed.x.toLocaleString('fr-FR') + ' km/s';
+            }
+          }
+        },
+        title: {
+          display: true,
+          text: 'Vitesse de la lumière selon le milieu',
+          color: '#4a5568',
+          font: { size: 13, weight: '600' }
+        }
+      },
+      scales: {
+        x: {
+          min: 0,
+          max: 320000,
+          title: { display: true, text: 'Vitesse (km/s)', color: '#718096' },
+          ticks: {
+            callback: function(v){ return (v/1000).toFixed(0) + ' k'; }
+          }
+        },
+        y: {
+          ticks: { color: '#4a5568', font: { size: 11 } }
+        }
+      }
+    }
+  });
+})();
+
+// ===== Animation Canvas : réfraction interactive Snell-Descartes =====
+(function(){
+  var canvas = document.getElementById('canvasRefrac');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  var midY = H / 2;
+  var n1 = 1.0, n2 = 1.5;
+  var angleI = 30; // degrés
+
+  function drawScene(){
+    ctx.clearRect(0, 0, W, H);
+
+    // Milieu 1 (haut) : bleu clair
+    ctx.fillStyle = 'rgba(219,234,254,0.7)';
+    ctx.fillRect(0, 0, W, midY);
+    ctx.fillStyle = '#1e40af';
+    ctx.font = '11px Segoe UI, sans-serif';
+    ctx.fillText('Milieu 1 — n\u2081 = ' + n1.toFixed(1) + ' (air)', 8, 18);
+
+    // Milieu 2 (bas) : bleu foncé
+    ctx.fillStyle = 'rgba(165,180,252,0.55)';
+    ctx.fillRect(0, midY, W, midY);
+    ctx.fillStyle = '#3730a3';
+    ctx.fillText('Milieu 2 — n\u2082 = ' + n2.toFixed(1) + ' (verre)', 8, midY + 20);
+
+    // Interface
+    ctx.strokeStyle = '#475569';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(0, midY);
+    ctx.lineTo(W, midY);
+    ctx.stroke();
+
+    // Point d'incidence
+    var Ix = W / 2, Iy = midY;
+
+    // Normale (tirets)
+    ctx.strokeStyle = '#64748b';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([5, 4]);
+    ctx.beginPath();
+    ctx.moveTo(Ix, 5);
+    ctx.lineTo(Ix, H - 5);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px Segoe UI, sans-serif';
+    ctx.fillText('Normale', Ix + 4, 14);
+
+    var iRad = angleI * Math.PI / 180;
+    var sinT = (n1 / n2) * Math.sin(iRad);
+    var totalRefl = sinT >= 1.0;
+    var tRad = totalRefl ? iRad : Math.asin(sinT);
+    var angleT = totalRefl ? 0 : tRad * 180 / Math.PI;
+
+    var rayLen = 80;
+
+    // Rayon incident (orange) — vient du haut gauche
+    var incX = Ix - rayLen * Math.sin(iRad);
+    var incY = Iy - rayLen * Math.cos(iRad);
+    ctx.strokeStyle = '#ea580c';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(incX, incY);
+    ctx.lineTo(Ix, Iy);
+    ctx.stroke();
+    // Flèche
+    drawArrow(ctx, incX, incY, Ix, Iy, '#ea580c');
+    ctx.fillStyle = '#c2410c';
+    ctx.font = 'bold 10px Segoe UI, sans-serif';
+    ctx.fillText('Incident', incX - 10, incY - 6);
+
+    if(!totalRefl){
+      // Rayon réfracté (bleu) — va vers le bas
+      var refX = Ix + rayLen * Math.sin(tRad);
+      var refY = Iy + rayLen * Math.cos(tRad);
+      ctx.strokeStyle = '#2563eb';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(Ix, Iy);
+      ctx.lineTo(refX, refY);
+      ctx.stroke();
+      drawArrow(ctx, Ix, Iy, refX, refY, '#2563eb');
+      ctx.fillStyle = '#1d4ed8';
+      ctx.font = 'bold 10px Segoe UI, sans-serif';
+      ctx.fillText('R\u00e9fract\u00e9', refX + 4, refY + 4);
+    } else {
+      // Réflexion totale : rayon réfléchi (rouge)
+      var rflX = Ix + rayLen * Math.sin(iRad);
+      var rflY = Iy - rayLen * Math.cos(iRad);
+      ctx.strokeStyle = '#dc2626';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(Ix, Iy);
+      ctx.lineTo(rflX, rflY);
+      ctx.stroke();
+      drawArrow(ctx, Ix, Iy, rflX, rflY, '#dc2626');
+      ctx.fillStyle = '#dc2626';
+      ctx.font = 'bold 10px Segoe UI, sans-serif';
+      ctx.fillText('R\u00e9fl\u00e9chi (total)', rflX + 4, rflY - 4);
+    }
+
+    // Annotation angle i
+    ctx.strokeStyle = '#ea580c';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(Ix, Iy, 28, -Math.PI / 2, -Math.PI / 2 - iRad, true);
+    ctx.stroke();
+    ctx.fillStyle = '#c2410c';
+    ctx.font = 'italic 12px Segoe UI, sans-serif';
+    ctx.fillText('i', Ix - 36, Iy - 12);
+
+    if(!totalRefl){
+      // Annotation angle t
+      ctx.strokeStyle = '#2563eb';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(Ix, Iy, 28, Math.PI / 2 - tRad, Math.PI / 2, false);
+      ctx.stroke();
+      ctx.fillStyle = '#1d4ed8';
+      ctx.font = 'italic 12px Segoe UI, sans-serif';
+      ctx.fillText('t', Ix + 30, Iy + 20);
+    }
+
+    // Mise à jour du label
+    var labelEl = document.getElementById('labelAngles');
+    var totalEl = document.getElementById('labelTotalRefl');
+    if(totalRefl){
+      labelEl.textContent = 'Angle incident i\u2081 = ' + angleI + '\u00b0 \u2014 R\u00e9flexion totale interne !';
+      totalEl.textContent = 'R\u00e9flexion totale ! (i\u2081 > i_critique \u2248 ' + (Math.asin(n2/n1)*180/Math.PI).toFixed(1) + '\u00b0)';
+    } else {
+      labelEl.textContent = 'Angle incident i\u2081 = ' + angleI + '\u00b0 \u2014 Angle r\u00e9fract\u00e9 t = ' + angleT.toFixed(1) + '\u00b0';
+      totalEl.textContent = '';
+    }
+  }
+
+  function drawArrow(ctx, x1, y1, x2, y2, color){
+    var dx = x2 - x1, dy = y2 - y1;
+    var len = Math.sqrt(dx*dx + dy*dy);
+    if(len < 1) return;
+    var ux = dx/len, uy = dy/len;
+    var arrowLen = 10, arrowW = 5;
+    var ax = x2 - ux * arrowLen;
+    var ay = y2 - uy * arrowLen;
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(ax - uy * arrowW, ay + ux * arrowW);
+    ctx.lineTo(ax + uy * arrowW, ay - ux * arrowW);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  document.getElementById('btnIncrease').addEventListener('click', function(){
+    if(angleI < 85) { angleI += 5; drawScene(); }
+  });
+  document.getElementById('btnDecrease').addEventListener('click', function(){
+    if(angleI > 5) { angleI -= 5; drawScene(); }
+  });
+
+  drawScene();
+})();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch08 &ndash; Calcul int&eacute;gral &ndash; Terminale Bac Pro</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root{--p:#0969da;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+    body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+    .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+    h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+    .sous-titre{color:#718096;font-size:.95em;margin:0}
+    h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+    h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px}
+    .def{background:#ebf5ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+    .biv{background:#fdf4ff;border-left:5px solid #9333ea;padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+    .label-def{background:#dbeafe;color:#1e40af}
+    .label-prop{background:#d1fae5;color:#065f46}
+    .label-att{background:#fee2e2;color:#991b1b}
+    .label-meth{background:#fef3c7;color:#92400e}
+    .label-ex{background:#e2e8f0;color:#4a5568}
+    .label-biv{background:#f3e8ff;color:#7c3aed}
+    table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+    th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+    th{background:#eef2f7;font-weight:600}
+    .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+    .retenir{background:#dbeafe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+    .objectifs{background:#ebf5ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #93c5fd}
+    .objectifs ul{margin:6px 0 0 0;padding-left:20px}
+    .exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
+    details summary{cursor:pointer;font-weight:600;color:var(--p);margin-top:8px}
+    details[open] summary{margin-bottom:6px}
+    details p,details ol,details ul{margin:6px 0 0 0;color:#4a5568}
+    .anim-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0;text-align:center}
+    .anim-wrap button{background:var(--p);color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;margin:6px 4px;font-size:.85em}
+    .anim-wrap button:hover{background:#0752b0}
+    .chart-wrap{max-width:620px;margin:18px auto}
+    #integralCanvas{border-radius:6px;display:block;margin:0 auto;max-width:100%}
+    .val-display{font-size:1.2em;font-weight:700;color:var(--p);margin:10px 0;font-family:monospace}
+    .step-box{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:10px 16px;margin:8px 0}
+    .step-num{display:inline-block;background:var(--p);color:#fff;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;font-size:.8em;font-weight:700;margin-right:8px}
+    .tag-iccer{display:inline-block;background:#dbeafe;color:#1e40af;font-size:.72em;font-weight:700;padding:2px 8px;border-radius:4px;text-transform:uppercase;vertical-align:middle;margin-left:6px}
+    .tag-era{display:inline-block;background:#d1fae5;color:#065f46;font-size:.72em;font-weight:700;padding:2px 8px;border-radius:4px;text-transform:uppercase;vertical-align:middle;margin-left:6px}
+    ol li,ul li{margin-bottom:5px}
+  </style>
+  <link rel="stylesheet" href="/nav.css">
+</head>
+<body>
+<div class="c">
+
+  <!-- Navigation retour -->
+  <a href="maths-term-iccer.html" class="nb">&#8592; Retour au sommaire</a>
+
+  <!-- Header -->
+  <header>
+    <h1>Chapitre 8 &mdash; Calcul int&eacute;gral</h1>
+    <p class="sous-titre">Terminale Bac Pro &mdash; ERA &bull; TMA &bull; ICCER</p>
+  </header>
+
+  <!-- Objectifs -->
+  <div class="objectifs">
+    <strong>Objectifs du chapitre :</strong>
+    <ul>
+      <li>Comprendre la notion d'int&eacute;grale comme aire alg&eacute;brique sous une courbe</li>
+      <li>Conna&icirc;tre et utiliser les primitives usuelles</li>
+      <li>Calculer une int&eacute;grale d&eacute;finie par la m&eacute;thode \(\bigl[F(x)\bigr]_a^b = F(b) - F(a)\)</li>
+      <li>Appliquer les propri&eacute;t&eacute;s : lin&eacute;arit&eacute;, relation de Chasles</li>
+      <li>Calculer une aire entre une courbe et l'axe des x, ou entre deux courbes</li>
+      <li>Calculer la valeur moyenne d'une fonction sur un intervalle</li>
+    </ul>
+  </div>
+
+  <!-- ===== 1. NOTION D'INTÉGRALE ===== -->
+  <h2>1. Notion d'int&eacute;grale &mdash; Aire sous une courbe</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    Soit \(f\) une fonction <strong>positive et continue</strong> sur \([a,\,b]\).
+    L'<strong>int&eacute;grale de \(f\) de \(a\) &agrave; \(b\)</strong>, not&eacute;e
+    \[\int_a^b f(x)\,\mathrm{d}x\]
+    repr&eacute;sente l'<strong>aire de la surface</strong> comprise entre la courbe de \(f\),
+    l'axe des abscisses et les droites verticales \(x = a\) et \(x = b\).
+    Elle s'exprime en unit&eacute;s d'aire (u.a.).
+  </div>
+
+  <div class="att">
+    <span class="label label-att">Attention &mdash; Aire alg&eacute;brique</span><br>
+    Si \(f\) prend des valeurs <strong>n&eacute;gatives</strong> sur une partie de \([a,b]\),
+    l'int&eacute;grale tient compte du signe : les portions sous l'axe contribuent n&eacute;gativement.
+    On parle d'<strong>aire alg&eacute;brique</strong>. Pour l'<em>aire g&eacute;om&eacute;trique</em> (toujours positive),
+    il faut d&eacute;couper selon les z&eacute;ros de \(f\) et sommer les valeurs absolues.
+  </div>
+
+  <!-- Visualisation interactive canvas -->
+  <div class="anim-wrap">
+    <strong>Visualisation interactive</strong> &mdash; Aire sous \(f(x) = x^2\) sur \([0,\,3]\)
+    <br><small style="color:#718096">Utiliser les boutons pour animer le remplissage progressif</small>
+    <br><br>
+    <canvas id="integralCanvas" width="540" height="270"></canvas>
+    <div class="val-display" id="aireVal">&mdash;</div>
+    <button onclick="animateIntegral()">&#9654;&nbsp;Animer</button>
+    <button onclick="showFull()">Afficher tout</button>
+    <button onclick="resetIntegral()">&#8635;&nbsp;R&eacute;initialiser</button>
+  </div>
+
+  <!-- ===== 2. PRIMITIVES ===== -->
+  <h2>2. Primitives d'une fonction</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    Une fonction \(F\) est une <strong>primitive</strong> de \(f\) sur un intervalle \(I\) si :
+    \[F'(x) = f(x) \quad \text{pour tout } x \in I\]
+    Si \(F\) est une primitive de \(f\), alors <em>toutes</em> les primitives de \(f\) s'&eacute;crivent
+    \(F(x) + C\) o&ugrave; \(C \in \mathbb{R}\) est une constante arbitraire.
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Propri&eacute;t&eacute;</span><br>
+    Toute fonction continue sur un intervalle admet des primitives sur cet intervalle.
+    Deux primitives d'une m&ecirc;me fonction ne diff&egrave;rent que d'une <strong>constante</strong>.
+  </div>
+
+  <h3>Tableau des primitives usuelles</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fonction \(f(x)\)</th>
+        <th>Une primitive \(F(x)\)</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>\(k\) (constante)</td>
+        <td>\(kx\)</td>
+        <td>\(k \in \mathbb{R}\)</td>
+      </tr>
+      <tr>
+        <td>\(x^n\)</td>
+        <td>\(\dfrac{x^{n+1}}{n+1}\)</td>
+        <td>\(n \in \mathbb{Z},\ n \neq -1\)</td>
+      </tr>
+      <tr>
+        <td>\(x\)</td>
+        <td>\(\dfrac{x^2}{2}\)</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td>\(x^2\)</td>
+        <td>\(\dfrac{x^3}{3}\)</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td>\(\sqrt{x}\)</td>
+        <td>\(\dfrac{2}{3}\,x^{3/2}\)</td>
+        <td>\(x \geq 0\)</td>
+      </tr>
+      <tr>
+        <td>\(\dfrac{1}{x}\)</td>
+        <td>\(\ln|x|\)</td>
+        <td>\(x \neq 0\)</td>
+      </tr>
+      <tr>
+        <td>\(e^x\)</td>
+        <td>\(e^x\)</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td>\(e^{ax+b}\)</td>
+        <td>\(\dfrac{1}{a}\,e^{ax+b}\)</td>
+        <td>\(a \neq 0\)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ex">
+    <span class="label label-ex">Exemples de primitives</span>
+    <ul>
+      <li>Primitive de \(f(x) = 3x^2\) : \(F(x) = x^3\) &nbsp; v&eacute;rif : \(F'(x) = 3x^2\) &#10003;</li>
+      <li>Primitive de \(f(x) = 5\) : \(F(x) = 5x\)</li>
+      <li>Primitive de \(f(x) = 2x + 3\) : \(F(x) = x^2 + 3x\)</li>
+      <li>Primitive de \(f(x) = e^{2x}\) : \(F(x) = \dfrac{1}{2}\,e^{2x}\)</li>
+    </ul>
+  </div>
+
+  <!-- ===== 3. CALCUL D'UNE INTÉGRALE ===== -->
+  <h2>3. Calcul d'une int&eacute;grale d&eacute;finie</h2>
+
+  <div class="prop">
+    <span class="label label-prop">Th&eacute;or&egrave;me fondamental du calcul int&eacute;gral</span><br>
+    Si \(F\) est une primitive de \(f\) sur \([a,\,b]\), alors :
+    \[\int_a^b f(x)\,\mathrm{d}x = \Big[F(x)\Big]_a^b = F(b) - F(a)\]
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">M&eacute;thode en 3 &eacute;tapes</span>
+    <div class="step-box">
+      <span class="step-num">1</span> <strong>Trouver une primitive \(F\)</strong> de \(f\) (on omet la constante \(C\))
+    </div>
+    <div class="step-box">
+      <span class="step-num">2</span> <strong>&Eacute;crire</strong> \(\Big[F(x)\Big]_a^b\)
+    </div>
+    <div class="step-box">
+      <span class="step-num">3</span> <strong>Calculer</strong> \(F(b) - F(a)\) et conclure
+    </div>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 1</span>&nbsp; Calculer \(\displaystyle\int_1^3 2x\,\mathrm{d}x\)
+    <ol>
+      <li>Primitive de \(2x\) : \(F(x) = x^2\)</li>
+      <li>\(\Big[x^2\Big]_1^3\)</li>
+      <li>\(= 3^2 - 1^2 = 9 - 1 = \boldsymbol{8}\)</li>
+    </ol>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 2</span>&nbsp; Calculer \(\displaystyle\int_0^2 (3x^2 - 2x + 1)\,\mathrm{d}x\)
+    <ol>
+      <li>Primitive : \(F(x) = x^3 - x^2 + x\)</li>
+      <li>\(\Big[x^3 - x^2 + x\Big]_0^2\)</li>
+      <li>\(= (8 - 4 + 2) - (0 - 0 + 0) = 6\)</li>
+    </ol>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 3</span>&nbsp; Calculer \(\displaystyle\int_0^1 e^x\,\mathrm{d}x\)
+    <ol>
+      <li>Primitive de \(e^x\) : \(F(x) = e^x\)</li>
+      <li>\(\Big[e^x\Big]_0^1\)</li>
+      <li>\(= e^1 - e^0 = e - 1 \approx \boldsymbol{1{,}718}\)</li>
+    </ol>
+  </div>
+
+  <!-- Chart.js : f(x) = 2x+1 sur [1,4] -->
+  <h3>Visualisation avec Chart.js : \(f(x) = 2x+1\) sur \([1,\,4]\)</h3>
+  <div class="chart-wrap">
+    <canvas id="chartIntegrale" height="220"></canvas>
+  </div>
+  <p style="text-align:center;font-size:.88em;color:#718096">
+    Aire color&eacute;e en bleu&nbsp;:&nbsp;
+    \(\displaystyle\int_1^4 (2x+1)\,\mathrm{d}x = \Big[x^2+x\Big]_1^4 = (16+4)-(1+1) = \boldsymbol{18}\)
+  </p>
+
+  <!-- ===== 4. PROPRIÉTÉS ===== -->
+  <h2>4. Propri&eacute;t&eacute;s de l'int&eacute;grale</h2>
+
+  <div class="prop">
+    <span class="label label-prop">Lin&eacute;arit&eacute;</span><br>
+    Pour tous r&eacute;els \(\lambda,\,\mu\) et toutes fonctions \(f,\,g\) int&eacute;grables sur \([a,b]\) :
+    \[\int_a^b \bigl(\lambda\,f(x) + \mu\,g(x)\bigr)\,\mathrm{d}x
+      = \lambda\int_a^b f(x)\,\mathrm{d}x + \mu\int_a^b g(x)\,\mathrm{d}x\]
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple &mdash; Lin&eacute;arit&eacute;</span><br>
+    \(\displaystyle\int_0^2 (4x^2 + 3e^x)\,\mathrm{d}x
+    = 4\int_0^2 x^2\,\mathrm{d}x + 3\int_0^2 e^x\,\mathrm{d}x\)
+    \[= 4\Bigl[\tfrac{x^3}{3}\Bigr]_0^2 + 3\Bigl[e^x\Bigr]_0^2
+    = 4 \times \tfrac{8}{3} + 3(e^2 - 1)
+    = \tfrac{32}{3} + 3e^2 - 3
+    \approx 10{,}67 + 19{,}17 - 3 \approx \boldsymbol{26{,}84}\]
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Relation de Chasles</span><br>
+    Pour tout r&eacute;el \(c\) (quelconque, pas n&eacute;cessairement entre \(a\) et \(b\)) :
+    \[\int_a^b f(x)\,\mathrm{d}x = \int_a^c f(x)\,\mathrm{d}x + \int_c^b f(x)\,\mathrm{d}x\]
+    Cette relation permet de <strong>d&eacute;couper</strong> un intervalle d'int&eacute;gration.
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple &mdash; Chasles</span><br>
+    On sait que \(\displaystyle\int_1^5 f(x)\,\mathrm{d}x = 12\) et
+    \(\displaystyle\int_1^3 f(x)\,\mathrm{d}x = 5\).<br>
+    Alors : \(\displaystyle\int_3^5 f(x)\,\mathrm{d}x
+    = \int_1^5 f(x)\,\mathrm{d}x - \int_1^3 f(x)\,\mathrm{d}x = 12 - 5 = \boldsymbol{7}\)
+  </div>
+
+  <div class="prop">
+    <span class="label label-prop">Autres propri&eacute;t&eacute;s</span>
+    <ul>
+      <li>\(\displaystyle\int_a^a f(x)\,\mathrm{d}x = 0\)</li>
+      <li>\(\displaystyle\int_a^b f(x)\,\mathrm{d}x = -\int_b^a f(x)\,\mathrm{d}x\)
+        &nbsp;(inversion des bornes &rArr; changement de signe)</li>
+      <li>Si \(f(x) \geq 0\) sur \([a,b]\), alors \(\displaystyle\int_a^b f(x)\,\mathrm{d}x \geq 0\)</li>
+    </ul>
+  </div>
+
+  <!-- ===== 5. CALCUL D'AIRES ===== -->
+  <h2>5. Calcul d'aire</h2>
+
+  <h3>5.1 Aire entre une courbe et l'axe des abscisses</h3>
+
+  <div class="meth">
+    <span class="label label-meth">M&eacute;thode</span>
+    <ul>
+      <li>Si \(f(x) \geq 0\) sur \([a,b]\) :&nbsp;
+        \(\mathcal{A} = \displaystyle\int_a^b f(x)\,\mathrm{d}x\)</li>
+      <li>Si \(f(x) \leq 0\) sur \([a,b]\) :&nbsp;
+        \(\mathcal{A} = \displaystyle-\int_a^b f(x)\,\mathrm{d}x\)</li>
+      <li>Si \(f\) <strong>change de signe</strong> : d&eacute;couper selon les z&eacute;ros,
+        calculer chaque int&eacute;grale et sommer les valeurs absolues.</li>
+    </ul>
+  </div>
+
+  <h3>5.2 Aire entre deux courbes</h3>
+
+  <div class="meth">
+    <span class="label label-meth">M&eacute;thode</span><br>
+    Si \(f(x) \geq g(x)\) sur \([a,b]\), l'aire entre les courbes est :
+    \[\mathcal{A} = \int_a^b \bigl(f(x) - g(x)\bigr)\,\mathrm{d}x\]
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple</span>&nbsp;
+    Aire entre \(f(x) = x^2\) et \(g(x) = x\) sur \([0,\,1]\)<br>
+    Sur \([0,1]\), \(x \geq x^2\), donc \(g \geq f\).
+    \[\mathcal{A} = \int_0^1 (x - x^2)\,\mathrm{d}x
+    = \Bigl[\tfrac{x^2}{2} - \tfrac{x^3}{3}\Bigr]_0^1
+    = \tfrac{1}{2} - \tfrac{1}{3} = \boldsymbol{\tfrac{1}{6}} \approx 0{,}167 \text{ u.a.}\]
+  </div>
+
+  <!-- ===== 6. EXEMPLE ICCER ===== -->
+  <h2>6. &Eacute;nergie consomm&eacute;e &mdash; Chaudière
+    <span class="tag-iccer">ICCER</span>
+  </h2>
+
+  <div class="biv">
+    <span class="label label-biv">Probl&egrave;me professionnel</span><br>
+    Une chaudi&egrave;re a une puissance instantan&eacute;e variable mod&eacute;lis&eacute;e par :
+    \[P(t) = 3t^2 - 12t + 15 \quad \text{(kW, avec } t \text{ en heures, } 0 \leq t \leq 4\text{)}\]
+    <strong>Calculer l'&eacute;nergie totale consomm&eacute;e</strong> sur l'intervalle \([0,\,4]\) (en kWh).
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Solution compl&egrave;te</span>
+    <p><strong>Rappel physique :</strong> L'&eacute;nergie est l'int&eacute;grale de la puissance :
+    \[E = \int_0^4 P(t)\,\mathrm{d}t = \int_0^4 (3t^2 - 12t + 15)\,\mathrm{d}t\]</p>
+
+    <p><strong>&Eacute;tape 1 &mdash; Primitive :</strong>
+    \[F(t) = t^3 - 6t^2 + 15t\]
+    V&eacute;rification : \(F'(t) = 3t^2 - 12t + 15 = P(t)\) &#10003;</p>
+
+    <p><strong>&Eacute;tape 2 &mdash; Calcul :</strong>
+    \[E = \Big[t^3 - 6t^2 + 15t\Big]_0^4\]
+    \[= F(4) - F(0)\]
+    \[= (64 - 96 + 60) - (0 - 0 + 0) = 28 - 0\]
+    \[\boxed{E = 28 \text{ kWh}}\]</p>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Puissance moyenne</span><br>
+    La <strong>puissance moyenne</strong> sur \([0,\,4]\) :
+    \[\overline{P} = \frac{1}{4-0}\int_0^4 P(t)\,\mathrm{d}t = \frac{28}{4} = \boldsymbol{7 \text{ kW}}\]
+    <em>Interpr&eacute;tation :</em> La chaudi&egrave;re consomme en moyenne 7 kW pendant 4&nbsp;h,
+    soit \(7 \times 4 = 28\) kWh. R&eacute;sultat coh&eacute;rent.
+  </div>
+
+  <div class="att">
+    <span class="label label-att">V&eacute;rification du signe de \(P(t)\)</span><br>
+    Discriminant de \(3t^2 - 12t + 15\) :
+    \(\Delta = (-12)^2 - 4 \times 3 \times 15 = 144 - 180 = -36 < 0\).<br>
+    Donc \(P(t) > 0\) sur tout \([0,4]\) : la puissance est toujours positive. &#10003;
+  </div>
+
+  <!-- ===== 7. EXEMPLE ERA/TMA ===== -->
+  <h2>7. Section d'un profil de bois cintr&eacute;
+    <span class="tag-era">ERA / TMA</span>
+  </h2>
+
+  <div class="biv">
+    <span class="label label-biv">Probl&egrave;me professionnel</span><br>
+    Un profilé de bois design (cimaise) a une section transversale dont la g&eacute;n&eacute;ratrice
+    sup&eacute;rieure est mod&eacute;lis&eacute;e par la parabole (en cm) :
+    \[f(x) = -0{,}5x^2 + 4x \quad \text{sur } [0,\,6]\]
+    La g&eacute;n&eacute;ratrice inf&eacute;rieure est l'axe des abscisses (\(y = 0\)).<br>
+    <strong>Calculer la section transversale</strong> de ce profilé (en cm&sup2;).
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Solution compl&egrave;te</span>
+    <p><strong>&Eacute;tape 1 &mdash; V&eacute;rifier le signe de \(f\) sur \([0,6]\) :</strong><br>
+    \(f(x) = x(-0{,}5x + 4)\) ; z&eacute;ros : \(x = 0\) et \(x = 8\).<br>
+    Sur \([0,\,6] \subset [0,\,8]\), on a bien \(f(x) \geq 0\). &#10003;</p>
+
+    <p><strong>&Eacute;tape 2 &mdash; Primitive :</strong>
+    \[F(x) = -\frac{0{,}5}{3}x^3 + \frac{4}{2}x^2 = -\frac{x^3}{6} + 2x^2\]</p>
+
+    <p><strong>&Eacute;tape 3 &mdash; Calcul :</strong>
+    \[\mathcal{A} = \int_0^6 f(x)\,\mathrm{d}x
+    = \Bigl[-\tfrac{x^3}{6} + 2x^2\Bigr]_0^6\]
+    \[= \Bigl(-\tfrac{216}{6} + 2 \times 36\Bigr) - (0)\]
+    \[= (-36 + 72) = \boxed{36 \text{ cm}^2}\]</p>
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Interpr&eacute;tation et usage</span><br>
+    La section transversale du profilé fait <strong>36&nbsp;cm&sup2;</strong>.
+    Pour 1 m&egrave;tre lin&eacute;aire, le volume de bois est :
+    \(V = 36 \times 100 = 3\,600\text{ cm}^3 = 3{,}6\text{ L}\).
+    Connaissant la densit&eacute; du bois (ex. ch&ecirc;ne : \(\approx 0{,}75\text{ kg/L}\)),
+    on obtient la masse : \(m \approx 3{,}6 \times 0{,}75 = 2{,}7\text{ kg/m}\).
+  </div>
+
+  <!-- ===== 8. VALEUR MOYENNE ===== -->
+  <h2>8. Valeur moyenne d'une fonction</h2>
+
+  <div class="def">
+    <span class="label label-def">D&eacute;finition</span><br>
+    La <strong>valeur moyenne</strong> d'une fonction \(f\) continue sur \([a,\,b]\) est :
+    \[\overline{f} = \frac{1}{b-a} \int_a^b f(x)\,\mathrm{d}x\]
+    <em>Interpr&eacute;tation g&eacute;om&eacute;trique :</em> \(\overline{f}\) est la hauteur du rectangle de base
+    \([a,b]\) ayant la m&ecirc;me aire que la surface sous la courbe.
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 1</span>&nbsp;
+    Valeur moyenne de \(f(x) = x^2\) sur \([0,\,3]\)
+    \[\overline{f} = \frac{1}{3}\int_0^3 x^2\,\mathrm{d}x
+    = \frac{1}{3}\Bigl[\frac{x^3}{3}\Bigr]_0^3
+    = \frac{1}{3} \times \frac{27}{3} = \frac{1}{3} \times 9 = \boldsymbol{3}\]
+  </div>
+
+  <div class="ex">
+    <span class="label label-ex">Exemple 2 &mdash; Temp&eacute;rature moyenne
+      <span class="tag-iccer">ICCER</span>
+    </span><br>
+    La temp&eacute;rature d'un fluide caloporteur suit \(T(t) = 2t + 20\) (&deg;C, \(t\) en heures)
+    sur \([0,\,5]\).
+    \[\overline{T} = \frac{1}{5}\int_0^5 (2t + 20)\,\mathrm{d}t
+    = \frac{1}{5}\Bigl[t^2 + 20t\Bigr]_0^5
+    = \frac{1}{5}(25 + 100)
+    = \frac{125}{5} = \boldsymbol{25\text{ °C}}\]
+  </div>
+
+  <!-- ===== 9. TABLEAU RÉCAPITULATIF ===== -->
+  <h2>9. Tableau r&eacute;capitulatif &mdash; Formules essentielles</h2>
+
+  <table>
+    <thead>
+      <tr><th>Notion</th><th>Formule</th><th>Remarque</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Int&eacute;grale d&eacute;finie</td>
+        <td>\(\displaystyle\int_a^b f(x)\,\mathrm{d}x = \bigl[F(x)\bigr]_a^b = F(b)-F(a)\)</td>
+        <td>\(F'=f\)</td>
+      </tr>
+      <tr>
+        <td>Primitive de \(k\)</td>
+        <td>\(kx + C\)</td>
+        <td>\(k \in \mathbb{R}\)</td>
+      </tr>
+      <tr>
+        <td>Primitive de \(x^n\)</td>
+        <td>\(\dfrac{x^{n+1}}{n+1} + C\)</td>
+        <td>\(n \neq -1\)</td>
+      </tr>
+      <tr>
+        <td>Primitive de \(e^x\)</td>
+        <td>\(e^x + C\)</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td>Primitive de \(\frac{1}{x}\)</td>
+        <td>\(\ln|x| + C\)</td>
+        <td>\(x \neq 0\)</td>
+      </tr>
+      <tr>
+        <td>Lin&eacute;arit&eacute;</td>
+        <td>\(\int_a^b(\lambda f + \mu g)\,\mathrm{d}x = \lambda\int_a^b f + \mu\int_a^b g\)</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td>Chasles</td>
+        <td>\(\int_a^b f = \int_a^c f + \int_c^b f\)</td>
+        <td>\(c\) quelconque</td>
+      </tr>
+      <tr>
+        <td>Aire sous courbe</td>
+        <td>\(\mathcal{A} = \displaystyle\int_a^b |f(x)|\,\mathrm{d}x\)</td>
+        <td>D&eacute;couper si \(f\) change de signe</td>
+      </tr>
+      <tr>
+        <td>Aire entre 2 courbes</td>
+        <td>\(\mathcal{A} = \displaystyle\int_a^b \bigl(f(x)-g(x)\bigr)\,\mathrm{d}x\)</td>
+        <td>si \(f \geq g\)</td>
+      </tr>
+      <tr>
+        <td>Valeur moyenne</td>
+        <td>\(\overline{f} = \dfrac{1}{b-a}\displaystyle\int_a^b f(x)\,\mathrm{d}x\)</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td>&Eacute;nergie (ICCER)</td>
+        <td>\(E = \displaystyle\int_{t_1}^{t_2} P(t)\,\mathrm{d}t\)</td>
+        <td>\(P\) en kW, \(t\) en h &rarr; \(E\) en kWh</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ===== 10. À RETENIR ===== -->
+  <h2>10. &Agrave; retenir</h2>
+
+  <div class="retenir">
+    <strong>Essentiel du chapitre :</strong>
+    <ul>
+      <li>\(\displaystyle\int_a^b f(x)\,\mathrm{d}x\) repr&eacute;sente l'<strong>aire alg&eacute;brique</strong>
+          sous la courbe de \(f\) entre \(x = a\) et \(x = b\).</li>
+      <li>Pour calculer : trouver une primitive \(F\) (telle que \(F' = f\)),
+          puis calculer \(F(b) - F(a)\).</li>
+      <li>Les <strong>primitives usuelles</strong> sont &agrave; conna&icirc;tre par c&oelig;ur.</li>
+      <li>La <strong>relation de Chasles</strong> permet de d&eacute;couper un intervalle.</li>
+      <li>La <strong>valeur moyenne</strong> :
+          \(\overline{f} = \dfrac{1}{b-a}\displaystyle\int_a^b f(x)\,\mathrm{d}x\).</li>
+      <li>En <strong>ICCER</strong> : &eacute;nergie = int&eacute;grale de la puissance (\(E = \int P\,\mathrm{d}t\)).</li>
+      <li>En <strong>ERA/TMA</strong> : section = int&eacute;grale du profil sur l'intervalle.</li>
+    </ul>
+  </div>
+
+  <!-- ===== 11. EXERCICES CORRIGÉS ===== -->
+  <h2>11. Mini exercices corrig&eacute;s</h2>
+
+  <!-- Exercice 1 -->
+  <div class="exo">
+    <span class="label label-meth">Exercice 1</span>&nbsp;
+    <strong>Calcul d'int&eacute;grale simple</strong><br>
+    Calculer \(\displaystyle\int_1^4 (2x - 3)\,\mathrm{d}x\).
+    <details>
+      <summary>&#9660; Voir la correction</summary>
+      <p>
+        <strong>&Eacute;tape 1 &mdash; Primitive :</strong> \(F(x) = x^2 - 3x\)<br><br>
+        <strong>&Eacute;tape 2 &mdash; Calcul :</strong>
+        \[\Big[x^2 - 3x\Big]_1^4 = (16 - 12) - (1 - 3) = 4 - (-2) = \boldsymbol{6}\]
+      </p>
+    </details>
+  </div>
+
+  <!-- Exercice 2 -->
+  <div class="exo">
+    <span class="label label-meth">Exercice 2</span>&nbsp;
+    <strong>Calcul d'aire &mdash; profil bois
+      <span class="tag-era">ERA/TMA</span>
+    </strong><br>
+    Une parclose a un profil mod&eacute;lis&eacute; par \(g(x) = x^2 - 4x + 5\) sur \([1,\,3]\),
+    au-dessus de la droite \(y = 1\).
+    Calculer l'aire entre la courbe et \(y = 1\) sur \([1,\,3]\).
+    <details>
+      <summary>&#9660; Voir la correction</summary>
+      <p>
+        On calcule \(\displaystyle\int_1^3 \bigl(g(x) - 1\bigr)\,\mathrm{d}x
+        = \int_1^3 (x^2 - 4x + 4)\,\mathrm{d}x = \int_1^3 (x-2)^2\,\mathrm{d}x\)<br><br>
+        Primitive : \(F(x) = \dfrac{(x-2)^3}{3}\)<br><br>
+        \[\Bigl[\frac{(x-2)^3}{3}\Bigr]_1^3
+        = \frac{(3-2)^3}{3} - \frac{(1-2)^3}{3}
+        = \frac{1}{3} - \frac{-1}{3}
+        = \boldsymbol{\frac{2}{3} \approx 0{,}67 \text{ cm}^2}\]
+      </p>
+    </details>
+  </div>
+
+  <!-- Exercice 3 -->
+  <div class="exo">
+    <span class="label label-meth">Exercice 3</span>&nbsp;
+    <strong>Chasles &amp; &eacute;nergie
+      <span class="tag-iccer">ICCER</span>
+    </strong><br>
+    La puissance d'un climatiseur (kW) varie selon :
+    \[P(t) = \begin{cases} t & \text{si } 0 \leq t \leq 2 \\ 2 & \text{si } 2 < t \leq 5 \end{cases}\]
+    Calculer l'&eacute;nergie consomm&eacute;e sur \([0,\,5]\).
+    <details>
+      <summary>&#9660; Voir la correction</summary>
+      <p>
+        On utilise la relation de Chasles pour s&eacute;parer les deux lois :
+        \[E = \int_0^5 P(t)\,\mathrm{d}t = \int_0^2 t\,\mathrm{d}t + \int_2^5 2\,\mathrm{d}t\]
+        \[= \Bigl[\frac{t^2}{2}\Bigr]_0^2 + \Bigl[2t\Bigr]_2^5\]
+        \[= \Bigl(\frac{4}{2} - 0\Bigr) + (10 - 4) = 2 + 6 = \boldsymbol{8 \text{ kWh}}\]
+      </p>
+    </details>
+  </div>
+
+  <!-- Exercice 4 -->
+  <div class="exo">
+    <span class="label label-meth">Exercice 4</span>&nbsp;
+    <strong>Valeur moyenne &mdash; temp&eacute;rature</strong><br>
+    La temp&eacute;rature int&eacute;rieure d'un logement est mod&eacute;lis&eacute;e par
+    \(T(t) = -0{,}5t^2 + 3t + 18\) (&deg;C) pour \(0 \leq t \leq 6\) (heures).
+    Calculer la temp&eacute;rature moyenne sur cette p&eacute;riode.
+    <details>
+      <summary>&#9660; Voir la correction</summary>
+      <p>
+        \[\overline{T} = \frac{1}{6}\int_0^6 (-0{,}5t^2 + 3t + 18)\,\mathrm{d}t\]
+        Primitive : \(F(t) = -\dfrac{t^3}{6} + \dfrac{3t^2}{2} + 18t\)<br><br>
+        \[F(6) = -\frac{216}{6} + \frac{3 \times 36}{2} + 108
+        = -36 + 54 + 108 = 126\]
+        \[F(0) = 0\]
+        \[\overline{T} = \frac{126}{6} = \boldsymbol{21 \text{ °C}}\]
+      </p>
+    </details>
+  </div>
+
+</div><!-- fin .c -->
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+/* ---- Canvas : animation aire sous f(x) = x² sur [0, 3] ---- */
+(function () {
+  var canvas = document.getElementById('integralCanvas');
+  var ctx    = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  var ml = 50, mr = 20, mt = 20, mb = 40;
+  var xMin = -0.15, xMax = 3.35, yMin = -0.3, yMax = 10;
+  var progress = 0;
+  var animId   = null;
+
+  function toPixel(x, y) {
+    var px = ml + (x - xMin) / (xMax - xMin) * (W - ml - mr);
+    var py = H - mb - (y - yMin) / (yMax - yMin) * (H - mt - mb);
+    return [px, py];
+  }
+
+  function drawAxes() {
+    ctx.clearRect(0, 0, W, H);
+    /* grille */
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 1;
+    for (var xi = 0; xi <= 3; xi++) {
+      var p1 = toPixel(xi, yMin), p2 = toPixel(xi, yMax);
+      ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke();
+    }
+    for (var yi = 0; yi <= 9; yi += 3) {
+      var q1 = toPixel(xMin, yi), q2 = toPixel(xMax, yi);
+      ctx.beginPath(); ctx.moveTo(q1[0], q1[1]); ctx.lineTo(q2[0], q2[1]); ctx.stroke();
+    }
+    /* axes */
+    ctx.strokeStyle = '#2d3748'; ctx.lineWidth = 2;
+    var ax1 = toPixel(xMin, 0), ax2 = toPixel(xMax, 0);
+    ctx.beginPath(); ctx.moveTo(ax1[0], ax1[1]); ctx.lineTo(ax2[0], ax2[1]); ctx.stroke();
+    var bx1 = toPixel(0, yMin), bx2 = toPixel(0, yMax);
+    ctx.beginPath(); ctx.moveTo(bx1[0], bx1[1]); ctx.lineTo(bx2[0], bx2[1]); ctx.stroke();
+    /* flèches */
+    ctx.fillStyle = '#2d3748';
+    ctx.beginPath(); ctx.moveTo(ax2[0], ax2[1]); ctx.lineTo(ax2[0]-8, ax2[1]-4); ctx.lineTo(ax2[0]-8, ax2[1]+4); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(bx2[0], bx2[1]); ctx.lineTo(bx2[0]-4, bx2[1]+8); ctx.lineTo(bx2[0]+4, bx2[1]+8); ctx.closePath(); ctx.fill();
+    /* labels axes */
+    ctx.fillStyle = '#4a5568'; ctx.font = '13px Segoe UI';
+    ctx.textAlign = 'left'; ctx.fillText('x', ax2[0]-5, ax2[1]+16);
+    ctx.fillText('y', bx2[0]+6, bx2[1]+4);
+    /* repères x */
+    ctx.textAlign = 'center';
+    for (var i = 0; i <= 3; i++) {
+      var tp = toPixel(i, 0);
+      ctx.fillText(i, tp[0], tp[1]+16);
+      ctx.strokeStyle = '#4a5568'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(tp[0], tp[1]-4); ctx.lineTo(tp[0], tp[1]+4); ctx.stroke();
+    }
+    /* repères y */
+    ctx.textAlign = 'right';
+    for (var j = 3; j <= 9; j += 3) {
+      var rp = toPixel(0, j);
+      ctx.fillStyle = '#4a5568'; ctx.fillText(j, rp[0]-5, rp[1]+4);
+    }
+    ctx.textAlign = 'left';
+  }
+
+  function drawFill(prog) {
+    var xEnd = prog * 3;
+    var steps = 400;
+    ctx.fillStyle = 'rgba(9,105,218,0.20)';
+    ctx.strokeStyle = 'rgba(9,105,218,0.45)'; ctx.lineWidth = 1;
+    var p0 = toPixel(0, 0);
+    ctx.beginPath(); ctx.moveTo(p0[0], p0[1]);
+    for (var i = 0; i <= steps; i++) {
+      var xi = (i / steps) * xEnd;
+      var pt = toPixel(xi, xi * xi);
+      ctx.lineTo(pt[0], pt[1]);
+    }
+    var pe = toPixel(xEnd, 0);
+    ctx.lineTo(pe[0], pe[1]); ctx.closePath();
+    ctx.fill(); ctx.stroke();
+  }
+
+  function drawCurve() {
+    ctx.strokeStyle = '#0969da'; ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    var first = true;
+    for (var i = 0; i <= 320; i++) {
+      var xi = xMin + (i / 320) * (xMax - xMin);
+      var pt = toPixel(xi, xi * xi);
+      if (first) { ctx.moveTo(pt[0], pt[1]); first = false; } else { ctx.lineTo(pt[0], pt[1]); }
+    }
+    ctx.stroke();
+    /* label courbe */
+    var lp = toPixel(2.5, 7);
+    ctx.fillStyle = '#0969da'; ctx.font = 'italic bold 13px Segoe UI'; ctx.textAlign = 'left';
+    ctx.fillText('f(x) = x²', lp[0], lp[1]);
+    /* bornes */
+    ctx.fillStyle = '#c53030'; ctx.font = 'bold 11px Segoe UI'; ctx.textAlign = 'center';
+    var pa = toPixel(0, 0), pb = toPixel(3, 0);
+    ctx.fillText('a=0', pa[0], pa[1]+28); ctx.fillText('b=3', pb[0], pb[1]+28);
+  }
+
+  function updateLabel(prog) {
+    var xCur = prog * 3;
+    var val  = xCur * xCur * xCur / 3;
+    var el   = document.getElementById('aireVal');
+    if (prog >= 0.999) {
+      el.textContent = '\u222B\u2080\u00B3 x\u00B2 dx = [x\u00B3/3]\u2080\u00B3 = 27/3 = 9 u.a.';
+    } else if (prog <= 0.001) {
+      el.textContent = '\u2014';
+    } else {
+      el.textContent = '\u222B\u2080^' + xCur.toFixed(1) + ' x\u00B2 dx \u2248 ' + val.toFixed(2) + ' u.a.';
+    }
+  }
+
+  function draw() {
+    drawAxes(); drawFill(progress); drawCurve(); updateLabel(progress);
+  }
+
+  window.animateIntegral = function () {
+    if (animId) cancelAnimationFrame(animId);
+    if (progress >= 0.999) progress = 0;
+    var step = function () {
+      progress = Math.min(progress + 0.007, 1);
+      draw();
+      if (progress < 1) animId = requestAnimationFrame(step);
+    };
+    animId = requestAnimationFrame(step);
+  };
+
+  window.showFull = function () {
+    if (animId) cancelAnimationFrame(animId);
+    progress = 1; draw();
+  };
+
+  window.resetIntegral = function () {
+    if (animId) cancelAnimationFrame(animId);
+    progress = 0; draw();
+  };
+
+  draw();
+}());
+
+/* ---- Chart.js : f(x) = 2x+1 sur [1,4] ---- */
+window.addEventListener('load', function () {
+  var ctx2 = document.getElementById('chartIntegrale').getContext('2d');
+  var full  = [], filled = [];
+  for (var i = 0; i <= 60; i++) {
+    var x = (i / 60) * 5.5;
+    full.push({x: x, y: 2*x+1});
+    filled.push({x: x, y: (x >= 1 && x <= 4) ? 2*x+1 : null});
+  }
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      datasets: [
+        {
+          label: 'Aire \u222B\u2081\u2074 (2x+1) dx = 18',
+          data: filled,
+          fill: 'origin',
+          backgroundColor: 'rgba(9,105,218,0.18)',
+          borderColor: 'transparent',
+          pointRadius: 0,
+          tension: 0,
+          spanGaps: false
+        },
+        {
+          label: 'f(x) = 2x + 1',
+          data: full,
+          fill: false,
+          borderColor: '#0969da',
+          borderWidth: 2.5,
+          pointRadius: 0,
+          tension: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top', labels: { font: { size: 13 } } },
+        tooltip: { mode: 'index', intersect: false }
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          min: 0, max: 5.5,
+          title: { display: true, text: 'x', font: { size: 13 } },
+          ticks: { stepSize: 1, callback: function(v){ return Number.isInteger(v) ? v : ''; } }
+        },
+        y: {
+          min: 0, max: 12,
+          title: { display: true, text: 'f(x) = 2x+1', font: { size: 13 } }
+        }
+      }
+    }
+  });
+});
+</script>
+
+<script src="/nav.js"></script>
+</body>
+</html>

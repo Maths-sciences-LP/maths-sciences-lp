@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – DS – Fonctions de référence</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#0056b3;--d:#c53030;--s:#2f855a;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.q{margin:12px 0;padding-left:8px;border-left:3px solid #e2e8f0}
+.q strong{color:var(--t)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92em}
+th,td{border:1px solid #c5cdd8;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none;font-size:.93em}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px;transition:background .2s}
+.bc:hover{background:#004494}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nb:hover{text-decoration:underline}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveillé – Chapitre 8</h1>
+  <p class="sous-titre">Fonctions de référence &nbsp;|&nbsp; 2<sup>de</sup> Pro MA-MA</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<!-- ===== PARTIE A ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A – Calculs d'images</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <p class="bareme">1 pt par question correcte.</p>
+
+  <div class="q"><strong>1.</strong> Calculer (f(-6)) pour (f(x) = x^2).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Calculer (g!left(dfrac{1}{5}
+ight)) pour (g(x) = dfrac{1}{x}).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> Calculer (h(49)) pour (h(x) = sqrt{x}).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Calculer (f(1{,}5)).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> Calculer (g(-0{,}4)). Donner le résultat sous forme de fraction irréductible.</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> (f(-6) = (-6)^2 = 36)</p>
+    <p><strong>2.</strong> (g!left(	frac{1}{5}
+ight) = dfrac{1}{	frac{1}{5}} = 5)</p>
+    <p><strong>3.</strong> (h(49) = sqrt{49} = 7)</p>
+    <p><strong>4.</strong> (f(1{,}5) = (1{,}5)^2 = 2{,}25)</p>
+    <p><strong>5.</strong> (g(-0{,}4) = g!left(-	frac{2}{5}
+ight) = dfrac{1}{-	frac{2}{5}} = -dfrac{5}{2})</p>
+  </div>
+</div>
+
+<!-- ===== PARTIE B ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B – Tableau de valeurs et variations</span>
+    <span class="pts">7 points</span>
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Compléter le tableau de valeurs de (f(x) = x^2) :</div>
+  <table>
+    <tr><th>(x)</th><th>(-3)</th><th>(-2)</th><th>(-1)</th><th>(0)</th><th>(1)</th><th>(2)</th><th>(3)</th></tr>
+    <tr><td>(f(x))</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <div class="q"><strong>2. (1 pt)</strong> Sur quel(s) intervalle(s) la fonction (f) est-elle <em>décroissante</em> ? <em>croissante</em> ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> Compléter le tableau de valeurs de (h(x) = sqrt{x}) (arrondir au centième si nécessaire) :</div>
+  <table>
+    <tr><th>(x)</th><th>(0)</th><th>(1)</th><th>(4)</th><th>(9)</th><th>(16)</th><th>(3)</th><th>(10)</th></tr>
+    <tr><td>(h(x))</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <div class="q"><strong>4. (2 pts)</strong> En utilisant les variations de (h), classer dans l'ordre croissant : (h(2)), (h(7)), (h(0{,}5)), (h(20)) sans calculer.</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> (f(-3)=9), (f(-2)=4), (f(-1)=1), (f(0)=0), (f(1)=1), (f(2)=4), (f(3)=9)</p>
+    <p><strong>2.</strong> (f) est décroissante sur (]-infty,;,0]) et croissante sur ([0,;,+infty[).</p>
+    <p><strong>3.</strong> (h(0)=0), (h(1)=1), (h(4)=2), (h(9)=3), (h(16)=4), (h(3)approx1{,}73), (h(10)approx3{,}16)</p>
+    <p><strong>4.</strong> (h) est croissante donc l'ordre des images = ordre des (x) : (0{,}5 < 2 < 7 < 20), soit (h(0{,}5) < h(2) < h(7) < h(20)).</p>
+  </div>
+</div>
+
+<!-- ===== PARTIE C ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C – Équations et résolution</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <p class="bareme">1 pt par équation. Montrer toutes les étapes.</p>
+
+  <div class="q"><strong>1.</strong> Résoudre (x^2 = 25).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Résoudre (x^2 = 3) (solutions exactes).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> Résoudre (dfrac{1}{x} = -2).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Résoudre (sqrt{x} = 5).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> Résoudre (sqrt{x+1} = 4).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> (x^2=25 Rightarrow x=5) ou (x=-5). (mathcal{S}={-5,;,5}).</p>
+    <p><strong>2.</strong> (x^2=3 Rightarrow x=sqrt{3}) ou (x=-sqrt{3}). (mathcal{S}={-sqrt{3},;,sqrt{3}}).</p>
+    <p><strong>3.</strong> (dfrac{1}{x}=-2 Rightarrow 1=-2x Rightarrow x=-dfrac{1}{2}). (mathcal{S}=left{-dfrac{1}{2}
+ight}).</p>
+    <p><strong>4.</strong> (sqrt{x}=5 Rightarrow x=5^2=25). (mathcal{S}={25}).</p>
+    <p><strong>5.</strong> (sqrt{x+1}=4 Rightarrow x+1=16 Rightarrow x=15). Vérification : (sqrt{16}=4). &#10003; (mathcal{S}={15}).</p>
+  </div>
+</div>
+
+<!-- ===== PARTIE D ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie D – Problème ouvert</span>
+    <span class="pts">3 points</span>
+  </div>
+
+  <p>Un jardinier veut aménager un carré potager. Il dispose d'une clôture de 36 mètres pour en délimiter le périmètre.</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> Exprimer la longueur du côté (c) du carré en fonction du périmètre (P). Calculer (c).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> Calculer l'aire du carré.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Si le jardinier dispose de 48 m de clôture au lieu de 36 m, l'aire est-elle multipliée par le même rapport que le périmètre ? Justifier par le calcul.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> (P = 4c), donc (c = dfrac{P}{4} = dfrac{36}{4} = 9) m.</p>
+    <p><strong>2.</strong> (A = c^2 = 9^2 = 81) m².</p>
+    <p><strong>3.</strong> Avec 48 m : (c' = dfrac{48}{4} = 12) m, (A' = 12^2 = 144) m².<br>
+    Rapport des périmètres : (dfrac{48}{36} = dfrac{4}{3}). Rapport des aires : (dfrac{144}{81} = dfrac{16}{9} = left(dfrac{4}{3}
+ight)^2).<br>
+    Non, l'aire n'est pas multipliée par le même rapport. Elle est multipliée par le <strong>carré</strong> du rapport des côtés.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

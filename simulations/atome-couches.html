@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation - Configuration Électronique</title>
+    
+    <!-- Moteur de rendu MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --primary: #007bff;
+            --secondary: #6f42c1;
+            --bg: #f1f5f9;
+            --card: #ffffff;
+            --electron: #007bff;
+            --nucleus: #ef4444;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: #1e293b;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Style du bouton retour harmonisé */
+        .btn-retour-pro {
+            display: inline-flex;
+            align-self: flex-start;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 20px 0;
+            padding: 8px 15px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            transition: all 0.2s;
+        }
+        .btn-retour-pro:hover {
+            color: var(--primary);
+            background-color: #f8fafc;
+            border-color: var(--primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 800px) { .container { grid-template-columns: 1fr; } }
+
+        .card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 1.2rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+        }
+
+        .atom-view {
+            background: #0f172a;
+            border-radius: 1rem;
+            position: relative;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .formula {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            background: #e0f2fe;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--primary);
+            cursor: pointer;
+            height: 8px;
+            border-radius: 5px;
+        }
+
+        .info-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .stable { background: #dcfce7; color: #166534; }
+        .reactive { background: #fef3c7; color: #92400e; }
+
+        .instruction-box {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../simulations.html" class="btn-retour-pro">← Retour au labo de simulations</a>
+
+    <h1 style="color: var(--primary); text-align: center; margin: 0 0 20px 0;">🌀 Configuration Électronique</h1>
+
+    <div class="container">
+        
+        <!-- Panneau de Visualisation -->
+        <div class="card">
+            <h2>Modèle de Bohr</h2>
+            <div class="atom-view" id="atom-view">
+                <svg viewBox="0 0 300 300" width="100%" height="100%" id="atom-svg"></svg>
+            </div>
+            <div class="formula" id="config-text">K(2) L(4)</div>
+            <div id="stability-badge" class="info-badge reactive">Atome Réactif</div>
+        </div>
+
+        <!-- Panneau de Contrôle -->
+        <div class="card" style="border-top-color: var(--secondary);">
+            <h2>Réglages de l'Élément</h2>
+            <p>Déplacez le curseur pour changer le numéro atomique \( Z \).</p>
+            
+            <input type="range" id="z-range" min="1" max="18" value="6" oninput="drawAtom()">
+            
+            <div style="font-size: 1.5rem; font-weight: bold; margin: 20px 0; color: var(--secondary);" id="z-display">
+                Z = 6 (Carbone)
+            </div>
+
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; font-size: 0.9rem;">
+                <strong>Répartition par couches :</strong>
+                <ul id="shell-details" style="margin: 10px 0 0 0; padding-left: 20px;">
+                    <li>Couche K : 2 électrons</li>
+                    <li>Couche L : 4 électrons</li>
+                </ul>
+            </div>
+
+            <div class="instruction-box">
+                <strong>Rappel de cours :</strong> Les couches se remplissent dans l'ordre \( K \) (2 max), puis \( L \) (8 max), puis \( M \). Un atome est stable (gaz noble) quand sa dernière couche est saturée.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const symbols = ["","H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","Si","P","S","Cl","Ar"];
+        const names = ["","Hydrogène","Hélium","Lithium","Béryllium","Bore","Carbone","Azote","Oxygène","Fluor","Néon","Sodium","Magnésium","Aluminium","Silicium","Phosphore","Soufre","Chlore","Argon"];
+
+        function drawAtom() {
+            const z = parseInt(document.getElementById('z-range').value);
+            const symbol = symbols[z];
+            const name = names[z];
+            
+            document.getElementById('z-display').innerText = `Z = ${z} (${name})`;
+            
+            // Calcul des couches
+            let k = Math.min(z, 2);
+            let l = Math.min(z - k, 8);
+            let m = Math.max(0, z - k - l);
+            
+            // Texte de configuration
+            let configStr = `K(${k})`;
+            if(l > 0) configStr += ` L(${l})`;
+            if(m > 0) configStr += ` M(${m})`;
+            document.getElementById('config-text').innerText = configStr;
+
+            // Détails list
+            let details = `<li>Couche K : ${k} électron(s)</li>`;
+            if(l > 0) details += `<li>Couche L : ${l} électron(s)</li>`;
+            if(m > 0) details += `<li>Couche M : ${m} électron(s)</li>`;
+            document.getElementById('shell-details').innerHTML = details;
+
+            // Badge de stabilité (Gaz nobles)
+            const badge = document.getElementById('stability-badge');
+            if (z === 2 || z === 10 || z === 18) {
+                badge.innerText = "Gaz Noble (Stable)";
+                badge.className = "info-badge stable";
+            } else {
+                badge.innerText = "Atome Réactif";
+                badge.className = "info-badge reactive";
+            }
+
+            renderSVG(z, k, l, m);
+        }
+
+        function renderSVG(z, k, l, m) {
+            const svg = document.getElementById('atom-svg');
+            svg.innerHTML = '';
+            const cx = 150, cy = 150;
+
+            // Noyau
+            const nucleus = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            nucleus.setAttribute("cx", cx); nucleus.setAttribute("cy", cy);
+            nucleus.setAttribute("r", 20);
+            nucleus.setAttribute("fill", "var(--nucleus)");
+            svg.appendChild(nucleus);
+            
+            const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            text.setAttribute("x", cx); text.setAttribute("y", cy + 5);
+            text.setAttribute("text-anchor", "middle");
+            text.setAttribute("fill", "white");
+            text.setAttribute("font-weight", "bold");
+            text.textContent = symbols[z];
+            svg.appendChild(text);
+
+            // Couches et électrons
+            const shells = [ {count: k, r: 50}, {count: l, r: 85}, {count: m, r: 120} ];
+            
+            shells.forEach((shell, idx) => {
+                if (shell.count <= 0) return;
+
+                // Dessin de l'orbite
+                const orbit = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                orbit.setAttribute("cx", cx); orbit.setAttribute("cy", cy);
+                orbit.setAttribute("r", shell.r);
+                orbit.setAttribute("fill", "none");
+                orbit.setAttribute("stroke", "rgba(255,255,255,0.2)");
+                orbit.setAttribute("stroke-dasharray", "4");
+                svg.appendChild(orbit);
+
+                // Dessin des électrons
+                for (let i = 0; i < shell.count; i++) {
+                    const electron = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    const angle = (i * 2 * Math.PI) / shell.count;
+                    
+                    electron.setAttribute("r", 5);
+                    electron.setAttribute("fill", "var(--electron)");
+                    
+                    // Animation de rotation
+                    const anim = document.createElementNS("http://www.w3.org/2000/svg", "animateTransform");
+                    anim.setAttribute("attributeName", "transform");
+                    anim.setAttribute("type", "rotate");
+                    anim.setAttribute("from", `0 ${cx} ${cy}`);
+                    anim.setAttribute("to", `360 ${cx} ${cy}`);
+                    anim.setAttribute("dur", (5 + idx * 3) + "s");
+                    anim.setAttribute("repeatCount", "indefinite");
+                    
+                    electron.appendChild(anim);
+                    
+                    // Position initiale
+                    const ex = cx + shell.r * Math.cos(angle);
+                    const ey = cy + shell.r * Math.sin(angle);
+                    electron.setAttribute("cx", ex);
+                    electron.setAttribute("cy", ey);
+                    
+                    svg.appendChild(electron);
+                }
+            });
+        }
+
+        window.onload = drawAtom;
+    </script>
+<script src="/nav.js"></script>
+</body>
+</html>

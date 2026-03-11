@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Exercices : Statistiques à une variable – 2nde MAMA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:28px;padding-bottom:16px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
+.sous-titre{color:#718096;font-size:.92em;margin:0}
+.maj{font-size:.78em;color:#a0aec0;text-align:center;margin-top:4px}
+
+.niveau-header{display:flex;align-items:center;gap:14px;margin:36px 0 16px;padding:12px 18px;border-radius:8px}
+.niveau-header h2{margin:0;font-size:1.1em;color:inherit}
+.niveau-1{background:#ebf5ff;border-left:5px solid var(--p);color:#1e40af}
+.niveau-2{background:#f0fff4;border-left:5px solid var(--s);color:#065f46}
+.niveau-3{background:#fffbeb;border-left:5px solid var(--o);color:#92400e}
+.niveau-4{background:#fff5f5;border-left:5px solid var(--d);color:#991b1b}
+.badge-niv{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.badge-1{background:#dbeafe;color:#1e40af}
+.badge-2{background:#d1fae5;color:#065f46}
+.badge-3{background:#fef3c7;color:#92400e}
+.badge-4{background:#fee2e2;color:#991b1b}
+
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;margin:14px 0;background:#fafafa}
+.exo-num{font-weight:700;color:var(--p);font-size:1em;margin-bottom:6px}
+.exo-titre{font-weight:700;font-size:1em;margin-bottom:10px}
+.enonce{background:#fff;border-radius:6px;padding:12px 14px;border:1px solid #e2e8f0;margin:10px 0;font-size:.95em}
+.context-tag{display:inline-block;background:#fef3c7;color:#92400e;border-radius:4px;font-size:.72em;font-weight:700;text-transform:uppercase;padding:2px 8px;margin-bottom:8px;letter-spacing:.03em}
+
+.zone-rep{margin:12px 0}
+.zone-rep label{font-size:.85em;color:#718096;font-weight:600;display:block;margin-bottom:4px}
+.zone-rep textarea{width:100%;min-height:70px;border:1px dashed #cbd5e0;border-radius:6px;padding:8px;font-size:.9em;color:var(--t);background:#fff;resize:vertical;box-sizing:border-box;font-family:inherit}
+.zone-rep textarea:focus{outline:none;border-color:var(--p);background:#f0f7ff}
+
+details.corr-wrap{margin-top:12px}
+details.corr-wrap summary{cursor:pointer;font-size:.88em;font-weight:700;color:var(--s);padding:7px 12px;background:#f0fff4;border-radius:6px;border:1px solid #a7f3d0;display:inline-flex;align-items:center;gap:6px;user-select:none}
+details.corr-wrap summary:hover{background:#d1fae5}
+details.corr-wrap summary::marker{display:none}
+details.corr-wrap summary::-webkit-details-marker{display:none}
+details.corr-wrap[open] summary{border-radius:6px 6px 0 0;background:#d1fae5}
+.corr-body{background:#f0fff4;border:1px solid #a7f3d0;border-top:none;border-radius:0 6px 6px 6px;padding:14px 18px;font-size:.93em}
+.corr-body ol{padding-left:20px;margin:6px 0}
+.corr-body li{margin:5px 0}
+.corr-rep{background:#d1fae5;border-left:4px solid var(--s);padding:8px 12px;border-radius:0 6px 6px 0;margin-top:10px;font-weight:600;color:#065f46}
+.att-corr{background:#fff5f5;border-left:4px solid var(--d);padding:8px 12px;border-radius:0 6px 6px 0;margin:8px 0;font-size:.9em}
+
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.91em}
+th,td{border:1px solid #e2e8f0;padding:9px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+td.tl{text-align:left}
+
+.schema{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin:10px 0;text-align:center}
+.schema figcaption{font-size:.8em;color:#718096;margin-top:6px}
+
+.nb{margin-bottom:16px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nav-footer{display:flex;justify-content:space-between;margin-top:36px;padding-top:16px;border-top:1px solid #e2e8f0;flex-wrap:wrap;gap:10px}
+.nav-btn{text-decoration:none;font-size:.85em;font-weight:600;padding:8px 16px;border-radius:6px;color:var(--p);border:1px solid var(--p);transition:.2s}
+.nav-btn:hover{background:var(--p);color:#fff}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Exercices – Statistiques à une variable</h1>
+  <p class="sous-titre">Seconde Bac Pro MAMA &nbsp;|&nbsp; Chapitre 2 &nbsp;|&nbsp; Mathématiques</p>
+  <p class="maj">9 mars 2026</p>
+</header>
+
+<p style="font-size:.92em;color:#4a5568;background:#ebf5ff;border-radius:8px;padding:12px 16px;border:1px solid #93c5fd;margin-bottom:28px">
+  <strong>Mode d'emploi :</strong> Résous chaque exercice dans la zone prévue, puis clique sur <em>"Voir la correction"</em> pour vérifier ton travail.
+  Les exercices sont classés du plus simple au plus complexe — avance à ton rythme !
+</p>
+
+
+<!-- ============================================================ -->
+<!--  NIVEAU 1 – VÉRIFIER LES BASES                               -->
+<!-- ============================================================ -->
+<div class="niveau-header niveau-1">
+  <span class="badge-niv badge-1">Niveau 1</span>
+  <h2>Lire et organiser des données</h2>
+</div>
+
+<!-- EX 1 -->
+<div class="exo">
+  <div class="exo-num">Exercice 1</div>
+  <div class="exo-titre">Lire un tableau statistique</div>
+  <span class="context-tag">Menuiserie – Agencement</span>
+  <div class="enonce">
+    Dans un atelier, on a relevé les types de panneaux utilisés sur une semaine de production. Les résultats sont résumés ci-dessous :
+
+    <table style="margin:14px 0">
+      <tr>
+        <th>Type de panneau</th>
+        <th>Contreplaqué</th>
+        <th>OSB</th>
+        <th>MDF</th>
+        <th>Panneau brut</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td class="tl"><strong>Effectif</strong></td>
+        <td>12</td>
+        <td>8</td>
+        <td>5</td>
+        <td>3</td>
+        <td>?</td>
+      </tr>
+      <tr>
+        <td class="tl"><strong>Fréquence</strong></td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+        <td>1</td>
+      </tr>
+    </table>
+
+    <strong>Questions :</strong><br>
+    <strong>a)</strong> Quel est l'effectif total de panneaux utilisés ?<br>
+    <strong>b)</strong> Calculer la fréquence de chaque type de panneau (donner le résultat en fraction décimale et en %).<br>
+    <strong>c)</strong> Quel est le type de panneau le plus utilisé ?
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) Effectif total N = 12 + 8 + 5 + 3 = ...&#10;b) f(contreplaqué) = 12 / N = ...&#10;c) Le type le plus utilisé est ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a) Effectif total :</strong>
+      \[N = 12 + 8 + 5 + 3 = \mathbf{28}\]
+
+      <strong>b) Fréquences :</strong>
+      \[f(\text{contreplaqué}) = \frac{12}{28} \approx 0{,}429 \approx 42{,}9\,\%\]
+      \[f(\text{OSB}) = \frac{8}{28} \approx 0{,}286 \approx 28{,}6\,\%\]
+      \[f(\text{MDF}) = \frac{5}{28} \approx 0{,}179 \approx 17{,}9\,\%\]
+      \[f(\text{panneau brut}) = \frac{3}{28} \approx 0{,}107 \approx 10{,}7\,\%\]
+
+      <em>Vérification :</em> \(12 + 8 + 5 + 3 = 28\) et \(42{,}9 + 28{,}6 + 17{,}9 + 10{,}7 \approx 100\,\%\) ✔
+
+      <div class="corr-rep">c) Le type de panneau le plus utilisé est le <strong>contreplaqué</strong> (12 panneaux, soit environ 43 % du total).</div>
+    </div>
+  </details>
+</div>
+
+
+<!-- EX 2 -->
+<div class="exo">
+  <div class="exo-num">Exercice 2</div>
+  <div class="exo-titre">Calculer moyenne et mode d'une série simple</div>
+  <span class="context-tag">Contrôle dimensionnel</span>
+  <div class="enonce">
+    Un opérateur mesure la largeur (en mm) de 10 pièces découpées. Il obtient les valeurs suivantes :<br><br>
+    <strong>45 ; 47 ; 45 ; 46 ; 48 ; 45 ; 47 ; 46 ; 45 ; 46</strong><br><br>
+    <strong>a)</strong> Calculer la moyenne \(\bar{x}\) de cette série.<br>
+    <strong>b)</strong> Quel est le mode de cette série ?<br>
+    <strong>c)</strong> Quelle largeur est la plus fréquente dans la production ?
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) x̄ = (45 + 47 + 45 + ...) / 10 = ...&#10;b) Mode = valeur la plus fréquente = ...&#10;c) ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a) Calcul de la moyenne :</strong><br>
+      Somme des valeurs :
+      \[45 + 47 + 45 + 46 + 48 + 45 + 47 + 46 + 45 + 46 = 460\]
+      \[\bar{x} = \frac{460}{10} = \mathbf{46 \text{ mm}}\]
+
+      <strong>Tableau de fréquences (pour retrouver le mode) :</strong>
+      <table>
+        <tr><th>Largeur (mm)</th><th>45</th><th>46</th><th>47</th><th>48</th></tr>
+        <tr><td class="tl">Effectif</td><td>4</td><td>3</td><td>2</td><td>1</td></tr>
+      </table>
+
+      <div class="corr-rep">
+        <strong>b)</strong> Mode = <strong>45 mm</strong> (apparaît 4 fois, c'est l'effectif le plus grand).<br>
+        <strong>c)</strong> La largeur la plus fréquente en production est <strong>45 mm</strong>.
+      </div>
+    </div>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  NIVEAU 2 – APPLICATION DIRECTE                              -->
+<!-- ============================================================ -->
+<div class="niveau-header niveau-2">
+  <span class="badge-niv badge-2">Niveau 2</span>
+  <h2>Calculs d'indicateurs statistiques</h2>
+</div>
+
+<!-- EX 3 -->
+<div class="exo">
+  <div class="exo-num">Exercice 3</div>
+  <div class="exo-titre">Indicateurs de position complets</div>
+  <span class="context-tag">Temps de fabrication</span>
+  <div class="enonce">
+    Un chef d'atelier relève les temps de fabrication (en minutes) de 12 pièces produites dans la journée :<br><br>
+    <strong>28 ; 35 ; 32 ; 29 ; 41 ; 38 ; 30 ; 35 ; 27 ; 35 ; 42 ; 31</strong><br><br>
+    Calculer :<br>
+    <strong>a)</strong> La moyenne \(\bar{x}\) de cette série.<br>
+    <strong>b)</strong> La médiane \(Me\) (penser à trier d'abord).<br>
+    <strong>c)</strong> Le mode de cette série.
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="Série triée : ...&#10;a) x̄ = (28 + 29 + ...) / 12 = ...&#10;b) Me = ...&#10;c) Mode = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <strong>Série triée :</strong> 27 ; 28 ; 29 ; 30 ; 31 ; 32 ; 35 ; 35 ; 35 ; 38 ; 41 ; 42<br><br>
+
+      <strong>a) Moyenne :</strong>
+      \[\bar{x} = \frac{27+28+29+30+31+32+35+35+35+38+41+42}{12} = \frac{403}{12} \approx \mathbf{33{,}6 \text{ min}}\]
+
+      <strong>b) Médiane (\(N = 12\), pair) :</strong><br>
+      Les valeurs aux rangs 6 et 7 sont <strong>32</strong> et <strong>35</strong>.
+      \[Me = \frac{32 + 35}{2} = \frac{67}{2} = \mathbf{33{,}5 \text{ min}}\]
+
+      <strong>c) Mode :</strong> La valeur 35 apparaît 3 fois (le maximum).
+
+      <div class="corr-rep">
+        Moyenne \(\bar{x} \approx 33{,}6\) min &nbsp;|&nbsp; Médiane \(Me = 33{,}5\) min &nbsp;|&nbsp; Mode \(Mo = 35\) min
+      </div>
+      <div class="att-corr">
+        Ne pas oublier de trier la série avant de chercher la médiane !
+      </div>
+    </div>
+  </details>
+</div>
+
+
+<!-- EX 4 -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <div class="exo-titre">Quartiles et étendue</div>
+  <span class="context-tag">Gestion – Prix de revient</span>
+  <div class="enonce">
+    Voici les prix de revient (en €) de 10 pièces, déjà triés dans l'ordre croissant :<br><br>
+    <strong>12 ; 14 ; 15 ; 16 ; 17 ; 18 ; 19 ; 20 ; 22 ; 25</strong><br><br>
+    Calculer :<br>
+    <strong>a)</strong> L'étendue de la série.<br>
+    <strong>b)</strong> La médiane \(Me\).<br>
+    <strong>c)</strong> Les quartiles \(Q_1\) et \(Q_3\).<br>
+    <strong>d)</strong> L'écart interquartile. Interpréter.
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) Étendue = max − min = ...&#10;b) Me = moyenne des rangs 5 et 6 = ...&#10;c) Q1 = ... / Q3 = ...&#10;d) Écart interquartile = Q3 − Q1 = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a) Étendue :</strong>
+      \[\text{Étendue} = 25 - 12 = \mathbf{13 \text{ €}}\]
+
+      <strong>b) Médiane (\(N = 10\), pair) :</strong><br>
+      Valeurs aux rangs 5 et 6 : <strong>17</strong> et <strong>18</strong>.
+      \[Me = \frac{17 + 18}{2} = \mathbf{17{,}5 \text{ €}}\]
+
+      <strong>c) Quartiles :</strong><br>
+      Première moitié (rangs 1 à 5) : 12 ; 14 ; <strong>15</strong> ; 16 ; 17<br>
+      \(Q_1\) = médiane de cette moitié = valeur au rang 3 = <strong>15 €</strong><br><br>
+      Seconde moitié (rangs 6 à 10) : 18 ; 19 ; <strong>20</strong> ; 22 ; 25<br>
+      \(Q_3\) = médiane de cette moitié = valeur au rang 3 = <strong>20 €</strong>
+
+      <strong>d) Écart interquartile :</strong>
+      \[\text{Écart interquartile} = Q_3 - Q_1 = 20 - 15 = \mathbf{5 \text{ €}}\]
+
+      <div class="corr-rep">
+        Étendue = 13 € &nbsp;|&nbsp; \(Me = 17{,}5\) € &nbsp;|&nbsp; \(Q_1 = 15\) € &nbsp;|&nbsp; \(Q_3 = 20\) € &nbsp;|&nbsp; Écart interquartile = 5 €<br>
+        <strong>Interprétation :</strong> 50 % des pièces ont un prix de revient compris entre 15 € et 20 €.
+      </div>
+    </div>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  NIVEAU 3 – PROBLÈMES CONTEXTUALISÉS                         -->
+<!-- ============================================================ -->
+<div class="niveau-header niveau-3">
+  <span class="badge-niv badge-3">Niveau 3</span>
+  <h2>Problèmes contextualisés MAMA</h2>
+</div>
+
+<!-- EX 5 -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <div class="exo-titre">Contrôle qualité MAMA</div>
+  <span class="context-tag">Contrôle qualité – Menuiserie</span>
+  <div class="enonce">
+    Un opérateur mesure l'épaisseur (en mm) de 15 pièces en sortie de machine. Il obtient :
+    <br><br>
+    <strong>18,2 ; 17,8 ; 18,5 ; 18,0 ; 18,3 ; 17,9 ; 18,1 ; 18,4 ; 18,2 ; 17,7 ; 18,0 ; 18,3 ; 18,1 ; 18,2 ; 18,0</strong>
+    <br><br>
+    <strong>a)</strong> Calculer la moyenne \(\bar{x}\) de cette série (donner le résultat arrondi au centième).<br>
+    <strong>b)</strong> Déterminer la médiane \(Me\) (trier d'abord la série).<br>
+    <strong>c)</strong> Calculer l'étendue de la série.<br>
+    <strong>d)</strong> La tolérance de fabrication est de ±0,5 mm autour de 18 mm, soit l'intervalle [17,5 ; 18,5].
+    Toutes les pièces sont-elles conformes ? Justifier.
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="Série triée : ...&#10;a) x̄ = somme / 15 = ...&#10;b) Me = ...&#10;c) Étendue = ...&#10;d) ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <strong>Série triée (\(N = 15\)) :</strong><br>
+      17,7 ; 17,8 ; 17,9 ; 18,0 ; 18,0 ; 18,0 ; 18,1 ; <strong>18,1</strong> ; 18,2 ; 18,2 ; 18,2 ; 18,3 ; 18,3 ; 18,4 ; 18,5<br>
+      (La valeur centrale est au rang \(\dfrac{15+1}{2} = 8\))<br><br>
+
+      <strong>a) Moyenne :</strong>
+      \[\bar{x} = \frac{17{,}7+17{,}8+17{,}9+18{,}0+18{,}0+18{,}0+18{,}1+18{,}1+18{,}2+18{,}2+18{,}2+18{,}3+18{,}3+18{,}4+18{,}5}{15}\]
+      \[\bar{x} = \frac{271{,}7}{15} \approx \mathbf{18{,}11 \text{ mm}}\]
+
+      <strong>b) Médiane (\(N = 15\), impair) :</strong><br>
+      \(N\) est impair, la médiane est la valeur au rang \(\dfrac{15+1}{2} = 8\).<br>
+      La 8e valeur de la série triée est <strong>18,1 mm</strong>.
+      \[Me = \mathbf{18{,}1 \text{ mm}}\]
+
+      <strong>c) Étendue :</strong>
+      \[\text{Étendue} = 18{,}5 - 17{,}7 = \mathbf{0{,}8 \text{ mm}}\]
+
+      <strong>d) Conformité :</strong><br>
+      La tolérance est [17,5 ; 18,5]. Les valeurs extrêmes sont 17,7 et 18,5.<br>
+      17,7 ≥ 17,5 ✔ et 18,5 ≤ 18,5 ✔ → toutes les valeurs sont dans l'intervalle de tolérance.
+
+      <div class="corr-rep">
+        Toutes les 15 pièces sont <strong>conformes</strong> : leurs épaisseurs sont toutes comprises dans [17,5 ; 18,5] mm.
+      </div>
+      <div class="att-corr">
+        L'étendue (0,8 mm) est inférieure à la tolérance totale (1 mm = 18,5 − 17,5), mais cela ne garantit pas à lui seul la conformité : il faut vérifier que <em>toutes</em> les valeurs sont dans l'intervalle.
+      </div>
+    </div>
+  </details>
+</div>
+
+
+<!-- EX 6 -->
+<div class="exo">
+  <div class="exo-num">Exercice 6</div>
+  <div class="exo-titre">Construire un diagramme en boîte</div>
+  <span class="context-tag">Temps de fabrication</span>
+  <div class="enonce">
+    On reprend la série de l'exercice 3 (12 temps de fabrication en minutes) :<br><br>
+    <strong>Série triée :</strong> 27 ; 28 ; 29 ; 30 ; 31 ; 32 ; 35 ; 35 ; 35 ; 38 ; 41 ; 42<br><br>
+    <strong>a)</strong> Donner les cinq valeurs nécessaires au diagramme en boîte : min, \(Q_1\), médiane \(Me\), \(Q_3\), max.<br>
+    <strong>b)</strong> Tracer le diagramme en boîte sur un axe gradué de 25 à 45.<br>
+    <strong>c)</strong> Interpréter : la série est-elle symétrique ? Les données sont-elles dispersées ?
+  </div>
+  <div class="zone-rep">
+    <label>Mes réponses :</label>
+    <textarea placeholder="a) min = ... / Q1 = ... / Me = ... / Q3 = ... / max = ...&#10;b) Tracer sur papier&#10;c) ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a) Cinq valeurs :</strong><br>
+      — min = <strong>27</strong> min<br>
+      — \(Q_1\) : première moitié = 27 ; 28 ; 29 ; 30 ; 31 ; 32 → médiane = \(\dfrac{29+30}{2} = \mathbf{29{,}5}\) min<br>
+      — \(Me\) = <strong>33,5</strong> min (calculée à l'Ex 3)<br>
+      — \(Q_3\) : seconde moitié = 35 ; 35 ; 35 ; 38 ; 41 ; 42 → médiane = \(\dfrac{35+38}{2} = \mathbf{36{,}5}\) min<br>
+      — max = <strong>42</strong> min<br><br>
+
+      <strong>b) Diagramme en boîte :</strong>
+      <div class="schema">
+        <svg width="460" height="120" viewBox="0 0 460 120" aria-label="Diagramme en boîte temps de fabrication">
+          <!-- Axe : 25->40, 45->420 --> <!-- pas = (420-40)/(45-25) = 19 par unite -->
+          <!-- 27=40+2*19=78, 29.5=40+4.5*19=125.5, 33.5=40+8.5*19=201.5, 36.5=40+11.5*19=258.5, 42=40+17*19=363 -->
+          <!-- Recalcul : 25->40, (val-25)*19+40 -->
+          <!-- 25=40, 27=78, 29.5=130.5, 30=95, 33.5=168.5, 35=190, 36.5=197.5+60=... -->
+          <!-- Simplification: 25->50, 45->430, pas=(430-50)/20=19 -->
+          <!-- val=25: x=50; val=27: x=50+2*19=88; val=29.5: x=50+4.5*19=135.5; val=33.5: x=50+8.5*19=211.5; val=36.5: x=50+11.5*19=268.5; val=42: x=50+17*19=373 -->
+          <line x1="40" y1="88" x2="440" y2="88" stroke="#4a5568" stroke-width="1.5"/>
+
+          <!-- Graduations : 25,27,30,33,35,38,40,42,45 -->
+          <line x1="50"  y1="86" x2="50"  y2="93" stroke="#4a5568" stroke-width="1.5"/>
+          <text x="50"  y="105" text-anchor="middle" font-size="11" fill="#4a5568">25</text>
+          <line x1="88"  y1="86" x2="88"  y2="93" stroke="#4a5568" stroke-width="1.5"/>
+          <text x="88"  y="105" text-anchor="middle" font-size="11" fill="#4a5568">27</text>
+          <line x1="145" y1="86" x2="145" y2="93" stroke="#4a5568" stroke-width="1.5"/>
+          <text x="145" y="105" text-anchor="middle" font-size="11" fill="#4a5568">30</text>
+          <line x1="202" y1="86" x2="202" y2="93" stroke="#4a5568" stroke-width="1.5"/>
+          <text x="202" y="105" text-anchor="middle" font-size="11" fill="#4a5568">33</text>
+          <line x1="221" y1="86" x2="221" y2="93" stroke="#4a5568" stroke-width="1.5"/>
+          <text x="221" y="105" text-anchor="middle" font-size="11" fill="#4a5568">35</text>
+          <line x1="278" y1="86" x2="278" y2="93" stroke="#4a5568" stroke-width="1.5"/>
+          <text x="278" y="105" text-anchor="middle" font-size="11" fill="#4a5568">38</text>
+          <line x1="316" y1="86" x2="316" y2="93" stroke="#4a5568" stroke-width="1.5"/>
+          <text x="316" y="105" text-anchor="middle" font-size="11" fill="#4a5568">40</text>
+          <line x1="373" y1="86" x2="373" y2="93" stroke="#4a5568" stroke-width="1.5"/>
+          <text x="373" y="105" text-anchor="middle" font-size="11" fill="#4a5568">42</text>
+          <line x1="430" y1="86" x2="430" y2="93" stroke="#4a5568" stroke-width="1.5"/>
+          <text x="430" y="105" text-anchor="middle" font-size="11" fill="#4a5568">45</text>
+
+          <!-- min=27 -> x=88, Q1=29.5 -> x=136, Me=33.5 -> x=212, Q3=36.5 -> x=269, max=42 -> x=373 -->
+          <!-- x = 50 + (val-25)*19 -->
+          <!-- Q1=29.5: 50+4.5*19=135.5~136 -->
+          <!-- Me=33.5: 50+8.5*19=211.5~212 -->
+          <!-- Q3=36.5: 50+11.5*19=268.5~269 -->
+
+          <!-- Moustache gauche -->
+          <line x1="88" y1="58" x2="136" y2="58" stroke="#d97706" stroke-width="2"/>
+          <line x1="88" y1="51" x2="88" y2="65" stroke="#d97706" stroke-width="2"/>
+
+          <!-- Boite -->
+          <rect x="136" y="43" width="133" height="30" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="2"/>
+
+          <!-- Mediane -->
+          <line x1="212" y1="43" x2="212" y2="73" stroke="#c53030" stroke-width="2.5"/>
+
+          <!-- Moustache droite -->
+          <line x1="269" y1="58" x2="373" y2="58" stroke="#d97706" stroke-width="2"/>
+          <line x1="373" y1="51" x2="373" y2="65" stroke="#d97706" stroke-width="2"/>
+
+          <!-- Etiquettes -->
+          <text x="88"  y="38" text-anchor="middle" font-size="10" fill="#718096">min=27</text>
+          <text x="136" y="38" text-anchor="middle" font-size="10" fill="#d97706">Q₁=29,5</text>
+          <text x="212" y="38" text-anchor="middle" font-size="10" fill="#c53030">Me=33,5</text>
+          <text x="269" y="38" text-anchor="middle" font-size="10" fill="#d97706">Q₃=36,5</text>
+          <text x="373" y="38" text-anchor="middle" font-size="10" fill="#718096">max=42</text>
+
+          <text x="240" y="120" text-anchor="middle" font-size="11" fill="#718096">Temps de fabrication (min)</text>
+        </svg>
+        <figcaption>Diagramme en boîte – Temps de fabrication (min=27, Q₁=29,5, Me=33,5, Q₃=36,5, max=42)</figcaption>
+      </div>
+
+      <strong>c) Interprétation :</strong><br>
+      — La médiane (33,5) est légèrement décalée vers la gauche dans la boîte (29,5 à 36,5) → légère asymétrie à droite.<br>
+      — La moustache droite (36,5 → 42) est plus longue que la moustache gauche (27 → 29,5) → quelques pièces ont mis beaucoup plus de temps.<br>
+      — L'écart interquartile = 36,5 − 29,5 = 7 min : les 50 % centraux varient de 7 minutes.
+
+      <div class="corr-rep">
+        min=27, \(Q_1=29{,}5\), \(Me=33{,}5\), \(Q_3=36{,}5\), max=42. La série n'est pas parfaitement symétrique.
+      </div>
+    </div>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  NIVEAU 4 – PROBLÈMES COMPLETS                               -->
+<!-- ============================================================ -->
+<div class="niveau-header niveau-4">
+  <span class="badge-niv badge-4">Niveau 4</span>
+  <h2>Problèmes complets – Analyse et comparaison</h2>
+</div>
+
+<!-- EX 7 -->
+<div class="exo">
+  <div class="exo-num">Exercice 7</div>
+  <div class="exo-titre">Comparer deux ouvriers</div>
+  <span class="context-tag">Gestion de production – Menuiserie</span>
+  <div class="enonce">
+    Un chef d'atelier souhaite comparer les performances de deux ouvriers. Chacun a fabriqué 10 pièces.
+    Voici les temps de fabrication relevés (en minutes) :<br><br>
+
+    <table>
+      <tr>
+        <th>Ouvrier</th>
+        <th colspan="10">Temps de fabrication (min)</th>
+      </tr>
+      <tr>
+        <td><strong>Ouvrier A</strong></td>
+        <td>25</td><td>30</td><td>28</td><td>32</td><td>27</td>
+        <td>35</td><td>29</td><td>28</td><td>31</td><td>26</td>
+      </tr>
+      <tr>
+        <td><strong>Ouvrier B</strong></td>
+        <td>20</td><td>40</td><td>28</td><td>35</td><td>22</td>
+        <td>42</td><td>30</td><td>28</td><td>35</td><td>25</td>
+      </tr>
+    </table>
+    <br>
+    <strong>a)</strong> Calculer la moyenne de chaque ouvrier.<br>
+    <strong>b)</strong> Calculer l'étendue de chaque ouvrier.<br>
+    <strong>c)</strong> Lequel des deux ouvriers est le plus <em>rapide en moyenne</em> ?<br>
+    <strong>d)</strong> Lequel des deux ouvriers est le plus <em>régulier</em> ? Justifier avec les calculs.
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) x̄(A) = (25+30+...) / 10 = ... / x̄(B) = ...&#10;b) Étendue A = max-min = ... / Étendue B = ...&#10;c) Le plus rapide : ...&#10;d) Le plus régulier : ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a) Moyennes :</strong><br>
+      Somme A : \(25+30+28+32+27+35+29+28+31+26 = 291\)
+      \[\bar{x}_A = \frac{291}{10} = \mathbf{29{,}1 \text{ min}}\]
+      Somme B : \(20+40+28+35+22+42+30+28+35+25 = 305\)
+      \[\bar{x}_B = \frac{305}{10} = \mathbf{30{,}5 \text{ min}}\]
+
+      <strong>b) Étendues :</strong><br>
+      Série A triée : 25, 26, 27, 28, 28, 29, 30, 31, 32, 35 → min=25, max=35
+      \[\text{Étendue}_A = 35 - 25 = \mathbf{10 \text{ min}}\]
+      Série B triée : 20, 22, 25, 28, 28, 30, 35, 35, 40, 42 → min=20, max=42
+      \[\text{Étendue}_B = 42 - 20 = \mathbf{22 \text{ min}}\]
+
+      <div class="corr-rep">
+        <strong>c) Rapidité :</strong> \(\bar{x}_A = 29{,}1\) min &lt; \(\bar{x}_B = 30{,}5\) min → <strong>l'ouvrier A est plus rapide en moyenne</strong>.<br><br>
+        <strong>d) Régularité :</strong> Étendue A (10 min) &lt; Étendue B (22 min) → <strong>l'ouvrier A est plus régulier</strong>. Les temps de B varient beaucoup plus (de 20 à 42 min), ce qui traduit une production moins prévisible.
+      </div>
+
+      <div class="att-corr">
+        L'ouvrier B a peut-être des pics de rapidité (20 min) mais aussi des temps très longs (42 min). L'ouvrier A, bien que légèrement moins rapide en moyenne, est beaucoup plus constant.
+      </div>
+    </div>
+  </details>
+</div>
+
+
+<!-- EX 8 -->
+<div class="exo">
+  <div class="exo-num">Exercice 8 &#x2B50;</div>
+  <div class="exo-titre">Analyse complète d'une production MAMA</div>
+  <span class="context-tag">Analyse complète – Contrôle qualité</span>
+  <div class="enonce">
+    Un atelier produit des tasseaux dont la longueur nominale est <strong>40 cm</strong>.
+    Un contrôleur mesure 20 tasseaux (en cm) :<br><br>
+    <strong>39,8 ; 40,2 ; 39,9 ; 40,5 ; 40,0 ; 39,7 ; 40,3 ; 40,1 ; 39,8 ; 40,4 ;
+    40,0 ; 39,9 ; 40,2 ; 40,1 ; 39,8 ; 40,3 ; 40,0 ; 40,2 ; 39,9 ; 40,1</strong><br><br>
+
+    <strong>a)</strong> Trier la série dans l'ordre croissant.<br>
+    <strong>b)</strong> Calculer la moyenne \(\bar{x}\) (arrondir au centième).<br>
+    <strong>c)</strong> Déterminer la médiane \(Me\).<br>
+    <strong>d)</strong> Calculer les quartiles \(Q_1\) et \(Q_3\), puis l'écart interquartile.<br>
+    <strong>e)</strong> Calculer l'étendue.<br>
+    <strong>f)</strong> La tolérance de fabrication est ±0,5 cm (intervalle [39,5 ; 40,5]).
+    Toutes les pièces sont-elles conformes ? Conclure sur la qualité de production.
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) Série triée : ...&#10;b) x̄ = somme / 20 = ...&#10;c) Me = ...&#10;d) Q1 = ... / Q3 = ... / Écart interquartile = ...&#10;e) Étendue = ...&#10;f) Conclusion : ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <strong>a) Série triée (\(N = 20\)) :</strong><br>
+      39,7 ; 39,8 ; 39,8 ; 39,8 ; 39,9 ; 39,9 ; 39,9 ; 40,0 ; 40,0 ; 40,0 ;<br>
+      40,1 ; 40,1 ; 40,1 ; 40,2 ; 40,2 ; 40,2 ; 40,3 ; 40,3 ; 40,4 ; 40,5<br><br>
+
+      <strong>b) Moyenne :</strong><br>
+      Somme = 39,8+40,2+39,9+40,5+40,0+39,7+40,3+40,1+39,8+40,4+40,0+39,9+40,2+40,1+39,8+40,3+40,0+40,2+39,9+40,1<br>
+      Somme = 802,2
+      \[\bar{x} = \frac{802{,}2}{20} = \mathbf{40{,}11 \text{ cm}}\]
+
+      <strong>c) Médiane (\(N=20\), pair) :</strong><br>
+      Valeurs aux rangs 10 et 11 : <strong>40,0</strong> et <strong>40,1</strong>
+      \[Me = \frac{40{,}0 + 40{,}1}{2} = \mathbf{40{,}05 \text{ cm}}\]
+
+      <strong>d) Quartiles :</strong><br>
+      Première moitié (rangs 1 à 10) : 39,7 ; 39,8 ; 39,8 ; 39,8 ; <strong>39,9</strong> ; <strong>39,9</strong> ; 39,9 ; 40,0 ; 40,0 ; 40,0<br>
+      \(Q_1 = \dfrac{39{,}9 + 39{,}9}{2} = \mathbf{39{,}9}\) cm<br><br>
+      Seconde moitié (rangs 11 à 20) : 40,1 ; 40,1 ; 40,1 ; <strong>40,2</strong> ; <strong>40,2</strong> ; 40,2 ; 40,3 ; 40,3 ; 40,4 ; 40,5<br>
+      \(Q_3 = \dfrac{40{,}2 + 40{,}2}{2} = \mathbf{40{,}2}\) cm<br><br>
+      \[\text{Écart interquartile} = Q_3 - Q_1 = 40{,}2 - 39{,}9 = \mathbf{0{,}3 \text{ cm}}\]
+
+      <strong>e) Étendue :</strong>
+      \[\text{Étendue} = 40{,}5 - 39{,}7 = \mathbf{0{,}8 \text{ cm}}\]
+
+      <strong>f) Conformité et conclusion :</strong><br>
+      La tolérance est [39,5 ; 40,5].<br>
+      — Valeur minimale : 39,7 ≥ 39,5 ✔<br>
+      — Valeur maximale : 40,5 ≤ 40,5 ✔<br>
+      → Toutes les pièces sont dans l'intervalle de tolérance.
+
+      <div class="corr-rep">
+        Résumé : \(\bar{x} = 40{,}11\) cm &nbsp;|&nbsp; \(Me = 40{,}05\) cm &nbsp;|&nbsp; \(Q_1 = 39{,}9\) cm &nbsp;|&nbsp; \(Q_3 = 40{,}2\) cm<br>
+        Écart interquartile = 0,3 cm &nbsp;|&nbsp; Étendue = 0,8 cm<br><br>
+        <strong>Conclusion :</strong> Toutes les pièces sont conformes. La production est centrée sur 40 cm (moyenne ≈ 40,11 cm) et très régulière (50 % des pièces sont dans [39,9 ; 40,2], soit un écart interquartile de seulement 0,3 cm). La machine est bien réglée.
+      </div>
+
+      <div class="att-corr">
+        L'étendue (0,8 cm) est inférieure à la tolérance totale (1 cm). La production est de bonne qualité. Cependant, un tasseau a atteint exactement la limite haute (40,5 cm) : à surveiller sur la durée.
+      </div>
+    </div>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  BILAN                                                        -->
+<!-- ============================================================ -->
+<div style="background:#ebf5ff;border-radius:10px;padding:18px 22px;margin:32px 0;border:1px solid #93c5fd">
+  <strong style="color:#1e40af">Bilan des compétences travaillées</strong>
+  <table style="margin:12px 0">
+    <tr><th>Compétence</th><th>Exercices</th></tr>
+    <tr><td class="tl">Lire et construire un tableau statistique (effectifs, fréquences)</td><td>Ex 1</td></tr>
+    <tr><td class="tl">Calculer moyenne et mode</td><td>Ex 2, 3, 7, 8</td></tr>
+    <tr><td class="tl">Calculer la médiane</td><td>Ex 3, 5, 6, 8</td></tr>
+    <tr><td class="tl">Calculer étendue, quartiles, écart interquartile</td><td>Ex 4, 6, 7, 8</td></tr>
+    <tr><td class="tl">Construire et lire un diagramme en boîte</td><td>Ex 6</td></tr>
+    <tr><td class="tl">Comparer deux séries statistiques</td><td>Ex 7</td></tr>
+    <tr><td class="tl">Analyser une production et conclure sur la qualité</td><td>Ex 5, 8</td></tr>
+  </table>
+</div>
+
+<!-- Navigation bas de page -->
+<div class="nav-footer">
+  <a href="ch02_lecon.html" class="nav-btn">← Cours Ch02</a>
+  <a href="maths-2nde-mama.html" class="nav-btn">Sommaire</a>
+  <a href="ch03_lecon.html" class="nav-btn">Ch03 →</a>
+</div>
+
+</div><!-- fin .c -->
+<script src="/nav.js"></script>
+</body>
+</html>

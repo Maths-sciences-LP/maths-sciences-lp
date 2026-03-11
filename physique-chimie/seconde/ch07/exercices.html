@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 PC – Exercices – Structure de la matière</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nb:hover{text-decoration:underline}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;flex:1}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{background:#5a32a3}
+.intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.methode strong{color:#d97706}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.attention strong{color:#be123c}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.retenir strong{color:#0369a1}
+.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
+.mama-tag{display:inline-block;background:#e6f0ff;border:1px solid #bfdbfe;border-radius:4px;font-size:.75em;font-weight:700;color:#1a4a8a;padding:2px 8px;margin-bottom:6px;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.svg-wrap{text-align:center;margin:20px 0}
+.chart-wrap{max-width:580px;margin:20px auto}
+</style>
+</head>
+<body>
+<div class="c">
+
+<a href="pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+
+<header>
+  <h1>Chapitre 7 &ndash; Exercices</h1>
+  <p class="sous-titre">Structure de la mati&egrave;re &ndash; Atomes, ions, mol&eacute;cules &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<!-- ===== INTRODUCTION ===== -->
+<div class="intro-box">
+  <strong>Rappels essentiels :</strong> Toute mati&egrave;re est compos&eacute;e d&rsquo;<strong>atomes</strong>. Un atome poss&egrave;de un <strong>noyau</strong> (protons + neutrons) et un <strong>nuage d&rsquo;&eacute;lectrons</strong>. Le <strong>num&eacute;ro atomique Z</strong> = nombre de protons. Le <strong>nombre de masse A</strong> = protons + neutrons. La notation symbolique est \(^A_Z X\).<br><br>
+  <strong>Objectifs des exercices :</strong>
+  <ul style="margin:6px 0 0;padding-left:20px">
+    <li>Lire et utiliser la notation \(^A_Z X\)</li>
+    <li>Distinguer atome, ion, mol&eacute;cule</li>
+    <li>Interpr&eacute;ter une formule brute</li>
+    <li>Relier &eacute;tats physiques et organisation des particules</li>
+    <li>Appliquer ces notions aux mat&eacute;riaux de l&rsquo;atelier de menuiserie</li>
+  </ul>
+  <br>
+  <strong>Progression :</strong> Base &rarr; Guid&eacute; &rarr; Application &rarr; Contextualis&eacute; professionnel
+</div>
+
+<!-- ===== ENCADRÉS ===== -->
+<div class="methode">
+  <strong>M&eacute;thode &mdash; Lire la notation \(^A_Z X\)</strong><br>
+  &bull; <strong>X</strong> = symbole de l&rsquo;&eacute;l&eacute;ment chimique<br>
+  &bull; <strong>Z</strong> (en bas) = num&eacute;ro atomique = nombre de <strong>protons</strong><br>
+  &bull; <strong>A</strong> (en haut) = nombre de masse = protons + <strong>neutrons</strong><br>
+  &bull; Nombre de neutrons : \(N = A - Z\)<br>
+  &bull; Atome neutre : nombre d&rsquo;&eacute;lectrons = Z
+</div>
+
+<div class="attention">
+  <strong>Attention &mdash; Ne pas confondre !</strong><br>
+  &bull; <strong>Z</strong> = nombre de protons = num&eacute;ro atomique (jamais le nombre de neutrons !)<br>
+  &bull; <strong>A</strong> = protons + neutrons (pas seulement les neutrons)<br>
+  &bull; Un <strong>atome</strong> est &eacute;lectriquement neutre (autant de protons que d&rsquo;&eacute;lectrons)<br>
+  &bull; Un <strong>ion</strong> a perdu ou gagn&eacute; des &eacute;lectrons → il est charg&eacute; &eacute;lectriquement
+</div>
+
+<div class="retenir">
+  <strong>&Agrave; retenir &mdash; Formules et d&eacute;finitions essentielles</strong>
+  <table style="margin-top:10px">
+    <tr><th>Grandeur</th><th>D&eacute;finition</th><th>Symbole</th></tr>
+    <tr><td>Num&eacute;ro atomique</td><td>Nombre de protons dans le noyau</td><td>Z</td></tr>
+    <tr><td>Nombre de neutrons</td><td>\(N = A - Z\)</td><td>N</td></tr>
+    <tr><td>Nombre de masse</td><td>Protons + Neutrons</td><td>A</td></tr>
+    <tr><td>Cation</td><td>Ion charg&eacute; positivement (a perdu des e⁻)</td><td>ex : Fe²⁺</td></tr>
+    <tr><td>Anion</td><td>Ion charg&eacute; n&eacute;gativement (a gagn&eacute; des e⁻)</td><td>ex : Cl⁻</td></tr>
+  </table>
+</div>
+
+<!-- ===== SVG MODELE DE BOHR ===== -->
+<div class="svg-wrap">
+<svg width="500" height="220" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:'Segoe UI',sans-serif">
+  <rect width="500" height="220" fill="#fafafa" rx="10" stroke="#e2e8f0"/>
+  <text x="250" y="20" text-anchor="middle" font-size="13" font-weight="bold" fill="#6f42c1">Mod&egrave;le de Bohr &mdash; Atome de Carbone (Z=6, A=12)</text>
+  <!-- Noyau -->
+  <circle cx="150" cy="115" r="28" fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
+  <text x="150" y="111" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">6 p⁺</text>
+  <text x="150" y="124" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">6 n⁰</text>
+  <!-- Couche K (2 électrons) -->
+  <circle cx="150" cy="115" r="52" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <circle cx="150" cy="63" r="7" fill="#60a5fa" stroke="#2563eb" stroke-width="1.5"/>
+  <circle cx="150" cy="167" r="7" fill="#60a5fa" stroke="#2563eb" stroke-width="1.5"/>
+  <!-- Couche L (4 électrons) -->
+  <circle cx="150" cy="115" r="88" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <circle cx="62" cy="115" r="7" fill="#1e40af" stroke="#1e3a8a" stroke-width="1.5"/>
+  <circle cx="238" cy="115" r="7" fill="#1e40af" stroke="#1e3a8a" stroke-width="1.5"/>
+  <circle cx="150" cy="27" r="7" fill="#1e40af" stroke="#1e3a8a" stroke-width="1.5"/>
+  <circle cx="150" cy="203" r="7" fill="#1e40af" stroke="#1e3a8a" stroke-width="1.5"/>
+  <!-- Légendes -->
+  <text x="290" y="80" font-size="11" fill="#2563eb">Couche K : 2 e⁻ (bleu clair)</text>
+  <text x="290" y="100" font-size="11" fill="#1e40af">Couche L : 4 e⁻ (bleu foncé)</text>
+  <text x="290" y="120" font-size="11" fill="#ef4444">Noyau : 6 protons (p⁺)</text>
+  <text x="290" y="138" font-size="11" fill="#ef4444">          6 neutrons (n⁰)</text>
+  <line x1="285" y1="72" x2="158" y2="64" stroke="#2563eb" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="285" y1="92" x2="240" y2="115" stroke="#1e40af" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="285" y1="112" x2="178" y2="112" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>
+<p style="font-size:.82em;color:#718096;margin-top:4px">Figure 1 &mdash; Mod&egrave;le de Bohr de l&rsquo;atome de carbone \(^{12}_6 C\)</p>
+</div>
+
+<!-- ========== SECTION 1 : BASE ========== -->
+<h2>Exercices de base</h2>
+<div class="section-intro">Niveau facile &mdash; identifier les constituants d&rsquo;un atome, lire la notation \(^A_Z X\).</div>
+
+<!-- EXO 1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Les constituants de l&rsquo;atome</span>
+    <span class="diff diff-1">&#9733; Facile</span>
+  </div>
+  <p>L&rsquo;atome est form&eacute; d&rsquo;un <strong>noyau</strong> et d&rsquo;un <strong>nuage d&rsquo;&eacute;lectrons</strong>.</p>
+  <div class="q"><strong>1.</strong> Citer les deux types de particules pr&eacute;sentes dans le noyau. Quelles sont leurs charges &eacute;lectriques respectives ?</div>
+  <div class="q"><strong>2.</strong> O&ugrave; se trouvent les &eacute;lectrons ? Quelle est leur charge ?</div>
+  <div class="q"><strong>3.</strong> Un atome est &eacute;lectriquement neutre. Que peut-on en d&eacute;duire sur le nombre d&rsquo;&eacute;lectrons par rapport au nombre de protons ?</div>
+  <div class="q"><strong>4.</strong> Quelle particule est beaucoup plus l&eacute;g&egrave;re : le proton ou l&rsquo;&eacute;lectron ?</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le noyau contient des <strong>protons</strong> (charge +1) et des <strong>neutrons</strong> (charge nulle, neutres).</p>
+    <p><strong>2.</strong> Les &eacute;lectrons se trouvent dans le <strong>nuage &eacute;lectronique</strong> (couches &eacute;lectroniques) autour du noyau. Leur charge est &minus;1.</p>
+    <p><strong>3.</strong> Puisque l&rsquo;atome est neutre, le nombre d&rsquo;&eacute;lectrons est <strong>&eacute;gal au nombre de protons</strong> : les charges se compensent exactement.</p>
+    <p><strong>4.</strong> L&rsquo;&eacute;lectron est environ <strong>1 836 fois plus l&eacute;ger</strong> que le proton. La quasi-totalit&eacute; de la masse de l&rsquo;atome est concentr&eacute;e dans le noyau.</p>
+  </div>
+</div>
+
+<!-- EXO 2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Lire la notation \(^A_Z X\)</span>
+    <span class="diff diff-1">&#9733; Facile</span>
+  </div>
+  <p>Voici les notations symboliques de cinq atomes courants :</p>
+  <p style="text-align:center;font-size:1.1em">\(\;^1_1\text{H}\;\) &nbsp; \(\;^{12}_6\text{C}\;\) &nbsp; \(\;^{27}_{13}\text{Al}\;\) &nbsp; \(\;^{56}_{26}\text{Fe}\;\) &nbsp; \(\;^{16}_8\text{O}\;\)</p>
+  <div class="q"><strong>1.</strong> Pour chaque atome, indiquer : le num&eacute;ro atomique Z, le nombre de masse A, le nombre de neutrons N.</div>
+  <div class="q"><strong>2.</strong> Quel atome poss&egrave;de le plus grand nombre de protons ? Le plus petit ?</div>
+  <div class="q"><strong>3.</strong> L&rsquo;atome de fer comporte-t-il plus de protons ou plus de neutrons ?</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Tableau :</strong></p>
+    <table>
+      <tr><th>Atome</th><th>Z (protons)</th><th>A (masse)</th><th>N = A&minus;Z (neutrons)</th></tr>
+      <tr><td>H</td><td>1</td><td>1</td><td>0</td></tr>
+      <tr><td>C</td><td>6</td><td>12</td><td>6</td></tr>
+      <tr><td>Al</td><td>13</td><td>27</td><td>14</td></tr>
+      <tr><td>Fe</td><td>26</td><td>56</td><td>30</td></tr>
+      <tr><td>O</td><td>8</td><td>16</td><td>8</td></tr>
+    </table>
+    <p><strong>2.</strong> Le plus grand Z : <strong>Fe (Z=26)</strong>. Le plus petit : <strong>H (Z=1)</strong>.</p>
+    <p><strong>3.</strong> Le fer a 26 protons et 30 neutrons → <strong>il a plus de neutrons que de protons</strong>.</p>
+  </div>
+</div>
+
+<!-- EXO 3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">&Eacute;tats de la mati&egrave;re et organisation des particules</span>
+    <span class="diff diff-1">&#9733; Facile</span>
+  </div>
+  <p>La mati&egrave;re peut exister sous trois &eacute;tats : <strong>solide</strong>, <strong>liquide</strong> et <strong>gazeux</strong>.</p>
+  <div class="q"><strong>1.</strong> Dans quel &eacute;tat les particules sont-elles tr&egrave;s ordonn&eacute;es et tr&egrave;s proches ? Tr&egrave;s &eacute;loign&eacute;es et d&eacute;sordonn&eacute;es ?</div>
+  <div class="q"><strong>2.</strong> Classer ces situations selon l&rsquo;&eacute;tat de la mati&egrave;re : un boulon en acier / de l&rsquo;huile de coupe / de la vapeur d&rsquo;eau dans un s&egrave;che-bois / de la cire solide.</div>
+  <div class="q"><strong>3.</strong> Qu&rsquo;est-ce qu&rsquo;un corps pur ? Donner un exemple m&eacute;tallique et un exemple liquide.</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Les particules sont tr&egrave;s ordonn&eacute;es et proches dans l&rsquo;&eacute;tat <strong>solide</strong>. Elles sont tr&egrave;s &eacute;loign&eacute;es et d&eacute;sordonn&eacute;es dans l&rsquo;&eacute;tat <strong>gazeux</strong>.</p>
+    <p><strong>2.</strong> Boulon en acier : <strong>solide</strong> | Huile de coupe : <strong>liquide</strong> | Vapeur d&rsquo;eau : <strong>gazeux</strong> | Cire solide : <strong>solide</strong></p>
+    <p><strong>3.</strong> Un <strong>corps pur</strong> est compos&eacute; d&rsquo;une seule esp&egrave;ce chimique. Exemples : aluminium pur Al (m&eacute;tal), eau distill&eacute;e H₂O (liquide).</p>
+  </div>
+</div>
+
+<!-- ========== SECTION 2 : GUIDÉ ========== -->
+<h2>Exercices guid&eacute;s</h2>
+<div class="section-intro">Niveau interm&eacute;diaire &mdash; ions, mol&eacute;cules, formules brutes.</div>
+
+<!-- EXO 4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Atomes et ions &mdash; cations et anions</span>
+    <span class="diff diff-2">&#9733;&#9733; Interm&eacute;diaire</span>
+  </div>
+  <p>Un <strong>ion</strong> est un atome qui a perdu ou gagn&eacute; un ou plusieurs &eacute;lectrons.</p>
+  <div class="methode">
+    <strong>Guide de r&eacute;solution :</strong><br>
+    &bull; Si l&rsquo;atome perd des &eacute;lectrons (e⁻) → il devient un <strong>cation</strong> (charge positive +)<br>
+    &bull; Si l&rsquo;atome gagne des e⁻ → il devient un <strong>anion</strong> (charge n&eacute;gative &minus;)<br>
+    &bull; Charge = nombre de protons &minus; nombre d&rsquo;&eacute;lectrons
+  </div>
+  <div class="q"><strong>1.</strong> L&rsquo;atome de fer \(^{56}_{26}\text{Fe}\) perd 2 &eacute;lectrons. Quelle est la charge de l&rsquo;ion form&eacute; ? Le noter avec sa charge.</div>
+  <div class="q"><strong>2.</strong> L&rsquo;atome de chlore \(^{35}_{17}\text{Cl}\) gagne 1 &eacute;lectron. Quel ion se forme ? Est-ce un cation ou un anion ?</div>
+  <div class="q"><strong>3.</strong> L&rsquo;atome d&rsquo;aluminium (Z=13) perd 3 &eacute;lectrons. Combien d&rsquo;&eacute;lectrons l&rsquo;ion Al³⁺ poss&egrave;de-t-il ?</div>
+  <div class="q"><strong>4.</strong> Dans la rouille, on trouve l&rsquo;ion Fe³⁺. Le fer a-t-il perdu ou gagn&eacute; des &eacute;lectrons pour former cet ion ? Combien ?</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le fer perd 2 e⁻ → il reste 26 &minus; 2 = 24 e⁻. Charge = 26 &minus; 24 = <strong>+2</strong>. Ion : <strong>Fe²⁺</strong> (cation ferreux).</p>
+    <p><strong>2.</strong> Le chlore gagne 1 e⁻ → il a 17 + 1 = 18 e⁻. Charge = 17 &minus; 18 = <strong>&minus;1</strong>. Ion : <strong>Cl⁻</strong>. C&rsquo;est un <strong>anion</strong> (charge n&eacute;gative).</p>
+    <p><strong>3.</strong> L&rsquo;aluminium neutre a Z = 13 e⁻. Il en perd 3 → Al³⁺ poss&egrave;de <strong>13 &minus; 3 = 10 &eacute;lectrons</strong>.</p>
+    <p><strong>4.</strong> Fe³⁺ a une charge +3 : le fer a <strong>perdu 3 &eacute;lectrons</strong> lors de la formation de la rouille (oxydation).</p>
+  </div>
+</div>
+
+<!-- EXO 5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Lire une formule brute &mdash; mol&eacute;cules</span>
+    <span class="diff diff-2">&#9733;&#9733; Interm&eacute;diaire</span>
+  </div>
+  <p>Une <strong>mol&eacute;cule</strong> est un assemblage de plusieurs atomes li&eacute;s chimiquement. La <strong>formule brute</strong> indique la nature et le nombre de chaque atome.</p>
+  <div class="q"><strong>1.</strong> Pour chaque mol&eacute;cule, indiquer les atomes pr&eacute;sents et leur nombre : H₂O &nbsp;|&nbsp; CO₂ &nbsp;|&nbsp; CH₄ &nbsp;|&nbsp; C₆H₁₂O₆</div>
+  <div class="q"><strong>2.</strong> Combien y a-t-il d&rsquo;atomes au total dans une mol&eacute;cule de glucose C₆H₁₂O₆ ?</div>
+  <div class="q"><strong>3.</strong> La mol&eacute;cule d&rsquo;eau H₂O est-elle un m&eacute;lange ou un corps pur ? Justifier.</div>
+  <div class="q"><strong>4.</strong> Donner la formule brute de l&rsquo;acide chlorhydrique : une mol&eacute;cule form&eacute;e d&rsquo;un atome d&rsquo;hydrog&egrave;ne et d&rsquo;un atome de chlore.</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Formules :</strong></p>
+    <table>
+      <tr><th>Mol&eacute;cule</th><th>Atomes pr&eacute;sents</th><th>Nombres</th></tr>
+      <tr><td>H₂O (eau)</td><td>H et O</td><td>2 H, 1 O</td></tr>
+      <tr><td>CO₂ (dioxyde de carbone)</td><td>C et O</td><td>1 C, 2 O</td></tr>
+      <tr><td>CH₄ (m&eacute;thane)</td><td>C et H</td><td>1 C, 4 H</td></tr>
+      <tr><td>C₆H₁₂O₆ (glucose)</td><td>C, H et O</td><td>6 C, 12 H, 6 O</td></tr>
+    </table>
+    <p><strong>2.</strong> Glucose : 6 + 12 + 6 = <strong>24 atomes</strong> par mol&eacute;cule.</p>
+    <p><strong>3.</strong> H₂O est un <strong>corps pur</strong> : il n&rsquo;existe qu&rsquo;une seule esp&egrave;ce chimique (la mol&eacute;cule d&rsquo;eau). Ce n&rsquo;est pas un m&eacute;lange.</p>
+    <p><strong>4.</strong> Un atome H + un atome Cl → formule : <strong>HCl</strong></p>
+  </div>
+</div>
+
+<!-- ========== SECTION 3 : APPLICATION ========== -->
+<h2>Exercices d&rsquo;application</h2>
+<div class="section-intro">Niveau interm&eacute;diaire &mdash; utilisation combin&eacute;e de Z, A, N et des formules brutes.</div>
+
+<!-- EXO 6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Comparer des atomes &mdash; carbone, aluminium, fer</span>
+    <span class="diff diff-2">&#9733;&#9733; Interm&eacute;diaire</span>
+  </div>
+  <p>On donne les notations : \(\;^{12}_6\text{C}\;\), \(\;^{27}_{13}\text{Al}\;\), \(\;^{56}_{26}\text{Fe}\;\)</p>
+  <div class="q"><strong>1.</strong> Pour chaque atome, calculer le nombre de neutrons.</div>
+  <div class="q"><strong>2.</strong> L&rsquo;atome neutre de carbone poss&egrave;de 6 &eacute;lectrons. O&ugrave; sont-ils r&eacute;partis sur les couches K et L ? (Couche K : max 2 e⁻, Couche L : max 8 e⁻)</div>
+  <div class="q"><strong>3.</strong> L&rsquo;atome d&rsquo;aluminium poss&egrave;de 13 &eacute;lectrons. D&eacute;crire leur r&eacute;partition sur les couches K, L, M.</div>
+  <div class="q"><strong>4.</strong> Lequel de ces trois atomes a le plus grand noyau ? Justifier.</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Neutrons :</strong> C : 12&minus;6=<strong>6</strong> | Al : 27&minus;13=<strong>14</strong> | Fe : 56&minus;26=<strong>30</strong></p>
+    <p><strong>2. Carbone (6 e⁻) :</strong> Couche K = 2 e⁻ (satur&eacute;e), Couche L = 4 e⁻. Configuration : <strong>K(2) L(4)</strong></p>
+    <p><strong>3. Aluminium (13 e⁻) :</strong> K = 2 (satur&eacute;e), L = 8 (satur&eacute;e), M = 3. Configuration : <strong>K(2) L(8) M(3)</strong></p>
+    <p><strong>4.</strong> C&rsquo;est le <strong>fer (Z=26, A=56)</strong> qui a le plus grand noyau car il poss&egrave;de le plus grand nombre de nucl&eacute;ons (protons + neutrons : 56).</p>
+  </div>
+</div>
+
+<!-- EXO 7 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Corps purs, m&eacute;langes et formules mol&eacute;culaires</span>
+    <span class="diff diff-3">&#9733;&#9733;&#9733; Avanc&eacute;</span>
+  </div>
+  <p>Voici une liste de substances : eau distill&eacute;e, huile de lin, acier (alliage fer+carbone), dioxyde de carbone CO₂, air, vinaigre (eau + acide ac&eacute;tique), aluminium pur.</p>
+  <div class="q"><strong>1.</strong> Classer ces substances en deux cat&eacute;gories : corps purs et m&eacute;langes.</div>
+  <div class="q"><strong>2.</strong> Parmi les corps purs, distinguer les corps purs simples (form&eacute;s d&rsquo;un seul &eacute;l&eacute;ment chimique) et les corps purs compos&eacute;s (mol&eacute;cules form&eacute;es de plusieurs &eacute;l&eacute;ments).</div>
+  <div class="q"><strong>3.</strong> L&rsquo;acier est un alliage de fer et de carbone. Ses propri&eacute;t&eacute;s d&eacute;pendent-elles des propri&eacute;t&eacute;s du fer seul ? Justifier en lien avec la notion de m&eacute;lange.</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Classification :</strong></p>
+    <p><em>Corps purs :</em> eau distill&eacute;e (H₂O), dioxyde de carbone (CO₂), aluminium pur (Al).</p>
+    <p><em>M&eacute;langes :</em> huile de lin (m&eacute;lange d&rsquo;hydrocarbures), acier (m&eacute;lange Fe+C), air (m&eacute;lange N₂+O₂+...), vinaigre (eau+acide ac&eacute;tique).</p>
+    <p><strong>2.</strong> Corps purs simples : <strong>Al</strong> (un seul &eacute;l&eacute;ment).<br>
+    Corps purs compos&eacute;s : <strong>H₂O</strong> (H et O), <strong>CO₂</strong> (C et O).</p>
+    <p><strong>3.</strong> Non : un <strong>m&eacute;lange a des propri&eacute;t&eacute;s diff&eacute;rentes</strong> de ses constituants purs. L&rsquo;acier est bien plus dur et r&eacute;sistant que le fer pur gr&acirc;ce &agrave; la pr&eacute;sence de carbone. C&rsquo;est l&rsquo;int&eacute;r&ecirc;t des alliages en m&eacute;tallurgie.</p>
+  </div>
+</div>
+
+<!-- ========== SECTION 4 : CONTEXTUALISÉ EN ATELIER ========== -->
+<h2>Exercices contextualis&eacute;s en atelier</h2>
+<div class="section-intro">Applications directes aux mat&eacute;riaux et produits rencontr&eacute;s en atelier de menuiserie.</div>
+
+<!-- EXO 8 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Rouille et oxydation du fer en atelier</span>
+    <span class="diff diff-2">&#9733;&#9733; Interm&eacute;diaire</span>
+    <span class="mama-tag">Atelier &middot; M&eacute;tallurgie</span>
+  </div>
+  <p>La <strong>rouille</strong> est un ph&eacute;nom&egrave;ne d&rsquo;oxydation du fer qui produit de l&rsquo;<strong>oxyde de fer(III)</strong> de formule Fe₂O₃. Elle se forme lorsque le fer est expos&eacute; &agrave; l&rsquo;air humide.</p>
+  <div class="q"><strong>1.</strong> La formule Fe₂O₃ signifie que la mol&eacute;cule contient 2 atomes de fer et 3 atomes d&rsquo;oxyg&egrave;ne. Combien y a-t-il d&rsquo;atomes au total dans une mol&eacute;cule de Fe₂O₃ ?</div>
+  <div class="q"><strong>2.</strong> L&rsquo;oxyg&egrave;ne a Z=8, A=16. Combien de neutrons poss&egrave;de-t-il ? Donner sa notation symbolique.</div>
+  <div class="q"><strong>3.</strong> Dans Fe₂O₃, le fer est sous forme d&rsquo;ion Fe³⁺. Que signifie &laquo;&nbsp;³⁺&nbsp;&raquo; ? Le fer a-t-il perdu ou gagn&eacute; des &eacute;lectrons ?</div>
+  <div class="q"><strong>4.</strong> Pour pr&eacute;venir la rouille, on prot&egrave;ge les pi&egrave;ces m&eacute;talliques avec de la peinture ou du zinc (galvanisation). Expliquer pourquoi cette protection emp&ecirc;che l&rsquo;oxydation.</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Fe₂O₃ : 2 Fe + 3 O = <strong>5 atomes</strong> par unit&eacute; formule.</p>
+    <p><strong>2.</strong> Oxyg&egrave;ne : N = A &minus; Z = 16 &minus; 8 = <strong>8 neutrons</strong>. Notation : \(\;^{16}_8\text{O}\;\)</p>
+    <p><strong>3.</strong> Fe³⁺ signifie que le fer porte une charge <strong>+3</strong> : il a <strong>perdu 3 &eacute;lectrons</strong> lors de la r&eacute;action d&rsquo;oxydation avec l&rsquo;oxyg&egrave;ne.</p>
+    <p><strong>4.</strong> La peinture ou le zinc forment une <strong>barri&egrave;re physique</strong> entre le fer et l&rsquo;air humide, emp&ecirc;chant le contact entre les atomes de fer et les mol&eacute;cules d&rsquo;oxyg&egrave;ne (O₂) et d&rsquo;eau (H₂O) n&eacute;cessaires &agrave; la r&eacute;action d&rsquo;oxydation.</p>
+  </div>
+</div>
+
+<!-- EXO 9 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Mat&eacute;riaux en atelier &mdash; identifier &eacute;l&eacute;ments et formules</span>
+    <span class="diff diff-3">&#9733;&#9733;&#9733; Avanc&eacute;</span>
+    <span class="mama-tag">Atelier &middot; Mat&eacute;riaux</span>
+  </div>
+  <p>Voici des mat&eacute;riaux et produits couramment utilis&eacute;s en atelier :</p>
+  <table>
+    <tr><th>Mat&eacute;riau / Produit</th><th>Formule brute</th><th>Utilisation en atelier</th></tr>
+    <tr><td>Aluminium</td><td>Al</td><td>Carrosserie, pi&egrave;ces l&eacute;g&egrave;res</td></tr>
+    <tr><td>Cuivre</td><td>Cu</td><td>C&acirc;blage &eacute;lectrique</td></tr>
+    <tr><td>Dioxyde de carbone</td><td>CO₂</td><td>Gaz de soudage MIG/MAG</td></tr>
+    <tr><td>Ac&eacute;tone</td><td>C₃H₆O</td><td>D&eacute;graissant, solvant</td></tr>
+    <tr><td>Propane</td><td>C₃H₈</td><td>Gaz de chauffage, chalumeau</td></tr>
+    <tr><td>Eau</td><td>H₂O</td><td>Nettoyage, liquide de refroidissement</td></tr>
+  </table>
+  <div class="q"><strong>1.</strong> Parmi ces substances, lesquelles sont des corps purs simples (un seul &eacute;l&eacute;ment) ? Lesquelles sont des corps purs compos&eacute;s ?</div>
+  <div class="q"><strong>2.</strong> Pour l&rsquo;ac&eacute;tone C₃H₆O : combien y a-t-il d&rsquo;atomes au total dans une mol&eacute;cule ? Quels &eacute;l&eacute;ments chimiques sont pr&eacute;sents ?</div>
+  <div class="q"><strong>3.</strong> Le cuivre a Z=29, A=64. Calculer le nombre de neutrons. &Eacute;crire sa notation symbolique.</div>
+  <div class="q"><strong>4.</strong> Le propane (C₃H₈) et l&rsquo;ac&eacute;tone (C₃H₆O) ont tous les deux 3 atomes de carbone. Ont-ils pour autant les m&ecirc;mes propri&eacute;t&eacute;s ? Pourquoi ?</div>
+  <div class="q"><strong>5.</strong> <em>Pour aller plus loin :</em> Le fil de cuivre utilis&eacute; en &eacute;lectrique peut se ternir (oxydation superficielle en CuO). L&rsquo;ion cuivrique est Cu²⁺. Combien d&rsquo;&eacute;lectrons a perdu l&rsquo;atome de cuivre pour former cet ion ?</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Corps purs simples (un seul &eacute;l&eacute;ment) : <strong>Al</strong>, <strong>Cu</strong>.<br>
+    Corps purs compos&eacute;s : <strong>CO₂</strong> (C, O), <strong>C₃H₆O</strong> (C, H, O), <strong>C₃H₈</strong> (C, H), <strong>H₂O</strong> (H, O).</p>
+    <p><strong>2.</strong> Ac&eacute;tone C₃H₆O : 3 + 6 + 1 = <strong>10 atomes</strong>. &Eacute;l&eacute;ments : carbone (C), hydrog&egrave;ne (H), oxyg&egrave;ne (O).</p>
+    <p><strong>3.</strong> Cuivre : N = 64 &minus; 29 = <strong>35 neutrons</strong>. Notation : \(\;^{64}_{29}\text{Cu}\;\)</p>
+    <p><strong>4.</strong> Non, ils n&rsquo;ont pas les m&ecirc;mes propri&eacute;t&eacute;s : les propri&eacute;t&eacute;s chimiques d&rsquo;une mol&eacute;cule d&eacute;pendent non seulement de la <strong>composition</strong> (atomes pr&eacute;sents) mais aussi de leur <strong>arrangement</strong> (structure) et des liaisons chimiques. L&rsquo;ac&eacute;tone (C₃H₆O) est un solvant tandis que le propane (C₃H₈) est un combustible.</p>
+    <p><strong>5.</strong> Cu²⁺ : charge = +2 → le cuivre a <strong>perdu 2 &eacute;lectrons</strong> (29 protons &minus; 27 &eacute;lectrons = charge +2).</p>
+  </div>
+</div>
+
+<!-- ===== SIMULATIONS INTERACTIVES ===== -->
+<h2>Simulations interactives</h2>
+<p style="font-size:.9em;color:#555;margin-bottom:18px">Trois simulateurs pour explorer la structure atomique de façon interactive.</p>
+
+<!-- SIM 1 : Modèle de Bohr animé -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Simulation 1</span>
+    <span class="exo-title">Modèle de Bohr animé – Construire votre atome</span>
+    <span class="diff" style="background:#e0f2fe;color:#0369a1">Interactif</span>
+  </div>
+  <p>Saisissez un numéro atomique Z (1–18) et un nombre de masse A, puis cliquez sur <strong>Construire</strong> pour voir l'atome animé avec ses couches électroniques.</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0">
+    <label><strong>Z (protons) :</strong></label>
+    <input type="number" id="sim1Z" value="6" min="1" max="18" style="width:70px;padding:6px;border:1px solid #ccc;border-radius:6px;font-size:1em">
+    <label><strong>A (masse) :</strong></label>
+    <input type="number" id="sim1A" value="12" min="1" max="56" style="width:70px;padding:6px;border:1px solid #ccc;border-radius:6px;font-size:1em">
+    <button onclick="buildAtom()" style="background:#6f42c1;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600">Construire</button>
+    <button onclick="toggleBohrAnim()" id="btnBohrAnim" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer">⏸ Pause</button>
+  </div>
+  <div style="text-align:center">
+    <canvas id="canvasBohr" width="380" height="320" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px;background:#0f172a"></canvas>
+  </div>
+  <div id="sim1Info" style="background:#f5f0ff;border-radius:8px;padding:12px;margin-top:12px;font-size:.93em;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px"></div>
+  <div class="methode" style="margin-top:12px"><strong>Atomes suggérés :</strong> H(Z=1,A=1) · He(Z=2,A=4) · C(Z=6,A=12) · O(Z=8,A=16) · Na(Z=11,A=23) · Al(Z=13,A=27) · Fe(Z=26,A=56)</div>
+</div>
+
+<!-- SIM 2 : Formation d'ions -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Simulation 2</span>
+    <span class="exo-title">Formation d'ions – Gagner ou perdre des électrons</span>
+    <span class="diff" style="background:#e0f2fe;color:#0369a1">Interactif</span>
+  </div>
+  <p>Sélectionnez un atome, puis ajoutez ou retirez des électrons pour observer la formation d'un cation ou d'un anion.</p>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0">
+    <select id="sim2Atom" onchange="sim2Reset()" style="padding:8px;border:1px solid #ccc;border-radius:6px;font-size:.95em">
+      <option value="1,1,H">¹H — Hydrogène</option>
+      <option value="11,23,Na">²³Na — Sodium</option>
+      <option value="13,27,Al" selected>²⁷Al — Aluminium</option>
+      <option value="17,35,Cl">³⁵Cl — Chlore</option>
+      <option value="8,16,O">¹⁶O — Oxygène</option>
+      <option value="26,56,Fe">⁵⁶Fe — Fer</option>
+      <option value="29,64,Cu">⁶⁴Cu — Cuivre</option>
+    </select>
+    <button onclick="sim2Change(-1)" style="background:#c53030;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:1em;font-weight:600">− e⁻&nbsp;(perd)</button>
+    <button onclick="sim2Change(+1)" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:1em;font-weight:600">+ e⁻&nbsp;(gagne)</button>
+    <button onclick="sim2Reset()" style="background:#718096;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer">↺ Reset</button>
+  </div>
+  <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;justify-content:center">
+    <div id="sim2Canvas" style="text-align:center"></div>
+    <div id="sim2Info" style="background:#f5f0ff;border-radius:10px;padding:16px;min-width:220px;text-align:center;align-self:center"></div>
+  </div>
+</div>
+
+<!-- SIM 3 : Quiz notation symbolique -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Simulation 3</span>
+    <span class="exo-title">Quiz – Lire la notation symbolique <sup>A</sup><sub>Z</sub>X</span>
+    <span class="diff" style="background:#e0f2fe;color:#0369a1">Quiz</span>
+  </div>
+  <p>5 questions aléatoires pour tester votre lecture de la notation symbolique des atomes.</p>
+  <div id="quiz3" style="min-height:200px"></div>
+</div>
+
+<!-- SIM 4 : Formation de molécules -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Simulation 4</span>
+    <span class="exo-title">Formation de molécules – Assemblez des atomes</span>
+    <span class="diff" style="background:#e0f2fe;color:#0369a1">Interactif</span>
+  </div>
+  <p>Cliquez sur les boutons d'atomes pour les ajouter à la zone de travail. Quand vous avez la bonne combinaison, la molécule est reconnue automatiquement. Cliquez sur un atome dans la zone pour le retirer.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center">
+    <strong style="font-size:.9em;margin-right:4px">Atomes :</strong>
+    <span id="sim4AtomBtns"></span>
+    <button onclick="sim4Clear()" style="background:#718096;color:#fff;border:none;padding:7px 14px;border-radius:6px;cursor:pointer;margin-left:8px">🗑 Vider</button>
+  </div>
+  <div id="sim4Workspace" style="min-height:70px;background:#f8fafc;border:2px dashed #cbd5e0;border-radius:10px;padding:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px">
+    <span style="color:#a0aec0;font-size:.9em">← Cliquez sur des atomes pour les ajouter ici</span>
+  </div>
+  <div id="sim4Result" style="min-height:50px"></div>
+  <div class="methode" style="margin-top:12px"><strong>Molécules à trouver :</strong> H₂ &nbsp;·&nbsp; O₂ &nbsp;·&nbsp; HCl &nbsp;·&nbsp; H₂O &nbsp;·&nbsp; CO₂ &nbsp;·&nbsp; CH₄ &nbsp;·&nbsp; NH₃ &nbsp;·&nbsp; C₂H₂ &nbsp;·&nbsp; C₃H₈ &nbsp;·&nbsp; C₃H₆O</div>
+</div>
+
+<!-- ===== GRAPHIQUE CHART.JS ===== -->
+<h2>Abondance des &eacute;l&eacute;ments dans la cro&ucirc;te terrestre</h2>
+<p style="font-size:.9em;color:#555">Certains &eacute;l&eacute;ments sont tr&egrave;s abondants dans la nature. Ce graphique montre les 8 &eacute;l&eacute;ments les plus courants (en % massique). Les m&eacute;taux utilis&eacute;s en atelier (Al, Fe) font partie des plus abondants.</p>
+<div class="chart-wrap">
+  <canvas id="chartAbondance" height="320"></canvas>
+</div>
+
+<!-- ===== BILAN ===== -->
+<h2>Tableau bilan du chapitre</h2>
+<table>
+  <tr><th>Notion</th><th>D&eacute;finition cl&eacute;</th><th>Exemple en atelier</th></tr>
+  <tr><td><strong>Atome</strong></td><td>Particule neutre : noyau (p⁺, n⁰) + &eacute;lectrons</td><td>Atome de fer Fe dans l&rsquo;acier</td></tr>
+  <tr><td><strong>Num&eacute;ro atomique Z</strong></td><td>Nombre de protons (= &eacute;lectrons pour atome neutre)</td><td>Fe : Z=26</td></tr>
+  <tr><td><strong>Nombre de masse A</strong></td><td>Protons + Neutrons</td><td>Fe : A=56</td></tr>
+  <tr><td><strong>Cation</strong></td><td>Ion + (a perdu des e⁻)</td><td>Fe²⁺ dans la rouille</td></tr>
+  <tr><td><strong>Anion</strong></td><td>Ion &minus; (a gagn&eacute; des e⁻)</td><td>Cl⁻ dans l&rsquo;eau sal&eacute;e</td></tr>
+  <tr><td><strong>Mol&eacute;cule</strong></td><td>Assemblage d&rsquo;atomes li&eacute;s</td><td>H₂O, CO₂, C₃H₈ (propane)</td></tr>
+  <tr><td><strong>Corps pur simple</strong></td><td>Un seul &eacute;l&eacute;ment</td><td>Al, Cu, Fe</td></tr>
+  <tr><td><strong>M&eacute;lange</strong></td><td>Plusieurs esp&egrave;ces chimiques</td><td>Acier (Fe+C), air</td></tr>
+</table>
+
+<div style="text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid #e2e8f0;color:#718096;font-size:.85em">
+  <p>Physique-Chimie &mdash; 2nde Bac Pro | Chapitre 7 &mdash; Structure de la mati&egrave;re<br>
+  <a href="pc-2nde-pro.html" style="color:var(--p);font-weight:700">&larr; Retour au sommaire</a></p>
+</div>
+
+</div><!-- /.c -->
+
+<script>
+function toggle(btn){
+  var c=btn.nextElementSibling;
+  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
+  else{c.style.display='block';btn.textContent='Masquer la correction';}
+}
+
+// ==================== SIMULATION 1 : Modèle de Bohr animé ====================
+var bohrElements={1:'H',2:'He',3:'Li',4:'Be',5:'B',6:'C',7:'N',8:'O',9:'F',10:'Ne',11:'Na',12:'Mg',13:'Al',14:'Si',15:'P',16:'S',17:'Cl',18:'Ar'};
+var bohrShellRadii=[62,107,152];
+var bohrShellSpeeds=[0.022,0.013,0.008];
+var bohrShellColors=['#60a5fa','#34d399','#fbbf24'];
+var bohrShellNames=['K','L','M'];
+var bohrAngles=[0,Math.PI/3,Math.PI/6];
+var bohrAtom={Z:6,A:12,N:6,shells:[2,4,0],sym:'C'};
+var bohrRunning=true;
+var bohrAnimId=null;
+
+function bohrGetShells(Z){
+  var max=[2,8,8],sh=[0,0,0],rem=Z;
+  for(var i=0;i<3&&rem>0;i++){sh[i]=Math.min(rem,max[i]);rem-=sh[i];}
+  return sh;
+}
+
+function buildAtom(){
+  var Z=parseInt(document.getElementById('sim1Z').value);
+  var A=parseInt(document.getElementById('sim1A').value);
+  if(isNaN(Z)||Z<1||Z>18){alert('Z doit être entre 1 et 18');return;}
+  if(isNaN(A)||A<Z){alert('A doit être ≥ Z');return;}
+  var N=A-Z;
+  var sym=bohrElements[Z]||'?';
+  var shells=bohrGetShells(Z);
+  bohrAtom={Z:Z,A:A,N:N,shells:shells,sym:sym};
+  var numSh=shells.filter(function(s){return s>0;}).length;
+  var config=shells.slice(0,numSh).map(function(n,i){return bohrShellNames[i]+'('+n+')';}).join(' ');
+  document.getElementById('sim1Info').innerHTML=
+    '<div><strong>Symbole&nbsp;:</strong> <sup>'+A+'</sup><sub>'+Z+'</sub>'+sym+'</div>'+
+    '<div><strong>Protons&nbsp;:</strong> '+Z+'</div>'+
+    '<div><strong>Neutrons&nbsp;:</strong> '+N+'</div>'+
+    '<div><strong>Électrons&nbsp;:</strong> '+Z+' (neutre)</div>'+
+    '<div><strong>Configuration&nbsp;:</strong> '+config+'</div>'+
+    '<div><strong>Couches occupées&nbsp;:</strong> '+numSh+'</div>';
+}
+
+function drawBohr(){
+  var canvas=document.getElementById('canvasBohr');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var W=canvas.width,H=canvas.height,cx=W/2,cy=H/2+10;
+  if(bohrRunning){for(var s=0;s<3;s++)bohrAngles[s]+=bohrShellSpeeds[s];}
+  // Background
+  ctx.fillStyle='#0f172a';ctx.fillRect(0,0,W,H);
+  // Title
+  ctx.fillStyle='rgba(255,255,255,0.6)';ctx.font='13px Segoe UI';ctx.textAlign='center';
+  ctx.fillText(bohrAtom.sym+' — Z='+bohrAtom.Z+', A='+bohrAtom.A+', N='+bohrAtom.N,cx,22);
+  // Shells & electrons
+  var sh=bohrAtom.shells;
+  for(var s=0;s<3;s++){
+    if(sh[s]===0)continue;
+    // Orbit
+    ctx.beginPath();ctx.arc(cx,cy,bohrShellRadii[s],0,Math.PI*2);
+    ctx.strokeStyle='rgba(255,255,255,0.12)';ctx.lineWidth=1;ctx.setLineDash([4,4]);ctx.stroke();ctx.setLineDash([]);
+    // Shell label
+    ctx.fillStyle='rgba(255,255,255,0.35)';ctx.font='11px Segoe UI';ctx.textAlign='left';
+    ctx.fillText(bohrShellNames[s],cx+bohrShellRadii[s]+5,cy+4);
+    // Electrons
+    var n=sh[s];
+    for(var e=0;e<n;e++){
+      var angle=bohrAngles[s]+(2*Math.PI*e)/n;
+      var ex=cx+bohrShellRadii[s]*Math.cos(angle);
+      var ey=cy+bohrShellRadii[s]*Math.sin(angle);
+      // Glow
+      var g=ctx.createRadialGradient(ex,ey,0,ex,ey,9);
+      g.addColorStop(0,bohrShellColors[s]);g.addColorStop(1,'transparent');
+      ctx.beginPath();ctx.arc(ex,ey,9,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+      // Dot
+      ctx.beginPath();ctx.arc(ex,ey,5,0,Math.PI*2);ctx.fillStyle=bohrShellColors[s];ctx.fill();
+    }
+  }
+  // Nucleus
+  var nr=Math.min(22+bohrAtom.Z*0.4,34);
+  var ng=ctx.createRadialGradient(cx,cy,0,cx,cy,nr);
+  ng.addColorStop(0,'#fca5a5');ng.addColorStop(1,'#dc2626');
+  ctx.beginPath();ctx.arc(cx,cy,nr,0,Math.PI*2);ctx.fillStyle=ng;ctx.fill();
+  ctx.strokeStyle='#ef4444';ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle='#fff';ctx.font='bold 11px Segoe UI';ctx.textAlign='center';
+  ctx.fillText(bohrAtom.Z+' p⁺',cx,cy-3);
+  ctx.fillText(bohrAtom.N+' n⁰',cx,cy+12);
+  // Legend
+  ctx.font='10px Segoe UI';ctx.textAlign='left';
+  var lx=8,ly=H-48;
+  for(var s=0;s<3;s++){
+    if(bohrAtom.shells[s]===0)continue;
+    ctx.fillStyle=bohrShellColors[s];
+    ctx.beginPath();ctx.arc(lx+6,ly+s*16+4,5,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='rgba(255,255,255,0.6)';
+    ctx.fillText('Couche '+bohrShellNames[s]+' : '+bohrAtom.shells[s]+' e⁻',lx+16,ly+s*16+8);
+  }
+  if(bohrRunning)bohrAnimId=requestAnimationFrame(drawBohr);
+}
+
+function toggleBohrAnim(){
+  bohrRunning=!bohrRunning;
+  var btn=document.getElementById('btnBohrAnim');
+  if(bohrRunning){btn.textContent='⏸ Pause';bohrAnimId=requestAnimationFrame(drawBohr);}
+  else{btn.textContent='▶ Reprendre';cancelAnimationFrame(bohrAnimId);drawBohr();}
+}
+
+// ==================== SIMULATION 2 : Formation d'ions ====================
+var sim2State={Z:13,A:27,sym:'Al',electrons:13};
+
+function sim2GetData(){
+  var parts=document.getElementById('sim2Atom').value.split(',');
+  return{Z:parseInt(parts[0]),A:parseInt(parts[1]),sym:parts[2]};
+}
+function sim2Reset(){
+  var d=sim2GetData();
+  sim2State={Z:d.Z,A:d.A,sym:d.sym,electrons:d.Z};
+  sim2Render();
+}
+function sim2Change(dir){
+  var newE=sim2State.electrons+dir;
+  if(newE<0||newE>sim2State.Z+4)return;
+  sim2State.electrons=newE;
+  sim2Render();
+}
+function sim2Render(){
+  var Z=sim2State.Z,A=sim2State.A,sym=sim2State.sym,el=sim2State.electrons;
+  var charge=Z-el;
+  var name,color,bg,chargeStr;
+  if(charge===0){name='Atome neutre '+sym;color='#2d3748';bg='#e2e8f0';chargeStr='0 (neutre)';}
+  else if(charge>0){name='Cation '+sym+(charge>1?charge:'')+'⁺';color='#c53030';bg='#fff5f5';chargeStr='+'+charge;}
+  else{name='Anion '+sym+(Math.abs(charge)>1?Math.abs(charge):'')+'⁻';color='#2f855a';bg='#f0fff4';chargeStr=''+charge;}
+  // SVG with nucleus + electron ring
+  var r=60,cx=100,cy=100,dots='';
+  var nShow=Math.min(el,20);
+  for(var i=0;i<nShow;i++){
+    var a=(2*Math.PI*i)/Math.max(nShow,1)-Math.PI/2;
+    var ex=(cx+r*Math.cos(a)).toFixed(1),ey=(cy+r*Math.sin(a)).toFixed(1);
+    var ec=charge<0?'#34d399':'#60a5fa';
+    dots+='<circle cx="'+ex+'" cy="'+ey+'" r="6" fill="'+ec+'" stroke="#fff" stroke-width="1.5"/>';
+  }
+  if(el>20)dots+='<text x="'+cx+'" y="'+(cy+r+16)+'" text-anchor="middle" font-size="10" fill="#94a3b8">… '+el+' e⁻ au total</text>';
+  var nucFill=charge>0?'#fed7d7':charge<0?'#d1fae5':'#e2e8f0';
+  var nucStroke=charge>0?'#c53030':charge<0?'#2f855a':'#94a3b8';
+  var svg='<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">'+
+    '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1" stroke-dasharray="4,3"/>'+
+    dots+
+    '<circle cx="'+cx+'" cy="'+cy+'" r="26" fill="'+nucFill+'" stroke="'+nucStroke+'" stroke-width="2"/>'+
+    '<text x="'+cx+'" y="'+(cy-4)+'" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d3748">'+Z+' p⁺</text>'+
+    '<text x="'+cx+'" y="'+(cy+11)+'" text-anchor="middle" font-size="10" fill="#4a5568">'+(A-Z)+' n⁰</text>'+
+    '</svg>';
+  document.getElementById('sim2Canvas').innerHTML=svg;
+  var msg=charge>0?'Le '+sym+' a <strong>perdu '+charge+' électron(s)</strong> → cation (chargé +)':
+    charge<0?'Le '+sym+' a <strong>gagné '+Math.abs(charge)+' électron(s)</strong> → anion (chargé −)':
+    'Autant de protons que d\'électrons → atome neutre';
+  document.getElementById('sim2Info').innerHTML=
+    '<div style="font-size:1.25em;font-weight:700;color:'+color+'">'+name+'</div>'+
+    '<div style="margin:8px 0;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">'+
+      '<span>Protons : <strong>'+Z+'</strong></span>'+
+      '<span>Électrons : <strong>'+el+'</strong></span>'+
+      '<span>Charge : <strong style="color:'+color+'">'+chargeStr+'</strong></span>'+
+    '</div>'+
+    '<div style="font-size:.88em;color:#555">'+msg+'</div>';
+}
+
+// ==================== SIMULATION 3 : Quiz notation symbolique ====================
+var quizAtoms=[
+  {sym:'H',Z:1,A:1},{sym:'He',Z:2,A:4},{sym:'Li',Z:3,A:7},{sym:'C',Z:6,A:12},
+  {sym:'N',Z:7,A:14},{sym:'O',Z:8,A:16},{sym:'F',Z:9,A:19},{sym:'Na',Z:11,A:23},
+  {sym:'Mg',Z:12,A:24},{sym:'Al',Z:13,A:27},{sym:'Si',Z:14,A:28},{sym:'Cl',Z:17,A:35},
+  {sym:'Fe',Z:26,A:56},{sym:'Cu',Z:29,A:64}
+];
+var quiz3State={questions:[],current:0,score:0,answered:false};
+
+function quiz3GenQuestions(){
+  var types=['protons','neutrons','electrons','masse'];
+  var qs=[],used={};
+  while(qs.length<5){
+    var at=quizAtoms[Math.floor(Math.random()*quizAtoms.length)];
+    var tp=types[Math.floor(Math.random()*types.length)];
+    var key=at.sym+'-'+tp;
+    if(used[key])continue;
+    used[key]=true;
+    var N=at.A-at.Z,ans,q;
+    if(tp==='protons'){ans=at.Z;q='Quel est le <strong>nombre de protons</strong> de <sup>'+at.A+'</sup><sub>'+at.Z+'</sub>'+at.sym+' ?';}
+    else if(tp==='neutrons'){ans=N;q='Quel est le <strong>nombre de neutrons</strong> (N = A − Z) de <sup>'+at.A+'</sup><sub>'+at.Z+'</sub>'+at.sym+' ?';}
+    else if(tp==='electrons'){ans=at.Z;q='Quel est le <strong>nombre d\'électrons</strong> de l\'atome neutre <sup>'+at.A+'</sup><sub>'+at.Z+'</sub>'+at.sym+' ?';}
+    else{ans=at.A;q='Quel est le <strong>nombre de masse A</strong> de <sup>'+at.A+'</sup><sub>'+at.Z+'</sub>'+at.sym+' ?';}
+    qs.push({q:q,ans:ans,ua:null});
+  }
+  return qs;
+}
+
+function quiz3Start(){
+  quiz3State={questions:quiz3GenQuestions(),current:0,score:0,answered:false};
+  quiz3Render();
+}
+
+function quiz3Render(){
+  var s=quiz3State,c=document.getElementById('quiz3');
+  if(s.current>=s.questions.length){
+    var pct=Math.round(s.score/s.questions.length*100);
+    var col=pct>=80?'#2f855a':pct>=50?'#d97706':'#c53030';
+    var msg=pct>=80?'Excellent ! Vous maîtrisez la notation symbolique.':pct>=50?'Bien ! Revoyez les notions sur N = A − Z.':'Continuez à vous entraîner avec les exercices ci-dessus.';
+    c.innerHTML='<div style="text-align:center;padding:24px">'+
+      '<div style="font-size:2.5em;font-weight:700;color:'+col+'">'+s.score+' / '+s.questions.length+'</div>'+
+      '<div style="font-size:1.05em;color:#555;margin:8px 0">'+pct+' % de réussite — '+msg+'</div>'+
+      '<button onclick="quiz3Start()" style="background:#6f42c1;color:#fff;border:none;padding:10px 28px;border-radius:8px;cursor:pointer;font-size:1em;margin-top:12px;font-weight:600">Recommencer</button>'+
+      '</div>';
+    return;
+  }
+  var q=s.questions[s.current];
+  var prog='Question '+(s.current+1)+' / '+s.questions.length+'  ·  Score : '+s.score;
+  var pct=Math.round(s.current/s.questions.length*100);
+  c.innerHTML='<div>'+
+    '<div style="font-size:.83em;color:#718096;margin-bottom:6px">'+prog+'</div>'+
+    '<div style="background:#e2e8f0;border-radius:6px;height:5px;margin-bottom:16px">'+
+      '<div style="background:#6f42c1;height:5px;border-radius:6px;width:'+pct+'%;transition:width .3s"></div>'+
+    '</div>'+
+    '<p style="font-size:1.08em;margin-bottom:12px">'+q.q+'</p>'+
+    '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">'+
+      '<input type="number" id="quiz3Input" style="width:90px;padding:8px;border:2px solid #ccc;border-radius:6px;font-size:1.1em" placeholder="Réponse" '+(s.answered?'disabled value="'+q.ua+'"':'')+'>'+
+      (!s.answered?'<button onclick="quiz3Check()" style="background:#6f42c1;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:600">Valider</button>':
+        '<button onclick="quiz3Next()" style="background:#2f855a;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:600">'+(s.current+1<s.questions.length?'Suivante →':'Résultats →')+'</button>')+
+    '</div>'+
+    '<div id="quiz3Fb" style="margin-top:10px;min-height:24px"></div>'+
+    '</div>';
+  if(s.answered){
+    var ok=q.ua===q.ans;
+    document.getElementById('quiz3Fb').innerHTML=ok?
+      '<span style="color:#2f855a;font-weight:600">✓ Correct ! La réponse est bien '+q.ans+'.</span>':
+      '<span style="color:#c53030;font-weight:600">✗ Incorrect. La bonne réponse était <strong>'+q.ans+'</strong>.</span>';
+  }
+  setTimeout(function(){
+    var inp=document.getElementById('quiz3Input');
+    if(inp&&!quiz3State.answered)inp.addEventListener('keydown',function(e){if(e.key==='Enter')quiz3Check();});
+  },0);
+}
+
+function quiz3Check(){
+  if(quiz3State.answered)return;
+  var inp=document.getElementById('quiz3Input');
+  var v=parseInt(inp.value);
+  if(isNaN(v)){document.getElementById('quiz3Fb').innerHTML='<span style="color:#c53030">Entrez un nombre entier.</span>';return;}
+  var q=quiz3State.questions[quiz3State.current];
+  q.ua=v;
+  if(v===q.ans)quiz3State.score++;
+  quiz3State.answered=true;
+  quiz3Render();
+}
+
+function quiz3Next(){
+  quiz3State.current++;
+  quiz3State.answered=false;
+  quiz3Render();
+}
+
+// ==================== SIMULATION 4 : Formation de molécules ====================
+var sim4Colors={H:'#60a5fa',C:'#94a3b8',O:'#f87171',N:'#818cf8',Cl:'#4ade80',S:'#fbbf24'};
+var sim4Current={H:0,C:0,O:0,N:0,Cl:0,S:0};
+var sim4Mols=[
+  {name:'Dihydrogène',    formula:'H₂',     atoms:{H:2},         mama:'Combustible à pile à combustible hydrogen'},
+  {name:'Dioxygène',      formula:'O₂',     atoms:{O:2},         mama:'Comburant de l\'air – nécessaire à la combustion'},
+  {name:'Acide chlorhydrique', formula:'HCl',atoms:{H:1,Cl:1},   mama:'Décapant acide, nettoyant de pièces métalliques'},
+  {name:'Eau',            formula:'H₂O',    atoms:{H:2,O:1},     mama:'Liquide de refroidissement, rinçage, nettoyage'},
+  {name:'Dioxyde de carbone',formula:'CO₂', atoms:{C:1,O:2},     mama:'Gaz d\'échappement – gaz de soudage MIG/MAG'},
+  {name:'Méthane',        formula:'CH₄',    atoms:{C:1,H:4},     mama:'Gaz naturel (GNV), chauffage industriel'},
+  {name:'Ammoniac',       formula:'NH₃',    atoms:{N:1,H:3},     mama:'Produit de nettoyage alcalin, dégraissant'},
+  {name:'Acétylène',      formula:'C₂H₂',   atoms:{C:2,H:2},     mama:'Gaz de soudage oxyacétylénique'},
+  {name:'Propane',        formula:'C₃H₈',   atoms:{C:3,H:8},     mama:'Gaz GPL, chalumeau, chauffage d\'atelier'},
+  {name:'Acétone',        formula:'C₃H₆O',  atoms:{C:3,H:6,O:1}, mama:'Solvant dégraissant en carrosserie – inflammable'},
+  {name:'Diazote',        formula:'N₂',     atoms:{N:2},         mama:'Gaz inerte, gonflage pneus (N₂ 100%), soudage TIG'},
+  {name:'Sulfure d\'hydrogène',formula:'H₂S',atoms:{H:2,S:1},    mama:'Gaz toxique dégagé par les batteries plomb'}
+];
+
+function sim4Init(){
+  var html='';
+  Object.keys(sim4Colors).forEach(function(a){
+    html+='<button onclick="sim4Add(\''+a+'\')" style="background:'+sim4Colors[a]+';color:#1e293b;border:none;padding:7px 15px;border-radius:20px;cursor:pointer;font-weight:700;font-size:1em;margin:3px;min-width:38px">'+a+'</button>';
+  });
+  document.getElementById('sim4AtomBtns').innerHTML=html;
+}
+
+function sim4Clear(){
+  Object.keys(sim4Current).forEach(function(k){sim4Current[k]=0;});
+  sim4Render();
+}
+function sim4Add(a){sim4Current[a]=(sim4Current[a]||0)+1;sim4Render();}
+function sim4Remove(a){if(sim4Current[a]>0){sim4Current[a]--;sim4Render();}}
+
+function sim4Render(){
+  var ws=document.getElementById('sim4Workspace');
+  var total=Object.values(sim4Current).reduce(function(a,b){return a+b;},0);
+  if(total===0){
+    ws.innerHTML='<span style="color:#a0aec0;font-size:.9em">← Cliquez sur des atomes pour les ajouter ici</span>';
+    document.getElementById('sim4Result').innerHTML='';
+    return;
+  }
+  var html='';
+  Object.keys(sim4Current).forEach(function(a){
+    for(var i=0;i<sim4Current[a];i++){
+      html+='<div onclick="sim4Remove(\''+a+'\')" title="Retirer" style="width:44px;height:44px;border-radius:50%;background:'+sim4Colors[a]+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1em;color:#1e293b;cursor:pointer;border:2px solid rgba(0,0,0,0.15);flex-shrink:0">'+a+'</div>';
+    }
+  });
+  html+='<span style="color:#a0aec0;font-size:.75em;align-self:center">(cliquer pour retirer)</span>';
+  ws.innerHTML=html;
+  sim4Check();
+}
+
+function sim4Check(){
+  var res=document.getElementById('sim4Result');
+  var match=null;
+  for(var i=0;i<sim4Mols.length;i++){
+    var mol=sim4Mols[i];
+    var allK=new Set(Object.keys(mol.atoms).concat(Object.keys(sim4Current)));
+    var ok=true;
+    allK.forEach(function(k){if((mol.atoms[k]||0)!==(sim4Current[k]||0))ok=false;});
+    if(ok){match=mol;break;}
+  }
+  if(match){
+    var total=Object.values(sim4Current).reduce(function(a,b){return a+b;},0);
+    var parts=Object.keys(sim4Current).filter(function(k){return sim4Current[k]>0;}).map(function(k){return sim4Current[k]+' '+k;}).join(' + ');
+    res.innerHTML='<div style="background:#f0fff4;border:2px solid #4ade80;border-radius:10px;padding:16px;text-align:center;animation:popIn .3s ease">'+
+      '<div style="font-size:2em;font-weight:700;color:#1e293b;margin-bottom:4px">'+match.formula+'</div>'+
+      '<div style="font-size:1.1em;font-weight:600;color:#2d3748">'+match.name+'</div>'+
+      '<div style="font-size:.88em;color:#4a5568;margin:6px 0">'+parts+' → 1 molécule de '+match.formula+' ('+total+' atomes au total)</div>'+
+      '<div style="background:#e6f0ff;border-radius:6px;padding:8px;margin-top:8px;font-size:.88em;color:#1a4a8a">'+
+        '<strong>Contexte professionnel :</strong> '+match.mama+
+      '</div></div>';
+  } else {
+    var total=Object.values(sim4Current).reduce(function(a,b){return a+b;},0);
+    if(total>0){
+      res.innerHTML='<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:10px;font-size:.88em;color:#9a3412">'+
+        'Combinaison non reconnue. Essayez d\'autres quantités. '+
+        '<em>Indices : 2H+1O → H₂O &nbsp;|&nbsp; 1C+2O → CO₂ &nbsp;|&nbsp; 1C+4H → CH₄</em></div>';
+    } else {
+      res.innerHTML='';
+    }
+  }
+}
+
+// ==================== Init simulations on DOM ready ====================
+document.addEventListener('DOMContentLoaded',function(){
+  buildAtom();
+  bohrAnimId=requestAnimationFrame(drawBohr);
+  sim2Reset();
+  quiz3Start();
+  sim4Init();
+});
+
+// Chart.js — Abondance éléments croûte terrestre
+window.addEventListener('load',function(){
+  var ctx=document.getElementById('chartAbondance');
+  if(!ctx)return;
+  new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:['O\n(Oxygène)','Si\n(Silicium)','Al\n(Aluminium)','Fe\n(Fer)','Ca\n(Calcium)','Na\n(Sodium)','K\n(Potassium)','Mg\n(Magnésium)'],
+      datasets:[{
+        label:'Abondance massique (%)',
+        data:[46.6,27.7,8.1,5.0,3.6,2.8,2.6,2.1],
+        backgroundColor:[
+          'rgba(239,68,68,0.75)',
+          'rgba(234,179,8,0.75)',
+          'rgba(111,66,193,0.75)',
+          'rgba(220,38,38,0.85)',
+          'rgba(34,197,94,0.75)',
+          'rgba(59,130,246,0.75)',
+          'rgba(168,85,247,0.75)',
+          'rgba(249,115,22,0.75)'
+        ],
+        borderColor:[
+          '#ef4444','#ca8a04','#6f42c1','#dc2626','#16a34a','#2563eb','#9333ea','#ea580c'
+        ],
+        borderWidth:1.5,
+        borderRadius:5
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{display:false},
+        title:{
+          display:true,
+          text:'Abondance des éléments dans la croûte terrestre (% massique)',
+          color:'#2d3748',font:{size:13,weight:'600'}
+        },
+        tooltip:{callbacks:{label:function(ctx){return ' '+ctx.parsed.y+' %';}}}
+      },
+      scales:{
+        y:{
+          beginAtZero:true,
+          max:52,
+          title:{display:true,text:'Abondance (%)',color:'#718096'},
+          ticks:{color:'#718096',callback:function(v){return v+'%';}},
+          grid:{color:'#e2e8f0'}
+        },
+        x:{ticks:{color:'#555',font:{size:11}},grid:{display:false}}
+      }
+    }
+  });
+});
+</script>
+
+<script src="/nav.js"></script>
+</body>
+</html>

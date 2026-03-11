@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS – Ch06 – Sources lumineuses | ERA-MA Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#2da44e;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.ds-info{display:flex;justify-content:space-between;align-items:center;background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:12px 20px;margin-bottom:28px;flex-wrap:wrap;gap:8px;font-size:.92em}
+.ds-info span{color:#2d3748}
+.ds-info strong{color:var(--p)}
+.bareme-table{width:100%;border-collapse:collapse;margin-bottom:28px;font-size:.88em}
+.bareme-table th{background:var(--p);color:#fff;padding:7px 12px;text-align:center}
+.bareme-table td{border:1px solid #e2e8f0;padding:7px 12px;text-align:center}
+.bareme-table tr:nth-child(even) td{background:#f8fafc}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:22px;margin:28px 0;page-break-inside:avoid}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;border-bottom:2px solid #e2e8f0;padding-bottom:12px}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.95em;padding:5px 14px;border-radius:20px}
+.exo-title{font-weight:700;flex:1;font-size:1.05em}
+.pts{font-size:.85em;color:#718096;font-weight:600}
+.q{margin:12px 0 4px;padding-left:4px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.q-num{font-weight:700;min-width:20px}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap;align-self:center}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.pts-q{font-size:.78em;color:#718096;font-weight:600;margin-left:auto;min-width:40px;text-align:right}
+.rep-zone{border:1px dashed #cbd5e0;border-radius:6px;min-height:50px;margin:6px 0 14px;padding:6px;background:#fafafa;font-size:.85em;color:#a0aec0}
+.intro-box{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:.93em}
+.donnees{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;margin:14px 0;font-size:.9em}
+.donnees strong{color:#92400e}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb{display:none}.rep-zone{background:#fff}}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:6px;margin-bottom:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:4px}
+.bc:hover{opacity:.85}
+</style>
+</head>
+<body><div class="c">
+<a href="pc-term-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Devoir Surveillé — Ch06 — Sources lumineuses</h1>
+  <p class="sous-titre">ERA-MA — Groupement 3 — Terminale Bac Pro</p>
+</header>
+
+<div class="ds-info">
+  <span><strong>Durée :</strong> 1 heure</span>
+  <span><strong>Barème :</strong> /20 points</span>
+  <span><strong>Documents :</strong> Calculatrice autorisée — aucun document</span>
+  <span><strong>Nom :</strong> ________________________</span>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser/Raisonner</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<table class="bareme-table">
+  <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
+  <tr><td>Exercice 1 — Éclairage LED d'un atelier</td><td>Q1 à Q5</td><td>APP, REA, ANA, REA, VAL</td><td>10 pts</td></tr>
+  <tr><td>Exercice 2 — Efficacité lumineuse et économies</td><td>Q1 à Q4</td><td>APP, REA, VAL, COM</td><td>10 pts</td></tr>
+  <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
+</table>
+
+<!-- EXERCICE 1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Éclairage LED d'un atelier de montage</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un atelier de montage de pièces mécaniques doit être équipé d'un éclairage conforme à la norme NF EN 12464-1. La surface totale de l'atelier est de \(S_{atelier} = 80\,\text{m}^2\) et la norme impose un éclairement minimal de \(E_{min} = 500\,\text{lux}\) pour un atelier de montage de précision. Chaque luminaire LED émet un flux lumineux de \(\Phi = 4\,000\,\text{lm}\).
+  </div>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Rappeler la relation entre l'éclairement \(E\) (en lux), le flux lumineux \(\Phi\) (en lm) et la surface éclairée \(S\) (en m²) :
+    \(E = \dfrac{\Phi}{S}\). Définir chaque grandeur et préciser son unité.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(E = \dfrac{\Phi}{S}\) &nbsp; avec \(E\) en lux (lx), \(\Phi\) flux lumineux en lumens (lm), \(S\) surface éclairée en m²</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Un seul luminaire émet \(\Phi = 4\,000\,\text{lm}\) sur une surface de \(S = 20\,\text{m}^2\). Calculer l'éclairement \(E\) produit par ce luminaire sur cette surface.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(E = \dfrac{\Phi}{S} = \dfrac{4\,000}{20} = 200\,\text{lux}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-ana">ANA</span>
+    La norme EN 12464-1 impose \(E_{min} = 500\,\text{lux}\) pour un atelier de montage de précision. En comparant la valeur obtenue à la question 2 à cette exigence, conclure si un seul luminaire suffit pour éclairer convenablement 20 m².
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(E\) obtenu = 200 lux &lt; 500 lux (norme EN 12464-1 pour atelier de précision)</p>
+    <p>L'éclairage est insuffisant. Il faut augmenter le nombre de luminaires.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-rea">REA</span>
+    Pour atteindre un éclairement de \(E = 500\,\text{lux}\) sur la totalité de l'atelier (\(S_{atelier} = 80\,\text{m}^2\)), calculer le flux lumineux total nécessaire, puis en déduire le nombre de luminaires nécessaires (chaque luminaire : \(\Phi = 4\,000\,\text{lm}\)). Arrondir au nombre entier supérieur.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Flux total nécessaire : \(\Phi_{total} = E \times S = 500 \times 80 = 40\,000\,\text{lm}\)</p>
+    <p>Nombre de luminaires : \(N = \dfrac{40\,000}{4\,000} = 10\,\text{luminaires}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">5.</span>
+    <span class="comp comp-val">VAL</span>
+    Vérifier la cohérence du résultat : avec le nombre de luminaires trouvé à la question 4, calculer l'éclairement effectif obtenu dans l'atelier. Conclure si la valeur réglementaire de 500 lux est bien atteinte.
+    <span class="pts-q">1 pt</span>
+  </p>
+  <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Vérification : 10 luminaires × 4 000 lm = 40 000 lm</p>
+    <p>\(E = \dfrac{40\,000}{80} = 500\,\text{lux}\) ✓ Résultat conforme à la norme.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Efficacité lumineuse et économies d'énergie</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Le responsable maintenance envisage de remplacer 50 lampes halogènes de 100 W (flux : 1 200 lm) par des luminaires LED de 60 W (flux : 8 000 lm). Les luminaires fonctionnent 2 000 heures par an, et le prix du kWh est de 0,15 €.
+  </div>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Rappeler la définition de l'efficacité lumineuse \(\eta\) (en lm/W) : \(\eta = \dfrac{\Phi}{P}\). Expliquer ce que représente cette grandeur pour comparer deux sources lumineuses.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\eta = \dfrac{\Phi}{P}\) &nbsp; avec \(\eta\) en lm/W, \(\Phi\) en lm, \(P\) en W</p>
+    <p>Plus \(\eta\) est élevé, plus la source lumineuse est efficace (elle produit plus de lumière pour la même énergie).</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Calculer l'efficacité lumineuse pour :<br>
+    a) La lampe LED : \(\Phi_{LED} = 8\,000\,\text{lm}\), \(P_{LED} = 60\,\text{W}\).<br>
+    b) La lampe halogène : \(\Phi_{halo} = 1\,200\,\text{lm}\), \(P_{halo} = 100\,\text{W}\).<br>
+    Donner les résultats en lm/W.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>LED : \(\eta = \dfrac{8\,000}{60} \approx 133\,\text{lm/W}\)</p>
+    <p>Halogène : \(\eta = \dfrac{1\,200}{100} = 12\,\text{lm/W}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-val">VAL</span>
+    Comparer les deux valeurs d'efficacité lumineuse calculées. Quelle technologie est la plus efficace ? En quelle proportion la LED est-elle meilleure que l'halogène (calculer le rapport \(\eta_{LED}/\eta_{halo}\)) ?
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La LED est ≈ 11 fois plus efficace que l'halogène (\(133/12 \approx 11\)).</p>
+    <p>La LED consomme beaucoup moins d'énergie pour produire la même quantité de lumière.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-com">COM</span>
+    Calculer l'économie annuelle réalisée en remplaçant les 50 lampes halogènes (100 W) par 50 lampes LED (60 W), utilisées 2 000 h/an à 0,15 €/kWh :<br>
+    a) Calculer la puissance totale économisée (en kW) sur les 50 luminaires.<br>
+    b) Calculer l'énergie économisée par an (en kWh) : \(E_{éco} = \Delta P \times t\).<br>
+    c) Calculer l'économie financière annuelle (en euros).
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:100px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Consommation halogènes : \(50 \times 100\,\text{W} = 5\,000\,\text{W} = 5\,\text{kW}\)</p>
+    <p>Consommation LED : \(50 \times 60\,\text{W} = 3\,000\,\text{W} = 3\,\text{kW}\)</p>
+    <p>Économie puissance : \(\Delta P = 2\,000\,\text{W} = 2\,\text{kW}\)</p>
+    <p>Économie annuelle : \(2\,\text{kW} \times 2\,000\,\text{h} \times 0{,}15\,\text{€/kWh} = 600\,\text{€/an}\)</p>
+  </div>
+</div>
+
+</div>
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
+<script src="/nav.js"></script>
+</body>
+</html>

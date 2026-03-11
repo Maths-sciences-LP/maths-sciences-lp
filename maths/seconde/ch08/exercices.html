@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch08 – Exercices : Fonction linéaire et proportionnalité – 2nde MAMA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:28px;padding-bottom:16px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
+.sous-titre{color:#718096;font-size:.93em;margin:0}
+.maj{font-size:.78em;color:#a0aec0;text-align:center;margin-top:4px}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:40px;margin-bottom:14px}
+
+/* Niveaux */
+.niveau-header{border-radius:8px;padding:10px 16px;margin:30px 0 16px;display:flex;align-items:center;gap:12px}
+.niv1{background:#d1fae5;border-left:5px solid #059669}
+.niv2{background:#dbeafe;border-left:5px solid var(--p)}
+.niv3{background:#fef3c7;border-left:5px solid var(--o)}
+.niv4{background:#fce7f3;border-left:5px solid #db2777}
+.niv1 h2,.niv2 h2,.niv3 h2,.niv4 h2{margin:0;border:none;padding:0;font-size:1em}
+.badge-niv{font-size:.72em;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.badge-1{background:#059669;color:#fff}
+.badge-2{background:var(--p);color:#fff}
+.badge-3{background:var(--o);color:#fff}
+.badge-4{background:#db2777;color:#fff}
+
+/* Exercices */
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px 24px;margin:14px 0}
+.exo-num{font-size:.78em;font-weight:700;text-transform:uppercase;color:#718096;letter-spacing:.05em;margin-bottom:6px}
+.exo-titre{font-weight:700;font-size:1em;color:var(--t);margin-bottom:10px}
+.mama-tag{display:inline-block;background:#fce7f3;border:1px solid #f9a8d4;border-radius:4px;font-size:.75em;font-weight:700;color:#9d174d;padding:2px 8px;margin-bottom:10px;text-transform:uppercase}
+
+/* Encadrés */
+.meth{background:#fffbeb;border-left:5px solid var(--o);border-radius:0 8px 8px 0;padding:13px 18px;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);border-radius:0 8px 8px 0;padding:13px 18px;margin:14px 0}
+.retenir{background:#f0fff4;border:2px solid var(--s);border-radius:10px;padding:16px 20px;margin:20px 0}
+.retenir h3{color:var(--s);margin:0 0 8px}
+
+/* Guide */
+.guide{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:12px 0}
+.guide-step{display:flex;gap:12px;margin:8px 0;align-items:flex-start}
+.guide-num{background:var(--p);color:#fff;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-size:.8em;font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* Zone de réponse */
+.zone-rep{width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:7px;margin-top:8px;font-family:inherit;font-size:.95em;box-sizing:border-box;background:#fff;resize:vertical}
+.zone-rep:focus{outline:none;border-color:var(--p)}
+label.rep-label{font-size:.85em;font-weight:700;color:#718096;display:block;margin-top:10px}
+
+/* Tableaux */
+table{border-collapse:collapse;margin:12px 0;font-size:.93em}
+table.full{width:100%}
+th,td{border:1px solid #e2e8f0;padding:9px 14px;text-align:center}
+th{background:#ebf5ff;color:var(--p);font-weight:700}
+td.tv-x{background:#f0f7ff;font-weight:600;color:var(--p)}
+td.vide{background:#fafafa;color:#ccc;font-style:italic;font-size:.88em}
+td.ok{background:#d1fae5;font-weight:700}
+td.nok{background:#fff5f5;color:var(--d);font-weight:700}
+
+/* Correction */
+details.corr-wrap{margin-top:12px}
+summary.corr-btn{cursor:pointer;font-size:.85em;font-weight:700;color:var(--s);padding:6px 14px;background:#f0fff4;border-radius:6px;border:1px solid #a7f3d0;display:inline-block;list-style:none;transition:.2s}
+summary.corr-btn::-webkit-details-marker{display:none}
+summary.corr-btn:hover{background:#dcfce7}
+.corr-body{background:#f0fff4;border-left:4px solid var(--s);border-radius:0 8px 8px 0;padding:14px 18px;margin-top:8px;font-size:.92em;line-height:1.8}
+.etape{display:flex;gap:10px;margin:6px 0;align-items:flex-start}
+.nc{background:var(--s);color:#fff;border-radius:50%;width:22px;height:22px;min-width:22px;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:700;margin-top:2px;flex-shrink:0}
+.corr-rep{background:#065f46;color:#fff;border-radius:6px;padding:3px 10px;display:inline-block;font-weight:700;font-size:.95em}
+.att-corr{background:#fff7ed;border-left:3px solid var(--o);padding:8px 12px;border-radius:0 6px 6px 0;margin-top:8px;font-size:.88em;color:#92400e}
+
+/* SVG */
+.svg-wrap{text-align:center;margin:16px 0}
+.svg-leg{font-size:.82em;color:#718096;text-align:center;margin-top:6px;font-style:italic}
+
+/* Chart.js */
+.chart-wrapper{max-width:560px;margin:16px auto;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px}
+
+/* Canvas interactif */
+canvas.graf{display:block;margin:12px auto;border-radius:10px;border:2px solid #e2e8f0;background:#fff;cursor:crosshair}
+.ctrl-graf{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px 0;align-items:center;font-size:.88em}
+.ctrl-graf select,.ctrl-graf label{padding:5px 10px;border:1px solid #e2e8f0;border-radius:6px;font-family:inherit}
+.btn-graf{padding:7px 16px;background:var(--p);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.88em;font-weight:700}
+.btn-graf:hover{background:#004494}
+.graf-info{text-align:center;font-size:.9em;font-weight:700;color:var(--p);min-height:1.4em;margin:4px 0}
+
+/* Nav */
+.nb{margin-bottom:16px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nav-footer{display:flex;justify-content:space-between;margin-top:40px;padding-top:16px;border-top:1px solid #e2e8f0;flex-wrap:wrap;gap:10px}
+.nav-btn{text-decoration:none;font-size:.85em;font-weight:600;padding:8px 18px;border-radius:6px;color:var(--p);border:1px solid var(--p);transition:.2s}
+.nav-btn:hover{background:var(--p);color:#fff}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Chapitre 8 — Fonction linéaire et proportionnalité</h1>
+  <p class="sous-titre">Exercices &nbsp;|&nbsp; Seconde Bac Pro MAMA &nbsp;|&nbsp; Mathématiques</p>
+  <p class="maj">Dernière mise à jour : 9 mars 2026</p>
+</header>
+
+<div style="background:#ebf5ff;border-radius:10px;padding:16px 20px;border:1px solid #93c5fd;margin-bottom:24px;font-size:.93em">
+  <strong>📌 Objectif</strong><br>
+  Ces exercices portent sur la <strong>fonction linéaire</strong> \(f(x)=ax\) et la <strong>proportionnalité</strong> : reconnaître une situation de proportionnalité, déterminer le coefficient \(a\), construire tableau / expression / graphique et passer de l'un à l'autre.<br>
+  Ils sont <strong>progressifs</strong> : on part du calcul direct (Niveau 1) pour aller jusqu'aux applications MAMA contextualisées (Niveau 4).
+</div>
+
+<div class="retenir">
+  <h3>✅ À retenir — Fonction linéaire</h3>
+  <ul style="margin:6px 0;padding-left:18px">
+    <li>Une fonction linéaire s'écrit \(f(x)=ax\) avec \(a\neq0\) appelé <strong>coefficient directeur</strong> (ou coefficient de proportionnalité).</li>
+    <li>Sa représentation graphique est une <strong>droite qui passe par l'origine</strong> \(O(0;0)\).</li>
+    <li>Dans un tableau de valeurs, le rapport \(\dfrac{f(x)}{x}\) est <strong>toujours égal à \(a\)</strong>.</li>
+    <li>Pour trouver \(a\) à partir d'un point \((x_0\,;\,y_0)\) : \(a = \dfrac{y_0}{x_0}\).</li>
+  </ul>
+</div>
+
+<!-- ══════ NIVEAU 1 ══════ -->
+<div class="niveau-header niv1">
+  <span class="badge-niv badge-1">Niveau 1</span>
+  <h2>Exercices de base — Calculer des images et reconnaître</h2>
+</div>
+
+<div class="meth">
+  <strong>Méthode — Calculer l'image par \(f(x)=ax\) :</strong><br>
+  On remplace \(x\) par la valeur donnée et on multiplie par \(a\). Pas de constante à ajouter : la droite passe par l'origine.
+</div>
+
+<!-- Ex 1 -->
+<div class="exo">
+  <div class="exo-num">Exercice 1</div>
+  <div class="exo-titre">Calcul d'images — fonctions linéaires</div>
+  <p>Pour chaque fonction linéaire, calculer les images demandées :</p>
+  <ol>
+    <li>\(f(x)=3x\) — calculer \(f(2)\), \(f(5)\), \(f(0)\), \(f(-4)\)</li>
+    <li>\(g(x)=0{,}5x\) — calculer \(g(4)\), \(g(10)\), \(g(-6)\)</li>
+    <li>\(h(x)=-2x\) — calculer \(h(3)\), \(h(-1)\), \(h(0)\)</li>
+  </ol>
+  <label class="rep-label">Tes calculs :</label>
+  <textarea class="zone-rep" rows="5" placeholder="f(2) = 3×2 = … ; f(5) = … ; …"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <strong>1. \(f(x)=3x\)</strong>
+    <div class="etape"><div class="nc">a</div><div>\(f(2)=3\times2=\) <span class="corr-rep">6</span></div></div>
+    <div class="etape"><div class="nc">b</div><div>\(f(5)=3\times5=\) <span class="corr-rep">15</span></div></div>
+    <div class="etape"><div class="nc">c</div><div>\(f(0)=3\times0=\) <span class="corr-rep">0</span> — l'image de 0 est toujours 0 pour une fonction linéaire.</div></div>
+    <div class="etape"><div class="nc">d</div><div>\(f(-4)=3\times(-4)=\) <span class="corr-rep">−12</span></div></div>
+    <strong>2. \(g(x)=0{,}5x\)</strong>
+    <div class="etape"><div class="nc">a</div><div>\(g(4)=0{,}5\times4=\) <span class="corr-rep">2</span></div></div>
+    <div class="etape"><div class="nc">b</div><div>\(g(10)=0{,}5\times10=\) <span class="corr-rep">5</span></div></div>
+    <div class="etape"><div class="nc">c</div><div>\(g(-6)=0{,}5\times(-6)=\) <span class="corr-rep">−3</span></div></div>
+    <strong>3. \(h(x)=-2x\)</strong>
+    <div class="etape"><div class="nc">a</div><div>\(h(3)=-2\times3=\) <span class="corr-rep">−6</span></div></div>
+    <div class="etape"><div class="nc">b</div><div>\(h(-1)=-2\times(-1)=\) <span class="corr-rep">2</span></div></div>
+    <div class="etape"><div class="nc">c</div><div>\(h(0)=0\) <span class="corr-rep">0</span> — toujours vrai.</div></div>
+    <div class="att-corr">⚠ Pour \(h(-1)\) : \(-2\times(-1)=+2\) (moins × moins = plus). Ne pas oublier la règle des signes.</div>
+  </div></details>
+</div>
+
+<!-- Ex 2 -->
+<div class="exo">
+  <div class="exo-num">Exercice 2</div>
+  <div class="exo-titre">Tableau de proportionnalité — compléter</div>
+  <p>Le tableau suivant est un tableau de proportionnalité de coefficient \(a=4\). Compléter les cases vides.</p>
+  <table class="full">
+    <tr><th>x</th><td class="tv-x">1</td><td class="tv-x">3</td><td class="tv-x">5</td><td class="tv-x">7</td><td class="tv-x">10</td></tr>
+    <tr><th>f(x) = 4x</th><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td></tr>
+  </table>
+  <p>Vérifier que \(\dfrac{f(x)}{x}=4\) pour chaque colonne.</p>
+  <label class="rep-label">Tes réponses :</label>
+  <textarea class="zone-rep" rows="3" placeholder="f(1)=… , f(3)=… , f(5)=… , f(7)=… , f(10)=…"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <table style="margin:6px 0">
+      <tr><th>x</th><td>1</td><td>3</td><td>5</td><td>7</td><td>10</td></tr>
+      <tr><th>f(x)=4x</th><td class="ok">4</td><td class="ok">12</td><td class="ok">20</td><td class="ok">28</td><td class="ok">40</td></tr>
+    </table>
+    <div class="etape"><div class="nc">✓</div><div>Vérification : \(\dfrac{4}{1}=\dfrac{12}{3}=\dfrac{20}{5}=\dfrac{28}{7}=\dfrac{40}{10}=\) <span class="corr-rep">4</span> ✓</div></div>
+  </div></details>
+</div>
+
+<!-- Ex 3 -->
+<div class="exo">
+  <div class="exo-num">Exercice 3</div>
+  <div class="exo-titre">Reconnaître une situation de proportionnalité</div>
+  <p>Pour chaque tableau, dire si les deux grandeurs sont proportionnelles (oui/non) et justifier.</p>
+
+  <p><strong>Tableau A</strong> (nombre de lames de parquet / coût en €)</p>
+  <table>
+    <tr><th>Lames (n)</th><td>5</td><td>10</td><td>15</td><td>20</td></tr>
+    <tr><th>Coût (€)</th><td>18</td><td>36</td><td>54</td><td>72</td></tr>
+  </table>
+
+  <p><strong>Tableau B</strong> (nombre d'heures / coût avec forfait)</p>
+  <table>
+    <tr><th>Heures (h)</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><th>Coût (€)</th><td>65</td><td>100</td><td>135</td><td>170</td></tr>
+  </table>
+
+  <p><strong>Tableau C</strong> (surface peinte / consommation de peinture en L)</p>
+  <table>
+    <tr><th>Surface (m²)</th><td>4</td><td>8</td><td>12</td><td>20</td></tr>
+    <tr><th>Peinture (L)</th><td>0,5</td><td>1</td><td>1,5</td><td>2,5</td></tr>
+  </table>
+
+  <label class="rep-label">Tes réponses :</label>
+  <textarea class="zone-rep" rows="5" placeholder="Tableau A : rapport = … → …&#10;Tableau B : …&#10;Tableau C : …"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <div class="etape"><div class="nc">A</div><div>\(\dfrac{18}{5}=3{,}6\) ; \(\dfrac{36}{10}=3{,}6\) ; \(\dfrac{54}{15}=3{,}6\) ; \(\dfrac{72}{20}=3{,}6\) → rapport <strong>constant</strong> → <span class="corr-rep">OUI, proportionnel — coefficient a = 3,6 €/lame</span></div></div>
+    <div class="etape"><div class="nc">B</div><div>\(\dfrac{65}{1}=65\) ; \(\dfrac{100}{2}=50\) → rapports <strong>différents</strong> → <span class="corr-rep">NON, pas proportionnel</span> (forfait fixe + taux horaire = fonction affine, pas linéaire)</div></div>
+    <div class="etape"><div class="nc">C</div><div>\(\dfrac{0{,}5}{4}=0{,}125\) ; \(\dfrac{1}{8}=0{,}125\) ; \(\dfrac{1{,}5}{12}=0{,}125\) ; \(\dfrac{2{,}5}{20}=0{,}125\) → <span class="corr-rep">OUI, proportionnel — a = 0,125 L/m²</span></div></div>
+    <div class="att-corr">⚠ Le tableau B a un forfait de déplacement (intercept ≠ 0) → ce n'est pas une fonction linéaire, même si le tarif horaire est constant.</div>
+  </div></details>
+</div>
+
+<!-- ══════ NIVEAU 2 ══════ -->
+<div class="niveau-header niv2">
+  <span class="badge-niv badge-2">Niveau 2</span>
+  <h2>Exercices guidés — Déterminer a et lire graphiquement</h2>
+</div>
+
+<div class="meth">
+  <strong>Méthode — Trouver le coefficient directeur \(a\) :</strong><br>
+  Si on connaît un point \((x_0\,;\,y_0)\) avec \(x_0\neq0\), alors \(a=\dfrac{y_0}{x_0}\). On vérifie ensuite que \(f(x)=ax\) passe bien par ce point.
+</div>
+
+<!-- Ex 4 -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <div class="exo-titre">Trouver la fonction linéaire — Exercice guidé</div>
+  <p>On sait que \(f\) est une fonction linéaire et que \(f(4)=14\). Déterminer \(f\).</p>
+  <div class="guide">
+    <div class="guide-step"><div class="guide-num">1</div><div>Écrire la forme générale : \(f(x)=a\times\) ___</div></div>
+    <div class="guide-step"><div class="guide-num">2</div><div>Utiliser le point connu : \(f(4)=14\), donc \(a\times4=\) ___</div></div>
+    <div class="guide-step"><div class="guide-num">3</div><div>Calculer \(a\) : \(a=\dfrac{14}{4}=\) ___</div></div>
+    <div class="guide-step"><div class="guide-num">4</div><div>Écrire la fonction : \(f(x)=\) ___</div></div>
+    <div class="guide-step"><div class="guide-num">5</div><div>Vérification : \(f(4)=\_\times4=\) ___ ✓</div></div>
+  </div>
+  <label class="rep-label">Complète :</label>
+  <textarea class="zone-rep" rows="4" placeholder="a = 14÷4 = … → f(x) = … → vérif : f(4)= …×4 = 14 ✓"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <div class="etape"><div class="nc">1</div><div>\(f(x)=a\times x\)</div></div>
+    <div class="etape"><div class="nc">2</div><div>\(f(4)=4a=14\)</div></div>
+    <div class="etape"><div class="nc">3</div><div>\(a=\dfrac{14}{4}=3{,}5\)</div></div>
+    <div class="etape"><div class="nc">4</div><div><span class="corr-rep">\(f(x)=3{,}5\,x\)</span></div></div>
+    <div class="etape"><div class="nc">5</div><div>Vérif. : \(f(4)=3{,}5\times4=14\) ✓</div></div>
+    <div class="att-corr">⚠ On divise toujours \(y\) par \(x\), pas l'inverse : \(a=\dfrac{y}{x}=\dfrac{14}{4}\), pas \(\dfrac{4}{14}\).</div>
+  </div></details>
+</div>
+
+<!-- Ex 5 -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <div class="exo-titre">Tableau de valeurs d'une fonction linéaire</div>
+  <p>Soit \(p(x)=2{,}4\,x\). Compléter le tableau, puis répondre aux questions.</p>
+  <table class="full">
+    <tr><th>x</th><td class="tv-x">0</td><td class="tv-x">1</td><td class="tv-x">2</td><td class="tv-x">2,5</td><td class="tv-x">5</td><td class="tv-x">10</td></tr>
+    <tr><th>p(x)</th><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td></tr>
+  </table>
+  <ol>
+    <li>Quelle est l'image de 5 ?</li>
+    <li>Quel est l'antécédent de 12 ? (Résoudre \(2{,}4\,x=12\))</li>
+    <li>Pour quelle valeur de \(x\) a-t-on \(p(x)=24\) ?</li>
+  </ol>
+  <label class="rep-label">Tes réponses :</label>
+  <textarea class="zone-rep" rows="4" placeholder="p(0)=… , p(1)=… , …&#10;1. p(5)=… 2. x=… 3. x=…"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <strong>Tableau :</strong>
+    <table style="margin:6px 0">
+      <tr><th>x</th><td>0</td><td>1</td><td>2</td><td>2,5</td><td>5</td><td>10</td></tr>
+      <tr><th>p(x)</th><td class="ok">0</td><td class="ok">2,4</td><td class="ok">4,8</td><td class="ok">6</td><td class="ok">12</td><td class="ok">24</td></tr>
+    </table>
+    <div class="etape"><div class="nc">1</div><div>\(p(5)=2{,}4\times5=\) <span class="corr-rep">12</span></div></div>
+    <div class="etape"><div class="nc">2</div><div>\(2{,}4\,x=12\Rightarrow x=\dfrac{12}{2{,}4}=\) <span class="corr-rep">5</span> — l'antécédent de 12 est 5.</div></div>
+    <div class="etape"><div class="nc">3</div><div>\(2{,}4\,x=24\Rightarrow x=\dfrac{24}{2{,}4}=\) <span class="corr-rep">10</span></div></div>
+  </div></details>
+</div>
+
+<!-- Ex 6 — Lecture graphique SVG -->
+<div class="exo">
+  <div class="exo-num">Exercice 6</div>
+  <div class="exo-titre">Lecture graphique — Droite passant par l'origine</div>
+  <p>Le graphique ci-dessous représente la fonction linéaire \(f(x)=ax\). Répondre aux questions <strong>sans calculer</strong> — en lisant uniquement le graphique.</p>
+
+  <div class="svg-wrap">
+    <svg width="460" height="320" viewBox="-10 -10 460 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Grille -->
+      <g stroke="#f0f0f0" stroke-width="1">
+        <line x1="50" y1="10" x2="50" y2="295"/><line x1="100" y1="10" x2="100" y2="295"/>
+        <line x1="150" y1="10" x2="150" y2="295"/><line x1="200" y1="10" x2="200" y2="295"/>
+        <line x1="250" y1="10" x2="250" y2="295"/><line x1="300" y1="10" x2="300" y2="295"/>
+        <line x1="350" y1="10" x2="350" y2="295"/><line x1="400" y1="10" x2="400" y2="295"/>
+        <line x1="10" y1="50" x2="440" y2="50"/><line x1="10" y1="100" x2="440" y2="100"/>
+        <line x1="10" y1="150" x2="440" y2="150"/><line x1="10" y1="200" x2="440" y2="200"/>
+        <line x1="10" y1="250" x2="440" y2="250"/>
+      </g>
+      <!-- Axes -->
+      <line x1="50" y1="250" x2="440" y2="250" stroke="#718096" stroke-width="2"/>
+      <line x1="50" y1="10" x2="50" y2="270" stroke="#718096" stroke-width="2"/>
+      <polygon points="440,246 450,250 440,254" fill="#718096"/>
+      <polygon points="46,10 50,0 54,10" fill="#718096"/>
+      <text x="452" y="254" font-size="13" fill="#718096">x</text>
+      <text x="54" y="8" font-size="13" fill="#718096">f(x)</text>
+      <!-- Graduations x (1u=50px, origine (50;250)) -->
+      <g font-size="11" fill="#718096" text-anchor="middle">
+        <line x1="100" y1="247" x2="100" y2="253" stroke="#718096"/><text x="100" y="266">1</text>
+        <line x1="150" y1="247" x2="150" y2="253" stroke="#718096"/><text x="150" y="266">2</text>
+        <line x1="200" y1="247" x2="200" y2="253" stroke="#718096"/><text x="200" y="266">3</text>
+        <line x1="250" y1="247" x2="250" y2="253" stroke="#718096"/><text x="250" y="266">4</text>
+        <line x1="300" y1="247" x2="300" y2="253" stroke="#718096"/><text x="300" y="266">5</text>
+        <line x1="350" y1="247" x2="350" y2="253" stroke="#718096"/><text x="350" y="266">6</text>
+        <line x1="400" y1="247" x2="400" y2="253" stroke="#718096"/><text x="400" y="266">7</text>
+      </g>
+      <!-- Graduations y (1u=50px, origine (50;250)) -->
+      <g font-size="11" fill="#718096" text-anchor="end">
+        <line x1="47" y1="200" x2="53" y2="200" stroke="#718096"/><text x="44" y="204">1</text>
+        <line x1="47" y1="150" x2="53" y2="150" stroke="#718096"/><text x="44" y="154">2</text>
+        <line x1="47" y1="100" x2="53" y2="100" stroke="#718096"/><text x="44" y="104">3</text>
+        <line x1="47" y1="50" x2="53" y2="50" stroke="#718096"/><text x="44" y="54">4</text>
+      </g>
+      <!-- Droite f(x) = 0.5x : passe par (0;0)→(x=8,y=4) en unités
+           Px=50+x*50, Py=250-y*50 → (50,250) à (450,50) -->
+      <line x1="50" y1="250" x2="430" y2="60" stroke="#0056b3" stroke-width="2.5"/>
+      <text x="420" y="52" font-size="12" fill="#0056b3" font-style="italic">f(x)</text>
+      <!-- Point A (4 ; 2) = Px=50+4*50=250, Py=250-2*50=150 -->
+      <circle cx="250" cy="150" r="5" fill="#db2777"/>
+      <!-- Pointillés rouges lecture de A(4;2) -->
+      <line x1="250" y1="150" x2="250" y2="250" stroke="#db2777" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <line x1="50" y1="150" x2="250" y2="150" stroke="#db2777" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="256" y="145" font-size="11" fill="#db2777" font-weight="700">A(4 ; 2)</text>
+      <!-- Point B (2 ; 1) = Px=150, Py=200 -->
+      <circle cx="150" cy="200" r="5" fill="#059669"/>
+      <line x1="150" y1="200" x2="150" y2="250" stroke="#059669" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <line x1="50" y1="200" x2="150" y2="200" stroke="#059669" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="156" y="196" font-size="11" fill="#059669" font-weight="700">B(2 ; 1)</text>
+      <!-- Origine -->
+      <circle cx="50" cy="250" r="4" fill="#718096"/>
+      <text x="36" y="268" font-size="11" fill="#718096">O</text>
+    </svg>
+    <p class="svg-leg">Droite \(f(x)=ax\) — lire les coordonnées des points A et B pour répondre.</p>
+  </div>
+
+  <ol>
+    <li>Lire les coordonnées du point A.</li>
+    <li>Lire les coordonnées du point B.</li>
+    <li>En utilisant le point A, calculer le coefficient \(a\).</li>
+    <li>Vérifier avec le point B.</li>
+    <li>Donner l'expression de \(f(x)\).</li>
+    <li>Que vaut \(f(6)\) ? Lire sur le graphique puis vérifier par le calcul.</li>
+  </ol>
+  <label class="rep-label">Tes réponses :</label>
+  <textarea class="zone-rep" rows="5" placeholder="1. A(… ; …) 2. B(… ; …) 3. a = … 4. vérif… 5. f(x)=… 6. f(6)=…"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <div class="etape"><div class="nc">1</div><div>Point A : <span class="corr-rep">A(4 ; 2)</span></div></div>
+    <div class="etape"><div class="nc">2</div><div>Point B : <span class="corr-rep">B(2 ; 1)</span></div></div>
+    <div class="etape"><div class="nc">3</div><div>\(a=\dfrac{y_A}{x_A}=\dfrac{2}{4}=\) <span class="corr-rep">0,5</span></div></div>
+    <div class="etape"><div class="nc">4</div><div>Vérif. avec B : \(\dfrac{y_B}{x_B}=\dfrac{1}{2}=0{,}5\) ✓</div></div>
+    <div class="etape"><div class="nc">5</div><div><span class="corr-rep">\(f(x)=0{,}5\,x\)</span></div></div>
+    <div class="etape"><div class="nc">6</div><div>\(f(6)=0{,}5\times6=\) <span class="corr-rep">3</span></div></div>
+  </div></details>
+</div>
+
+<!-- ══════ NIVEAU 3 ══════ -->
+<div class="niveau-header niv3">
+  <span class="badge-niv badge-3">Niveau 3</span>
+  <h2>Exercices d'application — Tableaux, expressions, graphiques</h2>
+</div>
+
+<!-- Ex 7 -->
+<div class="exo">
+  <div class="exo-num">Exercice 7</div>
+  <div class="exo-titre">Du tableau à l'expression et au graphique</div>
+  <p>On donne le tableau de valeurs suivant :</p>
+  <table class="full">
+    <tr><th>x</th><td class="tv-x">0</td><td class="tv-x">1</td><td class="tv-x">2</td><td class="tv-x">4</td><td class="tv-x">6</td></tr>
+    <tr><th>y</th><td>0</td><td>3</td><td>6</td><td>12</td><td>18</td></tr>
+  </table>
+  <ol>
+    <li>Calculer le rapport \(\dfrac{y}{x}\) pour chaque colonne (sauf \(x=0\)). Que remarques-tu ?</li>
+    <li>En déduire \(a\) et écrire la fonction \(f(x)\).</li>
+    <li>Compléter le tableau avec \(x=3\) et \(x=5\).</li>
+    <li>Calculer \(f(2{,}5)\) et \(f(8)\).</li>
+    <li>Quel est l'antécédent de 21 ?</li>
+  </ol>
+  <label class="rep-label">Tes réponses :</label>
+  <textarea class="zone-rep" rows="6" placeholder="1. 3/1=… , 6/2=… → rapport constant : a=…&#10;2. f(x)=…&#10;3. f(3)=… , f(5)=…&#10;4. f(2,5)=… , f(8)=…&#10;5. 3x=21 → x=…"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <div class="etape"><div class="nc">1</div><div>\(\dfrac{3}{1}=3\) ; \(\dfrac{6}{2}=3\) ; \(\dfrac{12}{4}=3\) ; \(\dfrac{18}{6}=3\) → rapport toujours égal à 3 : <span class="corr-rep">proportionnel, a = 3</span></div></div>
+    <div class="etape"><div class="nc">2</div><div><span class="corr-rep">\(f(x)=3x\)</span></div></div>
+    <div class="etape"><div class="nc">3</div><div>\(f(3)=9\) ; \(f(5)=15\)</div></div>
+    <div class="etape"><div class="nc">4</div><div>\(f(2{,}5)=7{,}5\) ; \(f(8)=24\)</div></div>
+    <div class="etape"><div class="nc">5</div><div>\(3x=21\Rightarrow x=7\) → <span class="corr-rep">antécédent de 21 = 7</span></div></div>
+  </div></details>
+</div>
+
+<!-- Ex 8 — Canvas interactif -->
+<div class="exo">
+  <div class="exo-num">Exercice 8</div>
+  <div class="exo-titre">Graphique interactif — Explorer \(f(x)=ax\)</div>
+  <p>Utilise le graphique interactif ci-dessous. Sélectionne une fonction, puis clique sur la droite pour lire les coordonnées d'un point.</p>
+
+  <div class="ctrl-graf">
+    <label>Fonction : <select id="selF8">
+      <option value="1.5">f(x) = 1,5x (bleu)</option>
+      <option value="0.5">g(x) = 0,5x (vert)</option>
+      <option value="-1">h(x) = −x (rouge)</option>
+      <option value="2.5">k(x) = 2,5x (violet)</option>
+    </select></label>
+    <button class="btn-graf" id="resetF8">Effacer point</button>
+  </div>
+  <canvas id="cvF8" class="graf" width="500" height="340"></canvas>
+  <div id="infoF8" class="graf-info">Clique sur le graphique pour lire les coordonnées d'un point.</div>
+
+  <div class="att">
+    <strong>À observer :</strong> Quelle que soit la fonction choisie, la droite passe toujours par <strong>l'origine O(0 ; 0)</strong>. C'est la caractéristique de la fonction linéaire.
+  </div>
+
+  <ol>
+    <li>Avec \(f(x)=1{,}5x\), lire l'image de 4. Vérifier par le calcul.</li>
+    <li>Avec \(g(x)=0{,}5x\), quel est l'antécédent de 2 ?</li>
+    <li>Avec \(h(x)=-x\), la droite monte ou descend quand \(x\) augmente ?</li>
+    <li>Quelle droite est la plus "pentue" ? Pourquoi ?</li>
+  </ol>
+  <label class="rep-label">Tes observations :</label>
+  <textarea class="zone-rep" rows="5" placeholder="1. f(4)=… 2. antécédent de 2 pour g… 3. … 4. …"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <div class="etape"><div class="nc">1</div><div>\(f(4)=1{,}5\times4=\) <span class="corr-rep">6</span></div></div>
+    <div class="etape"><div class="nc">2</div><div>\(0{,}5x=2\Rightarrow x=4\) → <span class="corr-rep">antécédent de 2 = 4</span></div></div>
+    <div class="etape"><div class="nc">3</div><div>Avec \(h(x)=-x\) : quand \(x\) augmente, \(h(x)\) <span class="corr-rep">diminue</span> (droite descendante car \(a&lt;0\)).</div></div>
+    <div class="etape"><div class="nc">4</div><div>\(k(x)=2{,}5x\) est la plus pentue car <span class="corr-rep">\(|a|=2{,}5\)</span> est le plus grand — plus \(|a|\) est grand, plus la droite est inclinée.</div></div>
+  </div></details>
+</div>
+
+<!-- ══════ NIVEAU 4 MAMA ══════ -->
+<div class="niveau-header niv4">
+  <span class="badge-niv badge-4">Niveau 4</span>
+  <h2>Exercices contextualisés — Métier MAMA</h2>
+</div>
+
+<!-- Ex 9 -->
+<div class="exo">
+  <div class="exo-num">Exercice 9</div>
+  <span class="mama-tag">🪵 MAMA — Parquet / Lames de plancher</span>
+  <div class="exo-titre">Coût des lames de parquet chêne</div>
+  <p>Des lames de parquet en chêne massif coûtent <strong>8,50 € la lame</strong>. On appelle \(C(n)\) le coût total en euros pour \(n\) lames.</p>
+  <ol>
+    <li>Écrire l'expression de \(C(n)\).</li>
+    <li>Est-ce une fonction linéaire ? Justifier.</li>
+    <li>Compléter le tableau de valeurs :</li>
+  </ol>
+  <table class="full">
+    <tr><th>n (lames)</th><td class="tv-x">0</td><td class="tv-x">5</td><td class="tv-x">10</td><td class="tv-x">20</td><td class="tv-x">50</td><td class="tv-x">100</td></tr>
+    <tr><th>C(n) (€)</th><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td></tr>
+  </table>
+  <ol start="4">
+    <li>Un menuisier commande 75 lames. Quel est le coût total ?</li>
+    <li>Son budget est de 500 €. Combien de lames peut-il acheter au maximum ?</li>
+  </ol>
+  <label class="rep-label">Tes calculs :</label>
+  <textarea class="zone-rep" rows="5" placeholder="C(n) = … × n&#10;C(75) = …&#10;8,5n ≤ 500 → n ≤ …"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <div class="etape"><div class="nc">1</div><div><span class="corr-rep">\(C(n)=8{,}5\,n\)</span></div></div>
+    <div class="etape"><div class="nc">2</div><div>Oui, c'est une fonction linéaire : \(C(n)=a\times n\) avec \(a=8{,}5\), et \(C(0)=0\) (pas de forfait fixe).</div></div>
+    <div class="etape"><div class="nc">3</div>
+      <table style="margin:6px 0">
+        <tr><th>n</th><td>0</td><td>5</td><td>10</td><td>20</td><td>50</td><td>100</td></tr>
+        <tr><th>C(n)</th><td class="ok">0</td><td class="ok">42,50</td><td class="ok">85</td><td class="ok">170</td><td class="ok">425</td><td class="ok">850</td></tr>
+      </table>
+    </div>
+    <div class="etape"><div class="nc">4</div><div>\(C(75)=8{,}5\times75=\) <span class="corr-rep">637,50 €</span></div></div>
+    <div class="etape"><div class="nc">5</div><div>\(8{,}5\,n\leq500\Rightarrow n\leq\dfrac{500}{8{,}5}\approx58{,}8\) → <span class="corr-rep">58 lames maximum</span> (on arrondit à l'entier inférieur).</div></div>
+  </div></details>
+</div>
+
+<!-- Ex 10 — Chart.js -->
+<div class="exo">
+  <div class="exo-num">Exercice 10</div>
+  <span class="mama-tag">🎨 MAMA — Peinture / Revêtements</span>
+  <div class="exo-titre">Consommation de peinture — Comparer deux produits</div>
+  <p>Un menuisier compare deux peintures pour laquer des portes :</p>
+  <ul>
+    <li>Peinture A (qualité standard) : <strong>0,15 L par m²</strong></li>
+    <li>Peinture B (qualité premium) : <strong>0,25 L par m²</strong></li>
+  </ul>
+  <p>On note \(A(s)\) et \(B(s)\) les volumes de peinture (en litres) nécessaires pour couvrir \(s\) m².</p>
+  <ol>
+    <li>Écrire \(A(s)\) et \(B(s)\).</li>
+    <li>Lire le graphique ci-dessous et répondre : pour 12 m², quelle est la consommation de chaque peinture ?</li>
+    <li>Pour peindre 20 m², quelle économie en litres réalise-t-on avec la peinture A ?</li>
+    <li>Un pot de peinture A contient 2,5 L. Combien de m² peut-on couvrir avec un pot ?</li>
+  </ol>
+
+  <div class="chart-wrapper">
+    <canvas id="chartP10" height="250"></canvas>
+  </div>
+
+  <label class="rep-label">Tes réponses :</label>
+  <textarea class="zone-rep" rows="5" placeholder="A(s)=… B(s)=…&#10;A(12)=… B(12)=…&#10;économie pour 20m²=…&#10;s=…m² avec 2,5L de peinture A"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <div class="etape"><div class="nc">1</div><div><span class="corr-rep">\(A(s)=0{,}15\,s\)</span> et <span class="corr-rep">\(B(s)=0{,}25\,s\)</span></div></div>
+    <div class="etape"><div class="nc">2</div><div>\(A(12)=0{,}15\times12=\) <span class="corr-rep">1,8 L</span> &nbsp;|&nbsp; \(B(12)=0{,}25\times12=\) <span class="corr-rep">3 L</span></div></div>
+    <div class="etape"><div class="nc">3</div><div>\(B(20)-A(20)=5-3=\) <span class="corr-rep">2 L d'économie</span> avec la peinture A pour 20 m².</div></div>
+    <div class="etape"><div class="nc">4</div><div>\(0{,}15\,s=2{,}5\Rightarrow s=\dfrac{2{,}5}{0{,}15}\approx\) <span class="corr-rep">16,7 m²</span> avec un pot de 2,5 L.</div></div>
+  </div></details>
+</div>
+
+<!-- Ex 11 -->
+<div class="exo">
+  <div class="exo-num">Exercice 11</div>
+  <span class="mama-tag">🔧 MAMA — Pose de plancher / Vitesse de travail</span>
+  <div class="exo-titre">Deux artisans — Vitesse de pose proportionnelle</div>
+  <p>Deux artisans posent du parquet stratifié. Ils travaillent à vitesse <strong>constante</strong> :</p>
+  <ul>
+    <li>Artisan Jules : <strong>8 m² par heure</strong></li>
+    <li>Artisan Théo : <strong>5 m² par heure</strong></li>
+  </ul>
+  <p>On appelle \(J(h)\) et \(T(h)\) la surface posée (en m²) après \(h\) heures de travail.</p>
+  <ol>
+    <li>Écrire \(J(h)\) et \(T(h)\).</li>
+    <li>Compléter le tableau de valeurs pour \(h\in\{0;1;2;3;4;6;8\}\).</li>
+    <li>Un chantier nécessite 48 m² de parquet. Combien de temps mettra chaque artisan ?</li>
+    <li>Le client dispose de 6 heures. Quelle surface chaque artisan peut-il couvrir ?</li>
+    <li>Quelle est la "signification MAMA" du coefficient directeur de \(J\) ?</li>
+  </ol>
+  <table class="full" style="margin-top:10px">
+    <tr><th>h (heures)</th><td class="tv-x">0</td><td class="tv-x">1</td><td class="tv-x">2</td><td class="tv-x">3</td><td class="tv-x">4</td><td class="tv-x">6</td><td class="tv-x">8</td></tr>
+    <tr><th>J(h) m²</th><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td></tr>
+    <tr><th>T(h) m²</th><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td><td class="vide">…</td></tr>
+  </table>
+  <label class="rep-label">Tes calculs :</label>
+  <textarea class="zone-rep" rows="6" placeholder="J(h)=… T(h)=…&#10;Tableau…&#10;3. Jules : 8h=48 → h=… | Théo : 5h=48 → h=…&#10;4. J(6)=… T(6)=…&#10;5. …"></textarea>
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <div class="etape"><div class="nc">1</div><div><span class="corr-rep">\(J(h)=8h\)</span> et <span class="corr-rep">\(T(h)=5h\)</span></div></div>
+    <div class="etape"><div class="nc">2</div>
+      <table style="margin:6px 0;font-size:.9em">
+        <tr><th>h</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>6</td><td>8</td></tr>
+        <tr><th>J(h)</th><td class="ok">0</td><td class="ok">8</td><td class="ok">16</td><td class="ok">24</td><td class="ok">32</td><td class="ok">48</td><td class="ok">64</td></tr>
+        <tr><th>T(h)</th><td class="ok">0</td><td class="ok">5</td><td class="ok">10</td><td class="ok">15</td><td class="ok">20</td><td class="ok">30</td><td class="ok">40</td></tr>
+      </table>
+    </div>
+    <div class="etape"><div class="nc">3</div><div>Jules : \(8h=48\Rightarrow h=6\) → <span class="corr-rep">6 heures</span> &nbsp;|&nbsp; Théo : \(5h=48\Rightarrow h=9{,}6\) → <span class="corr-rep">9 h 36 min</span></div></div>
+    <div class="etape"><div class="nc">4</div><div>\(J(6)=48\text{ m}^2\) &nbsp;|&nbsp; \(T(6)=30\text{ m}^2\)</div></div>
+    <div class="etape"><div class="nc">5</div><div>Le coefficient directeur \(a=8\) représente la <span class="corr-rep">vitesse de pose : 8 m² posés par heure</span>. Dans un contexte professionnel, c'est la productivité horaire de Jules.</div></div>
+  </div></details>
+</div>
+
+<div class="retenir" style="margin-top:32px">
+  <h3>✅ Bilan — Ce que tu dois savoir faire</h3>
+  <ul style="margin:6px 0;padding-left:18px">
+    <li>Calculer \(f(x)=ax\) pour une valeur donnée de \(x\).</li>
+    <li>Reconnaître une situation de proportionnalité (rapport \(y/x\) constant).</li>
+    <li>Déterminer \(a\) à partir d'un couple \((x_0\,;y_0)\) : \(a=y_0/x_0\).</li>
+    <li>Passer d'un tableau de valeurs à l'expression algébrique et inversement.</li>
+    <li>Lire graphiquement l'image d'un nombre et l'antécédent d'un nombre.</li>
+    <li>Savoir que la droite \(y=ax\) passe <strong>toujours par l'origine</strong>.</li>
+    <li>Relier \(|a|\) à la "pente" de la droite : plus \(|a|\) est grand, plus la droite est inclinée.</li>
+  </ul>
+</div>
+
+<nav class="nav-footer">
+  <a href="ch07_exos.html" class="nav-btn">← Ch07 – Notion de fonction</a>
+  <a href="maths-2nde-mama.html" class="nav-btn">Sommaire</a>
+  <a href="ch08_lecon.html" class="nav-btn">Ch08 – Cours →</a>
+</nav>
+
+</div><!-- .c -->
+
+<script>
+/* ═══ Canvas Ex8 — Fonctions linéaires interactif ═══ */
+(function(){
+  var cv=document.getElementById('cvF8'),
+      ctx=cv.getContext('2d'),
+      sel=document.getElementById('selF8'),
+      info=document.getElementById('infoF8'),
+      W=cv.width, H=cv.height,
+      OX=60, OY=H-50, // pixel origin
+      UX=60, UY=60,   // 1 unit in pixels
+      pt=null;
+
+  var COLORS={'1.5':'#0056b3','0.5':'#059669','-1':'#c53030','2.5':'#7c3aed'};
+
+  function toS(mx,my){return{x:OX+mx*UX, y:OY-my*UY};}
+  function toM(px,py){return{x:(px-OX)/UX, y:(OY-py)/UY};}
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // Grille
+    ctx.strokeStyle='#f0f4f8'; ctx.lineWidth=1;
+    for(var i=-1;i<=6;i++){
+      var gx=toS(i,0);
+      ctx.beginPath();ctx.moveTo(gx.x,10);ctx.lineTo(gx.x,H-30);ctx.stroke();
+    }
+    for(var j=-3;j<=4;j++){
+      var gy=toS(0,j);
+      ctx.beginPath();ctx.moveTo(40,gy.y);ctx.lineTo(W-20,gy.y);ctx.stroke();
+    }
+    // Axes
+    ctx.strokeStyle='#718096'; ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(40,OY);ctx.lineTo(W-15,OY);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(OX,H-20);ctx.lineTo(OX,15);ctx.stroke();
+    // Flèches
+    ctx.fillStyle='#718096';
+    ctx.beginPath();ctx.moveTo(W-15,OY-5);ctx.lineTo(W-5,OY);ctx.lineTo(W-15,OY+5);ctx.fill();
+    ctx.beginPath();ctx.moveTo(OX-5,15);ctx.lineTo(OX,5);ctx.lineTo(OX+5,15);ctx.fill();
+    // Graduations x
+    ctx.font='12px Segoe UI,system-ui,sans-serif';
+    ctx.fillStyle='#718096'; ctx.textAlign='center';
+    for(var i=1;i<=6;i++){
+      var gx=toS(i,0);
+      ctx.beginPath();ctx.moveTo(gx.x,OY-4);ctx.lineTo(gx.x,OY+4);ctx.strokeStyle='#718096';ctx.stroke();
+      ctx.fillText(i,gx.x,OY+18);
+    }
+    // Graduations y
+    ctx.textAlign='right';
+    for(var j=-3;j<=4;j++){
+      if(j===0)continue;
+      var gy=toS(0,j);
+      ctx.beginPath();ctx.moveTo(OX-4,gy.y);ctx.lineTo(OX+4,gy.y);ctx.strokeStyle='#718096';ctx.stroke();
+      ctx.fillText(j,OX-8,gy.y+4);
+    }
+    // Labels axes
+    ctx.fillStyle='#718096'; ctx.textAlign='left';
+    ctx.fillText('x',W-12,OY+5);
+    ctx.textAlign='center';
+    ctx.fillText('f(x)',OX+2,12);
+    ctx.fillText('O',OX-10,OY+18);
+    // Droite
+    var a=parseFloat(sel.value);
+    var col=COLORS[sel.value]||'#0056b3';
+    ctx.strokeStyle=col; ctx.lineWidth=2.5;
+    var xMin=-1, xMax=6;
+    var p1=toS(xMin,a*xMin), p2=toS(xMax,a*xMax);
+    ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.lineTo(p2.x,p2.y);ctx.stroke();
+    // Étiquette de la droite
+    var lx=toS(4,a*4);
+    ctx.fillStyle=col; ctx.font='bold 12px Segoe UI,system-ui,sans-serif';
+    ctx.textAlign='left';
+    var labelMap={'1.5':'f(x)=1,5x','0.5':'g(x)=0,5x','-1':'h(x)=−x','2.5':'k(x)=2,5x'};
+    ctx.fillText(labelMap[sel.value]||'f(x)',lx.x+4,lx.y-6);
+    // Origine
+    ctx.fillStyle='#718096';
+    ctx.beginPath();ctx.arc(OX,OY,4,0,2*Math.PI);ctx.fill();
+    // Point cliqué
+    if(pt){
+      var ps=toS(pt.x,pt.y);
+      ctx.fillStyle=col;
+      ctx.beginPath();ctx.arc(ps.x,ps.y,6,0,2*Math.PI);ctx.fill();
+      ctx.strokeStyle='#fff'; ctx.lineWidth=2;
+      ctx.beginPath();ctx.arc(ps.x,ps.y,6,0,2*Math.PI);ctx.stroke();
+      // Pointillés
+      ctx.setLineDash([5,3]);
+      ctx.strokeStyle=col; ctx.lineWidth=1.5;
+      ctx.beginPath();ctx.moveTo(ps.x,ps.y);ctx.lineTo(ps.x,OY);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(ps.x,ps.y);ctx.lineTo(OX,ps.y);ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  }
+
+  cv.addEventListener('click',function(e){
+    var r=cv.getBoundingClientRect();
+    var px=e.clientX-r.left, py=e.clientY-r.top;
+    var mx=toM(px,py);
+    var a=parseFloat(sel.value);
+    var snapY=a*Math.round(mx.x*2)/2;
+    pt={x:Math.round(mx.x*2)/2, y:Math.round(snapY*10)/10};
+    info.textContent='Point lu : x = '+pt.x+' → f(x) = '+pt.y.toFixed(2);
+    draw();
+  });
+
+  document.getElementById('resetF8').addEventListener('click',function(){
+    pt=null; info.textContent='Clique sur le graphique pour lire les coordonnées d\'un point.';
+    draw();
+  });
+  sel.addEventListener('change',function(){pt=null;info.textContent='Clique sur le graphique pour lire les coordonnées d\'un point.';draw();});
+  draw();
+})();
+
+/* ═══ Chart.js Ex10 — Peintures A et B ═══ */
+(function(){
+  var labels=[0,2,4,6,8,10,12,14,16,18,20];
+  var dataA=labels.map(function(s){return +(0.15*s).toFixed(2);});
+  var dataB=labels.map(function(s){return +(0.25*s).toFixed(2);});
+  new Chart(document.getElementById('chartP10'),{
+    type:'line',
+    data:{
+      labels:labels,
+      datasets:[
+        {label:'Peinture A (0,15 L/m²)',data:dataA,borderColor:'#0056b3',backgroundColor:'rgba(0,86,179,.1)',borderWidth:2,pointRadius:4,tension:0},
+        {label:'Peinture B (0,25 L/m²)',data:dataB,borderColor:'#db2777',backgroundColor:'rgba(219,39,119,.1)',borderWidth:2,pointRadius:4,tension:0}
+      ]
+    },
+    options:{
+      plugins:{legend:{position:'bottom'},title:{display:true,text:'Consommation de peinture selon la surface',font:{size:13}}},
+      scales:{
+        x:{title:{display:true,text:'Surface (m²)'}},
+        y:{title:{display:true,text:'Volume (litres)'},beginAtZero:true}
+      }
+    }
+  });
+})();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

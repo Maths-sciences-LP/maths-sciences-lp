@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Exercices – Rayonnement thermique &amp; effet de serre | ERA-MA Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#2da44e;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;flex:1}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{opacity:.85}
+.intro-box{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.methode strong{color:#d97706}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.attention strong{color:#be123c}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.retenir strong{color:#0369a1}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.svg-wrap{overflow-x:auto;margin:20px 0}
+</style>
+</head>
+<body><div class="c">
+
+<a href="pc-term-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch03 – Rayonnement thermique &amp; effet de serre</h1>
+  <p class="sous-titre">Exercices — Terminale Bac Pro ERA-MA (Groupement 3)</p>
+</header>
+
+<!-- INTRODUCTION -->
+<div class="intro-box">
+  <strong>Rappels du cours</strong>
+  <ul style="margin:8px 0 0 0">
+    <li>Tout corps à température non nulle émet un <strong>rayonnement thermique</strong> (électromagnétique). Pour T &lt; 1000 °C, ce rayonnement se situe principalement dans l'<strong>infrarouge (IR)</strong>.</li>
+    <li><strong>Loi de Stefan-Boltzmann</strong> : \( P = \varepsilon \cdot \sigma \cdot S \cdot T^4 \) avec \(\sigma = 5{,}67 \times 10^{-8}\ \text{W·m}^{-2}\text{·K}^{-4}\), \(S\) la surface en m², \(T\) la température en <strong>Kelvin</strong>, et \(\varepsilon\) l'émissivité (0 à 1).</li>
+    <li>Conversion : \( T(\text{K}) = T(°\text{C}) + 273 \)</li>
+    <li><strong>Caméra thermique</strong> : détecte le rayonnement IR pour visualiser les déperditions de chaleur, les ponts thermiques dans les bâtiments industriels.</li>
+    <li><strong>Effet de serre</strong> : le CO₂, la vapeur d'eau (H₂O) et le méthane (CH₄) absorbent le rayonnement IR émis par la Terre, ce qui provoque un réchauffement de l'atmosphère.</li>
+    <li>Le Soleil émet principalement dans le <strong>visible + UV</strong> (T ≈ 6000 K) ; la Terre émet dans l'<strong>IR lointain</strong> (T ≈ 288 K).</li>
+  </ul>
+</div>
+
+<!-- SVG : spectre électromagnétique -->
+<h2>Spectre électromagnétique simplifié</h2>
+<div class="svg-wrap">
+<svg width="820" height="130" viewBox="0 0 820 130" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:'Segoe UI',sans-serif">
+  <!-- Fond dégradé représentant le spectre -->
+  <defs>
+    <linearGradient id="specGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#7b2ff7"/>
+      <stop offset="12%"  stop-color="#4040ff"/>
+      <stop offset="22%"  stop-color="#00aaff"/>
+      <stop offset="32%"  stop-color="#00cc44"/>
+      <stop offset="44%"  stop-color="#ffee00"/>
+      <stop offset="55%"  stop-color="#ff8800"/>
+      <stop offset="65%"  stop-color="#cc3300"/>
+      <stop offset="72%"  stop-color="#880000"/>
+      <stop offset="100%" stop-color="#440000"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Bande spectrale principale -->
+  <rect x="10" y="40" width="800" height="40" rx="6" fill="url(#specGrad)" opacity="0.85"/>
+
+  <!-- Délimiteurs de zones -->
+  <line x1="110" y1="30" x2="110" y2="90" stroke="#444" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="220" y1="30" x2="220" y2="90" stroke="#444" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="390" y1="30" x2="390" y2="90" stroke="#444" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="580" y1="30" x2="580" y2="90" stroke="#444" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Étiquettes zones -->
+  <text x="55"  y="22" font-size="13" text-anchor="middle" fill="#5b21b6" font-weight="bold">Rayons X / UV</text>
+  <text x="165" y="22" font-size="13" text-anchor="middle" fill="#1d4ed8" font-weight="bold">Visible</text>
+  <text x="305" y="22" font-size="13" text-anchor="middle" fill="#b45309" font-weight="bold">IR proche</text>
+  <text x="485" y="22" font-size="13" text-anchor="middle" fill="#7f1d1d" font-weight="bold">IR moyen</text>
+  <text x="700" y="22" font-size="13" text-anchor="middle" fill="#4a1515" font-weight="bold">IR lointain</text>
+
+  <!-- Longueurs d'onde indicatives -->
+  <text x="110" y="106" font-size="10" text-anchor="middle" fill="#555">0,4 µm</text>
+  <text x="220" y="106" font-size="10" text-anchor="middle" fill="#555">0,7 µm</text>
+  <text x="390" y="106" font-size="10" text-anchor="middle" fill="#555">2,5 µm</text>
+  <text x="580" y="106" font-size="10" text-anchor="middle" fill="#555">25 µm</text>
+
+  <!-- Annotations Soleil / Terre -->
+  <text x="165" y="120" font-size="11" text-anchor="middle" fill="#1d4ed8">&#9728; Soleil (~6000 K)</text>
+  <text x="700" y="120" font-size="11" text-anchor="middle" fill="#7f1d1d">&#127758; Terre (~288 K)</text>
+</svg>
+</div>
+
+<!-- EXERCICES DE BASE -->
+<h2>Exercices de base</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Puissance rayonnée par le corps humain</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+
+  <div class="methode">
+    <strong>Méthode :</strong> Appliquer la loi de Stefan-Boltzmann \( P = \varepsilon \cdot \sigma \cdot S \cdot T^4 \).
+    Convertir d'abord la température en Kelvin : \( T(\text{K}) = T(°\text{C}) + 273 \).
+  </div>
+
+  <p><strong>Données :</strong> Corps humain à 37 °C, surface corporelle \(S = 1{,}8\ \text{m}^2\), émissivité \(\varepsilon = 0{,}98\) (peau humaine), \(\sigma = 5{,}67 \times 10^{-8}\ \text{W·m}^{-2}\text{·K}^{-4}\).</p>
+
+  <p class="q"><strong>Q1.</strong> Convertir 37 °C en Kelvin.</p>
+  <p class="q"><strong>Q2.</strong> Calculer la puissance \(P\) rayonnée par le corps humain (en W). Arrondir au watt.</p>
+  <p class="q"><strong>Q3.</strong> Dans quel domaine du spectre électromagnétique se situe ce rayonnement ? Justifier.</p>
+  <p class="q"><strong>Q4.</strong> Est-il dangereux ? Peut-on le voir à l'œil nu ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \( T = 37 + 273 = 310\ \text{K} \)</p>
+    <p><strong>Q2.</strong>
+      \( P = \varepsilon \cdot \sigma \cdot S \cdot T^4 = 0{,}98 \times 5{,}67 \times 10^{-8} \times 1{,}8 \times (310)^4 \)
+    </p>
+    <p>
+      \( (310)^4 = 9{,}235 \times 10^9 \)
+      <br>
+      \( P = 0{,}98 \times 5{,}67 \times 10^{-8} \times 1{,}8 \times 9{,}235 \times 10^9 \approx 924\ \text{W} \)
+    </p>
+    <p><em>Remarque : le corps humain reçoit en même temps environ 800–900 W de l'environnement (à 20 °C), le bilan net est beaucoup plus faible (~80 W).</em></p>
+    <p><strong>Q3.</strong> À 310 K (37 °C), le rayonnement est dans l'<strong>infrarouge lointain</strong> (longueurs d'onde ~10 µm). En dessous de ~1000 °C, tout corps émet principalement en IR.</p>
+    <p><strong>Q4.</strong> Ce rayonnement est non ionisant, donc non dangereux à ces niveaux. Il est <strong>invisible à l'œil nu</strong> (l'œil ne perçoit que 0,4–0,7 µm). Une caméra thermique peut le détecter.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Domaine spectral selon la température</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+
+  <p>On considère deux corps :</p>
+  <ul>
+    <li>Corps A : paroi de bâtiment à 300 K (~27 °C)</li>
+    <li>Corps B : surface du Soleil à 6000 K</li>
+  </ul>
+
+  <p class="q"><strong>Q1.</strong> Quel corps émet principalement dans le domaine visible ? Justifier.</p>
+  <p class="q"><strong>Q2.</strong> Quel corps émet principalement en infrarouge lointain ? Justifier.</p>
+  <p class="q"><strong>Q3.</strong> En se basant sur la loi de Stefan, quel corps rayonne le plus de puissance par unité de surface (pour une même émissivité) ? Calculer le rapport \(P_B / P_A\).</p>
+  <p class="q"><strong>Q4.</strong> Pourquoi une caméra thermique est-elle utile pour inspecter des bâtiments industriels, mais pas pour observer le Soleil directement ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> Le corps B (Soleil, 6000 K) émet dans le visible et l'UV : à haute température, le pic d'émission se déplace vers les courtes longueurs d'onde (loi de Wien : \(\lambda_{max} = 2898/T\)). À 6000 K : \(\lambda_{max} \approx 0{,}48\ \mu\text{m}\) (bleu-vert visible).</p>
+    <p><strong>Q2.</strong> Le corps A (300 K) émet dans l'IR lointain : \(\lambda_{max} \approx 2898/300 \approx 9{,}7\ \mu\text{m}\).</p>
+    <p><strong>Q3.</strong>
+      \( \frac{P_B}{P_A} = \frac{T_B^4}{T_A^4} = \frac{(6000)^4}{(300)^4} = \left(\frac{6000}{300}\right)^4 = 20^4 = 160\ 000 \)
+    </p>
+    <p>Le Soleil rayonne 160 000 fois plus d'énergie par m² que la paroi.</p>
+    <p><strong>Q4.</strong> La caméra thermique détecte l'IR (8–14 µm typiquement), domaine dans lequel les bâtiments (300 K) émettent abondamment. Le Soleil émet surtout en visible : une caméra thermique n'est pas adaptée et pointer vers le Soleil endommagerait le capteur.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Effet de serre – Questions de cours</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+
+  <p class="q"><strong>Q1.</strong> Citer trois gaz à effet de serre (GES) présents dans l'atmosphère terrestre.</p>
+  <p class="q"><strong>Q2.</strong> Quel type de rayonnement ces gaz absorbent-ils principalement ?</p>
+  <p class="q"><strong>Q3.</strong> Le rayonnement solaire traverse-t-il facilement l'atmosphère ? Pourquoi ?</p>
+  <p class="q"><strong>Q4.</strong> Expliquer en deux phrases le mécanisme de l'effet de serre naturel.</p>
+  <p class="q"><strong>Q5.</strong> Quel est l'impact d'une augmentation de la concentration en CO₂ sur l'effet de serre ? Citer une activité industrielle concernée par ce phénomène.</p>
+
+  <div class="attention">
+    <strong>Attention :</strong> L'effet de serre <em>naturel</em> est indispensable à la vie sur Terre (sans lui, T moyenne ≈ −18 °C au lieu de +15 °C). C'est son <em>renforcement</em> par les activités humaines qui pose problème.
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> Vapeur d'eau (H₂O), dioxyde de carbone (CO₂), méthane (CH₄). On peut aussi citer N₂O (protoxyde d'azote) et les gaz fluorés.</p>
+    <p><strong>Q2.</strong> Ces gaz absorbent principalement le <strong>rayonnement infrarouge</strong> (IR) émis par la surface terrestre.</p>
+    <p><strong>Q3.</strong> Oui, le rayonnement solaire (visible + UV) traverse bien l'atmosphère car les GES absorbent peu ces longueurs d'onde. L'atmosphère est transparente au rayonnement visible.</p>
+    <p><strong>Q4.</strong> La Terre absorbe le rayonnement solaire visible et se réchauffe. Elle réémet un rayonnement IR (car T ≈ 288 K). Les GES absorbent une partie de cet IR et le renvoient dans toutes les directions, y compris vers la Terre, ce qui maintient sa température.</p>
+    <p><strong>Q5.</strong> Une hausse du CO₂ renforce l'effet de serre : plus d'IR terrestre est absorbé, la température augmente. Activité concernée : combustion dans une centrale thermique industrielle, soudage, transport d'engins de chantier, etc.</p>
+  </div>
+</div>
+
+<!-- EXERCICES GUIDÉS -->
+<h2>Exercices guidés</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Puissance rayonnée par un mur industriel chaud</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Dans un atelier ERA-MA, un mur en béton peint est porté à 60 °C par la proximité d'un four industriel. Sa surface est de 10 m². L'émissivité du béton peint est \(\varepsilon = 0{,}9\). La température ambiante est de 20 °C.</p>
+
+  <p class="q"><strong>Q1.</strong> Convertir 60 °C et 20 °C en Kelvin.</p>
+  <p class="q"><strong>Q2.</strong> Calculer la puissance rayonnée \(P_{mur}\) par le mur (vers l'environnement à 20 °C) en utilisant la formule du bilan net :</p>
+  <p style="text-align:center">\( P_{net} = \varepsilon \cdot \sigma \cdot S \cdot (T_{mur}^4 - T_{amb}^4) \)</p>
+  <p class="q"><strong>Q3.</strong> Cette puissance est-elle significative ? Comparer avec la consommation d'un radiateur électrique de 2 kW.</p>
+  <p class="q"><strong>Q4.</strong> On estime que la puissance perdue par convection naturelle du même mur est de 500 W. Calculer la puissance totale perdue. Quel phénomène domine ici ?</p>
+  <p class="q"><strong>Q5.</strong> Si on peint le mur avec une peinture réfléchissante (\(\varepsilon = 0{,}1\)), quelle serait la nouvelle puissance rayonnée nette ?</p>
+
+  <div class="methode">
+    <strong>Méthode :</strong> Pour le bilan net, on soustrait la puissance reçue de l'environnement à la puissance émise. Les deux températures doivent être en Kelvin.
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> \(T_{mur} = 60 + 273 = 333\ \text{K}\) ; \(T_{amb} = 20 + 273 = 293\ \text{K}\)</p>
+    <p><strong>Q2.</strong>
+      \( T_{mur}^4 = (333)^4 = 1{,}229 \times 10^{10} \)
+      <br>
+      \( T_{amb}^4 = (293)^4 = 7{,}370 \times 10^9 \)
+      <br>
+      \( T_{mur}^4 - T_{amb}^4 = 1{,}229 \times 10^{10} - 7{,}370 \times 10^9 = 4{,}92 \times 10^9 \)
+      <br>
+      \( P_{net} = 0{,}9 \times 5{,}67 \times 10^{-8} \times 10 \times 4{,}92 \times 10^9 \approx 2508\ \text{W} \approx 2{,}5\ \text{kW} \)
+    </p>
+    <p><strong>Q3.</strong> 2,5 kW est supérieur à un radiateur de 2 kW : c'est très significatif. Ce mur constitue une importante source de déperdition thermique.</p>
+    <p><strong>Q4.</strong> \(P_{totale} = 2500 + 500 = 3000\ \text{W} = 3\ \text{kW}\). Le rayonnement (2,5 kW) domine devant la convection (0,5 kW), soit 83 % des pertes.</p>
+    <p><strong>Q5.</strong> Avec \(\varepsilon = 0{,}1\) :
+      \( P_{net}' = 0{,}1 \times 5{,}67 \times 10^{-8} \times 10 \times 4{,}92 \times 10^9 \approx 279\ \text{W} \)
+      <br>La puissance rayonnée est réduite d'un facteur 9 (ratio des émissivités 0,9/0,1).
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Utilisation d'une caméra thermique – Interprétation</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Un technicien ERA-MA effectue un diagnostic thermique d'un local industriel avec une caméra thermique. Il obtient l'image suivante (décrite ci-dessous) :</p>
+
+  <table>
+    <tr><th>Zone observée</th><th>Couleur caméra IR</th><th>Température relevée</th></tr>
+    <tr><td>Mur central (béton)</td><td>Bleu foncé</td><td>12 °C</td></tr>
+    <tr><td>Angle mur/plafond gauche</td><td>Rouge vif</td><td>28 °C</td></tr>
+    <tr><td>Fenêtre double vitrage</td><td>Jaune-orange</td><td>18 °C</td></tr>
+    <tr><td>Porte métallique</td><td>Rouge vif</td><td>30 °C</td></tr>
+    <tr><td>Tuyauterie vapeur</td><td>Blanc</td><td>45 °C</td></tr>
+  </table>
+
+  <p class="q"><strong>Q1.</strong> Rappeler ce que représentent les couleurs chaudes (rouge, blanc) et froides (bleu) sur une image thermique.</p>
+  <p class="q"><strong>Q2.</strong> Identifier les zones de déperdition thermique (ponts thermiques) dans ce local. Justifier.</p>
+  <p class="q"><strong>Q3.</strong> Pourquoi la porte métallique apparaît-elle aussi chaude ? Rappeler le rôle de l'émissivité.</p>
+  <p class="q"><strong>Q4.</strong> Proposer deux actions correctives pour améliorer l'isolation de ce local.</p>
+  <p class="q"><strong>Q5.</strong> La caméra donne une température de 45 °C pour la tuyauterie vapeur. Calculer la puissance rayonnée par 1 m² de tuyauterie (\(\varepsilon = 0{,}8\), \(T_{amb} = 15\ °\text{C}\)).</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong> En thermographie IR, les couleurs chaudes (rouge, orange, blanc) indiquent les zones à <strong>haute température</strong>. Les couleurs froides (bleu, violet) indiquent les zones à <strong>basse température</strong>. La caméra mesure le rayonnement IR et le traduit en fausses couleurs.</p>
+    <p><strong>Q2.</strong> Ponts thermiques : <strong>angle mur/plafond</strong> (28 °C) et <strong>porte métallique</strong> (30 °C) alors que l'intérieur devrait être à ~20 °C. Ces zones perdent de la chaleur vers l'extérieur plus que le reste.</p>
+    <p><strong>Q3.</strong> Le métal a une émissivité faible (acier brut : ε ≈ 0,1). La caméra peut lire une température erronée si l'émissivité n'est pas correctement réglée. De plus, une porte métallique mal isolée conduit bien la chaleur (pont thermique par conduction).</p>
+    <p><strong>Q4.</strong> Actions correctives possibles : (1) isoler l'angle mur/plafond avec un isolant (laine minérale, mousse polyuréthane) ; (2) remplacer ou isoler la porte métallique (joint périmétrique, doublage isolant, seuil).</p>
+    <p><strong>Q5.</strong> \(T = 45 + 273 = 318\ \text{K}\), \(T_{amb} = 15 + 273 = 288\ \text{K}\)
+      <br>\( P = 0{,}8 \times 5{,}67 \times 10^{-8} \times 1 \times (318^4 - 288^4) \)
+      <br>\( 318^4 = 1{,}022 \times 10^{10} \) ; \( 288^4 = 6{,}88 \times 10^9 \)
+      <br>\( P = 0{,}8 \times 5{,}67 \times 10^{-8} \times 3{,}34 \times 10^9 \approx 151\ \text{W/m}^2 \)
+    </p>
+  </div>
+</div>
+
+<!-- EXERCICES D'APPLICATION -->
+<h2>Exercices d'application</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Bilan thermique d'un bâtiment ERA-MA</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Un atelier de maintenance ERA-MA a les caractéristiques suivantes :</p>
+  <table>
+    <tr><th>Élément</th><th>Surface</th><th>T intérieure</th><th>T extérieure</th><th>Émissivité ε</th><th>R thermique (m²·K/W)</th></tr>
+    <tr><td>Murs béton peint</td><td>120 m²</td><td>20 °C</td><td>0 °C</td><td>0,9</td><td>2,5</td></tr>
+    <tr><td>Toiture métallique</td><td>200 m²</td><td>20 °C</td><td>0 °C</td><td>0,3</td><td>1,5</td></tr>
+    <tr><td>Fenêtres DV</td><td>30 m²</td><td>20 °C</td><td>0 °C</td><td>0,85</td><td>0,5</td></tr>
+  </table>
+
+  <p class="q"><strong>Q1.</strong> Calculer la puissance perdue par rayonnement pour les murs. Utiliser le bilan net (\(T_{int} = 293\ \text{K}\), \(T_{ext} = 273\ \text{K}\)).</p>
+  <p class="q"><strong>Q2.</strong> Calculer la puissance perdue par conduction à travers les murs : \( P_{cond} = S \cdot \Delta T / R \).</p>
+  <p class="q"><strong>Q3.</strong> Comparer rayonnement et conduction pour les murs. Quel phénomène est dominant ?</p>
+  <p class="q"><strong>Q4.</strong> Calculer la puissance rayonnée totale de l'atelier (murs + toiture + fenêtres).</p>
+  <p class="q"><strong>Q5.</strong> Pour réduire les pertes par rayonnement de la toiture, un ingénieur propose un film aluminisé (ε = 0,05). Calculer le gain en puissance.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1. Rayonnement murs :</strong>
+      <br>\( T_{int}^4 = 293^4 = 7{,}37 \times 10^9 \) ; \( T_{ext}^4 = 273^4 = 5{,}55 \times 10^9 \)
+      <br>\( \Delta T^4 = 1{,}82 \times 10^9 \)
+      <br>\( P_{ray,murs} = 0{,}9 \times 5{,}67 \times 10^{-8} \times 120 \times 1{,}82 \times 10^9 \approx 11\ 143\ \text{W} \approx 11{,}1\ \text{kW} \)
+    </p>
+    <p><strong>Q2. Conduction murs :</strong>
+      \( P_{cond,murs} = 120 \times (20-0) / 2{,}5 = 120 \times 8 = 960\ \text{W} \approx 1\ \text{kW} \)
+    </p>
+    <p><strong>Q3.</strong> Le rayonnement (11,1 kW) domine très largement devant la conduction (1 kW) pour ces murs bien isolés (R=2,5). Réduire l'émissivité est donc très efficace.</p>
+    <p><strong>Q4. Puissance rayonnée totale :</strong>
+      <br>Toiture : \( P = 0{,}3 \times 5{,}67 \times 10^{-8} \times 200 \times 1{,}82 \times 10^9 \approx 6\ 182\ \text{W} \)
+      <br>Fenêtres : \( P = 0{,}85 \times 5{,}67 \times 10^{-8} \times 30 \times 1{,}82 \times 10^9 \approx 2\ 628\ \text{W} \)
+      <br>Total rayonnement : \( 11\ 143 + 6\ 182 + 2\ 628 \approx 19\ 953\ \text{W} \approx 20\ \text{kW} \)
+    </p>
+    <p><strong>Q5.</strong> Toiture avec film aluminisé (ε = 0,05) :
+      <br>\( P' = 0{,}05 \times 5{,}67 \times 10^{-8} \times 200 \times 1{,}82 \times 10^9 \approx 1\ 030\ \text{W} \)
+      <br>Gain : \( 6\ 182 - 1\ 030 = 5\ 152\ \text{W} \approx 5{,}2\ \text{kW} \) économisés.
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Comparaison d'émissivité : acier brut vs acier peint</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Deux pièces métalliques identiques (S = 0,5 m², T = 80 °C) sont dans un atelier à 20 °C. L'une est en acier brut (ε = 0,1), l'autre est peinte en noir mat (ε = 0,9).</p>
+
+  <p class="q"><strong>Q1.</strong> Calculer la puissance rayonnée nette pour chaque pièce.</p>
+  <p class="q"><strong>Q2.</strong> Quelle pièce se refroidira plus vite par rayonnement ? D'un facteur combien ?</p>
+  <p class="q"><strong>Q3.</strong> Dans un système de refroidissement passif, quelle surface choisir pour maximiser le refroidissement d'un composant électronique ? Justifier.</p>
+  <p class="q"><strong>Q4.</strong> À l'inverse, dans un four industriel dont on veut minimiser les pertes thermiques par rayonnement, quelle surface de paroi choisir ?</p>
+  <p class="q"><strong>Q5.</strong> Un radiateur de chauffage est peint en blanc (ε ≈ 0,95). Expliquer pourquoi la couleur importe peu pour le rayonnement IR thermique.</p>
+
+  <div class="retenir">
+    <strong>À retenir :</strong> L'émissivité dépend de l'état de surface, pas de la couleur visible. Une surface lisse et métallique réfléchit l'IR (ε faible). Une surface rugueuse, peinte ou oxydée absorbe l'IR (ε élevée). La couleur visible n'influe que sur l'absorption du rayonnement solaire (visible).
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(T_{piece} = 80 + 273 = 353\ \text{K}\) ; \(T_{amb} = 20 + 273 = 293\ \text{K}\)
+      <br>\( 353^4 = 1{,}552 \times 10^{10} \) ; \( 293^4 = 7{,}37 \times 10^9 \)
+      <br>\( \Delta(T^4) = 8{,}15 \times 10^9 \)
+    </p>
+    <p><strong>Q1.</strong>
+      Acier brut : \( P = 0{,}1 \times 5{,}67 \times 10^{-8} \times 0{,}5 \times 8{,}15 \times 10^9 \approx 23{,}1\ \text{W} \)
+      <br>Acier peint : \( P = 0{,}9 \times 5{,}67 \times 10^{-8} \times 0{,}5 \times 8{,}15 \times 10^9 \approx 207{,}9\ \text{W} \)
+    </p>
+    <p><strong>Q2.</strong> La pièce peinte (207,9 W) se refroidira ~9 fois plus vite que l'acier brut (23,1 W) par rayonnement. Ratio = ε₂/ε₁ = 0,9/0,1 = 9.</p>
+    <p><strong>Q3.</strong> Pour maximiser le refroidissement : choisir une surface à <strong>émissivité élevée</strong> (peinture noire mat, anodisation noire). Les dissipateurs thermiques (radiateurs CPU) sont souvent noirs anodisés.</p>
+    <p><strong>Q4.</strong> Pour minimiser les pertes : choisir une surface réfléchissante à <strong>émissivité faible</strong> (film aluminisé, acier poli). Utilisé pour les fours, les thermoses, les vêtements de protection pompier.</p>
+    <p><strong>Q5.</strong> Le rayonnement thermique des corps à T ambiante est dans l'IR (≈10 µm), domaine invisible. La couleur visible (perçue entre 0,4 et 0,7 µm) n'a aucun effet sur l'émissivité IR. Un radiateur blanc et un radiateur noir mat ont une émissivité IR quasiment identique (~0,95).</p>
+  </div>
+</div>
+
+<!-- EXERCICES CONTEXTUALISÉS ERA-MA -->
+<h2>Exercices contextualisés ERA-MA</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Diagnostic thermique d'un local industriel avec caméra IR</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+
+  <p><strong>Contexte professionnel :</strong> Vous êtes technicien ERA-MA dans une entreprise de maintenance industrielle. Votre chef vous demande de réaliser un diagnostic thermique de l'atelier de production (T intérieure : 22 °C, T extérieure : 2 °C) avec une caméra thermique FLIR.</p>
+
+  <p><strong>Résultats de la campagne de mesures :</strong></p>
+  <table>
+    <tr><th>Point de mesure</th><th>T mesurée (°C)</th><th>T attendue (°C)</th><th>Écart</th></tr>
+    <tr><td>Mur nord (isolé)</td><td>20</td><td>20–21</td><td>Normal</td></tr>
+    <tr><td>Jonction mur/dalle – angle NE</td><td>11</td><td>18–20</td><td>–8 °C</td></tr>
+    <tr><td>Châssis fenêtre aluminium</td><td>8</td><td>15–18</td><td>–10 °C</td></tr>
+    <tr><td>Linteau de porte EST</td><td>9</td><td>16–19</td><td>–9 °C</td></tr>
+    <tr><td>Tableau électrique</td><td>35</td><td>25–28</td><td>+9 °C</td></tr>
+    <tr><td>Moteur asynchrone en marche</td><td>55</td><td>40–55</td><td>Normal</td></tr>
+  </table>
+
+  <p class="q"><strong>Q1.</strong> Identifier les zones présentant des anomalies thermiques. Distinguer les défauts d'isolation des anomalies électriques/mécaniques.</p>
+  <p class="q"><strong>Q2.</strong> Expliquer pourquoi les châssis aluminium constituent un pont thermique. Quel est le rôle de la conductivité thermique de l'aluminium ?</p>
+  <p class="q"><strong>Q3.</strong> Le tableau électrique à 35 °C est-il dangereux ? Quelle norme impose une température maximale sur les bornes ?</p>
+  <p class="q"><strong>Q4.</strong> Rédiger un tableau de synthèse avec : anomalie, cause probable, action corrective recommandée.</p>
+  <p class="q"><strong>Q5.</strong> Calculer la puissance rayonnée par le châssis de fenêtre (S = 2 m², T = 8 °C, ε = 0,3 pour l'aluminium anodisé, T_amb = 22 °C). Comparer avec un châssis PVC (même surface, ε = 0,9, T = 16 °C).</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Q1.</strong>
+      <br>Défauts d'isolation (ponts thermiques) : angle NE (–8 °C), châssis fenêtre (–10 °C), linteau de porte (–9 °C). Ces zones sont anormalement froides côté intérieur, ce qui indique une fuite thermique vers l'extérieur.
+      <br>Anomalie électrique : tableau électrique (+9 °C par rapport à la normale) → surcharge possible, mauvais contact, besoin de vérification électrique.
+    </p>
+    <p><strong>Q2.</strong> L'aluminium a une très haute conductivité thermique (\(\lambda \approx 200\ \text{W·m}^{-1}\text{·K}^{-1}\)) comparé au PVC (\(\lambda \approx 0{,}17\ \text{W·m}^{-1}\text{·K}^{-1}\)). Il conduit bien la chaleur de l'intérieur vers l'extérieur, créant un pont thermique par conduction. Solution : rupteurs de pont thermique (barrette polyamide).</p>
+    <p><strong>Q3.</strong> La norme NF C 15-100 et les normes IEC imposent généralement une température maximale de 70 °C sur les câbles aux bornes des tableaux. À 35 °C, on n'est pas en danger immédiat, mais un écart de +9 °C par rapport à la normale mérite investigation (vérifier serrage des bornes, calibre des protections, charge réelle).</p>
+    <p><strong>Q4.</strong></p>
+    <table>
+      <tr><th>Anomalie</th><th>Cause probable</th><th>Action corrective</th></tr>
+      <tr><td>Angle NE froid (11 °C)</td><td>Pont thermique géométrique, isolation insuffisante</td><td>Correction de l'isolation intérieure, doublage</td></tr>
+      <tr><td>Châssis alu froid (8 °C)</td><td>Pont thermique châssis aluminium sans rupture</td><td>Remplacement par châssis PVC ou avec rupteur</td></tr>
+      <tr><td>Linteau froid (9 °C)</td><td>Absence d'isolant au linteau de porte</td><td>Isolation du linteau, calfeutrage</td></tr>
+      <tr><td>Tableau chaud (35 °C)</td><td>Mauvais contact, surcharge, défaut ventilation</td><td>Contrôle électrique, serrage bornes, mesure charge</td></tr>
+    </table>
+    <p><strong>Q5.</strong>
+      Châssis alu : T = 8 + 273 = 281 K ; T_amb = 22 + 273 = 295 K
+      <br>\(P_{alu} = 0{,}3 \times 5{,}67 \times 10^{-8} \times 2 \times (295^4 - 281^4)\)
+      <br>\(295^4 = 7{,}59 \times 10^9\) ; \(281^4 = 6{,}22 \times 10^9\) ; diff = \(1{,}37 \times 10^9\)
+      <br>\(P_{alu} \approx 0{,}3 \times 5{,}67 \times 10^{-8} \times 2 \times 1{,}37 \times 10^9 \approx 46{,}7\ \text{W}\) (reçu de l'ambiance — le châssis est plus froid)
+      <br>Châssis PVC : T = 16 + 273 = 289 K ; \(289^4 = 6{,}97 \times 10^9\) ; diff = \(7{,}59 \times 10^9 - 6{,}97 \times 10^9 = 0{,}62 \times 10^9\)
+      <br>\(P_{PVC} = 0{,}9 \times 5{,}67 \times 10^{-8} \times 2 \times 0{,}62 \times 10^9 \approx 63{,}3\ \text{W}\)
+      <br>Le bilan net est plus défavorable pour le châssis aluminium (écart de température plus grand), confirmant l'intérêt du PVC ou du rupteur thermique.
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Isolation d'un hangar : laine de verre ou film aluminisé ?</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+
+  <p><strong>Contexte :</strong> Un hangar de maintenance ERA-MA (toiture métallique, S = 500 m²) doit être isolé. Deux solutions sont comparées :</p>
+  <ul>
+    <li><strong>Solution A – Laine de verre 100 mm</strong> : R = 2,5 m²·K/W, ε toiture inchangé = 0,3, coût = 15 €/m²</li>
+    <li><strong>Solution B – Film aluminisé multicouche</strong> : R = 1,2 m²·K/W, ε toiture réduit à 0,05, coût = 8 €/m²</li>
+  </ul>
+  <p>Conditions : T intérieure = 18 °C, T extérieure = –5 °C. Le prix du kWh chauffage = 0,12 €.</p>
+
+  <p class="q"><strong>Q1.</strong> Calculer la puissance perdue par conduction pour chaque solution.</p>
+  <p class="q"><strong>Q2.</strong> Calculer la puissance perdue par rayonnement pour chaque solution (bilan net, même ΔT que conduction).</p>
+  <p class="q"><strong>Q3.</strong> Calculer la puissance totale perdue (conduction + rayonnement) pour chaque solution.</p>
+  <p class="q"><strong>Q4.</strong> Calculer le coût annuel de chauffage imputable à la toiture pour chaque solution (8760 h/an).</p>
+  <p class="q"><strong>Q5.</strong> Calculer le coût d'investissement pour 500 m². En déduire le temps de retour sur investissement pour chaque solution si la situation de référence (sans isolation) perd 3500 W par conduction et 1800 W par rayonnement.</p>
+  <p class="q"><strong>Q6.</strong> Quelle solution recommandez-vous ? Argumenter en tenant compte des aspects thermiques, économiques et pratiques (facilité de pose, durabilité).</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\Delta T = 18 - (-5) = 23\ °\text{C}\) ; \(T_{int} = 291\ \text{K}\) ; \(T_{ext} = 268\ \text{K}\)</p>
+    <p>\(T_{int}^4 = 7{,}17 \times 10^9\) ; \(T_{ext}^4 = 5{,}15 \times 10^9\) ; \(\Delta(T^4) = 2{,}02 \times 10^9\)</p>
+
+    <p><strong>Q1. Conduction :</strong>
+      <br>Sol A : \(P_A = 500 \times 23 / 2{,}5 = 4\ 600\ \text{W}\)
+      <br>Sol B : \(P_B = 500 \times 23 / 1{,}2 = 9\ 583\ \text{W}\)
+    </p>
+    <p><strong>Q2. Rayonnement :</strong>
+      <br>Sol A (\(\varepsilon = 0{,}3\)) : \(P = 0{,}3 \times 5{,}67 \times 10^{-8} \times 500 \times 2{,}02 \times 10^9 \approx 17\ 150\ \text{W}\)
+      <br>Sol B (\(\varepsilon = 0{,}05\)) : \(P = 0{,}05 \times 5{,}67 \times 10^{-8} \times 500 \times 2{,}02 \times 10^9 \approx 2\ 858\ \text{W}\)
+    </p>
+    <p><strong>Q3. Total :</strong>
+      <br>Sol A : \(4\ 600 + 17\ 150 = 21\ 750\ \text{W} \approx 21{,}8\ \text{kW}\)
+      <br>Sol B : \(9\ 583 + 2\ 858 = 12\ 441\ \text{W} \approx 12{,}4\ \text{kW}\)
+    </p>
+    <p><strong>Q4. Coût annuel :</strong>
+      <br>Sol A : \(21{,}75 \times 8760 \times 0{,}12 \approx 22\ 861\ €/\text{an}\)
+      <br>Sol B : \(12{,}44 \times 8760 \times 0{,}12 \approx 13\ 075\ €/\text{an}\)
+    </p>
+    <p><strong>Q5.</strong> Sans isolation : \(3500 + 1800 = 5\ 300\ \text{W}\) &rarr; coût = \(5{,}3 \times 8760 \times 0{,}12 \approx 5\ 570\ €/\text{an}\)
+      <br><em>Remarque : ici l'isolation augmente les pertes par conduction tout en réduisant les pertes par rayonnement. Ce paradoxe apparent montre que comparer uniquement le R ne suffit pas.</em>
+      <br>Investissements : Sol A = 500×15 = 7 500 € ; Sol B = 500×8 = 4 000 €.
+      <br>La solution B présente une perte totale moindre (12,4 kW vs 21,8 kW) et un coût d'investissement plus faible.
+    </p>
+    <p><strong>Q6. Recommandation :</strong> La solution B (film aluminisé) est préférable : meilleure réduction des pertes globales grâce à la réduction du rayonnement (dominant), coût d'investissement inférieur, pose plus rapide. Limite : R thermique plus faible (moins efficace contre la conduction par temps très froid). Dans un contexte ERA-MA, une solution combinée (film aluminisé + lame d'air + isolant mince) peut optimiser les deux aspects.</p>
+  </div>
+</div>
+
+<!-- GRAPHIQUE ÉMISSIVITÉ -->
+<h2>Comparaison des émissivités de matériaux courants</h2>
+
+<div class="retenir">
+  <strong>À retenir :</strong> L'émissivité \(\varepsilon\) est une grandeur sans unité comprise entre 0 (corps parfaitement réfléchissant) et 1 (corps noir parfait). Elle conditionne directement la puissance rayonnée et l'efficacité d'isolation thermique.
+</div>
+
+<canvas id="chartRay" style="max-height:320px;margin:20px 0"></canvas>
+
+<script>
+(function(){
+  const ctx = document.getElementById('chartRay').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Aluminium poli', 'Acier brut', 'Acier oxydé', 'Béton brut', 'Brique rouge', 'Peinture blanche', 'Peinture noire', 'Verre', 'Bois'],
+      datasets: [{
+        label: 'Émissivité ε',
+        data: [0.05, 0.10, 0.70, 0.90, 0.93, 0.90, 0.98, 0.92, 0.88],
+        backgroundColor: [
+          '#7dd3fc','#93c5fd','#60a5fa','#2da44e','#16a34a','#86efac','#166534','#34d399','#6ee7b7'
+        ],
+        borderColor: '#2f855a',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: 'Émissivité ε de matériaux courants (rayonnement IR thermique)', font: { size: 14 } }
+      },
+      scales: {
+        y: {
+          min: 0, max: 1,
+          title: { display: true, text: 'Émissivité ε (sans unité)' },
+          ticks: { stepSize: 0.1 }
+        },
+        x: { title: { display: true, text: 'Matériau' } }
+      }
+    }
+  });
+})();
+</script>
+
+<div class="attention">
+  <strong>Attention :</strong> La température dans la loi de Stefan-Boltzmann doit <strong>toujours</strong> être exprimée en <strong>Kelvin</strong>. Oublier la conversion en K est l'erreur la plus fréquente dans les calculs de rayonnement thermique.
+</div>
+
+<div class="retenir">
+  <strong>À retenir – Loi de Stefan-Boltzmann :</strong>
+  <br>
+  \( P = \varepsilon \cdot \sigma \cdot S \cdot T^4 \quad \text{(puissance totale émise)} \)
+  <br>
+  \( P_{net} = \varepsilon \cdot \sigma \cdot S \cdot (T_1^4 - T_2^4) \quad \text{(bilan net entre deux surfaces)} \)
+  <br>
+  avec \( \sigma = 5{,}67 \times 10^{-8}\ \text{W·m}^{-2}\text{·K}^{-4} \), T en Kelvin, S en m².
+</div>
+
+</div>
+<script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
+<script src="/nav.js"></script>
+</body>
+</html>

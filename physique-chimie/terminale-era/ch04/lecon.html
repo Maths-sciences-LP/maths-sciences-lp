@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 4 – Vitesse et accélération | ERA-MA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#2da44e;--s:#0ea5e9;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+.def{background:#f0fff4;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#e0f2fe;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#dcfce7;color:#166534}
+.label-prop{background:#e0f2fe;color:#0369a1}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f0fff4;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.svg-wrap{text-align:center;margin:18px 0}
+.objectifs{background:#f0fff4;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #86efac}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.retenir{background:#dcfce7;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.appli{background:#f0f9ff;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.anim-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0;text-align:center}
+.anim-wrap button{background:var(--p);color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;margin:6px 4px;font-size:.85em}
+.chart-wrap{max-width:580px;margin:18px auto}
+.exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
+.exo-title{font-weight:700;color:var(--p);margin-bottom:8px}
+.step{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin:8px 0}
+.step-num{display:inline-block;background:var(--p);color:#fff;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;font-size:.8em;font-weight:700;margin-right:8px}
+.two-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+@media(max-width:600px){.two-cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="pc-term-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA</a>
+
+<header>
+  <h1>Chapitre 4 – Caractériser la vitesse et l'accélération</h1>
+  <p class="sous-titre">Terminale Bac Pro ERA-MA | Groupement 3 | Physique – Mécanique</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Calculer une vitesse moyenne à partir de mesures de distance et de durée</li>
+    <li>Identifier la nature d'un mouvement à partir d'un graphe v(t)</li>
+    <li>Calculer une accélération à partir de deux vitesses et un intervalle de temps</li>
+    <li>Connaître les ordres de grandeur des vitesses et accélérations courants</li>
+  </ul>
+</div>
+
+<!-- ===== INTRODUCTION ===== -->
+<h2>1. Introduction – La mécanique sur le chantier</h2>
+
+<div class="appli">
+  <span class="label label-prop">Contexte ERA-MA</span><br>
+  Sur un chantier de construction, un <strong>monte-charge</strong> transporte des parpaings au 3e étage. Un <strong>chariot élévateur</strong> déplace des palettes de bois dans l'entrepôt. Un <strong>engin de terrassement</strong> doit s'arrêter avant un talus. Dans tous ces cas, on a besoin de calculer des <strong>vitesses</strong> et des <strong>accélérations</strong> pour prévoir les trajets, les temps de manœuvre et les distances de freinage. Ces calculs reposent sur des notions simples de mécanique.
+</div>
+
+<!-- ===== VITESSE ===== -->
+<h2>2. La vitesse</h2>
+
+<h3 style="color:var(--t);font-size:1em;margin-top:16px">2.1 Vitesse moyenne</h3>
+
+<div class="def">
+  <span class="label label-def">Définition – Vitesse moyenne</span><br>
+  La <strong>vitesse moyenne</strong> d'un objet est la distance parcourue divisée par la durée du trajet.
+</div>
+
+<div class="formule-box">
+  \[ v = \frac{d}{t} \]
+  <small>\(v\) = vitesse (m/s) &nbsp;|&nbsp; \(d\) = distance (m) &nbsp;|&nbsp; \(t\) = durée (s)</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Conversion m/s ↔ km/h</span><br>
+  \[ 1\ \text{m/s} = 3{,}6\ \text{km/h} \]
+  Pour convertir km/h → m/s : <strong>diviser par 3,6</strong><br>
+  Pour convertir m/s → km/h : <strong>multiplier par 3,6</strong>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple – Monte-charge</span><br>
+  <div class="step"><span class="step-num">1</span> Un monte-charge monte une charge de 12 m (hauteur du 4e étage) en 8 s.</div>
+  <div class="step"><span class="step-num">2</span> Application de la formule : \(v = \dfrac{d}{t} = \dfrac{12}{8} = 1{,}5\ \text{m/s}\)</div>
+  <div class="step"><span class="step-num">3</span> Conversion : \(1{,}5 \times 3{,}6 = 5{,}4\ \text{km/h}\)</div>
+  <div class="step"><span class="step-num">4</span> Le monte-charge monte à 1,5 m/s, soit environ 5,4 km/h.</div>
+</div>
+
+<h3 style="color:var(--t);font-size:1em;margin-top:16px">2.2 Ordres de grandeur des vitesses</h3>
+
+<table>
+  <thead>
+    <tr><th>Objet / Personne</th><th>Vitesse (m/s)</th><th>Vitesse (km/h)</th><th>Lien ERA-MA</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Piéton (marche)</td><td>~1,4 m/s</td><td>~5 km/h</td><td>Ouvrier sur chantier</td></tr>
+    <tr><td>Vélo</td><td>~5 m/s</td><td>~18 km/h</td><td>Livraison courte</td></tr>
+    <tr><td>Chariot élévateur</td><td>~3 m/s</td><td>~11 km/h</td><td>Entrepôt matériaux</td></tr>
+    <tr><td>Camion de livraison</td><td>~14 m/s</td><td>~50 km/h</td><td>Livraison matériaux sur chantier</td></tr>
+    <tr><td>TGV</td><td>~80 m/s</td><td>~290 km/h</td><td>Référence rapide</td></tr>
+    <tr><td>Monte-charge rapide</td><td>~2 m/s</td><td>~7 km/h</td><td>Ascenseur de matériaux</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== MRU ===== -->
+<h2>3. Mouvement rectiligne uniforme (MRU)</h2>
+
+<div class="def">
+  <span class="label label-def">Définition – MRU</span><br>
+  Un mouvement est dit <strong>rectiligne uniforme (MRU)</strong> si l'objet se déplace en ligne droite à <strong>vitesse constante</strong>.<br>
+  <ul style="margin:6px 0">
+    <li>La vitesse ne change pas : \(v = \text{constante}\)</li>
+    <li>L'accélération est nulle : \(a = 0\)</li>
+    <li>Sur un graphe v(t) : <strong>droite horizontale</strong></li>
+  </ul>
+</div>
+
+<div class="appli">
+  <span class="label label-prop">Exemple ERA-MA</span><br>
+  Un chariot élévateur roule à vitesse constante de 3 m/s sur une allée droite de l'entrepôt pendant 20 s. Son mouvement est un MRU : la vitesse reste constante, il n'accélère pas.
+</div>
+
+<!-- ===== MRUA ===== -->
+<h2>4. L'accélération et le mouvement rectiligne uniformément accéléré (MRUA)</h2>
+
+<div class="def">
+  <span class="label label-def">Définition – Accélération</span><br>
+  L'<strong>accélération</strong> mesure la variation de vitesse par unité de temps. Elle s'exprime en m/s².
+</div>
+
+<div class="formule-box">
+  \[ a = \frac{\Delta v}{\Delta t} = \frac{v_f - v_i}{t_f - t_i} \]
+  <small>\(a\) = accélération (m/s²) &nbsp;|&nbsp; \(v_f\) = vitesse finale (m/s) &nbsp;|&nbsp; \(v_i\) = vitesse initiale (m/s) &nbsp;|&nbsp; \(\Delta t\) = durée (s)</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Interprétation du signe de a</span><br>
+  <ul style="margin:4px 0">
+    <li><strong>\(a > 0\)</strong> : l'objet <strong>accélère</strong> (la vitesse augmente)</li>
+    <li><strong>\(a = 0\)</strong> : vitesse constante → MRU</li>
+    <li><strong>\(a < 0\)</strong> : l'objet <strong>décélère</strong> (la vitesse diminue, freinage)</li>
+  </ul>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition – MRUA</span><br>
+  Un mouvement est dit <strong>rectiligne uniformément accéléré (MRUA)</strong> si l'objet se déplace en ligne droite avec une <strong>accélération constante</strong> (positive ou négative).<br>
+  <ul style="margin:6px 0">
+    <li>La vitesse varie de façon linéaire : \(v = v_0 + a \times t\)</li>
+    <li>Sur un graphe v(t) : <strong>droite oblique</strong> (montante si a>0, descendante si a&lt;0)</li>
+    <li>La pente de la droite v(t) = accélération \(a\)</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple – Démarrage d'un monte-charge</span><br>
+  <div class="step"><span class="step-num">1</span> Un monte-charge démarre de l'arrêt (\(v_0 = 0\)) et atteint \(v_f = 2\ \text{m/s}\) en \(\Delta t = 4\ \text{s}\)</div>
+  <div class="step"><span class="step-num">2</span> Calcul de l'accélération : \(a = \dfrac{v_f - v_i}{\Delta t} = \dfrac{2 - 0}{4} = 0{,}5\ \text{m/s}^2\)</div>
+  <div class="step"><span class="step-num">3</span> Interprétation : \(a > 0\) → le monte-charge <strong>accélère</strong> de 0,5 m/s toutes les secondes</div>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple – Freinage d'un engin de terrassement</span><br>
+  <div class="step"><span class="step-num">1</span> Un engin roule à \(v_i = 10\ \text{m/s}\) et s'arrête (\(v_f = 0\)) en \(\Delta t = 5\ \text{s}\)</div>
+  <div class="step"><span class="step-num">2</span> \(a = \dfrac{0 - 10}{5} = -2\ \text{m/s}^2\)</div>
+  <div class="step"><span class="step-num">3</span> Interprétation : \(a < 0\) → l'engin <strong>décélère</strong>, il freine. L'accélération est négative (on peut aussi l'appeler décélération).</div>
+</div>
+
+<!-- ===== FORMULE v = v0 + at ===== -->
+<div class="formule-box">
+  \[ v = v_0 + a \times t \]
+  <small>Vitesse à l'instant t, dans un MRUA (accélération constante)<br>
+  \(v_0\) = vitesse initiale (m/s) &nbsp;|&nbsp; \(a\) = accélération (m/s²) &nbsp;|&nbsp; \(t\) = durée (s)</small>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention aux erreurs fréquentes</span><br>
+  <ul>
+    <li>Ne pas confondre <strong>accélération</strong> et <strong>vitesse</strong> : un objet peut avoir une grande vitesse et une accélération nulle (MRU).</li>
+    <li>L'accélération est <strong>négative lors d'un freinage</strong> : ce n'est pas une erreur, c'est physiquement correct.</li>
+    <li>Toujours vérifier les <strong>unités</strong> : distance en mètres (m), durée en secondes (s), vitesse en m/s, accélération en m/s².</li>
+    <li>Ne pas écrire "m/s/s" : l'unité correcte de l'accélération est <strong>m/s²</strong>.</li>
+  </ul>
+</div>
+
+<!-- ===== SVG graphe v(t) ===== -->
+<h2>5. Lire un graphe v(t)</h2>
+
+<div class="svg-wrap">
+  <!-- SVG Graphe v(t) annoté -->
+  <svg width="680" height="300" viewBox="0 0 680 300" style="max-width:100%;font-family:'Segoe UI',sans-serif;">
+    <defs>
+      <marker id="arr-x" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#2d3748"/>
+      </marker>
+      <marker id="arr-y" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#2d3748"/>
+      </marker>
+      <marker id="arr-pente" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#d97706"/>
+      </marker>
+    </defs>
+
+    <!-- Fond zones colorées -->
+    <!-- Zone MRU (0-4s) -->
+    <rect x="60" y="40" width="120" height="210" fill="#dcfce7" opacity="0.5" rx="2"/>
+    <!-- Zone MRUA accélération (4-8s) -->
+    <rect x="180" y="40" width="140" height="210" fill="#dbeafe" opacity="0.5" rx="2"/>
+    <!-- Zone décélération (8-12s) -->
+    <rect x="320" y="40" width="140" height="210" fill="#fee2e2" opacity="0.5" rx="2"/>
+    <!-- Zone arrêt (12-14s) -->
+    <rect x="460" y="40" width="80" height="210" fill="#f3f4f6" opacity="0.5" rx="2"/>
+
+    <!-- Axes -->
+    <line x1="60" y1="250" x2="570" y2="250" stroke="#2d3748" stroke-width="2" marker-end="url(#arr-x)"/>
+    <line x1="60" y1="250" x2="60" y2="30" stroke="#2d3748" stroke-width="2" marker-end="url(#arr-y)"/>
+
+    <!-- Graduations X (temps, 0 à 14 s, pas 1 s) -->
+    <!-- Valeurs x : 60 + t*35 -->
+    <text x="60" y="265" text-anchor="middle" fill="#4a5568" font-size="11">0</text>
+    <text x="130" y="265" text-anchor="middle" fill="#4a5568" font-size="11">2</text>
+    <text x="200" y="265" text-anchor="middle" fill="#4a5568" font-size="11">4</text>
+    <text x="270" y="265" text-anchor="middle" fill="#4a5568" font-size="11">6</text>
+    <text x="340" y="265" text-anchor="middle" fill="#4a5568" font-size="11">8</text>
+    <text x="410" y="265" text-anchor="middle" fill="#4a5568" font-size="11">10</text>
+    <text x="480" y="265" text-anchor="middle" fill="#4a5568" font-size="11">12</text>
+    <text x="550" y="265" text-anchor="middle" fill="#4a5568" font-size="11">14</text>
+    <text x="320" y="285" text-anchor="middle" fill="#2d3748" font-size="12" font-weight="700">Temps t (s)</text>
+
+    <!-- Tirets X -->
+    <line x1="130" y1="248" x2="130" y2="252" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="200" y1="248" x2="200" y2="252" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="270" y1="248" x2="270" y2="252" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="340" y1="248" x2="340" y2="252" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="410" y1="248" x2="410" y2="252" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="480" y1="248" x2="480" y2="252" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="550" y1="248" x2="550" y2="252" stroke="#2d3748" stroke-width="1.5"/>
+
+    <!-- Graduations Y (v en m/s, 0 à 6) -->
+    <!-- y = 250 - v*35 -->
+    <text x="50" y="253" text-anchor="end" fill="#4a5568" font-size="11">0</text>
+    <text x="50" y="218" text-anchor="end" fill="#4a5568" font-size="11">1</text>
+    <text x="50" y="183" text-anchor="end" fill="#4a5568" font-size="11">2</text>
+    <text x="50" y="148" text-anchor="end" fill="#4a5568" font-size="11">3</text>
+    <text x="50" y="113" text-anchor="end" fill="#4a5568" font-size="11">4</text>
+    <text x="50" y="78" text-anchor="end" fill="#4a5568" font-size="11">5</text>
+    <text x="50" y="43" text-anchor="end" fill="#4a5568" font-size="11">6</text>
+
+    <!-- Tirets Y + grille -->
+    <line x1="58" y1="215" x2="62" y2="215" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="58" y1="180" x2="62" y2="180" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="58" y1="145" x2="62" y2="145" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="58" y1="110" x2="62" y2="110" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="58" y1="75" x2="62" y2="75" stroke="#2d3748" stroke-width="1.5"/>
+    <line x1="58" y1="40" x2="62" y2="40" stroke="#2d3748" stroke-width="1.5"/>
+
+    <!-- Label Y -->
+    <text x="20" y="150" text-anchor="middle" fill="#2d3748" font-size="12" font-weight="700" transform="rotate(-90,20,150)">Vitesse v (m/s)</text>
+
+    <!-- Courbe v(t) -->
+    <!-- MRU : t=0 à 4s, v=3 m/s → y=250-3*35=145 -->
+    <!-- Accélération : t=4 à 8s, v: 3→5 m/s → y:145→75 -->
+    <!-- Décélération : t=8 à 12s, v: 5→0 m/s → y:75→250 -->
+    <!-- Arrêt : t=12 à 14s, v=0 m/s → y=250 -->
+
+    <!-- MRU -->
+    <line x1="60" y1="145" x2="200" y2="145" stroke="#2da44e" stroke-width="3"/>
+    <!-- Accélération -->
+    <line x1="200" y1="145" x2="340" y2="75" stroke="#0ea5e9" stroke-width="3"/>
+    <!-- Décélération -->
+    <line x1="340" y1="75" x2="480" y2="250" stroke="#c53030" stroke-width="3"/>
+    <!-- Arrêt -->
+    <line x1="480" y1="250" x2="550" y2="250" stroke="#718096" stroke-width="3"/>
+
+    <!-- Points charnières -->
+    <circle cx="60" cy="145" r="5" fill="#2da44e"/>
+    <circle cx="200" cy="145" r="5" fill="#2da44e"/>
+    <circle cx="340" cy="75" r="5" fill="#0ea5e9"/>
+    <circle cx="480" cy="250" r="5" fill="#c53030"/>
+
+    <!-- Annotations zones -->
+    <text x="130" y="60" text-anchor="middle" fill="#166534" font-size="11" font-weight="700">MRU</text>
+    <text x="130" y="73" text-anchor="middle" fill="#166534" font-size="10">v = 3 m/s</text>
+    <text x="130" y="85" text-anchor="middle" fill="#166534" font-size="10">a = 0</text>
+
+    <text x="270" y="60" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="700">Accélération</text>
+    <text x="270" y="73" text-anchor="middle" fill="#0369a1" font-size="10">a &gt; 0</text>
+
+    <text x="390" y="60" text-anchor="middle" fill="#991b1b" font-size="11" font-weight="700">Décélération</text>
+    <text x="390" y="73" text-anchor="middle" fill="#991b1b" font-size="10">a &lt; 0 (freinage)</text>
+
+    <text x="500" y="60" text-anchor="middle" fill="#4a5568" font-size="11" font-weight="700">Arrêt</text>
+    <text x="500" y="73" text-anchor="middle" fill="#4a5568" font-size="10">v = 0</text>
+
+    <!-- Annotation pente = accélération -->
+    <line x1="230" y1="145" x2="300" y2="145" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <line x1="300" y1="145" x2="300" y2="95" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="262" y="140" fill="#92400e" font-size="10">Δt</text>
+    <text x="308" y="125" fill="#92400e" font-size="10">Δv</text>
+    <text x="215" y="110" fill="#92400e" font-size="10" font-weight="700">Pente = a = Δv/Δt</text>
+
+    <!-- Aire sous courbe annotation -->
+    <text x="120" y="200" text-anchor="middle" fill="#2da44e" font-size="9" font-style="italic">Aire = distance</text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px">Figure 1 – Graphe v(t) annoté : MRU, accélération, décélération</p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Lecture d'un graphe v(t) – Ce qu'il faut savoir</span><br>
+  <ul style="margin:4px 0">
+    <li><strong>La pente</strong> de la courbe v(t) = accélération \(a\) (positive si courbe monte, négative si elle descend)</li>
+    <li><strong>L'aire sous la courbe</strong> v(t) = distance parcourue \(d\)</li>
+    <li><strong>Droite horizontale</strong> → MRU (a = 0)</li>
+    <li><strong>Droite montante</strong> → accélération (a > 0)</li>
+    <li><strong>Droite descendante</strong> → décélération / freinage (a < 0)</li>
+  </ul>
+</div>
+
+<!-- ===== ANIMATION ===== -->
+<h2>6. Animation – Monte-charge en mouvement</h2>
+
+<div class="anim-wrap">
+  <p style="margin:0 0 8px;font-size:.9em;color:#4a5568"><strong>Simulation d'un monte-charge :</strong> choisissez le type de mouvement</p>
+  <canvas id="animMonte" width="580" height="200" style="background:#1e2a3a;border-radius:8px;max-width:100%"></canvas>
+  <br>
+  <button onclick="setMode('mru')">MRU (uniforme)</button>
+  <button onclick="setMode('mrua')">MRUA (accéléré)</button>
+  <button onclick="setMode('stop')">Freinage</button>
+  <button onclick="resetAnim()" style="background:#718096">Réinitialiser</button>
+  <p id="animInfo" style="margin:6px 0;font-size:.9em;font-weight:700;color:var(--p)">
+    Mode : MRU | Vitesse : 0 m/s | Position : 0 m
+  </p>
+</div>
+
+<!-- ===== GRAPHIQUE Chart.js ===== -->
+<h2>7. Graphiques v(t) – MRU et MRUA</h2>
+
+<p>Ce graphique compare un mouvement uniforme (MRU, vitesse constante) et un mouvement accéléré (MRUA, vitesse croissante).</p>
+
+<div class="chart-wrap">
+  <canvas id="chartVT" height="300"></canvas>
+</div>
+<p style="font-size:.85em;color:#718096;text-align:center">Figure 2 – Comparaison MRU (v = 4 m/s constant) et MRUA (v croissant de 0 à 8 m/s en 10 s)</p>
+
+<!-- ===== TABLEAU ORDRES DE GRANDEUR ===== -->
+<h2>8. Ordres de grandeur des accélérations</h2>
+
+<table>
+  <thead>
+    <tr><th>Situation</th><th>Accélération (m/s²)</th><th>Remarque</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Chute libre</td><td>g = 9,81 m/s²</td><td>Accélération de la pesanteur</td></tr>
+    <tr><td>Freinage brusque (urgence)</td><td>~7–8 m/s²</td><td>Distance de freinage importante</td></tr>
+    <tr><td>Freinage progressif</td><td>~3–4 m/s²</td><td>Freinage confortable, engins de chantier</td></tr>
+    <tr><td>Ascenseur / monte-charge</td><td>~0,5–1 m/s²</td><td>Confort des passagers/charges</td></tr>
+    <tr><td>Chariot élévateur (démarrage)</td><td>~0,5 m/s²</td><td>Stabilité des charges</td></tr>
+    <tr><td>Avion au décollage</td><td>~3 m/s²</td><td>Référence</td></tr>
+  </tbody>
+</table>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Pour les monte-charges et ascenseurs de chantier, l'accélération est volontairement faible (≤ 1 m/s²) pour garantir la <strong>sécurité des charges et des personnes</strong> transportées et éviter les à-coups qui pourraient déstabiliser les matériaux.
+</div>
+
+<!-- ===== À RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir – Vitesse et accélération</strong>
+  <ul>
+    <li>Vitesse moyenne : \(v = d / t\) (m/s) — conversion : 1 m/s = 3,6 km/h</li>
+    <li>MRU : \(v = \text{cste}\), \(a = 0\) → graphe v(t) horizontal</li>
+    <li>MRUA : \(a = \text{cste} \ne 0\) → graphe v(t) = droite oblique</li>
+    <li>Accélération : \(a = \Delta v / \Delta t\) (m/s²) — positive si accélération, négative si freinage</li>
+    <li>Sur un graphe v(t) : <strong>pente = accélération</strong>, <strong>aire = distance</strong></li>
+    <li>Relation fondamentale MRUA : \(v = v_0 + a \times t\)</li>
+  </ul>
+</div>
+
+<!-- ===== APPLICATIONS ERA-MA ===== -->
+<h2>9. Applications concrètes ERA-MA</h2>
+
+<div class="appli">
+  <span class="label label-prop">Monte-charge de chantier</span><br>
+  Un monte-charge soulève des matériaux (sacs de ciment, briques, parpaings) aux étages supérieurs. Pour calculer le temps de montée, on applique v = d/t. Pour le démarrage et l'arrêt, on calcule l'accélération avec a = Δv/Δt et on s'assure qu'elle reste compatible avec la sécurité (éviter le basculement des charges).
+</div>
+
+<div class="appli">
+  <span class="label label-prop">Chariot élévateur</span><br>
+  Dans un entrepôt de matériaux de construction (parquet, charpente, métallerie), le chariot élévateur doit calculer sa distance de freinage avant une étagère ou un mur. Avec v = 3 m/s et a = -0,5 m/s² : temps d'arrêt = 3/0,5 = 6 s, distance de freinage ≈ 9 m. Anticiper cet espace est vital pour la sécurité.
+</div>
+
+<div class="appli">
+  <span class="label label-prop">Engins de terrassement</span><br>
+  Une pelle mécanique ou un bulldozer se déplace lentement (2–5 m/s max) mais avec une grande inertie (masse élevée). Les distances de freinage sont importantes même à faible vitesse. La connaissance de l'accélération et du temps de réaction permet d'anticiper les manœuvres en sécurité.
+</div>
+
+<!-- ===== MINI EXERCICES ===== -->
+<h2>10. Mini exercices</h2>
+
+<div class="exo">
+  <div class="exo-title">Exercice 1 – Vitesse d'un chariot</div>
+  <p>Un chariot élévateur se déplace de <strong>30 m</strong> en <strong>15 s</strong> à vitesse constante. Calculez sa vitesse en m/s puis en km/h.</p>
+  <details>
+    <summary style="cursor:pointer;color:var(--p);font-weight:700">Voir la solution</summary>
+    <div class="def" style="margin-top:8px">
+      <div class="step"><span class="step-num">1</span> Formule : \(v = \dfrac{d}{t} = \dfrac{30}{15} = \mathbf{2\ \text{m/s}}\)</div>
+      <div class="step"><span class="step-num">2</span> Conversion : \(2 \times 3{,}6 = \mathbf{7{,}2\ \text{km/h}}\)</div>
+      Le chariot roule à 2 m/s, soit 7,2 km/h.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-title">Exercice 2 – Accélération d'un monte-charge</div>
+  <p>Un monte-charge passe de <strong>0 m/s à 3 m/s</strong> en <strong>6 secondes</strong>. Calculez son accélération. Le mouvement accélère-t-il ou décélère-t-il ?</p>
+  <details>
+    <summary style="cursor:pointer;color:var(--p);font-weight:700">Voir la solution</summary>
+    <div class="def" style="margin-top:8px">
+      <div class="step"><span class="step-num">1</span> \(a = \dfrac{v_f - v_i}{\Delta t} = \dfrac{3 - 0}{6} = \mathbf{0{,}5\ \text{m/s}^2}\)</div>
+      <div class="step"><span class="step-num">2</span> \(a > 0\) → le monte-charge <strong>accélère</strong></div>
+      L'accélération est de 0,5 m/s², le monte-charge accélère (MRUA avec a > 0).
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-title">Exercice 3 – Conversion de vitesse</div>
+  <p>Un camion roule à <strong>72 km/h</strong> sur le chemin du chantier. Convertissez cette vitesse en m/s.</p>
+  <details>
+    <summary style="cursor:pointer;color:var(--p);font-weight:700">Voir la solution</summary>
+    <div class="def" style="margin-top:8px">
+      <div class="step"><span class="step-num">1</span> Pour convertir km/h → m/s : diviser par 3,6</div>
+      <div class="step"><span class="step-num">2</span> \(v = \dfrac{72}{3{,}6} = \mathbf{20\ \text{m/s}}\)</div>
+      72 km/h = 20 m/s.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-title">Exercice 4 – Lecture de graphe v(t)</div>
+  <p>Sur un graphe v(t), que représente la <strong>pente de la droite</strong> ? Qu'est-ce qu'une pente nulle signifie pour le mouvement ?</p>
+  <details>
+    <summary style="cursor:pointer;color:var(--p);font-weight:700">Voir la solution</summary>
+    <div class="def" style="margin-top:8px">
+      <div class="step"><span class="step-num">1</span> La pente de la droite v(t) représente l'<strong>accélération</strong> \(a = \Delta v / \Delta t\)</div>
+      <div class="step"><span class="step-num">2</span> Une pente <strong>nulle</strong> (droite horizontale) signifie que \(a = 0\) : le mouvement est un <strong>MRU</strong> (vitesse constante)</div>
+      <div class="step"><span class="step-num">3</span> Une pente <strong>positive</strong> : accélération (v augmente) ; pente <strong>négative</strong> : décélération/freinage (v diminue)</div>
+    </div>
+  </details>
+</div>
+
+</div><!-- /.c -->
+
+<script>
+// ===== ANIMATION MONTE-CHARGE =====
+const animCanvas = document.getElementById('animMonte');
+const actx = animCanvas.getContext('2d');
+const canW = animCanvas.width;
+const canH = animCanvas.height;
+
+let mode = 'mru';
+let pos = 30;
+let vel = 0;
+let animRunning = true;
+let frameId;
+
+const GROUND_Y = canH - 20;
+const SHAFT_X = 120;
+const CART_W = 60;
+const CART_H = 35;
+
+// Paramètres selon mode
+function getModeParams() {
+  switch(mode) {
+    case 'mru':  return { targetV: 3, acc: 0.5 };
+    case 'mrua': return { targetV: 6, acc: 0.8 };
+    case 'stop': return { targetV: 0, acc: -0.7 };
+    default:     return { targetV: 3, acc: 0.5 };
+  }
+}
+
+function drawAnim2() {
+  actx.clearRect(0, 0, canW, canH);
+
+  // Fond
+  actx.fillStyle = '#1e2a3a';
+  actx.fillRect(0, 0, canW, canH);
+
+  // Bâtiment simplifié (structure)
+  actx.fillStyle = '#2a3a4a';
+  actx.fillRect(60, 10, 140, canH-30);
+
+  // Niveaux (étages)
+  for (let i = 1; i <= 4; i++) {
+    const ey = canH - 20 - i * 40;
+    actx.strokeStyle = '#3d5166';
+    actx.lineWidth = 1;
+    actx.setLineDash([4,4]);
+    actx.beginPath();
+    actx.moveTo(60, ey);
+    actx.lineTo(200, ey);
+    actx.stroke();
+    actx.setLineDash([]);
+    actx.fillStyle = '#5a7a9a';
+    actx.font = '9px Segoe UI';
+    actx.textAlign = 'right';
+    actx.fillText(`Étage ${i}`, 58, ey+4);
+  }
+
+  // Rail du monte-charge
+  actx.strokeStyle = '#5a7a9a';
+  actx.lineWidth = 3;
+  actx.beginPath();
+  actx.moveTo(SHAFT_X, 15);
+  actx.lineTo(SHAFT_X, GROUND_Y);
+  actx.stroke();
+  actx.beginPath();
+  actx.moveTo(SHAFT_X+CART_W, 15);
+  actx.lineTo(SHAFT_X+CART_W, GROUND_Y);
+  actx.stroke();
+
+  // Monte-charge
+  const cartY = GROUND_Y - pos - CART_H;
+  const cappedY = Math.max(15, Math.min(GROUND_Y - CART_H, cartY));
+
+  // Ombre
+  actx.fillStyle = 'rgba(0,0,0,0.3)';
+  actx.fillRect(SHAFT_X+3, cappedY+3, CART_W, CART_H);
+
+  // Corps du chariot
+  const grad = actx.createLinearGradient(SHAFT_X, cappedY, SHAFT_X+CART_W, cappedY+CART_H);
+  grad.addColorStop(0, '#4a90d9');
+  grad.addColorStop(1, '#2a5a99');
+  actx.fillStyle = grad;
+  actx.strokeStyle = '#7ab0e8';
+  actx.lineWidth = 1.5;
+  actx.beginPath();
+  actx.roundRect(SHAFT_X, cappedY, CART_W, CART_H, 4);
+  actx.fill();
+  actx.stroke();
+
+  // Charge sur le chariot (rectangle)
+  actx.fillStyle = '#c4a26a';
+  actx.strokeStyle = '#9a7a4a';
+  actx.lineWidth = 1;
+  actx.fillRect(SHAFT_X+8, cappedY-12, CART_W-16, 14);
+  actx.strokeRect(SHAFT_X+8, cappedY-12, CART_W-16, 14);
+  actx.fillStyle = '#fff';
+  actx.font = 'bold 8px Segoe UI';
+  actx.textAlign = 'center';
+  actx.fillText('CHARGE', SHAFT_X+CART_W/2, cappedY-2);
+
+  // Câble
+  actx.strokeStyle = '#aaa';
+  actx.lineWidth = 2;
+  actx.beginPath();
+  actx.moveTo(SHAFT_X+CART_W/2, cappedY);
+  actx.lineTo(SHAFT_X+CART_W/2, 15);
+  actx.stroke();
+
+  // Vitesse et flèche de direction
+  if (Math.abs(vel) > 0.05) {
+    const dir = vel > 0 ? -1 : 1;
+    const arrowLen = Math.min(30, Math.abs(vel) * 10);
+    actx.strokeStyle = '#2da44e';
+    actx.lineWidth = 2.5;
+    actx.beginPath();
+    actx.moveTo(SHAFT_X + CART_W + 10, cappedY + CART_H/2);
+    actx.lineTo(SHAFT_X + CART_W + 10, cappedY + CART_H/2 + dir * arrowLen);
+    actx.stroke();
+    // Tête de flèche
+    actx.beginPath();
+    actx.moveTo(SHAFT_X + CART_W + 10, cappedY + CART_H/2 + dir * arrowLen);
+    actx.lineTo(SHAFT_X + CART_W + 5, cappedY + CART_H/2 + dir * arrowLen - dir*8);
+    actx.lineTo(SHAFT_X + CART_W + 15, cappedY + CART_H/2 + dir * arrowLen - dir*8);
+    actx.closePath();
+    actx.fillStyle = '#2da44e';
+    actx.fill();
+  }
+
+  // Sol
+  actx.fillStyle = '#3a4a5a';
+  actx.fillRect(40, GROUND_Y, 180, 15);
+
+  // Infos à droite
+  const infoX = 250;
+  actx.textAlign = 'left';
+
+  // Mode badge
+  const modeLabel = mode === 'mru' ? 'MRU' : mode === 'mrua' ? 'MRUA' : 'Freinage';
+  const modeColor = mode === 'mru' ? '#2da44e' : mode === 'mrua' ? '#0ea5e9' : '#ef4444';
+  actx.fillStyle = modeColor;
+  actx.font = 'bold 14px Segoe UI';
+  actx.fillText(`Mode : ${modeLabel}`, infoX, 40);
+
+  // Stats
+  actx.fillStyle = '#aac4d9';
+  actx.font = '12px Segoe UI';
+  actx.fillText(`Vitesse :`, infoX, 70);
+  actx.fillStyle = '#fff';
+  actx.font = 'bold 14px Segoe UI';
+  actx.fillText(`${Math.abs(vel).toFixed(2)} m/s`, infoX+75, 70);
+
+  actx.fillStyle = '#aac4d9';
+  actx.font = '12px Segoe UI';
+  actx.fillText(`Position :`, infoX, 95);
+  actx.fillStyle = '#fff';
+  actx.font = 'bold 14px Segoe UI';
+  actx.fillText(`${(pos/30).toFixed(1)} m`, infoX+72, 95);
+
+  const { targetV, acc } = getModeParams();
+  const curAcc = vel < targetV ? acc : vel > targetV ? -acc : 0;
+  actx.fillStyle = '#aac4d9';
+  actx.font = '12px Segoe UI';
+  actx.fillText(`Accél. :`, infoX, 120);
+  actx.fillStyle = curAcc > 0.05 ? '#2da44e' : curAcc < -0.05 ? '#ef4444' : '#aaa';
+  actx.font = 'bold 14px Segoe UI';
+  actx.fillText(`${curAcc.toFixed(1)} m/s²`, infoX+65, 120);
+
+  // Graphe mini v(t)
+  const gx = infoX, gy = 140, gw = 300, gh = 45;
+  actx.fillStyle = '#12202e';
+  actx.fillRect(gx, gy, gw, gh);
+  actx.strokeStyle = '#3d5166';
+  actx.lineWidth = 1;
+  actx.strokeRect(gx, gy, gw, gh);
+  actx.fillStyle = '#5a7a9a';
+  actx.font = '9px Segoe UI';
+  actx.textAlign = 'center';
+  actx.fillText('v(t)', gx+15, gy+20);
+
+  // Ligne v actuelle
+  const maxV = 7;
+  const vFrac = Math.min(1, Math.abs(vel)/maxV);
+  const lineY = gy + gh - (vFrac * (gh-10) + 5);
+  actx.strokeStyle = modeColor;
+  actx.lineWidth = 2;
+  actx.beginPath();
+  actx.moveTo(gx+25, lineY);
+  actx.lineTo(gx+gw-5, lineY);
+  actx.stroke();
+  actx.fillStyle = modeColor;
+  actx.font = 'bold 10px Segoe UI';
+  actx.textAlign = 'right';
+  actx.fillText(`v=${Math.abs(vel).toFixed(1)} m/s`, gx+gw-5, lineY-3);
+
+  // Légende graphe
+  actx.fillStyle = '#5a7a9a';
+  actx.font = '9px Segoe UI';
+  actx.textAlign = 'left';
+  actx.fillText('0 m/s', gx+25, gy+gh-3);
+
+  // Mise à jour physique
+  const dt = 0.04;
+  const { targetV: tv, acc: a2 } = getModeParams();
+
+  if (vel < tv) {
+    vel = Math.min(tv, vel + a2 * dt * 60 * dt);
+  } else if (vel > tv) {
+    vel = Math.max(tv, vel - a2 * dt * 60 * dt);
+  }
+
+  if (mode === 'mru' || mode === 'mrua') {
+    pos += vel * dt * 30;
+    if (pos > 160) pos = 0; // boucle
+  } else if (mode === 'stop') {
+    pos += vel * dt * 30;
+    if (pos < 0) pos = 0;
+  }
+
+  // Update info
+  document.getElementById('animInfo').textContent =
+    `Mode : ${modeLabel} | Vitesse : ${Math.abs(vel).toFixed(2)} m/s | Position : ${(pos/30).toFixed(1)} m`;
+
+  frameId = requestAnimationFrame(drawAnim2);
+}
+
+function setMode(m) {
+  mode = m;
+  if (m === 'mrua') vel = 0;
+}
+
+function resetAnim() {
+  pos = 30;
+  vel = 0;
+  mode = 'mru';
+}
+
+drawAnim2();
+
+// ===== GRAPHIQUE Chart.js v(t) =====
+const timeLabels = [];
+const mruData = [];
+const mruaData = [];
+
+for (let t = 0; t <= 10; t += 0.5) {
+  timeLabels.push(t.toString());
+  mruData.push(4); // MRU v=4 m/s
+  mruaData.push(t * 0.8); // MRUA : v = 0,8*t (de 0 à 8 en 10s)
+}
+
+const ctxChart = document.getElementById('chartVT').getContext('2d');
+new Chart(ctxChart, {
+  type: 'line',
+  data: {
+    labels: timeLabels,
+    datasets: [
+      {
+        label: 'MRU – v = 4 m/s (vitesse constante)',
+        data: mruData,
+        borderColor: '#2da44e',
+        backgroundColor: 'rgba(45,164,78,0.12)',
+        borderWidth: 3,
+        fill: true,
+        pointRadius: 0,
+        tension: 0
+      },
+      {
+        label: 'MRUA – v croît de 0 à 8 m/s (a = 0,8 m/s²)',
+        data: mruaData,
+        borderColor: '#0ea5e9',
+        backgroundColor: 'rgba(14,165,233,0.12)',
+        borderWidth: 3,
+        fill: true,
+        pointRadius: 0,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'top' },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => `${ctx.dataset.label.split('–')[0].trim()} : ${ctx.parsed.y.toFixed(1)} m/s`
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: { display: true, text: 'Temps t (s)' },
+        ticks: {
+          callback: (val, idx) => idx % 2 === 0 ? timeLabels[idx] : ''
+        }
+      },
+      y: {
+        title: { display: true, text: 'Vitesse v (m/s)' },
+        min: 0,
+        max: 9,
+        ticks: { stepSize: 1 }
+      }
+    }
+  }
+});
+</script>
+
+<script src="/nav.js"></script>
+</body>
+</html>

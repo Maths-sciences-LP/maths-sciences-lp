@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch5 – Oxydoréduction et protection des métaux | ERA-MA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#2da44e;--s:#0ea5e9;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+.def{background:#f0fff4;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#e0f2fe;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#dcfce7;color:#166534}
+.label-prop{background:#e0f2fe;color:#0369a1}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f0fff4;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.svg-wrap{text-align:center;margin:18px 0}
+.objectifs{background:#f0fff4;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #86efac}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.retenir{background:#dcfce7;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.appli{background:#f0f9ff;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.anim-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0;text-align:center}
+.anim-wrap button{background:var(--p);color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;margin:6px 4px;font-size:.85em}
+.chart-wrap{max-width:580px;margin:18px auto}
+.exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
+.step{counter-increment:step;background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin:8px 0;position:relative;padding-left:46px}
+.step::before{content:counter(step);position:absolute;left:12px;top:50%;transform:translateY(-50%);background:var(--p);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8em;font-weight:700}
+.steps{counter-reset:step}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="pc-term-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA</a>
+
+<header>
+  <h1>Chapitre 5 – Prévoir une réaction d'oxydoréduction<br>et protéger les métaux contre la corrosion</h1>
+  <p class="sous-titre">Terminale Bac Pro ERA-MA | Groupement 3 | Chimie</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Identifier l'oxydant et le réducteur dans un couple redox</li>
+    <li>Écrire des demi-équations électroniques et l'équation de réaction</li>
+    <li>Prévoir le sens d'évolution spontanée d'une transformation redox</li>
+    <li>Comprendre la corrosion des métaux et les méthodes de protection</li>
+  </ul>
+</div>
+
+<!-- INTRODUCTION -->
+<h2>1. Introduction – La corrosion, un enjeu majeur en métallerie</h2>
+<p>Dans le bâtiment et la métallerie, la corrosion est un problème quotidien. Les charpentes métalliques, les garde-corps, les escaliers en acier, les armatures en béton armé… tous ces éléments sont soumis à l'oxydation par l'humidité et l'air. En France, la corrosion coûte plusieurs milliards d'euros par an en maintenance et remplacement.</p>
+
+<div class="appli">
+  <span class="label label-prop">Application ERA-MA</span><br>
+  Un menuisier métallier installe des garde-corps en acier sur une terrasse exposée aux intempéries. Sans traitement, ces éléments vont rouiller en quelques années. Choisir la bonne protection (galvanisation, peinture, inox) repose sur la compréhension de la chimie des métaux : <strong>l'oxydoréduction</strong>.
+</div>
+
+<!-- NOTIONS ESSENTIELLES -->
+<h2>2. Notions essentielles – L'oxydoréduction</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Une réaction d'<strong>oxydoréduction</strong> (ou réaction redox) est une réaction chimique avec <strong>transfert d'électrons</strong> entre deux espèces. Elle associe toujours une oxydation et une réduction.
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  <strong>L'oxydant</strong> est une espèce qui <em>accepte</em> des électrons (il se réduit).<br>
+  <strong>Le réducteur</strong> est une espèce qui <em>donne</em> des électrons (il s'oxyde).
+</div>
+
+<div class="formule-box">
+  Demi-équation de <strong>réduction</strong> (oxydant reçoit des e⁻) :<br>
+  \[ \text{Ox} + n\,e^- \rightarrow \text{Red} \]
+  <small>Exemple : Cu²⁺ + 2e⁻ → Cu</small>
+</div>
+
+<div class="formule-box">
+  Demi-équation d'<strong>oxydation</strong> (réducteur perd des e⁻) :<br>
+  \[ \text{Red} \rightarrow \text{Ox} + n\,e^- \]
+  <small>Exemple : Zn → Zn²⁺ + 2e⁻</small>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Un <strong>couple redox</strong> est noté <em>Ox/Red</em>. Les deux formes sont liées par la demi-équation de réduction.
+  <br>Exemples : Fe²⁺/Fe &nbsp;|&nbsp; Cu²⁺/Cu &nbsp;|&nbsp; Zn²⁺/Zn &nbsp;|&nbsp; H⁺/H₂
+</div>
+
+<!-- SVG TRANSFERT D'ELECTRONS -->
+<h2>3. Transfert d'électrons – Schéma</h2>
+
+<div class="svg-wrap">
+  <svg width="580" height="170" viewBox="0 0 580 170" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <!-- Fond -->
+    <rect width="580" height="170" fill="#f8fafc" rx="10"/>
+    <!-- Boite réducteur -->
+    <rect x="30" y="50" width="160" height="70" rx="10" fill="#dcfce7" stroke="#2da44e" stroke-width="2"/>
+    <text x="110" y="80" text-anchor="middle" font-size="15" font-weight="bold" fill="#166534">RÉDUCTEUR</text>
+    <text x="110" y="98" text-anchor="middle" font-size="13" fill="#166534">Zn</text>
+    <text x="110" y="113" text-anchor="middle" font-size="11" fill="#166534">donne des e⁻</text>
+    <!-- Boite oxydant -->
+    <rect x="390" y="50" width="160" height="70" rx="10" fill="#fee2e2" stroke="#c53030" stroke-width="2"/>
+    <text x="470" y="80" text-anchor="middle" font-size="15" font-weight="bold" fill="#991b1b">OXYDANT</text>
+    <text x="470" y="98" text-anchor="middle" font-size="13" fill="#991b1b">Cu²⁺</text>
+    <text x="470" y="113" text-anchor="middle" font-size="11" fill="#991b1b">reçoit des e⁻</text>
+    <!-- Flèche électrons -->
+    <defs>
+      <marker id="arr1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#0ea5e9"/>
+      </marker>
+    </defs>
+    <line x1="195" y1="85" x2="385" y2="85" stroke="#0ea5e9" stroke-width="3" marker-end="url(#arr1)"/>
+    <!-- Électrons -->
+    <text x="250" y="72" font-size="18" fill="#0ea5e9">e⁻ e⁻</text>
+    <text x="253" y="105" text-anchor="middle" font-size="12" fill="#0ea5e9">transfert d'électrons</text>
+    <!-- Produits -->
+    <text x="110" y="148" text-anchor="middle" font-size="12" fill="#2da44e">→ Zn²⁺ (oxydé)</text>
+    <text x="470" y="148" text-anchor="middle" font-size="12" fill="#c53030">→ Cu (réduit)</text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px">Réaction : Zn + Cu²⁺ → Zn²⁺ + Cu &nbsp;(le zinc réduit les ions cuivre)</p>
+</div>
+
+<!-- CLASSIFICATION ELECTROCHIMIQUE -->
+<h2>4. Classification électrochimique des métaux</h2>
+
+<div class="prop">
+  <span class="label label-prop">Propriété – Règle de la gamma (γ)</span><br>
+  L'oxydant du couple situé <strong>en haut</strong> de la classification réagit spontanément avec le réducteur du couple situé <strong>en bas</strong>.<br>
+  <em>En résumé : le réducteur le plus fort réduit l'oxydant le plus fort en face de lui (règle en croix ou règle γ).</em>
+</div>
+
+<table>
+  <tr>
+    <th>Couple Ox/Red</th>
+    <th>Potentiel standard E° (V)</th>
+    <th>Caractère</th>
+  </tr>
+  <tr><td>Au³⁺ / Au</td><td style="color:#d97706">+1,50</td><td>Oxydant très fort</td></tr>
+  <tr><td>Ag⁺ / Ag</td><td style="color:#d97706">+0,80</td><td>Oxydant fort</td></tr>
+  <tr><td>Cu²⁺ / Cu</td><td style="color:#d97706">+0,34</td><td>Oxydant moyen</td></tr>
+  <tr><td>H⁺ / H₂</td><td>0,00</td><td>Référence</td></tr>
+  <tr><td>Fe²⁺ / Fe</td><td style="color:#2da44e">−0,44</td><td>Réducteur moyen</td></tr>
+  <tr><td>Zn²⁺ / Zn</td><td style="color:#2da44e">−0,76</td><td>Réducteur fort</td></tr>
+  <tr><td>Al³⁺ / Al</td><td style="color:#2da44e">−1,66</td><td>Réducteur très fort</td></tr>
+</table>
+
+<div class="att">
+  <span class="label label-att">Attention aux erreurs fréquentes</span><br>
+  Ne pas confondre <strong>oxydant</strong> et <strong>réducteur</strong> ! L'oxydant se réduit (il reçoit des électrons), et le réducteur s'oxyde (il perd des électrons). L'oxydant n'est pas forcément un oxygène !
+</div>
+
+<!-- GRAPHIQUE CHART.JS -->
+<h2>5. Potentiels standard de réduction (graphique)</h2>
+<div class="chart-wrap">
+  <canvas id="chartRedox" height="260"></canvas>
+</div>
+
+<!-- EXEMPLE REDOX ETAPE PAR ETAPE -->
+<h2>6. Écrire une réaction redox – Méthode étape par étape</h2>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu</span><br>
+  <strong>Écrire la réaction entre le fer (Fe) et les ions cuivre (Cu²⁺).</strong>
+  <div class="steps">
+    <div class="step">Identifier les couples : <strong>Cu²⁺/Cu</strong> (E° = +0,34 V) et <strong>Fe²⁺/Fe</strong> (E° = −0,44 V).</div>
+    <div class="step">Appliquer la règle γ : Cu²⁺ est l'oxydant (E° plus grand), Fe est le réducteur (E° plus petit). La réaction est spontanée.</div>
+    <div class="step">Demi-équation de réduction : \( \text{Cu}^{2+} + 2e^- \rightarrow \text{Cu} \)</div>
+    <div class="step">Demi-équation d'oxydation : \( \text{Fe} \rightarrow \text{Fe}^{2+} + 2e^- \)</div>
+    <div class="step">Additionner les deux demi-équations (les électrons se compensent) :<br>
+      \[ \text{Fe} + \text{Cu}^{2+} \rightarrow \text{Fe}^{2+} + \text{Cu} \]
+    </div>
+  </div>
+</div>
+
+<!-- CORROSION -->
+<h2>7. La corrosion des métaux</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  La <strong>corrosion</strong> est la dégradation d'un métal par réaction chimique avec son environnement (humidité, oxygène, sel…). La corrosion humide du fer donne de la <strong>rouille</strong>.
+</div>
+
+<div class="formule-box">
+  Réaction de corrosion du fer (simplifiée) :<br>
+  \[ 4\,\text{Fe} + 3\,\text{O}_2 + 6\,\text{H}_2\text{O} \rightarrow 4\,\text{Fe(OH)}_3 \]
+  <small>Fe(OH)₃ = rouille (hydroxyde de fer III) – couleur brun-orange caractéristique</small>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  La corrosion est accélérée par : la présence d'eau salée (bord de mer), les écarts de pH (acide/basique), les contacts entre métaux différents (pile galvanique), les chocs mécaniques qui détériorent les revêtements protecteurs.
+</div>
+
+<!-- ANIMATION CORROSION -->
+<h2>8. Animation – Simulation de la corrosion</h2>
+<div class="anim-wrap">
+  <p style="font-size:.9em;color:#4a5568;margin-top:0">Observez la progression de la corrosion sur l'acier non protégé (gauche) vs l'acier galvanisé (droite).</p>
+  <canvas id="corrosionCanvas" width="580" height="200" style="border-radius:8px;border:1px solid #e2e8f0;max-width:100%"></canvas>
+  <br>
+  <button onclick="startCorrosion()">Simuler la corrosion</button>
+  <button onclick="resetCorrosion()">Réinitialiser</button>
+  <p id="corrosionMsg" style="font-size:.85em;color:#718096;margin-top:8px"></p>
+</div>
+
+<!-- PROTECTION CONTRE LA CORROSION -->
+<h2>9. Méthodes de protection contre la corrosion</h2>
+
+<div class="prop">
+  <span class="label label-prop">1 – Galvanisation</span><br>
+  Dépôt d'une couche de <strong>zinc</strong> sur l'acier (par immersion dans un bain de zinc fondu ou électrodéposition). Le zinc forme une barrière physique ET protège chimiquement l'acier (protection sacrificielle).
+  <br><em>Exemples ERA-MA : tôles de couverture, boulons, profilés pour charpente légère.</em>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">2 – Anode sacrificielle (protection cathodique)</span><br>
+  Un bloc de zinc (ou magnésium) est fixé sur la structure métallique. Étant un réducteur plus fort, le <strong>zinc se corrode à la place de l'acier</strong> (le zinc est "sacrifié").
+  <br><em>Exemples ERA-MA : coques de bateaux, pipelines, structures métalliques immergées.</em>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">3 – Peinture anticorrosion</span><br>
+  Barrière physique isolant le métal de l'humidité et de l'air. Souvent combinée à un <strong>primaire époxy</strong> (adhérence) + peinture de finition.
+  <br><em>Exemples ERA-MA : garde-corps, portails, escaliers métalliques extérieurs.</em>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">4 – Passivation (couche d'oxyde protectrice)</span><br>
+  Certains métaux forment naturellement une couche d'oxyde fine et adhérente qui bloque la corrosion : <strong>aluminium</strong> (Al₂O₃), <strong>inox</strong> (Cr₂O₃).
+  <br><em>Exemples ERA-MA : menuiseries aluminium, raccords inox, plans de travail cuisine.</em>
+</div>
+
+<!-- SVG ANODE SACRIFICIELLE -->
+<h2>10. Schéma – Protection par anode sacrificielle</h2>
+
+<div class="svg-wrap">
+  <svg width="560" height="240" viewBox="0 0 560 240" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <rect width="560" height="240" fill="#e0f2fe" rx="12"/>
+    <!-- Eau -->
+    <rect x="0" y="120" width="560" height="120" fill="#bae6fd" rx="0 0 12 12"/>
+    <text x="280" y="200" text-anchor="middle" font-size="13" fill="#0369a1">Eau de mer (milieu corrosif)</text>
+    <!-- Structure acier -->
+    <rect x="180" y="60" width="200" height="140" rx="6" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+    <text x="280" y="110" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">STRUCTURE</text>
+    <text x="280" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">EN ACIER</text>
+    <text x="280" y="148" text-anchor="middle" font-size="11" fill="#e2e8f0">(reste intact)</text>
+    <!-- Anode zinc -->
+    <rect x="390" y="100" width="90" height="60" rx="6" fill="#a3e635" stroke="#65a30d" stroke-width="2"/>
+    <text x="435" y="127" text-anchor="middle" font-size="13" font-weight="bold" fill="#365314">ZINC</text>
+    <text x="435" y="145" text-anchor="middle" font-size="11" fill="#365314">(sacrifié)</text>
+    <!-- Connexion -->
+    <line x1="380" y1="130" x2="390" y2="130" stroke="#374151" stroke-width="3"/>
+    <!-- Flèche Zn2+ -->
+    <defs>
+      <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#d97706"/>
+      </marker>
+      <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#0ea5e9"/>
+      </marker>
+    </defs>
+    <!-- Ions Zn2+ qui partent -->
+    <path d="M435 160 Q450 190 490 195" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#arr2)" stroke-dasharray="5,3"/>
+    <text x="465" y="185" font-size="11" fill="#d97706">Zn²⁺ dissous</text>
+    <!-- Electrons vers l'acier -->
+    <path d="M390 125 Q360 110 320 115" stroke="#0ea5e9" stroke-width="2" fill="none" marker-end="url(#arr3)"/>
+    <text x="330" y="105" font-size="11" fill="#0ea5e9">e⁻</text>
+    <!-- Légende -->
+    <text x="30" y="30" font-size="14" font-weight="bold" fill="#1e3a5f">Protection par anode sacrificielle (zinc)</text>
+    <text x="30" y="50" font-size="11" fill="#475569">Le zinc (réducteur plus fort que le fer) se corrode en premier, protégeant l'acier.</text>
+  </svg>
+</div>
+
+<!-- RETENIR -->
+<div class="retenir">
+  <strong>A retenir – Règle fondamentale</strong>
+  <ul>
+    <li>L'oxydant accepte des électrons → il se <strong>réduit</strong></li>
+    <li>Le réducteur donne des électrons → il s'<strong>oxyde</strong></li>
+    <li>La réaction spontanée met en jeu l'oxydant du couple à E° le plus élevé et le réducteur du couple à E° le plus faible</li>
+    <li>Zinc (E° = −0,76 V) protège l'acier/fer (E° = −0,44 V) car le zinc est réducteur plus fort</li>
+  </ul>
+</div>
+
+<!-- APPLICATION METIERS ERA-MA -->
+<h2>11. Applications métiers ERA-MA</h2>
+
+<div class="appli">
+  <span class="label label-prop">Charpente métallique</span><br>
+  Les profilés acier utilisés en charpente sont galvanisés à chaud (couche de zinc de 85 µm minimum selon norme EN ISO 1461). Le zinc protège l'acier même si la couche est rayée (protection cathodique active).
+</div>
+
+<div class="appli">
+  <span class="label label-prop">Menuiserie aluminium</span><br>
+  L'aluminium se passive naturellement (couche Al₂O₃). Les profils sont souvent anodisés (épaississement artificiel de la couche d'oxyde) pour améliorer la résistance et permettre la coloration.
+</div>
+
+<div class="appli">
+  <span class="label label-prop">Béton armé</span><br>
+  Les armatures acier dans le béton sont protégées par le milieu alcalin du béton (pH ≈ 13). Si de l'eau salée pénètre (carbonatation, chlorures), la corrosion démarre et fait éclater le béton par gonflement de la rouille (augmentation de volume de l'ordre de ×3).
+</div>
+
+<!-- MINI EXERCICES -->
+<h2>12. Mini exercices</h2>
+
+<div class="exo">
+  <strong>Exercice 1</strong><br>
+  Dans le couple Fe²⁺/Fe, quel est l'oxydant ? Quel est le réducteur ?<br>
+  <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--p);font-size:.9em">Voir la réponse</summary>
+    <p style="margin:6px 0 0 0;color:#166534"><strong>Fe²⁺</strong> est l'oxydant (il accepte des électrons pour donner Fe). <strong>Fe</strong> est le réducteur (il donne des électrons pour donner Fe²⁺).</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2</strong><br>
+  Écrire la demi-équation de réduction de Cu²⁺ (couple Cu²⁺/Cu).<br>
+  <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--p);font-size:.9em">Voir la réponse</summary>
+    <p style="margin:6px 0 0 0;color:#166534">\( \text{Cu}^{2+} + 2e^- \rightarrow \text{Cu} \)</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 3</strong><br>
+  Une structure en acier est protégée par des blocs de zinc. Lequel se corrode en premier ? Pourquoi ?<br>
+  <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--p);font-size:.9em">Voir la réponse</summary>
+    <p style="margin:6px 0 0 0;color:#166534">Le <strong>zinc</strong> se corrode en premier, car son potentiel standard de réduction (−0,76 V) est plus faible que celui du fer (−0,44 V) : le zinc est un réducteur plus fort. Il s'oxyde à la place de l'acier (il est "sacrifié").</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 4</strong><br>
+  Citez deux méthodes de protection des métaux contre la corrosion utilisées en métallerie et expliquez brièvement leur principe.<br>
+  <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--p);font-size:.9em">Voir la réponse</summary>
+    <p style="margin:6px 0 0 0;color:#166534">
+      <strong>1) Galvanisation</strong> : dépôt d'une couche de zinc sur l'acier. Le zinc forme une barrière physique et se corrode à la place de l'acier.<br>
+      <strong>2) Peinture anticorrosion</strong> : couche isolant le métal de l'humidité et de l'air.<br>
+      (On peut aussi citer : anode sacrificielle, passivation.)
+    </p>
+  </details>
+</div>
+
+<div class="att">
+  <span class="label label-att">Erreurs fréquentes à éviter</span>
+  <ul>
+    <li>Confondre oxydation et réduction : l'oxydation = perte d'électrons (le réducteur s'oxyde)</li>
+    <li>Oublier d'équilibrer les charges en écrivant les demi-équations</li>
+    <li>Croire que l'aluminium ne se corrode pas : il se corrode mais la couche d'oxyde est protectrice</li>
+    <li>Penser que la galvanisation ne protège que par barrière physique : non, il y a aussi protection cathodique active</li>
+  </ul>
+</div>
+
+<p style="text-align:center;font-size:.8em;color:#a0aec0;margin-top:30px">Terminale Bac Pro ERA-MA – Groupement 3 – Chimie – Ch.5</p>
+</div>
+
+<script>
+// === GRAPHIQUE CHART.JS ===
+(function(){
+  const ctx = document.getElementById('chartRedox').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Al³⁺/Al', 'Zn²⁺/Zn', 'Fe²⁺/Fe', 'H⁺/H₂', 'Cu²⁺/Cu', 'Ag⁺/Ag', 'Au³⁺/Au'],
+      datasets: [{
+        label: 'Potentiel standard E° (V)',
+        data: [-1.66, -0.76, -0.44, 0, 0.34, 0.80, 1.50],
+        backgroundColor: [
+          '#86efac','#4ade80','#a3e635','#94a3b8','#fbbf24','#f97316','#ef4444'
+        ],
+        borderColor: ['#166534','#15803d','#4d7c0f','#475569','#b45309','#c2410c','#b91c1c'],
+        borderWidth: 2,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Classification électrochimique (potentiels standard de réduction)',
+          font: { size: 13 }
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `E° = ${ctx.raw > 0 ? '+' : ''}${ctx.raw} V`
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'E° (V) / ESH' },
+          grid: { color: '#e2e8f0' }
+        },
+        y: { grid: { display: false } }
+      }
+    }
+  });
+})();
+
+// === ANIMATION CORROSION ===
+const canvas = document.getElementById('corrosionCanvas');
+const ctxA = canvas.getContext('2d');
+let animFrame = null;
+let corrosionLevel = 0;
+let running = false;
+
+function drawBars(level) {
+  const w = canvas.width;
+  const h = canvas.height;
+  ctxA.clearRect(0, 0, w, h);
+
+  // Fond
+  ctxA.fillStyle = '#f1f5f9';
+  ctxA.fillRect(0, 0, w, h);
+
+  const barW = 200, barH = 70;
+  const y0 = 65;
+
+  // --- ACIER NON PROTÉGÉ (gauche) ---
+  const x1 = 40;
+  // Barre grise (acier sain)
+  ctxA.fillStyle = '#94a3b8';
+  ctxA.fillRect(x1, y0, barW, barH);
+  // Rouille progressive (pixels orange-brun)
+  if (level > 0) {
+    const rustPixels = Math.floor(level * barW * barH / 100);
+    const seed = 42;
+    for (let i = 0; i < rustPixels; i++) {
+      const px = ((i * 73 + seed) % barW) + x1;
+      const py = ((i * 37 + seed) % barH) + y0;
+      const r = Math.floor(180 + (i % 40));
+      const g = Math.floor(70 + (i % 30));
+      ctxA.fillStyle = `rgb(${r},${g},20)`;
+      ctxA.fillRect(px, py, 4, 4);
+    }
+  }
+  // Contour
+  ctxA.strokeStyle = '#64748b';
+  ctxA.lineWidth = 2;
+  ctxA.strokeRect(x1, y0, barW, barH);
+  // Label
+  ctxA.fillStyle = '#1e293b';
+  ctxA.font = 'bold 13px Segoe UI';
+  ctxA.textAlign = 'center';
+  ctxA.fillText('Acier non protégé', x1 + barW/2, y0 - 12);
+  // État
+  ctxA.font = '11px Segoe UI';
+  ctxA.fillStyle = level > 60 ? '#c53030' : level > 20 ? '#d97706' : '#2da44e';
+  ctxA.fillText(level > 60 ? 'Très corrodé !' : level > 20 ? 'Corrosion avancée' : level > 0 ? 'Début de rouille' : 'Intact', x1 + barW/2, y0 + barH + 20);
+
+  // --- ACIER GALVANISÉ (droite) ---
+  const x2 = 340;
+  // Barre acier
+  ctxA.fillStyle = '#94a3b8';
+  ctxA.fillRect(x2, y0, barW, barH);
+  // Couche zinc (légèrement jaune-vert)
+  ctxA.fillStyle = 'rgba(163,230,53,0.45)';
+  ctxA.fillRect(x2, y0, barW, barH);
+  // Contour zinc
+  ctxA.strokeStyle = '#65a30d';
+  ctxA.lineWidth = 3;
+  ctxA.strokeRect(x2, y0, barW, barH);
+  // Label
+  ctxA.fillStyle = '#1e293b';
+  ctxA.font = 'bold 13px Segoe UI';
+  ctxA.textAlign = 'center';
+  ctxA.fillText('Acier galvanisé (zinc)', x2 + barW/2, y0 - 12);
+  ctxA.font = '11px Segoe UI';
+  ctxA.fillStyle = '#2da44e';
+  ctxA.fillText('Protégé – aucune corrosion', x2 + barW/2, y0 + barH + 20);
+
+  // Barre de progression corrosion
+  ctxA.fillStyle = '#e2e8f0';
+  ctxA.fillRect(40, 165, 500, 14);
+  ctxA.fillStyle = level > 60 ? '#c53030' : level > 20 ? '#d97706' : '#2da44e';
+  ctxA.fillRect(40, 165, 5 * level, 14);
+  ctxA.strokeStyle = '#94a3b8'; ctxA.lineWidth = 1;
+  ctxA.strokeRect(40, 165, 500, 14);
+  ctxA.fillStyle = '#374151';
+  ctxA.font = '11px Segoe UI';
+  ctxA.textAlign = 'left';
+  ctxA.fillText(`Progression de la corrosion : ${level}%`, 40, 158);
+
+  // Légende couche zinc
+  ctxA.fillStyle = 'rgba(163,230,53,0.6)';
+  ctxA.fillRect(420, 45, 14, 14);
+  ctxA.strokeStyle = '#65a30d'; ctxA.lineWidth = 1;
+  ctxA.strokeRect(420, 45, 14, 14);
+  ctxA.fillStyle = '#374151'; ctxA.font = '10px Segoe UI'; ctxA.textAlign = 'left';
+  ctxA.fillText('Couche de zinc', 438, 57);
+}
+
+function startCorrosion() {
+  if (running) return;
+  running = true;
+  document.getElementById('corrosionMsg').textContent = 'Simulation en cours... Le zinc protège efficacement l\'acier galvanisé !';
+  function animate() {
+    if (corrosionLevel < 100) {
+      corrosionLevel += 1;
+      drawBars(corrosionLevel);
+      animFrame = requestAnimationFrame(animate);
+    } else {
+      running = false;
+      document.getElementById('corrosionMsg').textContent = 'L\'acier non protégé est entièrement corrodé. L\'acier galvanisé reste intact grâce au zinc sacrificiel !';
+    }
+  }
+  animate();
+}
+
+function resetCorrosion() {
+  if (animFrame) cancelAnimationFrame(animFrame);
+  running = false;
+  corrosionLevel = 0;
+  drawBars(0);
+  document.getElementById('corrosionMsg').textContent = '';
+}
+
+// Init
+drawBars(0);
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation - Fonction du Second Degré</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #f4f4f9; margin: 0; padding: 20px; }
+        .sim-container { max-width: 500px; margin: 20px auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { color: #0969da; margin-top: 0; }
+        canvas { background: #fff; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 20px; width: 100%; max-width: 400px; height: auto;}
+        
+        .control-group { margin-bottom: 15px; display: flex; align-items: center; justify-content: center; }
+        label { width: 40px; font-weight: bold; color: #333; font-size: 1.2em;}
+        input[type=range] { width: 200px; margin: 0 15px; accent-color: #0969da;}
+        .val-display { font-family: monospace; font-size: 1.2em; width: 40px; text-align: left; color: #0969da; font-weight: bold;}
+        
+        .equation { font-size: 1.5em; color: #333; margin: 15px 0; font-weight: bold; background: #e1effe; padding: 10px; border-radius: 8px;}
+        
+        .btn-retour { display: inline-block; margin-top: 15px; text-decoration: none; color: #0969da; font-weight: bold; border: 2px solid #0969da; padding: 8px 15px; border-radius: 5px; transition: 0.2s;}
+        .btn-retour:hover { background: #0969da; color: white;}
+    </style>
+</head>
+<body>
+    <div class="sim-container">
+        <h2>Traceur de Parabole</h2>
+        <p>Modifiez les coefficients pour observer l'évolution de la courbe.</p>
+        
+        <div class="equation" id="equation-display">f(x) = 1x² + 0x + 0</div>
+
+        <canvas id="graphCanvas" width="400" height="400"></canvas>
+
+        <div class="control-group">
+            <label>a =</label>
+            <input type="range" id="param-a" min="-5" max="5" step="0.5" value="1" oninput="updateGraph()">
+            <span id="val-a" class="val-display">1</span>
+        </div>
+        <div class="control-group">
+            <label>b =</label>
+            <input type="range" id="param-b" min="-10" max="10" step="1" value="0" oninput="updateGraph()">
+            <span id="val-b" class="val-display">0</span>
+        </div>
+        <div class="control-group">
+            <label>c =</label>
+            <input type="range" id="param-c" min="-10" max="10" step="1" value="0" oninput="updateGraph()">
+            <span id="val-c" class="val-display">0</span>
+        </div>
+
+        <a href="../simulations.html" class="btn-retour">← Retour à la galerie</a>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('graphCanvas');
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width;
+        const height = canvas.height;
+        const scale = 20; // 20 pixels représentent 1 unité sur le repère
+        const originX = width / 2;
+        const originY = height / 2;
+
+        function drawAxes() {
+            // Dessin du quadrillage
+            ctx.strokeStyle = '#f0f0f0';
+            ctx.lineWidth = 1;
+            for(let i = 0; i < width; i += scale) {
+                ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, height); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(width, i); ctx.stroke();
+            }
+
+            // Dessin des axes principaux
+            ctx.beginPath();
+            ctx.strokeStyle = '#999';
+            ctx.lineWidth = 2;
+            // Axe X
+            ctx.moveTo(0, originY); ctx.lineTo(width, originY);
+            // Axe Y
+            ctx.moveTo(originX, 0); ctx.lineTo(originX, height);
+            ctx.stroke();
+        }
+
+        function updateGraph() {
+            let a = parseFloat(document.getElementById('param-a').value);
+            let b = parseFloat(document.getElementById('param-b').value);
+            let c = parseFloat(document.getElementById('param-c').value);
+
+            // Mise à jour des nombres à côté des curseurs
+            document.getElementById('val-a').innerText = a;
+            document.getElementById('val-b').innerText = b;
+            document.getElementById('val-c').innerText = c;
+
+            // Mise à jour du texte de l'équation
+            let signB = b >= 0 ? '+ ' : '- ';
+            let signC = c >= 0 ? '+ ' : '- ';
+            document.getElementById('equation-display').innerText = `f(x) = ${a}x² ${signB}${Math.abs(b)}x ${signC}${Math.abs(c)}`;
+
+            // Nettoyage et dessin
+            ctx.clearRect(0, 0, width, height);
+            drawAxes();
+
+            // Dessin de la parabole
+            ctx.beginPath();
+            ctx.strokeStyle = '#0969da'; // Bleu mathématiques
+            ctx.lineWidth = 3;
+
+            for (let px = 0; px <= width; px++) {
+                let x = (px - originX) / scale; // Convertit les pixels en coordonnées X
+                let y = a * x * x + b * x + c;  // Calcule f(x)
+                let py = originY - (y * scale); // Convertit Y en pixels
+                
+                if (px === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+        }
+
+        // Lance le premier dessin au chargement de la page
+        updateGraph();
+    </script>
+<script src="/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exercices – Sécurité au laboratoire et en atelier | PC 2nde Pro</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
+.mama-tag{display:inline-block;background:#e6f0ff;border:1px solid #bfdbfe;border-radius:4px;font-size:.75em;font-weight:700;color:#1a4a8a;padding:2px 8px;margin-bottom:6px;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0;background:#fff}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;font-size:1.05em;color:var(--t)}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none;font-size:.95em}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{background:#5a32a3}
+.intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.nav-links{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;font-size:.88em}
+.nav-links a{color:var(--p);text-decoration:none;padding:4px 10px;border:1px solid var(--p);border-radius:5px}
+.nav-links a:hover{background:var(--p);color:#fff}
+.chart-wrap{max-width:600px;margin:16px auto}
+svg-wrap{display:flex;justify-content:center;margin:16px 0}
+</style>
+</head>
+<body>
+<div class="c">
+<header>
+  <div class="mama-tag">2nde Bac Pro</div>
+  <h1>Chapitre 1 – Sécurité en laboratoire et en atelier</h1>
+  <p class="sous-titre">Physique-Chimie &nbsp;|&nbsp; Exercices d'entraînement</p>
+</header>
+
+<div class="nav-links">
+  <a href="pc-2nde-pro.html">&#8592; Retour programme</a>
+  <a href="pc2-ch01_lecon.html">Cours (Ch.1)</a>
+  <a href="pc2-ch01_ds.html">Devoir surveillé</a>
+</div>
+
+<div class="intro-box">
+  Ces exercices portent sur les pictogrammes GHS/SGH, les phrases H et P, les EPI, la sécurité électrique, les lasers, les niveaux sonores et le tri des déchets chimiques en atelier de menuiserie.
+</div>
+
+<!-- ===== SECTION BASE ===== -->
+<h2>Base – Exercices fondamentaux</h2>
+<div class="section-intro">Trois exercices pour maîtriser les notions essentielles de sécurité.</div>
+
+<!-- EXO 1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Lire les pictogrammes de danger (GHS/SGH)</span>
+    <span class="diff diff-1">Facile</span>
+  </div>
+
+  <div class="retenir"><strong>Rappel :</strong> Les pictogrammes GHS (Globally Harmonized System) sont des losanges rouges avec un symbole noir. Ils indiquent la nature du danger d'un produit chimique.</div>
+
+  <p>Voici quatre pictogrammes rencontrés dans un atelier de menuiserie :</p>
+
+  <!-- SVG PICTOGRAMME -->
+  <div style="display:flex;justify-content:center;margin:18px 0">
+    <svg width="420" height="110" viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg" aria-label="Pictogrammes GHS de danger">
+      <!-- Cadre global -->
+      <!-- Pictogramme 1 : Inflammable -->
+      <g transform="translate(10,5)">
+        <polygon points="45,0 90,45 45,90 0,45" fill="#fff" stroke="#e53e3e" stroke-width="4"/>
+        <!-- flamme -->
+        <text x="45" y="55" text-anchor="middle" font-size="36">🔥</text>
+        <text x="45" y="105" text-anchor="middle" font-size="11" fill="#e53e3e" font-weight="bold">Inflammable</text>
+      </g>
+      <!-- Pictogramme 2 : Corrosif -->
+      <g transform="translate(110,5)">
+        <polygon points="45,0 90,45 45,90 0,45" fill="#fff" stroke="#e53e3e" stroke-width="4"/>
+        <text x="45" y="55" text-anchor="middle" font-size="34">🧪</text>
+        <text x="45" y="105" text-anchor="middle" font-size="11" fill="#e53e3e" font-weight="bold">Corrosif</text>
+      </g>
+      <!-- Pictogramme 3 : Nocif -->
+      <g transform="translate(210,5)">
+        <polygon points="45,0 90,45 45,90 0,45" fill="#fff" stroke="#e53e3e" stroke-width="4"/>
+        <text x="45" y="55" text-anchor="middle" font-size="34">☠️</text>
+        <text x="45" y="105" text-anchor="middle" font-size="11" fill="#e53e3e" font-weight="bold">Nocif / Toxique</text>
+      </g>
+      <!-- Pictogramme 4 : Danger environnement -->
+      <g transform="translate(310,5)">
+        <polygon points="45,0 90,45 45,90 0,45" fill="#fff" stroke="#e53e3e" stroke-width="4"/>
+        <text x="45" y="55" text-anchor="middle" font-size="34">🌿</text>
+        <text x="45" y="105" text-anchor="middle" font-size="11" fill="#e53e3e" font-weight="bold">Danger env.</text>
+      </g>
+    </svg>
+  </div>
+
+  <p class="q"><strong>1.</strong> Pour chacun des quatre pictogrammes ci-dessus, indiquez : le nom du danger et un exemple de produit courant en atelier de menuiserie ou d'agencement.</p>
+  <p class="q"><strong>2.</strong> Le white-spirit présente deux pictogrammes : Inflammable et Danger pour l'environnement. Expliquez brièvement ce que cela implique pour son stockage.</p>
+  <p class="q"><strong>3.</strong> Un pot de décapant pour bois porte le pictogramme "Corrosif". Quel EPI est indispensable pour sa manipulation ? Justifiez.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <p>- <em>Inflammable</em> : produit qui s'enflamme facilement (ex : white-spirit, diluant à vernis). Stocker loin des sources de chaleur.</p>
+    <p>- <em>Corrosif</em> : brûle les tissus vivants et attaque les matériaux (ex : décapant chimique pour bois, lessive de soude).</p>
+    <p>- <em>Nocif / Toxique</em> : dangereux si inhalé, ingéré ou absorbé par la peau (ex : certains vernis, solvants de nettoyage).</p>
+    <p>- <em>Danger pour l'environnement</em> : nocif pour les organismes aquatiques (ex : produit de traitement du bois, huile de protection).</p>
+    <p><strong>2.</strong> Le white-spirit doit être stocké dans un local ventilé, à l'écart des sources d'ignition (flammes, étincelles), dans un contenant hermétique homologué et loin des caniveaux ou égouts pour éviter la pollution.</p>
+    <p><strong>3.</strong> Des gants résistants aux produits chimiques (nitrile ou néoprène) sont indispensables, car le décapant est corrosif pour la peau. Des lunettes de protection étanches et un tablier sont également recommandés.</p>
+  </div>
+</div>
+
+<!-- EXO 2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Choisir ses EPI (Équipements de Protection Individuelle)</span>
+    <span class="diff diff-1">Facile</span>
+  </div>
+
+  <div class="methode"><strong>Méthode :</strong> Pour chaque produit ou tâche, identifier le risque principal (chimique, mécanique, projection) puis choisir l'EPI adapté : gants, lunettes, masque, tablier, protège-oreilles, chaussures de sécurité.</div>
+
+  <table>
+    <thead>
+      <tr><th>Tâche / Produit</th><th>Risque principal</th><th>EPI à choisir</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Application de vernis au pinceau</td><td>?</td><td>?</td></tr>
+      <tr><td>Manipulation d'un décapant chimique pour bois</td><td>?</td><td>?</td></tr>
+      <tr><td>Ponçage manuel ou à la ponceuse orbitale</td><td>?</td><td>?</td></tr>
+      <tr><td>Collage avec colle néoprène en spray</td><td>?</td><td>?</td></tr>
+      <tr><td>Utilisation d'un produit de traitement du bois</td><td>?</td><td>?</td></tr>
+    </tbody>
+  </table>
+
+  <p class="q"><strong>1.</strong> Recopiez et complétez le tableau en identifiant le risque principal et au moins deux EPI pour chaque tâche.</p>
+  <p class="q"><strong>2.</strong> Les chaussures de sécurité (coquille) sont-elles obligatoires dans un atelier de menuiserie ? Justifiez.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <p>- <em>Application de vernis</em> : risque chimique par inhalation de vapeurs et contact cutané → gants nitrile + masque avec filtre vapeurs organiques + lunettes.</p>
+    <p>- <em>Décapant chimique</em> : risque chimique corrosif → gants nitrile + lunettes étanches (goggles) + tablier.</p>
+    <p>- <em>Ponçage</em> : risque d'inhalation de poussières de bois (cancérogènes) + projections → masque FFP2 ou P3 + lunettes de protection.</p>
+    <p>- <em>Colle néoprène en spray</em> : risque chimique par inhalation et projection + inflammable → gants nitrile + lunettes + masque vapeurs organiques + éloignement des flammes.</p>
+    <p>- <em>Produit de traitement du bois</em> : risque chimique par contact et inhalation → gants résistants aux solvants + lunettes + masque respiratoire.</p>
+    <p><strong>2.</strong> Oui, elles sont obligatoires. En atelier, des planches et pièces lourdes peuvent tomber (chocs), des clous ou outils traîner au sol (perforation). La coquille métallique protège les orteils et la semelle anti-perforation protège contre les objets pointus.</p>
+  </div>
+</div>
+
+<!-- EXO 3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Lire une fiche de données de sécurité (FDS) – Phrases H et P</span>
+    <span class="diff diff-1">Facile</span>
+  </div>
+
+  <div class="def"><strong>Phrases H (Hazard)</strong> : décrivent le danger. Ex : H225 = "Liquide et vapeurs très inflammables".<br>
+  <strong>Phrases P (Precautionary)</strong> : indiquent les précautions. Ex : P210 = "Tenir à l'écart de la chaleur, surfaces chaudes, étincelles…"</div>
+
+  <p>Extrait de la FDS d'un nettoyant frein en aérosol :</p>
+
+  <div style="background:#f7f7f7;border:1px solid #ccc;border-radius:6px;padding:12px 16px;font-size:.9em;font-family:monospace;margin:12px 0">
+    <strong>Section 2 – Identification des dangers</strong><br>
+    H222 : Aérosol extrêmement inflammable.<br>
+    H280 : Contient un gaz sous pression ; peut exploser sous l'effet de la chaleur.<br>
+    H336 : Peut provoquer somnolence ou vertiges.<br>
+    <br>
+    <strong>Précautions d'emploi</strong><br>
+    P210 : Tenir à l'écart de la chaleur, des surfaces chaudes, des étincelles, des flammes nues.<br>
+    P261 : Éviter de respirer les vapeurs / aérosols.<br>
+    P410+P412 : Protéger du rayonnement solaire. Ne pas exposer à une température supérieure à 50 °C.<br>
+    P501 : Éliminer le contenu/récipient conformément à la réglementation locale.
+  </div>
+
+  <p class="q"><strong>1.</strong> Identifiez les deux grandes catégories de danger de ce produit (physique et sanitaire).</p>
+  <p class="q"><strong>2.</strong> Quelles précautions concrètes faut-il prendre dans un atelier pour respecter P210 et P261 ?</p>
+  <p class="q"><strong>3.</strong> Selon P501, où jeter la bombe aérosol vide ? Peut-on la mettre à la poubelle ordinaire ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Danger <em>physique</em> : H222 (inflammable) et H280 (gaz sous pression, explosion possible). Danger <em>sanitaire</em> : H336 (somnolence, vertiges par inhalation des vapeurs).</p>
+    <p><strong>2.</strong> Pour P210 : ne jamais utiliser près d'un chalumeau ou d'une soudure en cours ; éteindre toute flamme pilote ; aérer l'atelier. Pour P261 : utiliser dans un espace bien ventilé, porter un masque avec filtre vapeurs organiques si espace confiné.</p>
+    <p><strong>3.</strong> Non, on ne jette pas la bombe à la poubelle ordinaire. Elle doit être déposée dans une filière de collecte spécialisée (déchetterie, bac à déchets dangereux atelier – DDS). Elle peut encore contenir du gaz sous pression et présenter un risque d'explosion dans un incinérateur classique.</p>
+  </div>
+</div>
+
+<!-- ===== SECTION GUIDÉ ===== -->
+<h2>Guidé – Exercices intermédiaires guidés</h2>
+<div class="section-intro">Deux exercices avec étapes fléchées pour vous accompagner dans le raisonnement.</div>
+
+<!-- EXO 4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Sécurité électrique en atelier – Disjoncteur et puissance maximale</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+
+  <div class="retenir"><strong>À retenir :</strong> La puissance maximale dissipable est \( P_{max} = U \times I_{max} \) où \(U\) est la tension du réseau et \(I_{max}\) l'intensité du disjoncteur.</div>
+
+  <p>Un atelier de menuiserie est alimenté en 230 V. Le tableau électrique comporte :</p>
+  <ul>
+    <li>Un disjoncteur général 32 A</li>
+    <li>Un disjoncteur de prise 16 A</li>
+    <li>Un Dispositif Différentiel Résiduel (DDR) 30 mA</li>
+  </ul>
+
+  <div class="methode"><strong>Étape 1 :</strong> Calculer la puissance maximale fournie par la prise 16 A.<br>
+  <strong>Étape 2 :</strong> Déterminer si une meuleuse de 2 000 W peut être branchée seule sur cette prise.<br>
+  <strong>Étape 3 :</strong> Expliquer le rôle du DDR 30 mA.</div>
+
+  <p class="q"><strong>1.</strong> Calculez \( P_{max} \) pour la prise 16 A. (Données : \( U = 230 \text{ V} \), \( I_{max} = 16 \text{ A} \))</p>
+  <p class="q"><strong>2.</strong> Une meuleuse affiche une puissance de 2 000 W. Peut-elle fonctionner sur cette prise seule ? Montrez le calcul.</p>
+  <p class="q"><strong>3.</strong> À quoi sert le DDR 30 mA ? Quel danger évite-t-il ? Pourquoi 30 mA spécifiquement ?</p>
+  <p class="q"><strong>4.</strong> Quelle différence y a-t-il entre un fusible et un disjoncteur ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( P_{max} = U \times I_{max} = 230 \times 16 = 3\,680 \text{ W} \)</p>
+    <p><strong>2.</strong> La meuleuse consomme 2 000 W. Son intensité est \( I = P/U = 2000/230 \approx 8{,}7 \text{ A} \). Comme 8,7 A &lt; 16 A, elle peut fonctionner seule sur cette prise. Le disjoncteur ne déclenchera pas.</p>
+    <p><strong>3.</strong> Le DDR (ou interrupteur différentiel) détecte un courant de fuite (différence entre courant aller et retour). S'il détecte plus de 30 mA de fuite, il coupe l'alimentation. Il protège contre l'électrocution (contact accidentel avec un conducteur sous tension). 30 mA est le seuil en deçà duquel le courant reste généralement non léthal pour un adulte.</p>
+    <p><strong>4.</strong> Le <em>fusible</em> est à usage unique : son filament fond en cas de surintensité et doit être remplacé. Le <em>disjoncteur</em> est réarmable : il coupe le circuit et peut être réenclenché manuellement après suppression de la surcharge.</p>
+  </div>
+</div>
+
+<!-- EXO 5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Niveaux sonores en atelier – Sécurité acoustique</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+
+  <div class="def"><strong>Rappel :</strong> Le niveau sonore se mesure en décibels (dB). L'exposition prolongée à plus de 85 dB sans protection entraîne des dommages auditifs irréversibles. Le seuil de douleur est à 120 dB.</div>
+
+  <p>Relevés de niveaux sonores dans un atelier de menuiserie :</p>
+
+  <table>
+    <thead>
+      <tr><th>Appareil / Situation</th><th>Niveau sonore (dB)</th><th>Durée max. sans protection</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Conversation normale</td><td>60 dB</td><td>Illimitée</td></tr>
+      <tr><td>Ponceuse orbitale</td><td>95 dB</td><td>~ 1 h</td></tr>
+      <tr><td>Scie à format (scie circulaire)</td><td>100 dB</td><td>~ 15 min</td></tr>
+      <tr><td>Défonceuse</td><td>110 dB</td><td>~ 2 min</td></tr>
+      <tr><td>Seuil de douleur</td><td>120 dB</td><td>0</td></tr>
+    </tbody>
+  </table>
+
+  <div class="chart-wrap">
+    <canvas id="chartSon"></canvas>
+  </div>
+
+  <div class="methode"><strong>Étapes :</strong><br>
+  1. Repérer les niveaux dépassant 85 dB.<br>
+  2. Identifier les EPI auditifs appropriés.<br>
+  3. Conclure sur la règlementation.</div>
+
+  <p class="q"><strong>1.</strong> Quels appareils du tableau nécessitent obligatoirement le port de protections auditives ?</p>
+  <p class="q"><strong>2.</strong> Un technicien utilise la défonceuse 30 minutes sans bouchons d'oreilles. Est-ce dangereux ? Justifiez à partir du tableau.</p>
+  <p class="q"><strong>3.</strong> Citez deux types d'EPI auditifs et indiquez lequel est le plus adapté pour une journée complète en atelier.</p>
+  <p class="q"><strong>4.</strong> L'échelle des décibels est logarithmique. Que signifie concrètement le fait que la défonceuse (110 dB) est 10 dB au-dessus de la scie à format (100 dB) ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Ponceuse orbitale (95 dB), scie à format (100 dB) et défonceuse (110 dB) dépassent le seuil de 85 dB → protection obligatoire.</p>
+    <p><strong>2.</strong> Oui, c'est très dangereux. La durée maximale sans protection pour la défonceuse est seulement ~2 minutes. 30 minutes à 110 dB est 15 fois supérieur à la durée recommandée. Cela entraîne des dommages auditifs irréversibles (acouphènes, surdité progressive).</p>
+    <p><strong>3.</strong> Les <em>bouchons d'oreilles mousse</em> (jetables, atténuation ~30 dB) et les <em>casques anti-bruit</em> (atténuation jusqu'à 35 dB). Pour une journée complète, les bouchons mousse sont plus confortables sur la durée et permettent de travailler avec un masque anti-poussières simultanément.</p>
+    <p><strong>4.</strong> Une augmentation de 10 dB correspond à une intensité sonore <em>multipliée par 10</em>. La défonceuse est donc 10 fois plus intense (en termes d'énergie acoustique) que la scie à format. Le ressenti humain perçoit cela comme approximativement deux fois plus fort.</p>
+  </div>
+</div>
+
+<!-- ===== SECTION APPLICATION ===== -->
+<h2>Application – Exercices intermédiaires</h2>
+<div class="section-intro">Deux exercices à résoudre de manière autonome.</div>
+
+<!-- EXO 6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Tri sélectif des déchets en atelier de menuiserie</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+
+  <div class="att">Les déchets dangereux (DDS) ne doivent jamais être mélangés ni jetés dans les ordures ménagères. Ils doivent être collectés séparément et remis à une filière agréée.</div>
+
+  <p>Un technicien menuisier termine une session de travail sur un meuble. Il doit éliminer les déchets suivants :</p>
+  <ol>
+    <li>White-spirit usagé (ayant servi à nettoyer les pinceaux, 0,5 L)</li>
+    <li>Chiffon imbibé de vernis</li>
+    <li>Piles usagées d'une visseuse sans fil</li>
+    <li>Carton d'emballage de quincaillerie</li>
+    <li>Bidon de vernis vide avec résidus secs</li>
+    <li>Flacon de colle néoprène partiellement vide</li>
+    <li>Bouteille d'eau plastique (eau potable)</li>
+  </ol>
+
+  <p class="q"><strong>1.</strong> Classez chaque déchet dans la bonne catégorie : Déchet Dangereux Spécial (DDS), Recyclable non-dangereux, Ordures ménagères ordinaires.</p>
+  <p class="q"><strong>2.</strong> Le white-spirit usagé peut-il être versé dans l'évier ou dans le caniveau ? Expliquez pourquoi c'est interdit et quelles sont les sanctions possibles.</p>
+  <p class="q"><strong>3.</strong> Pourquoi les chiffons imbibés de vernis ou de solvant représentent-ils un danger spécifique (au-delà du danger chimique) ? Quelle précaution de stockage faut-il prendre ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <p><em>DDS (déchets dangereux spéciaux)</em> : white-spirit usagé (solvant), chiffon imbibé de vernis (inflammable + solvant), piles usagées, bidon de vernis vide avec résidus, flacon de colle néoprène.</p>
+    <p><em>Recyclable non-dangereux</em> : carton d'emballage (bac papier/carton), bouteille plastique (bac plastique).</p>
+    <p><em>Ordures ménagères</em> : aucun des déchets listés dans cet exemple.</p>
+    <p><strong>2.</strong> Non. Le white-spirit est classé "dangereux pour l'environnement" et polluant pour les eaux. C'est interdit par la loi (Code de l'environnement). Sanctions : jusqu'à 75 000 € d'amende et 2 ans de prison pour pollution grave. Il doit être déposé en déchetterie ou dans un bac DDS.</p>
+    <p><strong>3.</strong> Les chiffons imbibés de solvants peuvent s'enflammer spontanément par oxydation (auto-inflammation) si entassés. Il faut les stocker dans un bidon métallique fermé hermétiquement avec de l'eau, ou les jeter dans un bac DDS métallique à fermeture automatique. Ne jamais les laisser en tas dans un coin de l'atelier.</p>
+  </div>
+</div>
+
+<!-- EXO 7 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Lasers en atelier – Classification et précautions</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+
+  <div class="def">
+    <strong>Classes de lasers :</strong><br>
+    - Classe 1 : sûr dans des conditions normales (ex : lecteur CD, code-barre).<br>
+    - Classe 2 : faible puissance, visible. Cligner des yeux suffit à se protéger (ex : pointeur rouge &lt;1 mW).<br>
+    - Classe 3R/3B : dangereux si regardé directement (ex : pointeur laser puissant).<br>
+    - Classe 4 : très puissant, peut brûler la peau et enflammer des matériaux (ex : laser de découpe industrielle).
+  </div>
+
+  <p>Un atelier de menuiserie industrielle utilise deux équipements laser :</p>
+  <ul>
+    <li><strong>Équipement A</strong> : traceur laser pour mesure d'équerrage et de planéité, visible rouge, 1 mW, classe 2.</li>
+    <li><strong>Équipement B</strong> : machine de découpe laser pour panneaux de bois et plastique, infrarouge, 80 W, classe 4.</li>
+  </ul>
+
+  <p class="q"><strong>1.</strong> Pour l'équipement A (classe 2) : peut-on regarder le faisceau directement ? Quelle protection est suffisante ?</p>
+  <p class="q"><strong>2.</strong> Pour l'équipement B (classe 4) : quelles protections sont obligatoires ? Citez au moins trois mesures de sécurité.</p>
+  <p class="q"><strong>3.</strong> Pourquoi un laser infrarouge de classe 4 est-il plus dangereux qu'un laser visible de même puissance ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Classe 2 : il ne faut pas regarder volontairement et longuement le faisceau, mais le réflexe naturel de clignement des yeux (&lt;0,25 s) suffit à protéger la rétine pour une exposition accidentelle brève. Aucun EPI spécial n'est requis mais il faut éviter de pointer le laser vers les yeux.</p>
+    <p><strong>2.</strong> Classe 4 (80 W, infrarouge) :</p>
+    <p>- Lunettes de protection laser adaptées à la longueur d'onde IR (certification EN 207).</p>
+    <p>- Signalisation de la zone de danger (panneaux laser, accès interdit).</p>
+    <p>- Cabine ou barrière fermée lors des opérations de découpe.</p>
+    <p>- Formation obligatoire des opérateurs.</p>
+    <p>- Vêtements de protection (le faisceau peut brûler la peau) et dispositif d'aspiration des fumées de découpe.</p>
+    <p><strong>3.</strong> L'infrarouge est invisible : l'œil ne perçoit aucune lumière, donc le réflexe de clignement ne se déclenche pas. La rétine peut être brûlée sans aucun avertissement sensoriel. De plus, la pupille ne se contracte pas en présence d'IR (pas de réaction à l'éblouissement), laissant passer plus d'énergie dans l'œil.</p>
+  </div>
+</div>
+
+<!-- ===== SECTION AVANCÉ ===== -->
+<h2>Contexte professionnel – Exercices avancés</h2>
+<div class="section-intro">Exercices contextualisés dans l'univers de la menuiserie et de l'agencement.</div>
+
+<!-- EXO 8 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Analyse complète d'un vernis en bombe aérosol</span>
+    <span class="diff diff-3">Avancé</span>
+  </div>
+
+  <p>La fiche de données de sécurité (FDS) d'un vernis de finition pour bois en bombe aérosol contient les informations suivantes :</p>
+
+  <div style="background:#f7f7f7;border:1px solid #ccc;border-radius:6px;padding:12px 16px;font-size:.88em;font-family:monospace;margin:12px 0;line-height:1.8">
+    <strong>Composition :</strong> Résines acryliques (40-60%), acétate d'éthyle (solvant, 20-30%), butane/propane (propulseur, 10-15%)<br>
+    <strong>Pictogrammes :</strong> Inflammable (H222), Gaz sous pression (H280), Nocif (H336), Danger env. (H411)<br>
+    <strong>H222</strong> : Aérosol extrêmement inflammable.<br>
+    <strong>H336</strong> : Peut provoquer somnolence ou vertiges.<br>
+    <strong>H411</strong> : Toxique pour les organismes aquatiques, entraîne des effets néfastes à long terme.<br>
+    <strong>P210</strong> : Tenir à l'écart de la chaleur et des flammes.<br>
+    <strong>P271</strong> : Utiliser seulement en plein air ou dans un endroit bien ventilé.<br>
+    <strong>P273</strong> : Éviter le rejet dans l'environnement.<br>
+    <strong>Stockage :</strong> Local frais (&lt; 50°C), ventilé, à l'écart des sources d'ignition. Armoire pour produits inflammables.<br>
+    <strong>Élimination :</strong> Filière DDS agréée. Ne pas percer la bombe même vide.
+  </div>
+
+  <p class="q"><strong>1.</strong> Listez tous les pictogrammes GHS de ce produit et expliquez le danger correspondant à chacun.</p>
+  <p class="q"><strong>2.</strong> Établissez la liste complète des EPI nécessaires pour utiliser ce produit en atelier de menuiserie.</p>
+  <p class="q"><strong>3.</strong> Où stocker ce produit dans l'atelier ? Quelles conditions particulières faut-il respecter ?</p>
+  <p class="q"><strong>4.</strong> En fin d'utilisation, la bombe est vide. Décrivez la procédure d'élimination correcte.</p>
+  <p class="q"><strong>5.</strong> Un apprenti utilise ce vernis à l'intérieur de l'atelier, fenêtres fermées, à proximité d'une scie circulaire dont le moteur fait des étincelles. Identifiez TOUS les risques et proposez les corrections.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <p>- Inflammable (H222) : l'aérosol s'enflamme très facilement.</p>
+    <p>- Gaz sous pression (H280) : risque d'explosion si exposé à la chaleur ou au perçage.</p>
+    <p>- Nocif (H336) : inhalation des vapeurs provoque somnolence et vertiges.</p>
+    <p>- Danger environnement (H411) : toxique pour les organismes aquatiques (ne pas rejeter dans les eaux).</p>
+    <p><strong>2.</strong> EPI nécessaires : gants nitrile (protection chimique), lunettes de protection (projections), masque respiratoire avec filtre vapeurs organiques (A1 ou A2), tablier résistant aux solvants, chaussures de sécurité (toujours en atelier).</p>
+    <p><strong>3.</strong> Stockage dans une armoire métallique ventilée pour produits inflammables, à l'écart de toute source d'ignition (flamme, étincelle, résistance chauffante), température inférieure à 50 °C, local ventilé. Quantités minimales en atelier (le reste dans un local de stockage extérieur ou séparé).</p>
+    <p><strong>4.</strong> La bombe vide contient encore du gaz propulseur. Il ne faut jamais la percer ni la brûler. Elle doit être déposée dans le bac à DDS de l'atelier pour collecte par un prestataire agréé. Ne jamais mettre dans la poubelle ordinaire (risque d'explosion dans les bennes à ordures).</p>
+    <p><strong>5.</strong> Risques identifiés :</p>
+    <p>- <em>Explosion/incendie</em> : les vapeurs inflammables (H222) s'accumulent dans l'espace fermé et peuvent s'enflammer au contact des étincelles de la scie. C'est le risque le plus grave.</p>
+    <p>- <em>Intoxication</em> : les vapeurs (H336) s'accumulent en espace confiné → risque d'évanouissement.</p>
+    <p>Corrections : aérer l'atelier (ouvrir toutes les ouvertures), éteindre et condamner toute machine électrique avant utilisation du vernis, ne jamais utiliser en espace confiné, utiliser les EPI complets, respecter la phrase P271.</p>
+  </div>
+</div>
+
+<!-- EXO 9 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Analyse d'accident – Technicien menuisier et décapant pour bois</span>
+    <span class="diff diff-3">Avancé</span>
+  </div>
+
+  <div class="attention"><strong>Situation accidentelle :</strong> M. Martin, technicien menuisier, utilise un décapant pour bois en gel (contenant du dichlorométhane, CMR : cancérogène, mutagène, reprotoxique) pour éliminer une ancienne couche de laque sur un meuble. Il travaille sans gants, sans lunettes, sans masque, dans un atelier peu ventilé. Il reçoit des projections de produit sur les mains et dans les yeux. Plusieurs heures d'exposition aux vapeurs lui causent des maux de tête intenses.</div>
+
+  <p class="q"><strong>1.</strong> Identifiez les EPI qui manquaient et précisez le danger évité par chacun.</p>
+  <p class="q"><strong>2.</strong> Quelles sont les conséquences à court terme (immédiate) des projections sur les yeux et sur les mains ?</p>
+  <p class="q"><strong>3.</strong> Quelles sont les conséquences à long terme d'une exposition régulière à un produit CMR ?</p>
+  <p class="q"><strong>4.</strong> Décrivez le protocole de premiers secours en cas de projection oculaire d'un produit chimique.</p>
+  <p class="q"><strong>5.</strong> Proposez une procédure de travail correcte et complète pour l'utilisation de ce décapant en atelier.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> EPI manquants :</p>
+    <p>- <em>Gants résistants aux solvants chlorés</em> (néoprène épais) : protection contre l'absorption cutanée du dichlorométhane (qui passe rapidement dans le sang via la peau).</p>
+    <p>- <em>Lunettes de protection étanches (goggles)</em> : protection contre les projections oculaires (risque de brûlure chimique grave).</p>
+    <p>- <em>Masque respiratoire à cartouche A2 (vapeurs organiques)</em> : protection contre l'inhalation de vapeurs toxiques et CMR.</p>
+    <p>- <em>Tablier résistant aux solvants</em> : protection des vêtements et de la peau du tronc.</p>
+    <p><strong>2.</strong> Court terme : projection oculaire → brûlure chimique de la cornée, douleur intense, larmoiement, risque de lésions permanentes sans rinçage immédiat. Projection sur les mains → irritation, brûlure cutanée, absorption rapide du solvant à travers la peau.</p>
+    <p><strong>3.</strong> Long terme (CMR) : le dichlorométhane est classé cancérogène possible (groupe 2A CIRC). Exposition régulière → risque de cancer du foie, lésions du système nerveux central, effets sur la reproduction (reprotoxique). Les effets CMR n'ont pas de seuil : toute exposition augmente le risque.</p>
+    <p><strong>4.</strong> Protocole de premiers secours pour projection oculaire :</p>
+    <p>1. Appeler ou faire appeler les secours (15 ou 18 ou 112).</p>
+    <p>2. Rincer IMMÉDIATEMENT à la fontaine oculaire (eau courante propre) pendant au moins 15 à 20 minutes, les yeux grands ouverts.</p>
+    <p>3. Ne pas frotter les yeux.</p>
+    <p>4. Consulter un médecin ou service d'urgences ophtalmiques en présentant la FDS du produit.</p>
+    <p><strong>5.</strong> Procédure correcte :</p>
+    <p>- Lire la FDS avant utilisation.</p>
+    <p>- Mettre tous les EPI : gants néoprène, lunettes étanches, masque A2, tablier, chaussures de sécurité.</p>
+    <p>- Travailler dans un espace ventilé (hotte ou porte/fenêtre ouvertes, ventilateur en marche).</p>
+    <p>- Appliquer le gel avec un pinceau (ne pas verser directement).</p>
+    <p>- Ne jamais manger, boire ou se toucher le visage pendant le travail.</p>
+    <p>- En fin de tâche : jeter les déchets (chiffons souillés, restes de gel) dans les bacs DDS, se laver soigneusement les mains.</p>
+  </div>
+</div>
+
+</div><!-- fin .c -->
+
+<script>
+function toggle(btn){
+  var c=btn.nextElementSibling;
+  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
+  else{c.style.display='block';btn.textContent='Masquer la correction';}
+}
+
+// Chart.js : niveaux sonores
+const ctxSon = document.getElementById('chartSon').getContext('2d');
+new Chart(ctxSon, {
+  type: 'bar',
+  data: {
+    labels: ['Conversation (60 dB)', 'Ponceuse (95 dB)', 'Scie à format (100 dB)', 'Défonceuse (110 dB)', 'Seuil douleur (120 dB)'],
+    datasets: [{
+      label: 'Niveau sonore (dB)',
+      data: [60, 95, 100, 110, 120],
+      backgroundColor: [
+        'rgba(107,142,35,0.7)',
+        'rgba(255,165,0,0.7)',
+        'rgba(255,100,0,0.7)',
+        'rgba(220,50,50,0.8)',
+        'rgba(180,0,0,0.9)'
+      ],
+      borderColor: ['#6b8e23','#ffa500','#ff6400','#dc3232','#b40000'],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: 'Niveaux sonores en atelier de menuiserie (dB)', font: { size: 14 } },
+      annotation: {}
+    },
+    scales: {
+      x: {
+        min: 0, max: 130,
+        title: { display: true, text: 'Niveau sonore (dB)' }
+      }
+    }
+  }
+});
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – Transport par un fluide en mouvement – Cours</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:var(--t);margin:18px 0 8px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#fdf4ff;border:2px solid var(--p);border-radius:10px;padding:18px 22px;margin:22px 0}
+.retenir strong{color:var(--p);font-size:1.05em}
+.retenir ul{margin:8px 0 0 0;padding-left:20px}
+.exo{background:#f0fff4;border:1px solid #b7e3c8;border-radius:8px;padding:14px 18px;margin:14px 0}
+.exo summary{font-weight:700;cursor:pointer;color:var(--s);margin-bottom:6px}
+.exo details[open] summary{margin-bottom:10px}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#ede9fe;color:#5b21b6}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.formule-box{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #ddd6fe}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.svg-wrap{text-align:center;margin:18px 0}
+.ticcer-badge{display:inline-block;background:#1e3a5f;color:#fff;font-size:.78em;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.05em;margin-bottom:10px}
+.situation{background:#eff6ff;border-left:5px solid #3b82f6;padding:16px 20px;border-radius:0 10px 10px 0;margin:20px 0}
+.situation strong{color:#1d4ed8}
+/* Chart */
+.chart-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px;margin:20px 0}
+.chart-wrap canvas{max-height:320px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.btn-row button{padding:6px 14px;border:2px solid var(--p);border-radius:6px;background:#fff;color:var(--p);font-weight:600;cursor:pointer;font-size:.88em;transition:all .2s}
+.btn-row button.active,.btn-row button:hover{background:var(--p);color:#fff}
+/* Simulation interactive */
+.anim-wrap{background:#1a202c;border-radius:10px;padding:16px;margin:20px 0;text-align:center}
+.anim-wrap canvas{border-radius:6px;max-width:100%}
+.slider-row{display:flex;align-items:center;gap:12px;margin:8px 0;flex-wrap:wrap}
+.slider-row label{font-size:.88em;color:#e2e8f0;min-width:140px}
+.slider-row input[type=range]{flex:1;min-width:120px;accent-color:var(--p)}
+.value-badge{background:var(--p);color:#fff;font-size:.82em;font-weight:700;padding:2px 10px;border-radius:12px;min-width:60px;text-align:center}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.info-card{background:#eef2f7;border-radius:8px;padding:12px;text-align:center}
+.info-card .val{font-size:1.4em;font-weight:700;color:var(--p)}
+.info-card .lbl{font-size:.78em;color:#718096;margin-top:2px}
+/* Bilan two-col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.two-col .col{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px}
+.two-col .col h3{margin:0 0 8px;font-size:.95em;color:var(--p)}
+.two-col .col ul{margin:0;padding-left:18px;font-size:.9em}
+/* Nav footer */
+.nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:18px;border-top:2px solid #e2e8f0;flex-wrap:wrap;gap:10px}
+.nav-footer a{text-decoration:none;color:var(--p);font-weight:700;font-size:.88em;padding:7px 16px;border:2px solid var(--p);border-radius:8px;transition:all .2s}
+.nav-footer a:hover{background:var(--p);color:#fff}
+@media(max-width:600px){.two-col,.info-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="pc-term-iccer.html" class="nb">&#8592; RETOUR SOMMAIRE</a>
+<header>
+  <h1>Chapitre 9 &#8211; D&#233;crire le transport de masse et de volume par un fluide en mouvement</h1>
+  <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique &#8211; M&#233;canique des fluides</p>
+</header>
+
+<!-- ============================================================ -->
+<!-- SITUATION ICCER -->
+<!-- ============================================================ -->
+<div class="situation">
+  <span class="ticcer-badge">ICCER &#8212; Mise en situation</span><br>
+  <strong>Dimensionner un r&#233;seau de distribution d'eau chaude sanitaire</strong><br>
+  Dans un b&#226;timent tertiaire, vous devez dimensionner le r&#233;seau ECS (Eau Chaude Sanitaire).
+  La chaudière produit un d&#233;bit volumique <strong>Q<sub>v</sub> = 1,8 m&#179;/h</strong>.
+  Le r&#233;seau se divise en deux branches : une canalisation principale (DN40) et une d&#233;rivation (DN25).
+  Pour chaque tron&#231;on, il faut calculer la vitesse d'&#233;coulement afin de v&#233;rifier qu'elle reste
+  entre 0,5 et 1,5 m/s (r&#232;gle de bonne pratique pour limiter les bruits et l'&#233;rosion).
+  <br>Les notions de <strong>d&#233;bit volumique</strong>, <strong>d&#233;bit massique</strong> et <strong>&#233;quation de continuit&#233;</strong>
+  vous permettront d'effectuer ces calculs avec m&#233;thode.
+</div>
+
+<!-- ============================================================ -->
+<!-- 1. Objectifs -->
+<!-- ============================================================ -->
+<div class="objectifs">
+  <strong>Je vais apprendre &#224; :</strong>
+  <ul>
+    <li>Mesurer exp&#233;rimentalement le d&#233;bit en masse ou en volume d'un fluide en mouvement</li>
+    <li>Calculer une vitesse moyenne d'&#233;coulement &#224; partir du d&#233;bit volumique et de la section</li>
+    <li>Exploiter la conservation du d&#233;bit en masse pour comparer les vitesses d'&#233;coulement en diff&#233;rents points d'une canalisation</li>
+    <li>Distinguer d&#233;bit volumique et d&#233;bit massique, et savoir les relier via la masse volumique</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- 2. Debit volumique -->
+<!-- ============================================================ -->
+<h2>1. D&#233;bit volumique Q<sub>v</sub></h2>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition</span><br>
+  Le <strong>d&#233;bit volumique Q<sub>v</sub></strong> d'un fluide en mouvement est le <strong>volume de fluide qui traverse une section droite de la canalisation par unit&#233; de temps</strong>.
+  <ul>
+    <li>Plus le d&#233;bit est grand, plus le fluide s'&#233;coule vite ou en grande quantit&#233;.</li>
+    <li>Le d&#233;bit volumique se mesure &#224; l'aide d'un <strong>d&#233;bitmètre</strong> ou par la m&#233;thode <em>volum&#233;trique</em> (mesure du volume recueilli pendant une dur&#233;e t).</li>
+  </ul>
+</div>
+
+<div class="formule-box">
+  \[ Q_v = \frac{V}{t} \]
+  <small>Q<sub>v</sub> en m&#179;/s &nbsp;|&nbsp; V en m&#179; (volume &#233;coul&#233;) &nbsp;|&nbsp; t en s (dur&#233;e d'&#233;coulement)</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Lien avec la section et la vitesse</span><br>
+  Si le fluide s'&#233;coule avec une vitesse moyenne \(v\) dans une canalisation de section droite \(S\),
+  le volume qui traverse la section pendant \(\Delta t\) est le <em>cylindre</em> de base \(S\) et de longueur \(v \cdot \Delta t\) :
+  \[ \Delta V = S \times v \times \Delta t \]
+  D'o&#249; :
+  \[ \boxed{Q_v = S \times v} \]
+  <small>Q<sub>v</sub> en m&#179;/s &nbsp;|&nbsp; S en m&#178; (section droite de passage) &nbsp;|&nbsp; v en m/s (vitesse moyenne d'&#233;coulement)</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Unit&#233;s usuelles du d&#233;bit volumique</span>
+  <table>
+    <tr><th>Unit&#233;</th><th>Symbole</th><th>Conversion</th></tr>
+    <tr><td>M&#232;tre cube par seconde</td><td>m&#179;/s</td><td>unit&#233; SI</td></tr>
+    <tr><td>Litre par seconde</td><td>L/s</td><td>1 L/s = 10<sup>&#8722;3</sup> m&#179;/s</td></tr>
+    <tr><td>Litre par minute</td><td>L/min</td><td>1 L/min = 1/60 L/s &#8776; 1,67 &#215; 10<sup>&#8722;5</sup> m&#179;/s</td></tr>
+    <tr><td>M&#232;tre cube par heure</td><td>m&#179;/h</td><td>1 m&#179;/h &#8776; 2,78 &#215; 10<sup>&#8722;4</sup> m&#179;/s</td></tr>
+  </table>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention aux unit&#233;s</span><br>
+  Avant tout calcul, convertir les volumes en m&#179; et les dur&#233;es en secondes pour obtenir Q<sub>v</sub> en m&#179;/s.
+  Pour passer de L &#224; m&#179; : diviser par 1&#160;000.
+</div>
+
+<!-- ============================================================ -->
+<!-- 3. Debit massique -->
+<!-- ============================================================ -->
+<h2>2. D&#233;bit massique Q<sub>m</sub></h2>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition</span><br>
+  Le <strong>d&#233;bit massique Q<sub>m</sub></strong> est la <strong>masse de fluide qui traverse une section par unit&#233; de temps</strong>.
+  Il est utilis&#233; notamment lorsque la masse du fluide transport&#233; est importante (carburant, gaz, mati&#232;re premi&#232;re...).
+</div>
+
+<div class="formule-box">
+  \[ Q_m = \frac{m}{t} \]
+  <small>Q<sub>m</sub> en kg/s &nbsp;|&nbsp; m en kg (masse transport&#233;e) &nbsp;|&nbsp; t en s (dur&#233;e d'&#233;coulement)</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Lien entre Q<sub>m</sub> et Q<sub>v</sub></span><br>
+  La masse volumique \(\rho\) (en kg/m&#179;) relie la masse au volume : \(m = \rho \times V\).
+  En divisant par la dur&#233;e :
+  \[ \boxed{Q_m = \rho \times Q_v} \]
+  <small>&#961; en kg/m&#179; &nbsp;|&nbsp; Q<sub>v</sub> en m&#179;/s &nbsp;|&nbsp; Q<sub>m</sub> en kg/s</small>
+  <br>
+  <em>Exemples de masses volumiques :</em> eau : 1&#160;000 kg/m&#179; ; eau glycol&#233;e 30 % (PAC) : &#8776; 1&#160;040 kg/m&#179; ; huile hydraulique : &#8776; 870 kg/m&#179; ; air &#224; 20&#160;&#176;C : &#8776; 1,2 kg/m&#179;.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple &#8211; Circuit d'eau glycol&#233;e (PAC)</span><br>
+  Une pompe &#224; chaleur utilise un circuit primaire contenant de l'eau glycol&#233;e (\(\rho = 1040\) kg/m&#179;)
+  avec un d&#233;bit volumique \(Q_v = 2{,}0 \times 10^{-3}\) m&#179;/s.
+  \[ Q_m = 1040 \times 2{,}0 \times 10^{-3} = \mathbf{2{,}08 \text{ kg/s}} \]
+  En 1 heure : masse transport&#233;e = 2,08 &#215; 3&#160;600 = 7&#160;488 kg ≈ <strong>7,5 tonnes</strong>.
+</div>
+
+<!-- ============================================================ -->
+<!-- 4. Schema SVG – canalisation cylindrique -->
+<!-- ============================================================ -->
+<h2>3. Repr&#233;sentation du volume &#233;l&#233;mentaire &#233;coul&#233;</h2>
+
+<p>
+  Pendant un intervalle de temps \(\Delta t\), un fluide de vitesse moyenne \(v\) dans une canalisation de section \(S\)
+  parcourt une distance \(l = v \cdot \Delta t\).
+  Le volume &#233;l&#233;mentaire qui traverse la section est donc :
+  \[ \Delta V = S \times v \times \Delta t \]
+</p>
+
+<div class="svg-wrap">
+  <svg width="620" height="200" viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tubeGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c4b5fd"/>
+        <stop offset="40%" stop-color="#ede9fe"/>
+        <stop offset="100%" stop-color="#c4b5fd"/>
+      </linearGradient>
+      <linearGradient id="volGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#a7f3d0"/>
+        <stop offset="50%" stop-color="#d1fae5"/>
+        <stop offset="100%" stop-color="#a7f3d0"/>
+      </linearGradient>
+      <marker id="arr-v" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#6f42c1"/>
+      </marker>
+      <marker id="arr-b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#2d3748"/>
+      </marker>
+      <marker id="arr-b2" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+        <polygon points="8,0 0,4 8,8" fill="#2d3748"/>
+      </marker>
+      <marker id="arr-g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#2f855a"/>
+      </marker>
+      <marker id="arr-g2" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+        <polygon points="8,0 0,4 8,8" fill="#2f855a"/>
+      </marker>
+    </defs>
+
+    <!-- Corps du tube -->
+    <rect x="60" y="60" width="500" height="80" fill="url(#tubeGrad)" rx="2"/>
+    <!-- Parois sup et inf -->
+    <rect x="60" y="57" width="500" height="7" fill="#9061e0" rx="2"/>
+    <rect x="60" y="136" width="500" height="7" fill="#9061e0" rx="2"/>
+    <!-- Ellipse gauche (entree) -->
+    <ellipse cx="60" cy="100" rx="12" ry="43" fill="#c4b5fd" stroke="#6f42c1" stroke-width="1.5"/>
+    <!-- Ellipse droite (sortie) -->
+    <ellipse cx="560" cy="100" rx="12" ry="43" fill="#c4b5fd" stroke="#6f42c1" stroke-width="1.5"/>
+
+    <!-- Volume elementaire DeltaV (rectangle vert hachuré) -->
+    <rect x="260" y="64" width="120" height="72" fill="url(#volGrad)" opacity="0.85"/>
+    <rect x="260" y="64" width="120" height="72" fill="none" stroke="#2f855a" stroke-width="2" stroke-dasharray="5,3"/>
+    <!-- Face gauche du volume elementaire -->
+    <ellipse cx="260" cy="100" rx="10" ry="36" fill="#a7f3d0" stroke="#2f855a" stroke-width="1.5"/>
+    <!-- Face droite -->
+    <ellipse cx="380" cy="100" rx="10" ry="36" fill="#6ee7b7" stroke="#2f855a" stroke-width="1.5"/>
+    <!-- Label DeltaV -->
+    <text x="320" y="97" font-size="12" fill="#065f46" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">&#916;V</text>
+    <text x="320" y="113" font-size="11" fill="#065f46" font-family="Segoe UI,sans-serif" text-anchor="middle">= S&#183;v&#183;&#916;t</text>
+
+    <!-- Fleche vitesse v (gauche du volume) -->
+    <line x1="90" y1="100" x2="240" y2="100" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arr-v)"/>
+    <text x="162" y="93" font-size="13" fill="#6f42c1" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">v</text>
+
+    <!-- Fleche vitesse v (droite du volume) -->
+    <line x1="400" y1="100" x2="530" y2="100" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arr-v)"/>
+    <text x="466" y="93" font-size="13" fill="#6f42c1" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">v</text>
+
+    <!-- Double fleche longueur v*Dt -->
+    <line x1="260" y1="156" x2="380" y2="156" stroke="#2d3748" stroke-width="1.5" marker-end="url(#arr-b)" marker-start="url(#arr-b2)"/>
+    <text x="320" y="172" font-size="12" fill="#2d3748" font-family="Segoe UI,sans-serif" text-anchor="middle">l = v &#183; &#916;t</text>
+
+    <!-- Double fleche section S -->
+    <line x1="28" y1="64" x2="28" y2="136" stroke="#2f855a" stroke-width="1.5" marker-end="url(#arr-g)" marker-start="url(#arr-g2)"/>
+    <text x="14" y="104" font-size="13" fill="#2f855a" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">S</text>
+
+    <!-- Label Qv en haut -->
+    <text x="310" y="36" font-size="13" fill="#2d3748" font-family="Segoe UI,sans-serif" text-anchor="middle">Q<tspan font-style="italic" font-size="11" dy="2">v</tspan><tspan dy="-2"> = S &#215; v</tspan></text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px">
+    En un temps <strong>&#916;t</strong>, le volume de fluide traversant la section <strong>S</strong> est <strong>&#916;V = S &#215; v &#215; &#916;t</strong>,
+    d'o&#249; <strong>Q<sub>v</sub> = &#916;V / &#916;t = S &#215; v</strong>.
+  </p>
+</div>
+
+<!-- ============================================================ -->
+<!-- 5. Conservation du debit – equation de continuite -->
+<!-- ============================================================ -->
+<h2>4. Conservation du d&#233;bit &#8211; &#233;quation de continuit&#233;</h2>
+
+<div class="prop">
+  <span class="label label-prop">D&#233;bit en masse constant en tout point</span><br>
+  Dans un <strong>&#233;coulement permanent</strong> (r&#233;gime &#233;tabli, sans accumulation ni vidange), le d&#233;bit en masse est <strong>le m&#234;me en tout point de la canalisation</strong>, quelle que soit la section :
+  \[ Q_{m,1} = Q_{m,2} \]
+  Pour un fluide <strong>incompressible</strong> (liquide : eau, huile), la masse volumique est constante (\(\rho = \text{cst}\)),
+  donc le d&#233;bit volumique est &#233;galement conserv&#233; :
+  \[ \boxed{Q_v = S_1 \times v_1 = S_2 \times v_2} \]
+  C'est l'<strong>&#233;quation de continuit&#233;</strong>.
+</div>
+
+<div class="att">
+  <span class="label label-att">Cons&#233;quence importante</span><br>
+  Si la section de la canalisation <strong>diminue</strong> (S<sub>2</sub> &lt; S<sub>1</sub>), alors la vitesse <strong>augmente</strong> (v<sub>2</sub> &gt; v<sub>1</sub>).
+  Si la section <strong>augmente</strong>, la vitesse <strong>diminue</strong>.
+  <br><em>C'est le ph&#233;nom&#232;ne que l'on observe en pin&#231;ant un tuyau d'arrosage : le jet est plus rapide &#224; la sortie r&#233;tr&#233;cie.</em>
+</div>
+
+<!-- Schema SVG – canalisation qui se retrecit -->
+<div class="svg-wrap">
+  <svg width="620" height="215" viewBox="0 0 620 215" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tG1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c4b5fd"/>
+        <stop offset="45%" stop-color="#ede9fe"/>
+        <stop offset="100%" stop-color="#c4b5fd"/>
+      </linearGradient>
+      <linearGradient id="tG2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#bfdbfe"/>
+        <stop offset="45%" stop-color="#eff6ff"/>
+        <stop offset="100%" stop-color="#bfdbfe"/>
+      </linearGradient>
+      <marker id="av1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#6f42c1"/>
+      </marker>
+      <marker id="av2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#1d4ed8"/>
+      </marker>
+      <marker id="as1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <polygon points="0,0 8,4 0,8" fill="#2d3748"/>
+      </marker>
+      <marker id="as2" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+        <polygon points="8,0 0,4 8,8" fill="#2d3748"/>
+      </marker>
+    </defs>
+
+    <!-- Paroi superieure section 1 (large) -->
+    <polygon points="40,38 270,38 320,72 320,79 270,45 40,45" fill="#9061e0"/>
+    <!-- Paroi inferieure section 1 -->
+    <polygon points="40,162 270,162 320,128 320,135 270,169 40,169" fill="#9061e0"/>
+    <!-- Corps section 1 -->
+    <polygon points="40,45 270,45 320,79 320,128 270,162 40,162" fill="url(#tG1)"/>
+
+    <!-- Paroi superieure section 2 (etroite) -->
+    <rect x="320" y="72" width="260" height="7" fill="#3b82f6"/>
+    <!-- Paroi inferieure section 2 -->
+    <rect x="320" y="128" width="260" height="7" fill="#3b82f6"/>
+    <!-- Corps section 2 -->
+    <rect x="320" y="79" width="260" height="49" fill="url(#tG2)"/>
+
+    <!-- Ellipse entree gauche -->
+    <ellipse cx="40" cy="103" rx="11" ry="62" fill="#c4b5fd" stroke="#6f42c1" stroke-width="1.5"/>
+    <!-- Ellipse sortie droite -->
+    <ellipse cx="580" cy="103" rx="9" ry="28" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+
+    <!-- Fleche v1 (section large) – courte car fluide lent -->
+    <line x1="65" y1="103" x2="180" y2="103" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#av1)"/>
+    <text x="120" y="96" font-size="13" fill="#6f42c1" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">v&#8321;</text>
+
+    <!-- Fleche v2 (section etroite) – longue car fluide rapide -->
+    <line x1="345" y1="103" x2="554" y2="103" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#av2)"/>
+    <text x="452" y="96" font-size="13" fill="#1d4ed8" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">v&#8322; &gt; v&#8321;</text>
+
+    <!-- Double fleche S1 (gauche) -->
+    <line x1="14" y1="45" x2="14" y2="162" stroke="#6f42c1" stroke-width="1.5" marker-end="url(#as1)" marker-start="url(#as2)"/>
+    <text x="8" y="108" font-size="13" fill="#6f42c1" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">S&#8321;</text>
+
+    <!-- Double fleche S2 (droite) -->
+    <line x1="600" y1="79" x2="600" y2="128" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#as1)" marker-start="url(#as2)"/>
+    <text x="614" y="108" font-size="13" fill="#1d4ed8" font-weight="700" font-family="Segoe UI,sans-serif" text-anchor="middle">S&#8322;</text>
+
+    <!-- Zone convergente – label -->
+    <text x="300" y="97" font-size="11" fill="#718096" font-family="Segoe UI,sans-serif" text-anchor="middle" font-style="italic">&#9654;</text>
+
+    <!-- Legende bas -->
+    <text x="310" y="200" font-size="12" fill="#2d3748" font-family="Segoe UI,sans-serif" text-anchor="middle">
+      S&#8322; &lt; S&#8321; &#160;&#8658;&#160; v&#8322; &gt; v&#8321; &#160;&#160;(Q<tspan font-style="italic" font-size="10">v</tspan><tspan> conserv&#233;)</tspan>
+    </text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px">
+    Le fluide acc&#233;l&#232;re dans la section r&#233;tr&#233;cie : <strong>S<sub>1</sub> &#215; v<sub>1</sub> = S<sub>2</sub> &#215; v<sub>2</sub></strong>.
+    Si S<sub>2</sub> &lt; S<sub>1</sub>, alors v<sub>2</sub> &gt; v<sub>1</sub>.
+  </p>
+</div>
+
+<div class="formule-box">
+  \[ Q_v = S_1 \times v_1 = S_2 \times v_2 \]
+  <small>&#201;quation de continuit&#233; &#8211; valable pour un fluide incompressible en &#233;coulement permanent</small>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple &#8211; tuyau qui se r&#233;tr&#233;cit</span><br>
+  Un circuit hydraulique a une section \(S_1 = 4{,}0 \times 10^{-3}\) m&#178; o&#249; le fluide circule &#224; \(v_1 = 0{,}5\) m/s.
+  La canalisation se r&#233;tr&#233;cit &#224; \(S_2 = 1{,}0 \times 10^{-3}\) m&#178;.
+  <br>Conservation du d&#233;bit volumique :
+  \[ Q_v = S_1 \times v_1 = 4{,}0 \times 10^{-3} \times 0{,}5 = 2{,}0 \times 10^{-3} \text{ m}^3/\text{s} \]
+  \[ v_2 = \frac{Q_v}{S_2} = \frac{2{,}0 \times 10^{-3}}{1{,}0 \times 10^{-3}} = \mathbf{2{,}0 \text{ m/s}} \]
+  La vitesse est multipli&#233;e par 4 quand la section est divis&#233;e par 4.
+</div>
+
+<!-- ============================================================ -->
+<!-- GRAPHIQUE INTERACTIF – Qv => vitesse dans différents diamètres -->
+<!-- ============================================================ -->
+<h2>5. Simulateur &#8211; Vitesse en fonction du d&#233;bit et du diam&#232;tre</h2>
+
+<p>
+  Pour un d&#233;bit volumique donn&#233;, la vitesse d'&#233;coulement d&#233;pend de la section (donc du diam&#232;tre) de la canalisation.
+  Ajustez le d&#233;bit et observez comment varie la vitesse dans diff&#233;rentes DN (diam&#232;tres nominaux) utilis&#233;es en ICCER.
+</p>
+
+<div class="chart-wrap">
+  <div class="slider-row">
+    <label>D&#233;bit Q<sub>v</sub> (L/min)</label>
+    <input type="range" id="slQv" min="5" max="200" value="60" oninput="updateFlowChart()">
+    <span class="value-badge" id="dispQv">60 L/min</span>
+  </div>
+  <canvas id="flowChart" height="260"></canvas>
+  <div class="info-grid" id="flowInfo" style="margin-top:12px">
+    <div class="info-card"><div class="val" id="fc-qv">—</div><div class="lbl">Q<sub>v</sub> (m&#179;/s)</div></div>
+    <div class="info-card"><div class="val" id="fc-min">—</div><div class="lbl">v min (plus grande DN)</div></div>
+    <div class="info-card"><div class="val" id="fc-max">—</div><div class="lbl">v max (plus petite DN)</div></div>
+  </div>
+  <p style="font-size:.82em;color:#718096;margin-top:4px;text-align:center">
+    Zone verte : vitesse recommand&#233;e 0,5&#8211;1,5 m/s. Zone rouge : vitesse trop &#233;lev&#233;e (bruit, &#233;rosion).
+  </p>
+</div>
+
+<script>
+(function(){
+  const diameters = [15,20,25,32,40,50]; // mm
+  const colors = ['#e53e3e','#dd6b20','#d69e2e','#38a169','#3182ce','#805ad5'];
+  const ctx = document.getElementById('flowChart').getContext('2d');
+
+  function velocity(Qv_m3s, d_mm){
+    const r = d_mm/2/1000;
+    const S = Math.PI*r*r;
+    return Qv_m3s/S;
+  }
+
+  const chart = new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels: diameters.map(d=>'DN'+d),
+      datasets:[{
+        label:'Vitesse (m/s)',
+        data: diameters.map(d=>velocity(60/60000,d)),
+        backgroundColor: colors,
+        borderColor: colors,
+        borderWidth:1,
+        borderRadius:5
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{display:false},
+        annotation:{},
+        tooltip:{callbacks:{label:ctx=>`v = ${ctx.parsed.y.toFixed(2)} m/s`}}
+      },
+      scales:{
+        y:{
+          title:{display:true,text:'Vitesse (m/s)'},
+          min:0,
+          grid:{color:'rgba(0,0,0,.06)'},
+          // Fond vert entre 0.5 et 1.5
+          ticks:{color:'#4a5568'}
+        },
+        x:{grid:{display:false},ticks:{color:'#4a5568'}}
+      }
+    }
+  });
+
+  window.updateFlowChart = function(){
+    const Qv_Lmin = +document.getElementById('slQv').value;
+    const Qv_m3s = Qv_Lmin/60000;
+    document.getElementById('dispQv').textContent = Qv_Lmin+' L/min';
+
+    const velocities = diameters.map(d=>velocity(Qv_m3s,d));
+    // Color: red if v>1.5, orange if 1.0<v<1.5, green if 0.5<v<1.0, blue if v<0.5
+    const bgColors = velocities.map(v=>{
+      if(v>2.0) return '#c53030';
+      if(v>1.5) return '#dd6b20';
+      if(v>0.5) return '#38a169';
+      return '#3182ce';
+    });
+
+    chart.data.datasets[0].data = velocities;
+    chart.data.datasets[0].backgroundColor = bgColors;
+    chart.data.datasets[0].borderColor = bgColors;
+    chart.update();
+
+    document.getElementById('fc-qv').textContent = Qv_m3s.toExponential(2)+' m³/s';
+    document.getElementById('fc-min').textContent = velocities[velocities.length-1].toFixed(2)+' m/s';
+    document.getElementById('fc-max').textContent = velocities[0].toFixed(2)+' m/s';
+  };
+
+  updateFlowChart();
+})();
+</script>
+
+<!-- ============================================================ -->
+<!-- ANIMATION CANVAS – Particules équation de continuité -->
+<!-- ============================================================ -->
+<h2>6. Animation &#8211; &#201;quation de continuit&#233; (visualisation des particules)</h2>
+
+<p>
+  L'animation ci-dessous repr&#233;sente des particules de fluide s'&#233;coulant dans une canalisation qui se r&#233;tr&#233;cit.
+  Observez l'acc&#233;l&#233;ration des particules dans la section plus &#233;troite : c'est la cons&#233;quence directe de l'&#233;quation de continuit&#233;.
+</p>
+
+<div class="anim-wrap">
+  <canvas id="contCanvas" width="720" height="200" style="background:#1a202c;border-radius:8px;max-width:100%"></canvas>
+  <div style="margin-top:10px">
+    <div class="slider-row">
+      <label style="color:#e2e8f0">Rapport S&#8322;/S&#8321;</label>
+      <input type="range" id="slRatio" min="10" max="90" value="35" oninput="updateContAnim()">
+      <span class="value-badge" id="dispRatio">0,35</span>
+    </div>
+  </div>
+  <div class="info-grid" style="margin-top:10px">
+    <div class="info-card" style="background:#2d3748"><div class="val" style="color:#a78bfa" id="ca-v1">1,0×</div><div class="lbl" style="color:#a0aec0">Vitesse section 1</div></div>
+    <div class="info-card" style="background:#2d3748"><div class="val" style="color:#68d391" id="ca-v2">2,9×</div><div class="lbl" style="color:#a0aec0">Vitesse section 2</div></div>
+    <div class="info-card" style="background:#2d3748"><div class="val" style="color:#fbd38d" id="ca-ratio">× 2,9</div><div class="lbl" style="color:#a0aec0">Acc&#233;l&#233;ration</div></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const canvas = document.getElementById('contCanvas');
+  const ctx2 = canvas.getContext('2d');
+  let ratio = 0.35;
+  let particles = [];
+  let animId = null;
+
+  function initParticles(){
+    particles = [];
+    for(let i=0;i<28;i++){
+      particles.push({
+        x: Math.random()*720,
+        y: 0,
+        lane: Math.random()
+      });
+    }
+  }
+
+  function getPipeGeometry(ratio){
+    // Section 1: x in [0, 260] -> half-height h1
+    // Taper: x in [260, 380]
+    // Section 2: x in [380, 720] -> half-height h2
+    const h1 = 80;
+    const h2 = h1*Math.sqrt(ratio); // visual: diameter scales with sqrt of area ratio
+    const cx = 100; // center y
+    return {h1, h2, cx, taperStart:260, taperEnd:380};
+  }
+
+  function getY(x, lane, h1, h2, cx, taperStart, taperEnd){
+    let h;
+    if(x<=taperStart) h=h1;
+    else if(x>=taperEnd) h=h2;
+    else{
+      const t=(x-taperStart)/(taperEnd-taperStart);
+      h=h1+(h2-h1)*t;
+    }
+    return cx + (lane-0.5)*2*h;
+  }
+
+  function getSpeed(x, ratio, baseSpeed, taperStart, taperEnd){
+    if(x<=taperStart) return baseSpeed;
+    if(x>=taperEnd) return baseSpeed/ratio;
+    const t=(x-taperStart)/(taperEnd-taperStart);
+    const r=1+(1/ratio-1)*t;
+    return baseSpeed*r;
+  }
+
+  function drawFrame(){
+    const W=canvas.width, H=canvas.height;
+    ctx2.clearRect(0,0,W,H);
+
+    const {h1,h2,cx,taperStart,taperEnd}=getPipeGeometry(ratio);
+
+    // Draw pipe walls
+    ctx2.beginPath();
+    ctx2.moveTo(0,cx-h1);
+    ctx2.lineTo(taperStart,cx-h1);
+    ctx2.lineTo(taperEnd,cx-h2);
+    ctx2.lineTo(W,cx-h2);
+    ctx2.strokeStyle='#7c3aed';ctx2.lineWidth=3;ctx2.stroke();
+
+    ctx2.beginPath();
+    ctx2.moveTo(0,cx+h1);
+    ctx2.lineTo(taperStart,cx+h1);
+    ctx2.lineTo(taperEnd,cx+h2);
+    ctx2.lineTo(W,cx+h2);
+    ctx2.strokeStyle='#7c3aed';ctx2.lineWidth=3;ctx2.stroke();
+
+    // Draw pipe fill
+    ctx2.beginPath();
+    ctx2.moveTo(0,cx-h1);
+    ctx2.lineTo(taperStart,cx-h1);
+    ctx2.lineTo(taperEnd,cx-h2);
+    ctx2.lineTo(W,cx-h2);
+    ctx2.lineTo(W,cx+h2);
+    ctx2.lineTo(taperEnd,cx+h2);
+    ctx2.lineTo(taperStart,cx+h1);
+    ctx2.lineTo(0,cx+h1);
+    ctx2.closePath();
+    ctx2.fillStyle='rgba(109,40,217,0.12)';ctx2.fill();
+
+    // Section labels
+    ctx2.fillStyle='#c4b5fd';ctx2.font='bold 13px Segoe UI,sans-serif';
+    ctx2.textAlign='center';
+    ctx2.fillText('Section S₁',130,cx-h1-10);
+    ctx2.fillStyle='#93c5fd';
+    ctx2.fillText('Section S₂',560,cx-h2-10);
+
+    // Speed labels
+    const baseSpeed=1.5;
+    ctx2.fillStyle='#a78bfa';ctx2.font='12px Segoe UI,sans-serif';
+    ctx2.fillText('v₁',130,cx+h1+18);
+    ctx2.fillStyle='#6ee7b7';
+    ctx2.fillText('v₂ = v₁ / r',540,cx+h2+18);
+
+    // Divider line
+    ctx2.setLineDash([4,4]);
+    ctx2.strokeStyle='rgba(255,255,255,0.15)';
+    ctx2.lineWidth=1;
+    ctx2.beginPath();ctx2.moveTo(taperStart,20);ctx2.lineTo(taperStart,H-10);ctx2.stroke();
+    ctx2.beginPath();ctx2.moveTo(taperEnd,20);ctx2.lineTo(taperEnd,H-10);ctx2.stroke();
+    ctx2.setLineDash([]);
+
+    // Update and draw particles
+    for(let p of particles){
+      const speed = getSpeed(p.x, ratio, baseSpeed, taperStart, taperEnd);
+      p.x += speed;
+      if(p.x>W+6) p.x=-6;
+
+      const py = getY(p.x, p.lane, h1, h2, cx, taperStart, taperEnd);
+      // Color: slow=purple, fast=teal
+      const t2 = p.x>=taperEnd ? 1 : (p.x>taperStart?(p.x-taperStart)/(taperEnd-taperStart):0);
+      const r2=Math.round(100+t2*(-100+100));
+      const g2=Math.round(100+t2*100);
+      const b2=Math.round(200+t2*50);
+
+      ctx2.beginPath();
+      ctx2.arc(p.x,py,4,0,Math.PI*2);
+      ctx2.fillStyle=`rgba(${Math.round(167-t2*50)},${Math.round(139+t2*100)},${Math.round(250-t2*100)},0.9)`;
+      ctx2.fill();
+    }
+
+    animId=requestAnimationFrame(drawFrame);
+  }
+
+  window.updateContAnim = function(){
+    ratio = +document.getElementById('slRatio').value/100;
+    document.getElementById('dispRatio').textContent = ratio.toFixed(2);
+    const acc = (1/ratio).toFixed(1);
+    document.getElementById('ca-v1').textContent='1,0×';
+    document.getElementById('ca-v2').textContent=acc+'×';
+    document.getElementById('ca-ratio').textContent='× '+acc;
+  };
+
+  initParticles();
+  drawFrame();
+  updateContAnim();
+})();
+</script>
+
+<!-- ============================================================ -->
+<!-- 6. Applications industrielles -->
+<!-- ============================================================ -->
+<h2>7. Applications industrielles ICCER</h2>
+
+<div class="prop">
+  <span class="ticcer-badge">ICCER</span><br>
+  <span class="label label-prop">R&#233;seau ECS et chauffage</span><br>
+  Dans un b&#226;timent tertiaire, le r&#233;seau d'eau chaude sanitaire ou de chauffage est dimensionn&#233; pour que la vitesse de l'eau reste entre <strong>0,5 et 1,5 m/s</strong>.
+  <ul>
+    <li>En dessous de 0,5 m/s : risque de d&#233;p&#244;ts calcaires et d&#233;veloppement de l&#233;gionelles.</li>
+    <li>Au-dessus de 1,5 m/s : bruits d'&#233;coulement (chasse d'eau), &#233;rosion des parois, pertes de charge &#233;lev&#233;es.</li>
+    <li>Formule de dimensionnement : \(d = \sqrt{\dfrac{4\,Q_v}{\pi\,v_{\text{cible}}}}\)</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="ticcer-badge">ICCER</span><br>
+  <span class="label label-prop">Circuit primaire de pompe &#224; chaleur</span><br>
+  Le circuit primaire (capteurs g&#233;othermiques ou aer&#243;thermiques) transporte de l'eau glycol&#233;e.
+  Le d&#233;bit massique est utilis&#233; pour calculer la puissance thermique &#233;chang&#233;e :
+  \[ P_{\text{th}} = Q_m \times c_p \times \Delta T \]
+  avec c<sub>p</sub> &#8776; 3,9 kJ/(kg&#183;K) pour l'eau glycol&#233;e &#224; 30&#160;%.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Ventilation et climatisation (CTA)</span><br>
+  Dans les installations de <strong>ventilation</strong> (CVC &#8211; chauffage, ventilation, climatisation), les gaines de distribution d'air ont des sections vari&#233;es.
+  L'&#233;quation de continuit&#233; permet de calculer la vitesse de l'air dans chaque tron&#231;on et d'&#233;viter les bruits d'&#233;coulement ou les pertes de charge excessives.
+  Vitesse recommand&#233;e dans les gaines principales : <strong>4&#8211;8 m/s</strong>.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Hydraulique &#8211; v&#233;rins et pompes</span><br>
+  Dans un <strong>circuit hydraulique</strong> (machines-outils, presses, grues), une pompe impose un d&#233;bit volumique constant.
+  La vitesse du piston d'un v&#233;rin est directement li&#233;e au d&#233;bit :
+  \[ v_{\text{piston}} = \frac{Q_v}{S_{\text{piston}}} \]
+</div>
+
+<!-- ============================================================ -->
+<!-- 7. Methode de calcul -->
+<!-- ============================================================ -->
+<h2>8. M&#233;thode de r&#233;solution d'un probl&#232;me de d&#233;bit</h2>
+
+<div class="meth">
+  <span class="label label-meth">D&#233;marche type</span>
+  <ol style="margin-top:8px;padding-left:20px">
+    <li><strong>Identifier les donn&#233;es :</strong> relever toutes les grandeurs num&#233;riques avec leurs unit&#233;s (V, m, t, S, v, &#961;, Q<sub>v</sub>, Q<sub>m</sub>).</li>
+    <li><strong>Convertir les unit&#233;s :</strong> tout mettre en unit&#233;s SI (m&#179;, kg, s, m&#178;, m/s) avant de calculer.</li>
+    <li><strong>Choisir la formule :</strong>
+      <ul>
+        <li>Si on conna&#238;t V et t &#8594; \(Q_v = V / t\)</li>
+        <li>Si on conna&#238;t S et v &#8594; \(Q_v = S \times v\)</li>
+        <li>Si on veut v &#224; partir de Q<sub>v</sub> et S &#8594; \(v = Q_v / S\)</li>
+        <li>Si on veut Q<sub>m</sub> &#8594; \(Q_m = \rho \times Q_v\)</li>
+        <li>&#201;quation de continuit&#233; &#8594; \(S_1 v_1 = S_2 v_2\)</li>
+      </ul>
+    </li>
+    <li><strong>Poser et effectuer le calcul</strong> avec les valeurs num&#233;riques.</li>
+    <li><strong>V&#233;rifier l'unit&#233;</strong> du r&#233;sultat (analyse dimensionnelle).</li>
+    <li><strong>R&#233;diger la r&#233;ponse</strong> avec le bon nombre de chiffres significatifs et l'unit&#233;.</li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<!-- 8. Exemples numeriques -->
+<!-- ============================================================ -->
+<h2>9. Exemples num&#233;riques</h2>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 1 &#8211; Pompe hydraulique (mesure exp&#233;rimentale)</span><br>
+  Une pompe hydraulique remplit une cuve en recueillant <strong>V = 120 L</strong> d'huile en <strong>t = 4 min</strong>.
+  <strong>Calculer le d&#233;bit volumique Q<sub>v</sub>.</strong>
+  <br><br>
+  <em>Conversion :</em> V = 120 L = 0,120 m&#179; &nbsp;;&nbsp; t = 4 &#215; 60 = 240 s
+  \[ Q_v = \frac{V}{t} = \frac{0{,}120}{240} = 5{,}0 \times 10^{-4} \text{ m}^3/\text{s} \]
+  Soit Q<sub>v</sub> = 0,50 L/s = 30 L/min.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 2 &#8211; Tuyau d'arrosage (section et vitesse)</span><br>
+  Un tuyau d'arrosage a un diam&#232;tre int&#233;rieur <strong>d = 16 mm</strong>.
+  Le d&#233;bit volumique mesur&#233; est <strong>Q<sub>v</sub> = 0,80 L/s</strong>.
+  <strong>Calculer la vitesse moyenne v de l'eau dans le tuyau.</strong>
+  <br><br>
+  <em>Section :</em> rayon r = 8 mm = 0,008 m
+  \[ S = \pi r^2 = \pi \times (0{,}008)^2 \approx 2{,}01 \times 10^{-4} \text{ m}^2 \]
+  <em>Conversion du d&#233;bit :</em> Q<sub>v</sub> = 0,80 &#215; 10<sup>&#8722;3</sup> m&#179;/s
+  \[ v = \frac{Q_v}{S} = \frac{0{,}80 \times 10^{-3}}{2{,}01 \times 10^{-4}} \approx \mathbf{3{,}98 \text{ m/s}} \approx 4{,}0 \text{ m/s} \]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 3 &#8211; D&#233;bit massique d'une conduite d'eau</span><br>
+  Une canalisation transporte de l'eau (\(\rho = 1000\) kg/m&#179;) avec un d&#233;bit volumique <strong>Q<sub>v</sub> = 2,5 &#215; 10<sup>&#8722;3</sup> m&#179;/s</strong>.
+  <strong>Calculer le d&#233;bit massique Q<sub>m</sub>.</strong>
+  \[ Q_m = \rho \times Q_v = 1000 \times 2{,}5 \times 10^{-3} = \mathbf{2{,}5 \text{ kg/s}} \]
+  En 1 heure : masse transport&#233;e = 2,5 &#215; 3&#160;600 = 9&#160;000 kg = <strong>9 tonnes</strong>.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 4 &#8211; &#201;quation de continuit&#233; (circuit hydraulique)</span><br>
+  Dans une installation hydraulique, l'huile passe d'une canalisation de <strong>diam&#232;tre d<sub>1</sub> = 40 mm</strong>
+  o&#249; elle circule &#224; <strong>v<sub>1</sub> = 1,2 m/s</strong>, dans une canalisation de <strong>diam&#232;tre d<sub>2</sub> = 20 mm</strong>.
+  <strong>Calculer la vitesse v<sub>2</sub> dans la deuxi&#232;me canalisation.</strong>
+  <br><br>
+  <em>Sections :</em>
+  \[ S_1 = \frac{\pi d_1^2}{4} = \frac{\pi \times (0{,}040)^2}{4} \approx 1{,}257 \times 10^{-3} \text{ m}^2 \]
+  \[ S_2 = \frac{\pi d_2^2}{4} = \frac{\pi \times (0{,}020)^2}{4} \approx 3{,}14 \times 10^{-4} \text{ m}^2 \]
+  <em>&#201;quation de continuit&#233; :</em>
+  \[ S_1 v_1 = S_2 v_2 \Rightarrow v_2 = \frac{S_1 \times v_1}{S_2} = \frac{1{,}257 \times 10^{-3} \times 1{,}2}{3{,}14 \times 10^{-4}} \approx \mathbf{4{,}8 \text{ m/s}} \]
+  <em>V&#233;rification rapide :</em> le diam&#232;tre est divis&#233; par 2, donc la section est divis&#233;e par 4 et la vitesse est multipli&#233;e par 4 : 1,2 &#215; 4 = 4,8 m/s. Coh&#233;rent.
+</div>
+
+<!-- ============================================================ -->
+<!-- 9. Tableau recapitulatif -->
+<!-- ============================================================ -->
+<h2>10. Tableau r&#233;capitulatif des formules</h2>
+
+<table>
+  <tr>
+    <th>Grandeur</th>
+    <th>Symbole</th>
+    <th>Unit&#233; SI</th>
+    <th>Formule(s)</th>
+  </tr>
+  <tr>
+    <td>D&#233;bit volumique</td>
+    <td>Q<sub>v</sub></td>
+    <td>m&#179;/s</td>
+    <td>\(\displaystyle Q_v = \frac{V}{t} = S \times v\)</td>
+  </tr>
+  <tr>
+    <td>D&#233;bit massique</td>
+    <td>Q<sub>m</sub></td>
+    <td>kg/s</td>
+    <td>\(\displaystyle Q_m = \frac{m}{t} = \rho \times Q_v\)</td>
+  </tr>
+  <tr>
+    <td>Vitesse moyenne d'&#233;coulement</td>
+    <td>v</td>
+    <td>m/s</td>
+    <td>\(\displaystyle v = \frac{Q_v}{S}\)</td>
+  </tr>
+  <tr>
+    <td>Section droite de passage</td>
+    <td>S</td>
+    <td>m&#178;</td>
+    <td>\(\displaystyle S = \pi r^2 = \frac{\pi d^2}{4}\) (section circulaire)</td>
+  </tr>
+  <tr>
+    <td>&#201;quation de continuit&#233;</td>
+    <td>&#8211;</td>
+    <td>&#8211;</td>
+    <td>\(\displaystyle S_1 v_1 = S_2 v_2\)</td>
+  </tr>
+  <tr>
+    <td>Volume &#233;coul&#233;</td>
+    <td>V</td>
+    <td>m&#179;</td>
+    <td>\(\displaystyle V = Q_v \times t\)</td>
+  </tr>
+  <tr>
+    <td>Masse transport&#233;e</td>
+    <td>m</td>
+    <td>kg</td>
+    <td>\(\displaystyle m = Q_m \times t = \rho \times V\)</td>
+  </tr>
+</table>
+
+<div class="att">
+  <span class="label label-att">Rappels de conversions utiles</span>
+  <ul style="margin:4px 0 0 0;padding-left:20px">
+    <li>1 L = 10<sup>&#8722;3</sup> m&#179; &nbsp;;&nbsp; 1 m&#179; = 1&#160;000 L</li>
+    <li>1 L/s = 10<sup>&#8722;3</sup> m&#179;/s &nbsp;;&nbsp; 1 L/min &#8776; 1,667 &#215; 10<sup>&#8722;5</sup> m&#179;/s</li>
+    <li>1 m&#179;/h &#8776; 2,778 &#215; 10<sup>&#8722;4</sup> m&#179;/s</li>
+    <li>Section d'un tube circulaire de diam&#232;tre d : \(\displaystyle S = \dfrac{\pi d^2}{4}\)</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- À RETENIR -->
+<!-- ============================================================ -->
+<div class="retenir">
+  <strong>&#128161; &#192; retenir absolument</strong>
+  <ul>
+    <li>Le d&#233;bit volumique \(Q_v = V/t = S \times v\) exprime le <strong>volume de fluide &#233;coul&#233; par seconde</strong>.</li>
+    <li>Le d&#233;bit massique \(Q_m = \rho \times Q_v\) tient compte de la <strong>masse volumique</strong> du fluide.</li>
+    <li>L'&#233;quation de continuit&#233; \(S_1 v_1 = S_2 v_2\) traduit la <strong>conservation du d&#233;bit</strong> : section petite &#8658; vitesse grande.</li>
+    <li>En ICCER, les vitesses recommand&#233;es sont : eau ECS <strong>0,5&#8211;1,5 m/s</strong>, air en gaines CTA <strong>4&#8211;8 m/s</strong>.</li>
+    <li>Toujours <strong>convertir en unit&#233;s SI</strong> avant de calculer (m&#179;, m&#178;, m/s, kg/m&#179;).</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- BILAN TWO-COL -->
+<!-- ============================================================ -->
+<h2>11. Bilan &#8211; Synth&#232;se du chapitre</h2>
+
+<div class="two-col">
+  <div class="col">
+    <h3>Formules essentielles</h3>
+    <ul>
+      <li>\(Q_v = V/t = S \times v\) &nbsp;[m&#179;/s]</li>
+      <li>\(Q_m = m/t = \rho \times Q_v\) &nbsp;[kg/s]</li>
+      <li>\(S_1 v_1 = S_2 v_2\) (&#233;quation de continuit&#233;)</li>
+      <li>\(v = Q_v / S\) ; \(S = \pi d^2 / 4\)</li>
+    </ul>
+  </div>
+  <div class="col">
+    <h3>Applications ICCER</h3>
+    <ul>
+      <li>Dimensionnement r&#233;seau ECS / chauffage</li>
+      <li>D&#233;bit massique circuit primaire PAC</li>
+      <li>Vitesse d'air dans gaines CTA</li>
+      <li>Vitesse piston v&#233;rin hydraulique</li>
+      <li>Mesure exp&#233;rimentale par d&#233;bitmètre</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MINI-EXERCICES -->
+<!-- ============================================================ -->
+<h2>12. Mini-exercices corrig&#233;s</h2>
+
+<div class="exo">
+  <details>
+    <summary>&#9654; Exercice 1 &#8211; D&#233;bit volumique ECS (m&#233;thode volum&#233;trique)</summary>
+    <p>
+      Lors d'une mise en service d'un r&#233;seau ECS, un technicien ICCER recueille <strong>50 L</strong> d'eau
+      en <strong>2 min 30 s</strong> &#224; l'aide d'un seau et d'un chronomètre.
+    </p>
+    <ol>
+      <li>Convertir le volume et la dur&#233;e en unit&#233;s SI.</li>
+      <li>Calculer le d&#233;bit volumique Q<sub>v</sub> en m&#179;/s puis en L/min.</li>
+      <li>Le cahier des charges impose Q<sub>v</sub> &ge; 1,2 L/s. La pompe est-elle conforme&#160;?</li>
+    </ol>
+    <hr>
+    <strong>Correction :</strong>
+    <p>
+      <em>1.</em> V = 50 L = 0,050 m&#179; ; t = 2 &#215; 60 + 30 = 150 s<br>
+      <em>2.</em> \(Q_v = V/t = 0{,}050 / 150 = 3{,}33 \times 10^{-4}\) m&#179;/s<br>
+      En L/min : \(3{,}33 \times 10^{-4} \times 1000 \times 60 = \mathbf{20 \text{ L/min}}\)<br>
+      En L/s : \(3{,}33 \times 10^{-4} \times 1000 = \mathbf{0{,}333 \text{ L/s}}\)<br>
+      <em>3.</em> 0,333 L/s &lt; 1,2 L/s &#8594; <strong>la pompe n'est pas conforme</strong>. Il faut v&#233;rifier son dimensionnement ou son &#233;tat.
+    </p>
+  </details>
+</div>
+
+<div class="exo">
+  <details>
+    <summary>&#9654; Exercice 2 &#8211; Vitesse dans une gaine de CTA</summary>
+    <p>
+      Une centrale de traitement d'air (CTA) distribue de l'air avec un d&#233;bit volumique de <strong>Q<sub>v</sub> = 3&#160;600 m&#179;/h</strong>.
+      La gaine principale est rectangulaire de dimensions <strong>600 mm &#215; 400 mm</strong>.
+    </p>
+    <ol>
+      <li>Calculer la section S de la gaine en m&#178;.</li>
+      <li>Convertir Q<sub>v</sub> en m&#179;/s.</li>
+      <li>Calculer la vitesse v de l'air dans la gaine principale.</li>
+      <li>Cette vitesse est-elle dans la plage recommand&#233;e (4&#8211;8 m/s) pour &#233;viter les bruits&#160;?</li>
+    </ol>
+    <hr>
+    <strong>Correction :</strong>
+    <p>
+      <em>1.</em> S = 0,600 &#215; 0,400 = <strong>0,24 m&#178;</strong><br>
+      <em>2.</em> Q<sub>v</sub> = 3&#160;600 / 3&#160;600 = <strong>1,0 m&#179;/s</strong><br>
+      <em>3.</em> \(v = Q_v / S = 1{,}0 / 0{,}24 \approx \mathbf{4{,}2 \text{ m/s}}\)<br>
+      <em>4.</em> 4,2 m/s &#8712; [4 ; 8] m/s &#8594; <strong>vitesse conforme</strong>, pas de bruit excessif attendu.
+    </p>
+  </details>
+</div>
+
+<div class="exo">
+  <details>
+    <summary>&#9654; Exercice 3 &#8211; D&#233;bit massique circuit PAC (eau glycol&#233;e)</summary>
+    <p>
+      Le circuit primaire d'une pompe &#224; chaleur g&#233;othermique contient de l'eau glycol&#233;e &#224; 30&#160;%
+      (\(\rho = 1040\) kg/m&#179;, c<sub>p</sub> = 3,9 kJ/(kg&#183;K)).
+      Le d&#233;bit volumique est <strong>Q<sub>v</sub> = 1,8 m&#179;/h</strong>.
+      La temp&#233;rature passe de &#8722;3&#160;&#176;C &#224; +3&#160;&#176;C entre l'entr&#233;e et la sortie du capteur g&#233;othermique.
+    </p>
+    <ol>
+      <li>Convertir Q<sub>v</sub> en m&#179;/s.</li>
+      <li>Calculer le d&#233;bit massique Q<sub>m</sub>.</li>
+      <li>Calculer la puissance thermique pr&#233;lev&#233;e au sol : \(P = Q_m \times c_p \times \Delta T\).</li>
+    </ol>
+    <hr>
+    <strong>Correction :</strong>
+    <p>
+      <em>1.</em> Q<sub>v</sub> = 1,8 / 3&#160;600 = <strong>5,0 &#215; 10<sup>&#8722;4</sup> m&#179;/s</strong><br>
+      <em>2.</em> \(Q_m = 1040 \times 5{,}0 \times 10^{-4} = \mathbf{0{,}52 \text{ kg/s}}\)<br>
+      <em>3.</em> \(\Delta T = 3 - (-3) = 6\) K<br>
+      \(P = 0{,}52 \times 3900 \times 6 = \mathbf{12\,168 \text{ W} \approx 12{,}2 \text{ kW}}\)
+    </p>
+  </details>
+</div>
+
+<div class="exo">
+  <details>
+    <summary>&#9654; Exercice 4 &#8211; &#201;quation de continuit&#233; dans un r&#233;seau ECS (r&#233;ducteur de pression)</summary>
+    <p>
+      Une canalisation ECS de <strong>diam&#232;tre d<sub>1</sub> = 40 mm</strong> alimente une tuyauterie de <strong>diam&#232;tre d<sub>2</sub> = 20 mm</strong>
+      apr&#232;s un r&#233;ducteur de section. L'eau circule &#224; <strong>v<sub>1</sub> = 0,8 m/s</strong> dans la canalisation principale.
+    </p>
+    <ol>
+      <li>Calculer les sections S<sub>1</sub> et S<sub>2</sub>.</li>
+      <li>Calculer le d&#233;bit volumique Q<sub>v</sub>.</li>
+      <li>Calculer la vitesse v<sub>2</sub> apr&#232;s le r&#233;ducteur.</li>
+      <li>La vitesse v<sub>2</sub> est-elle acceptable pour un r&#233;seau ECS (0,5&#8211;1,5 m/s)&#160;?</li>
+    </ol>
+    <hr>
+    <strong>Correction :</strong>
+    <p>
+      <em>1.</em> \(S_1 = \pi (0{,}020)^2 = 1{,}257 \times 10^{-3}\) m&#178; ; \(S_2 = \pi (0{,}010)^2 = 3{,}14 \times 10^{-4}\) m&#178;<br>
+      <em>2.</em> \(Q_v = S_1 \times v_1 = 1{,}257 \times 10^{-3} \times 0{,}8 = \mathbf{1{,}005 \times 10^{-3} \text{ m}^3/\text{s}}\) &#8776; 1,0 L/s<br>
+      <em>3.</em> \(v_2 = Q_v / S_2 = 1{,}005 \times 10^{-3} / 3{,}14 \times 10^{-4} = \mathbf{3{,}2 \text{ m/s}}\)<br>
+      <em>4.</em> 3,2 m/s &gt; 1,5 m/s &#8594; <strong>vitesse trop &#233;lev&#233;e</strong>. Risque de bruit et d'&#233;rosion. Il faudrait utiliser un DN25 ou DN32 &#224; la place.
+    </p>
+  </details>
+</div>
+
+<!-- ============================================================ -->
+<!-- NAV FOOTER -->
+<!-- ============================================================ -->
+<div class="nav-footer">
+  <a href="pc-term-iccer.html">&#8592; Sommaire ICCER</a>
+  <a href="pc-t-ch08_lecon.html">&#8592; Ch08 – Pression fluide</a>
+  <a href="pc-t-ch10_lecon.html">Ch10 – Oxydor&#233;duction &#8594;</a>
+</div>
+
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

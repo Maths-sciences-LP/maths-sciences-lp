@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Probabilités – Cours</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#0969da;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px}
+.def{background:#ebf5ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.hprog{background:#fdf4ff;border-left:5px solid #9333ea;padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#dbeafe;color:#1e40af}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-hprog{background:#f3e8ff;color:#7c3aed}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.retenir{background:#dbeafe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.retenir strong{color:var(--p)}
+.objectifs{background:#ebf5ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #93c5fd}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
+details summary{cursor:pointer;font-weight:600;color:var(--p);margin-top:8px}
+details p{margin:6px 0 0 0;color:#4a5568}
+.anim-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0;text-align:center}
+.anim-wrap button{background:var(--p);color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;margin:6px 4px;font-size:.85em}
+.anim-wrap button:hover{opacity:.85}
+.svg-wrap{text-align:center;margin:18px 0;overflow-x:auto}
+.formule-box{text-align:center;background:#ebf5ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+.situation{background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:18px 22px;margin:20px 0}
+.situation h3{color:#16a34a;margin-top:0}
+.ticcer-badge{display:inline-block;background:#0969da;color:#fff;font-size:.75em;font-weight:700;padding:2px 10px;border-radius:12px;margin-right:6px;vertical-align:middle}
+.erama-badge{display:inline-block;background:#7c3aed;color:#fff;font-size:.75em;font-weight:700;padding:2px 10px;border-radius:12px;margin-right:6px;vertical-align:middle}
+.slider-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0}
+.slider-row label{font-weight:600;min-width:140px}
+.slider-row input[type=range]{flex:1;min-width:120px}
+.value-badge{background:var(--p);color:#fff;padding:3px 12px;border-radius:6px;font-weight:700;font-size:.9em;white-space:nowrap}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.info-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;padding:12px;text-align:center}
+.info-card .val{font-size:1.2em;font-weight:700;color:var(--p)}
+.info-card .lbl{font-size:.78em;color:#718096;margin-top:2px}
+.nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:18px;border-top:1px solid #e2e8f0;font-size:.88em}
+.nav-footer a{text-decoration:none;color:var(--p);font-weight:600}
+.nav-footer a:hover{text-decoration:underline}
+.maj{color:#a0aec0;font-size:.75em;margin:5px 0 0 0;font-style:italic}
+.legende-arbre{font-size:.82em;color:#718096;text-align:center;margin-top:6px;font-style:italic}
+.chemin-highlight{background:#fffbeb;border:1.5px solid var(--o);border-radius:6px;padding:10px 14px;margin:8px 0}
+.chart-wrapper{max-width:560px;margin:16px auto;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px}
+</style>
+  <link rel="stylesheet" href="/nav.css">
+</head>
+<body>
+<div class="c">
+<a href="maths-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Chapitre 2 – Probabilités</h1>
+  <p class="sous-titre">Terminale Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ERA · TMA · ICCER &nbsp;|&nbsp; Groupements 1 et 3</p>
+  <p class="maj">Dernière mise à jour : 8 mars 2026</p>
+</header>
+
+<div class="objectifs">
+  <strong>Je vais apprendre à :</strong>
+  <ul>
+    <li>Représenter une situation aléatoire par un <strong>arbre de probabilités pondéré</strong></li>
+    <li>Exploiter un arbre de probabilités pour <strong>calculer des probabilités</strong></li>
+    <li>Utiliser la <strong>formule des probabilités totales</strong></li>
+    <li>Calculer une <strong>probabilité conditionnelle</strong> \(P(A|B)\)</li>
+    <li>Reconnaître l'<strong>indépendance</strong> de deux événements et appliquer \(P(A \cap B) = P(A) \times P(B)\)</li>
+  </ul>
+</div>
+
+<!-- ==================== INTRODUCTION ==================== -->
+<h2>Introduction — Pourquoi les probabilités ?</h2>
+
+<p>Dans la vie professionnelle, on rencontre souvent des situations dont on ne peut pas prévoir le résultat à l'avance : une pièce peut être conforme ou défectueuse, une machine peut tomber en panne ou fonctionner normalement, un test de sécurité peut réussir ou échouer.</p>
+
+<p>Ce type de situation s'appelle une <strong>situation aléatoire</strong>. Les probabilités permettent de <strong>mesurer les chances</strong> que chaque résultat se produise. Elles sont indispensables dans les métiers du bâtiment, de la maintenance, de l'électricité et de l'agencement pour prendre de bonnes décisions.</p>
+
+<div class="ex">
+  <span class="label label-ex">Exemple professionnel</span>
+  <p>Un technicien en maintenance contrôle des vannes thermostatiques sur des installations de chauffage. Il sait que certaines vannes peuvent présenter un défaut de réglage. En calculant la probabilité d'avoir une vanne défectueuse, il peut décider si une révision générale de l'installation est nécessaire.</p>
+</div>
+
+<!-- ==================== SITUATION PROFESSIONNELLE ==================== -->
+<h2>Situation professionnelle</h2>
+
+<div class="situation">
+  <h3>Contrôle qualité d'équipements de chauffage et de menuiserie</h3>
+  <p><span class="ticcer-badge">ICCER</span> <strong>Maintenance :</strong> On contrôle des chauffe-eaux produits par deux ateliers. On sait que chaque atelier n'a pas le même taux de défaut. On cherche à calculer la probabilité qu'un appareil pris au hasard soit défectueux.</p>
+  <p><span class="erama-badge">ERA-MA</span> <strong>Menuiserie / Agencement :</strong> Dans un entrepôt, on stocke des panneaux de bois venant de deux fournisseurs différents. Les fournisseurs ne proposent pas la même qualité. On cherche à estimer le risque de tomber sur un panneau non conforme.</p>
+  <p>Ces deux situations font appel aux mêmes outils mathématiques : les <strong>tableaux croisés</strong> et les <strong>arbres de probabilités</strong>.</p>
+</div>
+
+<!-- ==================== RAPPELS DE PROBABILITÉS ==================== -->
+<h2>1. Rappels de probabilités</h2>
+
+<div class="def">
+  <span class="label label-def">Définitions</span><br>
+  <ul>
+    <li>Une <strong>expérience aléatoire</strong> est une expérience dont on ne peut pas connaître le résultat à l'avance. <br><em>Exemple : contrôler une pièce et noter si elle est conforme ou non.</em></li>
+    <li>Un <strong>événement</strong> est un résultat possible (ou un ensemble de résultats). <br><em>Exemple : l'événement « la pièce est défectueuse ».</em></li>
+    <li>La <strong>probabilité</strong> \(P(A)\) d'un événement \(A\) est un nombre entre 0 et 1 qui mesure ses chances de se réaliser.<br>
+    \(P(A) = 0\) : impossible &nbsp;|&nbsp; \(P(A) = 1\) : certain &nbsp;|&nbsp; \(P(A) = 0{,}5\) : une chance sur deux</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Événement contraire</span><br>
+  L'événement contraire de \(A\), noté \(\bar{A}\), se réalise lorsque \(A\) ne se réalise pas.
+  \[\boxed{P(\bar{A}) = 1 - P(A)}\]
+  <em>Exemple : si la probabilité d'avoir une pièce défectueuse est 0,08, alors la probabilité qu'elle soit conforme est \(1 - 0{,}08 = 0{,}92\).</em>
+</div>
+
+<!-- ==================== TABLEAU CROISÉ ==================== -->
+<h2>2. Lecture d'un tableau croisé</h2>
+
+<p>Un <strong>tableau à double entrée</strong> (ou tableau croisé) permet de résumer les résultats d'un contrôle portant sur <strong>deux caractéristiques</strong> à la fois. En lisant les effectifs, on peut calculer des probabilités.</p>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — <span class="ticcer-badge" style="font-size:.85em">ICCER</span> Contrôle de chauffe-eaux</span>
+  <p>On contrôle <strong>200 chauffe-eaux</strong> produits par deux ateliers (A et B). Voici les résultats :</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Défectueux (D)</th>
+        <th>Conforme (C)</th>
+        <th class="total">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Atelier A</th>
+        <td>6</td>
+        <td>114</td>
+        <td class="total">120</td>
+      </tr>
+      <tr>
+        <th>Atelier B</th>
+        <td>10</td>
+        <td>70</td>
+        <td class="total">80</td>
+      </tr>
+      <tr>
+        <th class="total">Total</th>
+        <td class="total">16</td>
+        <td class="total">184</td>
+        <td class="total">200</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Comment lire ce tableau ?</strong></p>
+  <ul>
+    <li>120 chauffe-eaux viennent de l'atelier A, dont 6 sont défectueux et 114 sont conformes.</li>
+    <li>80 chauffe-eaux viennent de l'atelier B, dont 10 sont défectueux et 70 sont conformes.</li>
+    <li>Au total, 16 chauffe-eaux sont défectueux sur 200 contrôlés.</li>
+  </ul>
+
+  <p><strong>Calcul de probabilités :</strong> On prend un chauffe-eau au hasard parmi les 200.</p>
+  <ul>
+    <li>Probabilité qu'il vienne de l'atelier A : \(P(A) = \dfrac{120}{200} = 0{,}60\)</li>
+    <li>Probabilité qu'il soit défectueux : \(P(D) = \dfrac{16}{200} = 0{,}08\)</li>
+    <li>Probabilité qu'il vienne de A <em>et</em> soit défectueux : \(P(A \cap D) = \dfrac{6}{200} = 0{,}03\)</li>
+  </ul>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Calculer une probabilité depuis un tableau</span><br>
+  <p>\(\text{Probabilité} = \dfrac{\text{effectif de la case (ou de la ligne/colonne)}}{\text{effectif total}}\)</p>
+  <p>La ligne ou colonne « Total » donne toujours la référence pour le calcul.</p>
+</div>
+
+<!-- ==================== ARBRE DE PROBABILITÉS ==================== -->
+<h2>3. Arbre de probabilités pondéré</h2>
+
+<p>Un <strong>arbre de probabilités pondéré</strong> est un schéma qui représente, étape par étape, toutes les issues possibles d'une expérience aléatoire. Il est très utile pour organiser les calculs.</p>
+
+<div class="def">
+  <span class="label label-def">Vocabulaire de l'arbre</span><br>
+  <ul>
+    <li>Un <strong>nœud</strong> représente une étape de l'expérience (un état possible).</li>
+    <li>Une <strong>branche</strong> relie deux nœuds. Elle est annotée par une probabilité.</li>
+    <li>Un <strong>chemin</strong> va de la racine (départ) jusqu'à une feuille (résultat final). Il correspond à une issue complète de l'expérience.</li>
+  </ul>
+</div>
+
+<h3>Arbre à un niveau — Exemple simple</h3>
+
+<p>On reprend les données du tableau précédent. On prend un chauffe-eau au hasard. On note A : « vient de l'atelier A » et B : « vient de l'atelier B ».</p>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 500 200" width="480" height="200" font-family="'Segoe UI',sans-serif" font-size="13">
+  <!-- Racine -->
+  <circle cx="60" cy="100" r="9" fill="#0969da"/>
+  <text x="60" y="126" text-anchor="middle" fill="#2d3748" font-size="11" font-weight="bold">Départ</text>
+
+  <!-- Branche A (haut) -->
+  <line x1="69" y1="94" x2="270" y2="50" stroke="#0969da" stroke-width="2"/>
+  <text x="162" y="58" fill="#0969da" font-weight="bold" text-anchor="middle">Atelier A</text>
+  <text x="162" y="74" fill="#0969da" text-anchor="middle">P(A) = 0,60</text>
+  <circle cx="278" cy="48" r="9" fill="#0969da"/>
+  <text x="295" y="52" fill="#0969da" font-weight="bold">A</text>
+
+  <!-- Branche B (bas) -->
+  <line x1="69" y1="106" x2="270" y2="152" stroke="#7c3aed" stroke-width="2"/>
+  <text x="162" y="148" fill="#7c3aed" font-weight="bold" text-anchor="middle">Atelier B</text>
+  <text x="162" y="164" fill="#7c3aed" text-anchor="middle">P(B) = 0,40</text>
+  <circle cx="278" cy="153" r="9" fill="#7c3aed"/>
+  <text x="295" y="157" fill="#7c3aed" font-weight="bold">B</text>
+
+  <!-- Vérification -->
+  <text x="240" y="195" text-anchor="middle" fill="#2f855a" font-size="11">Vérification : P(A) + P(B) = 0,60 + 0,40 = 1 ✓</text>
+</svg>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Règles fondamentales de l'arbre</span><br>
+  <ul>
+    <li><strong>Règle 1 :</strong> Sur chaque nœud, la somme des probabilités des branches qui en partent est toujours égale à <strong>1</strong>.</li>
+    <li><strong>Règle 2 :</strong> La probabilité d'un chemin = <strong>produit</strong> des probabilités des branches de ce chemin.</li>
+    <li><strong>Règle 3 :</strong> Si un événement correspond à plusieurs chemins, on <strong>additionne</strong> leurs probabilités.</li>
+    <li><strong>Règle 4 :</strong> La somme des probabilités de toutes les feuilles vaut <strong>1</strong>.</li>
+  </ul>
+</div>
+
+<h3>Arbre à deux niveaux — Avec le tableau croisé</h3>
+
+<p>On ajoute maintenant une deuxième information : pour chaque atelier, on sait si le chauffe-eau est défectueux (D) ou conforme (C).</p>
+<p>D'après le tableau : parmi les appareils de A, 6 sur 120 sont défectueux, donc \(P(D|A) = \frac{6}{120} = 0{,}05\). Parmi les appareils de B, 10 sur 80 sont défectueux, donc \(P(D|B) = \frac{10}{80} = 0{,}125\).</p>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 720 320" width="700" height="320" font-family="'Segoe UI',sans-serif" font-size="13">
+  <!-- Racine -->
+  <circle cx="60" cy="160" r="9" fill="#0969da"/>
+  <text x="60" y="182" text-anchor="middle" fill="#2d3748" font-size="11" font-weight="bold">Départ</text>
+
+  <!-- Branche A -->
+  <line x1="69" y1="154" x2="220" y2="80" stroke="#0969da" stroke-width="2"/>
+  <text x="138" y="95" fill="#0969da" font-weight="bold" text-anchor="middle">A</text>
+  <text x="138" y="111" fill="#0969da" text-anchor="middle">0,60</text>
+  <circle cx="228" cy="78" r="9" fill="#0969da"/>
+
+  <!-- Branche B -->
+  <line x1="69" y1="166" x2="220" y2="242" stroke="#7c3aed" stroke-width="2"/>
+  <text x="138" y="235" fill="#7c3aed" font-weight="bold" text-anchor="middle">B</text>
+  <text x="138" y="251" fill="#7c3aed" text-anchor="middle">0,40</text>
+  <circle cx="228" cy="243" r="9" fill="#7c3aed"/>
+
+  <!-- Depuis A → D -->
+  <line x1="237" y1="72" x2="400" y2="38" stroke="#c53030" stroke-width="2"/>
+  <text x="316" y="42" fill="#c53030" text-anchor="middle">D  0,05</text>
+  <circle cx="408" cy="36" r="7" fill="#c53030"/>
+  <text x="423" y="30" fill="#2d3748" font-size="12">A ∩ D</text>
+  <text x="423" y="46" fill="#718096" font-size="11">0,60 × 0,05 = 0,030</text>
+
+  <!-- Depuis A → C -->
+  <line x1="237" y1="83" x2="400" y2="120" stroke="#2f855a" stroke-width="2"/>
+  <text x="316" y="114" fill="#2f855a" text-anchor="middle">C  0,95</text>
+  <circle cx="408" cy="122" r="7" fill="#2f855a"/>
+  <text x="423" y="116" fill="#2d3748" font-size="12">A ∩ C</text>
+  <text x="423" y="131" fill="#718096" font-size="11">0,60 × 0,95 = 0,570</text>
+
+  <!-- Depuis B → D -->
+  <line x1="237" y1="237" x2="400" y2="200" stroke="#c53030" stroke-width="2"/>
+  <text x="316" y="209" fill="#c53030" text-anchor="middle">D  0,125</text>
+  <circle cx="408" cy="198" r="7" fill="#c53030"/>
+  <text x="423" y="192" fill="#2d3748" font-size="12">B ∩ D</text>
+  <text x="423" y="207" fill="#718096" font-size="11">0,40 × 0,125 = 0,050</text>
+
+  <!-- Depuis B → C -->
+  <line x1="237" y1="248" x2="400" y2="284" stroke="#2f855a" stroke-width="2"/>
+  <text x="316" y="285" fill="#2f855a" text-anchor="middle">C  0,875</text>
+  <circle cx="408" cy="285" r="7" fill="#2f855a"/>
+  <text x="423" y="279" fill="#2d3748" font-size="12">B ∩ C</text>
+  <text x="423" y="294" fill="#718096" font-size="11">0,40 × 0,875 = 0,350</text>
+
+  <!-- Vérification -->
+  <text x="355" y="315" text-anchor="middle" fill="#2f855a" font-size="11">Vérif. : 0,030 + 0,570 + 0,050 + 0,350 = 1,000 ✓</text>
+</svg>
+</div>
+
+<p class="legende-arbre">Arbre à 2 niveaux : atelier (A ou B) puis qualité (D : défectueux, C : conforme).</p>
+
+<!-- ==================== PROBABILITÉ CONDITIONNELLE ==================== -->
+<h2>4. Probabilité conditionnelle</h2>
+
+<p>Parfois, on veut calculer la probabilité d'un événement <strong>en sachant que</strong> un autre événement s'est déjà réalisé.</p>
+
+<div class="def">
+  <span class="label label-def">Définition — Probabilité conditionnelle</span><br>
+  La <strong>probabilité de A sachant B</strong>, notée \(P(A|B)\), est la probabilité que l'événement \(A\) se réalise, <em>sachant que</em> l'événement \(B\) s'est déjà réalisé.
+  \[\boxed{P(A|B) = \frac{P(A \cap B)}{P(B)}} \quad \text{avec } P(B) > 0\]
+  On dit aussi : « probabilité de A <em>conditionnellement à</em> B ».
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — D'après le tableau croisé</span>
+  <p>On prend un chauffe-eau au hasard. On sait qu'il vient de l'atelier A. Quelle est la probabilité qu'il soit défectueux ?</p>
+  <p>On cherche \(P(D|A)\) = probabilité d'être défectueux, sachant qu'il vient de A.</p>
+  <p>On a : \(P(A \cap D) = \dfrac{6}{200} = 0{,}03\) &nbsp;et&nbsp; \(P(A) = \dfrac{120}{200} = 0{,}60\)</p>
+  <p>\(P(D|A) = \dfrac{P(A \cap D)}{P(A)} = \dfrac{0{,}03}{0{,}60} = \mathbf{0{,}05}\)</p>
+  <p><em>Interprétation : parmi les appareils de l'atelier A, 5 % sont défectueux. On retrouve bien \(\frac{6}{120} = 0{,}05\).</em></p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Formule des probabilités composées</span><br>
+  On déduit de la définition la formule suivante, très utile pour l'arbre :
+  \[\boxed{P(A \cap B) = P(B) \times P(A|B)}\]
+  <em>La probabilité d'un chemin = produit des probabilités des branches.</em>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  \(P(A|B)\) est différent de \(P(B|A)\). La probabilité de A sachant B n'est pas la même que la probabilité de B sachant A.
+  <br><em>Exemple : la probabilité d'être malade sachant qu'on a de la fièvre ≠ probabilité d'avoir de la fièvre sachant qu'on est malade.</em>
+</div>
+
+<!-- ==================== CALCUL AVEC L'ARBRE ==================== -->
+<h2>5. Calcul des probabilités avec un arbre</h2>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Utiliser un arbre à deux niveaux</span><br>
+  <ol>
+    <li><strong>On multiplie</strong> les probabilités le long d'un chemin pour obtenir la probabilité de l'issue correspondante.</li>
+    <li><strong>On additionne</strong> les probabilités des chemins qui correspondent au même événement.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Calculs à partir de l'arbre précédent</span>
+
+  <p><strong>1. Probabilité que l'appareil vienne de A et soit défectueux :</strong></p>
+  <div class="chemin-highlight">
+    Chemin A → D : \(P(A \cap D) = P(A) \times P(D|A) = 0{,}60 \times 0{,}05 = \mathbf{0{,}030}\)
+  </div>
+
+  <p><strong>2. Probabilité que l'appareil soit défectueux (quelle que soit son origine) :</strong></p>
+  <p>Deux chemins aboutissent à D : le chemin A → D et le chemin B → D.</p>
+  <div class="chemin-highlight">
+    \(P(D) = P(A \cap D) + P(B \cap D) = 0{,}030 + 0{,}050 = \mathbf{0{,}080}\)
+  </div>
+  <p><em>8 % des appareils sont défectueux, toutes origines confondues. On retrouve bien \(\frac{16}{200} = 0{,}08\).</em></p>
+
+  <p><strong>3. Probabilité que l'appareil soit conforme :</strong></p>
+  <div class="chemin-highlight">
+    \(P(C) = 1 - P(D) = 1 - 0{,}080 = \mathbf{0{,}920}\)
+  </div>
+</div>
+
+<!-- ==================== FORMULE DES PROBABILITÉS TOTALES ==================== -->
+<h2>6. Formule des probabilités totales</h2>
+
+<p>Lorsqu'un événement \(A\) peut se réaliser par <strong>deux scénarios différents</strong> (via B ou via son contraire \(\bar{B}\)), on utilise la formule des probabilités totales pour calculer \(P(A)\) directement.</p>
+
+<div class="prop">
+  <span class="label label-prop">Formule des probabilités totales</span><br>
+  Si \(B\) et \(\bar{B}\) sont deux événements contraires (ils couvrent tous les cas possibles) :
+  \[\boxed{P(A) = P(B) \times P(A|B) + P(\bar{B}) \times P(A|\bar{B})}\]
+  <p>On peut aussi écrire : \(P(A) = P(A \cap B) + P(A \cap \bar{B})\)</p>
+  <p><em>Sur l'arbre : on identifie tous les chemins qui aboutissent à A, on calcule chaque produit, puis on additionne.</em></p>
+</div>
+
+<div class="formule-box">
+  \(P(A) = P(B) \times P(A|B) + P(\bar{B}) \times P(A|\bar{B})\)
+  <small>Multiplier sur chaque chemin → Additionner tous les chemins qui arrivent à A</small>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — <span class="erama-badge" style="font-size:.85em">ERA-MA</span> Contrôle de panneaux de bois</span>
+  <p>Dans un entrepôt, 70 % des panneaux viennent du fournisseur F1 et 30 % du fournisseur F2.</p>
+  <p>Chez F1, le taux de défaut est de 4 %. Chez F2, le taux de défaut est de 10 %.</p>
+  <p>On prend un panneau au hasard. Quelle est la probabilité qu'il soit défectueux ?</p>
+</div>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 700 270" width="680" height="270" font-family="'Segoe UI',sans-serif" font-size="13">
+  <!-- Racine -->
+  <circle cx="60" cy="135" r="9" fill="#0969da"/>
+
+  <!-- Branche F1 -->
+  <line x1="69" y1="129" x2="230" y2="68" stroke="#0969da" stroke-width="2"/>
+  <text x="143" y="82" fill="#0969da" font-weight="bold" text-anchor="middle">F1</text>
+  <text x="143" y="98" fill="#0969da" text-anchor="middle">P(F1) = 0,70</text>
+  <circle cx="238" cy="66" r="9" fill="#0969da"/>
+
+  <!-- Branche F2 -->
+  <line x1="69" y1="141" x2="230" y2="204" stroke="#7c3aed" stroke-width="2"/>
+  <text x="143" y="195" fill="#7c3aed" font-weight="bold" text-anchor="middle">F2</text>
+  <text x="143" y="212" fill="#7c3aed" text-anchor="middle">P(F2) = 0,30</text>
+  <circle cx="238" cy="205" r="9" fill="#7c3aed"/>
+
+  <!-- Depuis F1 → D -->
+  <line x1="247" y1="60" x2="410" y2="28" stroke="#c53030" stroke-width="2"/>
+  <text x="326" y="34" fill="#c53030" text-anchor="middle">D  0,04</text>
+  <circle cx="418" cy="26" r="7" fill="#c53030"/>
+  <text x="432" y="20" fill="#2d3748" font-size="12">F1 ∩ D</text>
+  <text x="432" y="36" fill="#c53030" font-size="11" font-weight="bold">0,70 × 0,04 = 0,028</text>
+
+  <!-- Depuis F1 → C -->
+  <line x1="247" y1="71" x2="410" y2="106" stroke="#2f855a" stroke-width="2"/>
+  <text x="326" y="99" fill="#2f855a" text-anchor="middle">C  0,96</text>
+  <circle cx="418" cy="108" r="7" fill="#2f855a"/>
+  <text x="432" y="104" fill="#718096" font-size="11">0,70 × 0,96 = 0,672</text>
+
+  <!-- Depuis F2 → D -->
+  <line x1="247" y1="199" x2="410" y2="165" stroke="#c53030" stroke-width="2"/>
+  <text x="326" y="172" fill="#c53030" text-anchor="middle">D  0,10</text>
+  <circle cx="418" cy="163" r="7" fill="#c53030"/>
+  <text x="432" y="157" fill="#2d3748" font-size="12">F2 ∩ D</text>
+  <text x="432" y="173" fill="#c53030" font-size="11" font-weight="bold">0,30 × 0,10 = 0,030</text>
+
+  <!-- Depuis F2 → C -->
+  <line x1="247" y1="210" x2="410" y2="244" stroke="#2f855a" stroke-width="2"/>
+  <text x="326" y="242" fill="#2f855a" text-anchor="middle">C  0,90</text>
+  <circle cx="418" cy="246" r="7" fill="#2f855a"/>
+  <text x="432" y="241" fill="#718096" font-size="11">0,30 × 0,90 = 0,270</text>
+
+  <!-- Résultat -->
+  <text x="350" y="266" text-anchor="middle" fill="#c53030" font-size="12" font-weight="bold">P(D) = 0,028 + 0,030 = 0,058</text>
+</svg>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Application de la formule des probabilités totales</span>
+  <p>\(P(D) = P(F1) \times P(D|F1) + P(F2) \times P(D|F2)\)</p>
+  <p>\(= 0{,}70 \times 0{,}04 + 0{,}30 \times 0{,}10\)</p>
+  <p>\(= 0{,}028 + 0{,}030 = \mathbf{0{,}058}\)</p>
+  <p><em>5,8 % des panneaux sont défectueux, tous fournisseurs confondus.</em></p>
+</div>
+
+<!-- ==================== SIMULATION INTERACTIVE ==================== -->
+<h2>7. Simulation interactive — Arbre de probabilités</h2>
+
+<p>Modifiez les taux de défaut des deux fournisseurs et observez les probabilités se mettre à jour automatiquement sur l'arbre.</p>
+
+<div class="anim-wrap">
+  <p><strong>Arbre — Contrôle qualité avec deux fournisseurs</strong></p>
+  <canvas id="canvasArbre" width="600" height="320"></canvas>
+  <div style="margin-top:14px">
+    <div class="slider-row">
+      <label>% F1 dans le stock :</label>
+      <input type="range" id="sliderF1" min="10" max="90" value="70" step="5" oninput="majArbre()">
+      <span class="value-badge" id="valF1">70 %</span>
+    </div>
+    <div class="slider-row">
+      <label>Taux défaut F1 :</label>
+      <input type="range" id="sliderD1" min="1" max="20" value="4" step="1" oninput="majArbre()">
+      <span class="value-badge" id="valD1">4 %</span>
+    </div>
+    <div class="slider-row">
+      <label>Taux défaut F2 :</label>
+      <input type="range" id="sliderD2" min="1" max="30" value="10" step="1" oninput="majArbre()">
+      <span class="value-badge" id="valD2">10 %</span>
+    </div>
+  </div>
+  <div class="info-grid" style="margin-top:10px">
+    <div class="info-card">
+      <div class="val" id="cardD">0,058</div>
+      <div class="lbl">P(Défectueux)</div>
+    </div>
+    <div class="info-card">
+      <div class="val" id="cardC">0,942</div>
+      <div class="lbl">P(Conforme)</div>
+    </div>
+    <div class="info-card">
+      <div class="val" id="cardVerif">1,000</div>
+      <div class="lbl">Somme (doit = 1)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== INDÉPENDANCE ==================== -->
+<h2>8. Indépendance de deux événements</h2>
+
+<p>Deux événements sont <strong>indépendants</strong> quand la réalisation de l'un n'a aucune influence sur la probabilité de l'autre.</p>
+
+<div class="def">
+  <span class="label label-def">Définition — Événements indépendants</span><br>
+  Deux événements \(A\) et \(B\) sont <strong>indépendants</strong> si et seulement si :
+  \[\boxed{P(A \cap B) = P(A) \times P(B)}\]
+  Conséquence : si \(A\) et \(B\) sont indépendants, alors \(P(A|B) = P(A)\) — la connaissance de B ne change rien pour A.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — <span class="ticcer-badge" style="font-size:.85em">ICCER</span> Deux appareils indépendants</span>
+  <p>Un technicien contrôle deux appareils distincts : une pompe à chaleur et un ballon thermodynamique. Ces deux appareils fonctionnent de manière indépendante.</p>
+  <ul>
+    <li>Probabilité que la pompe à chaleur tombe en panne : \(P(\text{PAC}) = 0{,}05\)</li>
+    <li>Probabilité que le ballon tombe en panne : \(P(\text{BAL}) = 0{,}03\)</li>
+  </ul>
+  <p>Comme les pannes sont indépendantes :</p>
+  <p>\(P(\text{PAC} \cap \text{BAL}) = P(\text{PAC}) \times P(\text{BAL}) = 0{,}05 \times 0{,}03 = \mathbf{0{,}0015}\)</p>
+  <p>Il y a 0,15 % de chances que les deux appareils tombent en panne en même temps.</p>
+  <p>Probabilité qu'aucun n'est en panne :</p>
+  <p>\(P(\overline{\text{PAC}} \cap \overline{\text{BAL}}) = (1 - 0{,}05) \times (1 - 0{,}03) = 0{,}95 \times 0{,}97 = \mathbf{0{,}9215}\)</p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — <span class="erama-badge" style="font-size:.85em">ERA-MA</span> Tirage avec remise</span>
+  <p>On contrôle des vis dans une boîte. La probabilité qu'une vis soit défectueuse est 0,06. On tire deux vis successivement <strong>avec remise</strong> (on repose la première avant de tirer la seconde). Les deux tirages sont indépendants.</p>
+  <p>Probabilité que les deux vis soient défectueuses :</p>
+  <p>\(P(D_1 \cap D_2) = P(D_1) \times P(D_2) = 0{,}06 \times 0{,}06 = \mathbf{0{,}0036}\)</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Ne pas confondre !</span><br>
+  <ul>
+    <li><strong>Événements incompatibles</strong> : ils ne peuvent pas se produire en même temps (\(P(A \cap B) = 0\)).</li>
+    <li><strong>Événements indépendants</strong> : l'un n'influence pas l'autre (\(P(A \cap B) = P(A) \times P(B)\)).</li>
+  </ul>
+  Ces deux notions sont différentes et ne doivent pas être confondues.
+</div>
+
+<!-- ==================== EXEMPLE COMPLET ==================== -->
+<h2>9. Exemple complet</h2>
+
+<div class="situation">
+  <h3>Contrôle d'installations électriques — <span class="ticcer-badge">ICCER</span></h3>
+  <p>Un électricien effectue des contrôles de conformité sur des tableaux électriques dans des logements neufs. On sait que :</p>
+  <ul>
+    <li>65 % des logements ont été câblés par l'équipe A, 35 % par l'équipe B.</li>
+    <li>Parmi les logements de l'équipe A, 3 % ont un tableau non conforme.</li>
+    <li>Parmi les logements de l'équipe B, 8 % ont un tableau non conforme.</li>
+  </ul>
+  <p>On contrôle un logement au hasard. On note NC : « tableau non conforme » et C : « tableau conforme ».</p>
+</div>
+
+<h3>Étape 1 — Tableau croisé (sur 1 000 logements)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Non conforme (NC)</th>
+      <th>Conforme (C)</th>
+      <th class="total">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Équipe A</th>
+      <td>19,5</td>
+      <td>630,5</td>
+      <td class="total">650</td>
+    </tr>
+    <tr>
+      <th>Équipe B</th>
+      <td>28</td>
+      <td>322</td>
+      <td class="total">350</td>
+    </tr>
+    <tr>
+      <th class="total">Total</th>
+      <td class="total">47,5</td>
+      <td class="total">952,5</td>
+      <td class="total">1 000</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Étape 2 — Arbre de probabilités</h3>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 700 270" width="680" height="270" font-family="'Segoe UI',sans-serif" font-size="13">
+  <circle cx="60" cy="135" r="9" fill="#0969da"/>
+  <!-- Branche A -->
+  <line x1="69" y1="129" x2="230" y2="68" stroke="#0969da" stroke-width="2"/>
+  <text x="143" y="82" fill="#0969da" font-weight="bold" text-anchor="middle">Équipe A</text>
+  <text x="143" y="98" fill="#0969da" text-anchor="middle">0,65</text>
+  <circle cx="238" cy="66" r="9" fill="#0969da"/>
+  <!-- Branche B -->
+  <line x1="69" y1="141" x2="230" y2="204" stroke="#7c3aed" stroke-width="2"/>
+  <text x="143" y="195" fill="#7c3aed" font-weight="bold" text-anchor="middle">Équipe B</text>
+  <text x="143" y="212" fill="#7c3aed" text-anchor="middle">0,35</text>
+  <circle cx="238" cy="205" r="9" fill="#7c3aed"/>
+  <!-- A → NC -->
+  <line x1="247" y1="60" x2="410" y2="28" stroke="#c53030" stroke-width="2"/>
+  <text x="326" y="32" fill="#c53030" text-anchor="middle">NC  0,03</text>
+  <circle cx="418" cy="26" r="7" fill="#c53030"/>
+  <text x="432" y="20" fill="#2d3748" font-size="12">A ∩ NC</text>
+  <text x="432" y="36" fill="#c53030" font-size="11" font-weight="bold">0,65 × 0,03 = 0,0195</text>
+  <!-- A → C -->
+  <line x1="247" y1="71" x2="410" y2="106" stroke="#2f855a" stroke-width="2"/>
+  <text x="326" y="99" fill="#2f855a" text-anchor="middle">C  0,97</text>
+  <circle cx="418" cy="108" r="7" fill="#2f855a"/>
+  <text x="432" y="104" fill="#718096" font-size="11">0,65 × 0,97 = 0,6305</text>
+  <!-- B → NC -->
+  <line x1="247" y1="199" x2="410" y2="165" stroke="#c53030" stroke-width="2"/>
+  <text x="326" y="172" fill="#c53030" text-anchor="middle">NC  0,08</text>
+  <circle cx="418" cy="163" r="7" fill="#c53030"/>
+  <text x="432" y="157" fill="#2d3748" font-size="12">B ∩ NC</text>
+  <text x="432" y="173" fill="#c53030" font-size="11" font-weight="bold">0,35 × 0,08 = 0,0280</text>
+  <!-- B → C -->
+  <line x1="247" y1="210" x2="410" y2="244" stroke="#2f855a" stroke-width="2"/>
+  <text x="326" y="242" fill="#2f855a" text-anchor="middle">C  0,92</text>
+  <circle cx="418" cy="246" r="7" fill="#2f855a"/>
+  <text x="432" y="241" fill="#718096" font-size="11">0,35 × 0,92 = 0,3220</text>
+  <text x="350" y="268" text-anchor="middle" fill="#2f855a" font-size="11">Vérif. : 0,0195 + 0,6305 + 0,0280 + 0,3220 = 1,000 ✓</text>
+</svg>
+</div>
+
+<h3>Étape 3 — Calculs</h3>
+
+<div class="ex">
+  <span class="label label-ex">Questions et réponses</span>
+
+  <p><strong>1. Probabilité qu'un logement ait un tableau non conforme :</strong></p>
+  <p>\(P(\text{NC}) = P(A) \times P(\text{NC}|A) + P(B) \times P(\text{NC}|B)\)</p>
+  <p>\(= 0{,}65 \times 0{,}03 + 0{,}35 \times 0{,}08 = 0{,}0195 + 0{,}0280 = \mathbf{0{,}0475}\)</p>
+  <p><em>Environ 4,75 % des logements ont un tableau non conforme.</em></p>
+
+  <p><strong>2. Probabilité que le logement soit conforme :</strong></p>
+  <p>\(P(C) = 1 - P(\text{NC}) = 1 - 0{,}0475 = \mathbf{0{,}9525}\)</p>
+
+  <p><strong>3. Probabilité que le logement ait un tableau NC <em>et</em> provienne de l'équipe A :</strong></p>
+  <p>\(P(A \cap \text{NC}) = 0{,}65 \times 0{,}03 = \mathbf{0{,}0195}\)</p>
+
+  <p><strong>4. Interprétation :</strong> Si on contrôle 1 000 logements, on s'attend à trouver environ \(0{,}0475 \times 1000 = 47{,}5\), soit environ <strong>48 tableaux non conformes</strong>. Parmi ceux-ci, \(0{,}0195 \times 1000 = 19{,}5\) viendraient de l'équipe A et \(0{,}0280 \times 1000 = 28\) de l'équipe B.</p>
+</div>
+
+<!-- ==================== À RETENIR ==================== -->
+<h2>À retenir — L'essentiel du chapitre</h2>
+
+<div class="retenir">
+  <strong>Formules et règles essentielles</strong>
+  <ul>
+    <li><strong>Événement contraire :</strong> \(P(\bar{A}) = 1 - P(A)\)</li>
+    <li><strong>Probabilité conditionnelle :</strong> \(P(A|B) = \dfrac{P(A \cap B)}{P(B)}\)</li>
+    <li><strong>Probabilités composées (arbre) :</strong> \(P(A \cap B) = P(B) \times P(A|B)\)</li>
+    <li><strong>Formule des probabilités totales :</strong> \(P(A) = P(B) \times P(A|B) + P(\bar{B}) \times P(A|\bar{B})\)</li>
+    <li><strong>Indépendance :</strong> \(P(A \cap B) = P(A) \times P(B)\)</li>
+    <li><strong>Sur l'arbre :</strong> on <em>multiplie</em> le long d'un chemin, on <em>additionne</em> les chemins qui arrivent au même événement.</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Erreurs fréquentes à éviter</span>
+  <ul>
+    <li>Confondre \(P(A|B)\) et \(P(B|A)\) : ce sont deux probabilités différentes.</li>
+    <li>Oublier que la somme des probabilités sur chaque nœud doit être égale à 1.</li>
+    <li>Additionner là où il faudrait multiplier (ou l'inverse).</li>
+    <li>Confondre événements <em>incompatibles</em> et événements <em>indépendants</em>.</li>
+    <li>Appliquer la formule d'indépendance sans vérifier que les événements le sont réellement.</li>
+  </ul>
+</div>
+
+<!-- ==================== MINI EXERCICES ==================== -->
+<h2>Mini exercices</h2>
+
+<div class="exo">
+  <strong>Exercice 1 — Lecture d'un tableau croisé <span class="erama-badge">ERA-MA</span></strong>
+  <p>On contrôle 500 panneaux de bois. Voici les résultats :</p>
+  <table>
+    <thead>
+      <tr><th></th><th>Défectueux</th><th>Conforme</th><th class="total">Total</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>Fournisseur F1</th><td>15</td><td>285</td><td class="total">300</td></tr>
+      <tr><th>Fournisseur F2</th><td>25</td><td>175</td><td class="total">200</td></tr>
+      <tr><th class="total">Total</th><td class="total">40</td><td class="total">460</td><td class="total">500</td></tr>
+    </tbody>
+  </table>
+  <p>On prend un panneau au hasard.</p>
+  <p>1. Calculer \(P(F1)\), \(P(D)\) et \(P(F1 \cap D)\).</p>
+  <p>2. Calculer \(P(D|F1)\) et interpréter.</p>
+  <p>3. Construire un arbre de probabilités à deux niveaux.</p>
+  <details>
+    <summary>Voir la correction</summary>
+    <p><strong>1.</strong> \(P(F1) = \frac{300}{500} = 0{,}60\) &nbsp;;&nbsp; \(P(D) = \frac{40}{500} = 0{,}08\) &nbsp;;&nbsp; \(P(F1 \cap D) = \frac{15}{500} = 0{,}03\)</p>
+    <p><strong>2.</strong> \(P(D|F1) = \frac{P(F1 \cap D)}{P(F1)} = \frac{0{,}03}{0{,}60} = \mathbf{0{,}05}\) → parmi les panneaux de F1, 5 % sont défectueux.</p>
+    <p><strong>3.</strong> Arbre : branche F1 (0,60) → D (0,05) / C (0,95) ; branche F2 (0,40) → D (0,125) / C (0,875)</p>
+    <p>Vérification : \(0{,}60 \times 0{,}05 + 0{,}40 \times 0{,}125 = 0{,}03 + 0{,}05 = 0{,}08 = P(D)\) ✓</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 — Formule des probabilités totales <span class="ticcer-badge">ICCER</span></strong>
+  <p>Dans une entreprise de climatisation, 80 % des installations utilisent des unités de marque M1 et 20 % des unités de marque M2. Le taux de panne annuel est de 2 % pour M1 et de 6 % pour M2.</p>
+  <p>1. Construire un arbre de probabilités (noter P : panne, NP : pas de panne).</p>
+  <p>2. Calculer la probabilité qu'une installation prise au hasard tombe en panne dans l'année.</p>
+  <p>3. Calculer la probabilité qu'elle ne tombe pas en panne.</p>
+  <details>
+    <summary>Voir la correction</summary>
+    <p><strong>1.</strong> Branche M1 (0,80) : P (0,02) / NP (0,98) &nbsp;; Branche M2 (0,20) : P (0,06) / NP (0,94)</p>
+    <p><strong>2.</strong> \(P(\text{Panne}) = 0{,}80 \times 0{,}02 + 0{,}20 \times 0{,}06 = 0{,}016 + 0{,}012 = \mathbf{0{,}028}\)</p>
+    <p>Environ 2,8 % des installations tombent en panne dans l'année.</p>
+    <p><strong>3.</strong> \(P(\text{NP}) = 1 - 0{,}028 = \mathbf{0{,}972}\)</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 3 — Probabilité conditionnelle <span class="erama-badge">ERA-MA</span></strong>
+  <p>D'après l'exercice 1, on sait que \(P(F2 \cap D) = 0{,}05\) et \(P(D) = 0{,}08\).</p>
+  <p>On prend un panneau défectueux au hasard. Quelle est la probabilité qu'il provienne du fournisseur F2 ?</p>
+  <details>
+    <summary>Voir la correction</summary>
+    <p>On cherche \(P(F2|D)\).</p>
+    <p>\(P(F2|D) = \dfrac{P(F2 \cap D)}{P(D)} = \dfrac{0{,}05}{0{,}08} = \mathbf{0{,}625}\)</p>
+    <p>Parmi les panneaux défectueux, 62,5 % viennent du fournisseur F2.</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 4 — Indépendance <span class="ticcer-badge">ICCER</span></strong>
+  <p>Un technicien intervient sur deux circuits électriques indépendants dans un bâtiment.</p>
+  <p>La probabilité qu'un disjoncteur du circuit 1 soit défaillant est 0,04.</p>
+  <p>La probabilité qu'un disjoncteur du circuit 2 soit défaillant est 0,07.</p>
+  <p>1. Calculer la probabilité que les deux disjoncteurs soient défaillants en même temps.</p>
+  <p>2. Calculer la probabilité qu'aucun des deux ne soit défaillant.</p>
+  <p>3. Calculer la probabilité qu'au moins l'un des deux soit défaillant.</p>
+  <details>
+    <summary>Voir la correction</summary>
+    <p>Les circuits sont indépendants, donc on peut multiplier les probabilités.</p>
+    <p><strong>1.</strong> \(P(D_1 \cap D_2) = P(D_1) \times P(D_2) = 0{,}04 \times 0{,}07 = \mathbf{0{,}0028}\)</p>
+    <p><strong>2.</strong> \(P(\bar{D_1} \cap \bar{D_2}) = 0{,}96 \times 0{,}93 = \mathbf{0{,}8928}\)</p>
+    <p><strong>3.</strong> \(P(\text{au moins un}) = 1 - P(\text{aucun}) = 1 - 0{,}8928 = \mathbf{0{,}1072}\)</p>
+  </details>
+</div>
+
+<!-- ==================== POUR ALLER PLUS LOIN ==================== -->
+<h2>Pour aller plus loin <span style="font-size:.75em;color:#9333ea;font-weight:normal">(hors programme)</span></h2>
+
+<div class="hprog">
+  <span class="label label-hprog">Hors programme Terminale Bac Pro</span><br>
+  <p>Les notions suivantes prolongent ce chapitre, mais <strong>ne font pas partie du programme</strong> de Terminale Bac Professionnel. Elles sont mentionnées ici uniquement à titre d'information, pour les élèves curieux ou ceux qui envisagent de poursuivre leurs études en BTS ou au-delà.</p>
+  <ul>
+    <li><strong>Variable aléatoire discrète</strong> : une variable qui prend des valeurs numériques avec certaines probabilités (par exemple, le nombre de pièces défectueuses dans un lot).</li>
+    <li><strong>Espérance mathématique</strong> : la valeur moyenne attendue d'une variable aléatoire sur un grand nombre d'expériences.</li>
+    <li><strong>Loi binomiale \(\mathcal{B}(n, p)\)</strong> : modélise le nombre de succès lors de \(n\) répétitions indépendantes d'une même expérience à deux issues (succès/échec). Très utilisée en contrôle qualité au niveau BTS.</li>
+    <li><strong>Intervalle de fluctuation</strong> : intervalle dans lequel une valeur observée a une forte probabilité de se trouver, utilisé pour détecter des anomalies dans un processus de fabrication.</li>
+  </ul>
+  <p style="color:#7c3aed;font-size:.9em"><em>Ces notions apparaissent dans les programmes de mathématiques du Bac Professionnel dans d'autres filières, ainsi qu'en BTS. Si vous vous orientez vers un BTS du bâtiment ou de l'industrie, vous les rencontrerez rapidement.</em></p>
+</div>
+
+<!-- GRAPHIQUE Chart.js -->
+<h2>Graphique — Comparaison de probabilités</h2>
+
+<p>
+  Dans une chaîne de production, une machine A est défectueuse 15 % du temps, une machine B 8 %.
+  Les probabilités d'obtenir 0, 1 ou 2 pièces défectueuses sur 2 tirages sont comparées ci-dessous.
+</p>
+
+<div class="chart-wrapper">
+  <canvas id="chartProbaT"></canvas>
+</div>
+
+<script>
+(function(){
+  // P(X=k) simple pour 2 essais indépendants
+  // Machine A: p=0.15, Machine B: p=0.08
+  function binom2(k,p){
+    if(k===0) return (1-p)*(1-p);
+    if(k===1) return 2*p*(1-p);
+    return p*p;
+  }
+  const pA=0.15,pB=0.08;
+  const labels=['0 défaut','1 défaut','2 défauts'];
+  const dA=labels.map((_,k)=>Math.round(binom2(k,pA)*10000)/100);
+  const dB=labels.map((_,k)=>Math.round(binom2(k,pB)*10000)/100);
+  new Chart(document.getElementById('chartProbaT'),{
+    type:'bar',
+    data:{
+      labels,
+      datasets:[
+        {label:'Machine A (p=15%)',data:dA,backgroundColor:'rgba(0,86,179,0.65)',borderColor:'#0056b3',borderWidth:1.5},
+        {label:'Machine B (p=8%)',data:dB,backgroundColor:'rgba(47,133,90,0.65)',borderColor:'#2f855a',borderWidth:1.5}
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{position:'bottom',labels:{font:{size:12}}},
+        title:{display:true,text:'Distribution du nombre de défauts sur 2 pièces produites (%)',font:{size:12}}
+      },
+      scales:{
+        x:{title:{display:true,text:'Nombre de pièces défectueuses'}},
+        y:{title:{display:true,text:'Probabilité (%)'},beginAtZero:true,max:100,grid:{color:'#f0f0f0'}}
+      }
+    }
+  });
+})();
+</script>
+
+<!-- ==================== Nav footer ==================== -->
+<div class="nav-footer">
+  <a href="t-ch01_lecon.html">← Ch01</a>
+  <a href="t-ch03_lecon.html">Ch03 →</a>
+  <a href="maths-term-iccer.html">Sommaire</a>
+</div>
+
+</div><!-- fin .c -->
+
+<script>
+// ===== ARBRE INTERACTIF =====
+const canvas = document.getElementById('canvasArbre');
+const ctx = canvas.getContext('2d');
+
+function majArbre() {
+  const pF1 = parseInt(document.getElementById('sliderF1').value) / 100;
+  const pF2 = 1 - pF1;
+  const pD1 = parseInt(document.getElementById('sliderD1').value) / 100;
+  const pD2 = parseInt(document.getElementById('sliderD2').value) / 100;
+  document.getElementById('valF1').textContent = Math.round(pF1 * 100) + ' %';
+  document.getElementById('valD1').textContent = Math.round(pD1 * 100) + ' %';
+  document.getElementById('valD2').textContent = Math.round(pD2 * 100) + ' %';
+
+  const pF1D = pF1 * pD1;
+  const pF1C = pF1 * (1 - pD1);
+  const pF2D = pF2 * pD2;
+  const pF2C = pF2 * (1 - pD2);
+  const pD = pF1D + pF2D;
+  const pC = pF1C + pF2C;
+
+  document.getElementById('cardD').textContent = pD.toFixed(4);
+  document.getElementById('cardC').textContent = pC.toFixed(4);
+  document.getElementById('cardVerif').textContent = (pD + pC).toFixed(3);
+
+  dessinerArbre(pF1, pF2, pD1, pD2, pF1D, pF1C, pF2D, pF2C);
+}
+
+function fmt(v) { return v.toFixed(3); }
+function fmtP(v) { return (Math.round(v * 1000) / 10) + ' %'; }
+
+function dessinerArbre(pF1, pF2, pD1, pD2, pF1D, pF1C, pF2D, pF2C) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const W = canvas.width, H = canvas.height;
+
+  // Positions
+  const r0 = { x: 65, y: H / 2 };
+  const nF1 = { x: 220, y: H * 0.28 };
+  const nF2 = { x: 220, y: H * 0.72 };
+  const lF1D = { x: 420, y: H * 0.10 };
+  const lF1C = { x: 420, y: H * 0.42 };
+  const lF2D = { x: 420, y: H * 0.58 };
+  const lF2C = { x: 420, y: H * 0.90 };
+
+  function ligne(a, b, col) {
+    ctx.strokeStyle = col; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(a.x + 9, a.y); ctx.lineTo(b.x - 7, b.y); ctx.stroke();
+  }
+  function noeud(n, col) {
+    ctx.beginPath(); ctx.arc(n.x, n.y, 8, 0, 2 * Math.PI);
+    ctx.fillStyle = col; ctx.fill();
+  }
+  function feuille(n, col) {
+    ctx.beginPath(); ctx.arc(n.x, n.y, 6, 0, 2 * Math.PI);
+    ctx.fillStyle = col; ctx.fill();
+  }
+  function labelBranche(a, b, txt1, txt2, col) {
+    const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+    ctx.fillStyle = col; ctx.font = 'bold 11px Segoe UI'; ctx.textAlign = 'center';
+    ctx.fillText(txt1, mx, my - 5);
+    ctx.fillText(txt2, mx, my + 9);
+  }
+  function labelFeuille(n, txt1, txt2, col) {
+    ctx.fillStyle = '#2d3748'; ctx.font = 'bold 11px Segoe UI'; ctx.textAlign = 'left';
+    ctx.fillText(txt1, n.x + 10, n.y - 2);
+    ctx.fillStyle = col; ctx.font = '10px Segoe UI';
+    ctx.fillText(txt2, n.x + 10, n.y + 12);
+  }
+
+  // Branches niveau 1
+  ligne(r0, nF1, '#0969da');
+  ligne(r0, nF2, '#7c3aed');
+  labelBranche(r0, nF1, 'F1', fmtP(pF1), '#0969da');
+  labelBranche(r0, nF2, 'F2', fmtP(pF2), '#7c3aed');
+
+  // Branches niveau 2 depuis F1
+  ligne(nF1, lF1D, '#c53030');
+  ligne(nF1, lF1C, '#2f855a');
+  labelBranche(nF1, lF1D, 'D', fmtP(pD1), '#c53030');
+  labelBranche(nF1, lF1C, 'C', fmtP(1 - pD1), '#2f855a');
+
+  // Branches niveau 2 depuis F2
+  ligne(nF2, lF2D, '#c53030');
+  ligne(nF2, lF2C, '#2f855a');
+  labelBranche(nF2, lF2D, 'D', fmtP(pD2), '#c53030');
+  labelBranche(nF2, lF2C, 'C', fmtP(1 - pD2), '#2f855a');
+
+  // Nœuds
+  noeud(r0, '#0969da');
+  noeud(nF1, '#0969da');
+  noeud(nF2, '#7c3aed');
+  feuille(lF1D, '#c53030');
+  feuille(lF1C, '#2f855a');
+  feuille(lF2D, '#c53030');
+  feuille(lF2C, '#2f855a');
+
+  // Étiquettes feuilles
+  labelFeuille(lF1D, 'F1 ∩ D = ' + fmt(pF1D), '← produit du chemin', '#c53030');
+  labelFeuille(lF1C, 'F1 ∩ C = ' + fmt(pF1C), '', '#718096');
+  labelFeuille(lF2D, 'F2 ∩ D = ' + fmt(pF2D), '← produit du chemin', '#c53030');
+  labelFeuille(lF2C, 'F2 ∩ C = ' + fmt(pF2C), '', '#718096');
+
+  // Étiquette racine
+  ctx.fillStyle = '#2d3748'; ctx.font = 'bold 10px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText('Départ', r0.x, r0.y + 22);
+
+  // Résultat
+  ctx.fillStyle = '#c53030'; ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'center';
+  ctx.fillText('P(D) = ' + fmt(pF1D) + ' + ' + fmt(pF2D) + ' = ' + fmt(pF1D + pF2D), W / 2, H - 8);
+}
+
+majArbre();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

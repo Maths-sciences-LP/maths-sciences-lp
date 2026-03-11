@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS – Ch08 – Atténuer une onde sonore | ERA-MA Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--p:#2da44e;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.ds-info{display:flex;justify-content:space-between;align-items:center;background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:12px 20px;margin-bottom:28px;flex-wrap:wrap;gap:8px;font-size:.92em}
+.ds-info span{color:#2d3748}
+.ds-info strong{color:var(--p)}
+.bareme-table{width:100%;border-collapse:collapse;margin-bottom:28px;font-size:.88em}
+.bareme-table th{background:var(--p);color:#fff;padding:7px 12px;text-align:center}
+.bareme-table td{border:1px solid #e2e8f0;padding:7px 12px;text-align:center}
+.bareme-table tr:nth-child(even) td{background:#f8fafc}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:22px;margin:28px 0;page-break-inside:avoid}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;border-bottom:2px solid #e2e8f0;padding-bottom:12px}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.95em;padding:5px 14px;border-radius:20px}
+.exo-title{font-weight:700;flex:1;font-size:1.05em}
+.pts{font-size:.85em;color:#718096;font-weight:600}
+.q{margin:12px 0 4px;padding-left:4px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.q-num{font-weight:700;min-width:20px}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap;align-self:center}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.pts-q{font-size:.78em;color:#718096;font-weight:600;margin-left:auto;min-width:40px;text-align:right}
+.rep-zone{border:1px dashed #cbd5e0;border-radius:6px;min-height:50px;margin:6px 0 14px;padding:6px;background:#fafafa;font-size:.85em;color:#a0aec0}
+.intro-box{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:.93em}
+.donnees{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;margin:14px 0;font-size:.9em}
+.donnees strong{color:#92400e}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0;font-size:.9em}
+.attention strong{color:#be123c}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb{display:none}.rep-zone{background:#fff}}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:6px;margin-bottom:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:4px}
+.bc:hover{opacity:.85}
+</style>
+</head>
+<body><div class="c">
+<a href="pc-term-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Devoir Surveillé — Ch08 — Atténuer une onde sonore</h1>
+  <p class="sous-titre">ERA-MA — Groupement 3 — Terminale Bac Pro</p>
+</header>
+
+<div class="ds-info">
+  <span><strong>Durée :</strong> 1 heure</span>
+  <span><strong>Barème :</strong> /20 points</span>
+  <span><strong>Documents :</strong> Calculatrice autorisée — aucun document</span>
+  <span><strong>Nom :</strong> ________________________</span>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser/Raisonner</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<table class="bareme-table">
+  <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
+  <tr><td>Exercice 1 — Niveau sonore d'une cabine de soudage</td><td>Q1 à Q4</td><td>APP, REA, ANA, VAL</td><td>10 pts</td></tr>
+  <tr><td>Exercice 2 — Choix d'une cloison isolante</td><td>Q1 à Q4</td><td>APP, REA, ANA, COM</td><td>10 pts</td></tr>
+  <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
+</table>
+
+<!-- EXERCICE 1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Niveau sonore d'une cabine de soudage robotisé</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un atelier de soudage robotisé est équipé de deux robots de soudage MIG qui fonctionnent simultanément. Chaque robot génère un niveau sonore de \(L_1 = L_2 = 85\,\text{dB}\) mesuré à 1 m. La réglementation française (Code du travail) fixe le seuil d'exposition quotidienne à <strong>87 dB(A)</strong> au poste de travail. Le technicien ERA-MA doit vérifier la conformité réglementaire et proposer des solutions si nécessaire.
+  </div>
+
+  <div class="donnees">
+    <strong>Données :</strong> Niveau sonore : \(L = 10 \cdot \log\!\left(\dfrac{I}{I_0}\right)\) avec \(I_0 = 10^{-12}\,\text{W/m}^2\) (seuil d'audition).<br>
+    Addition de niveaux sonores de sources incohérentes : \(L_{total} = 10 \cdot \log\!\left(10^{L_1/10} + 10^{L_2/10}\right)\).<br>
+    Rappels : \(\log(10^8) = 8\) ; \(\log(2) \approx 0{,}30\) ; \(10^{8{,}5} = 10^8 \times \sqrt{10} \approx 3{,}16 \times 10^8\).
+  </div>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Rappeler la formule du niveau sonore \(L\) en décibels : \(L = 10 \cdot \log\!\left(\dfrac{I}{I_0}\right)\). Définir chaque grandeur (\(L\), \(I\), \(I_0\)) en précisant son unité. Indiquer la valeur de \(I_0\) (seuil conventionnel d'audition).
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:75px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\) &nbsp; avec \(L\) en dB, \(I\) intensité sonore en W/m², \(I_0 = 10^{-12}\,\text{W/m}^2\) (seuil d'audibilité)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Un bruit de fond dans l'atelier a une intensité sonore \(I = 10^{-4}\,\text{W/m}^2\). Calculer le niveau sonore correspondant \(L\) en dB. Montrer le calcul détaillé.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L = 10 \times \log\!\left(\dfrac{10^{-4}}{10^{-12}}\right) = 10 \times \log(10^8) = 10 \times 8 = 80\,\text{dB}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-ana">ANA</span>
+    Les deux robots émettent chacun un niveau sonore de \(L_1 = L_2 = 85\,\text{dB}\). Pour des sources sonores incohérentes, le niveau total s'obtient par :<br>
+    \(L_{total} = 10 \cdot \log\!\left(10^{L_1/10} + 10^{L_2/10}\right)\)<br>
+    En remplaçant \(L_1 = L_2 = 85\,\text{dB}\), montrer que : \(L_{total} = 10 \cdot \log\!\left(2 \times 10^{8{,}5}\right)\), puis calculer \(L_{total}\). (Rappel : \(\log(2 \times 10^{8{,}5}) = \log(2) + 8{,}5\))
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pour deux sources identiques (\(L_1 = L_2 = 85\,\text{dB}\)) :</p>
+    <p>\(L_{total} = 10 \times \log(2 \times 10^{8{,}5}) = 10 \times (\log 2 + 8{,}5) = 10 \times (0{,}30 + 8{,}5) = 10 \times 8{,}8 = 88\,\text{dB}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-val">VAL</span>
+    Le seuil réglementaire au poste de travail est de 87 dB(A).<br>
+    a) Comparer le niveau total calculé à la question 3 avec le seuil réglementaire. La cabine est-elle conforme ?<br>
+    b) Si la cabine n'est pas conforme, proposer <strong>deux mesures</strong> de prévention ou de réduction du bruit pour le poste de travail (solutions techniques ou organisationnelles).
+    <span class="pts-q">4 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:100px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_{total} = 88\,\text{dB} &gt; 87\,\text{dB}\) (seuil réglementaire)</p>
+    <p>La cabine n'est <strong>PAS conforme</strong>.</p>
+    <p><strong>Propositions :</strong> ajouter une paroi absorbante pour réduire de 1 à 2 dB, mettre en place des EPI (bouchons d'oreilles SNR ≥ 3 dB), réduire le niveau à la source (paramètres de soudage), éloigner les postes de travail.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Choix d'une cloison isolante</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Pour réduire le niveau sonore dans les zones de travail adjacentes à la cellule de soudage robotisé, l'entreprise envisage d'installer une cloison isolante autour de la cellule. Le niveau sonore à l'intérieur de la cellule est \(L_1 = 95\,\text{dB}\). L'objectif est d'obtenir un niveau sonore \(L_2 \leq 80\,\text{dB}\) à l'extérieur de la cloison. Le tableau suivant présente les caractéristiques de quatre cloisons possibles.
+  </div>
+
+  <div class="donnees">
+    <strong>Donnée :</strong> Relation entre le niveau sonore avant et après une cloison : \(L_2 = L_1 - R\), où \(R\) est l'indice d'affaiblissement acoustique de la cloison (en dB).
+  </div>
+
+  <table>
+    <tr>
+      <th>Cloison</th>
+      <th>R (dB)</th>
+      <th>Masse surfacique (kg/m²)</th>
+      <th>Coût (€/m²)</th>
+    </tr>
+    <tr>
+      <td>Plaque de plâtre simple</td>
+      <td>32</td>
+      <td>12</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Béton 15 cm</td>
+      <td>48</td>
+      <td>360</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>Double paroi laine de roche</td>
+      <td>55</td>
+      <td>25</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>Verre feuilleté 10 mm</td>
+      <td>34</td>
+      <td>25</td>
+      <td>120</td>
+    </tr>
+  </table>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Rappeler la relation \(L_2 = L_1 - R\). Définir chaque grandeur. Que représente un indice d'affaiblissement acoustique \(R\) élevé pour une cloison ?
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_2 = L_1 - R\) &nbsp; avec \(L_1\) niveau incident (dB), \(R\) indice d'affaiblissement de la cloison (dB), \(L_2\) niveau transmis (dB)</p>
+    <p>Un \(R\) élevé signifie que la cloison est très isolante : elle atténue fortement le bruit qui la traverse.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Pour le niveau source \(L_1 = 95\,\text{dB}\) et une cloison dont \(R = 30\,\text{dB}\), calculer le niveau sonore \(L_2\) obtenu à l'extérieur de la cloison. Cette cloison serait-elle suffisante pour atteindre l'objectif de \(L_2 \leq 80\,\text{dB}\) ?
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:75px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_2 = L_1 - R = 95 - 30 = 65\,\text{dB}\)</p>
+    <p>65 dB ≤ 80 dB → Cette cloison hypothétique (R=30 dB) serait suffisante pour atteindre l'objectif.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-ana">ANA</span>
+    En utilisant le tableau des cloisons, calculer le niveau sonore \(L_2\) obtenu avec chacune des quatre cloisons pour \(L_1 = 95\,\text{dB}\). Compléter le tableau ci-dessous et indiquer pour chaque cloison si l'objectif (\(L_2 \leq 80\,\text{dB}\)) est atteint.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:130px">
+    <table>
+      <tr><th>Cloison</th><th>R (dB)</th><th>L₂ calculé (dB)</th><th>Objectif ≤ 80 dB atteint ?</th></tr>
+      <tr><td>Plaque de plâtre simple</td><td>32</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>Béton 15 cm</td><td>48</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>Double paroi laine de roche</td><td>55</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>Verre feuilleté 10 mm</td><td>34</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    </table>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Plaque de plâtre simple : R=32 dB → \(L_2 = 95-32 = 63\,\text{dB}\) ✓ conforme</p>
+    <p>Béton 15 cm : R=48 dB → \(L_2 = 95-48 = 47\,\text{dB}\) ✓ très efficace</p>
+    <p>Double paroi laine de roche : R=55 dB → \(L_2 = 95-55 = 40\,\text{dB}\) ✓ la plus efficace</p>
+    <p>Verre feuilleté 10 mm : R=34 dB → \(L_2 = 95-34 = 61\,\text{dB}\) ✓ conforme</p>
+    <p>Toutes les cloisons permettent d'atteindre l'objectif \(L_2 \leq 80\,\text{dB}\).</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-com">COM</span>
+    Parmi les cloisons conformes à l'objectif acoustique (question 3), justifier le choix de la solution la plus adaptée en tenant compte des critères suivants : efficacité acoustique, masse surfacique (contrainte structurelle), coût et facilité de mise en œuvre. Présenter votre conclusion clairement.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:100px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Double paroi laine de roche</strong> (R=55 dB, 25 kg/m², 65 €/m²) :</p>
+    <p>— Meilleur affaiblissement acoustique (55 dB) → grande marge de sécurité</p>
+    <p>— Masse surfacique faible (25 kg/m²) → facile à installer, pas de renforcement de structure nécessaire</p>
+    <p>— Coût modéré (65 €/m²) inférieur au béton (80 €/m²) et au verre (120 €/m²)</p>
+    <p><strong>Conclusion :</strong> la double paroi laine de roche offre le meilleur compromis efficacité/masse/coût.</p>
+  </div>
+</div>
+
+</div>
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
+<script src="/nav.js"></script>
+</body>
+</html>

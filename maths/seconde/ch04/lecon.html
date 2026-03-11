@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Probabilités et fluctuation des fréquences – 2nde MAMA</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748;--mama:#6b5c00}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:28px;padding-bottom:16px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
+.sous-titre{color:#718096;font-size:.93em;margin:0}
+h2{font-size:1.18em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:36px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
+
+.def{background:#ebf5ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.retenir{background:#dbeafe;border:2px solid var(--p);border-radius:10px;padding:16px 22px;margin:22px 0}
+.exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
+
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 9px;border-radius:4px;margin-bottom:6px;letter-spacing:.03em}
+.label-def{background:#dbeafe;color:#1e40af}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-ret{background:#bfdbfe;color:#1e3a8a}
+
+.situation-pro{background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%);border:2px solid #d97706;border-radius:10px;padding:18px 22px;margin:20px 0}
+.situation-pro::before{content:"Situation professionnelle MAMA";display:block;font-weight:700;color:#92400e;font-size:.93em;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em}
+.sp-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92em;margin-bottom:12px}
+.sp-label{font-weight:600;color:#4a5568;white-space:nowrap}
+
+.objectifs{background:#ebf5ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #93c5fd}
+.objectifs ul{margin:6px 0 0;padding-left:20px}
+.objectifs li{margin:4px 0}
+
+.formule-box{text-align:center;background:#ebf5ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+.formule-box small{display:block;margin-top:5px;color:#718096;font-size:.82em}
+
+ol.steps{list-style:none;counter-reset:step;padding:0;margin:10px 0}
+.step{counter-increment:step;padding:8px 10px 8px 2.4em;position:relative;margin:5px 0;border-radius:6px;background:#f8fafc;border:1px solid #e2e8f0}
+.step::before{content:counter(step);position:absolute;left:.6em;font-weight:700;color:#fff;background:var(--p);width:1.3em;height:1.3em;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;top:50%;transform:translateY(-50%)}
+
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+td.tl{text-align:left}
+
+.nb{margin-bottom:16px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.nav-footer{display:flex;justify-content:space-between;margin-top:36px;padding-top:16px;border-top:1px solid #e2e8f0;flex-wrap:wrap;gap:10px}
+.nav-btn{text-decoration:none;font-size:.85em;font-weight:600;padding:8px 16px;border-radius:6px;color:var(--p);border:1px solid var(--p);transition:.2s}
+.nav-btn:hover{background:var(--p);color:#fff}
+
+details summary{cursor:pointer;font-weight:600;color:var(--p);padding:6px 0;margin-top:8px}
+details summary:hover{text-decoration:underline}
+details[open] summary{margin-bottom:6px}
+
+.maj{font-size:.78em;color:#a0aec0;text-align:center;margin-top:4px}
+
+.erreur-item{display:flex;gap:12px;align-items:flex-start;margin:10px 0;background:#fff5f5;border-radius:6px;padding:12px}
+.erreur-item .ico{font-size:1.3em;flex-shrink:0;margin-top:1px}
+.erreur-item .txt{flex:1}
+.erreur-item .txt strong{color:var(--d)}
+
+.correct{background:#d1fae5;color:#065f46;font-weight:600;padding:8px 12px;border-radius:6px;border-left:4px solid var(--s);margin-top:8px}
+
+.simu-link{display:inline-flex;align-items:center;gap:8px;background:#ebf5ff;border:1px solid #93c5fd;border-radius:8px;padding:10px 16px;text-decoration:none;color:var(--p);font-weight:600;font-size:.9em;transition:.2s;margin:4px}
+.simu-link:hover{background:var(--p);color:#fff}
+
+.schema{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin:10px 0;text-align:center}
+.schema figcaption{font-size:.8em;color:#718096;margin-top:6px}
+.chart-wrapper{max-width:580px;margin:16px auto;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px}
+canvas.anim{display:block;margin:12px auto;border-radius:10px;border:1px solid #e2e8f0;background:#fff}
+.ctrl-vis{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0;align-items:center;font-size:.9em}
+.ctrl-vis input[type=range]{width:140px;accent-color:var(--p)}
+.ctrl-vis input[type=number]{width:60px;padding:4px 8px;border:1px solid #e2e8f0;border-radius:6px;font-family:inherit}
+.anim-result{text-align:center;font-size:.95em;font-weight:700;color:var(--p);min-height:1.5em;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Chapitre 4 &ndash; Probabilit&eacute;s et fluctuation des fr&eacute;quences</h1>
+  <p class="sous-titre">Seconde Bac Pro MAMA &nbsp;|&nbsp; Agencement &middot; Menuiserie &middot; Ameublement &nbsp;|&nbsp; Math&eacute;matiques</p>
+  <p class="maj">Derni&egrave;re mise &agrave; jour : 9 mars 2026</p>
+</header>
+
+<!-- OBJECTIFS -->
+<div class="objectifs">
+  <strong>Ce que tu vas savoir faire &agrave; la fin de ce chapitre :</strong>
+  <ul>
+    <li>Comprendre la notion d&rsquo;exp&eacute;rience al&eacute;atoire</li>
+    <li>Identifier l&rsquo;ensemble des issues (univers)</li>
+    <li>Calculer des probabilit&eacute;s simples</li>
+    <li>Comprendre la notion de fr&eacute;quence</li>
+    <li>Observer la fluctuation des fr&eacute;quences</li>
+    <li>Comprendre la stabilisation des fr&eacute;quences avec l&rsquo;augmentation du nombre d&rsquo;exp&eacute;riences</li>
+  </ul>
+</div>
+
+<!-- SITUATION PRO -->
+<div class="situation-pro">
+  <div class="sp-grid">
+    <span class="sp-label">Contexte :</span><span>Contr&ocirc;le qualit&eacute; en atelier de menuiserie</span>
+    <span class="sp-label">Situation :</span><span>Un artisan v&eacute;rifie des pi&egrave;ces de bois produites par une machine. Sur 100 pi&egrave;ces contr&ocirc;l&eacute;es, 8 pr&eacute;sentent un d&eacute;faut.</span>
+    <span class="sp-label">Question :</span><span>Peut-on estimer la probabilit&eacute; qu&rsquo;une pi&egrave;ce soit d&eacute;fectueuse&nbsp;?</span>
+  </div>
+  <p style="font-size:.82em;color:#92400e;margin:10px 0 0"><em>Cette situation sera analys&eacute;e tout au long du chapitre.</em></p>
+</div>
+
+
+<!-- ======================= SECTION 1 ======================= -->
+<h2>1. Introduction &ndash; Le hasard dans les m&eacute;tiers</h2>
+
+<p>
+  Dans certaines situations professionnelles, on ne peut pas pr&eacute;dire avec certitude le r&eacute;sultat d&rsquo;une action.
+  Le <strong>hasard</strong> intervient : c&rsquo;est le cas en contr&ocirc;le qualit&eacute;, en estimation de risque ou en pr&eacute;vision de chantier.
+</p>
+
+<div class="ex">
+  <span class="label label-ex">Exemples du quotidien</span><br>
+  <ul style="margin:6px 0;padding-left:18px">
+    <li>Lancer une pi&egrave;ce de monnaie : on ne sait pas &agrave; l&rsquo;avance si on obtiendra Pile ou Face.</li>
+    <li>Lancer un d&eacute; : le r&eacute;sultat est impr&eacute;visible.</li>
+    <li>V&eacute;rifier une pi&egrave;ce en sortie de machine : on ne sait pas si elle sera d&eacute;fectueuse ou non.</li>
+    <li>Choisir un client au hasard dans un fichier : on ne sait pas s&rsquo;il sera satisfait ou non.</li>
+  </ul>
+</div>
+
+<p>
+  Les <strong>probabilit&eacute;s</strong> permettent de mesurer le degr&eacute; de certitude d&rsquo;un r&eacute;sultat, et les <strong>fr&eacute;quences</strong>
+  permettent d&rsquo;estimer ces probabilit&eacute;s &agrave; partir d&rsquo;observations r&eacute;elles.
+</p>
+
+
+<!-- ======================= SECTION 2 ======================= -->
+<h2>2. Exp&eacute;rience al&eacute;atoire, issues et univers</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition &ndash; Exp&eacute;rience al&eacute;atoire</span><br>
+  Une <strong>exp&eacute;rience al&eacute;atoire</strong> est une exp&eacute;rience dont on ne peut pas pr&eacute;dire le r&eacute;sultat avec certitude,
+  mais dont on conna&icirc;t tous les r&eacute;sultats possibles.
+</div>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition &ndash; Issue</span><br>
+  Une <strong>issue</strong> est un r&eacute;sultat possible d&rsquo;une exp&eacute;rience al&eacute;atoire.
+</div>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition &ndash; Univers \(\Omega\)</span><br>
+  L&rsquo;<strong>univers</strong> \(\Omega\) (lettre grecque om&eacute;ga) est l&rsquo;ensemble de <em>toutes</em> les issues possibles de l&rsquo;exp&eacute;rience.
+</div>
+
+<h3>Exemples</h3>
+
+<table>
+  <tr><th>Exp&eacute;rience</th><th>Issues</th><th>Univers \(\Omega\)</th></tr>
+  <tr>
+    <td class="tl">Lancer un d&eacute; &agrave; 6 faces</td>
+    <td class="tl">1, 2, 3, 4, 5, 6</td>
+    <td class="tl">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</td>
+  </tr>
+  <tr>
+    <td class="tl">Lancer une pi&egrave;ce de monnaie</td>
+    <td class="tl">Pile, Face</td>
+    <td class="tl">\(\Omega = \{\text{Pile}, \text{Face}\}\)</td>
+  </tr>
+  <tr>
+    <td class="tl">Tirer une carte dans un jeu de 52 cartes</td>
+    <td class="tl">52 cartes possibles</td>
+    <td class="tl">\(\Omega\) contient 52 issues</td>
+  </tr>
+  <tr>
+    <td class="tl">Contr&ocirc;le d&rsquo;une pi&egrave;ce de bois</td>
+    <td class="tl">Conforme, D&eacute;fectueuse</td>
+    <td class="tl">\(\Omega = \{\text{Conforme}, \text{D\'{e}fectueuse}\}\)</td>
+  </tr>
+</table>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  L&rsquo;univers doit contenir <strong>toutes</strong> les issues, et chaque issue ne doit appara&icirc;tre <strong>qu&rsquo;une seule fois</strong>.
+</div>
+
+
+<!-- ======================= SECTION 3 ======================= -->
+<h2>3. &Eacute;v&eacute;nements</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition &ndash; &Eacute;v&eacute;nement</span><br>
+  Un <strong>&eacute;v&eacute;nement</strong> est un sous-ensemble de l&rsquo;univers \(\Omega\). C&rsquo;est un regroupement d&rsquo;une ou plusieurs issues.
+</div>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition &ndash; &Eacute;v&eacute;nement simple et compos&eacute;</span><br>
+  <ul style="margin:6px 0;padding-left:18px">
+    <li>Un <strong>&eacute;v&eacute;nement simple</strong> (ou &eacute;l&eacute;mentaire) ne contient qu&rsquo;une seule issue.</li>
+    <li>Un <strong>&eacute;v&eacute;nement compos&eacute;</strong> contient plusieurs issues.</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemples avec un d&eacute; &agrave; 6 faces</span><br>
+  <ul style="margin:6px 0;padding-left:18px">
+    <li>&laquo;&nbsp;Obtenir un 6&nbsp;&raquo; &rarr; &eacute;v&eacute;nement <strong>simple</strong> : \(A = \{6\}\)</li>
+    <li>&laquo;&nbsp;Obtenir un nombre pair&nbsp;&raquo; &rarr; &eacute;v&eacute;nement <strong>compos&eacute;</strong> : \(B = \{2, 4, 6\}\)</li>
+    <li>&laquo;&nbsp;Obtenir un nombre sup&eacute;rieur &agrave; 4&nbsp;&raquo; &rarr; &eacute;v&eacute;nement compos&eacute; : \(C = \{5, 6\}\)</li>
+    <li>&laquo;&nbsp;Obtenir un 7&nbsp;&raquo; &rarr; &eacute;v&eacute;nement <strong>impossible</strong> : \(\emptyset\) (ensemble vide, \(P(\emptyset) = 0\))</li>
+    <li>&laquo;&nbsp;Obtenir un nombre entre 1 et 6&nbsp;&raquo; &rarr; &eacute;v&eacute;nement <strong>certain</strong> : \(\Omega\), (\(P(\Omega) = 1\))</li>
+  </ul>
+</div>
+
+
+<!-- ======================= SECTION 4 ======================= -->
+<h2>4. Probabilit&eacute; d&rsquo;un &eacute;v&eacute;nement</h2>
+
+<p>
+  Lorsque toutes les issues sont <strong>&eacute;quiprobables</strong> (c&rsquo;est-&agrave;-dire qu&rsquo;elles ont toutes la m&ecirc;me chance de se produire),
+  on peut calculer la probabilit&eacute; d&rsquo;un &eacute;v&eacute;nement par une formule simple.
+</p>
+
+<div class="formule-box">
+  \[ P(A) = \dfrac{\text{nombre d'issues favorables \`{a} } A}{\text{nombre total d'issues}} \]
+  <small>Cette formule s&rsquo;applique uniquement quand toutes les issues sont &eacute;quiprobables.</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propri&eacute;t&eacute;s fondamentales</span><br>
+  <ul style="margin:6px 0;padding-left:18px">
+    <li>Pour tout &eacute;v&eacute;nement \(A\) : \(0 \leq P(A) \leq 1\)</li>
+    <li>&Eacute;v&eacute;nement certain : \(P(\Omega) = 1\)</li>
+    <li>&Eacute;v&eacute;nement impossible : \(P(\emptyset) = 0\)</li>
+    <li>Plus \(P(A)\) est proche de 1, plus l&rsquo;&eacute;v&eacute;nement est probable.</li>
+    <li>Probabilit&eacute; de l&rsquo;&eacute;v&eacute;nement contraire \(\bar{A}\) : \(P(\bar{A}) = 1 - P(A)\)</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemples de calculs</span><br>
+  <br>
+  <strong>Lancer une pi&egrave;ce de monnaie &mdash; obtenir Pile :</strong><br>
+  Issues favorables : 1 (Pile). Total : 2.
+  \[ P(\text{Pile}) = \frac{1}{2} = 0{,}5 \]
+  <br>
+  <strong>Lancer un d&eacute; &mdash; obtenir un nombre pair :</strong><br>
+  Issues favorables : \(\{2, 4, 6\}\) &rarr; 3 issues. Total : 6.
+  \[ P(\text{nombre pair}) = \frac{3}{6} = \frac{1}{2} = 0{,}5 \]
+  <br>
+  <strong>Tirer une carte rouge dans un jeu de 52 cartes :</strong><br>
+  Issues favorables : 26 cartes rouges (c&oelig;urs + carreaux). Total : 52.
+  \[ P(\text{carte rouge}) = \frac{26}{52} = \frac{1}{2} = 0{,}5 \]
+  <br>
+  <strong>Lancer un d&eacute; &mdash; obtenir un nombre strictement sup&eacute;rieur &agrave; 4 :</strong><br>
+  Issues favorables : \(\{5, 6\}\) &rarr; 2 issues. Total : 6.
+  \[ P(\text{nombre} > 4) = \frac{2}{6} = \frac{1}{3} \approx 0{,}33 \]
+</div>
+
+
+<!-- ======================= SECTION 5 ======================= -->
+<h2>5. Fr&eacute;quence observ&eacute;e</h2>
+
+<div class="def">
+  <span class="label label-def">D&eacute;finition &ndash; Fr&eacute;quence</span><br>
+  Lorsqu&rsquo;on r&eacute;alise une exp&eacute;rience al&eacute;atoire un certain nombre de fois, la <strong>fr&eacute;quence d&rsquo;un &eacute;v&eacute;nement</strong>
+  est le rapport entre le nombre de fois o&ugrave; l&rsquo;&eacute;v&eacute;nement s&rsquo;est produit et le nombre total d&rsquo;exp&eacute;riences r&eacute;alis&eacute;es.
+</div>
+
+<div class="formule-box">
+  \[ f = \dfrac{\text{nombre d'occurrences de l'\'{e}v\'{e}nement}}{\text{nombre total d'exp\'{e}riences}} \]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple</span><br>
+  On lance une pi&egrave;ce de monnaie 20 fois. On obtient Pile 11 fois.
+  \[ f(\text{Pile}) = \frac{11}{20} = 0{,}55 \]
+  La fr&eacute;quence observ&eacute;e est de 0,55, soit 55&nbsp;%. La probabilit&eacute; th&eacute;orique est de 0,5 (50&nbsp;%).
+  Ces deux valeurs sont proches, mais pas &eacute;gales.
+</div>
+
+<div class="att">
+  <span class="label label-att">Distinction importante</span><br>
+  La <strong>fr&eacute;quence</strong> est une valeur <em>observ&eacute;e</em>, obtenue par l&rsquo;exp&eacute;rience.<br>
+  La <strong>probabilit&eacute;</strong> est une valeur <em>th&eacute;orique</em>, calcul&eacute;e &agrave; partir du mod&egrave;le.<br>
+  La fr&eacute;quence peut varier d&rsquo;une s&eacute;rie d&rsquo;exp&eacute;riences &agrave; l&rsquo;autre, mais se rapproche de la probabilit&eacute; quand le nombre d&rsquo;exp&eacute;riences augmente.
+</div>
+
+
+<!-- ======================= SECTION 6 ======================= -->
+<h2>6. Fluctuation des fr&eacute;quences</h2>
+
+<p>
+  Si on r&eacute;p&egrave;te la m&ecirc;me s&eacute;rie d&rsquo;exp&eacute;riences plusieurs fois, on n&rsquo;obtient pas toujours la m&ecirc;me fr&eacute;quence.
+  C&rsquo;est ce qu&rsquo;on appelle la <strong>fluctuation des fr&eacute;quences</strong>.
+</p>
+
+<div class="ex">
+  <span class="label label-ex">Exemple &ndash; 5 s&eacute;ries de 20 lancers d&rsquo;une pi&egrave;ce</span><br>
+  <table>
+    <tr><th>S&eacute;rie</th><th>Nombre de lancers</th><th>Nombre de Pile</th><th>Fr&eacute;quence de Pile</th></tr>
+    <tr><td>1</td><td>20</td><td>9</td><td>0,45</td></tr>
+    <tr><td>2</td><td>20</td><td>12</td><td>0,60</td></tr>
+    <tr><td>3</td><td>20</td><td>10</td><td>0,50</td></tr>
+    <tr><td>4</td><td>20</td><td>11</td><td>0,55</td></tr>
+    <tr><td>5</td><td>20</td><td>8</td><td>0,40</td></tr>
+  </table>
+  Les fr&eacute;quences varient entre 0,40 et 0,60, autour de la valeur th&eacute;orique 0,5.
+</div>
+
+<p>Le graphique suivant illustre cette fluctuation :</p>
+<div class="schema">
+  <svg width="520" height="175" viewBox="0 0 520 175" aria-label="Fluctuation des fréquences sur 5 séries">
+    <!-- Axes -->
+    <line x1="55" y1="20" x2="55" y2="145" stroke="#4a5568" stroke-width="1.5"/>
+    <line x1="55" y1="145" x2="505" y2="145" stroke="#4a5568" stroke-width="1.5"/>
+    <!-- Ligne probabilite theorique p = 0.5 -->
+    <!-- y_min=145 (f=0), y_max=25 (f=1). f=0.5 => y = 145 - 0.5*120 = 85 -->
+    <line x1="55" y1="85" x2="505" y2="85" stroke="#0056b3" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <!-- Etiquettes axe Y -->
+    <text x="50" y="25" text-anchor="end" font-size="11" fill="#718096">1,0</text>
+    <text x="50" y="89" text-anchor="end" font-size="11" fill="#0056b3">0,5</text>
+    <text x="50" y="149" text-anchor="end" font-size="11" fill="#718096">0,0</text>
+    <!-- Etiquettes axe X (series) -->
+    <text x="140" y="160" text-anchor="middle" font-size="11" fill="#4a5568">S&eacute;rie 1</text>
+    <text x="225" y="160" text-anchor="middle" font-size="11" fill="#4a5568">S&eacute;rie 2</text>
+    <text x="310" y="160" text-anchor="middle" font-size="11" fill="#4a5568">S&eacute;rie 3</text>
+    <text x="395" y="160" text-anchor="middle" font-size="11" fill="#4a5568">S&eacute;rie 4</text>
+    <text x="480" y="160" text-anchor="middle" font-size="11" fill="#4a5568">S&eacute;rie 5</text>
+    <!-- Points et ligne brisee : f = 0.45, 0.60, 0.50, 0.55, 0.40 -->
+    <!-- y = 145 - f*120 -->
+    <!-- 0.45->91  0.60->73  0.50->85  0.55->79  0.40->97 -->
+    <polyline points="140,91 225,73 310,85 395,79 480,97" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="140" cy="91" r="5" fill="#d97706"/>
+    <circle cx="225" cy="73" r="5" fill="#d97706"/>
+    <circle cx="310" cy="85" r="5" fill="#d97706"/>
+    <circle cx="395" cy="79" r="5" fill="#d97706"/>
+    <circle cx="480" cy="97" r="5" fill="#d97706"/>
+    <!-- Etiquettes valeurs -->
+    <text x="140" y="83" text-anchor="middle" font-size="10" fill="#92400e">0,45</text>
+    <text x="225" y="65" text-anchor="middle" font-size="10" fill="#92400e">0,60</text>
+    <text x="310" y="77" text-anchor="middle" font-size="10" fill="#92400e">0,50</text>
+    <text x="395" y="71" text-anchor="middle" font-size="10" fill="#92400e">0,55</text>
+    <text x="480" y="89" text-anchor="middle" font-size="10" fill="#92400e">0,40</text>
+    <!-- Legende -->
+    <line x1="65" y1="14" x2="95" y2="14" stroke="#0056b3" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="100" y="18" font-size="10" fill="#0056b3">Probabilit&eacute; th&eacute;orique p = 0,5</text>
+    <line x1="65" y1="28" x2="95" y2="28" stroke="#d97706" stroke-width="2.5"/>
+    <circle cx="80" cy="28" r="4" fill="#d97706"/>
+    <text x="100" y="32" font-size="10" fill="#92400e">Fr&eacute;quence observ&eacute;e (s&eacute;rie de 20 lancers)</text>
+  </svg>
+  <figcaption>Fluctuation des fr&eacute;quences autour de la probabilit&eacute; th&eacute;orique 0,5</figcaption>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">&Agrave; retenir</span><br>
+  Avec un petit nombre d&rsquo;exp&eacute;riences, la fr&eacute;quence peut &ecirc;tre assez &eacute;loign&eacute;e de la probabilit&eacute;.
+  C&rsquo;est tout &agrave; fait normal : c&rsquo;est la <strong>fluctuation des fr&eacute;quences</strong>.
+  Plus le nombre d&rsquo;exp&eacute;riences est grand, moins la fluctuation est importante.
+</div>
+
+
+<!-- ======================= SECTION 7 ======================= -->
+<h2>7. Stabilisation des fr&eacute;quences &ndash; Loi des grands nombres</h2>
+
+<p>
+  Plus le nombre d&rsquo;exp&eacute;riences augmente, plus la fr&eacute;quence observ&eacute;e se rapproche de la probabilit&eacute; th&eacute;orique.
+  C&rsquo;est le principe de la <strong>loi des grands nombres</strong>.
+</p>
+
+<div class="prop">
+  <span class="label label-prop">Loi des grands nombres (intuition)</span><br>
+  Quand le nombre d&rsquo;exp&eacute;riences \(n\) augmente, la fr&eacute;quence \(f\) se rapproche de plus en plus de la probabilit&eacute; \(p\).
+  <br>
+  En pratique : plus \(n\) est grand, moins la fr&eacute;quence fluctue, et plus elle est proche de \(p\).
+</div>
+
+<p>Le graphique suivant montre la convergence de la fr&eacute;quence vers la probabilit&eacute; :</p>
+<div class="schema">
+  <svg width="520" height="175" viewBox="0 0 520 175" aria-label="Convergence de la fréquence vers la probabilité">
+    <!-- Axes -->
+    <line x1="55" y1="20" x2="55" y2="145" stroke="#4a5568" stroke-width="1.5"/>
+    <line x1="55" y1="145" x2="505" y2="145" stroke="#4a5568" stroke-width="1.5"/>
+    <!-- Ligne p = 0.5 => y=85 -->
+    <line x1="55" y1="85" x2="505" y2="85" stroke="#0056b3" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <!-- Etiquettes axe Y -->
+    <text x="50" y="25" text-anchor="end" font-size="11" fill="#718096">1,0</text>
+    <text x="50" y="89" text-anchor="end" font-size="11" fill="#0056b3">0,5</text>
+    <text x="50" y="149" text-anchor="end" font-size="11" fill="#718096">0,0</text>
+    <!-- Etiquettes axe X -->
+    <text x="55" y="160" text-anchor="middle" font-size="10" fill="#718096">0</text>
+    <text x="175" y="160" text-anchor="middle" font-size="10" fill="#718096">10</text>
+    <text x="295" y="160" text-anchor="middle" font-size="10" fill="#718096">50</text>
+    <text x="415" y="160" text-anchor="middle" font-size="10" fill="#718096">100</text>
+    <text x="498" y="160" text-anchor="middle" font-size="10" fill="#718096">n</text>
+    <!-- Courbe qui oscille puis converge -->
+    <polyline
+      points="55,145 80,30 105,115 130,52 155,102 180,65 205,92 230,72 255,88 280,76 305,84 330,79 355,83 380,80 405,82 430,81 455,80 480,80 505,80"
+      fill="none" stroke="#2f855a" stroke-width="2.2" stroke-linejoin="round"/>
+    <!-- Legende -->
+    <line x1="65" y1="14" x2="95" y2="14" stroke="#0056b3" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="100" y="18" font-size="10" fill="#0056b3">Probabilit&eacute; th&eacute;orique p = 0,5</text>
+    <line x1="65" y1="28" x2="95" y2="28" stroke="#2f855a" stroke-width="2.2"/>
+    <text x="100" y="32" font-size="10" fill="#2f855a">Fr&eacute;quence observ&eacute;e (converge vers p)</text>
+  </svg>
+  <figcaption>La fr&eacute;quence oscille d&rsquo;abord beaucoup, puis se stabilise autour de p quand n augmente.</figcaption>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple chiffr&eacute; &ndash; lancer d&rsquo;une pi&egrave;ce</span><br>
+  <table>
+    <tr><th>Nombre de lancers (n)</th><th>Nombre de Pile</th><th>Fr&eacute;quence de Pile</th></tr>
+    <tr><td>10</td><td>7</td><td>0,70</td></tr>
+    <tr><td>50</td><td>28</td><td>0,56</td></tr>
+    <tr><td>100</td><td>53</td><td>0,53</td></tr>
+    <tr><td>500</td><td>247</td><td>0,494</td></tr>
+    <tr><td>1&nbsp;000</td><td>501</td><td>0,501</td></tr>
+  </table>
+  La fr&eacute;quence se rapproche de la probabilit&eacute; th&eacute;orique \(p = 0{,}5\) quand \(n\) augmente.
+</div>
+
+
+<!-- ======================= SECTION 8 ======================= -->
+<h2>8. Applications concr&egrave;tes MAMA</h2>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 1 &ndash; Contr&ocirc;le qualit&eacute;</span><br>
+  Un atelier de menuiserie contr&ocirc;le 200 planches en sortie de machine. 14 sont d&eacute;fectueuses.
+  <br><br>
+  Fr&eacute;quence de d&eacute;faut :
+  \[ f = \frac{14}{200} = 0{,}07 = 7\% \]
+  On estime donc : \(P(\text{pi\`{e}ce d\'{e}fectueuse}) \approx 7\%\)
+  <br><br>
+  <em>Retour sur la situation d&rsquo;introduction :</em> sur 100 pi&egrave;ces avec 8 d&eacute;fauts :
+  \[ f = \frac{8}{100} = 0{,}08 = 8\% \]
+  On estime que la probabilit&eacute; qu&rsquo;une pi&egrave;ce soit d&eacute;fectueuse est d&rsquo;environ <strong>8&nbsp;%</strong>.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 2 &ndash; Sondage satisfaction client</span><br>
+  Un fabricant de meubles interroge 300 clients. 180 se d&eacute;clarent tr&egrave;s satisfaits.
+  <br><br>
+  Fr&eacute;quence de satisfaction :
+  \[ f = \frac{180}{300} = 0{,}60 = 60\% \]
+  On estime que la probabilit&eacute; qu&rsquo;un client soit tr&egrave;s satisfait est d&rsquo;environ <strong>60&nbsp;%</strong>.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 3 &ndash; Estimation m&eacute;t&eacute;o pour chantier</span><br>
+  En observant les donn&eacute;es des ann&eacute;es pr&eacute;c&eacute;dentes, il a plu 3 jours sur 5 au mois de mai.
+  <br><br>
+  \[ P(\text{pluie en mai}) \approx \frac{3}{5} = 0{,}60 = 60\% \]
+  Cette estimation est utile pour planifier des chantiers ext&eacute;rieurs et pr&eacute;voir des jours de repli.
+</div>
+
+
+<!-- ======================= SECTION 9 ======================= -->
+<h2>9. &Agrave; retenir</h2>
+
+<div class="retenir">
+  <span class="label label-ret">R&eacute;capitulatif du chapitre</span>
+
+  <h3 style="margin-top:14px;color:#1e3a8a">Vocabulaire essentiel</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li><strong>Exp&eacute;rience al&eacute;atoire :</strong> r&eacute;sultat non pr&eacute;visible avec certitude, mais issues connues</li>
+    <li><strong>Issue :</strong> r&eacute;sultat possible de l&rsquo;exp&eacute;rience</li>
+    <li><strong>Univers \(\Omega\) :</strong> ensemble de toutes les issues</li>
+    <li><strong>&Eacute;v&eacute;nement :</strong> sous-ensemble de l&rsquo;univers (simple ou compos&eacute;)</li>
+  </ul>
+
+  <h3 style="margin-top:14px;color:#1e3a8a">Formule de la probabilit&eacute;</h3>
+  <div style="text-align:center;font-size:1.05em;margin:8px 0">
+    \[ P(A) = \frac{\text{nombre d'issues favorables}}{\text{nombre total d'issues}} \qquad (0 \leq P(A) \leq 1) \]
+  </div>
+
+  <h3 style="margin-top:14px;color:#1e3a8a">Fr&eacute;quence et probabilit&eacute;</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li>La <strong>fr&eacute;quence</strong> est <em>observ&eacute;e</em> lors d&rsquo;une exp&eacute;rience r&eacute;elle.</li>
+    <li>La <strong>probabilit&eacute;</strong> est une valeur <em>th&eacute;orique</em>.</li>
+    <li>Quand \(n\) augmente, la fr&eacute;quence se rapproche de la probabilit&eacute; : c&rsquo;est la <strong>loi des grands nombres</strong>.</li>
+    <li>Avec peu d&rsquo;exp&eacute;riences, la fr&eacute;quence peut s&rsquo;&eacute;loigner de la probabilit&eacute; : c&rsquo;est la <strong>fluctuation</strong>.</li>
+  </ul>
+</div>
+
+
+<!-- ======================= SECTION 10 ======================= -->
+<h2>10. Erreurs fr&eacute;quentes</h2>
+
+<div class="erreur-item">
+  <div class="ico">&#10060;</div>
+  <div class="txt">
+    <strong>Confondre fr&eacute;quence et probabilit&eacute;</strong><br>
+    La fr&eacute;quence est un r&eacute;sultat <em>observ&eacute;</em> lors d&rsquo;une exp&eacute;rience. La probabilit&eacute; est une valeur <em>th&eacute;orique</em>.
+    Sur 10 lancers, obtenir Pile 7 fois ne signifie pas que \(P(\text{Pile}) = 0{,}7\).
+    <br><em>Conseil : la fr&eacute;quence permet d&rsquo;<strong>estimer</strong> la probabilit&eacute;, mais elles ne sont pas identiques.</em>
+  </div>
+</div>
+
+<div class="erreur-item">
+  <div class="ico">&#10060;</div>
+  <div class="txt">
+    <strong>La fallace du joueur (erreur classique)</strong><br>
+    Croire que si on vient d&rsquo;obtenir Pile 5 fois de suite, le prochain lancer a plus de chances de donner Face.
+    C&rsquo;est faux : chaque lancer est ind&eacute;pendant, et \(P(\text{Face}) = 0{,}5\) &agrave; chaque fois.
+    <br><em>Conseil : les r&eacute;sultats pass&eacute;s n&rsquo;influencent pas les r&eacute;sultats futurs pour des exp&eacute;riences ind&eacute;pendantes.</em>
+  </div>
+</div>
+
+<div class="erreur-item">
+  <div class="ico">&#10060;</div>
+  <div class="txt">
+    <strong>Croire que les r&eacute;sultats doivent &ecirc;tre parfaitement &eacute;quilibr&eacute;s</strong><br>
+    Sur 10 lancers, on peut tr&egrave;s bien obtenir 7 Pile et 3 Face. Ce n&rsquo;est pas &laquo;&nbsp;anormal&nbsp;&raquo;.
+    La loi des grands nombres ne s&rsquo;applique qu&rsquo;&agrave; tr&egrave;s long terme.
+    <br><em>Conseil : la fluctuation est normale et attendue pour des petits &eacute;chantillons.</em>
+  </div>
+</div>
+
+<div class="erreur-item">
+  <div class="ico">&#10060;</div>
+  <div class="txt">
+    <strong>Oublier les bornes de la probabilit&eacute;</strong><br>
+    La probabilit&eacute; est toujours comprise entre 0 et 1 (ou entre 0&nbsp;% et 100&nbsp;%).
+    Un r&eacute;sultat comme \(P(A) = 1{,}5\) ou \(P(A) = -0{,}2\) est impossible.
+    <br><em>Conseil : v&eacute;rifier que \(0 \leq P(A) \leq 1\) apr&egrave;s chaque calcul.</em>
+  </div>
+</div>
+
+
+<!-- ======================= EXERCICES D'APPLICATION ======================= -->
+<h2>Exercices d&rsquo;application</h2>
+
+<div class="exo">
+  <strong>Exercice 1 &ndash; Lancer d&rsquo;un d&eacute;</strong><br>
+  On lance un d&eacute; cubique &eacute;quilibr&eacute; &agrave; 6 faces num&eacute;rot&eacute;es de 1 &agrave; 6.
+  <ol style="padding-left:18px;margin:8px 0">
+    <li>Quelle est la probabilit&eacute; d&rsquo;obtenir un 4&nbsp;?</li>
+    <li>Quelle est la probabilit&eacute; d&rsquo;obtenir un nombre pair&nbsp;?</li>
+    <li>Quelle est la probabilit&eacute; d&rsquo;obtenir un nombre strictement sup&eacute;rieur &agrave; 4&nbsp;?</li>
+  </ol>
+  <details>
+    <summary>Voir la solution</summary>
+    <div class="correct">
+      L&rsquo;univers est \(\Omega = \{1, 2, 3, 4, 5, 6\}\), il y a 6 issues &eacute;quiprobables.<br><br>
+      1. P(obtenir 4) : une seule issue favorable sur 6.
+      \[ P(4) = \frac{1}{6} \approx 0{,}17 \]
+      2. P(nombre pair) : issues favorables \(\{2, 4, 6\}\), soit 3 issues.
+      \[ P(\text{pair}) = \frac{3}{6} = \frac{1}{2} = 0{,}5 \]
+      3. P(nombre &gt; 4) : issues favorables \(\{5, 6\}\), soit 2 issues.
+      \[ P(>4) = \frac{2}{6} = \frac{1}{3} \approx 0{,}33 \]
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 &ndash; Tirage de boules</strong><br>
+  Un sac contient 3 boules rouges, 2 boules bleues et 1 boule verte.
+  On tire une boule au hasard.
+  <ol style="padding-left:18px;margin:8px 0">
+    <li>Quel est l&rsquo;univers&nbsp;? Combien d&rsquo;issues y a-t-il&nbsp;?</li>
+    <li>Quelle est la probabilit&eacute; de tirer une boule rouge&nbsp;?</li>
+    <li>Quelle est la probabilit&eacute; de tirer une boule bleue ou verte&nbsp;?</li>
+  </ol>
+  <details>
+    <summary>Voir la solution</summary>
+    <div class="correct">
+      Total de boules : \(3 + 2 + 1 = 6\) boules. L&rsquo;univers a 6 issues &eacute;quiprobables.<br><br>
+      1. L&rsquo;univers contient 6 issues (une par boule).<br><br>
+      2. Issues favorables &laquo;&nbsp;rouge&nbsp;&raquo; : 3.
+      \[ P(\text{rouge}) = \frac{3}{6} = \frac{1}{2} = 0{,}5 \]
+      3. Issues favorables &laquo;&nbsp;bleue ou verte&nbsp;&raquo; : \(2 + 1 = 3\) issues.
+      \[ P(\text{bleue ou verte}) = \frac{3}{6} = \frac{1}{2} = 0{,}5 \]
+      <em>V&eacute;rification : \(P(\text{rouge}) + P(\text{bleue ou verte}) = 0{,}5 + 0{,}5 = 1\), ce qui est coh&eacute;rent car on couvre tout l&rsquo;univers.</em>
+    </div>
+  </details>
+</div>
+
+
+<!-- SIMULATIONS -->
+<h2>Graphique — Probabilités théoriques vs fréquences observées</h2>
+
+<p>
+  En théorie, un dé équilibré donne chaque face avec une probabilité de \(\frac{1}{6} \approx 16{,}7\%\).
+  En pratique, on observe des fluctuations. Voici un exemple de 60 lancers :
+</p>
+
+<div class="chart-wrapper">
+  <canvas id="chartProba"></canvas>
+</div>
+
+<script>
+(function(){
+  const faces=['1','2','3','4','5','6'];
+  const obs=[8,11,9,12,10,10]; // exemple de 60 lancers
+  const total=obs.reduce((a,b)=>a+b,0);
+  const freqObs=obs.map(n=>Math.round(n/total*1000)/10);
+  const probaTheo=faces.map(()=>Math.round(100/6*10)/10);
+  new Chart(document.getElementById('chartProba'),{
+    type:'bar',
+    data:{
+      labels:faces,
+      datasets:[
+        {label:'Fréquence observée (%)',data:freqObs,backgroundColor:'rgba(0,86,179,0.65)',borderColor:'#0056b3',borderWidth:1.5},
+        {type:'line',label:'Probabilité théorique (16,7%)',data:probaTheo,borderColor:'#c53030',backgroundColor:'transparent',borderWidth:2,borderDash:[6,3],pointRadius:0}
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{position:'bottom',labels:{font:{size:12}}},
+        title:{display:true,text:'60 lancers d\'un dé — fréquences observées vs probabilité théorique',font:{size:12}}
+      },
+      scales:{
+        x:{title:{display:true,text:'Face du dé'}},
+        y:{title:{display:true,text:'Fréquence / Probabilité (%)'},beginAtZero:true,max:30,grid:{color:'#f0f0f0'}}
+      }
+    }
+  });
+})();
+</script>
+
+<p style="font-size:.9em;color:#718096;text-align:center">Les barres bleues fluctuent autour de la droite rouge théorique (16,7%). Plus le nombre de lancers augmente, plus elles s'en rapprochent.</p>
+
+<h2>Animation — Simulateur de lancers de pièce</h2>
+
+<p style="font-size:.9em;color:#718096">Lance une pièce virtuellement et observe comment la fréquence des Pile se stabilise autour de 0,5 quand le nombre de lancers augmente.</p>
+
+<div class="ctrl-vis">
+  <label>Nombre de lancers : <input type="range" id="nbLancers" min="10" max="500" step="10" value="50"> <strong id="lblLancers">50</strong></label>
+  <button onclick="lancerPiece()" style="padding:8px 16px;background:var(--p);color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:700;font-size:.88em">▶ Lancer</button>
+</div>
+<canvas id="canvasProba" class="anim" width="560" height="200"></canvas>
+<div class="anim-result" id="resuProba"></div>
+
+<script>
+(function(){
+  const cv=document.getElementById('canvasProba'),ctx=cv.getContext('2d');
+  const slN=document.getElementById('nbLancers'),lblN=document.getElementById('lblLancers');
+  slN.addEventListener('input',()=>{lblN.textContent=slN.value;});
+  window.lancerPiece=function(){
+    const n=+slN.value;
+    const results=[];
+    let piles=0;
+    const freqs=[];
+    for(let i=0;i<n;i++){
+      const r=Math.random()<0.5;
+      if(r) piles++;
+      results.push(r?1:0);
+      freqs.push(piles/(i+1));
+    }
+    draw(freqs,n,piles);
+  };
+  function draw(freqs,n,piles){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    const W=cv.width,H=cv.height,pad=30;
+    const dx=(W-2*pad)/freqs.length;
+    // Axes
+    ctx.strokeStyle='#718096'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(pad,pad); ctx.lineTo(pad,H-pad); ctx.lineTo(W-pad,H-pad); ctx.stroke();
+    // Théorique y=0.5
+    const y05=pad+(H-2*pad)*0.5;
+    ctx.strokeStyle='#c53030'; ctx.lineWidth=1.5; ctx.setLineDash([6,4]);
+    ctx.beginPath(); ctx.moveTo(pad,y05); ctx.lineTo(W-pad,y05); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#c53030'; ctx.font='11px Segoe UI,sans-serif'; ctx.textAlign='right';
+    ctx.fillText('0,5',pad-4,y05+4);
+    // Courbe fréquences
+    ctx.strokeStyle='#0056b3'; ctx.lineWidth=2;
+    ctx.beginPath();
+    freqs.forEach((f,i)=>{
+      const x=pad+i*dx, y=pad+(H-2*pad)*(1-f);
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+    // Labels
+    ctx.fillStyle='#718096'; ctx.font='11px Segoe UI,sans-serif'; ctx.textAlign='center';
+    ctx.fillText('Lancers',W/2,H-5);
+    ctx.fillText('0',pad-8,H-pad+4); ctx.fillText('1',pad-8,pad+4);
+    // Résultat
+    const f=Math.round(piles/n*1000)/1000;
+    document.getElementById('resuProba').textContent=`${n} lancers : ${piles} Pile — fréquence = ${f} (théorie : 0,5)`;
+  }
+  lancerPiece();
+})();
+</script>
+
+<h2>Simulations interactives</h2>
+<p>Entra&icirc;ne-toi avec les outils interactifs :</p>
+<div>
+  <a href="simulations.html" class="simu-link">Simulations &ndash; Probabilit&eacute;s</a>
+</div>
+
+<!-- NAV -->
+<div class="nav-footer">
+  <a href="ch03_lecon.html" class="nav-btn">&larr; Ch03</a>
+  <a href="maths-2nde-mama.html" class="nav-btn">Sommaire</a>
+  <a href="ch04_exos.html" class="nav-btn">Exercices Ch04 &rarr;</a>
+</div>
+
+</div><!-- fin .c -->
+<script src="/nav.js"></script>
+</body>
+</html>

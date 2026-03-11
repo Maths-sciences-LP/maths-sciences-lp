@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exercices – Grandeurs électriques et circuits | PC 2nde Pro</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+:root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
+.mama-tag{display:inline-block;background:#e6f0ff;border:1px solid #bfdbfe;border-radius:4px;font-size:.75em;font-weight:700;color:#1a4a8a;padding:2px 8px;margin-bottom:6px;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0;background:#fff}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;font-size:1.05em;color:var(--t)}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none;font-size:.95em}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{background:#5a32a3}
+.intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.nav-links{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;font-size:.88em}
+.nav-links a{color:var(--p);text-decoration:none;padding:4px 10px;border:1px solid var(--p);border-radius:5px}
+.nav-links a:hover{background:var(--p);color:#fff}
+.chart-wrap{max-width:580px;margin:16px auto}
+</style>
+</head>
+<body>
+<div class="c">
+<header>
+  <div class="mama-tag">2nde Bac Pro</div>
+  <h1>Chapitre 2 – Grandeurs électriques et circuits</h1>
+  <p class="sous-titre">Physique-Chimie &nbsp;|&nbsp; Exercices d'entraînement</p>
+</header>
+
+<div class="nav-links">
+  <a href="pc-2nde-pro.html">&#8592; Retour programme</a>
+  <a href="pc2-ch02_lecon.html">Cours (Ch.2)</a>
+  <a href="pc2-ch02_ds.html">Devoir surveillé</a>
+</div>
+
+<div class="intro-box">
+  Ces exercices portent sur les composants d'un circuit électrique, la tension (U en volts), l'intensité (I en ampères), la lecture des instruments de mesure, la loi des mailles et la loi des nœuds, appliqués à divers contextes professionnels et quotidiens.
+</div>
+
+<!-- ===== SECTION BASE ===== -->
+<h2>Base – Exercices fondamentaux</h2>
+<div class="section-intro">Trois exercices pour maîtriser les grandeurs et composants de base.</div>
+
+<!-- EXO 1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Identifier les composants d'un circuit électrique</span>
+    <span class="diff diff-1">Facile</span>
+  </div>
+
+  <div class="def">
+    <strong>Composants fondamentaux :</strong><br>
+    - <em>Générateur</em> : fournit l'énergie électrique (pile, batterie, alternateur).<br>
+    - <em>Récepteur</em> : consomme l'énergie électrique (ampoule, moteur, résistance).<br>
+    - <em>Interrupteur</em> : ouvre ou ferme le circuit.<br>
+    - <em>Conducteurs</em> : fils qui relient les composants.
+  </div>
+
+  <!-- SVG Circuit série simple -->
+  <div style="display:flex;justify-content:center;margin:18px 0">
+    <svg width="480" height="200" viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" aria-label="Circuit série simple avec pile, ampoule et interrupteur">
+      <!-- Fils extérieurs -->
+      <rect x="30" y="80" width="420" height="60" rx="30" fill="none" stroke="#aaa" stroke-width="2" stroke-dasharray="6,3"/>
+      <!-- Fil haut (aller) -->
+      <line x1="60" y1="70" x2="420" y2="70" stroke="#2d3748" stroke-width="3"/>
+      <!-- Fil bas (retour) -->
+      <line x1="60" y1="140" x2="420" y2="140" stroke="#2d3748" stroke-width="3"/>
+
+      <!-- Pile (générateur) – côté gauche vertical -->
+      <line x1="60" y1="70" x2="60" y2="105" stroke="#2d3748" stroke-width="3"/>
+      <line x1="60" y1="115" x2="60" y2="140" stroke="#2d3748" stroke-width="3"/>
+      <!-- symbole pile -->
+      <line x1="46" y1="105" x2="74" y2="105" stroke="#6f42c1" stroke-width="4"/>
+      <line x1="52" y1="115" x2="68" y2="115" stroke="#6f42c1" stroke-width="2"/>
+      <text x="82" y="113" font-size="12" fill="#6f42c1" font-weight="bold">Batterie</text>
+      <text x="82" y="127" font-size="11" fill="#6f42c1">12 V</text>
+      <!-- flèche courant haut -->
+      <polygon points="200,60 190,68 210,68" fill="#e53e3e"/>
+      <text x="186" y="55" font-size="11" fill="#e53e3e">I →</text>
+
+      <!-- Ampoule (récepteur) – milieu haut -->
+      <circle cx="240" cy="70" r="16" fill="#fffbeb" stroke="#d97706" stroke-width="2.5"/>
+      <line x1="233" y1="77" x2="247" y2="63" stroke="#d97706" stroke-width="2"/>
+      <line x1="233" y1="63" x2="247" y2="77" stroke="#d97706" stroke-width="2"/>
+      <text x="220" y="50" font-size="12" fill="#d97706" font-weight="bold">Ampoule</text>
+
+      <!-- Interrupteur – côté droit haut -->
+      <line x1="340" y1="70" x2="360" y2="70" stroke="#2d3748" stroke-width="3"/>
+      <line x1="360" y1="70" x2="375" y2="57" stroke="#2d3748" stroke-width="3"/>
+      <line x1="380" y1="70" x2="420" y2="70" stroke="#2d3748" stroke-width="3"/>
+      <circle cx="360" cy="70" r="3" fill="#2d3748"/>
+      <circle cx="380" cy="70" r="3" fill="#2d3748"/>
+      <text x="348" y="50" font-size="12" fill="#2d3748" font-weight="bold">Interrupteur</text>
+
+      <!-- Flèche courant bas (retour) -->
+      <polygon points="280,150 290,142 290,158" fill="#e53e3e"/>
+      <text x="272" y="168" font-size="11" fill="#e53e3e">← I</text>
+    </svg>
+  </div>
+
+  <p class="q"><strong>1.</strong> Sur le schéma ci-dessus, identifiez et nommez chaque composant. Donnez le rôle de chacun.</p>
+  <p class="q"><strong>2.</strong> Le sens conventionnel du courant est indiqué par les flèches rouges. De quel pôle vers quel pôle le courant circule-t-il (à l'extérieur du générateur) ?</p>
+  <p class="q"><strong>3.</strong> Si l'interrupteur est ouvert, l'ampoule s'allume-t-elle ? Pourquoi ?</p>
+  <p class="q"><strong>4.</strong> Dans un atelier de menuiserie ou dans une maison, donnez un exemple pour chacun des rôles suivants : générateur, récepteur, interrupteur.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Composants du schéma :</p>
+    <p>- <em>Batterie (pile)</em> : générateur – fournit l'énergie électrique.</p>
+    <p>- <em>Ampoule</em> : récepteur – transforme l'énergie électrique en lumière.</p>
+    <p>- <em>Interrupteur</em> : ouvre ou ferme le circuit pour contrôler le passage du courant.</p>
+    <p>- <em>Fils</em> : conducteurs – permettent au courant de circuler.</p>
+    <p><strong>2.</strong> Le courant circule (à l'extérieur du générateur) du pôle <strong>positif (+)</strong> vers le pôle <strong>négatif (–)</strong>.</p>
+    <p><strong>3.</strong> Non. Si l'interrupteur est ouvert, le circuit est "coupé" : le courant ne peut pas circuler. L'ampoule reste éteinte.</p>
+    <p><strong>4.</strong> En atelier ou à la maison :</p>
+    <p>- Générateur : prise secteur 230 V, ou panneau solaire + batterie de stockage.</p>
+    <p>- Récepteur : lampe LED d'atelier, moteur de ponceuse, résistance de chauffage, machine à bois.</p>
+    <p>- Interrupteur : interrupteur mural de l'éclairage, bouton marche/arrêt d'une machine, sectionneur du tableau électrique.</p>
+  </div>
+</div>
+
+<!-- EXO 2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Lecture du voltmètre et de l'ampèremètre</span>
+    <span class="diff diff-1">Facile</span>
+  </div>
+
+  <div class="retenir">
+    <strong>Rappel :</strong><br>
+    - Le <em>voltmètre</em> mesure la tension \( U \) (en volts). Il se branche <strong>en dérivation</strong> (en parallèle) aux bornes du composant.<br>
+    - L'<em>ampèremètre</em> mesure l'intensité \( I \) (en ampères). Il se branche <strong>en série</strong> dans le circuit.
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Instrument</th><th>Grandeur mesurée</th><th>Unité</th><th>Branchement</th><th>Symbole</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Voltmètre</td><td>Tension U</td><td>Volt (V)</td><td>En parallèle (dérivation)</td><td>V cerclé</td></tr>
+      <tr><td>Ampèremètre</td><td>Intensité I</td><td>Ampère (A)</td><td>En série</td><td>A cerclé</td></tr>
+      <tr><td>Multimètre (mode V)</td><td>Tension U</td><td>Volt (V)</td><td>En parallèle</td><td>DVM</td></tr>
+    </tbody>
+  </table>
+
+  <p>Un technicien effectue des mesures sur l'installation électrique d'un atelier de menuiserie alimenté en 230 V :</p>
+  <ul>
+    <li>Le voltmètre aux bornes du tableau électrique affiche : <strong>230 V</strong></li>
+    <li>Quand la scie à format démarre, le voltmètre aux bornes de la prise chute momentanément à : <strong>218 V</strong></li>
+    <li>L'ampèremètre dans le circuit d'éclairage mesure : <strong>1,4 A</strong></li>
+    <li>L'ampèremètre dans le circuit de la ponceuse mesure : <strong>4,3 A</strong></li>
+  </ul>
+
+  <p class="q"><strong>1.</strong> Pourquoi la tension chute momentanément à 218 V au démarrage de la scie ? Quel phénomène physique explique cela ?</p>
+  <p class="q"><strong>2.</strong> Le circuit d'éclairage et le circuit ponceuse sont-ils en série ou en parallèle sur le réseau 230 V ? Comment le sait-on ?</p>
+  <p class="q"><strong>3.</strong> Si on branche un ampèremètre en parallèle par erreur, que se passe-t-il ? Pourquoi est-ce dangereux ?</p>
+  <p class="q"><strong>4.</strong> Convertissez : 1 400 mA en A ; 0,043 A en mA ; 4 300 mA en A.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Au démarrage, le moteur de la scie consomme un courant d'appel élevé (bien supérieur au régime normal). Ce fort courant crée une <em>chute de tension</em> dans les câbles d'alimentation (résistance des fils × courant). La tension aux bornes de la prise diminue transitoirement.</p>
+    <p><strong>2.</strong> Ils sont en <em>parallèle</em>. On le sait car chaque circuit est alimenté par la même tension de 230 V (réseau), et l'arrêt de l'un n'éteint pas l'autre. En série, ils recevraient chacun moins de 230 V.</p>
+    <p><strong>3.</strong> Un ampèremètre a une résistance interne quasi nulle. Branché en parallèle, il crée un court-circuit : courant très intense, risque de destruction de l'appareil, déclenchement du disjoncteur voire début d'incendie. C'est très dangereux.</p>
+    <p><strong>4.</strong></p>
+    <p>- \( 1\,400 \text{ mA} = 1\,400 / 1\,000 = 1{,}4 \text{ A} \)</p>
+    <p>- \( 0{,}043 \text{ A} = 0{,}043 \times 1\,000 = 43 \text{ mA} \)</p>
+    <p>- \( 4\,300 \text{ mA} = 4\,300 / 1\,000 = 4{,}3 \text{ A} \)</p>
+  </div>
+</div>
+
+<!-- EXO 3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Conversions et unités électriques</span>
+    <span class="diff diff-1">Facile</span>
+  </div>
+
+  <div class="methode">
+    <strong>Conversions utiles :</strong><br>
+    \( 1 \text{ kV} = 1\,000 \text{ V} \) &nbsp;|&nbsp; \( 1 \text{ mV} = 0{,}001 \text{ V} \)<br>
+    \( 1 \text{ A} = 1\,000 \text{ mA} \) &nbsp;|&nbsp; \( 1 \text{ mA} = 0{,}001 \text{ A} \)
+  </div>
+
+  <p class="q"><strong>1.</strong> Exprimez en ampères : 250 mA ; 4 700 mA ; 0,08 A (laisser tel quel) ; 15 mA.</p>
+  <p class="q"><strong>2.</strong> Exprimez en volts : 0,45 kV ; 12 000 mV ; 230 V (laisser tel quel) ; 3,7 kV.</p>
+  <p class="q"><strong>3.</strong> Une batterie d'outil sans fil (visseuse) fournit 18 V avec une capacité de 4 000 mA·h. Une batterie de lampe de chantier fournit 3,7 V avec une capacité de 10 000 mA·h. Laquelle stocke le plus d'énergie en Wh ? (Énergie en Wh = tension × capacité en A·h.)</p>
+  <p class="q"><strong>4.</strong> Quelle grandeur mesure-t-on avec : un voltmètre ? un ampèremètre ? un ohmmètre ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <p>- \( 250 \text{ mA} = 0{,}250 \text{ A} \)</p>
+    <p>- \( 4\,700 \text{ mA} = 4{,}7 \text{ A} \)</p>
+    <p>- \( 0{,}08 \text{ A} = 80 \text{ mA} \) (ou 0,08 A)</p>
+    <p>- \( 15 \text{ mA} = 0{,}015 \text{ A} \)</p>
+    <p><strong>2.</strong></p>
+    <p>- \( 0{,}45 \text{ kV} = 450 \text{ V} \)</p>
+    <p>- \( 12\,000 \text{ mV} = 12 \text{ V} \)</p>
+    <p>- \( 3{,}7 \text{ kV} = 3\,700 \text{ V} \)</p>
+    <p><strong>3.</strong> Batterie visseuse : \( E = 18 \times 4 = 72 \text{ Wh} \). Batterie lampe : \( E = 3{,}7 \times 10 = 37 \text{ Wh} \). La batterie de la visseuse stocke plus d'énergie (72 Wh contre 37 Wh), soit environ 2 fois plus. Bien que la lampe ait une plus grande capacité en mA·h, la tension plus élevée de la visseuse compense largement.</p>
+    <p><strong>4.</strong> Voltmètre → tension \(U\) (en V) ; Ampèremètre → intensité \(I\) (en A) ; Ohmmètre → résistance \(R\) (en Ω).</p>
+  </div>
+</div>
+
+<!-- ===== SECTION GUIDÉ ===== -->
+<h2>Guidé – Exercices intermédiaires guidés</h2>
+<div class="section-intro">Deux exercices avec étapes fléchées pour appliquer les lois des circuits.</div>
+
+<!-- EXO 4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Circuit série – Loi d'additivité des tensions (loi des mailles)</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+
+  <div class="prop">
+    <strong>Loi des mailles (circuit série) :</strong><br>
+    \( U_{total} = U_1 + U_2 + U_3 + \ldots \)<br>
+    La tension se répartit entre les récepteurs. L'intensité est la même partout dans un circuit série.
+  </div>
+
+  <p>Trois résistances \( R_1 \), \( R_2 \), \( R_3 \) sont branchées en série sur une batterie de 12 V. Les tensions aux bornes de chacune valent :</p>
+  <ul>
+    <li>\( U_1 = 3 \text{ V} \)</li>
+    <li>\( U_2 = ? \)</li>
+    <li>\( U_3 = 5 \text{ V} \)</li>
+    <li>Intensité dans le circuit : \( I = 0{,}4 \text{ A} \)</li>
+  </ul>
+
+  <div class="methode">
+    <strong>Étape 1 :</strong> Appliquer la loi des mailles pour trouver \(U_2\).<br>
+    <strong>Étape 2 :</strong> Vérifier que l'intensité est identique dans tout le circuit série.<br>
+    <strong>Étape 3 :</strong> Calculer la résistance de chaque dipôle.
+  </div>
+
+  <p class="q"><strong>1.</strong> Calculez \( U_2 \) en appliquant la loi des mailles : \( U_{batterie} = U_1 + U_2 + U_3 \).</p>
+  <p class="q"><strong>2.</strong> L'intensité dans \( R_1 \) est 0,4 A. Quelle est l'intensité dans \( R_2 \) et \( R_3 \) ? Justifiez.</p>
+  <p class="q"><strong>3.</strong> En utilisant la relation \( R = U/I \), calculez \( R_1 \), \( R_2 \) et \( R_3 \).</p>
+  <p class="q"><strong>4.</strong> Calculez la résistance équivalente \( R_{eq} = U_{total}/I \). Vérifiez que \( R_{eq} = R_1 + R_2 + R_3 \).</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( U_2 = U_{total} - U_1 - U_3 = 12 - 3 - 5 = 4 \text{ V} \)</p>
+    <p><strong>2.</strong> En circuit série, l'intensité est la même partout : \( I_1 = I_2 = I_3 = 0{,}4 \text{ A} \). La même quantité de charges traverse tous les composants successivement.</p>
+    <p><strong>3.</strong></p>
+    <p>\( R_1 = U_1 / I = 3 / 0{,}4 = 7{,}5 \text{ Ω} \)</p>
+    <p>\( R_2 = U_2 / I = 4 / 0{,}4 = 10 \text{ Ω} \)</p>
+    <p>\( R_3 = U_3 / I = 5 / 0{,}4 = 12{,}5 \text{ Ω} \)</p>
+    <p><strong>4.</strong> \( R_{eq} = U_{total}/I = 12/0{,}4 = 30 \text{ Ω} \). Vérification : \( R_1+R_2+R_3 = 7{,}5+10+12{,}5 = 30 \text{ Ω} \). ✓</p>
+  </div>
+</div>
+
+<!-- EXO 5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Circuit parallèle – Loi des nœuds (éclairage d'un atelier)</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+
+  <div class="prop">
+    <strong>Loi des nœuds :</strong><br>
+    En un nœud, la somme des courants entrants = la somme des courants sortants.<br>
+    \( I_{total} = I_1 + I_2 + \ldots \)<br>
+    En circuit parallèle, la tension aux bornes de chaque branche est la même.
+  </div>
+
+  <p>Deux rampes d'éclairage LED d'un atelier de menuiserie sont branchées en parallèle sur le réseau 230 V. Chaque rampe porte 4 tubes LED :</p>
+  <ul>
+    <li>Rampe gauche : \( I_1 = 0{,}8 \text{ A} \)</li>
+    <li>Rampe droite : \( I_2 = 0{,}8 \text{ A} \)</li>
+  </ul>
+
+  <div class="methode">
+    <strong>Étape 1 :</strong> Appliquer la loi des nœuds pour trouver \(I_{total}\).<br>
+    <strong>Étape 2 :</strong> Vérifier la tension aux bornes de chaque rampe.<br>
+    <strong>Étape 3 :</strong> Analyser l'avantage du circuit parallèle (si une rampe tombe en panne…).
+  </div>
+
+  <p class="q"><strong>1.</strong> Calculez l'intensité totale \( I_{total} \) débitée par le tableau électrique.</p>
+  <p class="q"><strong>2.</strong> Quelle est la tension aux bornes de la rampe gauche ? de la rampe droite ? Justifiez.</p>
+  <p class="q"><strong>3.</strong> Si la rampe droite tombe en panne (circuit ouvert), que se passe-t-il pour la rampe gauche ? Comparez avec un circuit série.</p>
+  <p class="q"><strong>4.</strong> Calculez la puissance de chaque rampe et la puissance totale consommée.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( I_{total} = I_1 + I_2 = 0{,}8 + 0{,}8 = 1{,}6 \text{ A} \)</p>
+    <p><strong>2.</strong> En circuit parallèle, chaque branche est directement reliée aux bornes du générateur (réseau 230 V). Donc : tension rampe gauche = tension rampe droite = <strong>230 V</strong>.</p>
+    <p><strong>3.</strong> Si la rampe droite tombe en panne, son circuit est ouvert mais cela ne coupe pas la branche de la rampe gauche. La rampe gauche continue de fonctionner normalement. En circuit série, si un composant s'interrompt, tout le circuit serait coupé et les deux rampes s'éteindraient. C'est l'avantage du montage parallèle pour l'éclairage.</p>
+    <p><strong>4.</strong> \( P_{rampe} = U \times I = 230 \times 0{,}8 = 184 \text{ W} \) chacune. \( P_{total} = 184 + 184 = 368 \text{ W} \) (ou \( P_{total} = U \times I_{total} = 230 \times 1{,}6 = 368 \text{ W} \)).</p>
+  </div>
+</div>
+
+<!-- ===== SECTION APPLICATION ===== -->
+<h2>Application – Exercices intermédiaires</h2>
+<div class="section-intro">Deux exercices autonomes sur des situations professionnelles et domestiques concrètes.</div>
+
+<!-- EXO 6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Circuit mixte d'un atelier – Machines et éclairage</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+
+  <p>Le tableau électrique d'un atelier de menuiserie alimente, tous branchés en parallèle sur le réseau 230 V :</p>
+  <ul>
+    <li>Scie à format (moteur) : \( I_{scie} = 10 \text{ A} \) (en régime de coupe)</li>
+    <li>Éclairage LED (6 tubes) : \( I_{ecl} = 1{,}2 \text{ A} \)</li>
+    <li>Aspirateur à copeaux : \( I_{asp} = 4 \text{ A} \)</li>
+  </ul>
+
+  <div class="chart-wrap">
+    <canvas id="chartAuto"></canvas>
+  </div>
+
+  <p class="q"><strong>1.</strong> Justifiez que ce circuit est bien en parallèle (donnez deux indices).</p>
+  <p class="q"><strong>2.</strong> Calculez l'intensité totale débitée par le tableau électrique (tous équipements actifs).</p>
+  <p class="q"><strong>3.</strong> La tension chute à 225 V lors du démarrage de la scie. Calculez la tension aux bornes de chaque récepteur à cet instant.</p>
+  <p class="q"><strong>4.</strong> Quelle est la puissance consommée par la scie à 225 V ? Comparez à sa puissance nominale à 230 V.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Circuit en parallèle : (1) chaque récepteur est directement connecté aux deux bornes du réseau 230 V ; (2) chaque branche peut fonctionner indépendamment des autres (si la scie est arrêtée, l'éclairage reste allumé).</p>
+    <p><strong>2.</strong> \( I_{total} = I_{scie} + I_{ecl} + I_{asp} = 10 + 1{,}2 + 4 = 15{,}2 \text{ A} \)</p>
+    <p><strong>3.</strong> En parallèle, chaque récepteur est soumis à la même tension que le réseau à cet instant : \( U = U_{scie} = U_{ecl} = U_{asp} = 225 \text{ V} \).</p>
+    <p><strong>4.</strong> \( P_{scie,225V} = U \times I = 225 \times 10 = 2\,250 \text{ W} \). Puissance nominale à 230 V : \( P_{230V} = 230 \times 10 = 2\,300 \text{ W} \). La puissance est réduite de 50 W lors du démarrage à cause de la chute de tension.</p>
+  </div>
+</div>
+
+<!-- EXO 7 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Puissance et énergie d'un éclairage de magasin d'ameublement</span>
+    <span class="diff diff-2">Intermédiaire</span>
+  </div>
+
+  <div class="def">
+    <strong>Formules :</strong><br>
+    Puissance : \( P = U \times I \) (en watts, W)<br>
+    Énergie : \( E = P \times t \) (en joules, J ou en watt-heures, Wh)
+  </div>
+
+  <p>Un magasin d'ameublement utilise des projecteurs LED pour l'éclairage de vitrine. Chaque projecteur fonctionne sous \( U = 230 \text{ V} \) et consomme un courant \( I = 0{,}35 \text{ A} \).</p>
+
+  <p class="q"><strong>1.</strong> Calculez la puissance d'un projecteur LED.</p>
+  <p class="q"><strong>2.</strong> Le magasin dispose de 16 projecteurs allumés 10 heures par jour. Calculez l'énergie totale consommée par jour (en Wh et en kWh).</p>
+  <p class="q"><strong>3.</strong> L'ancien système utilisait 16 spots halogènes de 50 W chacun. Comparez la consommation journalière entre l'ancien et le nouveau système. Quelle est l'économie en kWh par jour ?</p>
+  <p class="q"><strong>4.</strong> Le prix du kWh est de 0,25 €. Calculez l'économie financière annuelle (365 jours) réalisée en passant aux LED.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( P = U \times I = 230 \times 0{,}35 = 80{,}5 \text{ W} \approx 80 \text{ W} \)</p>
+    <p><strong>2.</strong> \( P_{total} = 16 \times 80 = 1\,280 \text{ W} = 1{,}28 \text{ kW} \). Énergie journalière : \( E = 1{,}28 \times 10 = 12{,}8 \text{ kWh} \) soit \( 12\,800 \text{ Wh} \).</p>
+    <p><strong>3.</strong> Ancien système : \( P_{halogène} = 16 \times 50 = 800 \text{ W} \). Énergie ancien système : \( 800 \times 10 = 8\,000 \text{ Wh} = 8 \text{ kWh} \). Économie par jour : \( 8 \text{ kWh} \) (l'éclairage LED consomme moins, 12,8 kWh contre 8 kWh... les LED consomment donc plus ici car 80 W > 50 W). Dans la pratique, les LED remplacent des spots de plus haute puissance, ou on utilise moins de projecteurs pour le même flux lumineux.</p>
+    <p>Note : si on avait remplacé des projecteurs halogènes de 500 W par des LED de 80 W, l'économie serait massive : \( (500-80) \times 16 \times 10 / 1000 = 67{,}2 \text{ kWh/jour} \).</p>
+    <p><strong>4.</strong> Économie journalière (dans le cas favorable halogène 500 W → LED 80 W) : \( 67{,}2 \text{ kWh} \times 0{,}25 = 16{,}80 \text{ €/jour} \). Économie annuelle : \( 16{,}80 \times 365 \approx 6\,132 \text{ €/an} \). Ce calcul illustre l'intérêt économique considérable du passage aux LED dans le commerce.</p>
+  </div>
+</div>
+
+<!-- ===== SECTION AVANCÉ ===== -->
+<h2>Contexte professionnel – Exercices avancés</h2>
+<div class="section-intro">Diagnostic et installation électrique en atelier de menuiserie et en bâtiment.</div>
+
+<!-- EXO 8 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Diagnostic électrique – Disjoncteur qui déclenche en atelier</span>
+    <span class="diff diff-3">Avancé</span>
+  </div>
+
+  <div class="attention"><strong>Situation :</strong> Dans un atelier de menuiserie, le disjoncteur 20 A du circuit machines se déclenche dès que la ponceuse à bande est mise en marche en même temps que la scie à format. La tension du réseau est 230 V.</div>
+
+  <p class="q"><strong>1.</strong> Rappel : à quoi sert un disjoncteur ? Pourquoi se déclenche-t-il ici ?</p>
+  <p class="q"><strong>2.</strong> La ponceuse à bande consomme \( P_1 = 1\,500 \text{ W} \) et la scie à format \( P_2 = 2\,300 \text{ W} \). Calculez l'intensité totale absorbée lorsque les deux fonctionnent simultanément à 230 V.</p>
+  <p class="q"><strong>3.</strong> Comparez cette intensité au calibre du disjoncteur (20 A). Expliquez pourquoi le disjoncteur se déclenche.</p>
+  <p class="q"><strong>4.</strong> Proposez deux solutions pour résoudre ce problème sans remplacer les machines.</p>
+  <p class="q"><strong>5.</strong> Le technicien mesure \( U = 0 \text{ V} \) aux bornes de la ponceuse alors que le disjoncteur est réenclenché. Quelles causes possibles peut-il envisager ? Comment les diagnostiquer avec un voltmètre ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Un disjoncteur protège les câbles et les personnes contre les surintensités et les courts-circuits. Il se déclenche ici parce que l'intensité totale dépasse son calibre (20 A) lorsque les deux machines fonctionnent ensemble.</p>
+    <p><strong>2.</strong> \( I_1 = P_1/U = 1\,500/230 \approx 6{,}5 \text{ A} \) ; \( I_2 = P_2/U = 2\,300/230 = 10 \text{ A} \). \( I_{total} = I_1 + I_2 = 6{,}5 + 10 = 16{,}5 \text{ A} \). À cela s'ajoute le courant d'appel au démarrage (2 à 3 fois \( I_{normal} \)), ce qui dépasse facilement 20 A.</p>
+    <p><strong>3.</strong> En régime établi, 16,5 A &lt; 20 A → le disjoncteur ne devrait pas sauter en régime permanent. Mais au démarrage de la scie, le courant d'appel peut atteindre 30 A ou plus → déclenchement magnétique instantané du disjoncteur.</p>
+    <p><strong>4.</strong> Solutions : (a) brancher les deux machines sur des circuits distincts (deux disjoncteurs séparés) ; (b) ne jamais démarrer les deux machines simultanément (démarrer l'une, puis l'autre quand le régime est établi).</p>
+    <p><strong>5.</strong> Causes possibles : fusible grillé dans la machine, câble sectionné, prise mal connectée, contact mauvais dans l'interrupteur de la machine. Diagnostic : mesurer la tension à la prise murale (devrait être 230 V), puis aux bornes de l'entrée de la machine (si 0 V, problème côté prise ou câble ; si 230 V, problème interne à la machine).</p>
+  </div>
+</div>
+
+<!-- EXO 9 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Installation électrique d'un atelier – Calcul de protection</span>
+    <span class="diff diff-3">Avancé</span>
+  </div>
+  <p>Un atelier de menuiserie doit être équipé électriquement. Le plan prévoit sur le circuit 230 V :</p>
+  <table>
+    <thead>
+      <tr><th>Équipement</th><th>Puissance</th><th>Tension</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ponceuse à bande (grande)</td><td>1 500 W</td><td>230 V</td></tr>
+      <tr><td>Éclairage tubes LED (8 tubes)</td><td>8 × 24 W = 192 W</td><td>230 V</td></tr>
+      <tr><td>Aspirateur à copeaux</td><td>500 W</td><td>230 V</td></tr>
+      <tr><td>Prise de courant (usage divers)</td><td>2 300 W (max)</td><td>230 V</td></tr>
+    </tbody>
+  </table>
+
+  <p>Tous ces équipements sont branchés en parallèle sur le réseau 230 V.</p>
+
+  <p class="q"><strong>1.</strong> Calculez la puissance totale installée (tous équipements actifs simultanément).</p>
+  <p class="q"><strong>2.</strong> Calculez l'intensité totale correspondante à 230 V. Utilisez \( I = P / U \).</p>
+  <p class="q"><strong>3.</strong> Choisissez le disjoncteur approprié parmi : 16 A, 20 A, 25 A, 32 A. Justifiez. (Le disjoncteur doit avoir un calibre immédiatement supérieur à l'intensité calculée.)</p>
+  <p class="q"><strong>4.</strong> Si on ajoute une ponceuse à bande de 750 W, le disjoncteur choisi tient-il ? Refaites le calcul.</p>
+  <p class="q"><strong>5.</strong> Expliquez pourquoi un atelier doit également posséder un DDR (Dispositif Différentiel Résiduel). Quel calibre de sensibilité est requis pour une protection des personnes ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( P_{total} = 1\,500 + 192 + 500 + 2\,300 = 4\,492 \text{ W} \)</p>
+    <p><strong>2.</strong> \( I = P/U = 4\,492 / 230 \approx 19{,}5 \text{ A} \)</p>
+    <p><strong>3.</strong> L'intensité est 19,5 A. Le calibre immédiatement supérieur est <strong>20 A</strong>. Un 16 A sauterait (19,5 > 16), un 25 A fonctionnerait mais avec moins de protection. Le 20 A est le bon choix.</p>
+    <p><strong>4.</strong> Avec la ponceuse : \( P = 4\,492 + 750 = 5\,242 \text{ W} \). \( I = 5\,242/230 \approx 22{,}8 \text{ A} \). Le disjoncteur 20 A ne tient plus (22,8 > 20). Il faudrait passer à un <strong>25 A</strong>.</p>
+    <p><strong>5.</strong> Le DDR protège contre les courants de fuite (contact indirect avec une masse mise sous tension). En atelier, l'environnement est humide (lavage véhicules), les outils peuvent être endommagés → risque de contact avec une pièce sous tension. Le DDR 30 mA est requis pour la protection des personnes (le courant de fuite de 30 mA est le seuil non létal en général). Il coupe l'alimentation en quelques millisecondes.</p>
+  </div>
+</div>
+
+</div><!-- fin .c -->
+
+<script>
+function toggle(btn){
+  var c=btn.nextElementSibling;
+  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
+  else{c.style.display='block';btn.textContent='Masquer la correction';}
+}
+
+// Chart.js : intensités atelier menuiserie
+const ctxAuto = document.getElementById('chartAuto').getContext('2d');
+new Chart(ctxAuto, {
+  type: 'bar',
+  data: {
+    labels: ['Éclairage LED', 'Aspirateur copeaux', 'Ponceuse à bande', 'Scie à format', 'Total atelier'],
+    datasets: [{
+      label: 'Intensité (A)',
+      data: [1.2, 2.2, 6.5, 10.0, 19.9],
+      backgroundColor: [
+        'rgba(47,133,90,0.75)',
+        'rgba(111,66,193,0.75)',
+        'rgba(217,119,6,0.75)',
+        'rgba(197,48,48,0.75)',
+        'rgba(45,55,72,0.75)'
+      ],
+      borderColor: ['#2f855a','#6f42c1','#d97706','#c53030','#2d3748'],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: 'Intensités des équipements d\'un atelier de menuiserie (A)', font: { size: 14 } }
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 25,
+        title: { display: true, text: 'Intensité (A)' }
+      }
+    }
+  }
+});
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

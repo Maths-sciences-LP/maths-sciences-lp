@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – Exercices – Choisir une source lumineuse | ERA-MA Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#2da44e;--s:#2f855a;--d:#c53030;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
+.exo-title{font-weight:600;flex:1}
+.diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
+.diff-1{background:#d1fae5;color:#065f46}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.q{margin:10px 0 6px;padding-left:4px}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
+.bc:hover{opacity:.85}
+.intro-box{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.methode strong{color:#d97706}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.attention strong{color:#be123c}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.retenir strong{color:#0369a1}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
+td{border:1px solid #e2e8f0;padding:8px 12px}
+tr:nth-child(even) td{background:#f8fafc}
+.svg-wrap{text-align:center;margin:20px 0}
+.chart-wrap{max-width:620px;margin:20px auto}
+</style>
+</head>
+<body><div class="c">
+<a href="pc-term-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch06 – Choisir une source lumineuse</h1>
+  <p class="sous-titre">Exercices – Terminale Bac Pro ERA-MA | Physique-Chimie</p>
+</header>
+
+<!-- INTRODUCTION -->
+<div class="intro-box">
+  <strong>Rappel du cours</strong>
+  <ul style="margin:8px 0 0 0">
+    <li><strong>Lumière</strong> : onde électromagnétique, spectre visible entre λ = 380 nm (violet) et 700 nm (rouge)</li>
+    <li><strong>Relation</strong> : \( c = \lambda \cdot f \) avec c = 3×10⁸ m/s, λ en m, f en Hz</li>
+    <li><strong>Flux lumineux</strong> Φ (lumen, lm) : quantité totale de lumière émise par la source</li>
+    <li><strong>Éclairement</strong> \( E = \Phi / S \) (lux, lx) : flux reçu par unité de surface</li>
+    <li><strong>Efficacité lumineuse</strong> : η = Φ / P (lm/W) — mesure le rendement de la source</li>
+    <li><strong>Température de couleur</strong> (K) : chaude ≈ 2 700 K (ambre), neutre ≈ 4 000 K (blanc), froide ≈ 6 500 K (blanc bleuté)</li>
+    <li><strong>IRC</strong> (Indice de Rendu des Couleurs, 0–100) : capacité à restituer fidèlement les couleurs — IRC ≥ 80 recommandé pour atelier de travail fin</li>
+  </ul>
+</div>
+
+<!-- FORMULES -->
+<h2>Formules clés</h2>
+<table>
+  <tr><th>Grandeur</th><th>Formule</th><th>Unités</th></tr>
+  <tr><td>Relation célérité / λ / f</td><td>\( c = \lambda \cdot f \quad \Rightarrow \quad f = \dfrac{c}{\lambda} \)</td><td>m/s ; m ; Hz</td></tr>
+  <tr><td>Éclairement</td><td>\( E = \dfrac{\Phi}{S} \)</td><td>lx ; lm ; m²</td></tr>
+  <tr><td>Efficacité lumineuse</td><td>\( \eta = \dfrac{\Phi}{P} \)</td><td>lm/W ; lm ; W</td></tr>
+  <tr><td>Nombre de luminaires</td><td>\( N = \dfrac{E \cdot S}{\Phi_{\text{lum}}} \)</td><td>— ; lx ; m² ; lm</td></tr>
+  <tr><td>Énergie consommée</td><td>\( W = P \cdot t \)</td><td>Wh ou kWh ; W ; h</td></tr>
+</table>
+
+<!-- SPECTRE VISIBLE SVG -->
+<h2>Spectre visible</h2>
+<div class="svg-wrap">
+  <svg width="680" height="90" viewBox="0 0 680 90" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+    <defs>
+      <linearGradient id="spectre" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#7b00d4"/>
+        <stop offset="8%"   stop-color="#4400ff"/>
+        <stop offset="20%"  stop-color="#0044ff"/>
+        <stop offset="33%"  stop-color="#00aaff"/>
+        <stop offset="45%"  stop-color="#00ff88"/>
+        <stop offset="57%"  stop-color="#aaff00"/>
+        <stop offset="69%"  stop-color="#ffee00"/>
+        <stop offset="82%"  stop-color="#ff7700"/>
+        <stop offset="100%" stop-color="#cc0000"/>
+      </linearGradient>
+    </defs>
+    <!-- Barre spectre -->
+    <rect x="40" y="18" width="600" height="36" rx="6" fill="url(#spectre)"/>
+    <!-- Bordure -->
+    <rect x="40" y="18" width="600" height="36" rx="6" fill="none" stroke="#ccc" stroke-width="1"/>
+    <!-- Graduations et labels -->
+    <text x="40"  y="72" font-size="11" fill="#555" text-anchor="middle">380</text>
+    <text x="160" y="72" font-size="11" fill="#555" text-anchor="middle">450</text>
+    <text x="280" y="72" font-size="11" fill="#555" text-anchor="middle">530</text>
+    <text x="400" y="72" font-size="11" fill="#555" text-anchor="middle">590</text>
+    <text x="520" y="72" font-size="11" fill="#555" text-anchor="middle">640</text>
+    <text x="640" y="72" font-size="11" fill="#555" text-anchor="middle">700</text>
+    <!-- Tirets de graduation -->
+    <line x1="40"  y1="54" x2="40"  y2="62" stroke="#555" stroke-width="1"/>
+    <line x1="160" y1="54" x2="160" y2="62" stroke="#555" stroke-width="1"/>
+    <line x1="280" y1="54" x2="280" y2="62" stroke="#555" stroke-width="1"/>
+    <line x1="400" y1="54" x2="400" y2="62" stroke="#555" stroke-width="1"/>
+    <line x1="520" y1="54" x2="520" y2="62" stroke="#555" stroke-width="1"/>
+    <line x1="640" y1="54" x2="640" y2="62" stroke="#555" stroke-width="1"/>
+    <!-- Unité -->
+    <text x="340" y="86" font-size="11" fill="#718096" text-anchor="middle">Longueur d'onde λ (nm)</text>
+    <!-- Labels couleurs -->
+    <text x="60"  y="12" font-size="10" fill="#555">Violet</text>
+    <text x="150" y="12" font-size="10" fill="#555">Bleu</text>
+    <text x="265" y="12" font-size="10" fill="#555">Vert</text>
+    <text x="395" y="12" font-size="10" fill="#555">Jaune</text>
+    <text x="510" y="12" font-size="10" fill="#555">Orange</text>
+    <text x="618" y="12" font-size="10" fill="#555">Rouge</text>
+  </svg>
+</div>
+
+<!-- COMPARAISON SOURCES CHART -->
+<h2>Efficacité lumineuse des sources (lm/W)</h2>
+<div class="chart-wrap">
+  <canvas id="chartEfficacite" height="260"></canvas>
+</div>
+
+<!-- ENCADRES -->
+<div class="methode">
+  <strong>Méthode – Dimensionner un éclairage</strong>
+  <ol style="margin:8px 0 0 0">
+    <li>Identifier le niveau d'éclairement requis E (lx) selon la norme (ex : 300 lx atelier général, 500 lx travaux de précision).</li>
+    <li>Calculer le flux total nécessaire : Φ<sub>total</sub> = E × S.</li>
+    <li>Diviser par le flux unitaire d'un luminaire : N = Φ<sub>total</sub> / Φ<sub>lum</sub> (arrondir au supérieur).</li>
+    <li>Calculer la puissance totale : P<sub>total</sub> = N × P<sub>lum</sub>.</li>
+    <li>Vérifier l'efficacité globale et le retour sur investissement si remplacement.</li>
+  </ol>
+</div>
+
+<div class="attention">
+  <strong>Attention !</strong> Ne pas confondre <em>IRC</em> et <em>température de couleur</em> : l'IRC mesure la fidélité de rendu des couleurs (qualité), la température de couleur indique la teinte (chaude/froide). Une LED peut avoir une haute température de couleur (froide) ET un bon IRC. Les deux critères sont indépendants.
+</div>
+
+<div class="retenir">
+  <strong>À retenir :</strong> En atelier ERA-MA, on privilégie une LED avec IRC ≥ 80, température de couleur entre 4 000 K et 5 000 K (neutre à légèrement froide pour une bonne perception des détails et fils électriques colorés), et une efficacité ≥ 100 lm/W.
+</div>
+
+<!-- SECTION 1 : EXERCICES DE BASE -->
+<h2>Exercices de base</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Calculer la fréquence d'une radiation visible</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>La lumière verte émise par un luminaire LED a une longueur d'onde λ = 550 nm.</p>
+  <p>On rappelle que la célérité de la lumière dans le vide est c = 3,00 × 10⁸ m/s.</p>
+  <p class="q"><strong>1.</strong> Convertir λ = 550 nm en mètres.</p>
+  <p class="q"><strong>2.</strong> Rappeler la relation entre c, λ et f.</p>
+  <p class="q"><strong>3.</strong> Calculer la fréquence f de cette radiation. Exprimer le résultat en Hz et en THz.</p>
+  <p class="q"><strong>4.</strong> Cette radiation appartient-elle bien au spectre visible (380–700 nm) ? Quelle couleur lui correspond ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Conversion :</strong></p>
+    <p>\( \lambda = 550 \text{ nm} = 550 \times 10^{-9} \text{ m} = 5{,}50 \times 10^{-7} \text{ m} \)</p>
+    <p><strong>2. Relation :</strong> \( c = \lambda \cdot f \) donc \( f = \dfrac{c}{\lambda} \)</p>
+    <p><strong>3. Calcul :</strong></p>
+    <p>\( f = \dfrac{3{,}00 \times 10^8}{5{,}50 \times 10^{-7}} = \dfrac{3{,}00}{5{,}50} \times 10^{8+7} \approx 0{,}545 \times 10^{15} \text{ Hz} \)</p>
+    <p>\( f \approx 5{,}45 \times 10^{14} \text{ Hz} = 545 \text{ THz} \)</p>
+    <p><strong>4.</strong> 550 nm est bien compris entre 380 et 700 nm. Cette longueur d'onde correspond à la couleur <strong>verte</strong> (zone 520–560 nm du spectre visible).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Calcul d'éclairement</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Un atelier de maintenance a une surface au sol de S = 40 m². Le système d'éclairage fournit un flux lumineux total de Φ = 16 000 lm.</p>
+  <p class="q"><strong>1.</strong> Rappeler la formule de l'éclairement E en fonction de Φ et S.</p>
+  <p class="q"><strong>2.</strong> Calculer l'éclairement E en lux.</p>
+  <p class="q"><strong>3.</strong> La norme EN 12464-1 préconise un éclairement minimal de 300 lx pour un atelier de maintenance générale. Cet éclairage est-il suffisant ?</p>
+  <p class="q"><strong>4.</strong> Pour atteindre exactement 300 lx, quel flux total serait nécessaire ? Quelle serait la différence avec le flux actuel ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Formule :</strong> \( E = \dfrac{\Phi}{S} \)</p>
+    <p><strong>2. Calcul :</strong></p>
+    <p>\( E = \dfrac{16\,000}{40} = 400 \text{ lx} \)</p>
+    <p><strong>3.</strong> 400 lx &gt; 300 lx : l'éclairage est <strong>suffisant</strong> pour un atelier de maintenance générale, avec même une marge de 100 lx.</p>
+    <p><strong>4. Flux pour 300 lx :</strong></p>
+    <p>\( \Phi_{300} = E \times S = 300 \times 40 = 12\,000 \text{ lm} \)</p>
+    <p>Différence : 16 000 − 12 000 = <strong>4 000 lm</strong> de plus que le minimum requis. L'installation est légèrement surdimensionnée, ce qui peut être avantageux pour compenser le vieillissement des lampes.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Température de couleur adaptée à un atelier de maintenance</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Un chef d'atelier hésite entre trois types de LED pour équiper son atelier ERA-MA :</p>
+  <table>
+    <tr><th>Référence</th><th>Température de couleur</th><th>IRC</th><th>Efficacité</th></tr>
+    <tr><td>LED-A</td><td>2 700 K (blanc chaud)</td><td>95</td><td>90 lm/W</td></tr>
+    <tr><td>LED-B</td><td>4 000 K (blanc neutre)</td><td>82</td><td>120 lm/W</td></tr>
+    <tr><td>LED-C</td><td>6 500 K (blanc froid)</td><td>75</td><td>140 lm/W</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Qu'est-ce que la température de couleur ? À quoi correspond une valeur élevée (6 500 K) ?</p>
+  <p class="q"><strong>2.</strong> Qu'est-ce que l'IRC ? Quelle valeur minimale est recommandée pour un atelier où l'on manipule des fils électriques colorés (rouge, bleu, vert, jaune-vert) ?</p>
+  <p class="q"><strong>3.</strong> Laquelle de ces LED est la moins adaptée à l'atelier ERA-MA ? Justifier.</p>
+  <p class="q"><strong>4.</strong> Quel luminaire recommandez-vous et pourquoi ? (justifier à l'aide de l'IRC, de la température de couleur et de l'efficacité)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Température de couleur :</strong> Elle caractérise la teinte de la lumière émise. Une valeur élevée (6 500 K) correspond à une lumière <em>froide</em> (blanc bleuté, proche de la lumière du jour). Une valeur basse (2 700 K) donne une lumière <em>chaude</em> (ambre, proche d'une lampe à incandescence).</p>
+    <p><strong>2. IRC :</strong> L'Indice de Rendu des Couleurs mesure la capacité d'une source à reproduire fidèlement les couleurs des objets éclairés, sur une échelle de 0 à 100. Pour un atelier où les techniciens doivent distinguer des codes couleurs de fils électriques, un IRC ≥ 80 est recommandé (norme EN 12464-1).</p>
+    <p><strong>3. Moins adaptée :</strong> LED-C (IRC = 75 &lt; 80) : son indice de rendu des couleurs est insuffisant pour distinguer correctement les fils électriques par leur couleur, ce qui peut engendrer des erreurs de câblage dangereuses.</p>
+    <p><strong>4. Recommandation : LED-B</strong></p>
+    <ul>
+      <li>IRC = 82 ≥ 80 : rendu des couleurs satisfaisant pour identifier les câbles.</li>
+      <li>Température 4 000 K (neutre) : bon confort visuel, clarté sans fatigue, idéal pour un travail soutenu.</li>
+      <li>Efficacité 120 lm/W : bien supérieure à LED-A (90 lm/W), ce qui réduit la consommation électrique.</li>
+    </ul>
+    <p>LED-A a un meilleur IRC mais sa température chaude (2 700 K) réduit la vigilance sur les longues durées et son efficacité est plus faible.</p>
+  </div>
+</div>
+
+<!-- SECTION 2 : GUIDES -->
+<h2>Exercices guidés</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Comparer deux luminaires : efficacité et choix</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un technicien compare deux luminaires LED pour équiper un poste de travail :</p>
+  <table>
+    <tr><th>Luminaire</th><th>Flux lumineux</th><th>Puissance</th><th>Prix</th><th>Durée de vie</th></tr>
+    <tr><td>Luminaire A</td><td>3 000 lm</td><td>30 W</td><td>25 €</td><td>25 000 h</td></tr>
+    <tr><td>Luminaire B</td><td>3 000 lm</td><td>25 W</td><td>38 €</td><td>40 000 h</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Calculer l'efficacité lumineuse η (en lm/W) de chaque luminaire.</p>
+  <p class="q"><strong>2.</strong> Pour 1 000 h de fonctionnement par an à 0,15 €/kWh, calculer le coût annuel d'électricité pour chacun.</p>
+  <p class="q"><strong>3.</strong> Calculer le coût total sur 10 ans (achat + électricité) en tenant compte du remplacement éventuel (si durée de vie < 10 000 h, prévoir un remplacement).</p>
+  <p class="q"><strong>4.</strong> Quel luminaire recommandez-vous pour un usage intensif en atelier ERA-MA (2 000 h/an) ? Justifier économiquement et techniquement.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Efficacité :</strong></p>
+    <p>\( \eta_A = \dfrac{3000}{30} = 100 \text{ lm/W} \)</p>
+    <p>\( \eta_B = \dfrac{3000}{25} = 120 \text{ lm/W} \)</p>
+    <p>Le luminaire B est 20 % plus efficace.</p>
+    <p><strong>2. Coût annuel (1 000 h) :</strong></p>
+    <p>Luminaire A : \( W_A = 30 \times 1000 = 30\,000 \text{ Wh} = 30 \text{ kWh} \rightarrow 30 \times 0{,}15 = 4{,}50 \text{ €/an} \)</p>
+    <p>Luminaire B : \( W_B = 25 \times 1000 = 25\,000 \text{ Wh} = 25 \text{ kWh} \rightarrow 25 \times 0{,}15 = 3{,}75 \text{ €/an} \)</p>
+    <p>Économie annuelle : 4,50 − 3,75 = <strong>0,75 €/an</strong> par luminaire.</p>
+    <p><strong>3. Coût total sur 10 ans (1 000 h/an = 10 000 h total) :</strong></p>
+    <p>Luminaire A (durée de vie 25 000 h &gt; 10 000 h : pas de remplacement) : 25 + (10 × 4,50) = 25 + 45 = <strong>70 €</strong></p>
+    <p>Luminaire B (durée de vie 40 000 h &gt; 10 000 h : pas de remplacement) : 38 + (10 × 3,75) = 38 + 37,50 = <strong>75,50 €</strong></p>
+    <p>Coût total légèrement supérieur pour B sur 10 ans à 1 000 h/an.</p>
+    <p><strong>4. Usage intensif (2 000 h/an) :</strong></p>
+    <p>En 10 ans : 20 000 h. Le luminaire A (25 000 h) tient sans remplacement ; le luminaire B (40 000 h) aussi.</p>
+    <p>Coût A : 25 + (10 × 30×2000/1000 × 0,15) = 25 + (10 × 9) = 25 + 90 = <strong>115 €</strong></p>
+    <p>Coût B : 38 + (10 × 25×2000/1000 × 0,15) = 38 + (10 × 7,50) = 38 + 75 = <strong>113 €</strong></p>
+    <p>Avec usage intensif, le luminaire B devient légèrement plus économique sur 10 ans, et sa durée de vie plus longue (40 000 h vs 25 000 h) réduit la fréquence de maintenance. <strong>Recommandation : luminaire B</strong> pour atelier ERA-MA intensif.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Nombre de LED pour atteindre E = 500 lx dans un hall</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>On souhaite éclairer un hall de réception de machines d'une surface S = 100 m² avec un éclairement de E = 500 lx. On choisit des luminaires LED industriels émettant chacun Φ = 5 000 lm.</p>
+  <p class="q"><strong>1.</strong> Calculer le flux lumineux total Φ<sub>total</sub> nécessaire pour obtenir E = 500 lx sur 100 m².</p>
+  <p class="q"><strong>2.</strong> Calculer le nombre N de luminaires nécessaires. Arrondir au nombre entier supérieur.</p>
+  <p class="q"><strong>3.</strong> Avec N luminaires, quel éclairement réel obtient-on ?</p>
+  <p class="q"><strong>4.</strong> En pratique, on applique un facteur de maintenance k<sub>m</sub> = 0,80 (pertes liées au vieillissement des sources et à l'encrassement). Combien de luminaires faut-il prévoir pour garantir E = 500 lx en fin de vie ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Flux total :</strong></p>
+    <p>\( \Phi_{\text{total}} = E \times S = 500 \times 100 = 50\,000 \text{ lm} \)</p>
+    <p><strong>2. Nombre de luminaires :</strong></p>
+    <p>\( N = \dfrac{50\,000}{5\,000} = 10 \text{ luminaires} \)</p>
+    <p>Pas d'arrondi nécessaire ici : exactement 10 luminaires.</p>
+    <p><strong>3. Éclairement réel avec 10 luminaires :</strong></p>
+    <p>\( E_{\text{réel}} = \dfrac{10 \times 5000}{100} = 500 \text{ lx} \) (exactement l'objectif)</p>
+    <p><strong>4. Avec facteur de maintenance k<sub>m</sub> = 0,80 :</strong></p>
+    <p>Le flux effectif en fin de vie d'un luminaire est : 5 000 × 0,80 = 4 000 lm.</p>
+    <p>Nombre corrigé : \( N' = \dfrac{50\,000}{4\,000} = 12{,}5 \rightarrow \) arrondi à <strong>13 luminaires</strong>.</p>
+    <p>En neuf, cela donnera un éclairement initial de 13 × 5 000 / 100 = 650 lx (légèrement au-dessus), qui descendra vers 520 lx en fin de vie, restant au-dessus du seuil de 500 lx.</p>
+  </div>
+</div>
+
+<!-- SECTION 3 : APPLICATION -->
+<h2>Exercices d'application</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Dimensionner l'éclairage complet d'un atelier ERA-MA</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un atelier ERA-MA de 200 m² doit être équipé d'un éclairage conforme à la norme EN 12464-1. Le niveau d'éclairement requis est E = 300 lx. On choisit des luminaires LED de type industriel : flux Φ = 8 000 lm, puissance P = 65 W, IRC = 85, température de couleur 4 000 K.</p>
+  <p class="q"><strong>1.</strong> Calculer le flux lumineux total nécessaire pour atteindre E = 300 lx.</p>
+  <p class="q"><strong>2.</strong> Calculer le nombre de luminaires nécessaires (sans facteur de maintenance).</p>
+  <p class="q"><strong>3.</strong> Calculer la puissance électrique totale installée.</p>
+  <p class="q"><strong>4.</strong> Calculer le coût annuel d'électricité si l'atelier fonctionne 1 500 h/an et que le kWh coûte 0,18 €.</p>
+  <p class="q"><strong>5.</strong> Vérifier que le luminaire choisi est adapté à un atelier ERA-MA (IRC, température de couleur, efficacité).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Flux total :</strong></p>
+    <p>\( \Phi_{\text{total}} = 300 \times 200 = 60\,000 \text{ lm} \)</p>
+    <p><strong>2. Nombre de luminaires :</strong></p>
+    <p>\( N = \dfrac{60\,000}{8\,000} = 7{,}5 \rightarrow \) arrondi à <strong>8 luminaires</strong></p>
+    <p><strong>3. Puissance totale :</strong></p>
+    <p>\( P_{\text{total}} = 8 \times 65 = 520 \text{ W} \)</p>
+    <p><strong>4. Coût annuel :</strong></p>
+    <p>\( W = 520 \times 1500 = 780\,000 \text{ Wh} = 780 \text{ kWh} \)</p>
+    <p>\( \text{Coût} = 780 \times 0{,}18 = 140{,}40 \text{ €/an} \)</p>
+    <p><strong>5. Vérification du luminaire :</strong></p>
+    <p>Efficacité : \( \eta = 8000 / 65 \approx 123 \text{ lm/W} \) — excellente (bien au-dessus de 100 lm/W).</p>
+    <p>IRC = 85 ≥ 80 : conforme pour atelier de travail avec identification des couleurs de câbles.</p>
+    <p>Température 4 000 K (neutre) : adaptée à un poste de travail technique (ni trop chaude, ni trop agressive).</p>
+    <p>Conclusion : ce luminaire est pleinement adapté à l'atelier ERA-MA.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Économie annuelle : remplacement incandescentes par LED</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un atelier ancien est équipé de 20 lampes à incandescence de 100 W, émettant chacune 1 380 lm (efficacité ≈ 13,8 lm/W). On envisage de les remplacer par des LED de 12 W émettant 1 400 lm chacune.</p>
+  <p>Données : durée de fonctionnement = 1 000 h/an, tarif électricité = 0,15 €/kWh.</p>
+  <p class="q"><strong>1.</strong> Calculer l'efficacité lumineuse des LED de remplacement. Comparer à celle des incandescentes.</p>
+  <p class="q"><strong>2.</strong> Calculer la consommation annuelle totale (kWh) avec les incandescentes, puis avec les LED.</p>
+  <p class="q"><strong>3.</strong> Calculer l'économie annuelle en énergie (kWh) et en euros.</p>
+  <p class="q"><strong>4.</strong> Si les LED coûtent 8 € pièce (soit 160 € pour 20 LED), calculer le temps de retour sur investissement (en années).</p>
+  <p class="q"><strong>5.</strong> Calculer la réduction d'émission de CO₂ sachant que 1 kWh électrique émet en moyenne 50 g CO₂ en France.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Efficacité LED :</strong></p>
+    <p>\( \eta_{\text{LED}} = 1400 / 12 \approx 116{,}7 \text{ lm/W} \)</p>
+    <p>Comparaison : 116,7 lm/W (LED) contre 13,8 lm/W (incandescente) → les LED sont <strong>8,5 fois plus efficaces</strong>.</p>
+    <p><strong>2. Consommation annuelle :</strong></p>
+    <p>Incandescentes : \( W_i = 20 \times 100 \times 1000 = 2\,000\,000 \text{ Wh} = 2\,000 \text{ kWh} \)</p>
+    <p>LED : \( W_L = 20 \times 12 \times 1000 = 240\,000 \text{ Wh} = 240 \text{ kWh} \)</p>
+    <p><strong>3. Économie :</strong></p>
+    <p>En énergie : 2 000 − 240 = <strong>1 760 kWh/an</strong></p>
+    <p>En euros : \( 1760 \times 0{,}15 = \mathbf{264 \text{ €/an}} \)</p>
+    <p><strong>4. Retour sur investissement :</strong></p>
+    <p>\( t = \dfrac{160}{264} \approx 0{,}61 \text{ an} \approx 7{,}3 \text{ mois} \)</p>
+    <p>Le remplacement est rentabilisé en moins d'un an !</p>
+    <p><strong>5. Réduction CO₂ :</strong></p>
+    <p>\( \Delta CO_2 = 1760 \times 50 = 88\,000 \text{ g} = \mathbf{88 \text{ kg CO}_2\text{/an}} \)</p>
+    <p>Sur 10 ans : 880 kg CO₂ économisés, équivalent à la production de 44 m² de matériaux d'isolation en polystyrène expansé ou à la fabrication de plusieurs dizaines de panneaux bois.</p>
+  </div>
+</div>
+
+<!-- SECTION 4 : CONTEXTUALISE ERA-MA -->
+<h2>Exercices contextualisés ERA-MA</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Éclairage d'un atelier de câblage électrique</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un atelier de câblage électrique (tableaux électriques, armoires de commande) requiert un éclairage adapté. Les techniciens doivent :</p>
+  <ul>
+    <li>Identifier les fils par leur couleur (rouge, bleu, vert-jaune, noir, gris) selon la norme NF C 15-100.</li>
+    <li>Lire des repérages fins sur des bornes de raccordement.</li>
+    <li>Travailler de longues heures sans fatigue visuelle.</li>
+  </ul>
+  <p class="q"><strong>1.</strong> Justifier pourquoi un IRC ≥ 80 est indispensable dans cet atelier. Quel risque y a-t-il à utiliser une source avec IRC = 65 ?</p>
+  <p class="q"><strong>2.</strong> Quelle température de couleur recommandez-vous : 2 700 K, 4 000 K ou 6 500 K ? Justifier en termes de perception visuelle et de confort.</p>
+  <p class="q"><strong>3.</strong> Qu'est-ce que l'éblouissement (glare) ? Quelle valeur UGR (Unified Glare Rating) est recommandée pour les travaux de précision visuelle ? Comment le limiter ?</p>
+  <p class="q"><strong>4.</strong> Proposer un luminaire complet avec ses caractéristiques (flux, puissance, IRC, Tc, UGR) adapté à ce poste de câblage.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. IRC indispensable :</strong> Un IRC élevé (≥ 80) garantit que les couleurs vues sous cette source correspondent aux couleurs réelles. Avec un IRC = 65, le vert-jaune du fil de terre peut paraître jaune ou verdâtre ambigu, le rouge peut virer vers l'orange. Une erreur de câblage due à une confusion de couleur peut provoquer un <strong>court-circuit, un incendie ou un risque d'électrocution</strong>.</p>
+    <p><strong>2. Température de couleur recommandée : 4 000 K</strong></p>
+    <p>4 000 K (blanc neutre) : bonne visibilité sans fatigue, similaire à la lumière naturelle de jour, idéale pour les travaux de précision. La lumière chaude (2 700 K) fatigue sur les longues durées et rend certains rouges moins contrastés. La lumière froide (6 500 K) peut éblouir et causer une fatigue oculaire.</p>
+    <p><strong>3. Éblouissement (glare) :</strong> C'est une gêne visuelle provoquée par une source trop lumineuse dans le champ de vision. Il crée des zones de contraste excessif nuisant à la perception des détails.</p>
+    <p>UGR recommandé : UGR ≤ 19 pour travaux de précision (câblage, lecture de schémas).</p>
+    <p>Solutions : utiliser des luminaires avec optique dépolie ou louvre (grille antiéblouissement), les installer hors du champ de vision direct, éviter les surfaces réfléchissantes.</p>
+    <p><strong>4. Luminaire recommandé :</strong></p>
+    <ul>
+      <li>Flux : 4 000 à 5 000 lm (pour un poste individuel sur surface ≈ 8–10 m²)</li>
+      <li>Puissance : 35–45 W</li>
+      <li>IRC ≥ 90 (pour travaux de précision colorimétrique)</li>
+      <li>Température de couleur : 4 000 K</li>
+      <li>UGR ≤ 19, avec diffuseur opale</li>
+      <li>Indice de protection : IP40 minimum (atelier propre)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Éclairage de sécurité secours (BAES) – Autonomie batterie</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>La réglementation française (arrêté du 14 décembre 2011, Code du travail Art. R.4227-14) impose que tout établissement recevant du public ou lieu de travail soit équipé d'un éclairage de sécurité autonome (BAES : Blocs Autonomes d'Éclairage de Sécurité) garantissant au moins <strong>3 heures d'autonomie</strong> en cas de coupure secteur.</p>
+  <p>Un BAES LED est caractérisé par :</p>
+  <ul>
+    <li>Tension de batterie : U<sub>bat</sub> = 3,6 V (batterie NiMH)</li>
+    <li>Capacité de la batterie : C = 1 800 mAh</li>
+    <li>Puissance de la LED en mode secours : P<sub>LED</sub> = 1,8 W</li>
+    <li>Rendement du convertisseur interne : η = 85 %</li>
+  </ul>
+  <p class="q"><strong>1.</strong> Calculer le courant consommé par la LED (côté sortie du convertisseur, à U<sub>LED</sub> = 3,2 V).</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance réellement prélevée sur la batterie en tenant compte du rendement η = 85 %.</p>
+  <p class="q"><strong>3.</strong> Calculer le courant prélevé sur la batterie (à U<sub>bat</sub> = 3,6 V).</p>
+  <p class="q"><strong>4.</strong> Calculer l'autonomie théorique de la batterie en heures. La réglementation des 3 h est-elle respectée ?</p>
+  <p class="q"><strong>5.</strong> En pratique, une batterie NiMH ne doit pas être déchargée à plus de 80 % de sa capacité nominale pour ne pas se détériorer. Recalculer l'autonomie réelle et conclure.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Courant LED :</strong></p>
+    <p>\( I_{\text{LED}} = \dfrac{P_{\text{LED}}}{U_{\text{LED}}} = \dfrac{1{,}8}{3{,}2} = 0{,}5625 \text{ A} \approx 562 \text{ mA} \)</p>
+    <p><strong>2. Puissance prélevée sur batterie :</strong></p>
+    <p>\( P_{\text{bat}} = \dfrac{P_{\text{LED}}}{\eta} = \dfrac{1{,}8}{0{,}85} \approx 2{,}12 \text{ W} \)</p>
+    <p><strong>3. Courant sur batterie :</strong></p>
+    <p>\( I_{\text{bat}} = \dfrac{P_{\text{bat}}}{U_{\text{bat}}} = \dfrac{2{,}12}{3{,}6} \approx 0{,}588 \text{ A} = 588 \text{ mA} \)</p>
+    <p><strong>4. Autonomie théorique :</strong></p>
+    <p>\( t = \dfrac{C}{I_{\text{bat}}} = \dfrac{1800 \text{ mAh}}{588 \text{ mA}} \approx 3{,}06 \text{ h} \)</p>
+    <p>3,06 h &gt; 3 h : la réglementation est <strong>respectée</strong> (mais avec très peu de marge).</p>
+    <p><strong>5. Autonomie réelle (80 % de capacité utile) :</strong></p>
+    <p>Capacité utile : \( C_{\text{utile}} = 1800 \times 0{,}80 = 1440 \text{ mAh} \)</p>
+    <p>\( t_{\text{réel}} = \dfrac{1440}{588} \approx 2{,}45 \text{ h} \)</p>
+    <p>2,45 h &lt; 3 h : la réglementation n'est <strong>plus respectée</strong> avec cette contrainte de décharge.</p>
+    <p><strong>Conclusion :</strong> Ce BAES est limite. En réalité, les fabricants prévoient une capacité de batterie plus grande pour garantir 3 h utiles. Il faudrait ici une batterie d'au moins \( C_{\min} = 588 \times 3 / 0{,}80 = 2205 \text{ mAh} \). Les techniciens ERA-MA doivent vérifier périodiquement l'état des batteries des BAES (test mensuel obligatoire + remplacement tous les 4–5 ans).</p>
+  </div>
+</div>
+
+<!-- BILAN -->
+<div class="retenir" style="margin-top:36px">
+  <strong>Bilan – Ce qu'il faut maîtriser en ERA-MA</strong>
+  <ul style="margin:8px 0 0 0">
+    <li>Utiliser \( c = \lambda \cdot f \) pour calculer f ou λ d'une radiation visible.</li>
+    <li>Calculer l'éclairement \( E = \Phi / S \) et le flux total nécessaire pour un local.</li>
+    <li>Calculer l'efficacité \( \eta = \Phi / P \) et comparer des sources lumineuses.</li>
+    <li>Dimensionner une installation : N = E × S / Φ<sub>lum</sub>, avec facteur de maintenance.</li>
+    <li>Choisir une source adaptée : IRC ≥ 80, Tc ≈ 4 000 K et UGR ≤ 19 pour atelier ERA-MA.</li>
+    <li>Calculer l'économie d'énergie et le retour sur investissement LED.</li>
+    <li>Interpréter les caractéristiques d'un BAES et vérifier la conformité réglementaire.</li>
+  </ul>
+</div>
+
+</div>
+
+<script>
+function toggle(b){
+  const c = b.nextElementSibling;
+  c.style.display = c.style.display === 'block' ? 'none' : 'block';
+  b.textContent = c.style.display === 'block' ? 'Masquer la correction' : 'Voir la correction';
+}
+</script>
+
+<script>
+// Chart efficacité lumineuse
+const ctx2 = document.getElementById('chartEfficacite').getContext('2d');
+new Chart(ctx2, {
+  type: 'bar',
+  data: {
+    labels: ['Incandescente', 'Halogène', 'Fluocompacte', 'LED standard', 'LED Pro'],
+    datasets: [{
+      label: 'Efficacité (lm/W)',
+      data: [15, 25, 70, 120, 160],
+      backgroundColor: [
+        '#f6ad55',
+        '#fc8181',
+        '#68d391',
+        '#4299e1',
+        '#2b6cb0'
+      ],
+      borderColor: [
+        '#dd6b20',
+        '#e53e3e',
+        '#38a169',
+        '#2b6cb0',
+        '#1a365d'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Efficacité lumineuse par type de source (lm/W)',
+        color: '#2d3748',
+        font: { size: 14 }
+      },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.parsed.y} lm/W`
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: { display: true, text: 'Efficacité (lm/W)' },
+        grid: { color: '#e2e8f0' }
+      },
+      x: {
+        grid: { display: false }
+      }
+    }
+  }
+});
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

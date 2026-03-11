@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pression dans un fluide — Simulation</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
+  .container { max-width: 820px; margin: 0 auto; }
+  header { background: #0284c7; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
+  .card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
+  label { font-weight: 600; display: block; margin-bottom: 4px; }
+  input[type=range] { width: 100%; accent-color: #0284c7; margin-bottom: 14px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width:500px){.row{grid-template-columns:1fr;}}
+  .info { background: #e0f2fe; border-radius: 8px; padding: 12px 15px; font-size: 0.95em; }
+  canvas { display: block; margin: 0 auto; }
+  .formule { font-family: monospace; background: #eee; border-radius: 6px; padding: 10px; margin-top: 10px; font-size: 0.9em; }
+  h3 { margin-top: 0; color: #0284c7; }
+  select { padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 0.95em; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">← Retour</a>
+    <h1 style="margin:0 0 5px 0;">💧 Pression dans un fluide immobile</h1>
+    <p style="margin:0;opacity:0.9;">Ch05 — P = P₀ + ρ·g·h</p>
+  </header>
+
+  <div class="card">
+    <div class="row">
+      <div>
+        <label>Fluide :
+          <select id="fluid" onchange="update()">
+            <option value="1000">Eau (ρ = 1000 kg/m³)</option>
+            <option value="1025">Eau de mer (ρ = 1025 kg/m³)</option>
+            <option value="800">Huile (ρ = 800 kg/m³)</option>
+            <option value="13600">Mercure (ρ = 13600 kg/m³)</option>
+          </select>
+        </label>
+        <br>
+        <label>Pression atmosphérique P₀ : <span id="vP0">101325</span> Pa</label>
+        <input type="range" id="P0" min="80000" max="110000" step="500" value="101325" oninput="update()">
+        <label>Profondeur h : <span id="vH">5</span> m</label>
+        <input type="range" id="depth" min="0" max="100" step="0.5" value="5" oninput="update()">
+      </div>
+      <div>
+        <div class="info" id="infoBox"></div>
+        <div class="formule" style="margin-top:12px;">P = P₀ + ρ·g·h<br>g = 9,81 m/s²</div>
+      </div>
+    </div>
+
+    <canvas id="canvas" width="500" height="320" style="margin-top:15px;"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>Paradoxe hydrostatique — Principe de Pascal</h3>
+    <p>La pression ne dépend que de la <strong>profondeur h</strong> et de la masse volumique ρ du fluide, <em>pas de la forme du récipient</em>.</p>
+    <canvas id="canvasPascal" width="500" height="200"></canvas>
+  </div>
+</div>
+
+<script>
+const g = 9.81;
+
+function update() {
+  const rho = parseFloat(document.getElementById('fluid').value);
+  const P0 = parseFloat(document.getElementById('P0').value);
+  const h = parseFloat(document.getElementById('depth').value);
+  document.getElementById('vP0').textContent = P0;
+  document.getElementById('vH').textContent = h.toFixed(1);
+
+  const P = P0 + rho * g * h;
+  const Patm = (P / 101325).toFixed(2);
+  const Pbar = (P / 1e5).toFixed(3);
+
+  document.getElementById('infoBox').innerHTML =
+    `ρ = ${rho} kg/m³ &nbsp;|&nbsp; h = ${h.toFixed(1)} m<br>
+     <b>P = P₀ + ρ·g·h</b><br>
+     = ${P0} + ${rho} × 9,81 × ${h.toFixed(1)}<br>
+     = <b style="font-size:1.15em;">${Math.round(P)} Pa</b><br>
+     ≈ ${Patm} atm &nbsp;|&nbsp; ${Pbar} bar`;
+
+  drawContainer(rho, h, P, P0);
+}
+
+function drawContainer(rho, h, P, P0) {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const tankH = 260, tankW = 120, tankX = W/2 - tankW/2, tankTop = 20;
+
+  // Contour
+  ctx.strokeStyle = '#555'; ctx.lineWidth = 3;
+  ctx.strokeRect(tankX, tankTop, tankW, tankH);
+
+  // Fluide
+  const fluidColor = rho === 13600 ? '#aaa' : rho === 800 ? '#d4a855' : '#1e90ff';
+  ctx.fillStyle = fluidColor + '99';
+  ctx.fillRect(tankX + 2, tankTop + 2, tankW - 4, tankH - 4);
+
+  // Surface et étiquette P0
+  ctx.fillStyle = '#fff'; ctx.fillRect(tankX + 2, tankTop + 2, tankW - 4, 4);
+  ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 1.5; ctx.setLineDash([4,3]);
+  ctx.beginPath(); ctx.moveTo(tankX - 30, tankTop + 4); ctx.lineTo(tankX + tankW + 80, tankTop + 4); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#0284c7'; ctx.font = '12px Segoe UI';
+  ctx.fillText('P₀ = ' + (P0/1000).toFixed(1) + ' kPa', tankX + tankW + 5, tankTop + 8);
+
+  // Point de mesure
+  const maxH = 100; // slider max
+  const yPoint = tankTop + 4 + (h / maxH) * (tankH - 8);
+  ctx.beginPath(); ctx.arc(tankX + tankW/2, yPoint, 7, 0, 2*Math.PI);
+  ctx.fillStyle = '#ef4444'; ctx.fill();
+
+  // Flèche h
+  ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 1.5; ctx.setLineDash([3,3]);
+  ctx.beginPath(); ctx.moveTo(tankX - 15, tankTop + 4); ctx.lineTo(tankX - 15, yPoint); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#ef4444'; ctx.font = 'bold 13px Segoe UI';
+  ctx.fillText('h = ' + h.toFixed(1) + ' m', tankX - 75, (tankTop + 4 + yPoint) / 2 + 5);
+
+  // Valeur P
+  ctx.fillStyle = 'white'; ctx.font = 'bold 13px Segoe UI';
+  const Ptxt = (P/1000).toFixed(1) + ' kPa';
+  ctx.fillText('P = ' + Ptxt, tankX + tankW/2 - 35, yPoint + 5);
+}
+
+function drawPascal() {
+  const canvas = document.getElementById('canvasPascal');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const configs = [
+    {x: 60, w: 40, baseH: 120},
+    {x: 180, w: 70, baseH: 120},
+    {x: 330, w: 25, baseH: 120}
+  ];
+  const waterColor = '#1e90ff55';
+  const baseY = H - 30;
+  const h = 100;
+
+  configs.forEach(c => {
+    ctx.fillStyle = waterColor;
+    ctx.fillRect(c.x, baseY - h, c.w, h);
+    ctx.strokeStyle = '#555'; ctx.lineWidth = 2;
+    // Parois et fond
+    ctx.beginPath();
+    ctx.moveTo(c.x, baseY - h - 5);
+    ctx.lineTo(c.x, baseY);
+    ctx.lineTo(c.x + c.w, baseY);
+    ctx.lineTo(c.x + c.w, baseY - h - 5);
+    ctx.stroke();
+
+    // Surface
+    ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 1; ctx.setLineDash([3,2]);
+    ctx.beginPath(); ctx.moveTo(c.x, baseY - h); ctx.lineTo(c.x + c.w, baseY - h); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Même pression au fond
+    ctx.fillStyle = '#ef4444'; ctx.font = 'bold 11px Segoe UI';
+    ctx.fillText('P', c.x + c.w/2 - 4, baseY - 5);
+  });
+
+  ctx.fillStyle = '#333'; ctx.font = '12px Segoe UI';
+  ctx.fillText('Même hauteur h → Même pression au fond, quelle que soit la forme du récipient', 20, H - 5);
+}
+
+update();
+drawPascal();
+</script>
+<script src="/nav.js"></script>
+</body>
+</html>

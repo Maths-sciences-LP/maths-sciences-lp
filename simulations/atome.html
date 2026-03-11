@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructeur d'Atomes & Ions - Labo Virtuel</title>
+    
+    <!-- Moteur de rendu MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --primary: #6f42c1;
+            --proton: #ef4444;
+            --neutron: #94a3b8;
+            --electron: #2563eb;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            /* Couleurs Familles Chimiques */
+            --alkali: #fecaca;
+            --alkaline-earth: #fed7aa;
+            --halogen: #e9d5ff;
+            --noble-gas: #bfdbfe;
+            --non-metal: #bbf7d0;
+            --metalloid: #fef08a;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: #1e293b;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-retour-pro {
+            display: inline-flex;
+            align-self: flex-start;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 20px 0;
+            padding: 8px 15px;
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            transition: all 0.2s;
+        }
+        .btn-retour-pro:hover {
+            color: var(--primary);
+            background-color: #f8fafc;
+            border-color: var(--primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
+
+        .card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-top: 8px solid var(--primary);
+            margin-bottom: 20px;
+        }
+
+        h2 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; font-size: 1.3rem; }
+
+        .atom-display {
+            background: #0f172a;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .notation-overlay {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255,255,255,0.95);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            min-width: 65px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .control-group { margin-bottom: 20px; }
+        .label-row { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; }
+        
+        input[type="range"] { width: 100%; cursor: pointer; }
+        #range-p { accent-color: var(--proton); }
+        #range-n { accent-color: var(--neutron); }
+        #range-e { accent-color: var(--electron); }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .info-item {
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .info-item b { color: var(--primary); }
+
+        .stability-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .stable { background: #dcfce7; color: #166534; border: 1px solid #166534; }
+        .unstable { background: #fee2e2; color: #991b1b; border: 1px solid #991b1b; }
+
+        /* Styles Tableau Périodique */
+        .periodic-table {
+            display: grid;
+            grid-template-columns: repeat(18, 1fr);
+            gap: 4px;
+            margin-top: 15px;
+            overflow-x: auto;
+            padding: 5px;
+        }
+
+        .cell {
+            aspect-ratio: 1/1;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+            min-width: 38px;
+        }
+        .cell:hover { transform: scale(1.15); z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .cell.active { border: 2.5px solid var(--primary); font-weight: bold; }
+        .cell .symbol { font-size: 0.95rem; font-weight: bold; }
+        .cell .z { font-size: 0.6rem; opacity: 0.7; }
+
+        /* Familles couleurs */
+        .f-alkali { background: var(--alkali); }
+        .f-alkaline-earth { background: var(--alkaline-earth); }
+        .f-halogen { background: var(--halogen); }
+        .f-noble { background: var(--noble-gas); }
+        .f-nonmetal { background: var(--non-metal); }
+        .f-metalloid { background: var(--metalloid); }
+        .f-none { background: #f8fafc; }
+
+    </style>
+</head>
+<body>
+
+    <a href="../simulations.html" class="btn-retour-pro">← Retour au labo de simulations</a>
+
+    <h1 style="color: var(--primary); margin-bottom: 30px; text-align: center;">🔬 Laboratoire de Construction Atomique</h1>
+
+    <div class="container">
+        
+        <!-- Panneau de Visualisation -->
+        <div class="card">
+            <h2>Modèle de Bohr</h2>
+            <div class="atom-display">
+                <div class="notation-overlay" id="notation">
+                    <div style="font-size: 0.6em; position: absolute; top: 0; left: 5px;" id="val-a">1</div>
+                    <div style="font-size: 0.6em; position: absolute; bottom: 0; left: 5px;" id="val-z">1</div>
+                    <span id="val-symbol">H</span>
+                    <div style="font-size: 0.6em; position: absolute; top: 0; right: 5px;" id="val-charge"></div>
+                </div>
+                
+                <svg viewBox="0 0 400 400" width="100%" height="300" id="atom-svg"></svg>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-item">Nom : <b id="info-name">Hydrogène</b></div>
+                <div class="info-item">État : <b id="info-type">Atome neutre</b></div>
+                <div class="info-item">Configuration : <b id="info-config">K(1)</b></div>
+                <div class="info-item">Stabilité : <div id="stability-info" class="stability-tag stable">Isotope stable</div></div>
+            </div>
+        </div>
+
+        <!-- Panneau de Contrôle -->
+        <div class="card" style="border-top-color: #3b82f6;">
+            <h2>Composition du Noyau</h2>
+            
+            <div class="control-group">
+                <div class="label-row">
+                    <span style="color: var(--proton)">Protons (Z)</span>
+                    <span id="count-p">1</span>
+                </div>
+                <input type="range" id="range-p" min="1" max="18" value="1" oninput="update()">
+            </div>
+
+            <div class="control-group">
+                <div class="label-row">
+                    <span style="color: var(--neutron)">Neutrons (N)</span>
+                    <span id="count-n">0</span>
+                </div>
+                <input type="range" id="range-n" min="0" max="22" value="0" oninput="update()">
+            </div>
+
+            <div class="control-group">
+                <div class="label-row">
+                    <span style="color: var(--electron)">Électrons (-)</span>
+                    <span id="count-e">1</span>
+                </div>
+                <input type="range" id="range-e" min="0" max="18" value="1" oninput="update()">
+            </div>
+
+            <p style="font-size: 0.85rem; color: #64748b; font-style: italic; margin-top: 10px;">
+                Cliquer sur un élément dans le tableau ci-dessous pour le sélectionner.
+            </p>
+        </div>
+
+        <!-- Tableau Périodique Interactif -->
+        <div class="card" style="grid-column: 1 / -1; border-top-color: #10b981;">
+            <h2>Classification Périodique (Éléments 1 à 18)</h2>
+            <div class="periodic-table" id="table-container">
+                <!-- Les cellules sont injectées par JavaScript -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const elementsData = [
+            { z: 0, s: "", n: "" },
+            { z: 1, s: "H", n: "Hydrogène", family: "f-nonmetal", group: 1, period: 1 },
+            { z: 2, s: "He", n: "Hélium", family: "f-noble", group: 18, period: 1 },
+            { z: 3, s: "Li", n: "Lithium", family: "f-alkali", group: 1, period: 2 },
+            { z: 4, s: "Be", n: "Béryllium", family: "f-alkaline-earth", group: 2, period: 2 },
+            { z: 5, s: "B", n: "Bore", family: "f-metalloid", group: 13, period: 2 },
+            { z: 6, s: "C", n: "Carbone", family: "f-nonmetal", group: 14, period: 2 },
+            { z: 7, s: "N", n: "Azote", family: "f-nonmetal", group: 15, period: 2 },
+            { z: 8, s: "O", n: "Oxygène", family: "f-nonmetal", group: 16, period: 2 },
+            { z: 9, s: "F", n: "Fluor", family: "f-halogen", group: 17, period: 2 },
+            { z: 10, s: "Ne", n: "Néon", family: "f-noble", group: 18, period: 2 },
+            { z: 11, s: "Na", n: "Sodium", family: "f-alkali", group: 1, period: 3 },
+            { z: 12, s: "Mg", n: "Magnésium", family: "f-alkaline-earth", group: 2, period: 3 },
+            { z: 13, s: "Al", n: "Aluminium", family: "f-none", group: 13, period: 3 },
+            { z: 14, s: "Si", n: "Silicium", family: "f-metalloid", group: 14, period: 3 },
+            { z: 15, s: "P", n: "Phosphore", family: "f-nonmetal", group: 15, period: 3 },
+            { z: 16, s: "S", n: "Soufre", family: "f-nonmetal", group: 16, period: 3 },
+            { z: 17, s: "Cl", n: "Chlore", family: "f-halogen", group: 17, period: 3 },
+            { z: 18, s: "Ar", n: "Argon", family: "f-noble", group: 18, period: 3 }
+        ];
+
+        const stableIsotopes = {
+            1: [0, 1], 2: [1, 2], 3: [3, 4], 4: [5], 5: [5, 6], 6: [6, 7],
+            7: [7, 8], 8: [8, 9, 10], 9: [10], 10: [10, 11, 12],
+            11: [12], 12: [12, 13, 14], 13: [14], 14: [14, 15, 16],
+            15: [16], 16: [16, 17, 18, 20], 17: [18, 20], 18: [18, 20, 22]
+        };
+
+        function initTable() {
+            const container = document.getElementById('table-container');
+            container.innerHTML = '';
+            
+            for (let z = 1; z <= 18; z++) {
+                const el = elementsData[z];
+                const cell = document.createElement('div');
+                cell.className = `cell ${el.family}`;
+                cell.id = `cell-z-${z}`;
+                cell.style.gridColumn = el.group;
+                cell.style.gridRow = el.period;
+                cell.innerHTML = `<span class="z">${z}</span><span class="symbol">${el.s}</span>`;
+                cell.onclick = () => selectElement(z);
+                container.appendChild(cell);
+            }
+        }
+
+        function selectElement(z) {
+            document.getElementById('range-p').value = z;
+            // On ajuste les neutrons sur l'isotope le plus courant
+            const nDefault = stableIsotopes[z] ? stableIsotopes[z][stableIsotopes[z].length-1] : z;
+            document.getElementById('range-n').value = nDefault;
+            document.getElementById('range-e').value = z;
+            update();
+        }
+
+        function update() {
+            const p = parseInt(document.getElementById('range-p').value);
+            const n = parseInt(document.getElementById('range-n').value);
+            const e = parseInt(document.getElementById('range-e').value);
+
+            document.getElementById('count-p').innerText = p;
+            document.getElementById('count-n').innerText = n;
+            document.getElementById('count-e').innerText = e;
+
+            const a = p + n;
+            const charge = p - e;
+            const el = elementsData[p];
+
+            // Mise à jour visuelle du tableau
+            document.querySelectorAll('.cell').forEach(c => c.classList.remove('active'));
+            document.getElementById(`cell-z-${p}`).classList.add('active');
+
+            // Notation A/Z
+            document.getElementById('val-a').innerText = a;
+            document.getElementById('val-z').innerText = p;
+            document.getElementById('val-symbol').innerText = el.s;
+            
+            let chargeTxt = "";
+            if(charge > 0) chargeTxt = (charge === 1 ? "+" : charge + "+");
+            if(charge < 0) chargeTxt = (charge === -1 ? "-" : Math.abs(charge) + "-");
+            document.getElementById('val-charge').innerText = chargeTxt;
+
+            document.getElementById('info-name').innerText = el.n;
+            let type = "Atome neutre";
+            if(charge > 0) type = "Cation (Ion +)";
+            if(charge < 0) type = "Anion (Ion -)";
+            document.getElementById('info-type').innerText = type;
+
+            let remaining = e;
+            let config = [];
+            let shells = [2, 8, 8];
+            let shellNames = ['K', 'L', 'M'];
+            
+            for(let i=0; i<shells.length; i++) {
+                if(remaining > 0) {
+                    let take = Math.min(remaining, shells[i]);
+                    config.push(`${shellNames[i]}(${take})`);
+                    remaining -= take;
+                }
+            }
+            document.getElementById('info-config').innerText = config.join(' ') || "Aucun électron";
+
+            // Stabilité
+            const stabTag = document.getElementById('stability-info');
+            const isStable = stableIsotopes[p] && stableIsotopes[p].includes(n);
+            
+            if (isStable) {
+                stabTag.innerText = "Isotope stable";
+                stabTag.className = "stability-tag stable";
+            } else {
+                stabTag.innerText = "Isotope radioactif (instable)";
+                stabTag.className = "stability-tag unstable";
+            }
+
+            drawAtom(p, n, e, config);
+        }
+
+        function drawAtom(p, n, e, config) {
+            const svg = document.getElementById('atom-svg');
+            svg.innerHTML = '';
+            const centerX = 200;
+            const centerY = 150;
+            
+            // Noyau
+            for(let i=0; i < (p+n); i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const dist = Math.random() * 15;
+                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                circle.setAttribute("cx", centerX + Math.cos(angle) * dist);
+                circle.setAttribute("cy", centerY + Math.sin(angle) * dist);
+                circle.setAttribute("r", 6);
+                circle.setAttribute("fill", i < p ? "var(--proton)" : "var(--neutron)");
+                circle.setAttribute("stroke", "#333");
+                circle.setAttribute("stroke-width", "0.5");
+                svg.appendChild(circle);
+            }
+
+            // Orbites et électrons
+            let shellDistances = [50, 85, 120];
+            config.forEach((s, index) => {
+                const radius = shellDistances[index];
+                const count = parseInt(s.match(/\d+/)[0]);
+                
+                const orbit = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                orbit.setAttribute("cx", centerX);
+                orbit.setAttribute("cy", centerY);
+                orbit.setAttribute("r", radius);
+                orbit.setAttribute("fill", "none");
+                orbit.setAttribute("stroke", "rgba(255,255,255,0.2)");
+                orbit.setAttribute("stroke-dasharray", "4");
+                svg.appendChild(orbit);
+
+                for(let j=0; j < count; j++) {
+                    const angle = (j / count) * Math.PI * 2;
+                    const electron = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    const ex = centerX + Math.cos(angle) * radius;
+                    const ey = centerY + Math.sin(angle) * radius;
+                    electron.setAttribute("cx", ex);
+                    electron.setAttribute("cy", ey);
+                    electron.setAttribute("r", 4);
+                    electron.setAttribute("fill", "var(--electron)");
+                    
+                    const anim = document.createElementNS("http://www.w3.org/2000/svg", "animateTransform");
+                    anim.setAttribute("attributeName", "transform");
+                    anim.setAttribute("type", "rotate");
+                    anim.setAttribute("from", `0 ${centerX} ${centerY}`);
+                    anim.setAttribute("to", `360 ${centerX} ${centerY}`);
+                    anim.setAttribute("dur", (10 + index * 5) + "s");
+                    anim.setAttribute("repeatCount", "indefinite");
+                    electron.appendChild(anim);
+                    
+                    svg.appendChild(electron);
+                }
+            });
+        }
+
+        window.onload = () => {
+            initTable();
+            update();
+        };
+    </script>
+<script src="/nav.js"></script>
+</body>
+</html>
