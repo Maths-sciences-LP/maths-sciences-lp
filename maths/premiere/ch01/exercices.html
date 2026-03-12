@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Exercices : Statistique à deux variables – 1ère Pro</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-1ere-pro.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Chapitre 1 – Exercices</h1>
+  <p class="sous-titre">Statistique à deux variables | 1ère Bac Pro</p>
+</header>
+
+<div class="retenir">
+  <h3>Rappels essentiels</h3>
+  <ul class="styled">
+    <li><strong>Point moyen :</strong> \(G(\bar{x}\,;\,\bar{y})\)</li>
+    <li><strong>Droite de régression :</strong> \(y = ax + b\) (moindres carrés, passe par \(G\))</li>
+    <li><strong>\(R^2\) proche de 1 :</strong> bon ajustement &nbsp;|&nbsp; <strong>\(R^2\) proche de 0 :</strong> mauvais ajustement</li>
+    <li><strong>Interpolation :</strong> estimation dans la plage (fiable) &nbsp;|&nbsp; <strong>Extrapolation :</strong> hors plage (risquée)</li>
+  </ul>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<div class="niveau-header niv1">
+  <span class="badge-green">Niveau 1</span>
+  <h2>Application directe</h2>
+</div>
+
+<!-- EXERCICE 1 -->
+<div class="exo">
+  <div class="exo-num">Exercice 1</div>
+  <div class="exo-titre">Point moyen — Ventes de bois</div>
+  <p>Un menuisier relève ses ventes mensuelles (en m³) et son chiffre d'affaires (en €) :</p>
+  <table class="full">
+    <tr><th>\(x\) (m³)</th><td>5</td><td>8</td><td>12</td><td>15</td><td>20</td></tr>
+    <tr><th>\(y\) (€)</th><td>1 200</td><td>1 900</td><td>2 850</td><td>3 600</td><td>4 800</td></tr>
+  </table>
+  <p><strong>a.</strong> Calculer les coordonnées du point moyen \(G(\bar{x}\,;\,\bar{y})\).</p>
+  <p><strong>b.</strong> Placer les points et \(G\) dans un repère.</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong></p>
+    \[\bar{x} = \frac{5+8+12+15+20}{5} = \frac{60}{5} = 12\]
+    \[\bar{y} = \frac{1200+1900+2850+3600+4800}{5} = \frac{14350}{5} = 2870\]
+    <p>Le point moyen est \(G(12\,;\,2870)\).</p>
+    <p><strong>b.</strong> Le nuage et le point moyen sont à tracer dans un repère avec \(x\) de 0 à 22 et \(y\) de 0 à 5000.</p>
+  </div>
+  </details>
+</div>
+
+<!-- EXERCICE 2 -->
+<div class="exo">
+  <div class="exo-num">Exercice 2</div>
+  <div class="exo-titre">Lecture d'un nuage — Température et consommation</div>
+  <p>Le nuage de points ci-dessous représente la consommation électrique (en kWh) d'un atelier de menuiserie en fonction de la température extérieure (en °C).</p>
+  <div class="chart-wrapper">
+    <canvas id="exo2chart" width="500" height="300"></canvas>
+  </div>
+  <script>
+  (function(){
+    new Chart(document.getElementById('exo2chart').getContext('2d'), {
+      type: 'scatter',
+      data: { datasets: [{
+        data: [{x:0,y:480},{x:5,y:410},{x:10,y:340},{x:15,y:290},{x:20,y:250},{x:25,y:220},{x:30,y:200}],
+        backgroundColor: '#0969da', pointRadius: 6
+      }]},
+      options: {
+        plugins: { legend: {display:false}, title: {display:true, text:'Consommation électrique vs Température'} },
+        scales: {
+          x: {title:{display:true,text:'Température (°C)'}, min:-2, max:32},
+          y: {title:{display:true,text:'Consommation (kWh)'}, min:150, max:520}
+        }
+      }
+    });
+  })();
+  </script>
+  <p><strong>a.</strong> Les points semblent-ils alignés ? Justifier.</p>
+  <p><strong>b.</strong> La corrélation est-elle positive ou négative ? Expliquer.</p>
+  <p><strong>c.</strong> Calculer le point moyen \(G\).</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong> Oui, les points semblent globalement alignés. Un ajustement affine paraît pertinent.</p>
+    <p><strong>b.</strong> La corrélation est <strong>négative</strong> : quand la température augmente, la consommation diminue (le chauffage est moins sollicité).</p>
+    <p><strong>c.</strong></p>
+    \[\bar{x} = \frac{0+5+10+15+20+25+30}{7} = \frac{105}{7} = 15\]
+    \[\bar{y} = \frac{480+410+340+290+250+220+200}{7} = \frac{2190}{7} \approx 312{,}9\]
+    <p>\(G(15\,;\,312{,}9)\)</p>
+  </div>
+  </details>
+</div>
+
+<!-- EXERCICE 3 -->
+<div class="exo">
+  <div class="exo-num">Exercice 3</div>
+  <div class="exo-titre">Vérification de la droite — Passage par le point moyen</div>
+  <p>On donne la droite de régression \(y = 3{,}2x + 14\) pour une série dont le point moyen est \(G(10\,;\,46)\).</p>
+  <p><strong>a.</strong> Vérifier que la droite passe par le point moyen.</p>
+  <p><strong>b.</strong> Calculer \(y\) pour \(x = 7\). S'agit-il d'une interpolation ou d'une extrapolation si les données vont de \(x = 4\) à \(x = 18\) ?</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong> On calcule : \(3{,}2 \times 10 + 14 = 32 + 14 = 46 = \bar{y}\). La droite passe bien par \(G\).</p>
+    <p><strong>b.</strong> \(y = 3{,}2 \times 7 + 14 = 22{,}4 + 14 = 36{,}4\).</p>
+    <p>Comme \(7\) est compris entre 4 et 18 (plage des données), il s'agit d'une <strong>interpolation</strong>.</p>
+  </div>
+  </details>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<div class="niveau-header niv2">
+  <span class="badge-blue">Niveau 2</span>
+  <h2>Entraînement</h2>
+</div>
+
+<!-- EXERCICE 4 -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <div class="exo-titre">Régression complète — Entraînement sportif</div>
+  <p>Un entraîneur relève la distance parcourue (en km) et la fréquence cardiaque moyenne (en bpm) lors de courses de durées différentes :</p>
+  <table class="full">
+    <tr><th>Distance \(x\) (km)</th><td>3</td><td>5</td><td>8</td><td>10</td><td>12</td><td>15</td></tr>
+    <tr><th>FC moyenne \(y\) (bpm)</th><td>125</td><td>138</td><td>150</td><td>158</td><td>165</td><td>175</td></tr>
+  </table>
+  <p><strong>a.</strong> Calculer le point moyen \(G\).</p>
+  <p><strong>b.</strong> La calculatrice donne : \(y = 4{,}12x + 112{,}7\) et \(r = 0{,}998\). Calculer \(R^2\) et commenter la qualité de l'ajustement.</p>
+  <p><strong>c.</strong> Estimer la fréquence cardiaque pour une course de 7 km. Est-ce une interpolation ?</p>
+  <p><strong>d.</strong> Estimer la fréquence cardiaque pour une course de 25 km. Commenter.</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong></p>
+    \[\bar{x} = \frac{3+5+8+10+12+15}{6} = \frac{53}{6} \approx 8{,}83\]
+    \[\bar{y} = \frac{125+138+150+158+165+175}{6} = \frac{911}{6} \approx 151{,}8\]
+    <p>\(G(8{,}83\,;\,151{,}8)\)</p>
+    <p><strong>b.</strong> \(R^2 = (0{,}998)^2 \approx 0{,}996\). L'ajustement est <strong>excellent</strong> car \(R^2 > 0{,}99\).</p>
+    <p><strong>c.</strong> \(y = 4{,}12 \times 7 + 112{,}7 = 28{,}84 + 112{,}7 = 141{,}5\) bpm.</p>
+    <p>Comme \(7 \in [3\,;\,15]\), c'est une <strong>interpolation</strong> fiable.</p>
+    <p><strong>d.</strong> \(y = 4{,}12 \times 25 + 112{,}7 = 103 + 112{,}7 = 215{,}7\) bpm.</p>
+    <p>C'est une <strong>extrapolation</strong>. Le résultat (216 bpm) est proche de la fréquence cardiaque maximale. Le modèle linéaire n'est plus réaliste pour de telles distances car la FC plafonne.</p>
+  </div>
+  </details>
+</div>
+
+<!-- EXERCICE 5 -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <div class="exo-titre">Ajustement et R² — Isolation thermique</div>
+  <p>Un installateur thermique étudie le lien entre l'épaisseur d'isolant (en cm) et la déperdition thermique (en W/m²) d'un mur :</p>
+  <table class="full">
+    <tr><th>Épaisseur \(x\) (cm)</th><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td><td>12</td><td>14</td></tr>
+    <tr><th>Déperdition \(y\) (W/m²)</th><td>42</td><td>35</td><td>28</td><td>23</td><td>19</td><td>16</td><td>14</td></tr>
+  </table>
+  <p><strong>a.</strong> Représenter le nuage de points.</p>
+  <p><strong>b.</strong> Le nuage semble-t-il linéaire ?</p>
+  <p><strong>c.</strong> La calculatrice donne \(y = -2{,}29x + 44{,}5\) et \(R^2 = 0{,}98\). L'ajustement est-il pertinent ?</p>
+  <p><strong>d.</strong> Quelle épaisseur d'isolant faudrait-il pour une déperdition de 10 W/m² ? S'agit-il d'une interpolation ou d'une extrapolation ?</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong> On place les 7 points dans un repère.</p>
+    <p><strong>b.</strong> Les points semblent globalement alignés avec une légère courbure. L'ajustement affine reste une bonne approximation.</p>
+    <p><strong>c.</strong> \(R^2 = 0{,}98 > 0{,}90\), l'ajustement est <strong>pertinent</strong>.</p>
+    <p><strong>d.</strong> On résout \(10 = -2{,}29x + 44{,}5\) :</p>
+    \[2{,}29x = 44{,}5 - 10 = 34{,}5\]
+    \[x = \frac{34{,}5}{2{,}29} \approx 15{,}1 \text{ cm}\]
+    <p>Comme les données vont de 2 à 14 cm, \(x = 15{,}1\) est <strong>légèrement hors plage</strong> : c'est une <strong>extrapolation</strong>, mais assez proche de la plage donc raisonnablement fiable.</p>
+  </div>
+  </details>
+</div>
+
+<!-- EXERCICE 6 -->
+<div class="exo">
+  <div class="exo-num">Exercice 6</div>
+  <div class="exo-titre">Corrélation et causalité</div>
+  <p>Pour chaque situation, indiquer s'il y a corrélation et si on peut conclure à une relation de causalité. Justifier.</p>
+  <p><strong>a.</strong> On observe que dans les pays où l'on mange le plus de fromage, il y a plus de lauréats du prix Nobel.</p>
+  <p><strong>b.</strong> Un médecin du sport observe que plus un athlète s'entraîne (en heures/semaine), plus son temps au 100 m diminue.</p>
+  <p><strong>c.</strong> On constate qu'en hiver, les ventes de manteaux et les accidents de la route augmentent simultanément.</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong> Il y a corrélation mais <strong>pas de causalité</strong>. Le facteur caché est le niveau de développement économique : les pays riches consomment plus de fromage ET investissent plus dans la recherche.</p>
+    <p><strong>b.</strong> Il y a corrélation <strong>et causalité probable</strong>. L'entraînement améliore directement la performance physique (mécanisme causal connu).</p>
+    <p><strong>c.</strong> Il y a corrélation mais <strong>pas de causalité</strong>. Le facteur caché est le <strong>froid / l'hiver</strong> qui explique les deux phénomènes (vêtements chauds et routes verglacées).</p>
+  </div>
+  </details>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<div class="niveau-header niv3">
+  <span class="badge-yellow">Niveau 3</span>
+  <h2>Approfondissement</h2>
+</div>
+
+<!-- EXERCICE 7 -->
+<div class="exo">
+  <div class="exo-num">Exercice 7</div>
+  <div class="exo-titre">Étude complète — Évolution du prix de l'énergie</div>
+  <p>Un technicien chauffagiste analyse l'évolution du prix du gaz naturel (en €/MWh) sur 7 ans :</p>
+  <table class="full">
+    <tr><th>Année</th><td>2018</td><td>2019</td><td>2020</td><td>2021</td><td>2022</td><td>2023</td><td>2024</td></tr>
+    <tr><th>Rang \(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+    <tr><th>Prix \(y\) (€/MWh)</th><td>22</td><td>24</td><td>19</td><td>35</td><td>85</td><td>45</td><td>38</td></tr>
+  </table>
+  <p><strong>a.</strong> Tracer le nuage de points.</p>
+  <p><strong>b.</strong> Calculer le point moyen.</p>
+  <p><strong>c.</strong> La calculatrice donne \(y = 6{,}11x + 14{,}1\) et \(R^2 = 0{,}36\). L'ajustement affine est-il pertinent ? Justifier.</p>
+  <p><strong>d.</strong> Expliquer pourquoi un ajustement affine ne convient pas ici.</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong> Le nuage montre des points très dispersés avec un pic en 2022.</p>
+    <p><strong>b.</strong></p>
+    \[\bar{x} = \frac{1+2+3+4+5+6+7}{7} = 4\]
+    \[\bar{y} = \frac{22+24+19+35+85+45+38}{7} = \frac{268}{7} \approx 38{,}3\]
+    <p>\(G(4\,;\,38{,}3)\)</p>
+    <p><strong>c.</strong> \(R^2 = 0{,}36 < 0{,}70\) : l'ajustement affine est <strong>mauvais</strong>. Le modèle linéaire n'explique que 36 % de la variation du prix.</p>
+    <p><strong>d.</strong> Le prix du gaz a subi un choc conjoncturel en 2022 (crise énergétique). L'évolution n'est pas régulière : un modèle linéaire ne peut pas capter ce type de variation brutale. Les données ne suivent pas une tendance affine.</p>
+  </div>
+  </details>
+</div>
+
+<!-- EXERCICE 8 -->
+<div class="exo">
+  <div class="exo-num">Exercice 8</div>
+  <div class="exo-titre">Problème complet — Production d'un atelier</div>
+  <p>Un ébéniste relève le nombre d'heures travaillées et le nombre de pièces produites chaque semaine :</p>
+  <table class="full">
+    <tr><th>Heures \(x\)</th><td>20</td><td>25</td><td>30</td><td>35</td><td>40</td><td>45</td></tr>
+    <tr><th>Pièces \(y\)</th><td>12</td><td>16</td><td>19</td><td>22</td><td>26</td><td>29</td></tr>
+  </table>
+  <p><strong>a.</strong> Calculer le point moyen.</p>
+  <p><strong>b.</strong> La régression linéaire donne \(y = 0{,}672x - 1{,}33\) avec \(R^2 = 0{,}998\). Interpréter le coefficient \(a = 0{,}672\).</p>
+  <p><strong>c.</strong> Combien de pièces peut-on espérer produire en 38 heures ?</p>
+  <p><strong>d.</strong> Combien d'heures faut-il pour produire 25 pièces ?</p>
+  <p><strong>e.</strong> Est-il raisonnable d'utiliser ce modèle pour prévoir la production en 80 heures ? Justifier.</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong></p>
+    \[\bar{x} = \frac{20+25+30+35+40+45}{6} = \frac{195}{6} = 32{,}5\]
+    \[\bar{y} = \frac{12+16+19+22+26+29}{6} = \frac{124}{6} \approx 20{,}7\]
+    <p>\(G(32{,}5\,;\,20{,}7)\)</p>
+    <p><strong>b.</strong> Le coefficient \(a = 0{,}672\) signifie qu'en moyenne, chaque heure de travail supplémentaire permet de produire environ \(0{,}67\) pièce de plus, soit environ 2 pièces pour 3 heures supplémentaires.</p>
+    <p><strong>c.</strong> \(y = 0{,}672 \times 38 - 1{,}33 = 25{,}54 - 1{,}33 \approx 24{,}2\). On peut espérer produire environ <strong>24 pièces</strong>. C'est une interpolation fiable (\(R^2 = 0{,}998\)).</p>
+    <p><strong>d.</strong> On résout \(25 = 0{,}672x - 1{,}33\) :</p>
+    \[0{,}672x = 26{,}33 \implies x = \frac{26{,}33}{0{,}672} \approx 39{,}2 \text{ heures}\]
+    <p><strong>e.</strong> 80 heures est bien au-delà de la plage [20 ; 45]. C'est une <strong>extrapolation risquée</strong>. En réalité, au-delà d'un certain nombre d'heures, la fatigue diminue la productivité et le rythme de production n'est plus constant.</p>
+  </div>
+  </details>
+</div>
+
+<!-- EXERCICE 9 -->
+<div class="exo">
+  <div class="exo-num">Exercice 9</div>
+  <div class="exo-titre">Comparaison de deux ajustements</div>
+  <p>Un installateur thermique compare deux types de radiateurs. Pour chacun, il mesure la puissance électrique consommée \(x\) (en W) et la température obtenue \(y\) (en °C) dans une pièce de 15 m².</p>
+  <p><strong>Radiateur A :</strong> \(y = 0{,}012x + 14\) avec \(R^2 = 0{,}97\)</p>
+  <p><strong>Radiateur B :</strong> \(y = 0{,}015x + 12\) avec \(R^2 = 0{,}85\)</p>
+  <p><strong>a.</strong> Quel radiateur a le meilleur ajustement affine ? Justifier.</p>
+  <p><strong>b.</strong> Pour quel radiateur la température augmente-t-elle le plus vite avec la puissance ?</p>
+  <p><strong>c.</strong> Quelle puissance faut-il au radiateur A pour atteindre 22°C ?</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong> Le radiateur A a le meilleur ajustement car \(R^2_A = 0{,}97 > R^2_B = 0{,}85\). Le modèle linéaire décrit mieux le comportement du radiateur A.</p>
+    <p><strong>b.</strong> Le radiateur B a un coefficient directeur plus élevé (\(0{,}015 > 0{,}012\)), donc sa température augmente plus vite avec la puissance.</p>
+    <p><strong>c.</strong> On résout \(22 = 0{,}012x + 14\) :</p>
+    \[0{,}012x = 8 \implies x = \frac{8}{0{,}012} \approx 667 \text{ W}\]
+  </div>
+  </details>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<div class="niveau-header niv4">
+  <span class="badge-red">Niveau 4</span>
+  <h2>Expertise</h2>
+</div>
+
+<!-- EXERCICE 10 -->
+<div class="exo">
+  <div class="exo-num">Exercice 10</div>
+  <div class="exo-titre">Problème ouvert — Consommation et climat</div>
+  <p>Une collectivité locale relève la température moyenne annuelle et la consommation de chauffage de 8 bâtiments publics :</p>
+  <table class="full">
+    <tr><th>Bâtiment</th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td></tr>
+    <tr><th>Surface (m²)</th><td>200</td><td>350</td><td>500</td><td>180</td><td>420</td><td>600</td><td>280</td><td>450</td></tr>
+    <tr><th>Conso. (MWh)</th><td>32</td><td>55</td><td>82</td><td>30</td><td>68</td><td>95</td><td>44</td><td>73</td></tr>
+  </table>
+  <p><strong>a.</strong> Calculer le point moyen.</p>
+  <p><strong>b.</strong> Tracer le nuage de points. L'ajustement affine semble-t-il pertinent ?</p>
+  <p><strong>c.</strong> La régression donne \(y = 0{,}155x - 0{,}25\) et \(R^2 = 0{,}995\). Interpréter.</p>
+  <p><strong>d.</strong> Estimer la consommation d'un bâtiment de 1 000 m². Discuter la fiabilité.</p>
+  <p><strong>e.</strong> Le bâtiment D (180 m², 30 MWh) consomme-t-il plus ou moins que prévu par le modèle ?</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong></p>
+    \[\bar{x} = \frac{200+350+500+180+420+600+280+450}{8} = \frac{2980}{8} = 372{,}5\]
+    \[\bar{y} = \frac{32+55+82+30+68+95+44+73}{8} = \frac{479}{8} = 59{,}875\]
+    <p>\(G(372{,}5\,;\,59{,}9)\)</p>
+    <p><strong>b.</strong> Les points sont bien alignés. L'ajustement affine paraît très pertinent.</p>
+    <p><strong>c.</strong> \(R^2 = 0{,}995\) : ajustement <strong>excellent</strong>. La surface explique 99,5 % de la variation de consommation. Le coefficient 0,155 signifie que chaque m² supplémentaire coûte environ 0,155 MWh de chauffage par an.</p>
+    <p><strong>d.</strong> \(y = 0{,}155 \times 1000 - 0{,}25 = 154{,}75\) MWh. C'est une <strong>extrapolation</strong> (1 000 > 600 = max des données). Le résultat est à prendre avec précaution : un très grand bâtiment peut avoir une meilleure isolation ou un comportement thermique différent.</p>
+    <p><strong>e.</strong> Valeur prédite : \(y = 0{,}155 \times 180 - 0{,}25 = 27{,}65\) MWh. Le bâtiment D consomme 30 MWh, soit <strong>plus que prévu</strong> (+2,35 MWh). Son isolation pourrait être déficiente.</p>
+  </div>
+  </details>
+</div>
+
+<!-- EXERCICE 11 -->
+<div class="exo">
+  <div class="exo-num">Exercice 11</div>
+  <div class="exo-titre">Tableur et régression — Projet professionnel</div>
+  <p>Un agenceur d'intérieur utilise un tableur pour analyser le lien entre le budget d'un client (en k€) et la surface aménagée (en m²). Voici un extrait :</p>
+  <table class="full">
+    <tr><th>Client</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+    <tr><th>Budget \(x\) (k€)</th><td>5</td><td>8</td><td>12</td><td>15</td><td>20</td><td>25</td><td>30</td><td>35</td></tr>
+    <tr><th>Surface \(y\) (m²)</th><td>8</td><td>14</td><td>20</td><td>24</td><td>32</td><td>38</td><td>46</td><td>54</td></tr>
+  </table>
+  <p><strong>a.</strong> Calculer le point moyen.</p>
+  <p><strong>b.</strong> La régression donne \(y = 1{,}52x + 0{,}5\) et \(R^2 = 0{,}998\). Interpréter le coefficient 1,52.</p>
+  <p><strong>c.</strong> Un client dispose de 18 k€. Quelle surface peut-il espérer faire aménager ?</p>
+  <p><strong>d.</strong> Un client souhaite aménager 40 m². Quel budget doit-il prévoir ?</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong></p>
+    \[\bar{x} = \frac{5+8+12+15+20+25+30+35}{8} = \frac{150}{8} = 18{,}75\]
+    \[\bar{y} = \frac{8+14+20+24+32+38+46+54}{8} = \frac{236}{8} = 29{,}5\]
+    <p>\(G(18{,}75\,;\,29{,}5)\)</p>
+    <p><strong>b.</strong> Le coefficient 1,52 signifie que pour chaque millier d'euros supplémentaire de budget, la surface aménagée augmente d'environ 1,52 m².</p>
+    <p><strong>c.</strong> \(y = 1{,}52 \times 18 + 0{,}5 = 27{,}36 + 0{,}5 = 27{,}9\) m². Interpolation fiable.</p>
+    <p><strong>d.</strong> On résout \(40 = 1{,}52x + 0{,}5\) :</p>
+    \[1{,}52x = 39{,}5 \implies x = \frac{39{,}5}{1{,}52} \approx 26{,}0 \text{ k€}\]
+    <p>Le client doit prévoir un budget d'environ <strong>26 000 €</strong>.</p>
+  </div>
+  </details>
+</div>
+
+<!-- EXERCICE 12 -->
+<div class="exo">
+  <div class="exo-num">Exercice 12</div>
+  <div class="exo-titre">Synthèse — Choisir le bon modèle</div>
+  <p>On dispose de trois séries statistiques à deux variables. Pour chacune, la calculatrice donne :</p>
+  <table class="full">
+    <tr><th>Série</th><th>Équation de régression</th><th>\(R^2\)</th></tr>
+    <tr><td>Série 1</td><td>\(y = 2{,}5x + 10\)</td><td class="ok">0,97</td></tr>
+    <tr><td>Série 2</td><td>\(y = -0{,}8x + 50\)</td><td>0,62</td></tr>
+    <tr><td>Série 3</td><td>\(y = 1{,}1x - 3\)</td><td class="ok">0,91</td></tr>
+  </table>
+  <p><strong>a.</strong> Pour quelle(s) série(s) l'ajustement affine est-il pertinent ?</p>
+  <p><strong>b.</strong> Pour la série 2, que peut-on dire ? Proposer une explication.</p>
+  <p><strong>c.</strong> Pour la série 1, le coefficient directeur est positif. Que cela signifie-t-il ?</p>
+
+  <details class="corr-wrap"><summary class="corr-btn">Voir la correction</summary>
+  <div class="corr-body">
+    <p><strong>a.</strong> Les séries 1 et 3 ont un ajustement pertinent (\(R^2 > 0{,}90\)).</p>
+    <p><strong>b.</strong> Pour la série 2, \(R^2 = 0{,}62 < 0{,}70\) : l'ajustement affine est <strong>mauvais</strong>. Les données ne suivent probablement pas une tendance linéaire. Il faudrait envisager un autre type de modèle ou vérifier s'il y a des valeurs aberrantes.</p>
+    <p><strong>c.</strong> Le coefficient directeur positif (\(a = 2{,}5\)) signifie que \(y\) augmente quand \(x\) augmente : la corrélation est <strong>positive</strong>. Plus précisément, quand \(x\) augmente de 1 unité, \(y\) augmente de 2,5 unités en moyenne.</p>
+  </div>
+  </details>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">← Retour au cours</a>
+  <a href="ds.html" class="nav-btn">Devoir surveillé →</a>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

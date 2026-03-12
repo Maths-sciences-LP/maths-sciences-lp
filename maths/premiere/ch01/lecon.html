@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Statistique à deux variables – 1ère Pro</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-1ere-pro.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Chapitre 1 – Statistique à deux variables</h1>
+  <p class="sous-titre">1ère Bac Pro | Statistique et probabilités | Mathématiques</p>
+</header>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="objectifs">
+  <h3>Objectifs du chapitre</h3>
+  <ul class="styled">
+    <li>Représenter un nuage de points associé à une série statistique à deux variables</li>
+    <li>Déterminer un ajustement affine à l'aide de la calculatrice ou d'un tableur</li>
+    <li>Utiliser le coefficient de détermination \(R^2\) pour évaluer la qualité d'un ajustement</li>
+    <li>Réaliser des interpolations et extrapolations</li>
+    <li>Comprendre que corrélation n'implique pas causalité</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>1. Rappels de Seconde</h2>
+
+<div class="retenir">
+  <h3>Prérequis</h3>
+  <ul class="styled">
+    <li><strong>Effectif :</strong> nombre d'individus dans une classe ou possédant une valeur donnée.</li>
+    <li><strong>Fréquence :</strong> rapport de l'effectif d'une valeur sur l'effectif total : \(f = \dfrac{n_i}{N}\).</li>
+    <li><strong>Moyenne :</strong> \(\bar{x} = \dfrac{1}{N}\sum_{i=1}^{p} n_i x_i\).</li>
+    <li><strong>Étendue :</strong> différence entre la plus grande et la plus petite valeur.</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>2. Série statistique à deux variables</h2>
+
+<div class="def">
+  <strong>Définition — Série statistique à deux variables :</strong><br>
+  On étudie simultanément deux caractères quantitatifs \(x\) et \(y\) sur une même population. On obtient une série de couples \((x_i\,;\,y_i)\) pour \(i = 1, 2, \ldots, n\).<br><br>
+  <em>Exemple :</em> On mesure la température extérieure \(x\) (en °C) et la consommation de chauffage \(y\) (en kWh) d'un bâtiment chaque mois.
+</div>
+
+<div class="situation">
+  <h3>Situation professionnelle — Installateur thermique</h3>
+  <p>
+    Un technicien chauffagiste relève chaque mois la température moyenne extérieure et la consommation
+    énergétique d'un immeuble équipé d'une chaudière collective. Il souhaite établir un lien
+    entre ces deux grandeurs pour anticiper les besoins en combustible.
+  </p>
+  <table class="full">
+    <tr>
+      <th>Mois</th><th>Oct.</th><th>Nov.</th><th>Déc.</th><th>Jan.</th><th>Fév.</th><th>Mars</th>
+    </tr>
+    <tr>
+      <th>Température \(x\) (°C)</th>
+      <td>12</td><td>8</td><td>4</td><td>2</td><td>3</td><td>7</td>
+    </tr>
+    <tr>
+      <th>Conso. \(y\) (MWh)</th>
+      <td>15</td><td>22</td><td>31</td><td>35</td><td>33</td><td>24</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>3. Nuage de points</h2>
+
+<div class="def">
+  <strong>Définition — Nuage de points :</strong><br>
+  Le <strong>nuage de points</strong> associé à la série \((x_i\,;\,y_i)\) est l'ensemble des points \(M_i(x_i\,;\,y_i)\) placés dans un repère orthogonal.<br>
+  L'axe horizontal porte la variable \(x\) (variable explicative) et l'axe vertical porte la variable \(y\) (variable à expliquer).
+</div>
+
+<div class="meth">
+  <strong>Méthode — Tracer un nuage de points :</strong>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div>Choisir des échelles adaptées pour chaque axe (pas forcément les mêmes).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div>Placer chaque couple \((x_i\,;\,y_i)\) comme un point dans le repère.</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div>Observer la forme générale du nuage : alignement, courbe, dispersion.</div>
+  </div>
+</div>
+
+<h3>Exemple — Nuage de points du chauffage</h3>
+
+<div class="chart-wrapper">
+  <canvas id="nuageChauffe" width="600" height="350"></canvas>
+</div>
+
+<script>
+(function(){
+  const ctx = document.getElementById('nuageChauffe').getContext('2d');
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'Consommation vs Température',
+        data: [
+          {x:12,y:15},{x:8,y:22},{x:4,y:31},{x:2,y:35},{x:3,y:33},{x:7,y:24}
+        ],
+        backgroundColor: '#0969da',
+        pointRadius: 6,
+        pointHoverRadius: 8
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Consommation de chauffage en fonction de la température', font: {size:14} },
+        legend: { display: false }
+      },
+      scales: {
+        x: { title: { display: true, text: 'Température (°C)' }, min: 0, max: 14 },
+        y: { title: { display: true, text: 'Consommation (MWh)' }, min: 10, max: 40 }
+      }
+    }
+  });
+})();
+</script>
+
+<p>On observe que les points semblent <strong>globalement alignés</strong> : quand la température diminue, la consommation augmente. On dit qu'il y a une <strong>corrélation linéaire négative</strong>.</p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>4. Point moyen</h2>
+
+<div class="def">
+  <strong>Définition — Point moyen :</strong><br>
+  Le <strong>point moyen</strong> \(G\) du nuage a pour coordonnées :
+  \[G\left(\bar{x}\,;\,\bar{y}\right) \quad \text{avec} \quad \bar{x} = \frac{1}{n}\sum x_i \quad \text{et} \quad \bar{y} = \frac{1}{n}\sum y_i\]
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Calcul du point moyen</div>
+  <p>Avec les données du chauffage :</p>
+  \[\bar{x} = \frac{12 + 8 + 4 + 2 + 3 + 7}{6} = \frac{36}{6} = 6\]
+  \[\bar{y} = \frac{15 + 22 + 31 + 35 + 33 + 24}{6} = \frac{160}{6} \approx 26{,}7\]
+  <p>Le point moyen est \(G(6\,;\,26{,}7)\).</p>
+</div>
+
+<div class="prop">
+  <strong>Propriété :</strong><br>
+  La droite d'ajustement (droite de régression) passe toujours par le point moyen \(G(\bar{x}\,;\,\bar{y})\).
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>5. Ajustement affine — Droite de régression</h2>
+
+<div class="def">
+  <strong>Définition — Ajustement affine :</strong><br>
+  Réaliser un <strong>ajustement affine</strong> d'un nuage de points, c'est chercher la droite \(y = ax + b\) qui « passe au mieux » entre les points du nuage. Cette droite s'appelle la <strong>droite de régression de \(y\) en \(x\)</strong>.
+</div>
+
+<div class="def">
+  <strong>Définition — Méthode des moindres carrés :</strong><br>
+  La <strong>méthode des moindres carrés</strong> détermine la droite \(y = ax + b\) qui minimise la somme des carrés des écarts entre les valeurs observées \(y_i\) et les valeurs calculées \(\hat{y}_i = ax_i + b\) :
+  \[S = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - ax_i - b)^2 \quad \text{est minimale.}\]
+</div>
+
+<div class="svg-wrap">
+<svg width="500" height="280" viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;border:1px solid #e2e8f0;border-radius:10px;background:#fafbfc">
+  <text x="250" y="20" text-anchor="middle" font-size="12" font-family="Segoe UI,sans-serif" fill="#718096">Principe des moindres carrés</text>
+  <!-- axes -->
+  <line x1="60" y1="250" x2="470" y2="250" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="250" x2="60" y2="30" stroke="#333" stroke-width="1.5"/>
+  <text x="480" y="254" font-size="11" fill="#333">x</text>
+  <text x="55" y="22" font-size="11" fill="#333">y</text>
+  <!-- droite -->
+  <line x1="80" y1="220" x2="450" y2="60" stroke="#0969da" stroke-width="2"/>
+  <!-- points et écarts -->
+  <circle cx="120" cy="195" r="5" fill="#e53e3e"/>
+  <line x1="120" y1="195" x2="120" y2="206" stroke="#e53e3e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="180" cy="165" r="5" fill="#e53e3e"/>
+  <line x1="180" y1="165" x2="180" y2="183" stroke="#e53e3e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="250" cy="140" r="5" fill="#e53e3e"/>
+  <line x1="250" y1="140" x2="250" y2="155" stroke="#e53e3e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="310" cy="130" r="5" fill="#e53e3e"/>
+  <line x1="310" y1="130" x2="310" y2="131" stroke="#e53e3e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="370" cy="85" r="5" fill="#e53e3e"/>
+  <line x1="370" y1="85" x2="370" y2="107" stroke="#e53e3e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="420" cy="75" r="5" fill="#e53e3e"/>
+  <line x1="420" y1="75" x2="420" y2="87" stroke="#e53e3e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- légende -->
+  <circle cx="100" cy="268" r="4" fill="#e53e3e"/>
+  <text x="110" y="272" font-size="10" fill="#333">Points observés (yi)</text>
+  <line x1="220" y1="268" x2="250" y2="268" stroke="#0969da" stroke-width="2"/>
+  <text x="255" y="272" font-size="10" fill="#333">Droite de régression y = ax + b</text>
+  <line x1="370" y1="268" x2="370" y2="258" stroke="#e53e3e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="378" y="272" font-size="10" fill="#333">Écarts</text>
+</svg>
+</div>
+
+<div class="meth">
+  <strong>Méthode — Obtenir la droite de régression avec la calculatrice :</strong>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div>Entrer les données dans les listes (L1 pour \(x\), L2 pour \(y\)).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div>Choisir le mode « régression linéaire » (LinReg ou RegLin).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div>Lire les coefficients \(a\) et \(b\) affichés, ainsi que \(r\) ou \(r^2\).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">4</div>
+    <div>Écrire l'équation : \(y = ax + b\) et tracer la droite sur le graphique.</div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Droite de régression du chauffage</div>
+  <p>En utilisant la calculatrice sur les données du chauffage, on obtient :</p>
+  \[y = -2{,}03x + 38{,}9\]
+  <p>Vérification : la droite passe-t-elle par le point moyen \(G(6\,;\,26{,}7)\) ?</p>
+  \[-2{,}03 \times 6 + 38{,}9 = -12{,}18 + 38{,}9 = 26{,}72 \approx 26{,}7 \quad \checkmark\]
+  <p><strong>Interprétation :</strong> quand la température augmente de 1°C, la consommation diminue d'environ 2 MWh.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>6. Coefficient de détermination \(R^2\)</h2>
+
+<div class="def">
+  <strong>Définition — Coefficient de détermination :</strong><br>
+  Le <strong>coefficient de détermination</strong> \(R^2\) (ou \(r^2\)) est un nombre compris entre 0 et 1 qui mesure la qualité de l'ajustement affine :
+  <ul class="styled">
+    <li>Si \(R^2\) est proche de <strong>1</strong> : l'ajustement est <strong>bon</strong>, les points sont proches de la droite.</li>
+    <li>Si \(R^2\) est proche de <strong>0</strong> : l'ajustement est <strong>mauvais</strong>, les points sont très dispersés autour de la droite.</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <strong>Propriété — Interprétation de \(R^2\) :</strong><br>
+  \(R^2\) représente la proportion de la variation de \(y\) qui est expliquée par la relation linéaire avec \(x\).<br><br>
+  Par exemple, si \(R^2 = 0{,}95\), cela signifie que 95 % de la variation de \(y\) est expliquée par le modèle linéaire.
+</div>
+
+<div class="card-grid">
+  <div class="formule-box green">
+    <div class="fb-label">Bon ajustement</div>
+    <div class="fb-formula">\(R^2 \geqslant 0{,}90\)</div>
+  </div>
+  <div class="formule-box orange">
+    <div class="fb-label">Ajustement moyen</div>
+    <div class="fb-formula">\(0{,}70 \leqslant R^2 < 0{,}90\)</div>
+  </div>
+  <div class="formule-box red">
+    <div class="fb-label">Mauvais ajustement</div>
+    <div class="fb-formula">\(R^2 < 0{,}70\)</div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Qualité de l'ajustement du chauffage</div>
+  <p>La calculatrice donne \(r \approx -0{,}99\), donc \(R^2 \approx 0{,}98\).</p>
+  <p>Comme \(R^2\) est très proche de 1, l'ajustement affine est <strong>excellent</strong>. Le modèle linéaire décrit très bien la relation entre la température et la consommation.</p>
+</div>
+
+<div class="att">
+  <strong>Attention — Erreurs fréquentes :</strong>
+  <ul class="styled">
+    <li>\(R^2\) proche de 1 ne signifie pas que la relation est exactement linéaire, mais que le modèle linéaire est une bonne approximation.</li>
+    <li>Ne pas confondre \(r\) (coefficient de corrélation, peut être négatif) et \(R^2\) (toujours positif).</li>
+    <li>\(r < 0\) signifie une corrélation <strong>négative</strong> (quand \(x\) augmente, \(y\) diminue).</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>7. Interpolation et extrapolation</h2>
+
+<div class="def">
+  <strong>Définition — Interpolation :</strong><br>
+  L'<strong>interpolation</strong> consiste à estimer une valeur de \(y\) pour une valeur de \(x\) <strong>située à l'intérieur</strong> de la plage de données observées.<br><br>
+  <strong>Définition — Extrapolation :</strong><br>
+  L'<strong>extrapolation</strong> consiste à estimer une valeur de \(y\) pour une valeur de \(x\) <strong>située à l'extérieur</strong> de la plage de données observées.
+</div>
+
+<div class="att">
+  <strong>Attention — Fiabilité :</strong>
+  <ul class="styled">
+    <li>L'<strong>interpolation</strong> est généralement <strong>fiable</strong> si l'ajustement est bon (\(R^2\) élevé).</li>
+    <li>L'<strong>extrapolation</strong> est <strong>risquée</strong> : rien ne garantit que le modèle reste valable en dehors des données observées.</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Interpolation et extrapolation</div>
+  <p>Avec la droite \(y = -2{,}03x + 38{,}9\) :</p>
+  <p><strong>Interpolation :</strong> estimer la consommation pour \(x = 5\)°C (valeur dans la plage [2 ; 12]) :</p>
+  \[y = -2{,}03 \times 5 + 38{,}9 = -10{,}15 + 38{,}9 = 28{,}75 \text{ MWh}\]
+  <p>Cette estimation est <strong>fiable</strong> car 5°C est dans la plage des données.</p>
+  <p><strong>Extrapolation :</strong> estimer la consommation pour \(x = 20\)°C :</p>
+  \[y = -2{,}03 \times 20 + 38{,}9 = -40{,}6 + 38{,}9 = -1{,}7 \text{ MWh}\]
+  <p>Résultat <strong>absurde</strong> (consommation négative !). L'extrapolation n'est pas fiable ici : en été, le chauffage est simplement éteint.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>8. Corrélation et causalité</h2>
+
+<div class="def">
+  <strong>Définition — Corrélation :</strong><br>
+  Deux variables sont <strong>corrélées</strong> lorsqu'elles évoluent ensemble de manière régulière (dans le même sens ou en sens contraire). La corrélation se mesure par le coefficient de corrélation \(r\).
+</div>
+
+<div class="att">
+  <strong>Attention fondamentale : Corrélation ne signifie pas causalité !</strong>
+  <ul class="styled">
+    <li>Une <strong>corrélation</strong> entre deux variables signifie qu'elles évoluent ensemble.</li>
+    <li>Cela ne prouve <strong>pas</strong> que l'une est la <strong>cause</strong> de l'autre.</li>
+    <li>Il peut exister un <strong>facteur caché</strong> (variable confondante) qui explique les deux.</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemples de corrélations trompeuses</div>
+  <p><strong>Exemple 1 :</strong> On observe une corrélation entre les ventes de glaces et les noyades en été. Les glaces causent-elles les noyades ? Non ! C'est la <strong>chaleur</strong> (facteur caché) qui augmente les deux phénomènes.</p>
+  <p><strong>Exemple 2 :</strong> On observe une corrélation entre le nombre de pompiers envoyés et les dégâts d'un incendie. Plus de pompiers causent-ils plus de dégâts ? Non ! C'est la <strong>taille de l'incendie</strong> qui est le facteur commun.</p>
+  <p><strong>Exemple 3 :</strong> Il existe une corrélation entre la consommation de chocolat par pays et le nombre de prix Nobel. Le chocolat rend-il plus intelligent ? Non ! C'est le <strong>niveau de développement économique</strong> qui favorise les deux.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>9. Application complète</h2>
+
+<div class="situation">
+  <h3>Situation professionnelle — Menuisier agenceur</h3>
+  <p>Un menuisier agenceur relève le nombre de meubles produits par mois et le coût total de production (en euros) :</p>
+  <table class="full">
+    <tr>
+      <th>Meubles produits \(x\)</th>
+      <td>10</td><td>15</td><td>20</td><td>25</td><td>30</td><td>35</td><td>40</td>
+    </tr>
+    <tr>
+      <th>Coût total \(y\) (€)</th>
+      <td>2 800</td><td>3 950</td><td>5 200</td><td>6 300</td><td>7 600</td><td>8 700</td><td>10 100</td>
+    </tr>
+  </table>
+</div>
+
+<div class="chart-wrapper">
+  <canvas id="nuageMeubles" width="600" height="350"></canvas>
+</div>
+
+<script>
+(function(){
+  const ctx = document.getElementById('nuageMeubles').getContext('2d');
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {
+          label: 'Données observées',
+          data: [{x:10,y:2800},{x:15,y:3950},{x:20,y:5200},{x:25,y:6300},{x:30,y:7600},{x:35,y:8700},{x:40,y:10100}],
+          backgroundColor: '#0969da',
+          pointRadius: 6
+        },
+        {
+          label: 'Droite de régression',
+          data: [{x:5,y:1515},{x:45,y:11215}],
+          type: 'line',
+          borderColor: '#e53e3e',
+          borderWidth: 2,
+          pointRadius: 0,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Coût de production en fonction du nombre de meubles', font: {size:14} }
+      },
+      scales: {
+        x: { title: { display: true, text: 'Nombre de meubles' }, min: 5, max: 45 },
+        y: { title: { display: true, text: 'Coût total (€)' }, min: 1000, max: 11000 }
+      }
+    }
+  });
+})();
+</script>
+
+<div class="ex">
+  <div class="ex-titre">Résolution complète</div>
+  <p><strong>1. Point moyen :</strong></p>
+  \[\bar{x} = \frac{10+15+20+25+30+35+40}{7} = \frac{175}{7} = 25\]
+  \[\bar{y} = \frac{2800+3950+5200+6300+7600+8700+10100}{7} = \frac{44650}{7} \approx 6378{,}6\]
+  <p>Point moyen : \(G(25\,;\,6378{,}6)\).</p>
+
+  <p><strong>2. Droite de régression</strong> (calculatrice) :</p>
+  \[y = 242{,}5x + 315{,}7\]
+
+  <p><strong>3. Qualité :</strong> \(R^2 \approx 0{,}999\) — ajustement excellent.</p>
+
+  <p><strong>4. Interpolation :</strong> coût pour 22 meubles ?</p>
+  \[y = 242{,}5 \times 22 + 315{,}7 = 5335 + 315{,}7 = 5650{,}7 \text{ €}\]
+
+  <p><strong>5. Extrapolation :</strong> coût pour 100 meubles ?</p>
+  \[y = 242{,}5 \times 100 + 315{,}7 = 24\,565{,}7 \text{ €}\]
+  <p>Attention : cette extrapolation est <strong>risquée</strong>. Pour de grandes quantités, des économies d'échelle ou des coûts supplémentaires peuvent modifier la relation.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="retenir">
+  <h3>À retenir</h3>
+  <ul class="styled">
+    <li>Un <strong>nuage de points</strong> représente graphiquement une série à deux variables.</li>
+    <li>Le <strong>point moyen</strong> \(G(\bar{x}\,;\,\bar{y})\) est le « centre de gravité » du nuage.</li>
+    <li>La <strong>droite de régression</strong> \(y = ax + b\) (moindres carrés) passe par \(G\).</li>
+    <li>Le <strong>coefficient de détermination</strong> \(R^2\) mesure la qualité de l'ajustement : proche de 1 = bon.</li>
+    <li><strong>Interpolation</strong> (dans la plage) est fiable ; <strong>extrapolation</strong> (hors plage) est risquée.</li>
+    <li><strong>Corrélation ne signifie pas causalité :</strong> un lien statistique ne prouve pas un lien de cause à effet.</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="nav-footer">
+  <a href="exercices.html" class="nav-btn">Exercices du chapitre →</a>
+  <a href="ds.html" class="nav-btn">Devoir surveillé →</a>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

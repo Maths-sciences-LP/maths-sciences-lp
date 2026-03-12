@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathématiques 1ère Pro - Espace Ressources</title>
+    <style>
+        :root {
+            --primary: #0969da;
+            --bg: #f6f8fa;
+            --text: #1f2328;
+            --border: #d0d7de;
+            --subtle: #6e7781;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 20px;
+            margin: 0;
+        }
+        .container { max-width: 950px; margin: auto; }
+
+        header { text-align: center; padding: 40px 0; margin-bottom: 20px; }
+        header h1 { margin: 0; font-size: 1.8em; font-weight: 600; }
+        header p { margin: 10px 0 0; color: var(--subtle); font-size: 0.95em; }
+
+        .domain-section { margin-bottom: 40px; }
+        .domain-title {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            color: var(--subtle);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chapter-row {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: border-color 0.2s;
+        }
+        .chapter-row:hover { border-color: #afb8c1; }
+
+        .chapter-info { display: flex; align-items: center; flex-grow: 1; }
+        .ch-num { font-weight: 700; color: #afb8c1; margin-right: 15px; font-size: 0.85em; width: 20px; }
+        .ch-title { font-weight: 500; font-size: 1em; }
+
+        .links-group { display: flex; gap: 8px; }
+
+        .link-item {
+            text-decoration: none;
+            font-size: 0.82em;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .link-item:hover { background-color: #f0f7ff; }
+
+        .footer-links {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .module-link {
+            text-decoration: none;
+            color: var(--subtle);
+            font-size: 0.8em;
+            padding: 6px 14px;
+            background: #eee;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+        .module-link:hover { background: #e1e4e8; color: var(--text); }
+
+        @media (max-width: 768px) {
+            .chapter-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .links-group { width: 100%; justify-content: flex-end; border-top: 1px solid #f6f8fa; padding-top: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Mathématiques — 1<sup>re</sup> Pro</h1>
+        <p>Bac Professionnel — Espace de travail numérique</p>
+    </header>
+
+    <!-- STATISTIQUE ET PROBABILITÉS -->
+    <div class="domain-section">
+        <div class="domain-title">📊 Statistique et probabilités</div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">01</span>
+                <span class="ch-title">Statistique à deux variables</span>
+            </div>
+            <div class="links-group">
+                <a href="maths/premiere/ch01/lecon.html" class="link-item">Cours</a>
+                <a href="maths/premiere/ch01/exercices.html" class="link-item">Exercices</a>
+                <a href="maths/premiere/ch01/ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">02</span>
+                <span class="ch-title">Probabilités</span>
+            </div>
+            <div class="links-group">
+                <a href="maths/premiere/ch02/lecon.html" class="link-item">Cours</a>
+                <a href="maths/premiere/ch02/exercices.html" class="link-item">Exercices</a>
+                <a href="maths/premiere/ch02/ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ALGÈBRE - ANALYSE -->
+    <div class="domain-section">
+        <div class="domain-title">📈 Algèbre - Analyse</div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">03</span>
+                <span class="ch-title">Suites numériques</span>
+            </div>
+            <div class="links-group">
+                <a href="maths/premiere/ch03/lecon.html" class="link-item">Cours</a>
+                <a href="maths/premiere/ch03/exercices.html" class="link-item">Exercices</a>
+                <a href="maths/premiere/ch03/ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">04</span>
+                <span class="ch-title">Résolution graphique d'équations et d'inéquations</span>
+            </div>
+            <div class="links-group">
+                <a href="maths/premiere/ch04/lecon.html" class="link-item">Cours</a>
+                <a href="maths/premiere/ch04/exercices.html" class="link-item">Exercices</a>
+                <a href="maths/premiere/ch04/ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">05</span>
+                <span class="ch-title">Fonctions polynômes de degré 2</span>
+            </div>
+            <div class="links-group">
+                <a href="maths/premiere/ch05/lecon.html" class="link-item">Cours</a>
+                <a href="maths/premiere/ch05/exercices.html" class="link-item">Exercices</a>
+                <a href="maths/premiere/ch05/ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">06</span>
+                <span class="ch-title">Fonction dérivée et étude des variations</span>
+            </div>
+            <div class="links-group">
+                <a href="maths/premiere/ch06/lecon.html" class="link-item">Cours</a>
+                <a href="maths/premiere/ch06/exercices.html" class="link-item">Exercices</a>
+                <a href="maths/premiere/ch06/ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- GÉOMÉTRIE -->
+    <div class="domain-section">
+        <div class="domain-title">📐 Géométrie</div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">07</span>
+                <span class="ch-title">Géométrie dans l'espace</span>
+            </div>
+            <div class="links-group">
+                <a href="maths/premiere/ch07/lecon.html" class="link-item">Cours</a>
+                <a href="maths/premiere/ch07/exercices.html" class="link-item">Exercices</a>
+                <a href="maths/premiere/ch07/ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">08</span>
+                <span class="ch-title">Vecteurs du plan</span>
+            </div>
+            <div class="links-group">
+                <a href="maths/premiere/ch08/lecon.html" class="link-item">Cours</a>
+                <a href="maths/premiere/ch08/exercices.html" class="link-item">Exercices</a>
+                <a href="maths/premiere/ch08/ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+
+        <div class="chapter-row">
+            <div class="chapter-info">
+                <span class="ch-num">09</span>
+                <span class="ch-title">Trigonométrie</span>
+            </div>
+            <div class="links-group">
+                <a href="maths/premiere/ch09/lecon.html" class="link-item">Cours</a>
+                <a href="maths/premiere/ch09/exercices.html" class="link-item">Exercices</a>
+                <a href="maths/premiere/ch09/ds.html" class="link-item">DS</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <a href="python.html" class="module-link">💻 Algorithmique</a>
+        <a href="automatismes.html" class="module-link">⚡ Automatismes</a>
+        <a href="logique.html" class="module-link">🔍 Logique</a>
+    </div>
+</div>
+
+<script src="nav.js"></script>
+</body>
+</html>

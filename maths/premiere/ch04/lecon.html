@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Résolution graphique d'équations et d'inéquations – 1ère Pro</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-1ere-pro.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Chapitre 4 – Résolution graphique d'équations et d'inéquations</h1>
+  <p class="sous-titre">1ère Bac Pro | Algèbre – Analyse | Mathématiques</p>
+</header>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="objectifs">
+  <h3>Objectifs du chapitre</h3>
+  <ul class="styled">
+    <li>Résoudre graphiquement une équation de la forme \(f(x) = g(x)\)</li>
+    <li>Résoudre graphiquement une inéquation de la forme \(f(x) \geq g(x)\)</li>
+    <li>Résoudre graphiquement \(f(x) = k\) (cas particulier)</li>
+    <li>Comprendre l'algorithme de balayage pour approcher une solution</li>
+    <li>Lire et interpréter des courbes représentatives de fonctions</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>1. Introduction — Résoudre avec un graphique</h2>
+
+<div class="situation">
+  <h3>Situation professionnelle — Installateur thermique</h3>
+  <p>
+    <strong>Contexte :</strong> Un technicien chauffagiste compare deux systèmes de chauffage pour un logement.
+    Le <strong>système A</strong> (pompe à chaleur) a un coût annuel modélisé par la fonction \(f\) et le
+    <strong>système B</strong> (chaudière gaz) par la fonction \(g\), en fonction du nombre d'années d'utilisation \(x\).
+  </p>
+  <p>
+    Il veut savoir : <em>à partir de quand le système A devient-il plus économique que le système B ?</em>
+  </p>
+  <p>
+    Mathématiquement, il cherche quand \(f(x) = g(x)\) (les coûts sont égaux) et quand \(f(x) \leq g(x)\) (le système A est moins cher).
+    C'est exactement ce que nous allons apprendre à résoudre <strong>graphiquement</strong>.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>2. Rappels de seconde — Lecture graphique</h2>
+
+<div class="def">
+  <strong>Définition — Courbe représentative d'une fonction :</strong><br>
+  La <strong>courbe représentative</strong> \(\mathcal{C}_f\) d'une fonction \(f\) est l'ensemble des points de coordonnées \(\bigl(x\,;\,f(x)\bigr)\) dans un repère du plan.<br><br>
+  Dire que le point \(A(a\,;\,b)\) appartient à \(\mathcal{C}_f\) signifie que \(f(a) = b\).
+</div>
+
+<div class="prop">
+  <strong>Propriété — Lectures graphiques fondamentales :</strong><br>
+  À partir de la courbe \(\mathcal{C}_f\) :
+  <ul class="styled">
+    <li><strong>Image :</strong> pour trouver \(f(a)\), on part de \(x = a\) sur l'axe des abscisses, on monte (ou descend) jusqu'à la courbe, puis on lit l'ordonnée.</li>
+    <li><strong>Antécédent :</strong> pour résoudre \(f(x) = b\), on part de \(y = b\) sur l'axe des ordonnées, on trace une horizontale : les abscisses des points d'intersection sont les solutions.</li>
+  </ul>
+</div>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" style="max-width:500px;background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px">
+  <!-- Axes -->
+  <line x1="60" y1="280" x2="460" y2="280" stroke="#333" stroke-width="1.5" marker-end="url(#arr4)"/>
+  <line x1="60" y1="280" x2="60" y2="20" stroke="#333" stroke-width="1.5" marker-end="url(#arr4)"/>
+  <defs><marker id="arr4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#333"/></marker></defs>
+  <text x="455" y="298" font-size="13" fill="#333" font-family="serif" font-style="italic">x</text>
+  <text x="40" y="30" font-size="13" fill="#333" font-family="serif" font-style="italic">y</text>
+  <text x="50" y="294" font-size="12" fill="#333">O</text>
+
+  <!-- Graduation x -->
+  <line x1="140" y1="276" x2="140" y2="284" stroke="#333" stroke-width="1"/>
+  <text x="137" y="298" font-size="11" fill="#333">1</text>
+  <line x1="220" y1="276" x2="220" y2="284" stroke="#333" stroke-width="1"/>
+  <text x="217" y="298" font-size="11" fill="#333">2</text>
+  <line x1="300" y1="276" x2="300" y2="284" stroke="#333" stroke-width="1"/>
+  <text x="297" y="298" font-size="11" fill="#333">3</text>
+  <line x1="380" y1="276" x2="380" y2="284" stroke="#333" stroke-width="1"/>
+  <text x="377" y="298" font-size="11" fill="#333">4</text>
+
+  <!-- Graduation y -->
+  <line x1="56" y1="230" x2="64" y2="230" stroke="#333" stroke-width="1"/>
+  <text x="40" y="234" font-size="11" fill="#333">1</text>
+  <line x1="56" y1="180" x2="64" y2="180" stroke="#333" stroke-width="1"/>
+  <text x="40" y="184" font-size="11" fill="#333">2</text>
+  <line x1="56" y1="130" x2="64" y2="130" stroke="#333" stroke-width="1"/>
+  <text x="40" y="134" font-size="11" fill="#333">3</text>
+  <line x1="56" y1="80" x2="64" y2="80" stroke="#333" stroke-width="1"/>
+  <text x="40" y="84" font-size="11" fill="#333">4</text>
+
+  <!-- Courbe f (parabole descendante puis montante) -->
+  <path d="M60,130 Q180,270 300,180 Q380,130 440,60" fill="none" stroke="#0969da" stroke-width="2.5"/>
+  <text x="430" y="50" font-size="13" fill="#0969da" font-weight="bold" font-family="serif" font-style="italic">𝒞f</text>
+
+  <!-- Droite horizontale y = 2 -->
+  <line x1="60" y1="180" x2="440" y2="180" stroke="#e53e3e" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="445" y="177" font-size="12" fill="#e53e3e" font-weight="bold">y = 2</text>
+
+  <!-- Points d'intersection -->
+  <circle cx="120" cy="180" r="5" fill="#e53e3e" stroke="white" stroke-width="1.5"/>
+  <circle cx="300" cy="180" r="5" fill="#e53e3e" stroke="white" stroke-width="1.5"/>
+
+  <!-- Projections -->
+  <line x1="120" y1="180" x2="120" y2="280" stroke="#e53e3e" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="300" y1="180" x2="300" y2="280" stroke="#e53e3e" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <text x="100" y="310" font-size="11" fill="#e53e3e" font-weight="bold">x₁</text>
+  <text x="286" y="310" font-size="11" fill="#e53e3e" font-weight="bold">x₂</text>
+
+  <!-- Légende -->
+  <rect x="130" y="30" width="240" height="30" rx="6" fill="#fff3cd" stroke="#ffc107" opacity="0.9"/>
+  <text x="250" y="50" text-anchor="middle" font-size="11" fill="#856404" font-family="sans-serif">f(x) = 2 a deux solutions : x₁ et x₂</text>
+</svg>
+</div>
+<p style="text-align:center;font-size:.9em;color:#718096">Résolution graphique de \(f(x) = 2\) : on lit les abscisses des points d'intersection</p>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>3. Résolution graphique d'une équation \(f(x) = g(x)\)</h2>
+
+<div class="def">
+  <strong>Définition — Équation \(f(x) = g(x)\) :</strong><br>
+  Soient \(f\) et \(g\) deux fonctions définies sur un même intervalle \(I\).<br>
+  Résoudre l'équation \(f(x) = g(x)\) sur \(I\), c'est trouver toutes les valeurs de \(x\) dans \(I\) telles que \(f(x)\) et \(g(x)\) prennent la même valeur.
+</div>
+
+<div class="meth">
+  <strong>Méthode — Résoudre graphiquement \(f(x) = g(x)\) :</strong>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div>Tracer (ou identifier) les courbes \(\mathcal{C}_f\) et \(\mathcal{C}_g\) dans un même repère.</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div>Repérer les <strong>points d'intersection</strong> des deux courbes.</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div>Lire les <strong>abscisses</strong> de ces points d'intersection : ce sont les solutions.</div>
+  </div>
+</div>
+
+<div class="prop">
+  <strong>Propriété :</strong><br>
+  Les solutions de l'équation \(f(x) = g(x)\) sont les <strong>abscisses des points d'intersection</strong> des courbes \(\mathcal{C}_f\) et \(\mathcal{C}_g\).
+</div>
+
+<!-- SVG illustrant f(x) = g(x) -->
+<div class="svg-wrap">
+<svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" style="max-width:520px;background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px">
+  <!-- Axes -->
+  <line x1="50" y1="300" x2="490" y2="300" stroke="#333" stroke-width="1.5" marker-end="url(#arr4)"/>
+  <line x1="50" y1="300" x2="50" y2="20" stroke="#333" stroke-width="1.5" marker-end="url(#arr4)"/>
+  <text x="485" y="318" font-size="13" fill="#333" font-family="serif" font-style="italic">x</text>
+  <text x="30" y="30" font-size="13" fill="#333" font-family="serif" font-style="italic">y</text>
+  <text x="35" y="314" font-size="12" fill="#333">O</text>
+
+  <!-- Grille légère -->
+  <g stroke="#e2e8f0" stroke-width="0.5">
+    <line x1="130" y1="300" x2="130" y2="30"/>
+    <line x1="210" y1="300" x2="210" y2="30"/>
+    <line x1="290" y1="300" x2="290" y2="30"/>
+    <line x1="370" y1="300" x2="370" y2="30"/>
+    <line x1="450" y1="300" x2="450" y2="30"/>
+    <line x1="50" y1="240" x2="470" y2="240"/>
+    <line x1="50" y1="180" x2="470" y2="180"/>
+    <line x1="50" y1="120" x2="470" y2="120"/>
+    <line x1="50" y1="60" x2="470" y2="60"/>
+  </g>
+
+  <!-- Graduations -->
+  <line x1="130" y1="296" x2="130" y2="304" stroke="#333"/>
+  <text x="127" y="318" font-size="11" fill="#333">1</text>
+  <line x1="210" y1="296" x2="210" y2="304" stroke="#333"/>
+  <text x="207" y="318" font-size="11" fill="#333">2</text>
+  <line x1="290" y1="296" x2="290" y2="304" stroke="#333"/>
+  <text x="287" y="318" font-size="11" fill="#333">3</text>
+  <line x1="370" y1="296" x2="370" y2="304" stroke="#333"/>
+  <text x="367" y="318" font-size="11" fill="#333">4</text>
+  <line x1="450" y1="296" x2="450" y2="304" stroke="#333"/>
+  <text x="447" y="318" font-size="11" fill="#333">5</text>
+
+  <line x1="46" y1="240" x2="54" y2="240" stroke="#333"/>
+  <text x="30" y="244" font-size="11" fill="#333">1</text>
+  <line x1="46" y1="180" x2="54" y2="180" stroke="#333"/>
+  <text x="30" y="184" font-size="11" fill="#333">2</text>
+  <line x1="46" y1="120" x2="54" y2="120" stroke="#333"/>
+  <text x="30" y="124" font-size="11" fill="#333">3</text>
+  <line x1="46" y1="60" x2="54" y2="60" stroke="#333"/>
+  <text x="30" y="64" font-size="11" fill="#333">4</text>
+
+  <!-- Courbe f (parabole) : f(x) = 0.5x² - x + 1 -->
+  <path d="M50,260 Q130,280 210,220 Q290,140 370,80 Q420,50 460,40" fill="none" stroke="#0969da" stroke-width="2.5"/>
+  <text x="462" y="35" font-size="13" fill="#0969da" font-weight="bold" font-family="serif" font-style="italic">𝒞f</text>
+
+  <!-- Courbe g (droite) : g(x) = 0.6x + 0.5 -->
+  <path d="M50,270 L450,78" fill="none" stroke="#d97706" stroke-width="2.5"/>
+  <text x="452" y="72" font-size="13" fill="#d97706" font-weight="bold" font-family="serif" font-style="italic">𝒞g</text>
+
+  <!-- Points d'intersection -->
+  <circle cx="154" cy="230" r="6" fill="#e53e3e" stroke="white" stroke-width="2"/>
+  <circle cx="388" cy="72" r="6" fill="#e53e3e" stroke="white" stroke-width="2"/>
+
+  <!-- Projections vers l'axe x -->
+  <line x1="154" y1="230" x2="154" y2="300" stroke="#e53e3e" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="388" y1="72" x2="388" y2="300" stroke="#e53e3e" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- Labels solutions -->
+  <text x="138" y="336" font-size="12" fill="#e53e3e" font-weight="bold">x₁ ≈ 1,3</text>
+  <text x="370" y="336" font-size="12" fill="#e53e3e" font-weight="bold">x₂ ≈ 4,2</text>
+
+  <!-- Légende -->
+  <rect x="180" y="30" width="180" height="40" rx="6" fill="white" stroke="#e2e8f0" opacity="0.95"/>
+  <line x1="190" y1="44" x2="210" y2="44" stroke="#0969da" stroke-width="2.5"/>
+  <text x="216" y="48" font-size="11" fill="#333">Courbe de f</text>
+  <line x1="190" y1="60" x2="210" y2="60" stroke="#d97706" stroke-width="2.5"/>
+  <text x="216" y="64" font-size="11" fill="#333">Courbe de g</text>
+</svg>
+</div>
+<p style="text-align:center;font-size:.9em;color:#718096">L'équation \(f(x) = g(x)\) admet deux solutions : \(x_1 \approx 1{,}3\) et \(x_2 \approx 4{,}2\)</p>
+
+<div class="att">
+  <strong>Attention — Précision de la lecture graphique :</strong>
+  <ul class="styled">
+    <li>Les solutions lues graphiquement sont des <strong>valeurs approchées</strong>. Leur précision dépend de l'échelle du graphique.</li>
+    <li>Ne pas oublier de préciser « environ » ou « ≈ » quand on donne une solution graphique.</li>
+    <li>Vérifier que les points d'intersection sont bien <strong>dans le domaine de définition</strong> commun des deux fonctions.</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>4. Cas particulier : \(f(x) = k\) (constante)</h2>
+
+<div class="prop">
+  <strong>Propriété :</strong><br>
+  Résoudre \(f(x) = k\) (où \(k\) est un nombre réel constant) revient à chercher les abscisses des points d'intersection de la courbe \(\mathcal{C}_f\) avec la <strong>droite horizontale</strong> d'équation \(y = k\).
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Résolution de \(f(x) = 3\)</div>
+  <p>On considère la fonction \(f\) dont la courbe est donnée ci-dessous. On cherche les solutions de \(f(x) = 3\).</p>
+  <p><strong>Méthode :</strong> on trace la droite \(y = 3\) et on lit les abscisses des intersections.</p>
+  <p>D'après le graphique de la section 2, on obtient deux solutions.</p>
+  <p><strong>Conclusion :</strong> l'équation \(f(x) = 3\) admet deux solutions : \(x_1 \approx 0{,}5\) et \(x_2 \approx 3{,}5\).</p>
+</div>
+
+<div class="retenir">
+  <h3>À retenir — Nombre de solutions</h3>
+  <p>L'équation \(f(x) = k\) peut avoir :</p>
+  <ul class="styled">
+    <li><strong>Aucune solution</strong> : la droite \(y = k\) ne coupe pas la courbe</li>
+    <li><strong>Une solution</strong> : la droite est tangente à la courbe (ou la coupe en un seul point)</li>
+    <li><strong>Plusieurs solutions</strong> : la droite coupe la courbe en plusieurs points</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>5. Résolution graphique d'inéquations</h2>
+
+<div class="def">
+  <strong>Définition — Inéquation \(f(x) \geq g(x)\) :</strong><br>
+  Soient \(f\) et \(g\) deux fonctions définies sur un même intervalle \(I\).<br>
+  Résoudre l'inéquation \(f(x) \geq g(x)\) sur \(I\), c'est trouver toutes les valeurs de \(x\) dans \(I\) pour lesquelles la valeur de \(f(x)\) est <strong>supérieure ou égale</strong> à celle de \(g(x)\).
+</div>
+
+<div class="meth">
+  <strong>Méthode — Résoudre graphiquement \(f(x) \geq g(x)\) :</strong>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div>Tracer (ou identifier) les courbes \(\mathcal{C}_f\) et \(\mathcal{C}_g\) dans un même repère.</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div>Repérer les zones où la courbe \(\mathcal{C}_f\) est <strong>au-dessus</strong> de \(\mathcal{C}_g\).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div>Lire les <strong>intervalles de valeurs de \(x\)</strong> correspondant à ces zones. Les bornes sont les abscisses des points d'intersection.</div>
+  </div>
+</div>
+
+<div class="prop">
+  <strong>Propriété :</strong><br>
+  \(f(x) \geq g(x)\) lorsque la courbe \(\mathcal{C}_f\) est <strong>au-dessus</strong> (ou confondue avec) la courbe \(\mathcal{C}_g\).<br><br>
+  \(f(x) \leq g(x)\) lorsque la courbe \(\mathcal{C}_f\) est <strong>en-dessous</strong> (ou confondue avec) la courbe \(\mathcal{C}_g\).
+</div>
+
+<!-- SVG inéquation -->
+<div class="svg-wrap">
+<svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" style="max-width:520px;background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px">
+  <!-- Axes -->
+  <line x1="50" y1="300" x2="490" y2="300" stroke="#333" stroke-width="1.5" marker-end="url(#arr4)"/>
+  <line x1="50" y1="300" x2="50" y2="20" stroke="#333" stroke-width="1.5" marker-end="url(#arr4)"/>
+  <text x="485" y="318" font-size="13" fill="#333" font-family="serif" font-style="italic">x</text>
+  <text x="30" y="30" font-size="13" fill="#333" font-family="serif" font-style="italic">y</text>
+
+  <!-- Zone f >= g (hachurée en vert clair) -->
+  <path d="M50,260 Q100,270 154,230 L154,230 Q200,200 210,180 L210,180 Q210,180 210,180" fill="none"/>
+  <!-- Zone verte : avant x1 et après x2 -->
+  <rect x="50" y="30" width="104" height="270" fill="#d1fae5" opacity="0.3"/>
+  <rect x="388" y="30" width="82" height="270" fill="#d1fae5" opacity="0.3"/>
+
+  <!-- Zone rouge : entre x1 et x2 -->
+  <rect x="154" y="30" width="234" height="270" fill="#fee2e2" opacity="0.3"/>
+
+  <!-- Courbe f -->
+  <path d="M50,260 Q130,280 210,220 Q290,140 370,80 Q420,50 460,40" fill="none" stroke="#0969da" stroke-width="2.5"/>
+  <text x="462" y="35" font-size="13" fill="#0969da" font-weight="bold" font-family="serif" font-style="italic">𝒞f</text>
+
+  <!-- Courbe g -->
+  <path d="M50,270 L450,78" fill="none" stroke="#d97706" stroke-width="2.5"/>
+  <text x="452" y="72" font-size="13" fill="#d97706" font-weight="bold" font-family="serif" font-style="italic">𝒞g</text>
+
+  <!-- Points d'intersection -->
+  <circle cx="154" cy="230" r="5" fill="#e53e3e" stroke="white" stroke-width="2"/>
+  <circle cx="388" cy="72" r="5" fill="#e53e3e" stroke="white" stroke-width="2"/>
+  <line x1="154" y1="230" x2="154" y2="300" stroke="#e53e3e" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="388" y1="72" x2="388" y2="300" stroke="#e53e3e" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="138" y="328" font-size="11" fill="#e53e3e" font-weight="bold">x₁</text>
+  <text x="380" y="328" font-size="11" fill="#e53e3e" font-weight="bold">x₂</text>
+
+  <!-- Annotations zones -->
+  <text x="75" y="160" font-size="12" fill="#16a34a" font-weight="bold">f ≥ g</text>
+  <text x="240" y="160" font-size="12" fill="#dc2626" font-weight="bold">f &lt; g</text>
+  <text x="400" y="160" font-size="12" fill="#16a34a" font-weight="bold">f ≥ g</text>
+</svg>
+</div>
+<p style="text-align:center;font-size:.9em;color:#718096">\(f(x) \geq g(x)\) sur les zones vertes : \(x \leq x_1\) ou \(x \geq x_2\)</p>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Situation du chauffagiste</div>
+  <p>Reprenons la situation d'introduction. Le coût du système A est \(f(x)\) et celui du système B est \(g(x)\).</p>
+  <p>D'après le graphique précédent :</p>
+  <ul class="styled">
+    <li>\(f(x) = g(x)\) pour \(x_1 \approx 1{,}3\) et \(x_2 \approx 4{,}2\) (les coûts sont égaux après environ 1,3 et 4,2 ans)</li>
+    <li>\(f(x) \leq g(x)\) pour \(x_1 \leq x \leq x_2\), soit entre 1,3 et 4,2 ans (le système A est moins cher)</li>
+  </ul>
+  <p><strong>Conclusion :</strong> Le système A (pompe à chaleur) est plus économique entre la 2<sup>ème</sup> et la 4<sup>ème</sup> année d'utilisation environ.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>6. Cas particulier : \(f(x) \geq k\)</h2>
+
+<div class="prop">
+  <strong>Propriété :</strong><br>
+  Résoudre \(f(x) \geq k\) revient à chercher les valeurs de \(x\) pour lesquelles la courbe \(\mathcal{C}_f\) est <strong>au-dessus</strong> de la droite \(y = k\).
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Quand la température dépasse un seuil</div>
+  <p>Un installateur thermique mesure la température \(T(t)\) dans un local au cours de la journée (en heures). Il veut savoir pendant combien de temps \(T(t) \geq 20\,°C\) (température de confort).</p>
+  <p><strong>Graphiquement :</strong> on trace la droite \(y = 20\) et on lit l'intervalle de temps où la courbe est au-dessus.</p>
+  <p>Si la courbe coupe la droite \(y = 20\) en \(t_1 = 8\) h et \(t_2 = 18\) h, alors :</p>
+  <p>\(T(t) \geq 20\) pour \(t \in [8\,;\,18]\), soit <strong>10 heures</strong> de confort thermique.</p>
+</div>
+
+<div class="att">
+  <strong>Attention — Inéquations strictes et larges :</strong>
+  <ul class="styled">
+    <li>\(f(x) \geq g(x)\) : la courbe de \(f\) est <strong>au-dessus ou confondue</strong> (les bornes sont incluses → crochets fermés \([\,]\))</li>
+    <li>\(f(x) > g(x)\) : la courbe de \(f\) est <strong>strictement au-dessus</strong> (les bornes sont exclues → crochets ouverts \(]\,[)\))</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>7. Tableau récapitulatif des positions relatives</h2>
+
+<table class="full">
+  <tr>
+    <th>Position de \(\mathcal{C}_f\) par rapport à \(\mathcal{C}_g\)</th>
+    <th>Traduction algébrique</th>
+  </tr>
+  <tr>
+    <td>\(\mathcal{C}_f\) est <strong>au-dessus</strong> de \(\mathcal{C}_g\)</td>
+    <td class="ok">\(f(x) \geq g(x)\)</td>
+  </tr>
+  <tr>
+    <td>\(\mathcal{C}_f\) est <strong>en-dessous</strong> de \(\mathcal{C}_g\)</td>
+    <td class="ok">\(f(x) \leq g(x)\)</td>
+  </tr>
+  <tr>
+    <td>\(\mathcal{C}_f\) et \(\mathcal{C}_g\) se <strong>coupent</strong></td>
+    <td class="ok">\(f(x) = g(x)\)</td>
+  </tr>
+</table>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>8. Algorithme de balayage</h2>
+
+<div class="def">
+  <strong>Définition — Algorithme de balayage :</strong><br>
+  L'<strong>algorithme de balayage</strong> (ou algorithme par scanning) est une méthode qui consiste à tester des valeurs successives de \(x\) pour trouver une approximation d'une solution de \(f(x) = g(x)\).<br><br>
+  On « balaye » l'intervalle par pas réguliers, et on repère le changement de signe de \(f(x) - g(x)\).
+</div>
+
+<div class="meth">
+  <strong>Méthode — Balayage pas à pas :</strong>
+  <div class="etape">
+    <div class="nc">1</div>
+    <div>Choisir un intervalle \([a\,;\,b]\) et un pas \(p\).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">2</div>
+    <div>Calculer \(h(x) = f(x) - g(x)\) pour \(x = a,\, a+p,\, a+2p, \ldots\)</div>
+  </div>
+  <div class="etape">
+    <div class="nc">3</div>
+    <div>Quand \(h(x)\) change de signe entre deux valeurs consécutives \(x_k\) et \(x_{k+1}\), la solution est entre \(x_k\) et \(x_{k+1}\).</div>
+  </div>
+  <div class="etape">
+    <div class="nc">4</div>
+    <div>Pour plus de précision, recommencer avec un pas plus petit dans l'intervalle trouvé.</div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple — Balayage sur \(f(x) = x^2\) et \(g(x) = 3x - 1\)</div>
+  <p>On cherche une solution de \(x^2 = 3x - 1\), soit \(h(x) = x^2 - 3x + 1 = 0\).</p>
+  <p>Balayage sur \([0\,;\,1]\) avec un pas de \(0{,}1\) :</p>
+  <table class="full">
+    <tr>
+      <th>\(x\)</th>
+      <td>0</td><td>0,1</td><td>0,2</td><td>0,3</td><td class="hi">0,4</td><td class="hi">0,5</td><td>0,6</td>
+    </tr>
+    <tr>
+      <th>\(h(x)\)</th>
+      <td class="ok">1</td><td class="ok">0,71</td><td class="ok">0,44</td><td class="ok">0,19</td><td class="hi">−0,04</td><td class="hi">−0,25</td><td>−0,44</td>
+    </tr>
+  </table>
+  <p>\(h(x)\) change de signe entre \(x = 0{,}3\) (\(h > 0\)) et \(x = 0{,}4\) (\(h < 0\)).</p>
+  <p>Donc une solution se trouve dans \([0{,}3\,;\,0{,}4]\), soit \(x \approx 0{,}35\) à \(0{,}05\) près.</p>
+  <p><em>On peut affiner en recommençant avec un pas de 0,01 entre 0,3 et 0,4.</em></p>
+</div>
+
+<div class="prop">
+  <strong>Propriété — Théorème des valeurs intermédiaires (admis) :</strong><br>
+  Si une fonction \(h\) est continue sur \([a\,;\,b]\) et si \(h(a)\) et \(h(b)\) sont de <strong>signes contraires</strong>, alors il existe au moins un réel \(c \in ]a\,;\,b[\) tel que \(h(c) = 0\).<br><br>
+  <em>C'est ce résultat qui justifie l'algorithme de balayage.</em>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>9. Exemples résolus complets</h2>
+
+<div class="ex">
+  <div class="ex-titre">Exemple 1 — Résolution graphique complète</div>
+  <p>On considère les fonctions \(f\) et \(g\) définies sur \([-2\,;\,5]\) par \(f(x) = -x^2 + 4x\) et \(g(x) = x + 1\).</p>
+  <p>Voici les valeurs dans un tableau :</p>
+  <table class="full">
+    <tr>
+      <th>\(x\)</th>
+      <td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+    </tr>
+    <tr>
+      <th>\(f(x)\)</th>
+      <td>−12</td><td>−5</td><td>0</td><td>3</td><td>4</td><td>3</td><td>0</td><td>−5</td>
+    </tr>
+    <tr>
+      <th>\(g(x)\)</th>
+      <td>−1</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+    </tr>
+  </table>
+
+  <p><strong>a) Résoudre \(f(x) = g(x)\) :</strong></p>
+  <p>On cherche les abscisses où \(f(x) = g(x)\), c'est-à-dire \(-x^2 + 4x = x + 1\).</p>
+  <p>D'après le tableau et le graphique, les courbes se coupent en \(x \approx 0{,}3\) et \(x \approx 3{,}7\).</p>
+
+  <p><strong>b) Résoudre \(f(x) \geq g(x)\) :</strong></p>
+  <p>On cherche quand la courbe de \(f\) est au-dessus de celle de \(g\).</p>
+  <p>D'après le tableau : entre \(x = 1\) et \(x = 3\), \(f(x) \geq g(x)\). Plus précisément : \(x \in [0{,}3\,;\,3{,}7]\) environ.</p>
+</div>
+
+<div class="ex">
+  <div class="ex-titre">Exemple 2 — Contexte professionnel</div>
+  <p>Un menuisier agenceur fabrique des étagères sur-mesure. Le coût de production de \(x\) étagères est modélisé par \(C(x) = 0{,}5x^2 + 10\) (en euros). Le revenu de la vente est \(R(x) = 8x\) (en euros).</p>
+
+  <p><strong>a)</strong> Quand le menuisier est-il à l'équilibre ? (Quand \(C(x) = R(x)\))</p>
+  <p>Graphiquement, les courbes se coupent pour \(x \approx 1{,}4\) et \(x \approx 14{,}6\).</p>
+  <p>Comme \(x\) est un nombre entier d'étagères : l'équilibre est atteint à partir de 2 étagères.</p>
+
+  <p><strong>b)</strong> Quand fait-il des bénéfices ? (Quand \(R(x) > C(x)\))</p>
+  <p>C'est quand la droite de revenu est au-dessus de la courbe de coût, soit pour \(x \in ]1{,}4\,;\,14{,}6[\).</p>
+  <p><strong>Conclusion :</strong> Le menuisier fait des bénéfices en fabriquant entre 2 et 14 étagères.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>10. Synthèse</h2>
+
+<div class="retenir">
+  <h3>À retenir</h3>
+  <div class="card-grid">
+    <div class="formule-box">
+      <div class="fb-label">Équation</div>
+      <div class="fb-formula">\(f(x) = g(x)\)<br><small>→ abscisses des points d'intersection</small></div>
+    </div>
+    <div class="formule-box green">
+      <div class="fb-label">Inéquation</div>
+      <div class="fb-formula">\(f(x) \geq g(x)\)<br><small>→ zone où \(\mathcal{C}_f\) est au-dessus de \(\mathcal{C}_g\)</small></div>
+    </div>
+    <div class="formule-box orange">
+      <div class="fb-label">Cas particulier</div>
+      <div class="fb-formula">\(f(x) = k\)<br><small>→ intersection avec la droite \(y = k\)</small></div>
+    </div>
+    <div class="formule-box red">
+      <div class="fb-label">Balayage</div>
+      <div class="fb-formula">Changement de signe<br><small>→ une solution entre deux valeurs testées</small></div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-footer">
+  <a href="exercices.html" class="nav-btn">Exercices du chapitre 4 →</a>
+  <a href="ds.html" class="nav-btn">DS du chapitre 4 →</a>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

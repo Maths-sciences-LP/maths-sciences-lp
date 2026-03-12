@@ -20,7 +20,7 @@
 
 .auto-domain{margin:20px 0;padding:0}
 .auto-domain h3{font-size:1.05em;color:#fff;background:var(--p);padding:10px 16px;border-radius:8px 8px 0 0;margin:0}
-.auto-domain ul{background:#f8fafc;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 8px 8px;padding:16px 16px 16px 36px;margin:0}
+.auto-domain ul{background:#f8fafc;border:1px solid #e2e8f0;border-top:none;padding:16px 16px 16px 36px;margin:0}
 .auto-domain li{margin:6px 0;line-height:1.5}
 
 .auto-domain.calc h3{background:#0056b3}
@@ -36,12 +36,27 @@
 
 .note-cumul{background:#f0fff4;border:1px dashed #86efac;border-radius:8px;padding:12px 16px;margin:15px 0;font-size:.88em;color:#166534}
 
+/* Exercices flash */
+.flash-series{background:#fff;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 8px 8px;padding:18px 20px}
+.flash-series h4{font-size:.95em;color:#334155;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.flash-series h4::before{content:"⚡";font-size:1.1em}
+.flash-q{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin:8px 0;font-size:.92em;line-height:1.6}
+.flash-q strong{color:#334155}
+.flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:600px){.flash-grid{grid-template-columns:1fr}}
+.flash-corr{background:#f0fff4;border:1px solid #bbf7d0;border-radius:6px;padding:12px 16px;margin-top:12px;display:none}
+.flash-corr .r{font-weight:700;color:#059669}
+.flash-btn{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;font-weight:600;margin-top:10px;transition:background .2s}
+.flash-btn:hover{filter:brightness(1.15)}
+
 .print-only{display:none}
 @media print{
   .level-tab{display:none}
   .level-panel{display:block!important;page-break-before:always}
   .print-only{display:block}
   .no-print{display:none}
+  .flash-corr{display:block!important}
+  .flash-btn{display:none}
 }
 </style>
 </head>
@@ -105,6 +120,7 @@
   Liste non exhaustive d'automatismes à travailler.
 </div>
 
+<!-- ── SECONDE : Calcul numérique ── -->
 <div class="auto-domain calc">
   <h3>Calcul numérique</h3>
   <ul>
@@ -118,8 +134,37 @@
     <li>Additions de fractions, multiplication de fractions</li>
     <li>Détermination d'un <strong>arrondi</strong>, d'une valeur approchée</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Calcul numérique</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Calculer 25 % de 80.</div>
+      <div class="flash-q"><strong>Q2.</strong> Écrire \(\dfrac{3}{4}\) sous forme décimale.</div>
+      <div class="flash-q"><strong>Q3.</strong> Écrire 0,6 sous forme de pourcentage.</div>
+      <div class="flash-q"><strong>Q4.</strong> Calculer \(\dfrac{2}{5} + \dfrac{1}{3}\).</div>
+      <div class="flash-q"><strong>Q5.</strong> Calculer \(3{,}2 \times 10^3\).</div>
+      <div class="flash-q"><strong>Q6.</strong> Écrire 0,00047 en notation scientifique.</div>
+      <div class="flash-q"><strong>Q7.</strong> Calculer la moyenne de 12, 8, 15 et 5.</div>
+      <div class="flash-q"><strong>Q8.</strong> Arrondir 3,847 au dixième.</div>
+      <div class="flash-q"><strong>Q9.</strong> Comparer \(\dfrac{2}{3}\) et \(\dfrac{3}{5}\).</div>
+      <div class="flash-q"><strong>Q10.</strong> Dans une classe de 30 élèves, 12 sont des filles. Calculer la fréquence des filles.</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> \(80 \times 0{,}25 =\) <span class="r">20</span><br>
+      <strong>Q2.</strong> \(\dfrac{3}{4} =\) <span class="r">0,75</span><br>
+      <strong>Q3.</strong> \(0{,}6 =\) <span class="r">60 %</span><br>
+      <strong>Q4.</strong> \(\dfrac{6}{15} + \dfrac{5}{15} =\) <span class="r">\(\dfrac{11}{15}\)</span><br>
+      <strong>Q5.</strong> \(3{,}2 \times 10^3 =\) <span class="r">3 200</span><br>
+      <strong>Q6.</strong> <span class="r">\(4{,}7 \times 10^{-4}\)</span><br>
+      <strong>Q7.</strong> \(\dfrac{12+8+15+5}{4} = \dfrac{40}{4} =\) <span class="r">10</span><br>
+      <strong>Q8.</strong> <span class="r">3,8</span><br>
+      <strong>Q9.</strong> \(\dfrac{2}{3} \approx 0{,}667\) et \(\dfrac{3}{5} = 0{,}6\) donc <span class="r">\(\dfrac{2}{3} > \dfrac{3}{5}\)</span><br>
+      <strong>Q10.</strong> \(\dfrac{12}{30} =\) <span class="r">0,4 soit 40 %</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── SECONDE : Calcul littéral ── -->
 <div class="auto-domain alg">
   <h3>Calcul littéral</h3>
   <ul>
@@ -127,8 +172,37 @@
     <li>Transformation de formules (ex : \(U = RI\), \(d = vt\)…), expression d'une variable en fonction des autres</li>
     <li>Résolution d'équations du type \(ax = b\) et \(a + x = b\), avec \(a\) et \(b\) entiers relatifs</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Calcul littéral</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Développer \(3(x + 5)\).</div>
+      <div class="flash-q"><strong>Q2.</strong> Factoriser \(6x + 18\).</div>
+      <div class="flash-q"><strong>Q3.</strong> Réduire \(4x + 3 - 2x + 7\).</div>
+      <div class="flash-q"><strong>Q4.</strong> Résoudre \(5x = 35\).</div>
+      <div class="flash-q"><strong>Q5.</strong> Résoudre \(x + 8 = 3\).</div>
+      <div class="flash-q"><strong>Q6.</strong> Résoudre \(-3x = 12\).</div>
+      <div class="flash-q"><strong>Q7.</strong> Si \(d = vt\), exprimer \(v\) en fonction de \(d\) et \(t\).</div>
+      <div class="flash-q"><strong>Q8.</strong> Si \(U = RI\), exprimer \(R\) en fonction de \(U\) et \(I\).</div>
+      <div class="flash-q"><strong>Q9.</strong> Développer \(-2(3x - 4)\).</div>
+      <div class="flash-q"><strong>Q10.</strong> Factoriser \(x^2 - 5x\).</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> <span class="r">\(3x + 15\)</span><br>
+      <strong>Q2.</strong> <span class="r">\(6(x + 3)\)</span><br>
+      <strong>Q3.</strong> <span class="r">\(2x + 10\)</span><br>
+      <strong>Q4.</strong> \(x = 35 \div 5 =\) <span class="r">\(x = 7\)</span><br>
+      <strong>Q5.</strong> \(x = 3 - 8 =\) <span class="r">\(x = -5\)</span><br>
+      <strong>Q6.</strong> \(x = 12 \div (-3) =\) <span class="r">\(x = -4\)</span><br>
+      <strong>Q7.</strong> <span class="r">\(v = \dfrac{d}{t}\)</span><br>
+      <strong>Q8.</strong> <span class="r">\(R = \dfrac{U}{I}\)</span><br>
+      <strong>Q9.</strong> <span class="r">\(-6x + 8\)</span><br>
+      <strong>Q10.</strong> <span class="r">\(x(x - 5)\)</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── SECONDE : Proportionnalité et fonctions ── -->
 <div class="auto-domain fonc">
   <h3>Proportionnalité et fonctions</h3>
   <ul>
@@ -138,8 +212,33 @@
     <li>Recherche d'<strong>image</strong> et d'<strong>antécédents</strong> d'un nombre par une fonction</li>
     <li>Utilisation des procédures de <strong>résolution graphique</strong> d'équations</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Proportionnalité et fonctions</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> 3 kg de pommes coûtent 5,40 €. Combien coûtent 5 kg ?</div>
+      <div class="flash-q"><strong>Q2.</strong> Un plan est à l'échelle 1/50. Une pièce mesure 8 cm sur le plan. Quelle est sa longueur réelle ?</div>
+      <div class="flash-q"><strong>Q3.</strong> Un article à 45 € augmente de 20 %. Quel est le nouveau prix ?</div>
+      <div class="flash-q"><strong>Q4.</strong> Soit \(f(x) = 3x - 2\). Calculer \(f(4)\).</div>
+      <div class="flash-q"><strong>Q5.</strong> Soit \(f(x) = 3x - 2\). Trouver \(x\) tel que \(f(x) = 7\).</div>
+      <div class="flash-q"><strong>Q6.</strong> Un article à 60 € est soldé à 45 €. Quel est le pourcentage de réduction ?</div>
+      <div class="flash-q"><strong>Q7.</strong> Donner les coordonnées du point A situé 3 unités à droite et 2 unités en haut de l'origine.</div>
+      <div class="flash-q"><strong>Q8.</strong> Soit \(f(x) = x^2\). Calculer \(f(-3)\).</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> \(\dfrac{5{,}40 \times 5}{3} =\) <span class="r">9 €</span><br>
+      <strong>Q2.</strong> \(8 \times 50 = 400\) cm = <span class="r">4 m</span><br>
+      <strong>Q3.</strong> \(45 \times 1{,}20 =\) <span class="r">54 €</span><br>
+      <strong>Q4.</strong> \(f(4) = 3 \times 4 - 2 =\) <span class="r">10</span><br>
+      <strong>Q5.</strong> \(3x - 2 = 7 \Rightarrow 3x = 9 \Rightarrow\) <span class="r">\(x = 3\)</span><br>
+      <strong>Q6.</strong> \(\dfrac{60 - 45}{60} \times 100 =\) <span class="r">25 %</span><br>
+      <strong>Q7.</strong> <span class="r">A(3 ; 2)</span><br>
+      <strong>Q8.</strong> \(f(-3) = (-3)^2 =\) <span class="r">9</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── SECONDE : Grandeurs et mesures ── -->
 <div class="auto-domain gm">
   <h3>Grandeurs et mesures</h3>
   <ul>
@@ -147,14 +246,63 @@
     <li>Expression d'un résultat dans une <strong>unité adaptée</strong></li>
     <li>Vérification de la <strong>cohérence grandeur — unité</strong> d'une mesure</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Grandeurs et mesures</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Convertir 3,5 m en cm.</div>
+      <div class="flash-q"><strong>Q2.</strong> Convertir 2 m² en cm².</div>
+      <div class="flash-q"><strong>Q3.</strong> Convertir 5 000 cm³ en L.</div>
+      <div class="flash-q"><strong>Q4.</strong> Un meuble mesure 1 850 mm. Exprimer en m.</div>
+      <div class="flash-q"><strong>Q5.</strong> Convertir 0,72 km en m.</div>
+      <div class="flash-q"><strong>Q6.</strong> Convertir 45 000 mm² en cm².</div>
+      <div class="flash-q"><strong>Q7.</strong> Une pièce mesure 4,2 m × 3,5 m. Quelle unité pour son aire ?</div>
+      <div class="flash-q"><strong>Q8.</strong> Un réservoir contient 80 L. Convertir en m³.</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> <span class="r">350 cm</span><br>
+      <strong>Q2.</strong> \(2 \times 10\,000 =\) <span class="r">20 000 cm²</span><br>
+      <strong>Q3.</strong> \(5\,000 \div 1\,000 =\) <span class="r">5 L</span><br>
+      <strong>Q4.</strong> \(1\,850 \div 1\,000 =\) <span class="r">1,85 m</span><br>
+      <strong>Q5.</strong> <span class="r">720 m</span><br>
+      <strong>Q6.</strong> \(45\,000 \div 100 =\) <span class="r">450 cm²</span><br>
+      <strong>Q7.</strong> <span class="r">m² (mètres carrés)</span> — l'aire vaut 14,7 m²<br>
+      <strong>Q8.</strong> \(80 \div 1\,000 =\) <span class="r">0,08 m³</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── SECONDE : Géométrie ── -->
 <div class="auto-domain geom">
   <h3>Géométrie</h3>
   <ul>
     <li>Reconnaissance des configurations de <strong>Pythagore</strong> et de <strong>Thalès</strong></li>
     <li>Calcul de l'aire d'un <strong>carré</strong>, d'un <strong>rectangle</strong>, d'un <strong>disque</strong></li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Géométrie</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Calculer l'aire d'un carré de côté 7 cm.</div>
+      <div class="flash-q"><strong>Q2.</strong> Calculer l'aire d'un rectangle de 5 m × 3 m.</div>
+      <div class="flash-q"><strong>Q3.</strong> Calculer l'aire d'un disque de rayon 4 cm (arrondir à l'unité).</div>
+      <div class="flash-q"><strong>Q4.</strong> Un triangle rectangle a des côtés de 3 cm et 4 cm. Calculer l'hypoténuse.</div>
+      <div class="flash-q"><strong>Q5.</strong> Dans un triangle, deux droites parallèles coupent deux côtés. Citer le théorème utilisé.</div>
+      <div class="flash-q"><strong>Q6.</strong> Par le théorème de Thalès : si \(\dfrac{AM}{AB} = \dfrac{2}{5}\) et \(AN = 3\), calculer \(AC\) sachant que \(\dfrac{AN}{AC} = \dfrac{2}{5}\).</div>
+      <div class="flash-q"><strong>Q7.</strong> Un triangle rectangle a une hypoténuse de 13 cm et un côté de 5 cm. Calculer l'autre côté.</div>
+      <div class="flash-q"><strong>Q8.</strong> Un carré a une aire de 64 cm². Quel est son côté ?</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> \(7^2 =\) <span class="r">49 cm²</span><br>
+      <strong>Q2.</strong> \(5 \times 3 =\) <span class="r">15 m²</span><br>
+      <strong>Q3.</strong> \(\pi \times 4^2 \approx 3{,}14 \times 16 \approx\) <span class="r">50 cm²</span><br>
+      <strong>Q4.</strong> \(\sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} =\) <span class="r">5 cm</span><br>
+      <strong>Q5.</strong> <span class="r">Théorème de Thalès</span><br>
+      <strong>Q6.</strong> \(AC = \dfrac{3 \times 5}{2} =\) <span class="r">7,5</span><br>
+      <strong>Q7.</strong> \(\sqrt{13^2 - 5^2} = \sqrt{169 - 25} = \sqrt{144} =\) <span class="r">12 cm</span><br>
+      <strong>Q8.</strong> \(\sqrt{64} =\) <span class="r">8 cm</span>
+    </div>
+  </div>
 </div>
 
 </div><!-- /seconde -->
@@ -175,42 +323,121 @@
   Les automatismes figurant dans le programme de seconde professionnelle continuent à être entretenus.
 </div>
 
+<!-- ── PREMIÈRE : Statistiques et probabilités ── -->
 <div class="auto-domain stat">
   <h3>Statistiques et probabilités</h3>
   <ul>
     <li>Calcul de la <strong>probabilité d'un événement</strong> dans le cas d'une situation aléatoire simple</li>
     <li><strong>Dénombrements</strong> à l'aide de tableaux à double entrée ou d'arbres donnés</li>
-    <li>Lecture d'un graphique, d'un <strong>diagramme</strong> (en secteurs, en bâtons, en colonnes, en boîte à moustaches) ou toute autre représentation (repérage de l'origine, unités, échelles)</li>
+    <li>Lecture d'un graphique, d'un <strong>diagramme</strong> (en secteurs, en bâtons, en colonnes, en boîte à moustaches) ou toute autre représentation</li>
     <li>Association d'un graphique avec des <strong>données</strong> et vice-versa</li>
     <li>Calcul d'<strong>indicateurs de position ou de dispersion</strong> à l'aide d'outils numériques</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Statistiques et probabilités</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> On lance un dé équilibré à 6 faces. Quelle est la probabilité d'obtenir un 3 ?</div>
+      <div class="flash-q"><strong>Q2.</strong> On lance un dé. Quelle est la probabilité d'obtenir un nombre pair ?</div>
+      <div class="flash-q"><strong>Q3.</strong> Un sac contient 4 billes rouges et 6 billes bleues. On tire une bille au hasard. Quelle est \(P(\text{rouge})\) ?</div>
+      <div class="flash-q"><strong>Q4.</strong> Dans un tableau croisé, on lit 15 hommes sportifs sur un total de 50 personnes. Quelle fréquence ?</div>
+      <div class="flash-q"><strong>Q5.</strong> La série est : 4, 7, 7, 9, 13. Quel est le mode ? La médiane ?</div>
+      <div class="flash-q"><strong>Q6.</strong> Un diagramme en bâtons montre : lundi = 12, mardi = 8, mercredi = 15. Calculer la moyenne.</div>
+      <div class="flash-q"><strong>Q7.</strong> Sur 200 pièces produites, 8 sont défectueuses. Calculer la fréquence de défauts en %.</div>
+      <div class="flash-q"><strong>Q8.</strong> L'étendue de la série 3, 8, 12, 5, 20 est :</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> <span class="r">\(\dfrac{1}{6}\)</span><br>
+      <strong>Q2.</strong> Nombres pairs : 2, 4, 6 → <span class="r">\(\dfrac{3}{6} = \dfrac{1}{2}\)</span><br>
+      <strong>Q3.</strong> <span class="r">\(\dfrac{4}{10} = 0{,}4\)</span><br>
+      <strong>Q4.</strong> \(\dfrac{15}{50} =\) <span class="r">0,3 soit 30 %</span><br>
+      <strong>Q5.</strong> Mode = <span class="r">7</span> (le plus fréquent). Médiane = <span class="r">7</span> (valeur centrale, 5 données)<br>
+      <strong>Q6.</strong> \(\dfrac{12 + 8 + 15}{3} =\) <span class="r">\(\approx 11{,}7\)</span><br>
+      <strong>Q7.</strong> \(\dfrac{8}{200} \times 100 =\) <span class="r">4 %</span><br>
+      <strong>Q8.</strong> \(20 - 3 =\) <span class="r">17</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── PREMIÈRE : Algèbre ── -->
 <div class="auto-domain alg">
   <h3>Algèbre</h3>
   <ul>
-    <li>Résolution algébrique d'une <strong>équation du premier degré</strong> à une inconnue du type \(ax + b = c\) où \(a\), \(b\) et \(c\) sont des entiers relatifs</li>
-    <li>Résolution algébrique d'une <strong>inéquation du premier degré</strong> à une inconnue du type \(ax + b < c\) où \(a\), \(b\) et \(c\) sont des entiers relatifs</li>
-    <li>Reconnaissance d'une situation de <strong>proportionnalité</strong> et détermination de la fonction linéaire qui la modélise</li>
-    <li><strong>Factorisation</strong> de \(x^2 - a^2\), \(a\) étant un entier naturel donné</li>
-    <li><strong>Développement</strong> de \(a(x + b)\), où \(a\) et \(b\) sont des entiers relatifs donnés</li>
-    <li><strong>Développement</strong> de \((x + a)(x + b)\), où \(a\) et \(b\) sont des entiers relatifs donnés</li>
+    <li>Résolution algébrique d'une <strong>équation du premier degré</strong> \(ax + b = c\)</li>
+    <li>Résolution algébrique d'une <strong>inéquation du premier degré</strong> \(ax + b < c\)</li>
+    <li>Reconnaissance d'une situation de <strong>proportionnalité</strong> et détermination de la fonction linéaire</li>
+    <li><strong>Factorisation</strong> de \(x^2 - a^2\)</li>
+    <li><strong>Développement</strong> de \(a(x + b)\) et de \((x + a)(x + b)\)</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Algèbre</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Résoudre \(3x + 5 = 17\).</div>
+      <div class="flash-q"><strong>Q2.</strong> Résoudre \(-2x + 4 = 10\).</div>
+      <div class="flash-q"><strong>Q3.</strong> Résoudre \(4x - 3 < 9\).</div>
+      <div class="flash-q"><strong>Q4.</strong> Résoudre \(-5x + 2 \geq 12\).</div>
+      <div class="flash-q"><strong>Q5.</strong> Développer \((x + 3)(x + 5)\).</div>
+      <div class="flash-q"><strong>Q6.</strong> Développer \((x - 2)(x + 7)\).</div>
+      <div class="flash-q"><strong>Q7.</strong> Factoriser \(x^2 - 9\).</div>
+      <div class="flash-q"><strong>Q8.</strong> Factoriser \(x^2 - 25\).</div>
+      <div class="flash-q"><strong>Q9.</strong> Développer \(5(2x - 3)\).</div>
+      <div class="flash-q"><strong>Q10.</strong> \(y = 4x\) est-elle une situation de proportionnalité ? Si oui, quel est le coefficient ?</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> \(3x = 12 \Rightarrow\) <span class="r">\(x = 4\)</span><br>
+      <strong>Q2.</strong> \(-2x = 6 \Rightarrow\) <span class="r">\(x = -3\)</span><br>
+      <strong>Q3.</strong> \(4x < 12 \Rightarrow\) <span class="r">\(x < 3\)</span><br>
+      <strong>Q4.</strong> \(-5x \geq 10 \Rightarrow\) <span class="r">\(x \leq -2\)</span> (on inverse le sens !)<br>
+      <strong>Q5.</strong> <span class="r">\(x^2 + 8x + 15\)</span><br>
+      <strong>Q6.</strong> <span class="r">\(x^2 + 5x - 14\)</span><br>
+      <strong>Q7.</strong> <span class="r">\((x - 3)(x + 3)\)</span><br>
+      <strong>Q8.</strong> <span class="r">\((x - 5)(x + 5)\)</span><br>
+      <strong>Q9.</strong> <span class="r">\(10x - 15\)</span><br>
+      <strong>Q10.</strong> <span class="r">Oui, coefficient \(k = 4\)</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── PREMIÈRE : Fonctions ── -->
 <div class="auto-domain fonc">
   <h3>Fonctions</h3>
   <ul>
-    <li>Reconnaissance de l'<strong>allure d'une représentation graphique</strong> à partir d'un tableau de variations donné</li>
-    <li>Établissement du <strong>tableau de variations</strong> d'une fonction dont la courbe représentative est donnée</li>
-    <li>Détermination graphique, lorsqu'ils existent, des <strong>extremums globaux</strong> d'une fonction sur un intervalle</li>
-    <li>Calcul de l'ordonnée d'un point de la courbe représentative d'une fonction connaissant son abscisse et l'expression de la fonction</li>
-    <li>Détermination graphique du <strong>coefficient directeur</strong> d'une droite non verticale</li>
-    <li>Reconnaissance du <strong>parallélisme</strong> de deux droites d'équations réduites données</li>
-    <li><strong>Résolution graphique</strong> d'une équation du type \(f(x) = c\) ou d'une inéquation du type \(f(x) < c\), où \(c\) est un réel donné et \(f\) une fonction dont la représentation graphique est donnée</li>
+    <li>Reconnaissance de l'<strong>allure d'une représentation graphique</strong> à partir d'un tableau de variations</li>
+    <li>Établissement du <strong>tableau de variations</strong> d'une fonction dont la courbe est donnée</li>
+    <li>Détermination graphique des <strong>extremums globaux</strong></li>
+    <li>Calcul de l'ordonnée d'un point connaissant l'abscisse et l'expression de la fonction</li>
+    <li>Détermination graphique du <strong>coefficient directeur</strong> d'une droite</li>
+    <li>Reconnaissance du <strong>parallélisme</strong> de deux droites</li>
+    <li><strong>Résolution graphique</strong> de \(f(x) = c\) ou \(f(x) < c\)</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Fonctions</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Soit \(f(x) = 2x^2 - 3\). Calculer \(f(2)\).</div>
+      <div class="flash-q"><strong>Q2.</strong> Soit \(f(x) = -x + 5\). Calculer \(f(-1)\).</div>
+      <div class="flash-q"><strong>Q3.</strong> Une droite passe par A(1 ; 3) et B(4 ; 9). Calculer son coefficient directeur.</div>
+      <div class="flash-q"><strong>Q4.</strong> Les droites \(y = 3x + 1\) et \(y = 3x - 5\) sont-elles parallèles ?</div>
+      <div class="flash-q"><strong>Q5.</strong> Une fonction \(f\) est croissante sur \([0 ; 3]\) et décroissante sur \([3 ; 7]\). Que vaut l'extremum ?</div>
+      <div class="flash-q"><strong>Q6.</strong> Soit \(f(x) = x^2 - 4x + 3\). Calculer \(f(0)\).</div>
+      <div class="flash-q"><strong>Q7.</strong> Une droite a pour équation \(y = -2x + 7\). Quel est son coefficient directeur ? Son ordonnée à l'origine ?</div>
+      <div class="flash-q"><strong>Q8.</strong> Les droites \(y = 2x + 1\) et \(y = -3x + 4\) sont-elles parallèles ?</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> \(f(2) = 2 \times 4 - 3 =\) <span class="r">5</span><br>
+      <strong>Q2.</strong> \(f(-1) = -(-1) + 5 =\) <span class="r">6</span><br>
+      <strong>Q3.</strong> \(\dfrac{9 - 3}{4 - 1} = \dfrac{6}{3} =\) <span class="r">2</span><br>
+      <strong>Q4.</strong> Même coefficient directeur (3) → <span class="r">Oui, parallèles</span><br>
+      <strong>Q5.</strong> Maximum en \(x = 3\), c'est <span class="r">un maximum (la valeur est \(f(3)\))</span><br>
+      <strong>Q6.</strong> \(f(0) = 0 - 0 + 3 =\) <span class="r">3</span><br>
+      <strong>Q7.</strong> Coefficient directeur : <span class="r">\(-2\)</span>. Ordonnée à l'origine : <span class="r">7</span><br>
+      <strong>Q8.</strong> Coefficients différents (2 ≠ −3) → <span class="r">Non, pas parallèles</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── PREMIÈRE : Géométrie ── -->
 <div class="auto-domain geom">
   <h3>Géométrie</h3>
   <ul>
@@ -219,13 +446,54 @@
     <li>Calcul de l'aire d'un <strong>triangle</strong>, d'un <strong>carré</strong>, d'un <strong>rectangle</strong>, d'un <strong>disque</strong></li>
     <li>Calcul du volume d'un <strong>cube</strong>, d'un <strong>pavé droit</strong> et d'un <strong>cylindre</strong></li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Géométrie</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Calculer l'aire d'un triangle de base 10 cm et de hauteur 6 cm.</div>
+      <div class="flash-q"><strong>Q2.</strong> Calculer le volume d'un cube d'arête 5 cm.</div>
+      <div class="flash-q"><strong>Q3.</strong> Calculer le volume d'un pavé droit de dimensions 4 m × 3 m × 2 m.</div>
+      <div class="flash-q"><strong>Q4.</strong> Calculer le volume d'un cylindre de rayon 3 cm et de hauteur 10 cm (arrondir à l'unité).</div>
+      <div class="flash-q"><strong>Q5.</strong> Le cercle est une ligne, le disque est une surface. Vrai ou faux ?</div>
+      <div class="flash-q"><strong>Q6.</strong> Quelle est la différence entre une sphère et une boule ?</div>
+      <div class="flash-q"><strong>Q7.</strong> Donner la formule du volume d'un cylindre.</div>
+      <div class="flash-q"><strong>Q8.</strong> Un pavé droit a pour dimensions 6 cm × 4 cm × 3 cm. Calculer l'aire de la plus grande face.</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> \(\dfrac{10 \times 6}{2} =\) <span class="r">30 cm²</span><br>
+      <strong>Q2.</strong> \(5^3 =\) <span class="r">125 cm³</span><br>
+      <strong>Q3.</strong> \(4 \times 3 \times 2 =\) <span class="r">24 m³</span><br>
+      <strong>Q4.</strong> \(\pi \times 3^2 \times 10 \approx 3{,}14 \times 9 \times 10 \approx\) <span class="r">283 cm³</span><br>
+      <strong>Q5.</strong> <span class="r">Vrai</span> — le cercle est le contour, le disque est la surface intérieure<br>
+      <strong>Q6.</strong> <span class="r">La sphère est la surface (comme une coquille), la boule est le volume intérieur (plein)</span><br>
+      <strong>Q7.</strong> <span class="r">\(V = \pi r^2 h\)</span><br>
+      <strong>Q8.</strong> La plus grande face : \(6 \times 4 =\) <span class="r">24 cm²</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── PREMIÈRE : Calculs commerciaux ── -->
 <div class="auto-domain comm">
   <h3>Calculs commerciaux (spécialités sans physique-chimie)</h3>
   <ul>
     <li>Calcul du montant d'un <strong>intérêt simple</strong> et d'une valeur acquise</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Calculs commerciaux</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Un capital de 2 000 € est placé à 3 % par an pendant 1 an. Calculer l'intérêt.</div>
+      <div class="flash-q"><strong>Q2.</strong> Même capital, même taux. Quelle est la valeur acquise après 1 an ?</div>
+      <div class="flash-q"><strong>Q3.</strong> Un placement de 5 000 € à 2 % par an pendant 6 mois. Calculer l'intérêt simple.</div>
+      <div class="flash-q"><strong>Q4.</strong> Un capital de 10 000 € placé à intérêt simple rapporte 400 € en 1 an. Quel est le taux ?</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> \(I = 2\,000 \times 0{,}03 \times 1 =\) <span class="r">60 €</span><br>
+      <strong>Q2.</strong> \(2\,000 + 60 =\) <span class="r">2 060 €</span><br>
+      <strong>Q3.</strong> \(I = 5\,000 \times 0{,}02 \times \dfrac{6}{12} =\) <span class="r">50 €</span><br>
+      <strong>Q4.</strong> \(t = \dfrac{400}{10\,000} = 0{,}04 =\) <span class="r">4 %</span>
+    </div>
+  </div>
 </div>
 
 </div><!-- /premiere -->
@@ -246,40 +514,140 @@
   Les automatismes figurant dans les programmes de seconde et de première professionnelles continuent à être entretenus.
 </div>
 
+<!-- ── TERMINALE : Probabilités ── -->
 <div class="auto-domain stat">
   <h3>Probabilités</h3>
   <ul>
-    <li>Calcul de la <strong>probabilité d'un événement</strong>, de l'événement contraire \(\bar{A}\) connaissant celle de l'événement \(A\)</li>
+    <li>Calcul de la <strong>probabilité d'un événement</strong>, de l'événement contraire \(\bar{A}\) connaissant celle de \(A\)</li>
     <li>Calcul de la probabilité de la <strong>réunion d'événements incompatibles</strong></li>
     <li>Calcul de la probabilité de la <strong>réunion de deux événements</strong></li>
     <li>Calcul de la probabilité de l'<strong>intersection de deux événements</strong></li>
     <li>Exploitation de représentations de données : <strong>tableaux croisés d'effectifs</strong>, diagrammes</li>
     <li>Calcul de <strong>probabilités conditionnelles</strong></li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Probabilités</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> \(P(A) = 0{,}7\). Calculer \(P(\bar{A})\).</div>
+      <div class="flash-q"><strong>Q2.</strong> A et B sont incompatibles. \(P(A) = 0{,}3\), \(P(B) = 0{,}5\). Calculer \(P(A \cup B)\).</div>
+      <div class="flash-q"><strong>Q3.</strong> \(P(A) = 0{,}6\), \(P(B) = 0{,}4\), \(P(A \cap B) = 0{,}2\). Calculer \(P(A \cup B)\).</div>
+      <div class="flash-q"><strong>Q4.</strong> Dans un tableau croisé, 30 personnes sur 100 sont des femmes sportives. Le total des femmes est 50. Calculer \(P_F(\text{sport})\).</div>
+      <div class="flash-q"><strong>Q5.</strong> \(P(A) = 0{,}5\), \(P(A \cap B) = 0{,}15\). Calculer \(P_A(B)\).</div>
+      <div class="flash-q"><strong>Q6.</strong> \(P(A) = 0{,}4\), \(P(\bar{A}) = ?\) et \(P(A \cup \bar{A}) = ?\)</div>
+      <div class="flash-q"><strong>Q7.</strong> A et B incompatibles. \(P(A \cap B) = ?\)</div>
+      <div class="flash-q"><strong>Q8.</strong> \(P(A) = 0{,}3\), \(P(B) = 0{,}6\), \(P(A \cup B) = 0{,}72\). Calculer \(P(A \cap B)\).</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> \(P(\bar{A}) = 1 - 0{,}7 =\) <span class="r">0,3</span><br>
+      <strong>Q2.</strong> Incompatibles → \(P(A \cup B) = P(A) + P(B) = 0{,}3 + 0{,}5 =\) <span class="r">0,8</span><br>
+      <strong>Q3.</strong> \(P(A \cup B) = 0{,}6 + 0{,}4 - 0{,}2 =\) <span class="r">0,8</span><br>
+      <strong>Q4.</strong> \(P_F(\text{sport}) = \dfrac{30}{50} =\) <span class="r">0,6</span><br>
+      <strong>Q5.</strong> \(P_A(B) = \dfrac{P(A \cap B)}{P(A)} = \dfrac{0{,}15}{0{,}5} =\) <span class="r">0,3</span><br>
+      <strong>Q6.</strong> \(P(\bar{A}) =\) <span class="r">0,6</span> et \(P(A \cup \bar{A}) =\) <span class="r">1</span><br>
+      <strong>Q7.</strong> <span class="r">\(P(A \cap B) = 0\)</span> (par définition d'événements incompatibles)<br>
+      <strong>Q8.</strong> \(P(A \cap B) = P(A) + P(B) - P(A \cup B) = 0{,}3 + 0{,}6 - 0{,}72 =\) <span class="r">0,18</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── TERMINALE : Algèbre – Suites ── -->
 <div class="auto-domain alg">
   <h3>Algèbre – Suites</h3>
   <ul>
     <li>Calcul du terme de rang donné d'une <strong>suite arithmétique</strong> dont le premier terme et la raison sont donnés</li>
     <li>Écriture de la <strong>forme factorisée</strong> d'un polynôme de degré 2 dont les racines et le coefficient dominant sont connus</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Algèbre et Suites</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Suite arithmétique : \(u_0 = 3\), \(r = 5\). Calculer \(u_4\).</div>
+      <div class="flash-q"><strong>Q2.</strong> Suite arithmétique : \(u_0 = 10\), \(r = -2\). Calculer \(u_6\).</div>
+      <div class="flash-q"><strong>Q3.</strong> Suite arithmétique : \(u_0 = 1\), \(r = 4\). Calculer \(u_{10}\).</div>
+      <div class="flash-q"><strong>Q4.</strong> Écrire la forme factorisée du polynôme de degré 2 de coefficient dominant 1, ayant pour racines 2 et 5.</div>
+      <div class="flash-q"><strong>Q5.</strong> Écrire la forme factorisée : coefficient dominant 3, racines −1 et 4.</div>
+      <div class="flash-q"><strong>Q6.</strong> Écrire la forme factorisée : coefficient dominant −2, racine double 3.</div>
+      <div class="flash-q"><strong>Q7.</strong> Suite arithmétique : \(u_3 = 17\), \(r = 4\). Calculer \(u_0\).</div>
+      <div class="flash-q"><strong>Q8.</strong> \(f(x) = 2(x - 1)(x + 3)\). Quelles sont les racines de \(f\) ?</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> \(u_4 = u_0 + 4r = 3 + 20 =\) <span class="r">23</span><br>
+      <strong>Q2.</strong> \(u_6 = 10 + 6 \times (-2) = 10 - 12 =\) <span class="r">−2</span><br>
+      <strong>Q3.</strong> \(u_{10} = 1 + 10 \times 4 =\) <span class="r">41</span><br>
+      <strong>Q4.</strong> <span class="r">\(f(x) = (x - 2)(x - 5)\)</span><br>
+      <strong>Q5.</strong> <span class="r">\(f(x) = 3(x + 1)(x - 4)\)</span><br>
+      <strong>Q6.</strong> <span class="r">\(f(x) = -2(x - 3)^2\)</span><br>
+      <strong>Q7.</strong> \(u_0 = u_3 - 3r = 17 - 12 =\) <span class="r">5</span><br>
+      <strong>Q8.</strong> \(x - 1 = 0\) ou \(x + 3 = 0\) → <span class="r">\(x = 1\) et \(x = -3\)</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── TERMINALE : Fonctions – Dérivation ── -->
 <div class="auto-domain fonc">
   <h3>Fonctions – Dérivation</h3>
   <ul>
-    <li>Visualisation, à partir de la représentation graphique donnée d'une fonction polynôme \(f\) de degré 2, du <strong>nombre possible de solutions</strong> de l'équation \(f(x) = 0\)</li>
-    <li>Utilisation des <strong>formules et des règles de dérivation</strong> pour déterminer la dérivée d'une fonction polynôme de degré \(\leq 2\)</li>
+    <li>Visualisation du <strong>nombre possible de solutions</strong> de \(f(x) = 0\) pour un polynôme de degré 2</li>
+    <li>Utilisation des <strong>formules et des règles de dérivation</strong> pour les polynômes de degré \(\leq 2\)</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Fonctions et Dérivation</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> Dériver \(f(x) = 3x + 7\).</div>
+      <div class="flash-q"><strong>Q2.</strong> Dériver \(f(x) = x^2\).</div>
+      <div class="flash-q"><strong>Q3.</strong> Dériver \(f(x) = 5x^2 - 3x + 1\).</div>
+      <div class="flash-q"><strong>Q4.</strong> Dériver \(f(x) = -2x^2 + 8x\).</div>
+      <div class="flash-q"><strong>Q5.</strong> Dériver \(f(x) = 4x^2 + 2\). Résoudre \(f'(x) = 0\).</div>
+      <div class="flash-q"><strong>Q6.</strong> \(f(x) = x^2 - 6x + 9\). Calculer \(f'(x)\) et trouver pour quel \(x\) la dérivée s'annule.</div>
+      <div class="flash-q"><strong>Q7.</strong> Une parabole ouverte vers le haut coupe l'axe des abscisses en 2 points. Combien de solutions pour \(f(x) = 0\) ?</div>
+      <div class="flash-q"><strong>Q8.</strong> Une parabole ouverte vers le bas ne touche pas l'axe des abscisses. Combien de solutions pour \(f(x) = 0\) ?</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> <span class="r">\(f'(x) = 3\)</span><br>
+      <strong>Q2.</strong> <span class="r">\(f'(x) = 2x\)</span><br>
+      <strong>Q3.</strong> <span class="r">\(f'(x) = 10x - 3\)</span><br>
+      <strong>Q4.</strong> <span class="r">\(f'(x) = -4x + 8\)</span><br>
+      <strong>Q5.</strong> \(f'(x) = 8x\). \(f'(x) = 0 \Rightarrow\) <span class="r">\(x = 0\)</span><br>
+      <strong>Q6.</strong> \(f'(x) = 2x - 6\). \(f'(x) = 0 \Rightarrow 2x = 6 \Rightarrow\) <span class="r">\(x = 3\)</span><br>
+      <strong>Q7.</strong> <span class="r">2 solutions</span><br>
+      <strong>Q8.</strong> <span class="r">0 solution</span>
+    </div>
+  </div>
 </div>
 
+<!-- ── TERMINALE : Géométrie – Vecteurs ── -->
 <div class="auto-domain geom">
   <h3>Géométrie – Vecteurs (groupements A et B)</h3>
   <ul>
     <li>Construction d'un vecteur du plan obtenu comme <strong>somme de deux vecteurs</strong></li>
     <li>Construction d'un vecteur du plan obtenu comme <strong>produit d'un vecteur par un réel</strong> non nul</li>
   </ul>
+  <div class="flash-series">
+    <h4>Série d'exercices — Vecteurs</h4>
+    <div class="flash-grid">
+      <div class="flash-q"><strong>Q1.</strong> \(\vec{u}(3 ; 2)\) et \(\vec{v}(1 ; -4)\). Calculer \(\vec{u} + \vec{v}\).</div>
+      <div class="flash-q"><strong>Q2.</strong> \(\vec{u}(-2 ; 5)\). Calculer \(3\vec{u}\).</div>
+      <div class="flash-q"><strong>Q3.</strong> \(\vec{u}(4 ; -1)\) et \(\vec{v}(-4 ; 1)\). Que peut-on dire de \(\vec{u}\) et \(\vec{v}\) ?</div>
+      <div class="flash-q"><strong>Q4.</strong> \(\vec{u}(2 ; 6)\) et \(\vec{v}(1 ; 3)\). Ces vecteurs sont-ils colinéaires ?</div>
+      <div class="flash-q"><strong>Q5.</strong> A(1 ; 3) et B(4 ; 7). Calculer les coordonnées de \(\vec{AB}\).</div>
+      <div class="flash-q"><strong>Q6.</strong> \(\vec{u}(3 ; 4)\). Calculer \(\|\vec{u}\|\).</div>
+      <div class="flash-q"><strong>Q7.</strong> \(\vec{u}(5 ; 0)\) et \(\vec{v}(0 ; -3)\). Calculer \(\vec{u} + \vec{v}\).</div>
+      <div class="flash-q"><strong>Q8.</strong> \(\vec{u}(2 ; -1)\). Calculer \(-2\vec{u}\).</div>
+    </div>
+    <button class="flash-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir les réponses</button>
+    <div class="flash-corr">
+      <strong>Q1.</strong> <span class="r">\(\vec{u} + \vec{v} = (4 ; -2)\)</span><br>
+      <strong>Q2.</strong> <span class="r">\(3\vec{u} = (-6 ; 15)\)</span><br>
+      <strong>Q3.</strong> \(\vec{v} = -\vec{u}\) → <span class="r">vecteurs opposés</span><br>
+      <strong>Q4.</strong> \(\vec{u} = 2\vec{v}\) → <span class="r">Oui, colinéaires</span><br>
+      <strong>Q5.</strong> <span class="r">\(\vec{AB}(3 ; 4)\)</span><br>
+      <strong>Q6.</strong> \(\|\vec{u}\| = \sqrt{3^2 + 4^2} = \sqrt{25} =\) <span class="r">5</span><br>
+      <strong>Q7.</strong> <span class="r">\((5 ; -3)\)</span><br>
+      <strong>Q8.</strong> <span class="r">\((-4 ; 2)\)</span>
+    </div>
+  </div>
 </div>
 
 </div><!-- /terminale -->
