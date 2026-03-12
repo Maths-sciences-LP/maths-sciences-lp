@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cours de mathématiques et physique-chimie pour les élèves de Bac Professionnel (2nde, 1ère, Terminale) – Lycée Eugène Hénaff, Bagnolet – Exercices, devoirs et simulations interactives.">
+  <meta name="author" content="Naïm Azzouz">
+  <meta property="og:title" content="Maths – Sciences en Lycée Professionnel">
+  <meta property="og:description" content="Cours, exercices et simulations pour les élèves de Bac Pro – Lycée Eugène Hénaff, Bagnolet.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
   <title>Maths – Sciences en Lycée Professionnel</title>
   <style>
     /* ── Base ── */
@@ -256,8 +262,7 @@
       margin-bottom: 52px;
       position: relative;
     }
-    .encours::before {
-      content: 'Mis à jour le 12 mars 2025';
+    .encours-date {
       position: absolute;
       top: -11px;
       right: 20px;
@@ -340,8 +345,9 @@
   <nav>
     <ul>
       <li><a href="index.html" class="active">Accueil</a></li>
-      <li><a href="maths-term-iccer.html">Mathématiques</a></li>
-      <li><a href="pc-term-iccer.html">Physique-Chimie</a></li>
+      <li><a href="#disciplines">Mathématiques</a></li>
+      <li><a href="#disciplines">Physique-Chimie</a></li>
+      <li><a href="#classes">Par classe</a></li>
       <li><a href="simulations.html">Simulations</a></li>
     </ul>
   </nav>
@@ -364,6 +370,7 @@
 
     <!-- ── Chapitres en cours ── -->
     <div class="encours">
+      <span class="encours-date" id="encours-date"></span>
       <h2>Chapitres en cours</h2>
       <div class="encours-grid">
 
@@ -413,7 +420,7 @@
     </div>
 
     <!-- ── Disciplines ── -->
-    <section>
+    <section id="disciplines">
       <h2 class="section-title">Accès par discipline</h2>
       <div class="disciplines">
 
@@ -504,7 +511,7 @@
     </section>
 
     <!-- ── Classes ── -->
-    <section>
+    <section id="classes">
       <h2 class="section-title">Accès par classe</h2>
       <div class="classes-grid">
 
@@ -613,6 +620,13 @@
         .catch(function() {
           document.getElementById('meteo-banner').style.display = 'none';
         });
+    })();
+
+    // Date dynamique chapitres en cours
+    (function() {
+      var MOIS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+      var d = new Date();
+      document.getElementById('encours-date').textContent = 'Mis à jour le ' + d.getDate() + ' ' + MOIS[d.getMonth()] + ' ' + d.getFullYear();
     })();
   </script>
 
