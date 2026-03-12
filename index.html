@@ -247,6 +247,83 @@
       .meteo-banner-day { padding: 4px 7px; font-size: .72rem; }
     }
 
+    /* ── Chapitres en cours ── */
+    .encours {
+      background: linear-gradient(135deg, #fefce8 0%, #fff7ed 100%);
+      border: 2px solid #fbbf24;
+      border-radius: 14px;
+      padding: 28px 24px 20px;
+      margin-bottom: 52px;
+      position: relative;
+    }
+    .encours::before {
+      content: 'Mis à jour le 12 mars 2025';
+      position: absolute;
+      top: -11px;
+      right: 20px;
+      background: #fbbf24;
+      color: #78350f;
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 10px;
+    }
+    .encours h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #92400e;
+      margin-bottom: 18px;
+    }
+    .encours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .encours-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      border-left: 4px solid;
+    }
+    .encours-classe {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    .encours-matiere {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .encours-badge {
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .badge-m { background: #dbeafe; color: #1d4ed8; }
+    .badge-pc { background: #ede9fe; color: #6d28d9; }
+    .encours-ch {
+      font-size: .88rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .encours-link {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: .78rem;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .encours-link:hover { text-decoration: underline; }
+
     /* ── Footer ── */
     footer {
       background: #1e3a5f;
@@ -284,6 +361,56 @@
   </div>
 
   <main>
+
+    <!-- ── Chapitres en cours ── -->
+    <div class="encours">
+      <h2>Chapitres en cours</h2>
+      <div class="encours-grid">
+
+        <div class="encours-card" style="border-color:#0891b2">
+          <div class="encours-classe">2nde Bac Pro MAMA</div>
+          <div class="encours-matiere">
+            <span class="encours-badge badge-m">Maths</span>
+            <span class="encours-ch">Ch05 – Équations du premier degré</span>
+          </div>
+          <a href="maths/seconde/ch05/lecon.html" class="encours-link">Voir le cours</a>
+          <div class="encours-matiere" style="margin-top:10px">
+            <span class="encours-badge badge-pc">PC</span>
+            <span class="encours-ch">Ch07 – Atomes, molécules et ions</span>
+          </div>
+          <a href="physique-chimie/seconde/ch07/lecon.html" class="encours-link">Voir le cours</a>
+        </div>
+
+        <div class="encours-card" style="border-color:#7c3aed">
+          <div class="encours-classe">Terminale ICCER</div>
+          <div class="encours-matiere">
+            <span class="encours-badge badge-m">Maths</span>
+            <span class="encours-ch">Ch05 – Fonctions exponentielles et logarithme décimal</span>
+          </div>
+          <a href="maths/terminale/ch05/lecon.html" class="encours-link">Voir le cours</a>
+          <div class="encours-matiere" style="margin-top:10px">
+            <span class="encours-badge badge-pc">PC</span>
+            <span class="encours-ch">Ch06 – Transport par un fluide en mouvement</span>
+          </div>
+          <a href="physique-chimie/terminale-iccer/ch06/lecon.html" class="encours-link">Voir le cours</a>
+        </div>
+
+        <div class="encours-card" style="border-color:#ea580c">
+          <div class="encours-classe">Terminale ERA-MA</div>
+          <div class="encours-matiere">
+            <span class="encours-badge badge-m">Maths</span>
+            <span class="encours-ch">Ch05 – Fonctions exponentielles et logarithme décimal</span>
+          </div>
+          <a href="maths/terminale/ch05/lecon.html" class="encours-link">Voir le cours</a>
+          <div class="encours-matiere" style="margin-top:10px">
+            <span class="encours-badge badge-pc">PC</span>
+            <span class="encours-ch">Ch03 – Rayonnement thermique & effet de serre</span>
+          </div>
+          <a href="physique-chimie/terminale-era/ch03/lecon.html" class="encours-link">Voir le cours</a>
+        </div>
+
+      </div>
+    </div>
 
     <!-- ── Disciplines ── -->
     <section>
