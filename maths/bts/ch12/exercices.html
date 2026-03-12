@@ -3,27 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch12 – Nombres complexes – BTS</title>
+<title>Ch12 – Exercices – Nombres complexes – BTS</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
 </head>
 <body>
 <div class="c">
-<a href="../../sommaire.html" class="nb">← Retour au sommaire</a>
+<a href="../../sommaire.html" class="nb">&larr; Retour au sommaire</a>
+
 <header>
-  <h1>Chapitre 12 – Nombres complexes</h1>
-  <p class="sous-titre">BTS — Groupements B1, B2, C1</p>
+  <h1>Exercices &ndash; Chapitre 12</h1>
+  <p class="sous-titre">Nombres complexes &nbsp;|&nbsp; BTS &mdash; Groupements B1, B2, C1</p>
 </header>
 
 <div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+  <strong>Comp&eacute;tences travaill&eacute;es :</strong>
+  <ul>
+    <li>Calculer avec des nombres complexes en forme alg&eacute;brique (somme, produit, quotient, conjugu&eacute;, module)</li>
+    <li>Passer d'une forme &agrave; l'autre (alg&eacute;brique, trigonom&eacute;trique, exponentielle)</li>
+    <li>R&eacute;soudre des &eacute;quations du second degr&eacute; &agrave; discriminant n&eacute;gatif</li>
+    <li>D&eacute;terminer et repr&eacute;senter des ensembles de points (\(|z-a|=k\), \(\arg(z-a)=\alpha\))</li>
+    <li>Appliquer les transformations du plan complexe (translation, rotation, sym&eacute;trie)</li>
+    <li>Calculer des imp&eacute;dances complexes en &eacute;lectricit&eacute;</li>
+  </ul>
 </div>
 
+<!-- ============================================================== -->
+<!--                     NIVEAU 1 — BASES                          -->
+<!-- ============================================================== -->
+<div class="niveau-header niv1">Niveau 1 &mdash; V&eacute;rifier les bases</div>
+
+<!-- EX 1 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">1</span>Calculs alg&eacute;briques</div>
+  <p>On donne \(z_1 = 3 - 2j\), \(z_2 = -1 + 5j\) et \(z_3 = 4j\).</p>
+  <p><strong>1.</strong> Calculer \(z_1 + z_2\), \(z_1 - z_2\), \(z_1 \cdot z_3\).</p>
+  <p><strong>2.</strong> Calculer \(z_1 \cdot z_2\).</p>
+  <p><strong>3.</strong> D&eacute;terminer les parties r&eacute;elles et imaginaires de chaque r&eacute;sultat.</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong></p>
+      <p>\(z_1 + z_2 = (3-1) + (-2+5)j = 2 + 3j\) &rarr; \(\text{Re} = 2\), \(\text{Im} = 3\)</p>
+      <p>\(z_1 - z_2 = (3+1) + (-2-5)j = 4 - 7j\) &rarr; \(\text{Re} = 4\), \(\text{Im} = -7\)</p>
+      <p>\(z_1 \cdot z_3 = (3-2j)(4j) = 12j - 8j^2 = 8 + 12j\) &rarr; \(\text{Re} = 8\), \(\text{Im} = 12\)</p>
+      <p><strong>2.</strong></p>
+      <p>\(z_1 \cdot z_2 = (3-2j)(-1+5j) = -3 + 15j + 2j - 10j^2 = -3 + 17j + 10 = 7 + 17j\)</p>
+      <p>&rarr; \(\text{Re} = 7\), \(\text{Im} = 17\)</p>
+    </div>
+  </details>
 </div>
+
+<!-- EX 2 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">2</span>Module et conjugu&eacute;</div>
+  <p>Pour chacun des nombres complexes suivants, calculer le conjugu&eacute; \(\bar{z}\), le module \(|z|\) et le produit \(z\bar{z}\).</p>
+  <p><strong>a)</strong> \(z = 5 + 12j\) &emsp; <strong>b)</strong> \(z = -3 + 4j\) &emsp; <strong>c)</strong> \(z = 7j\) &emsp; <strong>d)</strong> \(z = -6\)</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> \(\bar{z} = 5 - 12j\), \(|z| = \sqrt{25 + 144} = \sqrt{169} = 13\), \(z\bar{z} = 169\)</p>
+      <p><strong>b)</strong> \(\bar{z} = -3 - 4j\), \(|z| = \sqrt{9 + 16} = \sqrt{25} = 5\), \(z\bar{z} = 25\)</p>
+      <p><strong>c)</strong> \(\bar{z} = -7j\), \(|z| = \sqrt{0 + 49} = 7\), \(z\bar{z} = 49\)</p>
+      <p><strong>d)</strong> \(\bar{z} = -6\) (r&eacute;el pur), \(|z| = 6\), \(z\bar{z} = 36\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 3 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">3</span>Quotient de deux complexes</div>
+  <p>Soit \(z_1 = 4 + 3j\) et \(z_2 = 1 - 2j\). Calculer \(\dfrac{z_1}{z_2}\) sous forme alg&eacute;brique.</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p>On multiplie num&eacute;rateur et d&eacute;nominateur par \(\bar{z}_2 = 1 + 2j\) :</p>
+      <p>\(\dfrac{z_1}{z_2} = \dfrac{(4+3j)(1+2j)}{(1-2j)(1+2j)} = \dfrac{4 + 8j + 3j + 6j^2}{1 + 4} = \dfrac{4 + 11j - 6}{5} = \dfrac{-2 + 11j}{5}\)</p>
+      <p>\(\boxed{\dfrac{z_1}{z_2} = -\dfrac{2}{5} + \dfrac{11}{5}j}\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 4 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">4</span>Repr&eacute;sentation dans le plan complexe</div>
+  <p>Repr&eacute;senter dans le plan complexe les points d'affixes suivantes et calculer leur module :</p>
+  <p>\(z_1 = 3 + j\), \(z_2 = -2 + 3j\), \(z_3 = -4 - 2j\), \(z_4 = 2 - 4j\), \(z_5 = \bar{z}_2\).</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p>\(z_1 = 3 + j\) &rarr; point \((3\,;\,1)\), \(|z_1| = \sqrt{9+1} = \sqrt{10} \approx 3{,}16\)</p>
+      <p>\(z_2 = -2 + 3j\) &rarr; point \((-2\,;\,3)\), \(|z_2| = \sqrt{4+9} = \sqrt{13} \approx 3{,}61\)</p>
+      <p>\(z_3 = -4 - 2j\) &rarr; point \((-4\,;\,-2)\), \(|z_3| = \sqrt{16+4} = \sqrt{20} = 2\sqrt{5} \approx 4{,}47\)</p>
+      <p>\(z_4 = 2 - 4j\) &rarr; point \((2\,;\,-4)\), \(|z_4| = \sqrt{4+16} = \sqrt{20} = 2\sqrt{5} \approx 4{,}47\)</p>
+      <p>\(z_5 = \bar{z}_2 = -2 - 3j\) &rarr; point \((-2\,;\,-3)\), \(|z_5| = |z_2| = \sqrt{13}\)</p>
+      <p>On remarque que \(z_5\) est le sym&eacute;trique de \(z_2\) par rapport &agrave; l'axe r&eacute;el, et que \(|z_3| = |z_4|\) (ces deux points sont sur le m&ecirc;me cercle centr&eacute; &agrave; l'origine).</p>
+    </div>
+  </details>
+</div>
+
+<!-- ============================================================== -->
+<!--              NIVEAU 2 — FORMES ET ÉQUATIONS                   -->
+<!-- ============================================================== -->
+<div class="niveau-header niv2">Niveau 2 &mdash; Formes trigonom&eacute;trique/exponentielle et &eacute;quations</div>
+
+<!-- EX 5 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">5</span>Passage en forme exponentielle</div>
+  <p>&Eacute;crire chacun des nombres complexes suivants sous forme exponentielle \(z = r\,e^{j\theta}\) :</p>
+  <p><strong>a)</strong> \(z = 1 + j\) &emsp; <strong>b)</strong> \(z = -3\) &emsp; <strong>c)</strong> \(z = -1 + \sqrt{3}\,j\) &emsp; <strong>d)</strong> \(z = 2 - 2\sqrt{3}\,j\)</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> \(|z| = \sqrt{2}\). \(\cos\theta = \frac{1}{\sqrt{2}}\), \(\sin\theta = \frac{1}{\sqrt{2}}\) &rarr; \(\theta = \frac{\pi}{4}\).</p>
+      <p>\(\boxed{z = \sqrt{2}\,e^{j\pi/4}}\)</p>
+
+      <p><strong>b)</strong> \(|z| = 3\). \(z = -3\) est r&eacute;el n&eacute;gatif, donc \(\theta = \pi\).</p>
+      <p>\(\boxed{z = 3\,e^{j\pi}}\)</p>
+
+      <p><strong>c)</strong> \(|z| = \sqrt{1+3} = 2\). \(\cos\theta = -\frac{1}{2}\), \(\sin\theta = \frac{\sqrt{3}}{2}\) &rarr; \(\theta = \frac{2\pi}{3}\).</p>
+      <p>\(\boxed{z = 2\,e^{j2\pi/3}}\)</p>
+
+      <p><strong>d)</strong> \(|z| = \sqrt{4+12} = 4\). \(\cos\theta = \frac{2}{4} = \frac{1}{2}\), \(\sin\theta = \frac{-2\sqrt{3}}{4} = -\frac{\sqrt{3}}{2}\) &rarr; \(\theta = -\frac{\pi}{3}\).</p>
+      <p>\(\boxed{z = 4\,e^{-j\pi/3}}\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 6 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">6</span>Passage en forme alg&eacute;brique</div>
+  <p>&Eacute;crire sous forme alg&eacute;brique :</p>
+  <p><strong>a)</strong> \(z = 6\,e^{j\pi/6}\) &emsp; <strong>b)</strong> \(z = 4\,e^{-j\pi/2}\) &emsp; <strong>c)</strong> \(z = 5\,e^{j3\pi/4}\)</p>
+  <p><strong>d)</strong> Calculer \(z_1 \cdot z_2\) avec \(z_1 = 3\,e^{j\pi/3}\) et \(z_2 = 2\,e^{j\pi/6}\). Donner le r&eacute;sultat sous forme exponentielle puis alg&eacute;brique.</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> \(z = 6\left(\cos\frac{\pi}{6} + j\sin\frac{\pi}{6}\right) = 6\left(\frac{\sqrt{3}}{2} + \frac{j}{2}\right) = 3\sqrt{3} + 3j\)</p>
+
+      <p><strong>b)</strong> \(z = 4\left(\cos\frac{-\pi}{2} + j\sin\frac{-\pi}{2}\right) = 4(0 - j) = -4j\)</p>
+
+      <p><strong>c)</strong> \(z = 5\left(\cos\frac{3\pi}{4} + j\sin\frac{3\pi}{4}\right) = 5\left(-\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}j\right) = -\frac{5\sqrt{2}}{2} + \frac{5\sqrt{2}}{2}j\)</p>
+
+      <p><strong>d)</strong> \(z_1 z_2 = 6\,e^{j(\pi/3+\pi/6)} = 6\,e^{j\pi/2}\) (forme exponentielle).</p>
+      <p>Forme alg&eacute;brique : \(6\,e^{j\pi/2} = 6(\cos\frac{\pi}{2} + j\sin\frac{\pi}{2}) = 6j\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 7 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">7</span>&Eacute;quations du second degr&eacute; dans \(\mathbb{C}\)</div>
+  <p>R&eacute;soudre dans \(\mathbb{C}\) les &eacute;quations suivantes :</p>
+  <p><strong>a)</strong> \(z^2 + 4z + 13 = 0\)</p>
+  <p><strong>b)</strong> \(z^2 - 6z + 25 = 0\)</p>
+  <p><strong>c)</strong> \(2z^2 + z + 1 = 0\)</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> \(\Delta = 16 - 52 = -36 < 0\). \(\sqrt{|\Delta|} = 6\).</p>
+      <p>\(z = \frac{-4 \pm 6j}{2}\), soit \(\boxed{z_1 = -2 + 3j}\) et \(\boxed{z_2 = -2 - 3j}\)</p>
+      <p>V&eacute;rification : \(z_1 + z_2 = -4\) et \(z_1 z_2 = 4 + 9 = 13\). &checkmark;</p>
+
+      <p><strong>b)</strong> \(\Delta = 36 - 100 = -64 < 0\). \(\sqrt{|\Delta|} = 8\).</p>
+      <p>\(z = \frac{6 \pm 8j}{2}\), soit \(\boxed{z_1 = 3 + 4j}\) et \(\boxed{z_2 = 3 - 4j}\)</p>
+      <p>V&eacute;rification : \(z_1 + z_2 = 6\) et \(z_1 z_2 = 9 + 16 = 25\). &checkmark;</p>
+
+      <p><strong>c)</strong> \(\Delta = 1 - 8 = -7 < 0\). \(\sqrt{|\Delta|} = \sqrt{7}\).</p>
+      <p>\(z = \frac{-1 \pm j\sqrt{7}}{4}\), soit \(\boxed{z_1 = -\frac{1}{4} + \frac{\sqrt{7}}{4}j}\) et \(\boxed{z_2 = -\frac{1}{4} - \frac{\sqrt{7}}{4}j}\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 8 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">8</span>Op&eacute;rations en forme exponentielle</div>
+  <p>On donne \(z_1 = 3\,e^{j\pi/4}\) et \(z_2 = 2\,e^{j2\pi/3}\).</p>
+  <p><strong>1.</strong> Calculer \(z_1 \cdot z_2\), \(\dfrac{z_1}{z_2}\) et \(z_1^4\). Donner les r&eacute;sultats sous forme exponentielle.</p>
+  <p><strong>2.</strong> &Eacute;crire \(z_1^4\) sous forme alg&eacute;brique.</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong></p>
+      <p>\(z_1 z_2 = 6\,e^{j(\pi/4 + 2\pi/3)} = 6\,e^{j \cdot 11\pi/12}\)</p>
+      <p>\(\dfrac{z_1}{z_2} = \dfrac{3}{2}\,e^{j(\pi/4 - 2\pi/3)} = \dfrac{3}{2}\,e^{-j5\pi/12}\)</p>
+      <p>\(z_1^4 = 3^4\,e^{j \cdot 4\pi/4} = 81\,e^{j\pi}\)</p>
+
+      <p><strong>2.</strong> \(z_1^4 = 81\,e^{j\pi} = 81(\cos\pi + j\sin\pi) = -81\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- ============================================================== -->
+<!--          NIVEAU 3 — ENSEMBLES DE POINTS, TRANSFORMATIONS       -->
+<!-- ============================================================== -->
+<div class="niveau-header niv3">Niveau 3 &mdash; Ensembles de points et transformations</div>
+
+<!-- EX 9 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">9</span>Ensembles de points</div>
+  <p>D&eacute;crire g&eacute;om&eacute;triquement et repr&eacute;senter dans le plan complexe les ensembles de points \(M\) d'affixe \(z\) v&eacute;rifiant :</p>
+  <p><strong>a)</strong> \(|z - 1 - 2j| = 4\)</p>
+  <p><strong>b)</strong> \(|z + 3| = |z - j|\)</p>
+  <p><strong>c)</strong> \(\arg(z - 2) = \dfrac{\pi}{6}\)</p>
+  <p><strong>d)</strong> \(1 \leq |z - 1 + j| \leq 3\)</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> \(|z - (1+2j)| = 4\) : <strong>cercle</strong> de centre \(A(1\,;\,2)\) et de rayon 4.</p>
+
+      <p><strong>b)</strong> \(|z + 3| = |z - j|\) &hArr; \(|z - (-3)| = |z - j|\) : ensemble des points &eacute;quidistants de \(B(-3\,;\,0)\) et \(C(0\,;\,1)\).</p>
+      <p>C'est la <strong>m&eacute;diatrice</strong> du segment \([BC]\).</p>
+      <p>Pour trouver son &eacute;quation, on pose \(z = x + yj\) :</p>
+      <p>\((x+3)^2 + y^2 = x^2 + (y-1)^2\)</p>
+      <p>\(x^2 + 6x + 9 + y^2 = x^2 + y^2 - 2y + 1\)</p>
+      <p>\(6x + 9 = -2y + 1\), soit \(6x + 2y + 8 = 0\), c'est-&agrave;-dire \(3x + y + 4 = 0\).</p>
+
+      <p><strong>c)</strong> \(\arg(z-2) = \frac{\pi}{6}\) : <strong>demi-droite</strong> d'origine \(D(2\,;\,0)\), faisant un angle de 30&deg; avec l'axe r&eacute;el, dirig&eacute;e vers le haut &agrave; droite.</p>
+
+      <p><strong>d)</strong> \(1 \leq |z-(1-j)| \leq 3\) : <strong>couronne</strong> (anneau) centr&eacute;e en \(E(1\,;\,-1)\), de rayon int&eacute;rieur 1 et de rayon ext&eacute;rieur 3.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 10 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">10</span>Transformations du plan</div>
+  <p>On consid&egrave;re le triangle \(ABC\) d'affixes \(z_A = 1\), \(z_B = 3\), \(z_C = 1 + 2j\).</p>
+  <p><strong>1.</strong> D&eacute;terminer les affixes des images de \(A\), \(B\), \(C\) par la translation de vecteur \(\vec{w}\) d'affixe \(w = -2 + j\).</p>
+  <p><strong>2.</strong> D&eacute;terminer les affixes des images de \(A\), \(B\), \(C\) par la rotation de centre \(O\) et d'angle \(\frac{\pi}{2}\).</p>
+  <p><strong>3.</strong> D&eacute;terminer les affixes des images de \(A\), \(B\), \(C\) par la sym&eacute;trie par rapport &agrave; l'axe r&eacute;el.</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1. Translation</strong> \(z' = z + w = z + (-2+j)\) :</p>
+      <p>\(z'_A = 1 + (-2+j) = -1 + j\)</p>
+      <p>\(z'_B = 3 + (-2+j) = 1 + j\)</p>
+      <p>\(z'_C = (1+2j) + (-2+j) = -1 + 3j\)</p>
+
+      <p><strong>2. Rotation</strong> de \(\frac{\pi}{2}\) : \(z' = e^{j\pi/2} \cdot z = j \cdot z\).</p>
+      <p>\(z'_A = j \cdot 1 = j\)</p>
+      <p>\(z'_B = j \cdot 3 = 3j\)</p>
+      <p>\(z'_C = j(1+2j) = j + 2j^2 = -2 + j\)</p>
+
+      <p><strong>3. Sym&eacute;trie</strong> \(z' = \bar{z}\) :</p>
+      <p>\(z'_A = \bar{1} = 1\) (\(A\) est sur l'axe r&eacute;el, invariant)</p>
+      <p>\(z'_B = \bar{3} = 3\) (idem)</p>
+      <p>\(z'_C = \overline{1+2j} = 1 - 2j\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 11 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">11</span>Rotation et homoth&eacute;tie combin&eacute;es</div>
+  <p>Un technicien agenceur con&ccedil;oit un motif d&eacute;coratif r&eacute;p&eacute;t&eacute; par une transformation. Le motif de base est un carr&eacute; de sommets \(A(0)\), \(B(2)\), \(C(2+2j)\), \(D(2j)\).</p>
+  <p>La transformation appliqu&eacute;e est \(z \mapsto z' = a \cdot z\) avec \(a = \dfrac{1+j}{\sqrt{2}}\).</p>
+  <p><strong>1.</strong> &Eacute;crire \(a\) sous forme exponentielle. En d&eacute;duire la nature g&eacute;om&eacute;trique de la transformation.</p>
+  <p><strong>2.</strong> Calculer les images \(A'\), \(B'\), \(C'\), \(D'\) sous forme alg&eacute;brique.</p>
+  <p><strong>3.</strong> V&eacute;rifier que la figure image est un carr&eacute; de m&ecirc;me taille que l'original.</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(|a| = \frac{\sqrt{1+1}}{\sqrt{2}} = \frac{\sqrt{2}}{\sqrt{2}} = 1\). \(\arg(a) = \frac{\pi}{4}\) (car \(\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}j\)).</p>
+      <p>Donc \(a = e^{j\pi/4}\). C'est une <strong>rotation de centre \(O\) et d'angle \(\frac{\pi}{4}\)</strong> (45&deg;).</p>
+      <p>Comme \(|a| = 1\), il n'y a pas d'homoth&eacute;tie : les distances sont conserv&eacute;es.</p>
+
+      <p><strong>2.</strong></p>
+      <p>\(z'_A = a \cdot 0 = 0\)</p>
+      <p>\(z'_B = \frac{1+j}{\sqrt{2}} \cdot 2 = \frac{2+2j}{\sqrt{2}} = \sqrt{2} + \sqrt{2}\,j\)</p>
+      <p>\(z'_C = \frac{1+j}{\sqrt{2}} \cdot (2+2j) = \frac{(1+j)(2+2j)}{\sqrt{2}} = \frac{2+2j+2j+2j^2}{\sqrt{2}} = \frac{4j}{\sqrt{2}} = 2\sqrt{2}\,j\)</p>
+      <p>\(z'_D = \frac{1+j}{\sqrt{2}} \cdot 2j = \frac{2j+2j^2}{\sqrt{2}} = \frac{-2+2j}{\sqrt{2}} = -\sqrt{2} + \sqrt{2}\,j\)</p>
+
+      <p><strong>3.</strong> V&eacute;rification des c&ocirc;t&eacute;s :</p>
+      <p>\(|z'_B - z'_A| = |\sqrt{2}+\sqrt{2}j| = \sqrt{2+2} = 2\) (c&ocirc;t&eacute; = 2, m&ecirc;me que l'original). &checkmark;</p>
+      <p>Le carr&eacute; original a &eacute;t&eacute; tourn&eacute; de 45&deg; autour de l'origine sans changement de taille. &checkmark;</p>
+    </div>
+  </details>
+</div>
+
+<!-- ============================================================== -->
+<!--          NIVEAU 4 — PROBLÈMES COMPLETS                        -->
+<!-- ============================================================== -->
+<div class="niveau-header niv4">Niveau 4 &mdash; Probl&egrave;mes complets</div>
+
+<!-- EX 12 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">12</span>Imp&eacute;dance d'un circuit RLC s&eacute;rie</div>
+  <p>Un technicien en &eacute;lectrotechnique &eacute;tudie un circuit RLC s&eacute;rie aliment&eacute; par un signal sinuso&iuml;dal de fr&eacute;quence \(f = 1\;\text{kHz}\). Les composants ont pour valeurs :</p>
+  <ul>
+    <li>R&eacute;sistance : \(R = 220\;\Omega\)</li>
+    <li>Inductance : \(L = 50\;\text{mH}\)</li>
+    <li>Capacit&eacute; : \(C = 100\;\text{nF}\)</li>
+  </ul>
+  <p><strong>1.</strong> Calculer la pulsation \(\omega\).</p>
+  <p><strong>2.</strong> Calculer la r&eacute;actance de la bobine \(X_L = L\omega\) et la r&eacute;actance du condensateur \(X_C = \frac{1}{C\omega}\).</p>
+  <p><strong>3.</strong> &Eacute;crire l'imp&eacute;dance complexe \(\underline{Z} = R + j(X_L - X_C)\) sous forme alg&eacute;brique.</p>
+  <p><strong>4.</strong> Calculer le module \(|\underline{Z}|\) et l'argument \(\varphi\) de l'imp&eacute;dance.</p>
+  <p><strong>5.</strong> Le circuit est-il inductif ou capacitif ? Justifier.</p>
+  <p><strong>6.</strong> Si la tension d'alimentation est \(U = 24\;\text{V}\), calculer l'intensit&eacute; du courant \(I = \frac{U}{|\underline{Z}|}\).</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(\omega = 2\pi f = 2\pi \times 1\,000 = 2\,000\pi \approx 6\,283\;\text{rad/s}\)</p>
+
+      <p><strong>2.</strong></p>
+      <p>\(X_L = L\omega = 50 \times 10^{-3} \times 2\,000\pi = 100\pi \approx 314{,}2\;\Omega\)</p>
+      <p>\(X_C = \frac{1}{C\omega} = \frac{1}{100 \times 10^{-9} \times 2\,000\pi} = \frac{1}{2\pi \times 10^{-4}} = \frac{10\,000}{2\pi} \approx 1\,591{,}5\;\Omega\)</p>
+
+      <p><strong>3.</strong> \(\underline{Z} = 220 + j(314{,}2 - 1\,591{,}5) = 220 - 1\,277{,}3j\;\;\Omega\)</p>
+
+      <p><strong>4.</strong></p>
+      <p>\(|\underline{Z}| = \sqrt{220^2 + 1\,277{,}3^2} = \sqrt{48\,400 + 1\,631\,495} = \sqrt{1\,679\,895} \approx 1\,296\;\Omega\)</p>
+      <p>\(\varphi = \arctan\!\left(\frac{-1\,277{,}3}{220}\right) = \arctan(-5{,}81) \approx -1{,}40\;\text{rad} \approx -80{,}2°\)</p>
+
+      <p><strong>5.</strong> \(\varphi < 0\), donc le circuit est <strong>capacitif</strong> : la r&eacute;actance du condensateur domine celle de la bobine (\(X_C > X_L\)). Le courant est en avance sur la tension.</p>
+
+      <p><strong>6.</strong> \(I = \frac{U}{|\underline{Z}|} = \frac{24}{1\,296} \approx 0{,}0185\;\text{A} \approx 18{,}5\;\text{mA}\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 13 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">13</span>R&eacute;sonance d'un circuit et fr&eacute;quence de coupure</div>
+  <p>On reprend le circuit RLC s&eacute;rie de l'exercice 12 (\(R = 220\;\Omega\), \(L = 50\;\text{mH}\), \(C = 100\;\text{nF}\)).</p>
+  <p><strong>1.</strong> Montrer que l'imp&eacute;dance est minimale lorsque \(L\omega = \frac{1}{C\omega}\). En d&eacute;duire la pulsation de r&eacute;sonance \(\omega_0 = \frac{1}{\sqrt{LC}}\).</p>
+  <p><strong>2.</strong> Calculer la fr&eacute;quence de r&eacute;sonance \(f_0\).</p>
+  <p><strong>3.</strong> Quelle est la valeur de l'imp&eacute;dance &agrave; la r&eacute;sonance ? &Eacute;crire \(\underline{Z}\) sous forme exponentielle dans ce cas.</p>
+  <p><strong>4.</strong> Calculer l'intensit&eacute; du courant &agrave; la r&eacute;sonance pour \(U = 24\;\text{V}\). Comparer avec le r&eacute;sultat de l'exercice 12.</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(\underline{Z} = R + j\left(L\omega - \frac{1}{C\omega}\right)\). Le module est \(|\underline{Z}| = \sqrt{R^2 + \left(L\omega - \frac{1}{C\omega}\right)^2}\).</p>
+      <p>Ce module est minimal lorsque la partie imaginaire est nulle, c'est-&agrave;-dire lorsque \(L\omega_0 = \frac{1}{C\omega_0}\).</p>
+      <p>\(L\omega_0^2 = \frac{1}{C}\), soit \(\omega_0^2 = \frac{1}{LC}\), d'o&ugrave; \(\boxed{\omega_0 = \frac{1}{\sqrt{LC}}}\)</p>
+
+      <p><strong>2.</strong> \(\omega_0 = \frac{1}{\sqrt{50 \times 10^{-3} \times 100 \times 10^{-9}}} = \frac{1}{\sqrt{5 \times 10^{-9}}} = \frac{1}{7{,}07 \times 10^{-5}} \approx 14\,142\;\text{rad/s}\)</p>
+      <p>\(f_0 = \frac{\omega_0}{2\pi} = \frac{14\,142}{2\pi} \approx 2\,251\;\text{Hz} \approx 2{,}25\;\text{kHz}\)</p>
+
+      <p><strong>3.</strong> &Agrave; la r&eacute;sonance, \(\underline{Z} = R + j \cdot 0 = R = 220\;\Omega\).</p>
+      <p>Forme exponentielle : \(\underline{Z} = 220\,e^{j \cdot 0}\) (l'argument est nul : tension et courant sont en phase).</p>
+
+      <p><strong>4.</strong> \(I_0 = \frac{U}{R} = \frac{24}{220} \approx 0{,}109\;\text{A} \approx 109\;\text{mA}\)</p>
+      <p>Comparaison : &agrave; \(f = 1\;\text{kHz}\), \(I \approx 18{,}5\;\text{mA}\). &Agrave; la r&eacute;sonance, \(I \approx 109\;\text{mA}\).</p>
+      <p>Le courant est environ <strong>6 fois plus grand</strong> &agrave; la r&eacute;sonance : l'imp&eacute;dance est minimale (\(|\underline{Z}| = R\) seulement).</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 14 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">14</span>G&eacute;om&eacute;trie complexe &mdash; Conception d'un motif hexagonal</div>
+  <p>Un concepteur en agencement d'int&eacute;rieur souhaite cr&eacute;er un motif hexagonal r&eacute;gulier pour un panneau d&eacute;coratif. L'hexagone est inscrit dans un cercle de centre \(O\) et de rayon \(r = 5\;\text{cm}\).</p>
+  <p>Les sommets de l'hexagone sont les images de \(z_0 = 5\) par les rotations successives de \(\frac{\pi}{3}\) autour de \(O\).</p>
+  <p><strong>1.</strong> &Eacute;crire sous forme exponentielle les affixes des 6 sommets \(z_0, z_1, \ldots, z_5\) de l'hexagone.</p>
+  <p><strong>2.</strong> &Eacute;crire chaque affixe sous forme alg&eacute;brique (valeurs exactes).</p>
+  <p><strong>3.</strong> Calculer \(|z_1 - z_0|\), la longueur d'un c&ocirc;t&eacute; de l'hexagone. Que constatez-vous ?</p>
+  <p><strong>4.</strong> Le concepteur veut r&eacute;duire le motif d'un facteur \(\frac{1}{2}\) et le d&eacute;caler de \(3 + 4j\;\text{cm}\). Quelle transformation complexe doit-il appliquer ? &Eacute;crire l'affixe du nouveau sommet \(z'_0\).</p>
+  <p><strong>5.</strong> V&eacute;rifier que tous les nouveaux sommets sont bien situ&eacute;s sur un cercle de rayon \(2{,}5\;\text{cm}\), centr&eacute; en \((3\,;\,4)\).</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> Les sommets s'obtiennent par rotation de \(\frac{k\pi}{3}\) :</p>
+      <p>\(z_k = 5\,e^{jk\pi/3}\) pour \(k = 0, 1, 2, 3, 4, 5\).</p>
+      <ul>
+        <li>\(z_0 = 5\,e^{j \cdot 0} = 5\)</li>
+        <li>\(z_1 = 5\,e^{j\pi/3}\)</li>
+        <li>\(z_2 = 5\,e^{j2\pi/3}\)</li>
+        <li>\(z_3 = 5\,e^{j\pi} = -5\)</li>
+        <li>\(z_4 = 5\,e^{j4\pi/3}\)</li>
+        <li>\(z_5 = 5\,e^{j5\pi/3}\)</li>
+      </ul>
+
+      <p><strong>2.</strong> Formes alg&eacute;briques :</p>
+      <ul>
+        <li>\(z_0 = 5\)</li>
+        <li>\(z_1 = 5\left(\frac{1}{2} + \frac{\sqrt{3}}{2}j\right) = \frac{5}{2} + \frac{5\sqrt{3}}{2}j\)</li>
+        <li>\(z_2 = 5\left(-\frac{1}{2} + \frac{\sqrt{3}}{2}j\right) = -\frac{5}{2} + \frac{5\sqrt{3}}{2}j\)</li>
+        <li>\(z_3 = -5\)</li>
+        <li>\(z_4 = 5\left(-\frac{1}{2} - \frac{\sqrt{3}}{2}j\right) = -\frac{5}{2} - \frac{5\sqrt{3}}{2}j\)</li>
+        <li>\(z_5 = 5\left(\frac{1}{2} - \frac{\sqrt{3}}{2}j\right) = \frac{5}{2} - \frac{5\sqrt{3}}{2}j\)</li>
+      </ul>
+
+      <p><strong>3.</strong> \(z_1 - z_0 = \frac{5}{2} + \frac{5\sqrt{3}}{2}j - 5 = -\frac{5}{2} + \frac{5\sqrt{3}}{2}j\)</p>
+      <p>\(|z_1 - z_0| = \sqrt{\frac{25}{4} + \frac{75}{4}} = \sqrt{\frac{100}{4}} = \sqrt{25} = 5\)</p>
+      <p><strong>Constat :</strong> le c&ocirc;t&eacute; de l'hexagone r&eacute;gulier est &eacute;gal au rayon du cercle circonscrit. C'est une propri&eacute;t&eacute; classique de l'hexagone r&eacute;gulier.</p>
+
+      <p><strong>4.</strong> R&eacute;duction de facteur \(\frac{1}{2}\) (homoth&eacute;tie) + translation de \(3+4j\) :</p>
+      <p>\(z' = \frac{1}{2}z + (3 + 4j)\)</p>
+      <p>\(z'_0 = \frac{1}{2} \times 5 + 3 + 4j = 2{,}5 + 3 + 4j = 5{,}5 + 4j\)</p>
+
+      <p><strong>5.</strong> Pour tout sommet \(z'_k = \frac{1}{2}z_k + (3+4j)\), on calcule :</p>
+      <p>\(|z'_k - (3+4j)| = \left|\frac{1}{2}z_k\right| = \frac{1}{2}|z_k| = \frac{5}{2} = 2{,}5\;\text{cm}\)</p>
+      <p>Tous les points transform&eacute;s sont &agrave; distance \(2{,}5\;\text{cm}\) du centre \((3\,;\,4)\). &checkmark;</p>
+    </div>
+  </details>
+</div>
+
+</div><!-- fin .c -->
+
 <script src="../../../nav.js"></script>
 </body>
 </html>

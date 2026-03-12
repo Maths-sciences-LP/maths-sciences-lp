@@ -3,24 +3,411 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch04 – Calcul intégral – BTS</title>
+<title>Ch04 – Calcul intégral – Exercices – BTS</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<link rel="stylesheet" href="/nav.css">
 </head>
 <body>
 <div class="c">
 <a href="../../sommaire.html" class="nb">← Retour au sommaire</a>
+
 <header>
-  <h1>Chapitre 04 – Calcul intégral</h1>
-  <p class="sous-titre">BTS — Groupements B1, B2, C1, D1, D2</p>
+  <h1>Chapitre 4 – Calcul intégral</h1>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Exercices &nbsp;|&nbsp; Groupements B1, B2, C1, D1, D2</p>
+  <p class="maj">Dernière mise à jour : mars 2026</p>
 </header>
 
 <div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+  <strong>Compétences travaillées :</strong>
+  <ul>
+    <li>Déterminer les primitives des fonctions usuelles et composées</li>
+    <li>Calculer une intégrale définie et interpréter graphiquement</li>
+    <li>Calculer des aires entre courbes et la valeur moyenne d'une fonction</li>
+    <li>Maîtriser l'intégration par parties (IPP)</li>
+    <li>Approcher une intégrale par les méthodes des rectangles et des trapèzes</li>
+    <li>Appliquer le calcul intégral à des problèmes professionnels</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- NIVEAU 1 — Connaître et appliquer directement      -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="niveau-header niv1">
+  <span class="badge-niv badge-1">Niveau 1</span>
+  <h2>Connaître et appliquer directement</h2>
+</div>
+
+<!-- ── Exercice 1 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 1</span>
+    <span class="exo-title">Primitives directes</span>
+  </div>
+  <p>Déterminer une primitive de chacune des fonctions suivantes :</p>
+  <p>a) \(f(x) = 5x^4 - 3x^2 + 7\)</p>
+  <p>b) \(g(x) = \dfrac{4}{x^2} + \dfrac{3}{x}\) sur \(]0\,;+\infty[\)</p>
+  <p>c) \(h(x) = 2\cos x - 3\sin x\)</p>
+  <p>d) \(k(x) = 6e^x + \dfrac{1}{\sqrt{x}}\) sur \(]0\,;+\infty[\)</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(F(x) = 5 \times \dfrac{x^5}{5} - 3 \times \dfrac{x^3}{3} + 7x = x^5 - x^3 + 7x\).</p>
+    <p><strong>b)</strong> On écrit \(g(x) = 4x^{-2} + \dfrac{3}{x}\). Une primitive est \(G(x) = -\dfrac{4}{x} + 3\ln x\).</p>
+    <p><strong>c)</strong> \(H(x) = 2\sin x + 3\cos x\).</p>
+    <p><strong>d)</strong> On écrit \(\dfrac{1}{\sqrt{x}} = x^{-1/2}\). Une primitive est \(K(x) = 6e^x + 2\sqrt{x}\).</p>
+  </div>
+</div>
+
+<!-- ── Exercice 2 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 2</span>
+    <span class="exo-title">Intégrales simples</span>
+  </div>
+  <p>Calculer les intégrales suivantes :</p>
+  <p>a) \(\displaystyle\int_1^4 (2x - 3)\,dx\)</p>
+  <p>b) \(\displaystyle\int_0^{\pi/2} \cos(x)\,dx\)</p>
+  <p>c) \(\displaystyle\int_1^e \dfrac{2}{x}\,dx\)</p>
+  <p>d) \(\displaystyle\int_0^2 e^x\,dx\)</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(\big[x^2 - 3x\big]_1^4 = (16 - 12) - (1 - 3) = 4 + 2 = 6\).</p>
+    <p><strong>b)</strong> \(\big[\sin x\big]_0^{\pi/2} = \sin\dfrac{\pi}{2} - \sin 0 = 1 - 0 = 1\).</p>
+    <p><strong>c)</strong> \(\big[2\ln x\big]_1^e = 2\ln e - 2\ln 1 = 2 - 0 = 2\).</p>
+    <p><strong>d)</strong> \(\big[e^x\big]_0^2 = e^2 - e^0 = e^2 - 1 \approx 6{,}39\).</p>
+  </div>
+</div>
+
+<!-- ── Exercice 3 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 3</span>
+    <span class="exo-title">Aire basique sous une courbe</span>
+  </div>
+  <p>Soit \(f(x) = -x^2 + 4\) définie sur \([-2\,;\,2]\).</p>
+  <p>1) Vérifier que \(f(x) \geq 0\) sur \([-2\,;\,2]\).</p>
+  <p>2) Calculer l'aire de la surface comprise entre la courbe de \(f\), l'axe des abscisses et les droites \(x = -2\) et \(x = 2\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(f(x) = -(x^2 - 4) = -(x-2)(x+2)\). Sur \([-2\,;\,2]\), \((x-2) \leq 0\) et \((x+2) \geq 0\), donc \(f(x) \geq 0\). De plus \(f(-2) = f(2) = 0\) et \(f(0) = 4 > 0\).</p>
+    <p><strong>2)</strong> Puisque \(f \geq 0\) sur \([-2\,;\,2]\) :</p>
+    <p>\(\mathcal{A} = \displaystyle\int_{-2}^{2} (-x^2 + 4)\,dx = \left[-\dfrac{x^3}{3} + 4x\right]_{-2}^{2}\)</p>
+    <p>\(= \left(-\dfrac{8}{3} + 8\right) - \left(\dfrac{8}{3} - 8\right) = \dfrac{16}{3} + \dfrac{16}{3} = \dfrac{32}{3} \approx 10{,}67\) u.a.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 4 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 4</span>
+    <span class="exo-title">Primitives de fonctions trigonométriques composées</span>
+  </div>
+  <p>Déterminer une primitive de chaque fonction :</p>
+  <p>a) \(f(t) = 4\cos(2t)\)</p>
+  <p>b) \(g(t) = 5\sin(3t + \pi/4)\)</p>
+  <p>c) \(h(t) = -2\cos(100\pi t)\)</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(F(t) = 4 \times \dfrac{1}{2}\sin(2t) = 2\sin(2t)\).</p>
+    <p><strong>b)</strong> \(G(t) = 5 \times \left(-\dfrac{1}{3}\right)\cos\!\left(3t + \dfrac{\pi}{4}\right) = -\dfrac{5}{3}\cos\!\left(3t + \dfrac{\pi}{4}\right)\).</p>
+    <p><strong>c)</strong> \(H(t) = -2 \times \dfrac{1}{100\pi}\sin(100\pi t) = -\dfrac{1}{50\pi}\sin(100\pi t)\).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- NIVEAU 2 — Appliquer et calculer                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="niveau-header niv2">
+  <span class="badge-niv badge-2">Niveau 2</span>
+  <h2>Appliquer et calculer</h2>
+</div>
+
+<!-- ── Exercice 5 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 5</span>
+    <span class="exo-title">Primitives composées</span>
+  </div>
+  <p>Déterminer une primitive de chaque fonction en reconnaissant le type composé :</p>
+  <p>a) \(f(x) = 4x\,e^{x^2}\) &emsp; (type \(u'\,e^u\))</p>
+  <p>b) \(g(x) = \dfrac{6x}{3x^2 + 1}\) &emsp; (type \(u'/u\))</p>
+  <p>c) \(h(x) = 3x^2(x^3 - 5)^4\) &emsp; (type \(u'\,u^n\))</p>
+  <p>d) \(k(x) = \dfrac{e^x}{e^x + 2}\) &emsp; (type \(u'/u\))</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> On pose \(u = x^2\), \(u' = 2x\). On écrit \(f(x) = 2 \times 2x\,e^{x^2} = 2\,u'\,e^u\). Primitive : \(F(x) = 2\,e^{x^2}\).</p>
+    <p><strong>b)</strong> On pose \(u = 3x^2 + 1\), \(u' = 6x\). On reconnaît \(\dfrac{u'}{u}\). Primitive : \(G(x) = \ln(3x^2 + 1)\). (Pas de valeur absolue car \(3x^2 + 1 > 0\).)</p>
+    <p><strong>c)</strong> On pose \(u = x^3 - 5\), \(u' = 3x^2\). On reconnaît \(u'\,u^4\). Primitive : \(H(x) = \dfrac{(x^3 - 5)^5}{5}\).</p>
+    <p><strong>d)</strong> On pose \(u = e^x + 2\), \(u' = e^x\). On reconnaît \(\dfrac{u'}{u}\). Primitive : \(K(x) = \ln(e^x + 2)\).</p>
+  </div>
+</div>
+
+<!-- ── Exercice 6 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 6</span>
+    <span class="exo-title">Aire entre deux courbes</span>
+  </div>
+  <p>Soient \(f(x) = x^2\) et \(g(x) = 2x\) sur l'intervalle \([0\,;\,3]\).</p>
+  <p>1) Résoudre \(f(x) = g(x)\) pour déterminer les points d'intersection.</p>
+  <p>2) Étudier le signe de \(g(x) - f(x)\) sur \([0\,;\,3]\).</p>
+  <p>3) Calculer l'aire comprise entre les deux courbes sur \([0\,;\,3]\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(x^2 = 2x \Leftrightarrow x^2 - 2x = 0 \Leftrightarrow x(x-2) = 0\). Solutions : \(x = 0\) et \(x = 2\).</p>
+    <p><strong>2)</strong> \(g(x) - f(x) = 2x - x^2 = x(2 - x)\). Sur \([0\,;\,2]\), \(g(x) - f(x) \geq 0\) (donc \(g \geq f\)). Sur \([2\,;\,3]\), \(g(x) - f(x) \leq 0\) (donc \(f \geq g\)).</p>
+    <p><strong>3)</strong> \(\mathcal{A} = \displaystyle\int_0^2 (2x - x^2)\,dx + \int_2^3 (x^2 - 2x)\,dx\)</p>
+    <p>\(= \left[x^2 - \dfrac{x^3}{3}\right]_0^2 + \left[\dfrac{x^3}{3} - x^2\right]_2^3\)</p>
+    <p>\(= \left(4 - \dfrac{8}{3}\right) + \left[\left(9 - 9\right) - \left(\dfrac{8}{3} - 4\right)\right]\)</p>
+    <p>\(= \dfrac{4}{3} + \dfrac{4}{3} = \dfrac{8}{3} \approx 2{,}67\) u.a.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 7 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 7</span>
+    <span class="exo-title">Valeur moyenne</span>
+  </div>
+  <p>Soit \(f(t) = 3t^2 + 1\) sur l'intervalle \([0\,;\,2]\).</p>
+  <p>1) Calculer la valeur moyenne \(\mu\) de \(f\) sur \([0\,;\,2]\).</p>
+  <p>2) Vérifier que le rectangle de base \([0\,;\,2]\) et de hauteur \(\mu\) a la même aire que la surface sous la courbe de \(f\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(\mu = \dfrac{1}{2 - 0}\displaystyle\int_0^2 (3t^2 + 1)\,dt = \dfrac{1}{2}\left[t^3 + t\right]_0^2 = \dfrac{1}{2}(8 + 2) = 5\).</p>
+    <p><strong>2)</strong> Aire du rectangle : \(\mu \times (b - a) = 5 \times 2 = 10\).</p>
+    <p>Aire sous la courbe : \(\displaystyle\int_0^2 (3t^2 + 1)\,dt = [t^3 + t]_0^2 = 10\). Les deux aires sont bien égales.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 8 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 8</span>
+    <span class="exo-title">Valeur moyenne d'un signal</span>
+  </div>
+  <p>Un technicien en maintenance mesure un courant modélisé par \(i(t) = 5\sin(100\pi t)\) (en ampères, \(t\) en secondes). La période est \(T = 0{,}02\) s.</p>
+  <p>1) Calculer la valeur moyenne de \(i\) sur une période.</p>
+  <p>2) Calculer la valeur efficace \(I_{\text{eff}}\).</p>
+  <p>3) Quel est le lien entre \(I_{\text{eff}}\) et l'amplitude \(I_m = 5\) A pour un signal sinusoïdal ?</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(\langle i \rangle = \dfrac{1}{T}\displaystyle\int_0^T 5\sin(100\pi t)\,dt = \dfrac{5}{0{,}02}\left[-\dfrac{\cos(100\pi t)}{100\pi}\right]_0^{0{,}02}\)</p>
+    <p>\(= 250\left[-\dfrac{\cos(2\pi)}{100\pi} + \dfrac{\cos(0)}{100\pi}\right] = 250 \times 0 = 0\) A.</p>
+    <p>La valeur moyenne d'un signal sinusoïdal pur sur une période est nulle.</p>
+    <p><strong>2)</strong> \(I_{\text{eff}}^2 = \dfrac{1}{T}\displaystyle\int_0^T 25\sin^2(100\pi t)\,dt\).</p>
+    <p>En utilisant \(\sin^2\theta = \dfrac{1 - \cos 2\theta}{2}\) :</p>
+    <p>\(= \dfrac{25}{T}\displaystyle\int_0^T \dfrac{1 - \cos(200\pi t)}{2}\,dt = \dfrac{25}{2T}\left[t - \dfrac{\sin(200\pi t)}{200\pi}\right]_0^T = \dfrac{25}{2T} \times T = \dfrac{25}{2}\).</p>
+    <p>\(I_{\text{eff}} = \sqrt{25/2} = \dfrac{5}{\sqrt{2}} \approx 3{,}54\) A.</p>
+    <p><strong>3)</strong> On retrouve la relation classique \(I_{\text{eff}} = \dfrac{I_m}{\sqrt{2}}\), valable pour tout signal sinusoïdal.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- NIVEAU 3 — Analyser et raisonner                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="niveau-header niv3">
+  <span class="badge-niv badge-3">Niveau 3</span>
+  <h2>Analyser et raisonner</h2>
+</div>
+
+<!-- ── Exercice 9 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 9</span>
+    <span class="exo-title">Intégration par parties</span>
+  </div>
+  <p>Calculer les intégrales suivantes par IPP :</p>
+  <p>a) \(\displaystyle\int_0^1 x\,e^{3x}\,dx\)</p>
+  <p>b) \(\displaystyle\int_1^e x\ln(x)\,dx\)</p>
+  <p>c) \(\displaystyle\int_0^{\pi} t\sin(t)\,dt\)</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> On pose \(v = x\), \(u' = e^{3x}\), donc \(v' = 1\), \(u = \dfrac{1}{3}e^{3x}\).</p>
+    <p>\(\displaystyle\int_0^1 x\,e^{3x}\,dx = \left[\dfrac{x}{3}e^{3x}\right]_0^1 - \int_0^1 \dfrac{1}{3}e^{3x}\,dx = \dfrac{e^3}{3} - \dfrac{1}{3}\left[\dfrac{e^{3x}}{3}\right]_0^1\)</p>
+    <p>\(= \dfrac{e^3}{3} - \dfrac{1}{9}(e^3 - 1) = \dfrac{3e^3 - e^3 + 1}{9} = \dfrac{2e^3 + 1}{9} \approx 4{,}57\).</p>
+
+    <p><strong>b)</strong> On pose \(v = \ln x\), \(u' = x\), donc \(v' = \dfrac{1}{x}\), \(u = \dfrac{x^2}{2}\).</p>
+    <p>\(\displaystyle\int_1^e x\ln x\,dx = \left[\dfrac{x^2}{2}\ln x\right]_1^e - \int_1^e \dfrac{x^2}{2} \times \dfrac{1}{x}\,dx = \dfrac{e^2}{2} - \dfrac{1}{2}\int_1^e x\,dx\)</p>
+    <p>\(= \dfrac{e^2}{2} - \dfrac{1}{2}\left[\dfrac{x^2}{2}\right]_1^e = \dfrac{e^2}{2} - \dfrac{e^2 - 1}{4} = \dfrac{2e^2 - e^2 + 1}{4} = \dfrac{e^2 + 1}{4} \approx 2{,}10\).</p>
+
+    <p><strong>c)</strong> On pose \(v = t\), \(u' = \sin t\), donc \(v' = 1\), \(u = -\cos t\).</p>
+    <p>\(\displaystyle\int_0^{\pi} t\sin t\,dt = \big[-t\cos t\big]_0^{\pi} + \int_0^{\pi} \cos t\,dt = (-\pi\cos\pi + 0) + \big[\sin t\big]_0^{\pi}\)</p>
+    <p>\(= \pi + (0 - 0) = \pi \approx 3{,}14\).</p>
+  </div>
+</div>
+
+<!-- ── Exercice 10 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 10</span>
+    <span class="exo-title">Méthode des trapèzes</span>
+  </div>
+  <p>On souhaite approcher \(\displaystyle\int_0^2 e^{-x^2}\,dx\) par la méthode des trapèzes avec \(n = 4\) sous-intervalles.</p>
+  <p>1) Calculer le pas \(h\) et les points \(x_k\) pour \(k = 0, 1, \ldots, 4\).</p>
+  <p>2) Compléter le tableau suivant (arrondir \(f(x_k)\) à 4 décimales) :</p>
+  <table>
+    <tr><th>\(x_k\)</th><td>0</td><td>0,5</td><td>1</td><td>1,5</td><td>2</td></tr>
+    <tr><th>\(f(x_k) = e^{-x_k^2}\)</th><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <p>3) Appliquer la formule des trapèzes et donner une approximation de l'intégrale.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(h = \dfrac{2 - 0}{4} = 0{,}5\). Points : \(x_0 = 0\), \(x_1 = 0{,}5\), \(x_2 = 1\), \(x_3 = 1{,}5\), \(x_4 = 2\).</p>
+    <p><strong>2)</strong></p>
+    <table>
+      <tr><th>\(x_k\)</th><td>0</td><td>0,5</td><td>1</td><td>1,5</td><td>2</td></tr>
+      <tr><th>\(f(x_k)\)</th><td>1,0000</td><td>0,7788</td><td>0,3679</td><td>0,1054</td><td>0,0183</td></tr>
+    </table>
+    <p><strong>3)</strong> \(I \approx \dfrac{h}{2}\big[f(x_0) + f(x_4) + 2(f(x_1) + f(x_2) + f(x_3))\big]\)</p>
+    <p>\(= \dfrac{0{,}5}{2}\big[1{,}0000 + 0{,}0183 + 2(0{,}7788 + 0{,}3679 + 0{,}1054)\big]\)</p>
+    <p>\(= 0{,}25 \times [1{,}0183 + 2 \times 1{,}2521] = 0{,}25 \times 3{,}5225 \approx 0{,}8806\).</p>
+    <p>(Valeur exacte \(\approx 0{,}8821\), erreur relative \(\approx 0{,}2\,\%\).)</p>
+  </div>
+</div>
+
+<!-- ── Exercice 11 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 11</span>
+    <span class="exo-title">Méthode des rectangles (point milieu)</span>
+  </div>
+  <p>On reprend l'intégrale \(\displaystyle\int_0^2 e^{-x^2}\,dx\) avec la méthode des rectangles au point milieu, \(n = 4\).</p>
+  <p>1) Calculer les points milieux \(m_k = x_k + \dfrac{h}{2}\) pour \(k = 0, 1, 2, 3\).</p>
+  <p>2) Calculer \(f(m_k)\) pour chaque \(k\) (arrondir à 4 décimales).</p>
+  <p>3) Donner l'approximation et comparer avec la méthode des trapèzes.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(h = 0{,}5\). Les milieux sont \(m_0 = 0{,}25\), \(m_1 = 0{,}75\), \(m_2 = 1{,}25\), \(m_3 = 1{,}75\).</p>
+    <p><strong>2)</strong></p>
+    <table>
+      <tr><th>\(m_k\)</th><td>0,25</td><td>0,75</td><td>1,25</td><td>1,75</td></tr>
+      <tr><th>\(f(m_k)\)</th><td>0,9394</td><td>0,5698</td><td>0,2096</td><td>0,0468</td></tr>
+    </table>
+    <p><strong>3)</strong> \(I \approx h \times \big[f(m_0) + f(m_1) + f(m_2) + f(m_3)\big]\)</p>
+    <p>\(= 0{,}5 \times (0{,}9394 + 0{,}5698 + 0{,}2096 + 0{,}0468) = 0{,}5 \times 1{,}7656 \approx 0{,}8828\).</p>
+    <p>Comparaison : trapèzes \(\approx 0{,}8806\), rectangles \(\approx 0{,}8828\), valeur exacte \(\approx 0{,}8821\). Les deux méthodes donnent une bonne approximation avec seulement 4 sous-intervalles.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 12 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 12</span>
+    <span class="exo-title">Application — Signal redressé</span>
+  </div>
+  <p>Un pont redresseur transforme un signal sinusoïdal \(u(t) = 325\sin(100\pi t)\) (tension secteur) en un signal redressé \(v(t) = |u(t)| = 325|\sin(100\pi t)|\).</p>
+  <p>La période du signal redressé est \(T' = T/2 = 0{,}01\) s.</p>
+  <p>1) Justifier que \(v(t) = 325\sin(100\pi t)\) sur \([0\,;\,0{,}01]\).</p>
+  <p>2) Calculer la valeur moyenne de \(v\) sur une période \(T'\).</p>
+  <p>3) Calculer la valeur efficace de \(v\). Compare-t-elle à celle du signal non redressé ?</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> Sur \([0\,;\,0{,}01]\), on a \(100\pi t \in [0\,;\,\pi]\), donc \(\sin(100\pi t) \geq 0\) et \(|\sin(100\pi t)| = \sin(100\pi t)\).</p>
+    <p><strong>2)</strong> \(\langle v \rangle = \dfrac{1}{T'}\displaystyle\int_0^{T'} 325\sin(100\pi t)\,dt = \dfrac{325}{0{,}01}\left[-\dfrac{\cos(100\pi t)}{100\pi}\right]_0^{0{,}01}\)</p>
+    <p>\(= 32\,500 \times \dfrac{1}{100\pi}[-\cos\pi + \cos 0] = \dfrac{325}{\pi} \times 2 = \dfrac{650}{\pi} \approx 206{,}9\) V.</p>
+    <p><strong>3)</strong> \(V_{\text{eff}}^2 = \dfrac{1}{T'}\displaystyle\int_0^{T'} 325^2\sin^2(100\pi t)\,dt = \dfrac{325^2}{2}\) (même calcul que pour le signal non redressé).</p>
+    <p>\(V_{\text{eff}} = \dfrac{325}{\sqrt{2}} \approx 230\) V.</p>
+    <p>La valeur efficace est identique à celle du signal non redressé. Le redressement ne modifie pas la valeur efficace.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- NIVEAU 4 — Problèmes complets                       -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="niveau-header niv4">
+  <span class="badge-niv badge-4">Niveau 4</span>
+  <h2>Problèmes complets</h2>
+</div>
+
+<!-- ── Exercice 13 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 13</span>
+    <span class="exo-title">Valeur efficace d'un signal non sinusoïdal — Contexte FED</span>
+  </div>
+  <p>Un technicien en Fluides, Énergies, Domotique doit dimensionner un disjoncteur pour un circuit alimenté par un courant non sinusoïdal. Le courant est modélisé par :</p>
+  <p>\[i(t) = 8\sin(100\pi t) + 2\sin(300\pi t) + \sin(500\pi t)\]</p>
+  <p>en ampères, de période \(T = 0{,}02\) s.</p>
+  <p>1) Calculer la valeur moyenne du courant sur une période.</p>
+  <p>2) On admet la propriété d'orthogonalité : pour \(n \neq m\), \(\displaystyle\int_0^T \sin(n\omega t)\sin(m\omega t)\,dt = 0\) avec \(\omega = 100\pi\). En utilisant cette propriété, montrer que :</p>
+  <p>\[I_{\text{eff}}^2 = \frac{8^2}{2} + \frac{2^2}{2} + \frac{1^2}{2}\]</p>
+  <p>3) En déduire \(I_{\text{eff}}\) et proposer un calibre normalisé pour le disjoncteur (calibres disponibles : 6, 10, 16, 20, 25, 32 A).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> Chaque composante est sinusoïdale de fréquence multiple de \(50\) Hz. La valeur moyenne de \(\sin(n\omega t)\) sur une période est nulle pour tout \(n \geq 1\). Donc \(\langle i \rangle = 0\) A.</p>
+    <p><strong>2)</strong> \(I_{\text{eff}}^2 = \dfrac{1}{T}\displaystyle\int_0^T i(t)^2\,dt\).</p>
+    <p>En développant \(i(t)^2\), on obtient des termes en \(\sin^2(n\omega t)\) et des termes croisés \(\sin(n\omega t)\sin(m\omega t)\). D'après la propriété d'orthogonalité, les termes croisés s'annulent.</p>
+    <p>Pour chaque terme \(A_n\sin(n\omega t)\), la contribution est \(\dfrac{A_n^2}{T}\displaystyle\int_0^T \sin^2(n\omega t)\,dt = \dfrac{A_n^2}{2}\).</p>
+    <p>Donc \(I_{\text{eff}}^2 = \dfrac{64}{2} + \dfrac{4}{2} + \dfrac{1}{2} = 32 + 2 + 0{,}5 = 34{,}5\).</p>
+    <p><strong>3)</strong> \(I_{\text{eff}} = \sqrt{34{,}5} \approx 5{,}87\) A.</p>
+    <p>Le calibre normalisé immédiatement supérieur est <strong>6 A</strong>. En pratique, pour avoir une marge de sécurité, on pourrait choisir un calibre de <strong>10 A</strong>.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 14 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 14</span>
+    <span class="exo-title">Centre d'inertie d'une section — Contexte charpente bois</span>
+  </div>
+  <p>Un dessinateur-projeteur en charpente bois doit calculer le centre de gravité d'une section en I composée de trois rectangles :</p>
+  <ul>
+    <li><strong>Semelle inférieure :</strong> largeur 150 mm, épaisseur 25 mm</li>
+    <li><strong>Âme :</strong> largeur 30 mm, hauteur 180 mm (centrée sur la semelle inférieure)</li>
+    <li><strong>Semelle supérieure :</strong> largeur 120 mm, épaisseur 20 mm</li>
+  </ul>
+  <p>On prend l'origine en bas de la semelle inférieure.</p>
+  <p>1) Calculer l'aire \(A_i\) et l'ordonnée du centre de gravité \(y_i\) de chaque rectangle.</p>
+  <p>2) En utilisant la formule \(\bar{y} = \dfrac{\sum A_i\,y_i}{\sum A_i}\), déterminer la position du centre de gravité de la section complète.</p>
+  <p>3) Le résultat est-il plus proche de la semelle inférieure ou supérieure ? Interpréter.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong></p>
+    <ul>
+      <li>Semelle inférieure : \(A_1 = 150 \times 25 = 3\,750\) mm², \(y_1 = 25/2 = 12{,}5\) mm</li>
+      <li>Âme : \(A_2 = 30 \times 180 = 5\,400\) mm², \(y_2 = 25 + 180/2 = 115\) mm</li>
+      <li>Semelle supérieure : \(A_3 = 120 \times 20 = 2\,400\) mm², \(y_3 = 25 + 180 + 20/2 = 215\) mm</li>
+    </ul>
+    <p><strong>2)</strong> \(A_{\text{total}} = 3\,750 + 5\,400 + 2\,400 = 11\,550\) mm².</p>
+    <p>\(\bar{y} = \dfrac{3\,750 \times 12{,}5 + 5\,400 \times 115 + 2\,400 \times 215}{11\,550}\)</p>
+    <p>\(= \dfrac{46\,875 + 621\,000 + 516\,000}{11\,550} = \dfrac{1\,183\,875}{11\,550} \approx 102{,}5\) mm.</p>
+    <p><strong>3)</strong> Le centre de gravité est à 102,5 mm de la base, soit environ au milieu de l'âme mais légèrement en-dessous du centre géométrique (112,5 mm). Il est plus proche de la semelle inférieure, ce qui est logique car celle-ci est plus large (et donc plus lourde) que la semelle supérieure.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 15 ── -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num-badge">Exercice 15</span>
+    <span class="exo-title">Volume par intégration — Contexte ébénisterie</span>
+  </div>
+  <p>Un ébéniste tourne un pied de meuble sur un tour à bois. Le profil du pied est défini par la fonction donnant le rayon en fonction de la position \(x\) (en cm) le long de l'axe :</p>
+  <p>\[r(x) = 3 - 0{,}5\cos\!\left(\frac{\pi x}{15}\right) \quad \text{pour } x \in [0\,;\,30]\]</p>
+  <p>1) Calculer \(r(0)\), \(r(15)\) et \(r(30)\). Interpréter la forme du pied.</p>
+  <p>2) Le volume d'un solide de révolution est \(V = \pi\displaystyle\int_0^{30} [r(x)]^2\,dx\). Développer \([r(x)]^2\) en utilisant l'identité \(\cos^2\theta = \dfrac{1 + \cos 2\theta}{2}\).</p>
+  <p>3) Calculer l'intégrale et en déduire le volume du pied en cm³ puis en litres.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(r(0) = 3 - 0{,}5\cos(0) = 3 - 0{,}5 = 2{,}5\) cm.</p>
+    <p>\(r(15) = 3 - 0{,}5\cos(\pi) = 3 + 0{,}5 = 3{,}5\) cm.</p>
+    <p>\(r(30) = 3 - 0{,}5\cos(2\pi) = 2{,}5\) cm.</p>
+    <p>Le pied est plus fin aux extrémités (rayon 2,5 cm) et plus épais au milieu (rayon 3,5 cm), formant un renflement central (profil en « balustre »).</p>
+
+    <p><strong>2)</strong> \([r(x)]^2 = \left(3 - 0{,}5\cos\dfrac{\pi x}{15}\right)^2 = 9 - 3\cos\dfrac{\pi x}{15} + 0{,}25\cos^2\dfrac{\pi x}{15}\)</p>
+    <p>\(= 9 - 3\cos\dfrac{\pi x}{15} + 0{,}25 \times \dfrac{1 + \cos\dfrac{2\pi x}{15}}{2}\)</p>
+    <p>\(= 9 - 3\cos\dfrac{\pi x}{15} + 0{,}125 + 0{,}125\cos\dfrac{2\pi x}{15}\)</p>
+    <p>\(= 9{,}125 - 3\cos\dfrac{\pi x}{15} + 0{,}125\cos\dfrac{2\pi x}{15}\)</p>
+
+    <p><strong>3)</strong> \(\displaystyle\int_0^{30}\left(9{,}125 - 3\cos\dfrac{\pi x}{15} + 0{,}125\cos\dfrac{2\pi x}{15}\right)dx\)</p>
+    <p>\(= \left[9{,}125\,x - 3 \times \dfrac{15}{\pi}\sin\dfrac{\pi x}{15} + 0{,}125 \times \dfrac{15}{2\pi}\sin\dfrac{2\pi x}{15}\right]_0^{30}\)</p>
+    <p>\(= \left[9{,}125 \times 30 - \dfrac{45}{\pi}\sin(2\pi) + \dfrac{0{,}9375}{\pi}\sin(4\pi)\right] - 0\)</p>
+    <p>\(= 273{,}75 - 0 + 0 = 273{,}75\).</p>
+    <p>\(V = \pi \times 273{,}75 \approx 859{,}8\) cm³ \(\approx 0{,}86\) litre.</p>
+  </div>
 </div>
 
 </div>
