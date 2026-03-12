@@ -140,12 +140,6 @@
     .btn-simu-link { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
     .btn-simu-link:hover { background: #16a34a; color: #fff; border-color: transparent; }
 
-    /* Outils — ambre */
-    .card-outils .card-header { background: #fffbeb; border-bottom: 3px solid #d97706; }
-    .card-outils .card-title { color: #b45309; }
-    .btn-outils { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
-    .btn-outils:hover { background: #d97706; color: #fff; border-color: transparent; }
-
     /* Outils élèves — cyan */
     .card-eleve .card-header { background: #ecfeff; border-bottom: 3px solid #0891b2; }
     .card-eleve .card-title { color: #0e7490; }
@@ -364,13 +358,6 @@
     <p class="credit">M. Azzouz &middot; Lycée Eugène Hénaff &middot; Académie de Créteil</p>
   </header>
 
-  <!-- ── Météo bandeau ── -->
-  <div class="meteo-banner" id="meteo-banner">
-    <div class="meteo-banner-inner" id="meteo-container">
-      <span class="meteo-banner-loading">Chargement météo...</span>
-    </div>
-  </div>
-
   <main>
 
     <!-- ── Chapitres en cours ── -->
@@ -497,21 +484,6 @@
           </div>
         </div>
 
-        <div class="card card-outils">
-          <div class="card-header">
-            <span class="card-icon">🛠️</span>
-            <div>
-              <div class="card-title">Outils enseignant</div>
-              <div class="card-desc">Générateurs de documents administratifs</div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="btn-group">
-              <a href="ccf-convocations.html" class="btn btn-outils">Convocations CCF</a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -573,8 +545,16 @@
 
   </main>
 
+  <!-- ── Météo bandeau ── -->
+  <div class="meteo-banner" id="meteo-banner">
+    <div class="meteo-banner-inner" id="meteo-container">
+      <span class="meteo-banner-loading">Chargement météo...</span>
+    </div>
+  </div>
+
   <footer>
     <p>Site pédagogique &mdash; Na&iuml;m Azzouz &mdash; Lycée Eugène Hénaff &mdash; Académie de Créteil</p>
+    <p style="margin-top:8px"><a href="ccf-convocations.html" style="color:#64748b;text-decoration:none;font-size:.75rem">Espace enseignant</a></p>
   </footer>
 
   <script>
