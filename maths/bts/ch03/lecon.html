@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch03 – Fonctions pour le traitement du signal – BTS</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
@@ -12,17 +13,922 @@
 <body>
 <div class="c">
 <a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+
 <header>
-  <h1>Chapitre 03 – Fonctions pour le traitement du signal</h1>
-  <p class="sous-titre">BTS — Groupements B1, B2, B3</p>
+  <h1>Chapitre 3 – Fonctions pour le traitement du signal</h1>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; Groupements B1, B2, B3</p>
+  <p class="maj">Dernière mise à jour : mars 2026</p>
 </header>
 
 <div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+  <strong>Objectifs du chapitre :</strong>
+  <ul>
+    <li>Maîtriser les fonctions trigonométriques et les formules d'addition, de duplication et de linéarisation</li>
+    <li>Décrire et analyser un signal sinusoïdal : amplitude, pulsation, phase, fréquence, période</li>
+    <li>Calculer la valeur efficace d'un signal sinusoïdal par intégration</li>
+    <li>Comprendre la notion de décomposition harmonique (analyse de Fourier, niveau introductif)</li>
+    <li>Étudier les fonctions hyperboliques et leurs propriétés (groupements B2, B3)</li>
+    <li>Analyser un signal amorti de la forme \(f(t) = A\,e^{at}\cos(\omega t + \varphi)\)</li>
+    <li>Appliquer ces outils au courant alternatif, à la puissance électrique et à l'acoustique du bâtiment</li>
+  </ul>
+</div>
+
+<!-- ==================== SITUATION PROFESSIONNELLE ==================== -->
+<h2>Situation professionnelle</h2>
+
+<div class="situation">
+  <h3>Signaux en électrotechnique et en acoustique du bâtiment</h3>
+  <p>Un technicien en électrotechnique mesure à l'oscilloscope la tension d'alimentation d'un moteur industriel. L'écran affiche une courbe périodique sinusoïdale de fréquence 50 Hz. Comment lire l'amplitude, la période et la phase de ce signal ? Comment calculer la valeur efficace utilisée dans les calculs de puissance ?</p>
+  <p>Un ingénieur acousticien étudie la propagation sonore dans une salle de concert dont les murs sont traités par des panneaux absorbants. Le niveau sonore décroît en suivant un signal amorti : l'amplitude diminue exponentiellement après l'arrêt de la source. Quel modèle mathématique décrit ce phénomène ?</p>
+  <p>Un bureau d'études en génie climatique (chauffage, ventilation, climatisation) doit analyser les harmoniques du courant absorbé par un variateur de fréquence. Cette analyse repose sur la décomposition de Fourier d'un signal périodique non sinusoïdal.</p>
+  <p>Tous ces problèmes font appel aux <strong>fonctions trigonométriques</strong>, aux <strong>fonctions exponentielles complexes</strong> et aux outils du <strong>traitement du signal</strong>.</p>
+</div>
+
+<!-- ==================== 1. RAPPELS TRIGONOMÉTRIE ==================== -->
+<h2>1. Fonctions trigonométriques — Rappels et compléments</h2>
+
+<h3>1.1 Définitions sur le cercle trigonométrique</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Cosinus et sinus</span><br>
+  Soit \(M\) le point du <strong>cercle trigonométrique</strong> (cercle de centre \(O\) et de rayon 1) associé à l'angle orienté \(\theta\) (en radians). On définit :
+  \[\cos\theta = \text{abscisse de } M, \qquad \sin\theta = \text{ordonnée de } M\]
+  On a toujours \(\cos^2\theta + \sin^2\theta = 1\) (relation fondamentale de la trigonométrie).
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Tangente</span><br>
+  Pour \(\theta \neq \dfrac{\pi}{2} + k\pi\) (\(k \in \mathbb{Z}\)), on définit :
+  \[\tan\theta = \frac{\sin\theta}{\cos\theta}\]
+</div>
+
+<h3>1.2 Valeurs remarquables</h3>
+
+<div class="retenir">
+  <h3>Valeurs remarquables à connaître</h3>
+  <table>
+    <tr>
+      <th>Angle \(\theta\)</th>
+      <th>\(0\)</th>
+      <th>\(\dfrac{\pi}{6}\)</th>
+      <th>\(\dfrac{\pi}{4}\)</th>
+      <th>\(\dfrac{\pi}{3}\)</th>
+      <th>\(\dfrac{\pi}{2}\)</th>
+      <th>\(\pi\)</th>
+    </tr>
+    <tr>
+      <td>\(\cos\theta\)</td>
+      <td>\(1\)</td>
+      <td>\(\dfrac{\sqrt{3}}{2}\)</td>
+      <td>\(\dfrac{\sqrt{2}}{2}\)</td>
+      <td>\(\dfrac{1}{2}\)</td>
+      <td>\(0\)</td>
+      <td>\(-1\)</td>
+    </tr>
+    <tr>
+      <td>\(\sin\theta\)</td>
+      <td>\(0\)</td>
+      <td>\(\dfrac{1}{2}\)</td>
+      <td>\(\dfrac{\sqrt{2}}{2}\)</td>
+      <td>\(\dfrac{\sqrt{3}}{2}\)</td>
+      <td>\(1\)</td>
+      <td>\(0\)</td>
+    </tr>
+    <tr>
+      <td>\(\tan\theta\)</td>
+      <td>\(0\)</td>
+      <td>\(\dfrac{1}{\sqrt{3}}\)</td>
+      <td>\(1\)</td>
+      <td>\(\sqrt{3}\)</td>
+      <td>non défini</td>
+      <td>\(0\)</td>
+    </tr>
+  </table>
+</div>
+
+<h3>1.3 Formules d'addition</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Formules d'addition</span><br>
+  Pour tous réels \(a\) et \(b\) :
+  \[\cos(a + b) = \cos a \cos b - \sin a \sin b\]
+  \[\cos(a - b) = \cos a \cos b + \sin a \sin b\]
+  \[\sin(a + b) = \sin a \cos b + \cos a \sin b\]
+  \[\sin(a - b) = \sin a \cos b - \cos a \sin b\]
+</div>
+
+<div class="formule-box">
+  <strong>Formules d'addition — à mémoriser</strong>
+  \[\cos(a \pm b) = \cos a \cos b \mp \sin a \sin b\]
+  \[\sin(a \pm b) = \sin a \cos b \pm \cos a \sin b\]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Valeur exacte de \(\cos(75°)\)</span>
+  <p>On écrit \(75° = 45° + 30°\), soit \(\dfrac{5\pi}{12} = \dfrac{\pi}{4} + \dfrac{\pi}{6}\).</p>
+  <p>\(\cos(75°) = \cos 45° \cos 30° - \sin 45° \sin 30°\)</p>
+  <p>\(= \dfrac{\sqrt{2}}{2} \cdot \dfrac{\sqrt{3}}{2} - \dfrac{\sqrt{2}}{2} \cdot \dfrac{1}{2} = \dfrac{\sqrt{6} - \sqrt{2}}{4} \approx 0{,}259\)</p>
+</div>
+
+<h3>1.4 Formules de duplication</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Formules de duplication</span><br>
+  En posant \(b = a\) dans les formules d'addition :
+  \[\cos(2a) = \cos^2 a - \sin^2 a = 2\cos^2 a - 1 = 1 - 2\sin^2 a\]
+  \[\sin(2a) = 2\sin a \cos a\]
+  \[\tan(2a) = \frac{2\tan a}{1 - \tan^2 a} \qquad \text{(si } \tan a \neq \pm 1\text{)}\]
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Les trois expressions de \(\cos(2a)\) sont toutes correctes. Selon le contexte (linéarisation, simplification), on choisit la forme la plus utile :
+  <ul>
+    <li>\(2\cos^2 a - 1\) pour exprimer \(\cos^2 a\) en fonction de \(\cos(2a)\)</li>
+    <li>\(1 - 2\sin^2 a\) pour exprimer \(\sin^2 a\) en fonction de \(\cos(2a)\)</li>
+  </ul>
+</div>
+
+<h3>1.5 Formules de linéarisation</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Linéarisation de \(\cos^2 a\), \(\sin^2 a\) et \(\cos a \sin a\)</span><br>
+  Des formules de duplication, on tire directement :
+  \[\cos^2 a = \frac{1 + \cos(2a)}{2}\]
+  \[\sin^2 a = \frac{1 - \cos(2a)}{2}\]
+  \[\cos a \sin a = \frac{\sin(2a)}{2}\]
+</div>
+
+<div class="formule-box">
+  <strong>Linéarisation — à mémoriser</strong>
+  \[\cos^2 a = \frac{1 + \cos(2a)}{2}, \qquad \sin^2 a = \frac{1 - \cos(2a)}{2}\]
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Linéariser une expression trigonométrique</span><br>
+  <ol>
+    <li>Repérer les puissances ou produits de fonctions trigonométriques.</li>
+    <li>Appliquer les formules de linéarisation pour les remplacer par des sommes de cosinus ou sinus à angle simple ou double.</li>
+    <li>Simplifier l'expression obtenue.</li>
+  </ol>
+  <p>La linéarisation est particulièrement utile pour calculer des intégrales de fonctions trigonométriques ou pour identifier les fréquences présentes dans un signal.</p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Linéarisation de \(\cos^2(\omega t)\)</span>
+  <p>On applique la formule : \(\cos^2(\omega t) = \dfrac{1 + \cos(2\omega t)}{2}\).</p>
+  <p>Ce résultat montre qu'un signal de la forme \(\cos^2(\omega t)\) est composé d'une composante continue (\(\frac{1}{2}\)) et d'une harmonique de fréquence double (\(\frac{1}{2}\cos(2\omega t)\)).</p>
+</div>
+
+<!-- ==================== 2. SIGNAL SINUSOÏDAL ==================== -->
+<h2>2. Signal sinusoïdal — Forme générale</h2>
+
+<h3>2.1 Définition et paramètres</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Signal sinusoïdal</span><br>
+  Un <strong>signal sinusoïdal</strong> est une fonction du temps de la forme :
+  \[\boxed{u(t) = U_m \cos(\omega t + \varphi)}\]
+  où :
+  <ul>
+    <li>\(U_m > 0\) est la <strong>valeur maximale</strong> (ou amplitude) — en volts (V), ampères (A), pascals (Pa)...</li>
+    <li>\(\omega > 0\) est la <strong>pulsation</strong> (ou vitesse angulaire) — en radians par seconde (rad/s)</li>
+    <li>\(\varphi\) est la <strong>phase à l'origine</strong> (ou déphasage initial) — en radians (rad)</li>
+    <li>\(t\) est le temps — en secondes (s)</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Fréquence et période</span><br>
+  Le signal \(u(t) = U_m\cos(\omega t + \varphi)\) est périodique. Sa <strong>période</strong> \(T\) et sa <strong>fréquence</strong> \(f\) sont liées à la pulsation par :
+  \[\boxed{T = \frac{2\pi}{\omega}} \qquad \boxed{f = \frac{1}{T} = \frac{\omega}{2\pi}}\]
+  On a donc : \(\omega = 2\pi f\).
+</div>
+
+<div class="formule-box">
+  <strong>Relations fondamentales signal sinusoïdal</strong>
+  \[u(t) = U_m\cos(\omega t + \varphi), \quad \omega = \frac{2\pi}{T} = 2\pi f, \quad f = \frac{1}{T}\]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Tension du réseau 50 Hz</span>
+  <p>Le réseau électrique français fournit une tension sinusoïdale de fréquence \(f = 50\,\text{Hz}\) et de valeur efficace \(U = 230\,\text{V}\) (valeur efficace, voir §3).</p>
+  <p>La valeur maximale est \(U_m = U\sqrt{2} = 230\sqrt{2} \approx 325\,\text{V}\).</p>
+  <p>La pulsation : \(\omega = 2\pi \times 50 = 100\pi \approx 314{,}2\,\text{rad/s}\).</p>
+  <p>La période : \(T = \dfrac{1}{50} = 0{,}02\,\text{s} = 20\,\text{ms}\).</p>
+  <p>Avec une phase nulle : \(u(t) = 325\cos(100\pi t)\,\text{V}\).</p>
+</div>
+
+<h3>2.2 Interprétation graphique des paramètres</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Lire les paramètres d'un signal sinusoïdal sur un graphe</span><br>
+  <ol>
+    <li><strong>Amplitude \(U_m\)</strong> : demi-écart entre le maximum et le minimum de la courbe (\(U_m = \frac{u_{\max} - u_{\min}}{2}\)).</li>
+    <li><strong>Période \(T\)</strong> : durée d'un cycle complet (entre deux maxima consécutifs, par exemple).</li>
+    <li><strong>Pulsation \(\omega\)</strong> : calculée par \(\omega = \dfrac{2\pi}{T}\).</li>
+    <li><strong>Phase \(\varphi\)</strong> : déterminée par la valeur à l'origine \(u(0) = U_m\cos\varphi\). Si \(u(0) = 0\) et \(u\) est croissant en \(t = 0\), alors \(\varphi = -\pi/2\) (signal en sinus).</li>
+  </ol>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Cosinus ou sinus ?</span><br>
+  Par convention, on utilise ici \(u(t) = U_m\cos(\omega t + \varphi)\). On peut aussi écrire avec le sinus :
+  \[u(t) = U_m\sin(\omega t + \psi) = U_m\cos\!\left(\omega t + \psi - \frac{\pi}{2}\right)\]
+  Les deux formes sont équivalentes. En électrotechnique, la convention cosinus est dominante.
+</div>
+
+<div class="chart-wrap">
+  <h3>Signal sinusoïdal \(u(t) = 325\cos(100\pi t)\) — réseau 50 Hz</h3>
+  <canvas id="chartSinus" height="280"></canvas>
+</div>
+
+<h3>2.3 Déphasage entre deux signaux</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Déphasage</span><br>
+  Soient deux signaux sinusoïdaux de même pulsation \(\omega\) :
+  \[u(t) = U_m\cos(\omega t + \varphi_u), \qquad i(t) = I_m\cos(\omega t + \varphi_i)\]
+  Le <strong>déphasage de \(i\) par rapport à \(u\)</strong> est \(\Delta\varphi = \varphi_i - \varphi_u\).
+  <ul>
+    <li>Si \(\Delta\varphi > 0\) : \(i\) est <strong>en avance</strong> sur \(u\).</li>
+    <li>Si \(\Delta\varphi < 0\) : \(i\) est <strong>en retard</strong> sur \(u\).</li>
+    <li>Si \(\Delta\varphi = 0\) : \(i\) et \(u\) sont <strong>en phase</strong>.</li>
+    <li>Si \(\Delta\varphi = \pm\pi/2\) : les signaux sont <strong>en quadrature</strong>.</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Circuit RL (électrotechnique)</span>
+  <p>Dans un circuit RL alimenté par une tension sinusoïdale, le courant est en retard sur la tension d'un angle \(\varphi = \arctan\!\left(\dfrac{L\omega}{R}\right)\).</p>
+  <p>Pour \(R = 100\,\Omega\), \(L = 0{,}2\,\text{H}\), \(\omega = 100\pi\,\text{rad/s}\) :</p>
+  <p>\(\varphi = \arctan\!\left(\dfrac{0{,}2 \times 100\pi}{100}\right) = \arctan(0{,}2\pi) \approx \arctan(0{,}628) \approx 32°\)</p>
+  <p>Le courant est donc en retard de \(32°\) sur la tension.</p>
+</div>
+
+<!-- ==================== 3. VALEUR EFFICACE ==================== -->
+<h2>3. Valeur efficace d'un signal sinusoïdal</h2>
+
+<h3>3.1 Définition par intégrale</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Valeur efficace</span><br>
+  La <strong>valeur efficace</strong> (ou RMS, <em>Root Mean Square</em>) d'un signal périodique \(u(t)\) de période \(T\) est définie par :
+  \[\boxed{U = \sqrt{\frac{1}{T}\int_0^T u(t)^2\,\mathrm{d}t}}\]
+  C'est la racine carrée de la <strong>moyenne du carré</strong> du signal sur une période.
+</div>
+
+<h3>3.2 Calcul pour un signal sinusoïdal</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Valeur efficace d'un signal sinusoïdal</span><br>
+  Pour \(u(t) = U_m\cos(\omega t + \varphi)\), la valeur efficace est :
+  \[\boxed{U = \frac{U_m}{\sqrt{2}}}\]
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Démonstration par linéarisation</span><br>
+  <p>On calcule :</p>
+  \[U^2 = \frac{1}{T}\int_0^T U_m^2\cos^2(\omega t + \varphi)\,\mathrm{d}t\]
+  <p>On utilise la linéarisation \(\cos^2(\theta) = \dfrac{1 + \cos(2\theta)}{2}\) :</p>
+  \[U^2 = \frac{U_m^2}{T}\int_0^T \frac{1 + \cos(2\omega t + 2\varphi)}{2}\,\mathrm{d}t\]
+  \[= \frac{U_m^2}{2T}\left[\int_0^T \mathrm{d}t + \int_0^T \cos(2\omega t + 2\varphi)\,\mathrm{d}t\right]\]
+  <p>Or l'intégrale d'un cosinus sur une période complète est nulle :</p>
+  \[\int_0^T \cos(2\omega t + 2\varphi)\,\mathrm{d}t = 0\]
+  <p>Donc :</p>
+  \[U^2 = \frac{U_m^2}{2T} \times T = \frac{U_m^2}{2} \quad \Rightarrow \quad U = \frac{U_m}{\sqrt{2}}\]
+</div>
+
+<div class="formule-box">
+  <strong>Valeur efficace — Relation entre valeur maximale et valeur efficace</strong>
+  \[U = \frac{U_m}{\sqrt{2}} \approx 0{,}707\,U_m \qquad \Longleftrightarrow \qquad U_m = U\sqrt{2} \approx 1{,}414\,U\]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Réseau 230 V</span>
+  <p>Le réseau électrique fournit \(U = 230\,\text{V}\) (valeur efficace). La valeur maximale est :</p>
+  <p>\(U_m = 230\sqrt{2} \approx 325\,\text{V}\)</p>
+  <p>Inversement, si on lit \(U_m = 311\,\text{V}\) à l'oscilloscope, la valeur efficace est :</p>
+  <p>\(U = \dfrac{311}{\sqrt{2}} \approx 220\,\text{V}\)</p>
+</div>
+
+<h3>3.3 Valeur moyenne</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Valeur moyenne</span><br>
+  La <strong>valeur moyenne</strong> d'un signal périodique \(u(t)\) de période \(T\) est :
+  \[\langle u \rangle = \frac{1}{T}\int_0^T u(t)\,\mathrm{d}t\]
+  Pour un signal sinusoïdal pur \(u(t) = U_m\cos(\omega t + \varphi)\), la valeur moyenne est <strong>nulle</strong> sur une période entière :
+  \[\langle u \rangle = 0\]
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Valeur moyenne d'un signal redressé</span><br>
+  La valeur moyenne d'un signal sinusoïdal est nulle, mais la valeur moyenne du <strong>signal redressé</strong> \(|u(t)|\) est non nulle :
+  \[\langle |u| \rangle = \frac{2U_m}{\pi} \approx 0{,}637\,U_m\]
+  Ne pas confondre valeur moyenne, valeur efficace et valeur maximale.
+</div>
+
+<h3>3.4 Application — Puissance électrique</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Puissance active en alternatif sinusoïdal</span><br>
+  Dans un circuit monophasé alimenté par \(u(t) = U_m\cos(\omega t)\) et parcouru par \(i(t) = I_m\cos(\omega t - \varphi)\), la <strong>puissance active</strong> (puissance moyenne dissipée) est :
+  \[\boxed{P = U \cdot I \cdot \cos\varphi}\]
+  où \(U\) et \(I\) sont les valeurs efficaces de la tension et du courant, et \(\varphi\) est le déphasage courant/tension.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Moteur électrique (B2 Électrotechnique)</span>
+  <p>Un moteur est alimenté sous \(U = 230\,\text{V}\) (efficace), absorbe un courant \(I = 8\,\text{A}\) (efficace) avec un déphasage \(\varphi = 30°\) (cos\(\varphi = 0{,}866\)).</p>
+  <p>Puissance active : \(P = 230 \times 8 \times 0{,}866 \approx 1\,594\,\text{W} \approx 1{,}6\,\text{kW}\).</p>
+  <p>Puissance apparente : \(S = U \times I = 230 \times 8 = 1\,840\,\text{VA}\).</p>
+  <p>Puissance réactive : \(Q = U \times I \times \sin\varphi = 1\,840 \times 0{,}5 = 920\,\text{VAR}\).</p>
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 1</span>
+  <p class="exo-titre">Analyse d'un signal sinusoïdal</p>
+  <p>Un signal électrique a pour expression \(u(t) = 48\cos(200\pi t - \pi/3)\) (en volts).</p>
+  <p>1) Identifier l'amplitude, la pulsation et la phase à l'origine.</p>
+  <p>2) Calculer la fréquence et la période.</p>
+  <p>3) Calculer la valeur efficace.</p>
+  <p>4) Calculer \(u(0)\) et \(u\!\left(\dfrac{1}{200}\right)\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(U_m = 48\,\text{V}\), \(\omega = 200\pi\,\text{rad/s}\), \(\varphi = -\pi/3\,\text{rad}\).</p>
+    <p><strong>2)</strong> \(f = \dfrac{\omega}{2\pi} = \dfrac{200\pi}{2\pi} = 100\,\text{Hz}\) ; \(T = \dfrac{1}{f} = \dfrac{1}{100} = 10\,\text{ms}\).</p>
+    <p><strong>3)</strong> \(U = \dfrac{U_m}{\sqrt{2}} = \dfrac{48}{\sqrt{2}} = 24\sqrt{2} \approx 33{,}9\,\text{V}\).</p>
+    <p><strong>4)</strong> \(u(0) = 48\cos(-\pi/3) = 48 \times \dfrac{1}{2} = 24\,\text{V}\).</p>
+    <p>\(u\!\left(\dfrac{1}{200}\right) = 48\cos\!\left(200\pi \times \dfrac{1}{200} - \dfrac{\pi}{3}\right) = 48\cos\!\left(\pi - \dfrac{\pi}{3}\right) = 48\cos\!\left(\dfrac{2\pi}{3}\right) = 48 \times \left(-\dfrac{1}{2}\right) = -24\,\text{V}\).</p>
+  </div>
+</div>
+
+<!-- ==================== 4. DÉCOMPOSITION DE FOURIER ==================== -->
+<h2>4. Décomposition harmonique — Introduction à l'analyse de Fourier</h2>
+
+<h3>4.1 Idée générale</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Décomposition en série de Fourier</span><br>
+  Tout signal <strong>périodique</strong> de période \(T\), sous des conditions techniques assez peu restrictives (théorème de Dirichlet), peut être décomposé en une somme (éventuellement infinie) de sinusoïdes :
+  \[f(t) = a_0 + \sum_{n=1}^{+\infty}\left[a_n\cos(n\omega_0 t) + b_n\sin(n\omega_0 t)\right]\]
+  où \(\omega_0 = \dfrac{2\pi}{T}\) est la <strong>pulsation fondamentale</strong>.
+  <ul>
+    <li>\(a_0\) : composante continue (valeur moyenne)</li>
+    <li>Pour \(n = 1\) : <strong>fondamental</strong> (fréquence \(f_0 = 1/T\))</li>
+    <li>Pour \(n \geq 2\) : <strong>harmoniques de rang \(n\)</strong> (fréquences multiples de \(f_0\))</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Coefficients de Fourier</span><br>
+  Les coefficients sont calculés par intégration sur une période :
+  \[a_0 = \frac{1}{T}\int_0^T f(t)\,\mathrm{d}t\]
+  \[a_n = \frac{2}{T}\int_0^T f(t)\cos(n\omega_0 t)\,\mathrm{d}t\]
+  \[b_n = \frac{2}{T}\int_0^T f(t)\sin(n\omega_0 t)\,\mathrm{d}t\]
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Niveau BTS</span><br>
+  Au niveau BTS, on ne calcule généralement pas les coefficients de Fourier (c'est un niveau licence). Ce qui est attendu :
+  <ul>
+    <li>Comprendre qu'un signal périodique non sinusoïdal contient plusieurs harmoniques</li>
+    <li>Interpréter un spectre de fréquences fourni</li>
+    <li>Savoir que les harmoniques peuvent perturber des équipements électriques (perturbations harmoniques en électrotechnique)</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h3>Application — Harmoniques en électrotechnique (B2)</h3>
+  <p>Un variateur de fréquence industriel absorbe un courant dont la forme d'onde n'est pas sinusoïdale mais ressemble à une série d'impulsions. En réalité, ce courant est composé du fondamental (50 Hz) et d'harmoniques (150 Hz, 250 Hz, 350 Hz...). Ces harmoniques peuvent perturber d'autres appareils sur le même réseau.</p>
+  <p>Un ingénieur peut représenter le <strong>spectre harmonique</strong> du courant : un diagramme en barres donnant l'amplitude de chaque harmonique en fonction de sa fréquence. On cherche à vérifier que les harmoniques respectent les normes en vigueur (CEI 61000).</p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Signal créneau (onde carrée)</span>
+  <p>Un signal créneau d'amplitude \(A\) et de période \(T\) a pour décomposition de Fourier :</p>
+  \[f(t) = \frac{4A}{\pi}\left[\sin(\omega_0 t) + \frac{1}{3}\sin(3\omega_0 t) + \frac{1}{5}\sin(5\omega_0 t) + \cdots\right]\]
+  \[= \frac{4A}{\pi}\sum_{k=0}^{+\infty}\frac{\sin\!\left((2k+1)\omega_0 t\right)}{2k+1}\]
+  <p>Ce signal ne contient que les harmoniques impaires. L'amplitude de l'harmonique de rang \(n\) est \(\dfrac{4A}{n\pi}\) (décroissante en \(1/n\)).</p>
+</div>
+
+<!-- ==================== 5. FONCTIONS HYPERBOLIQUES ==================== -->
+<h2>5. Fonctions hyperboliques (groupements B2, B3)</h2>
+
+<h3>5.1 Définitions</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Cosinus hyperbolique et sinus hyperbolique</span><br>
+  Pour tout réel \(x\), on définit :
+  \[\cosh x = \frac{e^x + e^{-x}}{2}\]
+  \[\sinh x = \frac{e^x - e^{-x}}{2}\]
+  \[\tanh x = \frac{\sinh x}{\cosh x} = \frac{e^x - e^{-x}}{e^x + e^{-x}}\]
+  <p><em>Mémoire :</em> \(\cosh\) est une moyenne des exponentielles (\(e^x\) et \(e^{-x}\)) ; \(\sinh\) est leur demi-différence.</p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Relation fondamentale</span><br>
+  Pour tout réel \(x\) :
+  \[\boxed{\cosh^2 x - \sinh^2 x = 1}\]
+  <em>Démonstration :</em>
+  \[\cosh^2 x - \sinh^2 x = \left(\frac{e^x + e^{-x}}{2}\right)^2 - \left(\frac{e^x - e^{-x}}{2}\right)^2 = \frac{(e^{2x} + 2 + e^{-2x}) - (e^{2x} - 2 + e^{-2x})}{4} = \frac{4}{4} = 1\]
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Analogie avec les fonctions circulaires</span><br>
+  On rapproche souvent les fonctions hyperboliques des fonctions trigonométriques :
+  <ul>
+    <li>Trigo : \(\cos^2\theta + \sin^2\theta = 1\) &nbsp;; &nbsp; Hyperbolique : \(\cosh^2 x - \sinh^2 x = 1\)</li>
+    <li>Le signe change (soustraction au lieu d'addition) !</li>
+  </ul>
+</div>
+
+<h3>5.2 Parité et variations</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Parité des fonctions hyperboliques</span><br>
+  <ul>
+    <li>\(\cosh\) est une fonction <strong>paire</strong> : \(\cosh(-x) = \cosh(x)\)</li>
+    <li>\(\sinh\) est une fonction <strong>impaire</strong> : \(\sinh(-x) = -\sinh(x)\)</li>
+    <li>\(\tanh\) est une fonction <strong>impaire</strong> : \(\tanh(-x) = -\tanh(x)\)</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Dérivées des fonctions hyperboliques</span><br>
+  \[\frac{\mathrm{d}}{\mathrm{d}x}\cosh x = \sinh x\]
+  \[\frac{\mathrm{d}}{\mathrm{d}x}\sinh x = \cosh x\]
+  \[\frac{\mathrm{d}}{\mathrm{d}x}\tanh x = \frac{1}{\cosh^2 x} = 1 - \tanh^2 x\]
+</div>
+
+<div class="formule-box">
+  <strong>Dérivées des fonctions hyperboliques</strong>
+  \[(\cosh x)' = \sinh x \qquad (\sinh x)' = \cosh x \qquad (\tanh x)' = \frac{1}{\cosh^2 x}\]
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Formules d'addition hyperboliques</span><br>
+  \[\cosh(a + b) = \cosh a \cosh b + \sinh a \sinh b\]
+  \[\sinh(a + b) = \sinh a \cosh b + \cosh a \sinh b\]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Application à la chaînette (B1 Bâtiment)</span>
+  <p>Le profil d'un câble suspendu entre deux points (câble d'une ligne électrique, arche d'un pont) suit une <strong>chaînette</strong>, dont l'équation est :</p>
+  \[y = a\cosh\!\left(\frac{x}{a}\right)\]
+  <p>où \(a\) est un paramètre dépendant de la tension et de la densité linéique du câble.</p>
+  <p>Pour \(a = 10\,\text{m}\) et \(x = 5\,\text{m}\) : \(y = 10\cosh(0{,}5) = 10 \times \dfrac{e^{0{,}5} + e^{-0{,}5}}{2} \approx 10 \times 1{,}1276 \approx 11{,}3\,\text{m}\).</p>
+</div>
+
+<h3>5.3 Tableau de valeurs remarquables</h3>
+
+<div class="retenir">
+  <h3>Valeurs remarquables des fonctions hyperboliques</h3>
+  <table>
+    <tr>
+      <th>\(x\)</th>
+      <th>\(\cosh x\)</th>
+      <th>\(\sinh x\)</th>
+      <th>\(\tanh x\)</th>
+    </tr>
+    <tr><td>\(0\)</td><td>\(1\)</td><td>\(0\)</td><td>\(0\)</td></tr>
+    <tr><td>\(1\)</td><td>\(\approx 1{,}543\)</td><td>\(\approx 1{,}175\)</td><td>\(\approx 0{,}762\)</td></tr>
+    <tr><td>\(2\)</td><td>\(\approx 3{,}762\)</td><td>\(\approx 3{,}627\)</td><td>\(\approx 0{,}964\)</td></tr>
+    <tr><td>\(+\infty\)</td><td>\(+\infty\)</td><td>\(+\infty\)</td><td>\(1\)</td></tr>
+  </table>
+  <p>Remarque : \(\tanh x \to 1\) quand \(x \to +\infty\) (la tangente hyperbolique est bornée entre \(-1\) et \(1\)).</p>
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 2</span>
+  <p class="exo-titre">Calculs avec les fonctions hyperboliques</p>
+  <p>1) Calculer \(\cosh(0)\), \(\sinh(0)\) et \(\tanh(0)\) à partir des définitions.</p>
+  <p>2) Vérifier la relation \(\cosh^2(1) - \sinh^2(1) = 1\) numériquement (utiliser \(e \approx 2{,}718\)).</p>
+  <p>3) Montrer que \(\cosh(x) + \sinh(x) = e^x\) et que \(\cosh(x) - \sinh(x) = e^{-x}\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(\cosh(0) = \dfrac{e^0 + e^0}{2} = \dfrac{1 + 1}{2} = 1\) ; \(\sinh(0) = \dfrac{e^0 - e^0}{2} = 0\) ; \(\tanh(0) = \dfrac{0}{1} = 0\).</p>
+    <p><strong>2)</strong> \(e^1 \approx 2{,}718\), \(e^{-1} \approx 0{,}368\).</p>
+    <p>\(\cosh(1) \approx \dfrac{2{,}718 + 0{,}368}{2} \approx 1{,}543\) ; \(\sinh(1) \approx \dfrac{2{,}718 - 0{,}368}{2} \approx 1{,}175\).</p>
+    <p>\(\cosh^2(1) - \sinh^2(1) \approx 1{,}543^2 - 1{,}175^2 \approx 2{,}381 - 1{,}381 = 1{,}000\). ✓</p>
+    <p><strong>3)</strong> \(\cosh x + \sinh x = \dfrac{e^x + e^{-x}}{2} + \dfrac{e^x - e^{-x}}{2} = \dfrac{2e^x}{2} = e^x\). ✓</p>
+    <p>\(\cosh x - \sinh x = \dfrac{e^x + e^{-x}}{2} - \dfrac{e^x - e^{-x}}{2} = \dfrac{2e^{-x}}{2} = e^{-x}\). ✓</p>
+  </div>
+</div>
+
+<!-- ==================== 6. SIGNAL AMORTI ==================== -->
+<h2>6. Signal sinusoïdal amorti</h2>
+
+<h3>6.1 Définition et interprétation physique</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Signal sinusoïdal amorti</span><br>
+  Un <strong>signal sinusoïdal amorti</strong> est une fonction de la forme :
+  \[\boxed{f(t) = A\,e^{at}\cos(\omega t + \varphi)}\]
+  où :
+  <ul>
+    <li>\(A > 0\) : amplitude initiale</li>
+    <li>\(a < 0\) : coefficient d'amortissement (en s\(^{-1}\)) — négatif pour que le signal s'atténue</li>
+    <li>\(\omega > 0\) : pulsation propre amortie (en rad/s)</li>
+    <li>\(\varphi\) : phase initiale (en rad)</li>
+  </ul>
+  L'enveloppe du signal est \(A\,e^{at}\), qui décroît exponentiellement vers 0 quand \(t \to +\infty\) (si \(a < 0\)).
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Comportement asymptotique</span><br>
+  Si \(a < 0\), alors \(e^{at} \to 0\) quand \(t \to +\infty\), donc :
+  \[\lim_{t \to +\infty} A\,e^{at}\cos(\omega t + \varphi) = 0\]
+  Le signal <strong>s'amortit et s'éteint</strong> asymptotiquement. Le temps caractéristique d'amortissement est \(\tau = -\dfrac{1}{a} > 0\).
+</div>
+
+<div class="formule-box">
+  <strong>Temps caractéristique d'amortissement</strong>
+  \[\tau = -\frac{1}{a} = \frac{1}{|a|}\]
+  Au bout de \(t = \tau\), l'amplitude est réduite à \(A/e \approx 0{,}368\,A\).
+</div>
+
+<h3>6.2 Exemples physiques</h3>
+
+<div class="situation">
+  <h3>Réponse d'un circuit RLC en électrotechnique (B2)</h3>
+  <p>Un circuit RLC série (résistance \(R\), inductance \(L\), condensateur \(C\)) soumis à un échelon de tension produit une tension oscillante amortie :</p>
+  \[u_C(t) = E\left[1 - e^{-\alpha t}\!\left(\cos(\omega_d t) + \frac{\alpha}{\omega_d}\sin(\omega_d t)\right)\right]\]
+  <p>où \(\alpha = R/(2L)\) est le coefficient d'amortissement et \(\omega_d = \sqrt{1/(LC) - \alpha^2}\) est la pulsation propre amortie. Ce comportement est typique d'un circuit sous-amorti (\(\alpha < \omega_0\)).</p>
+</div>
+
+<div class="situation">
+  <h3>Réverbération sonore en acoustique du bâtiment (B1)</h3>
+  <p>Lorsqu'une source sonore cesse d'émettre dans une salle, le son se réverbère et s'atténue. Le niveau sonore, après arrêt de la source, peut être modélisé localement par un signal amorti. Le <strong>temps de réverbération T60</strong> est le temps nécessaire pour que le niveau sonore chute de 60 dB. Il est lié au coefficient d'absorption des parois (formule de Sabine). Des panneaux acoustiques absorbants réduisent T60 et améliorent l'intelligibilité de la parole.</p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Circuit RLC sous-amorti</span>
+  <p>Un circuit RLC a les paramètres suivants : \(R = 20\,\Omega\), \(L = 10\,\text{mH}\), \(C = 10\,\mu\text{F}\).</p>
+  <p>Pulsation propre : \(\omega_0 = \dfrac{1}{\sqrt{LC}} = \dfrac{1}{\sqrt{10^{-2} \times 10^{-5}}} = \dfrac{1}{\sqrt{10^{-7}}} = \dfrac{1}{10^{-3{,}5}} \approx 3162\,\text{rad/s}\).</p>
+  <p>Coefficient d'amortissement : \(\alpha = \dfrac{R}{2L} = \dfrac{20}{2 \times 10^{-2}} = 1000\,\text{s}^{-1}\).</p>
+  <p>Temps caractéristique : \(\tau = 1/\alpha = 1\,\text{ms}\).</p>
+  <p>Pulsation amortie : \(\omega_d = \sqrt{\omega_0^2 - \alpha^2} = \sqrt{3162^2 - 1000^2} \approx 3000\,\text{rad/s}\).</p>
+  <p>La tension oscillante amortie a pour expression approximative : \(u(t) \approx E\,e^{-1000\,t}\cos(3000\,t)\).</p>
+</div>
+
+<div class="chart-wrap">
+  <h3>Signal amorti \(f(t) = e^{-t}\cos(5t)\) — enveloppe \(\pm e^{-t}\)</h3>
+  <canvas id="chartAmorti" height="280"></canvas>
+</div>
+
+<h3>6.3 Dérivée d'un signal amorti</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Dérivée de \(f(t) = A\,e^{at}\cos(\omega t + \varphi)\)</span><br>
+  Par la règle du produit (\((uv)' = u'v + uv'\)) :
+  \[f'(t) = A\,a\,e^{at}\cos(\omega t + \varphi) - A\,\omega\,e^{at}\sin(\omega t + \varphi)\]
+  \[= A\,e^{at}\left[a\cos(\omega t + \varphi) - \omega\sin(\omega t + \varphi)\right]\]
+  On peut mettre sous forme \(A\,e^{at}\,R\cos(\omega t + \varphi + \psi)\) avec :
+  \[R = \sqrt{a^2 + \omega^2}, \qquad \tan\psi = \frac{\omega}{-a} = \frac{\omega}{|a|}\]
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 3</span>
+  <p class="exo-titre">Signal amorti — Paramètres et dérivée</p>
+  <p>On donne \(f(t) = 5\,e^{-2t}\cos(3t)\) pour \(t \geq 0\).</p>
+  <p>1) Identifier \(A\), \(a\), \(\omega\) et \(\varphi\). Calculer le temps caractéristique \(\tau\).</p>
+  <p>2) Calculer \(f(0)\), \(f(\tau)\) et \(\displaystyle\lim_{t \to +\infty} f(t)\).</p>
+  <p>3) Calculer \(f'(t)\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(A = 5\), \(a = -2\,\text{s}^{-1}\), \(\omega = 3\,\text{rad/s}\), \(\varphi = 0\). Temps caractéristique : \(\tau = 1/|a| = 0{,}5\,\text{s}\).</p>
+    <p><strong>2)</strong> \(f(0) = 5\,e^0\cos(0) = 5\).</p>
+    <p>\(f(\tau) = f(0{,}5) = 5\,e^{-1}\cos(1{,}5) \approx 5 \times 0{,}368 \times 0{,}0707 \approx 0{,}13\).</p>
+    <p>Comme \(a = -2 < 0\), \(e^{-2t} \to 0\) et \(|\cos(3t)| \leq 1\), donc \(\displaystyle\lim_{t \to +\infty} f(t) = 0\).</p>
+    <p><strong>3)</strong> \(f'(t) = 5\,e^{-2t}\left[(-2)\cos(3t) - 3\sin(3t)\right] = 5\,e^{-2t}\left[-2\cos(3t) - 3\sin(3t)\right]\).</p>
+    <p>Mise en forme : \(R = \sqrt{4 + 9} = \sqrt{13}\), \(f'(t) = -5\sqrt{13}\,e^{-2t}\cos\!\left(3t - \arctan\!\left(\dfrac{3}{2}\right)\right)\).</p>
+  </div>
+</div>
+
+<!-- ==================== 7. FORME A cos(ωt + φ) — SYNTHÈSE ==================== -->
+<h2>7. Écriture canonique \(A\cos(\omega t + \varphi)\) — Synthèse</h2>
+
+<h3>7.1 Somme de deux sinusoïdes de même pulsation</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Somme de deux signaux sinusoïdaux de même pulsation</span><br>
+  La somme de deux signaux sinusoïdaux de <strong>même pulsation</strong> \(\omega\) est un signal sinusoïdal de même pulsation :
+  \[a\cos(\omega t) + b\sin(\omega t) = R\cos(\omega t - \psi)\]
+  avec \(R = \sqrt{a^2 + b^2}\) et \(\tan\psi = \dfrac{b}{a}\).
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Mettre sous la forme \(R\cos(\omega t + \varphi)\)</span><br>
+  Pour transformer \(A\cos(\omega t) + B\cos(\omega t + \alpha)\) en \(R\cos(\omega t + \varphi)\) :
+  <ol>
+    <li>Développer \(B\cos(\omega t + \alpha) = B\cos\alpha\cos(\omega t) - B\sin\alpha\sin(\omega t)\).</li>
+    <li>Regrouper les termes en \(\cos(\omega t)\) et en \(\sin(\omega t)\) :
+      \[(A + B\cos\alpha)\cos(\omega t) + (-B\sin\alpha)\sin(\omega t)\]</li>
+    <li>Identifier \(a = A + B\cos\alpha\) et \(b = -B\sin\alpha\).</li>
+    <li>Calculer \(R = \sqrt{a^2 + b^2}\) et \(\tan\varphi = -b/a\) (attention aux quadrants).</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Superposition de deux tensions</span>
+  <p>On additionne \(u_1(t) = 10\cos(100\pi t)\) et \(u_2(t) = 10\cos\!\left(100\pi t + \dfrac{\pi}{3}\right)\).</p>
+  <p>Développement : \(u_2 = 10\left(\cos\dfrac{\pi}{3}\cos(100\pi t) - \sin\dfrac{\pi}{3}\sin(100\pi t)\right) = 5\cos(100\pi t) - 5\sqrt{3}\sin(100\pi t)\).</p>
+  <p>Somme : \(u = u_1 + u_2 = (10 + 5)\cos(100\pi t) - 5\sqrt{3}\sin(100\pi t) = 15\cos(100\pi t) - 5\sqrt{3}\sin(100\pi t)\).</p>
+  <p>Amplitude : \(R = \sqrt{15^2 + (5\sqrt{3})^2} = \sqrt{225 + 75} = \sqrt{300} = 10\sqrt{3} \approx 17{,}3\).</p>
+  <p>Phase : \(\tan\varphi = \dfrac{5\sqrt{3}}{15} = \dfrac{\sqrt{3}}{3} = \dfrac{1}{\sqrt{3}}\), donc \(\varphi = \dfrac{\pi}{6}\) (premier quadrant, \(a > 0\), \(b < 0\)).</p>
+  <p>Résultat : \(u(t) = 10\sqrt{3}\cos\!\left(100\pi t - \dfrac{\pi}{6}\right)\,\text{V}\).</p>
+</div>
+
+<h3>7.2 Phaseurs et représentation de Fresnel</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Représentation de Fresnel (phaseur)</span><br>
+  Un signal sinusoïdal \(u(t) = U_m\cos(\omega t + \varphi)\) est représenté dans le plan complexe par un <strong>phaseur</strong> (vecteur tournant) :
+  \[\underline{U} = U_m\,e^{j\varphi} = U_m(\cos\varphi + j\sin\varphi)\]
+  La partie réelle de \(\underline{U}\,e^{j\omega t}\) redonne le signal temporel :
+  \[u(t) = \mathrm{Re}\!\left[\underline{U}\,e^{j\omega t}\right] = U_m\cos(\omega t + \varphi)\]
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Addition de phaseurs</span><br>
+  Additionner deux signaux sinusoïdaux de même pulsation revient à additionner leurs phaseurs :
+  \[\underline{U}_{12} = \underline{U}_1 + \underline{U}_2\]
+  L'amplitude résultante est \(|\underline{U}_{12}|\) et la phase est \(\arg(\underline{U}_{12})\).
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Phaseurs et fréquences différentes</span><br>
+  La représentation par phaseurs n'est valable que pour des signaux de <strong>même fréquence</strong>. On ne peut pas additionner les phaseurs de deux signaux de fréquences différentes.
+</div>
+
+<!-- ==================== 8. APPLICATIONS ==================== -->
+<h2>8. Applications — Signal électrique et acoustique</h2>
+
+<h3>8.1 Courant alternatif 50 Hz — Récapitulatif</h3>
+
+<div class="retenir">
+  <h3>Caractéristiques du réseau électrique monophasé 230 V / 50 Hz</h3>
+  <table>
+    <tr><th>Grandeur</th><th>Symbole</th><th>Valeur</th><th>Formule</th></tr>
+    <tr><td>Fréquence</td><td>\(f\)</td><td>\(50\,\text{Hz}\)</td><td>—</td></tr>
+    <tr><td>Période</td><td>\(T\)</td><td>\(20\,\text{ms}\)</td><td>\(T = 1/f\)</td></tr>
+    <tr><td>Pulsation</td><td>\(\omega\)</td><td>\(100\pi \approx 314\,\text{rad/s}\)</td><td>\(\omega = 2\pi f\)</td></tr>
+    <tr><td>Valeur efficace</td><td>\(U\)</td><td>\(230\,\text{V}\)</td><td>norme européenne</td></tr>
+    <tr><td>Valeur maximale</td><td>\(U_m\)</td><td>\(\approx 325\,\text{V}\)</td><td>\(U_m = U\sqrt{2}\)</td></tr>
+    <tr><td>Expression</td><td>\(u(t)\)</td><td>\(325\cos(100\pi t)\,\text{V}\)</td><td>(phase nulle)</td></tr>
+  </table>
+</div>
+
+<h3>8.2 Calcul de puissance — Synthèse</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Triangle des puissances</span><br>
+  En régime alternatif sinusoïdal, on définit :
+  <ul>
+    <li><strong>Puissance apparente</strong> : \(S = U \cdot I\) (en VA)</li>
+    <li><strong>Puissance active</strong> : \(P = U \cdot I \cdot \cos\varphi\) (en W) — puissance réellement consommée</li>
+    <li><strong>Puissance réactive</strong> : \(Q = U \cdot I \cdot \sin\varphi\) (en VAR)</li>
+    <li>Relation : \(S^2 = P^2 + Q^2\)</li>
+    <li>Facteur de puissance : \(\cos\varphi = P/S\)</li>
+  </ul>
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 4</span>
+  <p class="exo-titre">Calcul de puissance — Installation électrique industrielle (B2)</p>
+  <p>Un atelier de menuiserie est alimenté sous 230 V (efficace). Il comporte un moteur de raboteuse qui absorbe 12 A avec un facteur de puissance \(\cos\varphi = 0{,}8\).</p>
+  <p>1) Calculer les puissances apparente, active et réactive du moteur.</p>
+  <p>2) Calculer le déphasage \(\varphi\) en degrés.</p>
+  <p>3) Pour améliorer le facteur de puissance à \(\cos\varphi' = 0{,}95\), quelle puissance réactive \(Q_C\) doit fournir le condensateur de compensation ?</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong></p>
+    <p>Puissance apparente : \(S = U \times I = 230 \times 12 = 2\,760\,\text{VA}\).</p>
+    <p>Puissance active : \(P = S \times \cos\varphi = 2\,760 \times 0{,}8 = 2\,208\,\text{W}\).</p>
+    <p>Puissance réactive : \(Q = S \times \sin\varphi = 2\,760 \times 0{,}6 = 1\,656\,\text{VAR}\) (en utilisant \(\sin\varphi = \sqrt{1 - 0{,}64} = 0{,}6\)).</p>
+    <p><strong>2)</strong> \(\varphi = \arccos(0{,}8) \approx 36{,}9°\).</p>
+    <p><strong>3)</strong> Après compensation, le déphasage devient \(\varphi' = \arccos(0{,}95) \approx 18{,}2°\).</p>
+    <p>La puissance réactive résiduelle est \(Q' = P \times \tan\varphi' = 2\,208 \times \tan(18{,}2°) \approx 2\,208 \times 0{,}329 \approx 726\,\text{VAR}\).</p>
+    <p>Le condensateur doit fournir : \(Q_C = Q - Q' = 1\,656 - 726 = 930\,\text{VAR}\).</p>
+  </div>
+</div>
+
+<h3>8.3 Signal acoustique — Niveau sonore</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Niveau sonore en décibels</span><br>
+  Le <strong>niveau sonore</strong> (ou niveau de pression acoustique) est défini par :
+  \[L = 10\log_{10}\!\left(\frac{P}{P_0}\right)\,\text{dB}\]
+  où \(P\) est la pression acoustique efficace et \(P_0 = 20\,\mu\text{Pa}\) est le seuil d'audibilité de référence.
+  <p>On utilise aussi le niveau en intensité : \(L_I = 10\log_{10}\!\left(\dfrac{I}{I_0}\right)\) avec \(I_0 = 10^{-12}\,\text{W/m}^2\).</p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Acoustique d'une salle (B1 Bâtiment)</span>
+  <p>Une salle de réunion présente un niveau sonore de 65 dB lors d'une conversation. Après installation de panneaux acoustiques absorbants, le niveau chute à 55 dB. De quel facteur l'intensité sonore a-t-elle diminué ?</p>
+  <p>Différence : \(\Delta L = 65 - 55 = 10\,\text{dB}\).</p>
+  <p>\(10 = 10\log_{10}\!\left(\dfrac{I_1}{I_2}\right) \Rightarrow \log_{10}\!\left(\dfrac{I_1}{I_2}\right) = 1 \Rightarrow \dfrac{I_1}{I_2} = 10\).</p>
+  <p>L'intensité sonore a été divisée par <strong>10</strong>. Une réduction de 10 dB correspond toujours à un facteur 10 sur l'intensité.</p>
+</div>
+
+<h3>8.4 Systèmes photoniques — Modulation (B3)</h3>
+
+<div class="situation">
+  <h3>Modulation d'amplitude en optique (B3 Systèmes photoniques)</h3>
+  <p>En systèmes photoniques, la modulation d'amplitude d'un signal lumineux consiste à faire varier l'intensité d'un faisceau laser en fonction d'un signal informatif \(m(t)\). Un modulateur acousto-optique ou électro-optique produit un signal modulé :</p>
+  \[s(t) = A\left[1 + m\cdot m(t)\right]\cos(\omega_c t)\]
+  <p>où \(\omega_c\) est la pulsation de la porteuse optique et \(m\) est l'indice de modulation. Si \(m(t) = \cos(\omega_m t)\) (signal sinusoïdal), le spectre du signal modulé fait apparaître trois raies : la porteuse à \(f_c\) et deux raies latérales à \(f_c \pm f_m\). Ce mécanisme est identique à la modulation AM (amplitude modulation) en radio.</p>
+</div>
+
+<!-- ==================== RÉSUMÉ ==================== -->
+<hr class="sep">
+
+<div class="retenir">
+  <h3>L'essentiel du chapitre</h3>
+  <div class="grid2">
+    <div>
+      <p><strong>Fonctions trigonométriques</strong></p>
+      <ul>
+        <li>\(\cos(a \pm b) = \cos a\cos b \mp \sin a\sin b\)</li>
+        <li>\(\sin(a \pm b) = \sin a\cos b \pm \cos a\sin b\)</li>
+        <li>\(\cos(2a) = 2\cos^2 a - 1 = 1 - 2\sin^2 a\)</li>
+        <li>\(\cos^2 a = \dfrac{1 + \cos 2a}{2}\), \(\sin^2 a = \dfrac{1 - \cos 2a}{2}\)</li>
+      </ul>
+      <p><strong>Signal sinusoïdal</strong></p>
+      <ul>
+        <li>\(u(t) = U_m\cos(\omega t + \varphi)\)</li>
+        <li>\(\omega = 2\pi f = 2\pi/T\)</li>
+        <li>Valeur efficace : \(U = U_m/\sqrt{2}\)</li>
+        <li>Puissance active : \(P = UI\cos\varphi\)</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Fonctions hyperboliques</strong> (B2, B3)</p>
+      <ul>
+        <li>\(\cosh x = \dfrac{e^x + e^{-x}}{2}\), \(\sinh x = \dfrac{e^x - e^{-x}}{2}\)</li>
+        <li>\(\cosh^2 x - \sinh^2 x = 1\)</li>
+        <li>\((\cosh x)' = \sinh x\), \((\sinh x)' = \cosh x\)</li>
+      </ul>
+      <p><strong>Signal amorti</strong></p>
+      <ul>
+        <li>\(f(t) = A\,e^{at}\cos(\omega t + \varphi)\), \(a < 0\)</li>
+        <li>Temps caractéristique : \(\tau = 1/|a|\)</li>
+        <li>\(f'(t) = A\,e^{at}\left[a\cos(\omega t + \varphi) - \omega\sin(\omega t + \varphi)\right]\)</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 </div>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+// Graphique signal sinusoïdal réseau 50 Hz
+(function(){
+  const labels = [];
+  const dataSinus = [];
+  const dataZero = [];
+  const Um = 325;
+  const omega = 100 * Math.PI;
+  const steps = 200;
+  const tMax = 0.04; // 2 périodes
+  for (let i = 0; i <= steps; i++) {
+    const t = (i / steps) * tMax;
+    labels.push((t * 1000).toFixed(2)); // ms
+    dataSinus.push(+(Um * Math.cos(omega * t)).toFixed(1));
+    dataZero.push(0);
+  }
+  new Chart(document.getElementById('chartSinus'), {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'u(t) = 325 cos(100πt) (V)',
+          data: dataSinus,
+          borderColor: '#1e3a5f',
+          backgroundColor: 'rgba(30,58,95,0.08)',
+          fill: true,
+          tension: 0.4,
+          pointRadius: 0,
+          borderWidth: 2
+        },
+        {
+          label: 'Valeur efficace U = 230 V',
+          data: Array(steps + 1).fill(230),
+          borderColor: '#e85d04',
+          borderDash: [8, 4],
+          backgroundColor: 'transparent',
+          pointRadius: 0,
+          borderWidth: 1.5
+        },
+        {
+          label: '−U = −230 V',
+          data: Array(steps + 1).fill(-230),
+          borderColor: '#e85d04',
+          borderDash: [8, 4],
+          backgroundColor: 'transparent',
+          pointRadius: 0,
+          borderWidth: 1.5
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: true, position: 'top' },
+        tooltip: { mode: 'index', intersect: false }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Temps (ms)' },
+          ticks: {
+            maxTicksLimit: 10,
+            callback: function(val, index) {
+              return index % 20 === 0 ? this.getLabelForValue(val) : '';
+            }
+          }
+        },
+        y: { title: { display: true, text: 'Tension (V)' }, min: -360, max: 360 }
+      }
+    }
+  });
+})();
+
+// Graphique signal amorti
+(function(){
+  const labels = [];
+  const dataSignal = [];
+  const dataEnvPos = [];
+  const dataEnvNeg = [];
+  const steps = 400;
+  const tMax = 4;
+  for (let i = 0; i <= steps; i++) {
+    const t = (i / steps) * tMax;
+    labels.push(t.toFixed(2));
+    const env = Math.exp(-t);
+    dataSignal.push(+(env * Math.cos(5 * t)).toFixed(4));
+    dataEnvPos.push(+env.toFixed(4));
+    dataEnvNeg.push(+(-env).toFixed(4));
+  }
+  new Chart(document.getElementById('chartAmorti'), {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'f(t) = e⁻ᵗ cos(5t)',
+          data: dataSignal,
+          borderColor: '#1e3a5f',
+          backgroundColor: 'transparent',
+          tension: 0,
+          pointRadius: 0,
+          borderWidth: 2
+        },
+        {
+          label: 'Enveloppe +e⁻ᵗ',
+          data: dataEnvPos,
+          borderColor: '#dc2626',
+          borderDash: [6, 4],
+          backgroundColor: 'transparent',
+          pointRadius: 0,
+          borderWidth: 1.5
+        },
+        {
+          label: 'Enveloppe −e⁻ᵗ',
+          data: dataEnvNeg,
+          borderColor: '#dc2626',
+          borderDash: [6, 4],
+          backgroundColor: 'transparent',
+          pointRadius: 0,
+          borderWidth: 1.5
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: true, position: 'top' },
+        tooltip: { mode: 'index', intersect: false }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Temps t (s)' },
+          ticks: {
+            maxTicksLimit: 9,
+            callback: function(val, index) {
+              return index % 50 === 0 ? this.getLabelForValue(val) : '';
+            }
+          }
+        },
+        y: { title: { display: true, text: 'Amplitude' }, min: -1.1, max: 1.1 }
+      }
+    }
+  });
+})();
+</script>
 <script src="../../../nav.js"></script>
 </body>
 </html>
