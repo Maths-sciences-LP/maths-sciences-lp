@@ -12,6 +12,7 @@ Ce fichier est lu automatiquement par Claude Code à chaque session.
 ├── styles.css                  ← Feuille de style partagée (NE PAS supprimer)
 ├── nav.js                      ← Navigation auto-générée (NE PAS modifier sans raison)
 ├── nav.css                     ← Styles de navigation
+├── diff.js                     ← Toggle différenciation pédagogique (insertion/poursuite)
 ├── index.html                  ← Page d'accueil
 ├── maths/
 │   ├── seconde/ch01..ch14/     ← lecon.html, exercices.html, ds.html
@@ -111,6 +112,58 @@ Seules les classes vraiment spécifiques à une page peuvent rester inline.
 - Pages dans `subject/level/chNN/` → `../../../styles.css`
 - Pages dans `simulations/` → `../styles.css`
 - Pages à la racine → `styles.css`
+
+---
+
+## DIFFÉRENCIATION PÉDAGOGIQUE (Terminale)
+
+Le système de différenciation permet d'adapter le contenu selon le profil de l'élève :
+- **Insertion professionnelle** : exercices guidés, contextes 100% métier, calculs directs
+- **Poursuite d'études** : exercices ouverts, problèmes à étapes, formalisme BTS
+
+### Mise en place sur une page
+
+1. Ajouter `<script src="../../../diff.js"></script>` avant `</body>` (après nav.js)
+2. Tagger les blocs avec les classes CSS :
+
+```html
+<!-- Visible par tous (pas de classe diff) -->
+<div class="exo">Exercice commun</div>
+
+<!-- Seulement insertion professionnelle -->
+<div class="exo diff-insert">
+  <span class="tag-insert">Insertion pro</span>
+  Exercice guidé, contexte métier...
+</div>
+
+<!-- Seulement poursuite d'études -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Poursuite d'études</span>
+  Exercice approfondi type BTS...
+</div>
+
+<!-- Encadré "Pour aller plus loin" dans les cours -->
+<div class="plus-loin diff-appro">
+  <strong>Pour aller plus loin</strong>
+  Contenu complémentaire pour la poursuite d'études...
+</div>
+```
+
+### Classes CSS disponibles
+
+| Classe | Usage |
+|---|---|
+| `.diff-insert` | Bloc visible uniquement en mode Insertion |
+| `.diff-appro` | Bloc visible uniquement en mode Poursuite |
+| `.tag-insert` | Badge bleu "Insertion pro" |
+| `.tag-appro` | Badge violet "Poursuite d'études" |
+| `.plus-loin` | Encadré violet pour contenu complémentaire |
+
+### Comportement
+- Le toggle apparaît automatiquement si la page contient des blocs `.diff-insert` ou `.diff-appro`
+- Le choix est mémorisé en `localStorage` (persistant entre les pages)
+- Le bouton "Tout voir" affiche tous les blocs (mode prof)
+- Sans `diff.js`, tous les blocs restent visibles (dégradation gracieuse)
 
 ---
 
