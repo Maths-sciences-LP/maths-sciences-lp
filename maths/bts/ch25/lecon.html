@@ -4,21 +4,539 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch25 – Algorithmique appliquée – BTS</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+table.wide{width:100%;border-collapse:collapse}
+table.wide th,table.wide td{padding:.45rem .7rem;border:1px solid var(--p-border)}
+table.wide th{background:var(--p-bg);color:var(--p)}
+table.wide tr:nth-child(even) td{background:#f7f9fc}
+pre.algo{background:#1e2a3a;color:#e8edf4;border-radius:8px;padding:1rem 1.2rem;overflow-x:auto;font-family:monospace;font-size:.9rem;line-height:1.65;margin:.6rem 0}
+pre.algo .kw{color:#93c5fd;font-weight:700}
+pre.algo .cm{color:#6b8fa3;font-style:italic}
+pre.algo .num{color:#f9b55a}
+pre.algo .str{color:#a3e0a0}
+code{background:#e8edf4;border-radius:3px;padding:.1rem .35rem;font-size:.92em;font-family:monospace}
+.complexity-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin:1rem 0}
+.cpx-card{border:1px solid var(--p-border);border-radius:8px;background:var(--p-bg);padding:.8rem 1rem;text-align:center}
+.cpx-card .big{font-size:1.3rem;font-weight:700;color:var(--p)}
+.cpx-card small{font-size:.8rem;color:#555}
+.stack-wrap{display:flex;flex-direction:column;align-items:center;gap:.3rem;margin:.8rem 0}
+.stack-frame{background:#1e3a5f;color:#fff;border-radius:4px;padding:.3rem 1.2rem;font-family:monospace;font-size:.88rem;min-width:160px;text-align:center}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire BTS</a>
+<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+
 <header>
   <h1>Chapitre 25 – Algorithmique appliquée</h1>
-  <p class="sous-titre">BTS — Mathématiques</p>
+  <p class="sous-titre">BTS | Mathématiques | Groupements D1, D2</p>
 </header>
+
 <div class="objectifs">
-  <h3>🚧 En cours de rédaction</h3>
-  <p>Ce chapitre sera bientôt disponible. Revenez prochainement !</p>
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Rappeler les structures de base d'un algorithme (variables, conditions, boucles).</li>
+    <li>Maîtriser les structures de données : tableaux, listes, dictionnaires.</li>
+    <li>Comprendre et comparer les algorithmes de tri (sélection, insertion, rapide).</li>
+    <li>Implémenter les algorithmes de recherche (linéaire, dichotomique).</li>
+    <li>Comprendre la récursivité et analyser la pile d'appels.</li>
+    <li>Appliquer les méthodes numériques (Newton, trapèzes, Euler) à des problèmes scientifiques.</li>
+    <li>Évaluer la complexité algorithmique et choisir l'algorithme approprié.</li>
+  </ul>
 </div>
+
+<div class="situation">
+  <strong>Situation professionnelle — Automatisation d'une analyse en laboratoire de biologie</strong>
+  <p>Un technicien de laboratoire en biologie médicale traite quotidiennement des séries de plusieurs centaines de résultats de dosages (concentrations en glucose, créatinine, cholestérol…). Pour accélérer l'analyse, il programme des scripts qui automatisent : le tri des résultats par valeur, la recherche d'un seuil critique, le calcul de la concentration moyenne par méthode des trapèzes (pour une courbe d'étalonnage), et la détection des valeurs aberrantes. Cet outillage algorithmique lui fait gagner plusieurs heures de travail par semaine tout en réduisant les erreurs de saisie.</p>
+</div>
+
+<!-- ==================== SECTION 1 ==================== -->
+<h2>1. Rappels d'algorithmique</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Algorithme</span>
+  <p>Un <strong>algorithme</strong> est une suite finie d'instructions non ambiguës permettant de résoudre un problème en un nombre fini d'étapes. Tout algorithme doit être :</p>
+  <ul>
+    <li><strong>Correct</strong> : produit le résultat attendu pour toutes les entrées valides.</li>
+    <li><strong>Terminant</strong> : se termine en un nombre fini d'étapes.</li>
+    <li><strong>Efficace</strong> : utilise raisonnablement les ressources (temps, mémoire).</li>
+  </ul>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Structures de base en pseudo-code</span>
+  <p><strong>Variable et affectation :</strong></p>
+  <pre class="algo"><span class="kw">Variable</span> x : Entier
+x ← <span class="num">5</span>           <span class="cm">// affectation</span>
+x ← x + <span class="num">1</span>       <span class="cm">// incrémentation</span></pre>
+  <p><strong>Condition :</strong></p>
+  <pre class="algo"><span class="kw">Si</span> x &gt; <span class="num">0</span> <span class="kw">Alors</span>
+    Afficher(<span class="str">"positif"</span>)
+<span class="kw">Sinon Si</span> x = <span class="num">0</span> <span class="kw">Alors</span>
+    Afficher(<span class="str">"nul"</span>)
+<span class="kw">Sinon</span>
+    Afficher(<span class="str">"négatif"</span>)
+<span class="kw">Fin Si</span></pre>
+  <p><strong>Boucle Tant que :</strong></p>
+  <pre class="algo"><span class="kw">Tant que</span> x &gt; <span class="num">0</span> <span class="kw">Faire</span>
+    x ← x - <span class="num">1</span>
+<span class="kw">Fin Tant que</span></pre>
+  <p><strong>Boucle Pour :</strong></p>
+  <pre class="algo"><span class="kw">Pour</span> i <span class="kw">allant de</span> <span class="num">1</span> <span class="kw">à</span> n <span class="kw">Faire</span>
+    Afficher(T[i])
+<span class="kw">Fin Pour</span></pre>
+</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<h2>2. Structures de données</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Tableau (Array)</span>
+  <p>Un <strong>tableau</strong> est une collection ordonnée d'éléments de même type, accessibles par un indice (entier).</p>
+  <ul>
+    <li>Accès à un élément : \(O(1)\) (temps constant).</li>
+    <li>Insertion/suppression au milieu : \(O(n)\) (déplacement des éléments).</li>
+    <li>Taille fixe en mémoire statique (ou dynamique selon le langage).</li>
+  </ul>
+  <pre class="algo">T ← [<span class="num">12</span>, <span class="num">4</span>, <span class="num">7</span>, <span class="num">19</span>, <span class="num">3</span>]  <span class="cm">// tableau de 5 éléments</span>
+T[<span class="num">0</span>] = <span class="num">12</span>              <span class="cm">// premier élément (indice 0 en Python)</span>
+T[<span class="num">4</span>] = <span class="num">3</span>               <span class="cm">// dernier élément</span></pre>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Liste chaînée</span>
+  <p>Une <strong>liste chaînée</strong> est une structure où chaque élément (nœud) contient une valeur et un pointeur vers l'élément suivant.</p>
+  <ul>
+    <li>Insertion/suppression en tête : \(O(1)\).</li>
+    <li>Accès par indice : \(O(n)\) (parcours séquentiel).</li>
+    <li>Usage : piles, files, listes à taille variable.</li>
+  </ul>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Dictionnaire (Hashmap)</span>
+  <p>Un <strong>dictionnaire</strong> associe des <em>clés</em> à des <em>valeurs</em> (paires clé : valeur). L'accès se fait par la clé, pas par un indice.</p>
+  <ul>
+    <li>Accès, insertion, suppression : \(O(1)\) en moyenne (table de hachage).</li>
+    <li>Les clés doivent être uniques et immuables.</li>
+  </ul>
+  <pre class="algo">mesure ← {<span class="str">"glucose"</span>: <span class="num">1.2</span>, <span class="str">"créatinine"</span>: <span class="num">85</span>, <span class="str">"cholestérol"</span>: <span class="num">4.8</span>}
+mesure[<span class="str">"glucose"</span>] = <span class="num">1.2</span>    <span class="cm">// accès par clé</span></pre>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés — Comparaison des structures</span>
+  <table class="wide">
+    <tr><th>Structure</th><th>Accès</th><th>Insertion</th><th>Suppression</th><th>Usage principal</th></tr>
+    <tr><td>Tableau</td><td>\(O(1)\)</td><td>\(O(n)\)</td><td>\(O(n)\)</td><td>Données ordonnées, tri</td></tr>
+    <tr><td>Liste chaînée</td><td>\(O(n)\)</td><td>\(O(1)\)*</td><td>\(O(1)\)*</td><td>Piles, files</td></tr>
+    <tr><td>Dictionnaire</td><td>\(O(1)\)</td><td>\(O(1)\)</td><td>\(O(1)\)</td><td>Association clé-valeur</td></tr>
+    <tr><td>Arbre binaire trié</td><td>\(O(\log n)\)</td><td>\(O(\log n)\)</td><td>\(O(\log n)\)</td><td>Recherche rapide</td></tr>
+  </table>
+  <p style="font-size:.85rem">* en tête ou si pointeur disponible.</p>
+</div>
+
+<!-- ==================== SECTION 3 ==================== -->
+<h2>3. Algorithmes de tri</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Problème du tri</span>
+  <p>Étant donné un tableau de \(n\) éléments comparables, le tri consiste à les réordonner dans un ordre donné (croissant ou décroissant). Les algorithmes de tri se comparent par leur <strong>complexité temporelle</strong> (nombre d'opérations) et leur complexité en <strong>espace mémoire</strong>.</p>
+</div>
+
+<h3>3.1 Tri par sélection</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Tri par sélection</span>
+  <p><strong>Principe :</strong> à chaque étape, sélectionner le minimum du sous-tableau non trié et l'échanger avec le premier élément non trié.</p>
+  <pre class="algo"><span class="kw">Procédure</span> TriSelection(T, n)
+  <span class="kw">Pour</span> i <span class="kw">de</span> <span class="num">0</span> <span class="kw">à</span> n-<span class="num">2</span> <span class="kw">Faire</span>
+    iMin ← i
+    <span class="kw">Pour</span> j <span class="kw">de</span> i+<span class="num">1</span> <span class="kw">à</span> n-<span class="num">1</span> <span class="kw">Faire</span>
+      <span class="kw">Si</span> T[j] &lt; T[iMin] <span class="kw">Alors</span> iMin ← j
+    <span class="kw">Fin Pour</span>
+    Échanger(T[i], T[iMin])
+  <span class="kw">Fin Pour</span>
+<span class="kw">Fin Procédure</span></pre>
+  <p><strong>Complexité :</strong> \(O(n^2)\) dans tous les cas. <strong>Stable :</strong> Non. <strong>En place :</strong> Oui.</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Tri par sélection sur [64, 25, 12, 22, 11]</span>
+  <table class="wide" style="font-family:monospace;font-size:.9rem">
+    <tr><th>Étape</th><th>Tableau</th><th>Action</th></tr>
+    <tr><td>0</td><td>[<u>64</u>, 25, 12, 22, 11]</td><td>Min = 11 (pos 4) → échange 64 et 11</td></tr>
+    <tr><td>1</td><td>[11, <u>25</u>, 12, 22, 64]</td><td>Min = 12 (pos 2) → échange 25 et 12</td></tr>
+    <tr><td>2</td><td>[11, 12, <u>25</u>, 22, 64]</td><td>Min = 22 (pos 3) → échange 25 et 22</td></tr>
+    <tr><td>3</td><td>[11, 12, 22, <u>25</u>, 64]</td><td>Min = 25 (pos 3) → pas d'échange</td></tr>
+    <tr><td>Fin</td><td>[11, 12, 22, 25, 64]</td><td>Tableau trié</td></tr>
+  </table>
+</div>
+
+<h3>3.2 Tri par insertion</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Tri par insertion</span>
+  <p><strong>Principe :</strong> à chaque étape, insérer le prochain élément à sa bonne position dans la partie déjà triée, en décalant les éléments plus grands.</p>
+  <pre class="algo"><span class="kw">Procédure</span> TriInsertion(T, n)
+  <span class="kw">Pour</span> i <span class="kw">de</span> <span class="num">1</span> <span class="kw">à</span> n-<span class="num">1</span> <span class="kw">Faire</span>
+    clé ← T[i]
+    j ← i - <span class="num">1</span>
+    <span class="kw">Tant que</span> j ≥ <span class="num">0</span> <span class="kw">et</span> T[j] &gt; clé <span class="kw">Faire</span>
+      T[j+<span class="num">1</span>] ← T[j]
+      j ← j - <span class="num">1</span>
+    <span class="kw">Fin Tant que</span>
+    T[j+<span class="num">1</span>] ← clé
+  <span class="kw">Fin Pour</span>
+<span class="kw">Fin Procédure</span></pre>
+  <p><strong>Complexité :</strong> \(O(n^2)\) dans le pire cas, \(O(n)\) si déjà trié. <strong>Stable :</strong> Oui. Très efficace pour les petits tableaux.</p>
+</div>
+
+<h3>3.3 Tri rapide (Quicksort)</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Tri rapide (Quicksort)</span>
+  <p><strong>Principe (diviser pour régner) :</strong></p>
+  <ol>
+    <li>Choisir un <strong>pivot</strong> dans le tableau.</li>
+    <li><strong>Partitionner</strong> le tableau : éléments ≤ pivot à gauche, &gt; pivot à droite.</li>
+    <li>Appliquer récursivement le tri sur chaque sous-tableau.</li>
+  </ol>
+  <pre class="algo"><span class="kw">Fonction</span> TriRapide(T, g, d)   <span class="cm">// tri de T[g..d]</span>
+  <span class="kw">Si</span> g &lt; d <span class="kw">Alors</span>
+    p ← Partition(T, g, d)    <span class="cm">// p = position finale du pivot</span>
+    TriRapide(T, g, p-<span class="num">1</span>)
+    TriRapide(T, p+<span class="num">1</span>, d)
+  <span class="kw">Fin Si</span>
+<span class="kw">Fin Fonction</span></pre>
+  <p><strong>Complexité :</strong> \(O(n \log n)\) en moyenne, \(O(n^2)\) dans le pire cas (pivot toujours extrêmal). <strong>En place :</strong> Oui (peu de mémoire supplémentaire). Très efficace en pratique.</p>
+</div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<h2>4. Algorithmes de recherche</h2>
+
+<h3>4.1 Recherche linéaire (séquentielle)</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Recherche linéaire</span>
+  <p>Parcourir le tableau élément par élément jusqu'à trouver la valeur cherchée.</p>
+  <pre class="algo"><span class="kw">Fonction</span> RechercheLinéaire(T, n, val) : Entier
+  <span class="kw">Pour</span> i <span class="kw">de</span> <span class="num">0</span> <span class="kw">à</span> n-<span class="num">1</span> <span class="kw">Faire</span>
+    <span class="kw">Si</span> T[i] = val <span class="kw">Alors Retourner</span> i
+  <span class="kw">Fin Pour</span>
+  <span class="kw">Retourner</span> -<span class="num">1</span>   <span class="cm">// valeur non trouvée</span>
+<span class="kw">Fin Fonction</span></pre>
+  <p><strong>Complexité :</strong> \(O(n)\). Fonctionne sur tout tableau (trié ou non).</p>
+</div>
+
+<h3>4.2 Recherche dichotomique (binaire)</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Recherche dichotomique</span>
+  <p>Applicable uniquement sur un tableau <strong>trié</strong>. À chaque étape, on compare la valeur cherchée au milieu et on élimine la moitié du tableau.</p>
+  <pre class="algo"><span class="kw">Fonction</span> RechercheDicho(T, val) : Entier
+  g ← <span class="num">0</span> ; d ← Longueur(T) - <span class="num">1</span>
+  <span class="kw">Tant que</span> g ≤ d <span class="kw">Faire</span>
+    m ← (g + d) <span class="kw">div</span> <span class="num">2</span>       <span class="cm">// milieu</span>
+    <span class="kw">Si</span> T[m] = val <span class="kw">Alors Retourner</span> m
+    <span class="kw">Sinon Si</span> T[m] &lt; val <span class="kw">Alors</span> g ← m + <span class="num">1</span>
+    <span class="kw">Sinon</span> d ← m - <span class="num">1</span>
+  <span class="kw">Fin Tant que</span>
+  <span class="kw">Retourner</span> -<span class="num">1</span>
+<span class="kw">Fin Fonction</span></pre>
+  <p><strong>Complexité :</strong> \(O(\log_2 n)\). Pour 1 million d'éléments, au plus 20 comparaisons !</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Recherche dichotomique de 31 dans [3, 7, 12, 19, 25, 31, 47, 58, 72, 90]</span>
+  <table class="wide" style="font-family:monospace;font-size:.9rem">
+    <tr><th>Étape</th><th>g</th><th>d</th><th>m</th><th>T[m]</th><th>Décision</th></tr>
+    <tr><td>1</td><td>0</td><td>9</td><td>4</td><td>25</td><td>25 &lt; 31 → g = 5</td></tr>
+    <tr><td>2</td><td>5</td><td>9</td><td>7</td><td>58</td><td>58 &gt; 31 → d = 6</td></tr>
+    <tr><td>3</td><td>5</td><td>6</td><td>5</td><td>31</td><td>Trouvé ! Indice 5</td></tr>
+  </table>
+</div>
+
+<!-- ==================== SECTION 5 ==================== -->
+<h2>5. Récursivité</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Fonction récursive</span>
+  <p>Une <strong>fonction récursive</strong> est une fonction qui s'appelle elle-même dans sa définition. Elle doit toujours comporter :</p>
+  <ul>
+    <li>Un ou plusieurs <strong>cas de base</strong> (terminaison, sans appel récursif).</li>
+    <li>Un ou plusieurs <strong>cas récursifs</strong> qui réduisent le problème vers le cas de base.</li>
+  </ul>
+</div>
+
+<h3>5.1 Factorielle</h3>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Factorielle récursive</span>
+  $$n! = \begin{cases} 1 & \text{si } n = 0 \\ n \times (n-1)! & \text{si } n \geq 1 \end{cases}$$
+  <pre class="algo"><span class="kw">Fonction</span> Fact(n) : Entier
+  <span class="kw">Si</span> n = <span class="num">0</span> <span class="kw">Alors Retourner</span> <span class="num">1</span>       <span class="cm">// cas de base</span>
+  <span class="kw">Sinon Retourner</span> n × Fact(n-<span class="num">1</span>)    <span class="cm">// cas récursif</span>
+<span class="kw">Fin Fonction</span></pre>
+  <p>Appel <code>Fact(4)</code> :</p>
+  <div class="stack-wrap">
+    <div class="stack-frame">Fact(4) = 4 × Fact(3)</div>
+    <div class="stack-frame">Fact(3) = 3 × Fact(2)</div>
+    <div class="stack-frame">Fact(2) = 2 × Fact(1)</div>
+    <div class="stack-frame">Fact(1) = 1 × Fact(0)</div>
+    <div class="stack-frame" style="background:#2da44e">Fact(0) = 1 ← cas de base</div>
+  </div>
+  <p>Résultat : \(4! = 4 \times 3 \times 2 \times 1 = 24\).</p>
+</div>
+
+<h3>5.2 Suite de Fibonacci</h3>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Fibonacci récursif</span>
+  $$F(n) = \begin{cases} 0 & \text{si } n=0 \\ 1 & \text{si } n=1 \\ F(n-1) + F(n-2) & \text{si } n \geq 2 \end{cases}$$
+  <pre class="algo"><span class="kw">Fonction</span> Fib(n) : Entier
+  <span class="kw">Si</span> n ≤ <span class="num">1</span> <span class="kw">Alors Retourner</span> n
+  <span class="kw">Sinon Retourner</span> Fib(n-<span class="num">1</span>) + Fib(n-<span class="num">2</span>)
+<span class="kw">Fin Fonction</span></pre>
+  <p><strong>Problème :</strong> cette version naïve est très lente : \(O(2^n)\). De nombreux calculs sont répétés. Solution : utiliser la <strong>mémoïsation</strong> (stocker les résultats déjà calculés) ou une version itérative.</p>
+</div>
+
+<h3>5.3 Tours de Hanoï</h3>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Tours de Hanoï</span>
+  <p>Déplacer \(n\) disques de la tige A vers la tige C en utilisant la tige B, sans jamais poser un disque sur un plus petit.</p>
+  <pre class="algo"><span class="kw">Procédure</span> Hanoï(n, source, cible, auxiliaire)
+  <span class="kw">Si</span> n = <span class="num">1</span> <span class="kw">Alors</span>
+    Afficher(<span class="str">"Déplacer disque 1 de "</span> + source + <span class="str">" vers "</span> + cible)
+  <span class="kw">Sinon</span>
+    Hanoï(n-<span class="num">1</span>, source, auxiliaire, cible)
+    Afficher(<span class="str">"Déplacer disque "</span> + n + <span class="str">" de "</span> + source + <span class="str">" vers "</span> + cible)
+    Hanoï(n-<span class="num">1</span>, auxiliaire, cible, source)
+  <span class="kw">Fin Si</span>
+<span class="kw">Fin Procédure</span></pre>
+  <p>Nombre de déplacements pour \(n\) disques : \(2^n - 1\). Complexité : \(O(2^n)\).</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Pile d'appels et dépassement</span>
+  <p>Chaque appel récursif empile un <em>cadre d'appel</em> en mémoire. Une récursion trop profonde provoque un <code>Stack Overflow</code> (débordement de pile). En pratique, les fonctions récursives à grande profondeur doivent être converties en version itérative ou utiliser la récursion terminale.</p>
+</div>
+
+<!-- ==================== SECTION 6 ==================== -->
+<h2>6. Algorithmes numériques</h2>
+
+<h3>6.1 Méthode de Newton — Zéro d'une fonction</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode de Newton (Newton-Raphson)</span>
+  <p>Calcule une valeur approchée de \(f(x) = 0\) en linéarisant itérativement la fonction.</p>
+  <p><strong>Formule de récurrence :</strong></p>
+  $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
+  <p><strong>Algorithme :</strong></p>
+  <pre class="algo"><span class="kw">Fonction</span> Newton(f, fprime, x0, ε) : Réel
+  x ← x0
+  <span class="kw">Tant que</span> |f(x)| &gt; ε <span class="kw">Faire</span>
+    x ← x - f(x) / fprime(x)
+  <span class="kw">Fin Tant que</span>
+  <span class="kw">Retourner</span> x
+<span class="kw">Fin Fonction</span></pre>
+  <p>Convergence quadratique (le nombre de décimales exactes double à chaque itération si \(f'(x^*) \neq 0\)).</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Newton pour \(\sqrt{2}\) (\(f(x) = x^2 - 2\))</span>
+  <p>\(f'(x) = 2x\). Formule : \(x_{n+1} = x_n - \frac{x_n^2 - 2}{2x_n} = \frac{x_n + 2/x_n}{2}\).</p>
+  <table class="wide" style="font-family:monospace;font-size:.9rem">
+    <tr><th>n</th><th>\(x_n\)</th><th>\(f(x_n) = x_n^2-2\)</th></tr>
+    <tr><td>0</td><td>1,000000</td><td>−1,000000</td></tr>
+    <tr><td>1</td><td>1,500000</td><td>0,250000</td></tr>
+    <tr><td>2</td><td>1,416667</td><td>0,006944</td></tr>
+    <tr><td>3</td><td>1,414216</td><td>0,000006</td></tr>
+    <tr><td>4</td><td>1,414214</td><td>≈ 0</td></tr>
+  </table>
+  <p>Convergence très rapide : 4 itérations suffisent pour 6 décimales exactes.</p>
+</div>
+
+<h3>6.2 Méthode des trapèzes — Intégration numérique</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode des trapèzes</span>
+  <p>Approximation de l'intégrale \(\displaystyle\int_a^b f(x)\,dx\) par la somme d'aires de trapèzes :</p>
+  $$\int_a^b f(x)\,dx \approx \frac{h}{2}\left[f(x_0) + 2f(x_1) + 2f(x_2) + \cdots + 2f(x_{n-1}) + f(x_n)\right]$$
+  <p>où \(h = \dfrac{b-a}{n}\) et \(x_i = a + ih\).</p>
+  <pre class="algo"><span class="kw">Fonction</span> Trapèzes(f, a, b, n) : Réel
+  h ← (b - a) / n
+  S ← f(a) + f(b)
+  <span class="kw">Pour</span> i <span class="kw">de</span> <span class="num">1</span> <span class="kw">à</span> n-<span class="num">1</span> <span class="kw">Faire</span>
+    S ← S + <span class="num">2</span> × f(a + i × h)
+  <span class="kw">Fin Pour</span>
+  <span class="kw">Retourner</span> S × h / <span class="num">2</span>
+<span class="kw">Fin Fonction</span></pre>
+  <p>Erreur : \(O(h^2)\). Doubler \(n\) divise l'erreur par 4.</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Calcul de l'aire sous une courbe d'étalonnage</span>
+  <p>En laboratoire, la courbe d'absorption d'un réactif entre 0 et 4 s est approximée par \(f(t) = 0.5t^2 - t + 2\). Calculer \(\displaystyle\int_0^4 f(t)\,dt\) avec \(n=4\) trapèzes.</p>
+  <p>\(h = 1\). Valeurs : \(f(0)=2,\; f(1)=1.5,\; f(2)=2,\; f(3)=3.5,\; f(4)=6\).</p>
+  $$I \approx \frac{1}{2}\left[2 + 2(1.5) + 2(2) + 2(3.5) + 6\right] = \frac{1}{2}[2+3+4+7+6] = \frac{22}{2} = 11$$
+  <p>Valeur exacte : \(\left[\frac{t^3}{6}-\frac{t^2}{2}+2t\right]_0^4 = \frac{64}{6}-8+8 = \frac{32}{3} \approx 10{,}67\). Erreur ≈ 3%.</p>
+</div>
+
+<h3>6.3 Méthode d'Euler — Équations différentielles</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode d'Euler</span>
+  <p>Résolution numérique approchée de \(y' = f(t, y),\; y(t_0) = y_0\).</p>
+  $$y_{n+1} = y_n + h \cdot f(t_n, y_n) \qquad t_{n+1} = t_n + h$$
+  <pre class="algo"><span class="kw">Procédure</span> Euler(f, t0, y0, T, h)
+  t ← t0 ; y ← y0
+  <span class="kw">Tant que</span> t &lt; T <span class="kw">Faire</span>
+    y ← y + h × f(t, y)
+    t ← t + h
+    Afficher(t, y)
+  <span class="kw">Fin Tant que</span>
+<span class="kw">Fin Procédure</span></pre>
+  <p>La méthode d'Euler explicite est simple mais peu précise (\(O(h)\) d'erreur). Des méthodes plus précises (Runge-Kutta d'ordre 4) sont utilisées en pratique.</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Cinétique de dégradation d'un médicament</span>
+  <p>La concentration \(C(t)\) d'un médicament suit \(C' = -k\,C\) avec \(k = 0.2\,\text{h}^{-1}\) et \(C(0) = 100\,\text{mg/L}\). Approche numérique avec \(h = 1\,\text{h}\) :</p>
+  $$C_{n+1} = C_n + h \cdot (-k\,C_n) = C_n(1 - kh) = 0.8\,C_n$$
+  <table class="wide" style="font-family:monospace;font-size:.9rem">
+    <tr><th>t (h)</th><th>\(C_n\) (Euler, mg/L)</th><th>\(C\) (exact, mg/L)</th><th>Erreur</th></tr>
+    <tr><td>0</td><td>100,00</td><td>100,00</td><td>0,00</td></tr>
+    <tr><td>1</td><td>80,00</td><td>81,87</td><td>1,87</td></tr>
+    <tr><td>2</td><td>64,00</td><td>67,03</td><td>3,03</td></tr>
+    <tr><td>3</td><td>51,20</td><td>54,88</td><td>3,68</td></tr>
+    <tr><td>5</td><td>32,77</td><td>36,79</td><td>4,02</td></tr>
+  </table>
+</div>
+
+<!-- ==================== SECTION 7 ==================== -->
+<h2>7. Complexité algorithmique</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Notation O (Grand O)</span>
+  <p>La <strong>complexité algorithmique</strong> mesure la croissance du nombre d'opérations en fonction de la taille \(n\) de l'entrée. On utilise la notation \(O\) (grand O) pour exprimer le comportement asymptotique.</p>
+  <p>\(f(n) = O(g(n))\) signifie qu'il existe des constantes \(C > 0\) et \(n_0\) telles que \(f(n) \leq C\cdot g(n)\) pour tout \(n \geq n_0\).</p>
+</div>
+
+<div class="complexity-grid">
+  <div class="cpx-card">
+    <div class="big">\(O(1)\)</div>
+    Constante<br><small>Accès tableau, table de hachage</small>
+  </div>
+  <div class="cpx-card">
+    <div class="big">\(O(\log n)\)</div>
+    Logarithmique<br><small>Recherche dicho., arbre équilibré</small>
+  </div>
+  <div class="cpx-card">
+    <div class="big">\(O(n)\)</div>
+    Linéaire<br><small>Recherche linéaire, parcours liste</small>
+  </div>
+  <div class="cpx-card">
+    <div class="big">\(O(n\log n)\)</div>
+    Quasi-linéaire<br><small>Tri rapide (moy.), tri fusion</small>
+  </div>
+  <div class="cpx-card">
+    <div class="big">\(O(n^2)\)</div>
+    Quadratique<br><small>Tri sélection, tri insertion (pire)</small>
+  </div>
+  <div class="cpx-card">
+    <div class="big">\(O(2^n)\)</div>
+    Exponentielle<br><small>Fibonacci naïf, Hanoï</small>
+  </div>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Comparaison numérique des complexités</span>
+  <p>Pour \(n = 1000\) éléments :</p>
+  <table class="wide">
+    <tr><th>Complexité</th><th>\(n = 1\,000\)</th><th>\(n = 1\,000\,000\)</th><th>Algorithme type</th></tr>
+    <tr><td>\(O(1)\)</td><td>1</td><td>1</td><td>Accès dictionnaire</td></tr>
+    <tr><td>\(O(\log n)\)</td><td>10</td><td>20</td><td>Recherche dichotomique</td></tr>
+    <tr><td>\(O(n)\)</td><td>1 000</td><td>1 000 000</td><td>Recherche linéaire</td></tr>
+    <tr><td>\(O(n\log n)\)</td><td>10 000</td><td>20 000 000</td><td>Tri rapide</td></tr>
+    <tr><td>\(O(n^2)\)</td><td>1 000 000</td><td>10<sup>12</sup></td><td>Tri sélection</td></tr>
+    <tr><td>\(O(2^n)\)</td><td>>10<sup>300</sup></td><td>inaccessible</td><td>Fibonacci naïf</td></tr>
+  </table>
+</div>
+
+<!-- ==================== SECTION 8 ==================== -->
+<h2>8. Applications D1/D2 — Traitement de données biologiques</h2>
+
+<div class="ex">
+  <span class="label label-def">Exemple D1 — Tri et analyse d'une série de mesures de glycémie</span>
+  <p>Un technicien de laboratoire dispose de 200 résultats de glycémie (en g/L). Il souhaite :</p>
+  <ol>
+    <li>Trier les résultats (tri rapide pour \(n=200\) : très rapide).</li>
+    <li>Trouver rapidement si un résultat dépasse le seuil 2,0 g/L (recherche dichotomique après tri).</li>
+    <li>Calculer la valeur moyenne et l'écart-type.</li>
+  </ol>
+  <pre class="algo"><span class="kw">Fonction</span> AnalyseGlycémie(mesures, n) : Réel, Réel
+  TriRapide(mesures, <span class="num">0</span>, n-<span class="num">1</span>)
+  somme ← <span class="num">0</span>
+  <span class="kw">Pour</span> i <span class="kw">de</span> <span class="num">0</span> <span class="kw">à</span> n-<span class="num">1</span> <span class="kw">Faire</span>
+    somme ← somme + mesures[i]
+  <span class="kw">Fin Pour</span>
+  moy ← somme / n
+  sommeCarrés ← <span class="num">0</span>
+  <span class="kw">Pour</span> i <span class="kw">de</span> <span class="num">0</span> <span class="kw">à</span> n-<span class="num">1</span> <span class="kw">Faire</span>
+    sommeCarrés ← sommeCarrés + (mesures[i] - moy)²
+  <span class="kw">Fin Pour</span>
+  écartType ← Racine(sommeCarrés / n)
+  <span class="kw">Retourner</span> moy, écartType
+<span class="kw">Fin Fonction</span></pre>
+  <p>Complexité totale : \(O(n\log n)\) pour le tri + \(O(n)\) pour la moyenne = \(O(n\log n)\).</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple D2 — Calcul numérique de concentration par intégration</span>
+  <p>Pour déterminer la quantité totale d'un médicament absorbée par un patient sur 8 heures, le technicien dispose de mesures de concentration à intervalles réguliers (toutes les heures). L'intégrale \(\displaystyle\int_0^8 C(t)\,dt\) donne l'AUC (Area Under the Curve), paramètre pharmacocinétique clé.</p>
+  <pre class="algo"><span class="kw">Fonction</span> AUC_Trapèzes(C, t) : Réel
+  <span class="cm">// C et t sont des tableaux de même taille n</span>
+  n ← Longueur(C)
+  AUC ← <span class="num">0</span>
+  <span class="kw">Pour</span> i <span class="kw">de</span> <span class="num">0</span> <span class="kw">à</span> n-<span class="num">2</span> <span class="kw">Faire</span>
+    AUC ← AUC + (C[i] + C[i+<span class="num">1</span>]) × (t[i+<span class="num">1</span>] - t[i]) / <span class="num">2</span>
+  <span class="kw">Fin Pour</span>
+  <span class="kw">Retourner</span> AUC   <span class="cm">// en mg·h/L</span>
+<span class="kw">Fin Fonction</span></pre>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Choix de l'algorithme selon le contexte</strong>
+  <table class="wide">
+    <tr><th>Contexte</th><th>Algorithme recommandé</th><th>Complexité</th></tr>
+    <tr><td>Tri d'un petit tableau (&lt;50)</td><td>Tri par insertion</td><td>\(O(n^2)\) mais efficace en pratique</td></tr>
+    <tr><td>Tri d'un grand tableau</td><td>Tri rapide (ou fusion)</td><td>\(O(n\log n)\) en moyenne</td></tr>
+    <tr><td>Recherche dans un tableau non trié</td><td>Recherche linéaire</td><td>\(O(n)\)</td></tr>
+    <tr><td>Recherche dans un tableau trié</td><td>Recherche dichotomique</td><td>\(O(\log n)\)</td></tr>
+    <tr><td>Zéro d'une fonction régulière</td><td>Méthode de Newton</td><td>Conv. quadratique</td></tr>
+    <tr><td>Intégrale numérique</td><td>Méthode des trapèzes</td><td>\(O(n)\), erreur \(O(h^2)\)</td></tr>
+    <tr><td>Équation différentielle simple</td><td>Méthode d'Euler</td><td>\(O(n)\), erreur \(O(h)\)</td></tr>
+  </table>
+</div>
+
+<div class="formule-box">
+  <strong>Synthèse du chapitre 25</strong>
+  <ul>
+    <li><strong>Structures de données</strong> : tableau \(O(1)\) accès, liste chaînée \(O(1)\) insertion tête, dictionnaire \(O(1)\) accès clé.</li>
+    <li><strong>Tris</strong> : sélection et insertion en \(O(n^2)\) ; tri rapide en \(O(n\log n)\) en moyenne.</li>
+    <li><strong>Recherche</strong> : linéaire \(O(n)\) ; dichotomique \(O(\log n)\) sur tableau trié.</li>
+    <li><strong>Récursivité</strong> : toujours un cas de base + cas récursif réduisant le problème.</li>
+    <li><strong>Newton</strong> : \(x_{n+1} = x_n - f(x_n)/f'(x_n)\). <strong>Trapèzes</strong> : \(h/2 \times [f(x_0)+2f(x_1)+\cdots+f(x_n)]\). <strong>Euler</strong> : \(y_{n+1}=y_n+hf(t_n,y_n)\).</li>
+    <li><strong>Complexité</strong> : \(O(1) \ll O(\log n) \ll O(n) \ll O(n\log n) \ll O(n^2) \ll O(2^n)\).</li>
+  </ul>
+</div>
+
 </div>
 <script src="../../../nav.js"></script>
 </body>

@@ -436,6 +436,84 @@ code{background:#e8edf4;border-radius:3px;padding:.1rem .35rem;font-size:.92em;f
   </table>
 </div>
 
+<!-- ==================== EXERCICES DE SYNTHÈSE ==================== -->
+<h2>9. Exercices de synthèse — Graphes et ordonnancement</h2>
+
+<div class="exo">
+  <p><strong>Exercice 1 — Matrice d'adjacence.</strong> Soit le graphe non orienté \(G\) avec \(S = \{A,B,C,D\}\) et les arêtes \(\{A,B\}\), \(\{A,C\}\), \(\{B,C\}\), \(\{B,D\}\), \(\{C,D\}\).</p>
+  <ol>
+    <li>Écrire la matrice d'adjacence de \(G\).</li>
+    <li>Calculer la somme des degrés et vérifier le lemme des poignées de mains.</li>
+    <li>\(G\) admet-il un circuit eulérien ?</li>
+  </ol>
+</div>
+
+<div class="corr" id="c24_1">
+  <p><strong>Correction :</strong></p>
+  <table class="matrix">
+    <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+    <tr><th>A</th><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+    <tr><th>B</th><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+    <tr><th>C</th><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+    <tr><th>D</th><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+  </table>
+  <p>Degrés : \(\deg(A)=2,\;\deg(B)=3,\;\deg(C)=3,\;\deg(D)=2\). Somme = 10 = \(2 \times 5\) arêtes ✓.</p>
+  <p>B et C ont un degré impair (3). Il y a exactement 2 sommets de degré impair → il existe un <strong>chemin eulérien</strong> de B à C (ou C à B), mais pas de <strong>circuit</strong> eulérien.</p>
+</div>
+<button class="bc" onclick="document.getElementById('c24_1').style.display='block'">Voir la correction</button>
+
+<div class="exo">
+  <p><strong>Exercice 2 — Dijkstra.</strong> Graphe orienté valué avec 4 sommets \(\{1,2,3,4\}\) :</p>
+  <p>Arcs : \(1\to2 : 3\), \(1\to3 : 7\), \(2\to3 : 2\), \(2\to4 : 5\), \(3\to4 : 1\).</p>
+  <p>Appliquer l'algorithme de Dijkstra depuis le sommet 1 pour trouver les plus courts chemins vers tous les sommets.</p>
+</div>
+
+<div class="corr" id="c24_2">
+  <p><strong>Correction :</strong></p>
+  <table class="pert">
+    <tr><th>Étape</th><th>u</th><th>d(1)</th><th>d(2)</th><th>d(3)</th><th>d(4)</th></tr>
+    <tr><td>Init</td><td>—</td><td>0</td><td>∞</td><td>∞</td><td>∞</td></tr>
+    <tr><td>1</td><td>1</td><td>0</td><td>3</td><td>7</td><td>∞</td></tr>
+    <tr><td>2</td><td>2</td><td>0</td><td>3</td><td>5</td><td>8</td></tr>
+    <tr><td>3</td><td>3</td><td>0</td><td>3</td><td>5</td><td>6</td></tr>
+    <tr><td>4</td><td>4</td><td>0</td><td>3</td><td>5</td><td>6</td></tr>
+  </table>
+  <p>Résultats : \(d(2)=3\) via \(1\to2\) ; \(d(3)=5\) via \(1\to2\to3\) ; \(d(4)=6\) via \(1\to2\to3\to4\).</p>
+</div>
+<button class="bc" onclick="document.getElementById('c24_2').style.display='block'">Voir la correction</button>
+
+<div class="exo">
+  <p><strong>Exercice 3 — PERT simplifié.</strong> Un technicien doit réaliser 5 tâches pour mettre en service un équipement :</p>
+  <table class="pert">
+    <tr><th>Tâche</th><th>Durée (jours)</th><th>Antécédents</th></tr>
+    <tr><td>A</td><td>3</td><td>—</td></tr>
+    <tr><td>B</td><td>2</td><td>A</td></tr>
+    <tr><td>C</td><td>4</td><td>A</td></tr>
+    <tr><td>D</td><td>1</td><td>B</td></tr>
+    <tr><td>E</td><td>2</td><td>C, D</td></tr>
+  </table>
+  <p>Calculer les dates au plus tôt, les dates au plus tard, les marges totales et identifier le chemin critique.</p>
+</div>
+
+<div class="corr" id="c24_3">
+  <p><strong>Correction — Dates au plus tôt (forward pass) :</strong></p>
+  <p>Début = 0 ; Fin A = 3 ; Fin B = 3+2 = 5 ; Fin C = 3+4 = 7 ; Fin D = 5+1 = 6 ; Fin E = max(7,6)+2 = 9.</p>
+  <p><strong>Durée totale : 9 jours.</strong></p>
+  <p><strong>Dates au plus tard (backward pass depuis 9) :</strong></p>
+  <p>Fin E = 9 (date cible) ; au plus tard D = 9−2 = 7 (via E) ; au plus tard C = 9−2 = 7 (via E) ; au plus tard B = 7−1 = 6 (via D) ; au plus tard A = min(6−2, 7−4) = min(4, 3) = 3.</p>
+  <p><strong>Marges totales :</strong></p>
+  <table class="pert">
+    <tr><th>Tâche</th><th>Début au plus tôt</th><th>Date au plus tard du début</th><th>Marge totale</th></tr>
+    <tr><td>A</td><td>0</td><td>0</td><td>0 ★</td></tr>
+    <tr><td>B</td><td>3</td><td>4</td><td>1</td></tr>
+    <tr><td>C</td><td>3</td><td>3</td><td>0 ★</td></tr>
+    <tr><td>D</td><td>5</td><td>6</td><td>1</td></tr>
+    <tr><td>E</td><td>7</td><td>7</td><td>0 ★</td></tr>
+  </table>
+  <p><strong>Chemin critique :</strong> A → C → E (durée 3+4+2 = 9 jours). Les tâches B et D ont une marge de 1 jour.</p>
+</div>
+<button class="bc" onclick="document.getElementById('c24_3').style.display='block'">Voir la correction</button>
+
 <div class="formule-box">
   <strong>Synthèse du chapitre 24</strong>
   <ul>

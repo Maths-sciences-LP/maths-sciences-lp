@@ -8,618 +8,1073 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
-<link rel="stylesheet" href="/nav.css">
+<style>
+:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}
+.table-normal{width:100%;border-collapse:collapse;font-size:.88em;margin:1rem 0}
+.table-normal th,.table-normal td{border:1px solid #c0cdd8;padding:.35rem .6rem;text-align:center}
+.table-normal th{background:var(--p);color:#fff;font-weight:600}
+.table-normal tr:nth-child(even){background:#f4f7fb}
+.table-normal td.hl{background:#fff3cd;font-weight:700}
+.two-col-form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.formula-card{background:var(--p-bg);border:2px solid var(--p-border);border-radius:8px;padding:1rem 1.2rem;margin:.4rem 0}
+.formula-card h4{margin:0 0 .4rem;color:var(--p);font-size:.95em}
+.step-list{counter-reset:step;list-style:none;padding:0}
+.step-list li{counter-increment:step;padding:.45rem .6rem .45rem 2.8rem;position:relative;border-left:3px solid var(--p);margin-bottom:.5rem;background:var(--p-bg)}
+.step-list li::before{content:counter(step);position:absolute;left:.5rem;top:.4rem;background:var(--p);color:#fff;width:1.4em;height:1.4em;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.tag-h0{display:inline-block;background:#dc3545;color:#fff;border-radius:4px;padding:.1em .5em;font-size:.85em;font-weight:700}
+.tag-h1{display:inline-block;background:#198754;color:#fff;border-radius:4px;padding:.1em .5em;font-size:.85em;font-weight:700}
+.decision-box{border:2px solid var(--p);border-radius:8px;padding:.8rem 1rem;background:#fff;margin:.8rem 0}
+.decision-box .reject{color:#dc3545;font-weight:700}
+.decision-box .accept{color:#198754;font-weight:700}
+@media(max-width:640px){.two-col-form{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
-
+<a href="../../../maths-bts.html" class="nb">&larr; Retour au sommaire</a>
 <header>
-  <h1>Chapitre 11 – Statistique inférentielle</h1>
+  <h1>Chapitre 11 &ndash; Statistique inférentielle</h1>
   <p class="sous-titre">BTS &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; Groupements B1, B2, D1, D2</p>
   <p class="maj">Dernière mise à jour : mars 2026</p>
 </header>
 
+<!-- ===================== OBJECTIFS ===================== -->
 <div class="objectifs">
-  <strong>Objectifs du chapitre :</strong>
+  <h2>Objectifs du chapitre</h2>
   <ul>
-    <li>Comprendre la démarche d'inférence statistique : raisonner sur une population à partir d'un échantillon</li>
-    <li>Maîtriser les notions d'estimateur, de biais et de fluctuation d'échantillonnage</li>
-    <li>Appliquer le théorème central limite pour la distribution de la moyenne et d'une proportion</li>
-    <li>Construire un intervalle de confiance pour une moyenne ou une proportion</li>
-    <li>Mettre en œuvre un test d'hypothèse (test sur une moyenne, sur une proportion, test du χ²)</li>
-    <li>Interpréter les résultats dans des contextes professionnels : contrôle qualité, sondage, conformité d'un lot</li>
+    <li>Distinguer <strong>population</strong> et <strong>échantillon</strong>, paramètres et statistiques d'échantillon.</li>
+    <li>Comprendre et appliquer le <strong>théorème central limite</strong> (TCL) et l'erreur standard.</li>
+    <li>Calculer et interpréter un <strong>intervalle de confiance</strong> pour une moyenne (σ connue ou inconnue).</li>
+    <li>Construire un <strong>IC pour une proportion</strong> et déterminer la taille d'échantillon nécessaire.</li>
+    <li>Choisir et lire les tables de la <strong>loi normale standard</strong> et de la <strong>loi de Student</strong>.</li>
+    <li>Poser et conduire un <strong>test d'hypothèse</strong> : Z-test, T-test, test sur proportion.</li>
+    <li>Calculer et interpréter une <strong>p-valeur</strong> dans un contexte industriel ou économique.</li>
+    <li>Réaliser un <strong>test du χ² d'adéquation</strong> à une distribution théorique de référence.</li>
   </ul>
 </div>
 
-<!-- ==================== SITUATION PROFESSIONNELLE ==================== -->
-<h2>Situation professionnelle</h2>
-
+<!-- ===================== SITUATION PRO ===================== -->
 <div class="situation">
-  <h3>Contrôle qualité dans une entreprise de construction et d'énergie</h3>
-  <p>Un technicien d'un bureau de contrôle est chargé de vérifier la résistance à la compression de parpaings produits en série. Il ne peut pas tester toutes les pièces (le test est destructif), il prélève donc un <strong>échantillon</strong> de 50 parpaings et mesure leur résistance. À partir de ces 50 valeurs, peut-il affirmer que la production est conforme à la norme (résistance moyenne ≥ 6 MPa) ?</p>
-  <p>Dans une autre entreprise du secteur énergétique, un ingénieur souhaite estimer la proportion de chaudières installées dont le rendement est inférieur à 85 %. Il interroge 200 clients au hasard. Comment exploiter ce sondage pour obtenir une estimation fiable avec une marge d'erreur quantifiée ?</p>
-  <p>Ces deux situations illustrent la <strong>statistique inférentielle</strong> : inférer (= conclure) sur une population entière à partir d'un échantillon partiel.</p>
-</div>
-
-<!-- ==================== 1. ÉCHANTILLONNAGE ==================== -->
-<h2>1. Échantillonnage</h2>
-
-<h3>1.1 Population et échantillon</h3>
-
-<div class="def">
-  <span class="label label-def">Définition — Population et échantillon</span><br>
-  La <strong>population</strong> est l'ensemble de tous les individus étudiés (ex. : toutes les chaudières d'une marque). Elle est de taille \(N\), souvent très grande ou infinie.<br><br>
-  Un <strong>échantillon</strong> est un sous-ensemble de \(n\) individus tirés de la population. On note \(n\) la <strong>taille de l'échantillon</strong>.<br><br>
-  Le tirage est dit <strong>aléatoire simple</strong> (sans remise) lorsque chaque individu a la même probabilité d'être sélectionné. Lorsque \(n \ll N\) (en pratique \(n \leq 0{,}05\,N\)), on assimile le tirage sans remise à un tirage <strong>avec remise</strong>.
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple</span>
-  <p>Un fabricant de tubes en acier produit 10 000 tubes par jour (population, \(N = 10\,000\)). Un contrôleur prélève 80 tubes pour tester leur diamètre (échantillon, \(n = 80\)). Comme \(80 / 10\,000 = 0{,}8\,\% \leq 5\,\%\), on peut travailler avec un modèle de tirage avec remise.</p>
-</div>
-
-<h3>1.2 Paramètres et statistiques</h3>
-
-<div class="def">
-  <span class="label label-def">Définition — Paramètre et statistique (estimateur)</span><br>
-  Un <strong>paramètre</strong> est une caractéristique numérique de la population (ex. : la moyenne \(\mu\), la proportion \(p\), l'écart-type \(\sigma\)). Il est généralement <strong>inconnu</strong>.<br><br>
-  Une <strong>statistique</strong> (ou <strong>estimateur</strong>) est une fonction des données de l'échantillon utilisée pour estimer un paramètre inconnu. C'est une variable aléatoire tant que l'échantillon n'est pas fixé. Après tirage, sa valeur est l'<strong>estimation</strong>.
-</div>
-
-<div class="def">
-  <span class="label label-def">Définition — Biais d'un estimateur</span><br>
-  Un estimateur \(\hat{\theta}\) de \(\theta\) est dit <strong>sans biais</strong> si son espérance est égale au paramètre estimé :
-  \[E(\hat{\theta}) = \theta\]
-  Il est <strong>biaisé</strong> dans le cas contraire. On cherche toujours des estimateurs sans biais (ou asymptotiquement sans biais).
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Propriété — Estimateurs usuels</span><br>
-  Soit \(X_1, X_2, \ldots, X_n\) un échantillon aléatoire d'une population de moyenne \(\mu\) et de variance \(\sigma^2\).<br><br>
+  <h2>Situation professionnelle — Contrôle qualité en production industrielle</h2>
+  <p>
+    Un technicien qualité dans une usine fabriquant des roulements à billes reçoit chaque matin
+    un lot de \(n = 50\) pièces prélevées sur la chaîne de production. Il mesure le diamètre
+    intérieur de chaque roulement, dont la valeur nominale est \(\mu_0 = 25{,}00\) mm avec un
+    écart-type historique de \(\sigma = 0{,}03\) mm.
+  </p>
+  <p>Pour valider ou rejeter le lot, le technicien doit répondre à plusieurs questions :</p>
   <ul>
-    <li>La <strong>moyenne empirique</strong> \(\bar{X} = \dfrac{1}{n}\displaystyle\sum_{i=1}^n X_i\) est un estimateur sans biais de \(\mu\) : \(E(\bar{X}) = \mu\).</li>
-    <li>La <strong>variance empirique corrigée</strong> \(S^2 = \dfrac{1}{n-1}\displaystyle\sum_{i=1}^n (X_i - \bar{X})^2\) est un estimateur sans biais de \(\sigma^2\) : \(E(S^2) = \sigma^2\).</li>
-    <li>La <strong>proportion empirique</strong> \(\hat{P} = \dfrac{\text{nombre de succès dans l'échantillon}}{n}\) est un estimateur sans biais de \(p\) : \(E(\hat{P}) = p\).</li>
+    <li>Le diamètre moyen du lot est-il conforme à la valeur nominale de 25 mm ?</li>
+    <li>La proportion de pièces hors tolérance est-elle inférieure au seuil maximal de 2 % ?</li>
+    <li>La distribution des diamètres suit-elle bien la loi normale attendue ?</li>
+  </ul>
+  <p>
+    Ces questions relèvent de la <strong>statistique inférentielle</strong> : à partir d'un
+    échantillon partiel, on tire des conclusions sur l'ensemble de la production, avec un
+    niveau de confiance quantifié et maîtrisé.
+  </p>
+</div>
+
+<!-- ===================== 1. POPULATION ET ÉCHANTILLON ===================== -->
+<h2>1. Population, échantillon et paramètres</h2>
+
+<div class="def">
+  <span class="label-def">Définition — Population et échantillon</span>
+  <p>
+    La <strong>population</strong> est l'ensemble complet des individus ou objets étudiés (par exemple,
+    toute la production annuelle de roulements). Un <strong>échantillon</strong> de taille \(n\) est un
+    sous-ensemble représentatif extrait de cette population par tirage au sort.
+  </p>
+</div>
+
+<div class="def">
+  <span class="label-def">Définition — Paramètres et statistiques</span>
+  <p>Un <strong>paramètre</strong> est une caractéristique de la population, généralement inconnue :</p>
+  <ul>
+    <li>\(\mu\) : <em>moyenne</em> de la population</li>
+    <li>\(\sigma^2\) : <em>variance</em> de la population ; \(\sigma\) : écart-type</li>
+    <li>\(p\) : <em>proportion</em> dans la population (individus vérifiant un critère)</li>
+  </ul>
+  <p>Une <strong>statistique</strong> (estimateur) est calculée à partir de l'échantillon :</p>
+  <ul>
+    <li>\(\bar{x} = \dfrac{1}{n}\displaystyle\sum_{i=1}^n x_i\) &nbsp;: moyenne empirique</li>
+    <li>\(s^2 = \dfrac{1}{n-1}\displaystyle\sum_{i=1}^n (x_i - \bar{x})^2\) &nbsp;: variance empirique corrigée</li>
+    <li>\(\hat{p} = \dfrac{\text{nombre de succès}}{n}\) &nbsp;: fréquence empirique</li>
   </ul>
 </div>
 
 <div class="att">
-  <span class="label label-att">Attention</span><br>
-  La variance calculatrice (divisée par \(n\)) est <strong>biaisée</strong>. Pour l'estimation, utiliser la variance corrigée (divisée par \(n-1\)). La plupart des tableurs et calculatrices proposent les deux versions : vérifier laquelle est utilisée (souvent notée \(\sigma_n\) ou \(s_{n-1}\)).
-</div>
-
-<h3>1.3 Qualités d'un bon estimateur</h3>
-
-<div class="prop">
-  <span class="label label-prop">Propriété — Propriétés souhaitables d'un estimateur</span><br>
-  Un estimateur de qualité est :
-  <ul>
-    <li><strong>Sans biais</strong> : \(E(\hat{\theta}) = \theta\) (pas de dérive systématique)</li>
-    <li><strong>Convergent</strong> : \(\hat{\theta} \to \theta\) en probabilité quand \(n \to +\infty\) (plus l'échantillon est grand, plus l'estimation est précise)</li>
-    <li><strong>Efficace</strong> : variance la plus petite possible parmi tous les estimateurs sans biais (erreur aléatoire minimale)</li>
-  </ul>
-</div>
-
-<!-- ==================== 2. FLUCTUATION D'ÉCHANTILLONNAGE ==================== -->
-<h2>2. Fluctuation d'échantillonnage</h2>
-
-<h3>2.1 Distribution de la moyenne \(\bar{X}\)</h3>
-
-<div class="def">
-  <span class="label label-def">Définition — Fluctuation d'échantillonnage</span><br>
-  Si l'on répète le tirage d'un échantillon de taille \(n\), la valeur de l'estimateur change à chaque tirage : c'est la <strong>fluctuation d'échantillonnage</strong>. La loi de probabilité de l'estimateur s'appelle sa <strong>distribution d'échantillonnage</strong>.
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Propriété — Distribution de \(\bar{X}\) (population normale)</span><br>
-  Si la population suit une loi normale \(\mathcal{N}(\mu,\,\sigma^2)\), alors pour tout \(n \geq 1\) :
-  \[\bar{X} \sim \mathcal{N}\!\left(\mu,\,\frac{\sigma^2}{n}\right)\]
-  L'écart-type de \(\bar{X}\) est \(\dfrac{\sigma}{\sqrt{n}}\), appelé <strong>erreur-type</strong> (ou écart-type d'échantillonnage).
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Propriété — Théorème central limite (TCL)</span><br>
-  Soit \(X_1, \ldots, X_n\) un échantillon aléatoire d'une population <em>quelconque</em> de moyenne \(\mu\) et de variance \(\sigma^2\) <strong>finie</strong>. Alors, pour \(n\) suffisamment grand (\(n \geq 30\) en pratique) :
-  \[\bar{X} \approx \mathcal{N}\!\left(\mu,\,\frac{\sigma^2}{n}\right)\]
-  ou de manière équivalente, la variable réduite :
-  \[Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \approx \mathcal{N}(0,1)\]
-  Ce résultat est fondamental : il justifie l'utilisation de la loi normale pour l'inférence, quelle que soit la loi de la population initiale.
-</div>
-
-<div class="retenir">
-  <strong>À retenir — Erreur-type</strong><br>
-  L'erreur-type \(\dfrac{\sigma}{\sqrt{n}}\) mesure la dispersion des moyennes d'échantillon. Elle <strong>diminue</strong> quand \(n\) augmente : un grand échantillon donne une estimation plus précise. Pour diviser l'erreur-type par 2, il faut <strong>multiplier la taille de l'échantillon par 4</strong>.
+  <span class="label-att">Attention — Variance corrigée</span>
+  <p>
+    La variance corrigée divise par \(n-1\) (et non \(n\)) pour être un <em>estimateur sans biais</em>
+    de \(\sigma^2\). Avec le diviseur \(n\), on sous-estime systématiquement la variance de la population.
+    On utilise toujours \(s^2\) pour les IC et tests, sauf si \(\sigma\) est connue par l'historique.
+  </p>
 </div>
 
 <div class="ex">
-  <span class="label label-ex">Exemple</span>
-  <p>La consommation électrique quotidienne d'un bâtiment tertiaire suit une loi de moyenne \(\mu = 450\) kWh et d'écart-type \(\sigma = 60\) kWh. Un gestionnaire énergétique étudie des échantillons de \(n = 36\) jours.</p>
-  <ul>
-    <li>Distribution de \(\bar{X}\) : \(\bar{X} \sim \mathcal{N}\!\left(450,\,\dfrac{60^2}{36}\right) = \mathcal{N}(450,\,100)\)</li>
-    <li>Erreur-type : \(\dfrac{60}{\sqrt{36}} = 10\) kWh</li>
-    <li>\(P(\bar{X} \geq 465) = P\!\left(Z \geq \dfrac{465-450}{10}\right) = P(Z \geq 1{,}5) \approx 6{,}7\,\%\)</li>
-  </ul>
+  <span class="label-meth">Exemple 1 — Calcul de la moyenne et de l'écart-type empiriques</span>
+  <p>
+    On mesure le diamètre intérieur (en mm) de \(n=6\) roulements :<br>
+    \(x_1=24{,}98\) ; \(x_2=25{,}01\) ; \(x_3=25{,}00\) ; \(x_4=24{,}99\) ; \(x_5=25{,}02\) ; \(x_6=25{,}00\).
+  </p>
+  <p><strong>Moyenne empirique :</strong></p>
+  \[
+    \bar{x} = \frac{24{,}98 + 25{,}01 + 25{,}00 + 24{,}99 + 25{,}02 + 25{,}00}{6} = \frac{150{,}00}{6} = 25{,}000 \text{ mm}
+  \]
+  <p><strong>Variance corrigée</strong> (écarts à la moyenne : \(-0{,}02\ ;\ 0{,}01\ ;\ 0\ ;\ -0{,}01\ ;\ 0{,}02\ ;\ 0\)) :</p>
+  \[
+    s^2 = \frac{(0{,}02)^2+(0{,}01)^2+0^2+(0{,}01)^2+(0{,}02)^2+0^2}{5}
+        = \frac{0{,}0004+0{,}0001+0+0{,}0001+0{,}0004+0}{5} = \frac{0{,}001}{5} = 2\times 10^{-4} \text{ mm}^2
+  \]
+  <p>Écart-type empirique : \(s = \sqrt{2\times 10^{-4}} \approx 0{,}0141\) mm.</p>
 </div>
 
-<h3>2.2 Distribution d'une proportion \(\hat{P}\)</h3>
+<!-- ===================== 2. DISTRIBUTION D'ÉCHANTILLONNAGE ===================== -->
+<h2>2. Distribution d'échantillonnage et théorème central limite</h2>
+
+<div class="def">
+  <span class="label-def">Définition — Distribution d'échantillonnage</span>
+  <p>
+    La <strong>distribution d'échantillonnage</strong> de \(\bar{X}\) est la loi de probabilité suivie par
+    la moyenne d'échantillon lorsqu'on répète l'opération de prélever un échantillon de taille \(n\) dans
+    la population. C'est une loi différente de la loi de la population individuelle.
+  </p>
+</div>
 
 <div class="prop">
-  <span class="label label-prop">Propriété — Distribution de \(\hat{P}\)</span><br>
-  Soit \(p\) la proportion d'individus possédant un caractère dans la population. Dans un échantillon de taille \(n\), le nombre de succès suit une loi binomiale \(\mathcal{B}(n,p)\). La proportion empirique \(\hat{P} = X/n\) vérifie :
-  \[E(\hat{P}) = p \qquad \text{et} \qquad \mathrm{Var}(\hat{P}) = \frac{p(1-p)}{n}\]
-  Pour \(n\) grand et \(np \geq 5\), \(n(1-p) \geq 5\) (conditions de validité), on a l'approximation normale :
-  \[\hat{P} \approx \mathcal{N}\!\left(p,\,\frac{p(1-p)}{n}\right)\]
-  soit la variable réduite : \(Z = \dfrac{\hat{P} - p}{\sqrt{p(1-p)/n}} \approx \mathcal{N}(0,1)\)
+  <span class="label-prop">Théorème central limite (TCL)</span>
+  <p>
+    Soient \(X_1, X_2, \ldots, X_n\) des variables aléatoires indépendantes et identiquement distribuées
+    de moyenne \(\mu\) et de variance \(\sigma^2 &lt; +\infty\). Pour \(n \geq 30\)
+    (ou pour tout \(n\) si la population est normale), la variable :
+  </p>
+  \[
+    \bar{X} = \frac{1}{n}\sum_{i=1}^n X_i
+  \]
+  <p>suit <em>approximativement</em> la loi normale :</p>
+  \[
+    \bar{X} \sim \mathcal{N}\!\left(\mu,\ \frac{\sigma^2}{n}\right)
+  \]
+  <p>
+    L'<strong>erreur standard</strong> (écart-type de \(\bar{X}\)) vaut :
+  </p>
+  \[
+    \sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}
+  \]
+  <p>La variable centrée réduite associée suit :</p>
+  \[
+    Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim \mathcal{N}(0,1)
+  \]
+</div>
+
+<div class="prop">
+  <span class="label-prop">Distribution d'échantillonnage d'une proportion</span>
+  <p>
+    Si \(X\) suit une loi de Bernoulli de paramètre \(p\) et si \(np \geq 5\) et \(n(1-p) \geq 5\), alors :
+  </p>
+  \[
+    \hat{P} \sim \mathcal{N}\!\left(p,\ \frac{p(1-p)}{n}\right)
+  \]
 </div>
 
 <div class="ex">
-  <span class="label label-ex">Exemple</span>
-  <p>Un installateur de panneaux photovoltaïques sait que 12 % de ses installations nécessitent une intervention corrective dans les 3 ans. Il étudie un échantillon de \(n = 200\) installations.</p>
-  <ul>
-    <li>Vérification : \(np = 200 \times 0{,}12 = 24 \geq 5\) et \(n(1-p) = 176 \geq 5\) : approximation normale valable.</li>
-    <li>Espérance : \(E(\hat{P}) = 0{,}12\)</li>
-    <li>Écart-type : \(\sqrt{0{,}12 \times 0{,}88 / 200} \approx 0{,}0230\)</li>
-    <li>\(P(\hat{P} \geq 0{,}15) = P\!\left(Z \geq \dfrac{0{,}15 - 0{,}12}{0{,}0230}\right) \approx P(Z \geq 1{,}30) \approx 9{,}7\,\%\)</li>
-  </ul>
+  <span class="label-meth">Exemple 2 — Calcul de l'erreur standard</span>
+  <p>
+    La production de diamètres suit une loi normale de moyenne \(\mu = 25{,}00\) mm et d'écart-type
+    \(\sigma = 0{,}03\) mm. On prélève des échantillons de différentes tailles.
+  </p>
+  <table class="table-normal" style="max-width:420px">
+    <tr><th>Taille \(n\)</th><th>Erreur standard \(\sigma/\sqrt{n}\)</th></tr>
+    <tr><td>5</td><td>\(0{,}03/\sqrt{5} \approx 0{,}0134\) mm</td></tr>
+    <tr><td>15</td><td>\(0{,}03/\sqrt{15} \approx 0{,}00775\) mm</td></tr>
+    <tr><td>30</td><td>\(0{,}03/\sqrt{30} \approx 0{,}00548\) mm</td></tr>
+    <tr><td>50</td><td class="hl">\(0{,}03/\sqrt{50} \approx 0{,}00424\) mm</td></tr>
+  </table>
+  <p>
+    Plus \(n\) augmente, plus l'erreur standard diminue : la moyenne d'échantillon devient
+    un estimateur de plus en plus précis de \(\mu\).
+  </p>
 </div>
 
-<!-- ==================== 3. INTERVALLES DE CONFIANCE ==================== -->
-<h2>3. Estimation par intervalle de confiance</h2>
+<!-- Chart TCL -->
+<div class="chart-wrap">
+  <canvas id="chartTCL" height="290"></canvas>
+  <p style="text-align:center;font-size:.85em;color:#666">
+    Fig. 1 — Distribution de \(\bar{X}\) selon la taille de l'échantillon (\(\mu=25\), \(\sigma=0{,}03\) mm)
+  </p>
+</div>
 
-<h3>3.1 Principe</h3>
+<!-- ===================== 3. ESTIMATION PONCTUELLE ===================== -->
+<h2>3. Estimation ponctuelle</h2>
 
 <div class="def">
-  <span class="label label-def">Définition — Intervalle de confiance</span><br>
-  Un <strong>intervalle de confiance</strong> (IC) au niveau \(1-\alpha\) pour un paramètre \(\theta\) est un intervalle aléatoire \([A\,;\,B]\) construit à partir de l'échantillon tel que :
-  \[P(A \leq \theta \leq B) = 1 - \alpha\]
-  \(1 - \alpha\) est le <strong>niveau de confiance</strong> (ex. : 95 %) et \(\alpha\) est le <strong>risque de première espèce</strong> (ex. : 5 %). L'IC ne contient pas forcément le vrai paramètre — il a une probabilité \(1-\alpha\) de le contenir.
+  <span class="label-def">Définition — Estimateur sans biais</span>
+  <p>
+    Un estimateur \(\hat{\theta}\) d'un paramètre \(\theta\) est dit <strong>sans biais</strong> si
+    \(\mathbb{E}[\hat{\theta}] = \theta\) : en moyenne sur toutes les réalisations possibles, il vise
+    exactement la vraie valeur du paramètre.
+  </p>
 </div>
 
 <div class="prop">
-  <span class="label label-prop">Propriété — Valeurs critiques usuelles de la loi normale \(\mathcal{N}(0,1)\)</span><br>
-  Les quantiles \(u_{\alpha/2}\) vérifiant \(P(-u \leq Z \leq u) = 1-\alpha\) sont :
-  <div class="formule-box" style="margin-top:10px">
-    <table style="margin:auto;border-collapse:collapse;text-align:center">
-      <thead>
-        <tr style="background:var(--p);color:#fff">
-          <th style="padding:8px 18px">Niveau \(1-\alpha\)</th>
-          <th style="padding:8px 18px">\(\alpha\)</th>
-          <th style="padding:8px 18px">Valeur \(u_{\alpha/2}\)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:6px 18px">90 %</td><td>10 %</td><td><strong>1,645</strong></td></tr>
-        <tr style="background:#f8fafc"><td style="padding:6px 18px">95 %</td><td>5 %</td><td><strong>1,96</strong></td></tr>
-        <tr><td style="padding:6px 18px">99 %</td><td>1 %</td><td><strong>2,576</strong></td></tr>
-      </tbody>
-    </table>
+  <span class="label-prop">Estimateurs usuels sans biais</span>
+  <div class="two-col-form">
+    <div class="formula-card">
+      <h4>Moyenne \(\mu\)</h4>
+      \[\hat{\mu} = \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i\]
+    </div>
+    <div class="formula-card">
+      <h4>Variance \(\sigma^2\)</h4>
+      \[\hat{\sigma}^2 = s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2\]
+    </div>
+    <div class="formula-card">
+      <h4>Proportion \(p\)</h4>
+      \[\hat{p} = \frac{\text{nombre de succès}}{n}\]
+    </div>
+    <div class="formula-card">
+      <h4>Convergence</h4>
+      <p style="font-size:.88em;margin:0">La variance de l'estimateur est proportionnelle à \(1/n\) : doubler \(n\) divise l'incertitude par \(\sqrt{2}\).</p>
+    </div>
   </div>
 </div>
 
-<h3>3.2 IC pour une moyenne (\(\sigma\) connue)</h3>
-
-<div class="prop">
-  <span class="label label-prop">Propriété — IC pour \(\mu\) avec \(\sigma\) connue</span><br>
-  Si \(\sigma\) est connue (ou si \(n \geq 30\) et \(\sigma\) est estimée par \(s\)), l'intervalle de confiance au niveau \(1-\alpha\) pour la moyenne \(\mu\) est :
-  \[\left[\bar{x} - u_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}\;;\;\bar{x} + u_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}\right]\]
-  La <strong>marge d'erreur</strong> (demi-largeur) vaut : \(e = u_{\alpha/2}\,\dfrac{\sigma}{\sqrt{n}}\)
-</div>
-
-<div class="formule-box">
-  <strong>IC à 95 % pour une moyenne (\(\sigma\) connue) :</strong>
-  \[\boxed{\left[\bar{x} - 1{,}96\,\frac{\sigma}{\sqrt{n}}\;;\;\bar{x} + 1{,}96\,\frac{\sigma}{\sqrt{n}}\right]}\]
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple</span>
-  <p>Un technicien en génie thermique mesure la résistance thermique de 40 panneaux d'isolation. Il obtient \(\bar{x} = 3{,}82\) m²·K/W. L'écart-type de la production est connu : \(\sigma = 0{,}25\) m²·K/W.</p>
-  <p>IC à 95 % pour la résistance thermique moyenne :</p>
-  \[e = 1{,}96 \times \frac{0{,}25}{\sqrt{40}} \approx 1{,}96 \times 0{,}0395 \approx 0{,}077\]
-  \[\text{IC}_{95\%} = [3{,}82 - 0{,}077\;;\;3{,}82 + 0{,}077] = [3{,}743\;;\;3{,}897]\]
-  <p><strong>Interprétation :</strong> On estime avec un niveau de confiance de 95 % que la résistance thermique moyenne de la production se situe entre 3,74 et 3,90 m²·K/W.</p>
-</div>
-
-<h3>3.3 IC pour une moyenne (\(\sigma\) inconnue — loi de Student)</h3>
+<!-- ===================== 4. INTERVALLES DE CONFIANCE ===================== -->
+<h2>4. Intervalles de confiance</h2>
 
 <div class="def">
-  <span class="label label-def">Définition — Loi de Student</span><br>
-  Lorsque \(\sigma\) est inconnue et l'échantillon petit (\(n < 30\)), on suppose la population normale et on remplace \(\sigma\) par l'écart-type empirique corrigé \(s = \sqrt{S^2}\). La statistique :
-  \[T = \frac{\bar{X} - \mu}{S/\sqrt{n}}\]
-  suit alors une loi de <strong>Student</strong> à \(\nu = n-1\) degrés de liberté, notée \(t_{n-1}\). Cette loi est symétrique comme la loi normale, mais à queues plus épaisses (elle converge vers \(\mathcal{N}(0,1)\) quand \(n \to +\infty\)).
+  <span class="label-def">Définition — Intervalle de confiance</span>
+  <p>
+    Un <strong>intervalle de confiance (IC)</strong> au niveau \(1-\alpha\) pour un paramètre \(\theta\)
+    est un intervalle aléatoire \([A\,;\,B]\), calculé à partir de l'échantillon, tel que :
+  </p>
+  \[
+    \mathbb{P}(A \leq \theta \leq B) = 1 - \alpha
+  \]
+  <p>
+    Le niveau de confiance est en général 90 %, 95 % ou 99 %. Le <strong>seuil \(\alpha\)</strong>
+    est le risque d'erreur : probabilité que l'IC construit ne contienne pas \(\theta\).
+  </p>
+  <p>
+    <strong>Interprétation fréquentiste :</strong> si l'on construisait un grand nombre d'IC de même
+    niveau à partir d'échantillons différents, environ \((1-\alpha)\times 100\,\%\) d'entre eux
+    contiendraient la vraie valeur de \(\theta\).
+  </p>
 </div>
 
+<h3>4.1 IC pour la moyenne (σ connue)</h3>
+
 <div class="prop">
-  <span class="label label-prop">Propriété — IC pour \(\mu\) avec \(\sigma\) inconnue</span><br>
-  L'intervalle de confiance au niveau \(1-\alpha\) pour \(\mu\) est :
-  \[\left[\bar{x} - t_{n-1;\,\alpha/2}\,\frac{s}{\sqrt{n}}\;;\;\bar{x} + t_{n-1;\,\alpha/2}\,\frac{s}{\sqrt{n}}\right]\]
-  où \(t_{n-1;\,\alpha/2}\) est le quantile de la loi de Student à \(n-1\) degrés de liberté lu dans une table (ou calculé par tableur). Pour \(n \geq 30\), \(t_{n-1;\,\alpha/2} \approx u_{\alpha/2}\) et on utilise la loi normale.
+  <span class="label-prop">Formule — IC pour μ avec σ connue</span>
+  <p>
+    Lorsque \(\sigma\) est connue et que \(n \geq 30\) (ou que la population est normale), la loi normale
+    donne :
+  </p>
+  \[
+    \boxed{IC_{1-\alpha} = \left[\bar{x} - z_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}\ ;\ \bar{x} + z_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}\right]}
+  \]
+  <p>
+    avec \(z_{\alpha/2}\) le quantile de \(\mathcal{N}(0,1)\) tel que \(\mathbb{P}(-z_{\alpha/2} \leq Z \leq z_{\alpha/2}) = 1-\alpha\).
+  </p>
+  <table class="table-normal" style="max-width:380px">
+    <tr><th>Niveau \(1-\alpha\)</th><th>\(\alpha\)</th><th>\(z_{\alpha/2}\)</th></tr>
+    <tr><td>90 %</td><td>10 %</td><td class="hl">1,645</td></tr>
+    <tr><td>95 %</td><td>5 %</td><td class="hl">1,960</td></tr>
+    <tr><td>99 %</td><td>1 %</td><td class="hl">2,576</td></tr>
+  </table>
 </div>
 
 <div class="ex">
-  <span class="label label-ex">Exemple</span>
-  <p>Un contrôleur qualité prélève \(n = 12\) éprouvettes de béton et mesure leur résistance (en MPa) : \(\bar{x} = 28{,}4\) MPa et \(s = 2{,}1\) MPa. Construire un IC à 95 %.</p>
-  <p>Degrés de liberté : \(\nu = 12 - 1 = 11\). Table de Student : \(t_{11;\,0{,}025} = 2{,}201\).</p>
-  \[e = 2{,}201 \times \frac{2{,}1}{\sqrt{12}} \approx 2{,}201 \times 0{,}606 \approx 1{,}33\]
-  \[\text{IC}_{95\%} = [28{,}4 - 1{,}33\;;\;28{,}4 + 1{,}33] = [27{,}07\;;\;29{,}73]\]
-  <p><strong>Interprétation :</strong> On estime avec 95 % de confiance que la résistance moyenne du lot se situe entre 27,1 et 29,7 MPa. La norme exige ≥ 25 MPa : le lot semble conforme.</p>
+  <span class="label-meth">Exemple 3 — IC sur le diamètre moyen (σ connue)</span>
+  <p>
+    Un ingénieur qualité mesure \(n=50\) roulements et obtient \(\bar{x}=25{,}012\) mm.
+    On sait historiquement que \(\sigma=0{,}03\) mm. Construire un IC à 95 % pour le diamètre moyen.
+  </p>
+  <p>Erreur standard : \(\dfrac{0{,}03}{\sqrt{50}} = \dfrac{0{,}03}{7{,}071} \approx 0{,}00424\) mm</p>
+  <p>Marge d'erreur : \(1{,}960 \times 0{,}00424 \approx 0{,}00831\) mm</p>
+  \[
+    IC_{95\,\%} = [25{,}012 - 0{,}0083\ ;\ 25{,}012 + 0{,}0083] = [25{,}004\ ;\ 25{,}020] \text{ mm}
+  \]
+  <p>
+    <strong>Conclusion :</strong> On est confiant à 95 % que le diamètre moyen de la production
+    se situe entre 25,004 mm et 25,020 mm. La valeur nominale 25,000 mm n'est <em>pas</em> dans
+    l'IC — signe d'une possible dérive.
+  </p>
 </div>
 
-<h3>3.4 IC pour une proportion</h3>
+<h3>4.2 IC pour la moyenne (σ inconnue — loi de Student)</h3>
 
 <div class="prop">
-  <span class="label label-prop">Propriété — IC pour une proportion \(p\)</span><br>
-  Pour un échantillon de taille \(n\) avec une proportion empirique \(\hat{p}\), l'intervalle de confiance au niveau \(1-\alpha\) est (conditions : \(n\hat{p} \geq 5\) et \(n(1-\hat{p}) \geq 5\)) :
-  \[\left[\hat{p} - u_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\;;\;\hat{p} + u_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right]\]
+  <span class="label-prop">Formule — IC pour μ avec σ inconnue (loi de Student)</span>
+  <p>
+    Lorsque \(\sigma\) est inconnue et que la population est normale (ou \(n\) pas trop petit), on
+    remplace \(\sigma\) par \(s\) et la loi normale par la <strong>loi de Student à \(n-1\) degrés de liberté</strong> :
+  </p>
+  \[
+    \boxed{IC_{1-\alpha} = \left[\bar{x} - t_{n-1;\,\alpha/2}\,\frac{s}{\sqrt{n}}\ ;\ \bar{x} + t_{n-1;\,\alpha/2}\,\frac{s}{\sqrt{n}}\right]}
+  \]
+  <p>
+    La loi de Student a des queues plus épaisses que la normale : l'intervalle obtenu est plus
+    large, ce qui reflète l'incertitude supplémentaire liée à l'estimation de \(\sigma\).
+    Quand \(n \to \infty\), \(t_{n-1;\,\alpha/2} \to z_{\alpha/2}\).
+  </p>
 </div>
 
-<div class="formule-box">
-  <strong>IC à 95 % pour une proportion :</strong>
-  \[\boxed{\hat{p} \pm 1{,}96\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}}\]
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple</span>
-  <p>Un installateur de systèmes de ventilation double flux interroge un échantillon de \(n = 250\) utilisateurs. Parmi eux, \(k = 35\) déclarent avoir eu un problème de condensation dans la première année. Estimer avec 95 % de confiance la proportion réelle.</p>
-  <p>\(\hat{p} = 35/250 = 0{,}14\)</p>
-  <p>Vérification : \(250 \times 0{,}14 = 35 \geq 5\) et \(250 \times 0{,}86 = 215 \geq 5\). Approximation valable.</p>
-  \[e = 1{,}96\sqrt{\frac{0{,}14 \times 0{,}86}{250}} = 1{,}96 \times 0{,}02193 \approx 0{,}0430\]
-  \[\text{IC}_{95\%} = [0{,}140 - 0{,}043\;;\;0{,}140 + 0{,}043] = [0{,}097\;;\;0{,}183]\]
-  <p><strong>Interprétation :</strong> On estime avec 95 % de confiance que la proportion réelle d'utilisateurs ayant eu un problème de condensation est comprise entre 9,7 % et 18,3 %.</p>
-</div>
-
-<h3>3.5 Choix de la taille de l'échantillon</h3>
-
-<div class="prop">
-  <span class="label label-prop">Propriété — Taille minimale pour une précision donnée</span><br>
-  Si l'on souhaite une marge d'erreur maximale \(e\) au niveau \(1-\alpha\) :
+<div class="att">
+  <span class="label-att">Attention — Conditions d'application</span>
   <ul>
-    <li>Pour une proportion : \(n \geq \dfrac{u_{\alpha/2}^2 \cdot \hat{p}(1-\hat{p})}{e^2}\). Sans information sur \(p\), on majore par \(\hat{p}(1-\hat{p}) \leq 0{,}25\), d'où : \(n \geq \dfrac{u_{\alpha/2}^2}{4e^2}\)</li>
-    <li>Pour une moyenne : \(n \geq \dfrac{u_{\alpha/2}^2 \cdot \sigma^2}{e^2}\)</li>
+    <li>La loi de Student est valable si la population suit <em>approximativement</em> une loi normale.</li>
+    <li>Pour \(n \geq 30\), la différence entre \(t\) et \(z\) devient négligeable (moins de 5 %).</li>
+    <li>Toujours utiliser la variance corrigée \(s^2\) (diviseur \(n-1\)).</li>
   </ul>
 </div>
 
 <div class="ex">
-  <span class="label label-ex">Exemple</span>
-  <p>Un bureau d'études veut estimer la proportion de logements énergivores dans une commune avec une marge d'erreur de ±3 % au niveau 95 %. Quelle taille minimale d'échantillon faut-il ?</p>
-  <p>Sans information préalable : \(n \geq \dfrac{1{,}96^2}{4 \times 0{,}03^2} = \dfrac{3{,}8416}{0{,}0036} \approx 1068\)</p>
-  <p>Il faut interroger au minimum <strong>1 068</strong> logements.</p>
+  <span class="label-meth">Exemple 4 — IC sur la résistance de soudures (petit échantillon)</span>
+  <p>
+    Un contrôleur qualité mesure la résistance à la rupture (en MPa) de \(n=12\) assemblages soudés :
+  </p>
+  <p style="font-family:monospace;background:#f4f7fb;padding:.5rem;border-radius:4px">
+    420 &nbsp; 415 &nbsp; 430 &nbsp; 418 &nbsp; 425 &nbsp; 412 &nbsp; 422 &nbsp; 428 &nbsp; 416 &nbsp; 424 &nbsp; 419 &nbsp; 427
+  </p>
+  <p>
+    Calculs : \(\bar{x} = 421{,}33\) MPa, \(s = 5{,}41\) MPa.
+    Construire un IC à 95 %.
+  </p>
+  <p>\(\nu = n-1 = 11\) ; table de Student : \(t_{11;\,0{,}025} = 2{,}201\).</p>
+  <p>Marge : \(2{,}201 \times \dfrac{5{,}41}{\sqrt{12}} = 2{,}201 \times 1{,}562 \approx 3{,}44\) MPa</p>
+  \[
+    IC_{95\,\%} = [421{,}33 - 3{,}44\ ;\ 421{,}33 + 3{,}44] = [417{,}9\ ;\ 424{,}8] \text{ MPa}
+  \]
 </div>
 
-<!-- ==================== 4. TESTS D'HYPOTHÈSES ==================== -->
-<h2>4. Tests d'hypothèses</h2>
+<h3>4.3 IC pour une proportion</h3>
 
-<h3>4.1 Principe général</h3>
+<div class="prop">
+  <span class="label-prop">Formule — IC pour p</span>
+  <p>
+    Si \(n\hat{p} \geq 5\) et \(n(1-\hat{p}) \geq 5\) (conditions de validité de l'approximation normale) :
+  </p>
+  \[
+    \boxed{IC_{1-\alpha} = \left[\hat{p} - z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\ ;\ \hat{p} + z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right]}
+  \]
+  <p>La <strong>marge d'erreur maximale</strong> (atteinte pour \(\hat{p}=0{,}5\)) :</p>
+  \[
+    e_{\max} = \frac{z_{\alpha/2}}{2\sqrt{n}} \quad\text{ex. pour IC 95 \% : } e_{\max} \approx \frac{1{,}96}{2\sqrt{n}}
+  \]
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 5 — Proportion de pièces non conformes</span>
+  <p>
+    Sur \(n=200\) roulements inspectés, \(8\) sont déclarés non conformes.
+    \(\hat{p} = 8/200 = 0{,}040\). Construire un IC à 95 %.
+  </p>
+  <p>
+    Vérification : \(200 \times 0{,}04 = 8 \geq 5\) ✓ &nbsp;&nbsp; \(200 \times 0{,}96 = 192 \geq 5\) ✓
+  </p>
+  \[
+    \sqrt{\frac{0{,}04 \times 0{,}96}{200}} = \sqrt{0{,}000192} \approx 0{,}01386
+  \]
+  \[
+    IC_{95\,\%} = [0{,}04 - 1{,}96 \times 0{,}01386\ ;\ 0{,}04 + 1{,}96 \times 0{,}01386]
+               \approx [0{,}013\ ;\ 0{,}067]
+  \]
+  <p>
+    <strong>Conclusion :</strong> Le taux de non-conformité est estimé entre 1,3 % et 6,7 %
+    avec une confiance de 95 %. Comme l'IC contient des valeurs supérieures à 2 %, il faut
+    augmenter le contrôle.
+  </p>
+</div>
+
+<h3>4.4 Taille d'échantillon nécessaire</h3>
+
+<div class="prop">
+  <span class="label-prop">Taille minimale pour une précision donnée</span>
+  <p>Pour une marge d'erreur \(\leq e\) sur une proportion (niveau \(1-\alpha\)) :</p>
+  \[
+    n \geq \frac{z_{\alpha/2}^2\,\hat{p}(1-\hat{p})}{e^2}
+    \qquad\text{(sans info sur } p\text{ : }n \geq \frac{z_{\alpha/2}^2}{4e^2})
+  \]
+  <p>Pour une marge \(\leq e\) sur une moyenne (σ connue) :</p>
+  \[
+    n \geq \left(\frac{z_{\alpha/2}\,\sigma}{e}\right)^2
+  \]
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 6 — Taille d'échantillon pour un sondage</span>
+  <p>
+    Un auditeur veut estimer le taux de satisfaction des clients d'une entreprise avec une
+    marge d'erreur de \(\pm 3\,\%\) au niveau 95 %. Aucune info préalable sur \(p\).
+  </p>
+  \[
+    n \geq \frac{(1{,}96)^2}{4 \times (0{,}03)^2} = \frac{3{,}8416}{0{,}0036} \approx 1068
+  \]
+  <p>Il faut interroger au moins <strong>1068 clients</strong>.</p>
+</div>
+
+<!-- ===================== 5. TESTS D'HYPOTHÈSES ===================== -->
+<h2>5. Tests d'hypothèses</h2>
 
 <div class="def">
-  <span class="label label-def">Définition — Hypothèses et risques</span><br>
-  Un <strong>test statistique</strong> est une procédure permettant de décider, à partir d'un échantillon, si une hypothèse sur la population est plausible.<br><br>
+  <span class="label-def">Définition — Hypothèses H₀ et H₁</span>
+  <p>
+    Un <strong>test d'hypothèse</strong> est une procédure permettant de décider, à partir d'un
+    échantillon, si les données sont compatibles avec une affirmation sur un paramètre de la population.
+  </p>
   <ul>
-    <li><strong>Hypothèse nulle \(H_0\)</strong> : hypothèse testée (généralement "pas d'effet", "conformité", "égalité")</li>
-    <li><strong>Hypothèse alternative \(H_1\)</strong> : hypothèse acceptée si \(H_0\) est rejetée</li>
-    <li><strong>Risque \(\alpha\)</strong> (risque de 1ère espèce) : probabilité de rejeter \(H_0\) alors qu'elle est vraie. Fixé à l'avance (souvent 5 % ou 1 %)</li>
-    <li><strong>Risque \(\beta\)</strong> (risque de 2e espèce) : probabilité d'accepter \(H_0\) alors qu'elle est fausse (moins contrôlé)</li>
+    <li>
+      <span class="tag-h0">H₀</span> <strong>Hypothèse nulle :</strong> hypothèse de référence
+      (conformité, statut quo). Ex. : \(\mu = \mu_0\). On la rejette seulement si les données
+      apportent une preuve suffisamment forte contre elle.
+    </li>
+    <li>
+      <span class="tag-h1">H₁</span> <strong>Hypothèse alternative :</strong> ce qu'on cherche à
+      démontrer (dérive, amélioration, non-conformité). Ex. : \(\mu \neq \mu_0\).
+    </li>
   </ul>
+</div>
+
+<div class="def">
+  <span class="label-def">Définition — Erreurs de décision</span>
+  <table class="table-normal" style="max-width:520px">
+    <tr><th></th><th>H₀ vraie</th><th>H₀ fausse</th></tr>
+    <tr>
+      <td><strong>On rejette H₀</strong></td>
+      <td style="color:#dc3545"><strong>Erreur de 1ère espèce</strong><br>Probabilité : α (seuil)</td>
+      <td style="color:#198754">Décision correcte<br>(puissance du test : \(1-\beta\))</td>
+    </tr>
+    <tr>
+      <td><strong>On ne rejette pas H₀</strong></td>
+      <td style="color:#198754">Décision correcte</td>
+      <td style="color:#dc3545"><strong>Erreur de 2ème espèce</strong><br>Probabilité : β</td>
+    </tr>
+  </table>
+  <p>
+    On fixe \(\alpha\) à l'avance (souvent 5 %). Réduire \(\alpha\) augmente \(\beta\) :
+    on ne peut pas annuler simultanément les deux types d'erreur.
+  </p>
 </div>
 
 <div class="meth">
-  <span class="label label-meth">Méthode — Démarche d'un test d'hypothèse</span>
-  <ol>
-    <li><strong>Formuler les hypothèses</strong> \(H_0\) et \(H_1\)</li>
-    <li><strong>Choisir le niveau de signification</strong> \(\alpha\) (risque d'erreur accepté)</li>
-    <li><strong>Calculer la statistique de test</strong> à partir de l'échantillon</li>
-    <li><strong>Déterminer la règle de décision</strong> : zone de rejet (zone critique) ou valeur critique</li>
-    <li><strong>Conclure</strong> : rejeter ou ne pas rejeter \(H_0\), interpréter dans le contexte</li>
+  <span class="label-meth">Méthode — Les 7 étapes d'un test d'hypothèse</span>
+  <ol class="step-list">
+    <li>Énoncer les hypothèses <span class="tag-h0">H₀</span> et <span class="tag-h1">H₁</span> précisément, en lien avec le contexte.</li>
+    <li>Fixer le seuil \(\alpha\) (risque de 1ère espèce). Valeurs usuelles : 1 %, 5 %, 10 %.</li>
+    <li>Choisir la <strong>statistique de test</strong> adaptée à la situation (Z, T, χ²...) et identifier sa loi sous H₀.</li>
+    <li>Calculer la <strong>valeur observée</strong> de la statistique de test sur l'échantillon.</li>
+    <li>Déterminer la <strong>région critique</strong> (valeur seuil selon le type de test : bilatéral, unilatéral) <em>ou</em> calculer la <strong>p-valeur</strong>.</li>
+    <li>Comparer : si \(|T_{obs}|\) est dans la zone de rejet (ou p-valeur \(&lt; \alpha\)), on <strong>rejette H₀</strong> ; sinon, on <strong>ne rejette pas H₀</strong>.</li>
+    <li>Formuler la <strong>conclusion dans le contexte professionnel</strong> de façon claire et précise.</li>
   </ol>
-  <p><em>Autre approche : calculer la <strong>p-valeur</strong> (probabilité d'observer un résultat aussi extrême si \(H_0\) est vraie) et rejeter \(H_0\) si p-valeur \(< \alpha\).</em></p>
 </div>
 
-<div class="att">
-  <span class="label label-att">Attention — Interprétation</span><br>
-  "Ne pas rejeter \(H_0\)" ne signifie pas que \(H_0\) est vraie, mais seulement que les données ne fournissent pas de preuve suffisante pour la réfuter. Un test est toujours conclu dans un contexte probabiliste, pas avec certitude.
-</div>
-
-<h3>4.2 Test sur une moyenne (z-test)</h3>
+<h3>5.1 Test sur la moyenne — Z-test (σ connue)</h3>
 
 <div class="prop">
-  <span class="label label-prop">Propriété — z-test pour une moyenne</span><br>
-  On veut tester si la moyenne d'une population est égale à une valeur de référence \(\mu_0\), avec \(\sigma\) connue (ou \(n \geq 30\)). La <strong>statistique de test</strong> est :
-  \[Z_{obs} = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}}\]
-  Sous \(H_0\), \(Z_{obs} \sim \mathcal{N}(0,1)\) (approximativement).
-  <ul>
-    <li>Test bilatéral (\(H_1 : \mu \neq \mu_0\)) : rejeter \(H_0\) si \(|Z_{obs}| > u_{\alpha/2}\)</li>
-    <li>Test unilatéral droit (\(H_1 : \mu > \mu_0\)) : rejeter \(H_0\) si \(Z_{obs} > u_\alpha\)</li>
-    <li>Test unilatéral gauche (\(H_1 : \mu < \mu_0\)) : rejeter \(H_0\) si \(Z_{obs} < -u_\alpha\)</li>
-  </ul>
-  Valeurs critiques : \(u_{0{,}025} = 1{,}96\) (bilatéral 5 %), \(u_{0{,}05} = 1{,}645\) (unilatéral 5 %).
+  <span class="label-prop">Statistique de test Z</span>
+  <p>Sous <span class="tag-h0">H₀</span> : \(\mu = \mu_0\) (avec \(\sigma\) connue et \(n \geq 30\)) :</p>
+  \[
+    Z_{obs} = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \sim \mathcal{N}(0,1) \text{ sous H}_0
+  \]
+  <table class="table-normal" style="max-width:520px">
+    <tr><th>Type de test</th><th>H₁</th><th>Zone de rejet (seuil α)</th></tr>
+    <tr><td>Bilatéral</td><td>\(\mu \neq \mu_0\)</td><td>\(|Z_{obs}| > z_{\alpha/2}\)</td></tr>
+    <tr><td>Unilatéral droit</td><td>\(\mu > \mu_0\)</td><td>\(Z_{obs} > z_\alpha\)</td></tr>
+    <tr><td>Unilatéral gauche</td><td>\(\mu &lt; \mu_0\)</td><td>\(Z_{obs} &lt; -z_\alpha\)</td></tr>
+  </table>
 </div>
 
 <div class="ex">
-  <span class="label label-ex">Exemple — Contrôle de production de profilés</span>
-  <p>Une machine usine des profilés aluminium dont la largeur doit être \(\mu_0 = 50\) mm (écart-type de la machine : \(\sigma = 0{,}8\) mm). Un technicien prélève \(n = 64\) pièces et obtient \(\bar{x} = 50{,}22\) mm. La machine est-elle bien réglée ? (risque 5 %)</p>
-  <p><strong>\(H_0\) :</strong> \(\mu = 50\) mm — <strong>\(H_1\) :</strong> \(\mu \neq 50\) mm (test bilatéral)</p>
-  \[Z_{obs} = \frac{50{,}22 - 50}{0{,}8/\sqrt{64}} = \frac{0{,}22}{0{,}1} = 2{,}2\]
-  <p>Valeur critique : \(u_{0{,}025} = 1{,}96\). Comme \(|Z_{obs}| = 2{,}2 > 1{,}96\), on <strong>rejette \(H_0\)</strong> au seuil 5 %.</p>
-  <p><strong>Conclusion :</strong> La machine semble mal réglée. La largeur moyenne des profilés est significativement différente de 50 mm.</p>
-</div>
-
-<h3>4.3 Test sur une moyenne (t-test de Student)</h3>
-
-<div class="prop">
-  <span class="label label-prop">Propriété — t-test pour une moyenne (\(\sigma\) inconnue)</span><br>
-  Si \(\sigma\) est inconnue et \(n < 30\) (population supposée normale), la statistique de test est :
-  \[T_{obs} = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}\]
-  Sous \(H_0\), \(T_{obs} \sim t_{n-1}\) (loi de Student à \(n-1\) degrés de liberté).<br>
-  La règle de décision est identique au z-test, en remplaçant \(u_{\alpha/2}\) par \(t_{n-1;\,\alpha/2}\).
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple — Vérification de la résistance de câbles</span>
-  <p>Un fournisseur garantit que ses câbles ont une résistance linéique moyenne de \(\mu_0 = 0{,}40\) Ω/m. Un électricien prélève \(n = 15\) câbles : \(\bar{x} = 0{,}43\) Ω/m, \(s = 0{,}06\) Ω/m. Peut-on douter de la conformité ? (risque 5 %, test bilatéral)</p>
-  <p><strong>\(H_0\) :</strong> \(\mu = 0{,}40\) — <strong>\(H_1\) :</strong> \(\mu \neq 0{,}40\)</p>
-  \[T_{obs} = \frac{0{,}43 - 0{,}40}{0{,}06/\sqrt{15}} = \frac{0{,}03}{0{,}01549} \approx 1{,}94\]
-  <p>Table de Student : \(t_{14;\,0{,}025} = 2{,}145\). Comme \(|T_{obs}| = 1{,}94 < 2{,}145\), on <strong>ne rejette pas \(H_0\)</strong> au seuil 5 %.</p>
-  <p><strong>Conclusion :</strong> L'échantillon ne fournit pas de preuve suffisante pour contester la valeur garantie par le fournisseur.</p>
-</div>
-
-<h3>4.4 Test sur une proportion</h3>
-
-<div class="prop">
-  <span class="label label-prop">Propriété — Test sur une proportion</span><br>
-  On teste si une proportion vaut \(p_0\). La statistique de test est :
-  \[Z_{obs} = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}\]
-  Sous \(H_0\) et pour \(n\) suffisamment grand (\(np_0 \geq 5\) et \(n(1-p_0) \geq 5\)) : \(Z_{obs} \approx \mathcal{N}(0,1)\).<br>
-  La règle de décision est la même que pour le z-test sur une moyenne.
-</div>
-
-<div class="att">
-  <span class="label label-att">Attention — Formule de l'écart-type</span><br>
-  Dans le test sur une proportion, l'écart-type est calculé sous \(H_0\) en utilisant \(p_0\) (et non \(\hat{p}\) comme dans l'intervalle de confiance). C'est une erreur fréquente à éviter.
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple — Taux de défaut sur une livraison</span>
-  <p>Un constructeur affirme que son taux de pièces défectueuses est inférieur à 3 %. Un client reçoit une commande de 500 pièces et en trouve 22 défectueuses. Cette livraison est-elle conforme ? (risque 5 %, test unilatéral droit)</p>
-  <p><strong>\(H_0\) :</strong> \(p = 0{,}03\) — <strong>\(H_1\) :</strong> \(p > 0{,}03\)</p>
-  \[\hat{p} = \frac{22}{500} = 0{,}044\]
-  \[Z_{obs} = \frac{0{,}044 - 0{,}03}{\sqrt{0{,}03 \times 0{,}97 / 500}} = \frac{0{,}014}{0{,}00763} \approx 1{,}83\]
-  <p>Valeur critique unilatérale à 5 % : \(u_{0{,}05} = 1{,}645\). Comme \(1{,}83 > 1{,}645\), on <strong>rejette \(H_0\)</strong>.</p>
-  <p><strong>Conclusion :</strong> Le taux de défaut de cette livraison est significativement supérieur à 3 %. La conformité est remise en question.</p>
-</div>
-
-<!-- ==================== 5. TEST DU CHI-DEUX ==================== -->
-<h2>5. Test du χ² (chi-deux)</h2>
-
-<h3>5.1 Principe</h3>
-
-<div class="def">
-  <span class="label label-def">Définition — Statistique du χ²</span><br>
-  Le test du χ² compare des <strong>effectifs observés</strong> \(O_i\) à des <strong>effectifs théoriques</strong> \(E_i\) (calculés sous \(H_0\)). La statistique de test est :
-  \[\chi^2_{obs} = \sum_{i} \frac{(O_i - E_i)^2}{E_i}\]
-  Sous \(H_0\), cette statistique suit approximativement une loi du χ² à \(\nu\) degrés de liberté. On rejette \(H_0\) si \(\chi^2_{obs} > \chi^2_{\nu;\,\alpha}\) (valeur lue dans la table du χ²).
-</div>
-
-<div class="att">
-  <span class="label label-att">Condition de validité</span><br>
-  Le test du χ² est valide uniquement si tous les effectifs théoriques \(E_i \geq 5\). Si ce n'est pas le cas, regrouper des modalités avant d'appliquer le test.
-</div>
-
-<h3>5.2 Test d'adéquation (ajustement)</h3>
-
-<div class="def">
-  <span class="label label-def">Définition — Test d'adéquation</span><br>
-  Le <strong>test d'adéquation</strong> (ou d'ajustement) vérifie si un échantillon suit une loi théorique donnée.
-  <ul>
-    <li>\(H_0\) : la distribution suit la loi théorique proposée</li>
-    <li>\(H_1\) : la distribution ne suit pas cette loi</li>
-    <li>Degrés de liberté : \(\nu = k - 1 - r\) où \(k\) est le nombre de classes et \(r\) le nombre de paramètres estimés à partir des données</li>
-  </ul>
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple — Répartition des pannes sur la semaine</span>
-  <p>Un responsable de maintenance veut savoir si les pannes d'un équipement industriel surviennent de façon uniforme sur les 5 jours ouvrés. Il observe sur 100 semaines :</p>
-  <div class="formule-box">
-    <table style="margin:auto;border-collapse:collapse;text-align:center">
-      <thead>
-        <tr style="background:var(--p);color:#fff">
-          <th style="padding:6px 14px">Jour</th>
-          <th style="padding:6px 14px">Lundi</th>
-          <th style="padding:6px 14px">Mardi</th>
-          <th style="padding:6px 14px">Mercredi</th>
-          <th style="padding:6px 14px">Jeudi</th>
-          <th style="padding:6px 14px">Vendredi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:5px 14px"><strong>Observé \(O_i\)</strong></td><td>26</td><td>18</td><td>22</td><td>19</td><td>15</td></tr>
-        <tr style="background:#f8fafc"><td style="padding:5px 14px"><strong>Théorique \(E_i\)</strong></td><td>20</td><td>20</td><td>20</td><td>20</td><td>20</td></tr>
-      </tbody>
-    </table>
+  <span class="label-meth">Exemple 7 — Dérive de production (Z-test bilatéral)</span>
+  <p>
+    Diamètre nominal \(\mu_0 = 25{,}000\) mm, \(\sigma = 0{,}03\) mm. Sur \(n=50\) pièces,
+    le technicien mesure \(\bar{x} = 25{,}012\) mm. Y a-t-il une dérive ? (α = 5 %)
+  </p>
+  <p>
+    <span class="tag-h0">H₀</span> : \(\mu = 25{,}000\) &nbsp;|&nbsp;
+    <span class="tag-h1">H₁</span> : \(\mu \neq 25{,}000\) (bilatéral)
+  </p>
+  \[
+    Z_{obs} = \frac{25{,}012 - 25{,}000}{0{,}03/\sqrt{50}} = \frac{0{,}012}{0{,}00424} \approx 2{,}83
+  \]
+  <div class="decision-box">
+    <p>\(|Z_{obs}| = 2{,}83 > z_{0{,}025} = 1{,}96\) → zone de rejet.</p>
+    <p class="reject">On rejette H₀ au seuil 5 %.</p>
+    <p>
+      <strong>Conclusion :</strong> La dérive du diamètre moyen est statistiquement significative.
+      Le technicien doit alerter la production pour un recalibrage immédiat de la machine.
+    </p>
   </div>
-  <p>\(H_0\) : répartition uniforme (20 pannes par jour en moyenne).</p>
-  \[\chi^2_{obs} = \frac{(26-20)^2}{20} + \frac{(18-20)^2}{20} + \frac{(22-20)^2}{20} + \frac{(19-20)^2}{20} + \frac{(15-20)^2}{20}\]
-  \[= \frac{36}{20} + \frac{4}{20} + \frac{4}{20} + \frac{1}{20} + \frac{25}{20} = \frac{70}{20} = 3{,}5\]
-  <p>Degrés de liberté : \(\nu = 5 - 1 = 4\). Table χ² : \(\chi^2_{4;\,0{,}05} = 9{,}49\).</p>
-  <p>Comme \(3{,}5 < 9{,}49\), on <strong>ne rejette pas \(H_0\)</strong>. Les pannes ne semblent pas concentrées sur certains jours.</p>
 </div>
 
-<h3>5.3 Test d'indépendance</h3>
+<h3>5.2 Test sur la moyenne — T-test (σ inconnue)</h3>
 
-<div class="def">
-  <span class="label label-def">Définition — Test d'indépendance</span><br>
-  Le <strong>test d'indépendance du χ²</strong> vérifie si deux variables qualitatives sont indépendantes dans une population. Les données sont présentées dans un <strong>tableau de contingence</strong>.<br><br>
-  <ul>
-    <li>\(H_0\) : les deux variables sont indépendantes</li>
-    <li>\(H_1\) : les deux variables ne sont pas indépendantes (liaison statistique)</li>
-    <li>Effectifs théoriques (sous \(H_0\)) : \(E_{ij} = \dfrac{(\text{total ligne }i) \times (\text{total colonne }j)}{n}\)</li>
-    <li>Degrés de liberté : \(\nu = (r-1)(c-1)\) où \(r\) = nombre de lignes, \(c\) = nombre de colonnes</li>
-  </ul>
+<div class="prop">
+  <span class="label-prop">Statistique de test T</span>
+  <p>Sous <span class="tag-h0">H₀</span> : \(\mu = \mu_0\) avec \(\sigma\) inconnue :</p>
+  \[
+    T_{obs} = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} \sim \mathcal{T}(n-1) \text{ sous H}_0
+  \]
+  <p>Zone de rejet bilatérale : \(|T_{obs}| > t_{n-1;\,\alpha/2}\) (lu dans la table de Student)</p>
 </div>
 
 <div class="ex">
-  <span class="label label-ex">Exemple — Type de chauffage et satisfaction des utilisateurs</span>
-  <p>Une enquête auprès de 200 foyers croise le type de chauffage (électrique / gaz / pompe à chaleur) et la satisfaction (satisfait / non satisfait). Tableau observé :</p>
-  <div class="formule-box">
-    <table style="margin:auto;border-collapse:collapse;text-align:center">
-      <thead>
-        <tr style="background:var(--p);color:#fff">
-          <th style="padding:6px 12px"></th>
-          <th style="padding:6px 12px">Satisfait</th>
-          <th style="padding:6px 12px">Non satisfait</th>
-          <th style="padding:6px 12px">Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:5px 12px;font-weight:bold">Électrique</td><td>45</td><td>25</td><td>70</td></tr>
-        <tr style="background:#f8fafc"><td style="padding:5px 12px;font-weight:bold">Gaz</td><td>55</td><td>25</td><td>80</td></tr>
-        <tr><td style="padding:5px 12px;font-weight:bold">PAC</td><td>42</td><td>8</td><td>50</td></tr>
-        <tr style="background:var(--p-bg)"><td style="padding:5px 12px;font-weight:bold">Total</td><td><strong>142</strong></td><td><strong>58</strong></td><td><strong>200</strong></td></tr>
-      </tbody>
-    </table>
+  <span class="label-meth">Exemple 8 — Vérification de résistance de soudures (T-test)</span>
+  <p>
+    Un soudeur garantit que ses soudures résistent en moyenne à \(\mu_0 = 420\) MPa.
+    Un contrôleur mesure \(n=15\) soudures : \(\bar{x} = 414{,}2\) MPa, \(s = 8{,}6\) MPa.
+    Tester au seuil α = 5 %.
+  </p>
+  <p>
+    <span class="tag-h0">H₀</span> : \(\mu = 420\) &nbsp;|&nbsp;
+    <span class="tag-h1">H₁</span> : \(\mu \neq 420\) (bilatéral)
+  </p>
+  \[
+    T_{obs} = \frac{414{,}2 - 420}{8{,}6/\sqrt{15}} = \frac{-5{,}8}{2{,}220} \approx -2{,}61
+  \]
+  <p>Degrés de liberté : \(\nu = 14\) ; \(t_{14;\,0{,}025} = 2{,}145\) (table de Student)</p>
+  <div class="decision-box">
+    <p>\(|T_{obs}| = 2{,}61 > 2{,}145\) → zone de rejet.</p>
+    <p class="reject">On rejette H₀ au seuil 5 %.</p>
+    <p>
+      <strong>Conclusion :</strong> La résistance moyenne observée est significativement inférieure
+      à 420 MPa. Le procédé de soudage doit être revu.
+    </p>
   </div>
-  <p>Effectifs théoriques (exemple pour la case Électrique/Satisfait) : \(E_{11} = \dfrac{70 \times 142}{200} = 49{,}7\)</p>
-  <p>Calcul de tous les \(E_{ij}\) puis de la statistique : \(\chi^2_{obs} \approx 6{,}11\)</p>
-  <p>Degrés de liberté : \(\nu = (3-1)(2-1) = 2\). Table χ² : \(\chi^2_{2;\,0{,}05} = 5{,}99\).</p>
-  <p>Comme \(6{,}11 > 5{,}99\), on <strong>rejette \(H_0\)</strong> au seuil 5 %.</p>
-  <p><strong>Conclusion :</strong> Il existe un lien significatif entre le type de chauffage et la satisfaction des utilisateurs.</p>
 </div>
 
-<!-- ==================== 6. APPLICATIONS PROFESSIONNELLES ==================== -->
-<h2>6. Applications professionnelles</h2>
+<h3>5.3 Test sur une proportion</h3>
 
-<h3>6.1 Contrôle de production et de conformité</h3>
-
-<div class="situation">
-  <h3>Application 1 — Contrôle d'un lot de connecteurs électriques</h3>
-  <p>Un technicien qualité reçoit un lot de 5 000 connecteurs. Le cahier des charges impose un taux de défauts ≤ 2 %. Il prélève \(n = 300\) connecteurs et trouve 9 défectueux.</p>
-  <p><strong>Étape 1 — Estimation :</strong> \(\hat{p} = 9/300 = 0{,}03 = 3\,\%\)</p>
-  <p>IC à 95 % : \(e = 1{,}96\sqrt{0{,}03 \times 0{,}97/300} \approx 0{,}0194\)</p>
-  \[\text{IC}_{95\%} = [0{,}011\;;\;0{,}049]\]
-  <p><strong>Étape 2 — Test :</strong> \(H_0 : p = 0{,}02\) vs \(H_1 : p > 0{,}02\) (test unilatéral droit, \(\alpha = 5\,\%\))</p>
-  \[Z_{obs} = \frac{0{,}03 - 0{,}02}{\sqrt{0{,}02 \times 0{,}98/300}} = \frac{0{,}01}{0{,}00808} \approx 1{,}24\]
-  <p>Valeur critique : \(1{,}645\). Comme \(1{,}24 < 1{,}645\), on <strong>ne rejette pas \(H_0\)</strong>. Le lot peut être accepté (même si \(\hat{p} > 2\,\%\), la différence n'est pas significative avec cet échantillon de taille 300).</p>
+<div class="prop">
+  <span class="label-prop">Statistique de test — Proportion</span>
+  <p>
+    Sous <span class="tag-h0">H₀</span> : \(p = p_0\), si \(np_0 \geq 5\) et \(n(1-p_0) \geq 5\) :
+  </p>
+  \[
+    Z_{obs} = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}} \sim \mathcal{N}(0,1) \text{ sous H}_0
+  \]
 </div>
 
-<div class="situation">
-  <h3>Application 2 — Vérification des consommations réelles par rapport aux DPE</h3>
-  <p>Un auditeur énergétique suspecte que les consommations réelles d'un parc de bâtiments tertiaires sont supérieures aux valeurs indiquées dans les DPE. La valeur réglementaire cible est \(\mu_0 = 120\) kWh/m²/an. Il mesure la consommation de \(n = 36\) bâtiments : \(\bar{x} = 131\) kWh/m²/an et \(s = 34\) kWh/m²/an.</p>
-  <p><strong>\(H_0\) :</strong> \(\mu = 120\) — <strong>\(H_1\) :</strong> \(\mu > 120\) (test unilatéral droit, \(\alpha = 5\,\%\))</p>
-  <p>\(n = 36 \geq 30\) : on utilise la loi normale (z-test).</p>
-  \[Z_{obs} = \frac{131 - 120}{34/\sqrt{36}} = \frac{11}{5{,}67} \approx 1{,}94\]
-  <p>Valeur critique : \(u_{0{,}05} = 1{,}645\). Comme \(1{,}94 > 1{,}645\), on <strong>rejette \(H_0\)</strong>.</p>
-  <p><strong>Conclusion :</strong> Les consommations réelles sont significativement supérieures aux valeurs DPE. L'auditeur recommande un audit approfondi du parc.</p>
+<div class="ex">
+  <span class="label-meth">Exemple 9 — Test sur le taux de rebut</span>
+  <p>
+    Le cahier des charges exige \(p_0 \leq 2\,\%\) de pièces défectueuses.
+    Sur \(n=400\) pièces contrôlées, 12 sont défectueuses. Tester au seuil α = 5 %.
+  </p>
+  <p>
+    <span class="tag-h0">H₀</span> : \(p = 0{,}02\) &nbsp;|&nbsp;
+    <span class="tag-h1">H₁</span> : \(p > 0{,}02\) (unilatéral droit, seuil de non-conformité)
+  </p>
+  <p>\(\hat{p} = 12/400 = 0{,}030\)</p>
+  \[
+    Z_{obs} = \frac{0{,}030 - 0{,}020}{\sqrt{0{,}020 \times 0{,}980 / 400}} = \frac{0{,}010}{0{,}00700} \approx 1{,}43
+  \]
+  <div class="decision-box">
+    <p>\(Z_{obs} = 1{,}43 &lt; z_{0{,}05} = 1{,}645\) → hors zone de rejet.</p>
+    <p class="accept">On ne rejette pas H₀ au seuil 5 %.</p>
+    <p>
+      <strong>Conclusion :</strong> On n'a pas de preuve statistique que le taux de rebut dépasse 2 %.
+      Le lot peut être accepté, mais une surveillance continue est recommandée.
+    </p>
+  </div>
 </div>
 
-<div class="situation">
-  <h3>Application 3 — Sondage sur la rénovation énergétique d'une copropriété</h3>
-  <p>Un syndicat de copropriété souhaite estimer la proportion de résidents favorables à un programme de rénovation thermique (isolation des façades + remplacement des menuiseries). Sur \(n = 180\) résidents interrogés, 117 se déclarent favorables.</p>
-  <p>\(\hat{p} = 117/180 \approx 0{,}650\)</p>
-  <p>IC à 95 % : \(e = 1{,}96\sqrt{0{,}650 \times 0{,}350/180} \approx 1{,}96 \times 0{,}03558 \approx 0{,}0697\)</p>
-  \[\text{IC}_{95\%} = [0{,}580\;;\;0{,}720]\]
-  <p><strong>Conclusion :</strong> On estime avec 95 % de confiance que la proportion favorable est entre 58,0 % et 72,0 %. La majorité absolue (> 50 %) est largement dépassée. Le syndicat peut raisonnablement lancer le programme.</p>
+<h3>5.4 La p-valeur</h3>
+
+<div class="def">
+  <span class="label-def">Définition — p-valeur</span>
+  <p>
+    La <strong>p-valeur</strong> (ou niveau de signification observé) est la probabilité, <em>sous H₀</em>,
+    d'obtenir une valeur de la statistique de test au moins aussi extrême que celle observée :
+  </p>
+  \[
+    \text{p-valeur} = \mathbb{P}_{H_0}\!\left(|Z| \geq |Z_{obs}|\right) = 2\left(1 - \Phi(|Z_{obs}|)\right) \quad\text{(test bilatéral)}
+  \]
+  <p>
+    <strong>Règle :</strong> si p-valeur \(&lt; \alpha\), on rejette H₀.
+    Plus la p-valeur est petite, plus la preuve contre H₀ est forte.
+  </p>
 </div>
 
-<div class="situation">
-  <h3>Application 4 — Réception d'une installation de pompe à chaleur</h3>
-  <p>Les données constructeur indiquent qu'une pompe à chaleur air/eau doit délivrer une puissance calorifique de \(\mu_0 = 8{,}0\) kW à 7 °C/35 °C. Lors d'une réception de chantier, un technicien effectue \(n = 10\) mesures : \(\bar{x} = 7{,}62\) kW et \(s = 0{,}55\) kW.</p>
-  <p>Population supposée normale, \(\sigma\) inconnue, \(n < 30\) : on utilise le t-test à \(\nu = 9\) ddl, test bilatéral au seuil 5 %.</p>
-  \[T_{obs} = \frac{7{,}62 - 8{,}0}{0{,}55/\sqrt{10}} = \frac{-0{,}38}{0{,}1739} \approx -2{,}19\]
-  <p>Table de Student : \(t_{9;\,0{,}025} = 2{,}262\). Comme \(|T_{obs}| = 2{,}19 < 2{,}262\), on <strong>ne rejette pas \(H_0\)</strong> au seuil 5 %.</p>
-  <p><strong>Conclusion :</strong> L'écart entre la puissance mesurée et la valeur constructeur n'est pas statistiquement significatif. L'installation est acceptée, bien qu'une surveillance en conditions réelles soit recommandée.</p>
-</div>
-
-<div class="situation">
-  <h3>Application 5 — Conformité d'une production de menuiseries PVC</h3>
-  <p>Un fabricant de fenêtres PVC produit des vitres dont l'épaisseur nominale est \(\mu_0 = 4\) mm. Le service qualité prélève \(n = 50\) vitres et mesure : \(\bar{x} = 3{,}97\) mm et \(\sigma = 0{,}12\) mm (valeur connue du procédé). Le procédé est-il sous contrôle ? (test bilatéral, \(\alpha = 1\,\%\))</p>
-  \[Z_{obs} = \frac{3{,}97 - 4{,}00}{0{,}12/\sqrt{50}} = \frac{-0{,}03}{0{,}01697} \approx -1{,}77\]
-  <p>Valeur critique à 1 % : \(u_{0{,}005} = 2{,}576\). Comme \(|Z_{obs}| = 1{,}77 < 2{,}576\), on <strong>ne rejette pas \(H_0\)</strong>.</p>
-  <p><strong>Conclusion :</strong> La production est statistiquement conforme à l'épaisseur nominale au seuil 1 %.</p>
-</div>
-
-<!-- ==================== SYNTHÈSE ==================== -->
-<h2>Synthèse — À retenir</h2>
-
-<div class="retenir">
-  <strong>Schéma de la démarche inférentielle</strong>
-  <div style="background:var(--p-bg);border:1px solid var(--p-border);border-radius:8px;padding:14px;margin-top:10px;font-size:.95em">
-    <p style="margin:0"><strong>Population (paramètre inconnu \(\theta\))</strong></p>
-    <p style="margin:4px 0">↓ Prélèvement aléatoire</p>
-    <p style="margin:0"><strong>Échantillon (\(n\) observations)</strong></p>
-    <p style="margin:4px 0">↓ Calcul de l'estimateur \(\hat{\theta}\)</p>
-    <ul style="margin:8px 0 0 0">
-      <li><strong>Estimation :</strong> IC = \([\hat{\theta} \pm \text{marge d'erreur}]\) au niveau \(1-\alpha\)</li>
-      <li><strong>Test :</strong> calculer \(Z_{obs}\) ou \(T_{obs}\), comparer à la valeur critique, conclure sur \(H_0\)</li>
+<div class="ex">
+  <span class="label-meth">Exemple 10 — Calcul de p-valeur</span>
+  <p>Dans l'exemple 7 (\(Z_{obs} = 2{,}83\), test bilatéral) :</p>
+  \[
+    \text{p-valeur} = 2 \times \mathbb{P}(Z \geq 2{,}83) = 2 \times (1 - \Phi(2{,}83))
+    \approx 2 \times (1 - 0{,}9977) = 2 \times 0{,}0023 = 0{,}0046
+  \]
+  <p>
+    La p-valeur est 0,46 %, <strong>très inférieure</strong> à α = 5 % : la preuve contre H₀ est
+    extrêmement forte. La dérive de production est hautement significative.
+  </p>
+  <div class="decision-box">
+    <p><strong>Interprétation pratique de la p-valeur :</strong></p>
+    <ul>
+      <li>p-valeur &gt; 0,10 → pas de preuve contre H₀</li>
+      <li>0,05 &lt; p-valeur ≤ 0,10 → preuve faible</li>
+      <li>0,01 &lt; p-valeur ≤ 0,05 → preuve modérée (significatif)</li>
+      <li>p-valeur ≤ 0,01 → preuve forte (très significatif)</li>
+      <li>p-valeur ≤ 0,001 → preuve très forte (hautement significatif)</li>
     </ul>
   </div>
 </div>
 
+<!-- ===================== 6. TEST DU χ² ===================== -->
+<h2>6. Test du χ² d'adéquation</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p>
+    Le <strong>test du χ² d'adéquation</strong> permet de vérifier si une distribution observée
+    dans un échantillon est statistiquement compatible avec une distribution théorique de référence
+    (uniforme, normale, de Poisson, etc.).
+  </p>
+  <p>
+    <span class="tag-h0">H₀</span> : la distribution suit la loi théorique de référence.<br>
+    <span class="tag-h1">H₁</span> : la distribution ne suit pas cette loi.
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Statistique de test χ²</span>
+  <p>
+    Pour \(k\) classes, avec effectifs observés \(O_i\) et effectifs théoriques \(E_i = n \cdot p_i\) :
+  </p>
+  \[
+    \chi^2_{obs} = \sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}
+  \]
+  <p>
+    Sous H₀, cette statistique suit une loi du χ² à \(\nu = k - 1 - r\) degrés de liberté,
+    où \(r\) est le nombre de paramètres estimés à partir des données.
+  </p>
+  <ul>
+    <li><strong>Condition de validité :</strong> tous les \(E_i \geq 5\) (sinon, regrouper des classes).</li>
+    <li><strong>Zone de rejet :</strong> \(\chi^2_{obs} > \chi^2_{\nu;\,\alpha}\) (valeur critique dans la table).</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 11 — Répartition des pannes sur la semaine</span>
+  <p>
+    Un contremaître dénombre les pannes sur 5 jours sur une ligne de production :
+    Lundi 18, Mardi 22, Mercredi 20, Jeudi 25, Vendredi 15 (total = 100 pannes).
+    Les pannes sont-elles réparties uniformément ? (α = 5 %)
+  </p>
+  <p>
+    <span class="tag-h0">H₀</span> : distribution uniforme → \(E_i = 100/5 = 20\) pour chaque jour.
+  </p>
+  <table class="table-normal" style="max-width:520px">
+    <tr><th>Jour</th><th>\(O_i\)</th><th>\(E_i\)</th><th>\(O_i - E_i\)</th><th>\((O_i-E_i)^2/E_i\)</th></tr>
+    <tr><td>Lundi</td><td>18</td><td>20</td><td>−2</td><td>\(4/20 = 0{,}20\)</td></tr>
+    <tr><td>Mardi</td><td>22</td><td>20</td><td>+2</td><td>\(4/20 = 0{,}20\)</td></tr>
+    <tr><td>Mercredi</td><td>20</td><td>20</td><td>0</td><td>\(0/20 = 0\)</td></tr>
+    <tr><td>Jeudi</td><td>25</td><td>20</td><td>+5</td><td>\(25/20 = 1{,}25\)</td></tr>
+    <tr><td>Vendredi</td><td>15</td><td>20</td><td>−5</td><td>\(25/20 = 1{,}25\)</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>100</strong></td><td><strong>100</strong></td><td>0</td><td class="hl"><strong>2,90</strong></td></tr>
+  </table>
+  \[
+    \chi^2_{obs} = 2{,}90
+  \]
+  <p>\(\nu = k - 1 = 4\) ; valeur critique : \(\chi^2_{4;\,0{,}05} = 9{,}488\)</p>
+  <div class="decision-box">
+    <p>\(\chi^2_{obs} = 2{,}90 &lt; 9{,}488\) → hors zone de rejet.</p>
+    <p class="accept">On ne rejette pas H₀ au seuil 5 %.</p>
+    <p><strong>Conclusion :</strong> Il n'y a pas de preuve statistique contre une répartition
+    uniforme des pannes sur la semaine.</p>
+  </div>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 12 — Contrôle de conformité d'une distribution</span>
+  <p>
+    Un gestionnaire de stock modélise le nombre de commandes urgentes par jour selon une loi
+    de Poisson de paramètre \(\lambda = 2\). Sur 100 jours, il observe :
+  </p>
+  <table class="table-normal" style="max-width:480px">
+    <tr><th>Commandes urgentes</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>≥5</th></tr>
+    <tr><td>Observé \(O_i\)</td><td>14</td><td>25</td><td>30</td><td>18</td><td>9</td><td>4</td></tr>
+    <tr><td>Théorique \(E_i\)</td><td>13,5</td><td>27,1</td><td>27,1</td><td>18,0</td><td>9,0</td><td>5,3</td></tr>
+  </table>
+  <p>(Effectifs théoriques calculés avec \(P(X=k) = e^{-2}\cdot 2^k/k!\), \(n=100\))</p>
+  \[
+    \chi^2_{obs} = \frac{(14-13{,}5)^2}{13{,}5} + \frac{(25-27{,}1)^2}{27{,}1} + \frac{(30-27{,}1)^2}{27{,}1}
+    + \frac{(18-18)^2}{18} + \frac{(9-9)^2}{9} + \frac{(4-5{,}3)^2}{5{,}3}
+    \approx 0{,}019 + 0{,}163 + 0{,}310 + 0 + 0 + 0{,}319 = 0{,}811
+  \]
+  <p>\(\nu = 6-1-1 = 4\) (λ estimé depuis les données) ; \(\chi^2_{4;\,0{,}05} = 9{,}488\).</p>
+  <div class="decision-box">
+    <p>\(\chi^2_{obs} = 0{,}81 &lt; 9{,}488\)</p>
+    <p class="accept">Le modèle de Poisson(\(\lambda=2\)) est validé au seuil 5 %.</p>
+  </div>
+</div>
+
+<!-- ===================== TABLE LOI NORMALE ===================== -->
+<h2>7. Table des valeurs de la loi normale standard</h2>
+
+<p>
+  La table donne \(\Phi(z) = \mathbb{P}(Z \leq z)\) pour \(Z \sim \mathcal{N}(0,1)\).
+  Rappel : \(\mathbb{P}(Z \leq -z) = 1 - \Phi(z)\).
+</p>
+
+<table class="table-normal">
+  <tr>
+    <th>\(z\)</th><th>0,00</th><th>0,01</th><th>0,02</th><th>0,03</th><th>0,04</th>
+    <th>0,05</th><th>0,06</th><th>0,07</th><th>0,08</th><th>0,09</th>
+  </tr>
+  <tr>
+    <td><strong>1,6</strong></td><td>0,9452</td><td>0,9463</td><td>0,9474</td><td>0,9484</td><td>0,9495</td>
+    <td class="hl">0,9505</td><td>0,9515</td><td>0,9525</td><td>0,9535</td><td>0,9545</td>
+  </tr>
+  <tr>
+    <td><strong>1,7</strong></td><td>0,9554</td><td>0,9564</td><td>0,9573</td><td>0,9582</td><td>0,9591</td>
+    <td>0,9599</td><td>0,9608</td><td>0,9616</td><td>0,9625</td><td>0,9633</td>
+  </tr>
+  <tr>
+    <td><strong>1,8</strong></td><td>0,9641</td><td>0,9649</td><td>0,9656</td><td>0,9664</td><td>0,9671</td>
+    <td>0,9678</td><td>0,9686</td><td>0,9693</td><td>0,9699</td><td>0,9706</td>
+  </tr>
+  <tr>
+    <td><strong>1,9</strong></td><td>0,9713</td><td>0,9719</td><td>0,9726</td><td>0,9732</td><td>0,9738</td>
+    <td>0,9744</td><td>0,9750</td><td class="hl">0,9756</td><td>0,9761</td><td>0,9767</td>
+  </tr>
+  <tr>
+    <td><strong>2,0</strong></td><td class="hl">0,9772</td><td>0,9778</td><td>0,9783</td><td>0,9788</td><td>0,9793</td>
+    <td>0,9798</td><td>0,9803</td><td>0,9808</td><td>0,9812</td><td>0,9817</td>
+  </tr>
+  <tr>
+    <td><strong>2,1</strong></td><td>0,9821</td><td>0,9826</td><td>0,9830</td><td>0,9834</td><td>0,9838</td>
+    <td>0,9842</td><td>0,9846</td><td>0,9850</td><td>0,9854</td><td>0,9857</td>
+  </tr>
+  <tr>
+    <td><strong>2,2</strong></td><td>0,9861</td><td>0,9864</td><td>0,9868</td><td>0,9871</td><td>0,9875</td>
+    <td>0,9878</td><td>0,9881</td><td>0,9884</td><td>0,9887</td><td>0,9890</td>
+  </tr>
+  <tr>
+    <td><strong>2,3</strong></td><td>0,9893</td><td>0,9896</td><td>0,9898</td><td>0,9901</td><td>0,9904</td>
+    <td>0,9906</td><td>0,9909</td><td>0,9911</td><td>0,9913</td><td>0,9916</td>
+  </tr>
+  <tr>
+    <td><strong>2,4</strong></td><td>0,9918</td><td>0,9920</td><td>0,9922</td><td>0,9925</td><td>0,9927</td>
+    <td>0,9929</td><td>0,9931</td><td>0,9932</td><td>0,9934</td><td>0,9936</td>
+  </tr>
+  <tr>
+    <td><strong>2,5</strong></td><td>0,9938</td><td>0,9940</td><td>0,9941</td><td>0,9943</td><td>0,9945</td>
+    <td>0,9946</td><td>0,9948</td><td>0,9949</td><td>0,9951</td><td>0,9952</td>
+  </tr>
+  <tr>
+    <td><strong>2,6</strong></td><td>0,9953</td><td>0,9955</td><td>0,9956</td><td>0,9957</td><td>0,9959</td>
+    <td>0,9960</td><td>0,9961</td><td>0,9962</td><td>0,9963</td><td>0,9964</td>
+  </tr>
+  <tr>
+    <td><strong>2,8</strong></td><td class="hl">0,9974</td><td>0,9975</td><td>0,9976</td><td>0,9977</td><td>0,9977</td>
+    <td>0,9978</td><td>0,9979</td><td>0,9979</td><td>0,9980</td><td>0,9981</td>
+  </tr>
+  <tr>
+    <td><strong>3,0</strong></td><td>0,9987</td><td>0,9987</td><td>0,9987</td><td>0,9988</td><td>0,9988</td>
+    <td>0,9989</td><td>0,9989</td><td>0,9989</td><td>0,9990</td><td>0,9990</td>
+  </tr>
+</table>
+
+<p style="font-size:.88em;color:#555;margin-top:.3rem">
+  Valeurs clés à mémoriser : <strong>\(\Phi(1{,}645)=0{,}95\)</strong> &nbsp;|&nbsp;
+  <strong>\(\Phi(1{,}960)=0{,}975\)</strong> &nbsp;|&nbsp;
+  <strong>\(\Phi(2{,}326)=0{,}990\)</strong> &nbsp;|&nbsp;
+  <strong>\(\Phi(2{,}576)=0{,}995\)</strong>
+</p>
+
+<!-- ===================== TABLE STUDENT ===================== -->
+<h2>8. Extrait de la table de Student</h2>
+
+<p>
+  La table donne \(t_{\nu;\,\alpha/2}\) tel que \(\mathbb{P}(|T| > t_{\nu;\,\alpha/2}) = \alpha\)
+  pour une loi de Student à \(\nu\) degrés de liberté.
+</p>
+
+<table class="table-normal" style="max-width:620px">
+  <tr>
+    <th>ddl \(\nu\)</th>
+    <th>\(t_{0,10}\)<br>(IC 80 %)</th>
+    <th>\(t_{0,05}\)<br>(IC 90 %)</th>
+    <th>\(t_{0,025}\)<br>(IC 95 %)</th>
+    <th>\(t_{0,01}\)<br>(IC 98 %)</th>
+    <th>\(t_{0,005}\)<br>(IC 99 %)</th>
+  </tr>
+  <tr><td>5</td><td>1,476</td><td>2,015</td><td class="hl">2,571</td><td>3,365</td><td>4,032</td></tr>
+  <tr><td>8</td><td>1,397</td><td>1,860</td><td class="hl">2,306</td><td>2,896</td><td>3,355</td></tr>
+  <tr><td>10</td><td>1,372</td><td>1,812</td><td class="hl">2,228</td><td>2,764</td><td>3,169</td></tr>
+  <tr><td>11</td><td>1,363</td><td>1,796</td><td class="hl">2,201</td><td>2,718</td><td>3,106</td></tr>
+  <tr><td>14</td><td>1,345</td><td>1,761</td><td class="hl">2,145</td><td>2,624</td><td>2,977</td></tr>
+  <tr><td>19</td><td>1,328</td><td>1,729</td><td class="hl">2,093</td><td>2,539</td><td>2,861</td></tr>
+  <tr><td>24</td><td>1,318</td><td>1,711</td><td class="hl">2,064</td><td>2,492</td><td>2,797</td></tr>
+  <tr><td>29</td><td>1,311</td><td>1,699</td><td class="hl">2,045</td><td>2,462</td><td>2,756</td></tr>
+  <tr><td>49</td><td>1,299</td><td>1,677</td><td class="hl">2,010</td><td>2,403</td><td>2,680</td></tr>
+  <tr><td>∞</td><td>1,282</td><td>1,645</td><td class="hl">1,960</td><td>2,326</td><td>2,576</td></tr>
+</table>
+
+<!-- Chart Normal vs Student -->
+<div class="chart-wrap">
+  <canvas id="chartStudent" height="280"></canvas>
+  <p style="text-align:center;font-size:.85em;color:#666">
+    Fig. 2 — Densités : loi normale \(\mathcal{N}(0,1)\) et lois de Student pour différents ddl
+  </p>
+</div>
+
+<!-- ===================== EXEMPLE INDUSTRIEL COMPLET ===================== -->
+<h2>9. Exemple industriel complet — Décision d'acceptation de lot</h2>
+
+<div class="situation">
+  <p>
+    <strong>Contexte :</strong> Un responsable qualité dans une fonderie reçoit un lot de
+    \(n=100\) pièces coulées. La spécification indique une masse nominale de \(\mu_0 = 850\) g
+    avec un écart-type historique de \(\sigma = 12\) g. Il mesure la masse de toutes les pièces
+    et obtient \(\bar{x} = 847{,}2\) g.
+  </p>
+  <p>
+    Répondre aux questions suivantes au seuil \(\alpha = 5\,\%\) puis \(\alpha = 1\,\%\) :
+  </p>
+  <ol>
+    <li>Construire un IC à 95 % et à 99 % pour la masse moyenne.</li>
+    <li>La masse moyenne est-elle conforme à la spécification ?</li>
+    <li>Calculer la p-valeur et l'interpréter.</li>
+  </ol>
+</div>
+
+<button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction complète</button>
+<div class="corr">
+  <p><strong>1. Intervalles de confiance</strong></p>
+  <p>Erreur standard : \(\sigma/\sqrt{n} = 12/\sqrt{100} = 12/10 = 1{,}2\) g</p>
+  <p><em>IC à 95 % (\(z_{0{,}025}=1{,}96\)) :</em></p>
+  \[
+    IC_{95\,\%} = [847{,}2 - 1{,}96 \times 1{,}2\ ;\ 847{,}2 + 1{,}96 \times 1{,}2]
+    = [847{,}2 - 2{,}35\ ;\ 847{,}2 + 2{,}35] = [844{,}85\ ;\ 849{,}55] \text{ g}
+  \]
+  <p><em>IC à 99 % (\(z_{0{,}005}=2{,}576\)) :</em></p>
+  \[
+    IC_{99\,\%} = [847{,}2 - 2{,}576 \times 1{,}2\ ;\ 847{,}2 + 2{,}576 \times 1{,}2]
+    = [847{,}2 - 3{,}09\ ;\ 847{,}2 + 3{,}09] = [844{,}11\ ;\ 850{,}29] \text{ g}
+  \]
+  <p>
+    L'IC à 95 % ne contient <em>pas</em> la valeur 850 g. En revanche, l'IC à 99 % la contient (tout juste).
+    Le résultat dépend donc du niveau de confiance choisi.
+  </p>
+  <p><strong>2. Test d'hypothèse (bilatéral)</strong></p>
+  <p>
+    <span class="tag-h0">H₀</span> : \(\mu = 850\) g &nbsp;|&nbsp;
+    <span class="tag-h1">H₁</span> : \(\mu \neq 850\) g
+  </p>
+  \[
+    Z_{obs} = \frac{847{,}2 - 850}{1{,}2} = \frac{-2{,}8}{1{,}2} \approx -2{,}33
+  \]
+  <div class="decision-box">
+    <p>Au seuil 5 % : \(|Z_{obs}| = 2{,}33 > z_{0{,}025} = 1{,}96\) → <span class="reject">On rejette H₀.</span></p>
+    <p>Au seuil 1 % : \(|Z_{obs}| = 2{,}33 &lt; z_{0{,}005} = 2{,}576\) → <span class="accept">On ne rejette pas H₀.</span></p>
+  </div>
+  <p><strong>3. p-valeur</strong></p>
+  \[
+    \text{p-valeur} = 2 \times (1 - \Phi(2{,}33)) \approx 2 \times (1 - 0{,}9901) = 2 \times 0{,}0099 = 0{,}0198 \approx 2{,}0\,\%
+  \]
+  <div class="decision-box">
+    <p>La p-valeur est environ 2 %, donc :</p>
+    <ul>
+      <li>Inférieure à α = 5 % → on rejette H₀ au seuil 5 %.</li>
+      <li>Supérieure à α = 1 % → on ne rejette pas H₀ au seuil 1 %.</li>
+    </ul>
+    <p>
+      <strong>Conclusion :</strong> La preuve contre H₀ est modérée. Le choix du seuil est déterminant.
+      Pour une décision critique (sécurité, santé), on préfère α = 1 % et on accepte le lot.
+      Pour un contrôle standard, α = 5 % invite à approfondir l'investigation.
+    </p>
+  </div>
+</div>
+
+<!-- ===================== À RETENIR ===================== -->
 <div class="retenir">
-  <strong>Tableau récapitulatif des méthodes</strong>
-  <table style="width:100%;margin-top:10px;border-collapse:collapse;font-size:.9em">
-    <thead>
-      <tr style="background:var(--p);color:#fff">
-        <th style="padding:8px">Situation</th>
-        <th style="padding:8px">Statistique de test</th>
-        <th style="padding:8px">Loi sous \(H_0\)</th>
-        <th style="padding:8px">Conditions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">IC / Test sur \(\mu\), \(\sigma\) connue</td>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">\(Z = \dfrac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}\)</td>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">\(\mathcal{N}(0,1)\)</td>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">Pop. normale ou \(n \geq 30\)</td>
-      </tr>
-      <tr style="background:#f8fafc">
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">IC / Test sur \(\mu\), \(\sigma\) inconnue</td>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">\(T = \dfrac{\bar{x}-\mu_0}{s/\sqrt{n}}\)</td>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">\(t_{n-1}\)</td>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">Pop. normale, \(n < 30\)</td>
-      </tr>
-      <tr>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">IC / Test sur une proportion</td>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">\(Z = \dfrac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}\)</td>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">\(\mathcal{N}(0,1)\)</td>
-        <td style="padding:7px;border-bottom:1px solid #e2e8f0">\(np_0 \geq 5\), \(n(1-p_0) \geq 5\)</td>
-      </tr>
-      <tr style="background:#f8fafc">
-        <td style="padding:7px">Test χ² (adéquation / indépendance)</td>
-        <td style="padding:7px">\(\chi^2 = \displaystyle\sum \dfrac{(O_i-E_i)^2}{E_i}\)</td>
-        <td style="padding:7px">\(\chi^2_\nu\)</td>
-        <td style="padding:7px">Tous \(E_i \geq 5\)</td>
-      </tr>
-    </tbody>
+  <h2>À retenir — Formules essentielles</h2>
+  <div class="two-col-form">
+    <div class="formula-card">
+      <h4>Théorème central limite</h4>
+      \[\bar{X} \sim \mathcal{N}\!\left(\mu,\,\frac{\sigma^2}{n}\right)\quad(n\geq 30)\]
+    </div>
+    <div class="formula-card">
+      <h4>IC pour μ (σ connue)</h4>
+      \[\bar{x} \pm z_{\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\]
+    </div>
+    <div class="formula-card">
+      <h4>IC pour μ (σ inconnue, Student)</h4>
+      \[\bar{x} \pm t_{n-1;\,\alpha/2}\cdot\frac{s}{\sqrt{n}}\]
+    </div>
+    <div class="formula-card">
+      <h4>IC pour p</h4>
+      \[\hat{p} \pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\]
+    </div>
+    <div class="formula-card">
+      <h4>Z-test — Moyenne</h4>
+      \[Z_{obs}=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}\]
+    </div>
+    <div class="formula-card">
+      <h4>T-test — Moyenne (σ inconnue)</h4>
+      \[T_{obs}=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}\]
+    </div>
+    <div class="formula-card">
+      <h4>Test sur proportion</h4>
+      \[Z_{obs}=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}\]
+    </div>
+    <div class="formula-card">
+      <h4>χ² d'adéquation</h4>
+      \[\chi^2_{obs}=\sum_{i}\frac{(O_i-E_i)^2}{E_i}\]
+    </div>
+  </div>
+  <table class="table-normal" style="max-width:440px;margin-top:1rem">
+    <tr><th>Niveau</th><th>\(z_{\alpha/2}\)</th><th>Usage typique</th></tr>
+    <tr><td>90 %</td><td>1,645</td><td>Contrôle courant, sondages rapides</td></tr>
+    <tr><td>95 %</td><td>1,960</td><td>Standard industriel, études de marché</td></tr>
+    <tr><td>99 %</td><td>2,576</td><td>Sécurité, pharmacologie, nucléaire</td></tr>
   </table>
 </div>
 
-<div class="retenir">
-  <strong>Valeurs critiques à mémoriser</strong>
-  <ul>
-    <li>Loi normale \(\mathcal{N}(0,1)\) : \(u_{0{,}05} = 1{,}645\) (unilatéral 5 %) ; \(u_{0{,}025} = 1{,}96\) (bilatéral 5 %) ; \(u_{0{,}005} = 2{,}576\) (bilatéral 1 %)</li>
-    <li>Loi de Student : valeurs dans table selon \(\nu = n-1\) ddl et niveau \(\alpha/2\)</li>
-    <li>Loi du χ² : valeurs dans table selon \(\nu\) ddl et niveau \(\alpha\)</li>
-  </ul>
-</div>
+</div><!-- fin .c -->
 
-<div class="retenir">
-  <strong>Choix de la méthode selon la situation</strong>
-  <ul>
-    <li>On estime ou teste une <strong>moyenne</strong> : z-test si \(\sigma\) connue ou \(n \geq 30\), t-test sinon (si pop. normale)</li>
-    <li>On estime ou teste une <strong>proportion</strong> : loi normale si \(np \geq 5\) et \(n(1-p) \geq 5\)</li>
-    <li>On compare des <strong>effectifs à une loi théorique</strong> (adéquation) ou on cherche un <strong>lien entre deux variables</strong> (indépendance) : test du χ²</li>
-  </ul>
-</div>
+<script>
+// === Chart 1 : Distributions d'échantillonnage (TCL) ===
+(function(){
+  function gaussPDF(x, mu, sigma){
+    return Math.exp(-0.5*((x-mu)/sigma)**2) / (sigma * Math.sqrt(2*Math.PI));
+  }
+  const xs = [];
+  for(let x = 24.88; x <= 25.12; x += 0.002) xs.push(+x.toFixed(3));
 
-<div class="nav-footer">
-  <a href="../ch10/lecon.html">← Chapitre 10</a>
-  <a href="../../../maths-bts.html">Sommaire BTS</a>
-  <a href="../ch12/lecon.html">Chapitre 12 →</a>
-</div>
+  function makeSeries(n, color, label){
+    const se = 0.03 / Math.sqrt(n);
+    return {
+      label: label || `n = ${n}  (σ/√n = ${se.toFixed(4)} mm)`,
+      data: xs.map(x => ({ x, y: gaussPDF(x, 25, se) })),
+      borderColor: color,
+      backgroundColor: color + '18',
+      fill: true,
+      tension: 0.4,
+      pointRadius: 0,
+      borderWidth: 2.5
+    };
+  }
 
-</div>
+  new Chart(document.getElementById('chartTCL'), {
+    type: 'line',
+    data: {
+      datasets: [
+        makeSeries(5,  '#e74c3c'),
+        makeSeries(15, '#e67e22'),
+        makeSeries(30, '#2980b9'),
+        makeSeries(50, '#27ae60'),
+      ]
+    },
+    options: {
+      parsing: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Distribution de X̄ selon n (μ = 25 mm, σ = 0,03 mm)',
+          font: { size: 13, weight: 'bold' }
+        },
+        legend: { position: 'top' }
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          title: { display: true, text: 'Valeur de X̄ (mm)' },
+          min: 24.90, max: 25.10
+        },
+        y: { title: { display: true, text: 'Densité de probabilité' }, min: 0 }
+      }
+    }
+  });
+})();
+
+// === Chart 2 : Normale vs Student ===
+(function(){
+  function phi(x){ return Math.exp(-0.5*x*x)/Math.sqrt(2*Math.PI); }
+
+  // Student PDF via recurrence
+  function gammaHalf(n){
+    if(n <= 0) return NaN;
+    if(n === 1) return Math.sqrt(Math.PI);
+    if(n === 2) return 1;
+    return (n/2 - 1) * gammaHalf(n - 2);
+  }
+  function studentPDF(x, nu){
+    const coeff = gammaHalf(nu + 1) / (Math.sqrt(nu * Math.PI) * gammaHalf(nu));
+    return coeff * Math.pow(1 + x*x/nu, -(nu+1)/2);
+  }
+
+  const xs = [];
+  for(let x = -4.5; x <= 4.5; x += 0.05) xs.push(+x.toFixed(2));
+
+  new Chart(document.getElementById('chartStudent'), {
+    type: 'line',
+    data: {
+      datasets: [
+        {
+          label: 'N(0,1) — Normale standard',
+          data: xs.map(x => ({ x, y: phi(x) })),
+          borderColor: '#1e3a5f',
+          backgroundColor: 'rgba(30,58,95,0.08)',
+          fill: true,
+          pointRadius: 0,
+          borderWidth: 3,
+          tension: 0.4
+        },
+        {
+          label: 'Student ν = 5',
+          data: xs.map(x => ({ x, y: studentPDF(x, 5) })),
+          borderColor: '#e74c3c',
+          backgroundColor: 'transparent',
+          pointRadius: 0,
+          borderWidth: 2,
+          borderDash: [6, 3],
+          tension: 0.4
+        },
+        {
+          label: 'Student ν = 10',
+          data: xs.map(x => ({ x, y: studentPDF(x, 10) })),
+          borderColor: '#e67e22',
+          backgroundColor: 'transparent',
+          pointRadius: 0,
+          borderWidth: 2,
+          borderDash: [3, 3],
+          tension: 0.4
+        },
+        {
+          label: 'Student ν = 30',
+          data: xs.map(x => ({ x, y: studentPDF(x, 30) })),
+          borderColor: '#27ae60',
+          backgroundColor: 'transparent',
+          pointRadius: 0,
+          borderWidth: 2,
+          borderDash: [10, 3],
+          tension: 0.4
+        }
+      ]
+    },
+    options: {
+      parsing: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Comparaison : loi normale et lois de Student (queues plus épaisses pour ν petit)',
+          font: { size: 13, weight: 'bold' }
+        },
+        legend: { position: 'top' }
+      },
+      scales: {
+        x: { type: 'linear', title: { display: true, text: 't' }, min: -4.5, max: 4.5 },
+        y: { title: { display: true, text: 'Densité' }, min: 0 }
+      }
+    }
+  });
+})();
+</script>
+
 <script src="../../../nav.js"></script>
 </body>
 </html>

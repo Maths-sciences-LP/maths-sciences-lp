@@ -354,6 +354,139 @@ pre.code-block .cm{color:#6b8fa3;font-style:italic}
   <p>Dans une entreprise, deux opérateurs sont équivalents s'ils ont le même niveau de qualification (de 1 à 5). Cette relation est une équivalence. Les classes d'équivalence sont les groupes d'opérateurs de même niveau. L'ensemble quotient est \(\{N_1, N_2, N_3, N_4, N_5\}\) (5 niveaux). Sur cet ensemble quotient, on peut définir un ordre total : \(N_1 \preceq N_2 \preceq \cdots \preceq N_5\).</p>
 </div>
 
+<!-- ==================== SECTION COMPLÉMENTAIRE ==================== -->
+<h2>8. Dénombrement avancé et applications pratiques</h2>
+
+<h3>8.1 Principe de Pigeonhole (des tiroirs)</h3>
+
+<div class="prop">
+  <span class="label label-prop">Principe des tiroirs (Dirichlet)</span>
+  <p>Si l'on répartit \(n+1\) objets dans \(n\) tiroirs, alors au moins un tiroir contient au moins 2 objets.</p>
+  <p>Généralisation : si \(kn+1\) objets sont répartis dans \(n\) tiroirs, un tiroir contient au moins \(k+1\) objets.</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Application du principe des tiroirs</span>
+  <p>Dans un atelier de 13 techniciens, au moins 2 techniciens sont nés le même mois de l'année (12 mois = 12 tiroirs, 13 techniciens = 13 objets).</p>
+  <p>Dans un réseau de 257 machines avec des adresses IP sur 8 bits (256 adresses possibles), au moins 2 machines partagent la même adresse : il y a un conflit d'adressage.</p>
+</div>
+
+<h3>8.2 Arrangements et combinaisons — Rappels</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Utiliser arrangements et combinaisons</span>
+  <p><strong>Arrangement</strong> de \(k\) éléments parmi \(n\) (ordre compte) :</p>
+  $$A_n^k = \frac{n!}{(n-k)!} = n(n-1)\cdots(n-k+1)$$
+  <p><strong>Combinaison</strong> de \(k\) éléments parmi \(n\) (ordre ne compte pas) :</p>
+  $$\binom{n}{k} = \frac{n!}{k!(n-k)!} = \frac{A_n^k}{k!}$$
+  <p><strong>Règle :</strong> si l'ordre compte → arrangement ; si l'ordre ne compte pas → combinaison.</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Gestion des équipes de travail</span>
+  <p>Un chef d'atelier doit constituer une équipe de 3 techniciens parmi 8 disponibles.</p>
+  <p>Si les rôles sont identiques (pas d'ordre) : \(\binom{8}{3} = \frac{8!}{3!5!} = \frac{8 \times 7 \times 6}{6} = 56\) équipes possibles.</p>
+  <p>Si les rôles sont distincts (chef d'équipe, adjoint, opérateur) : \(A_8^3 = 8 \times 7 \times 6 = 336\) compositions possibles.</p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés — Triangle de Pascal et formule du binôme</span>
+  <p>Relation de récurrence (triangle de Pascal) :</p>
+  $$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$$
+  <p>Formule du binôme de Newton :</p>
+  $$(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$$
+  <p>Propriétés utiles : \(\binom{n}{0}=\binom{n}{n}=1\) ; \(\binom{n}{k}=\binom{n}{n-k}\) ; \(\displaystyle\sum_{k=0}^n \binom{n}{k} = 2^n\).</p>
+</div>
+
+<h3>8.3 Partition d'un ensemble — Nombre de Stirling</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Partition</span>
+  <p>Une <strong>partition</strong> de l'ensemble \(E\) est une collection de sous-ensembles non vides, deux à deux disjoints, dont l'union est \(E\).</p>
+  <p>Le nombre de partitions d'un ensemble à \(n\) éléments en \(k\) parties est le <strong>nombre de Stirling de seconde espèce</strong>, noté \(S(n,k)\) ou \(\left\{n \atop k\right\}\).</p>
+  <p>Le nombre total de partitions de \(E\) est le <strong>nombre de Bell</strong> : \(B_n = \displaystyle\sum_{k=0}^n S(n,k)\).</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Partitions de \(\{1,2,3\}\)</span>
+  <p>Toutes les partitions de \(\{1,2,3\}\) :</p>
+  <ul>
+    <li>1 partie : \(\{\{1,2,3\}\}\) → 1 partition</li>
+    <li>2 parties : \(\{\{1\},\{2,3\}\}\), \(\{\{2\},\{1,3\}\}\), \(\{\{3\},\{1,2\}\}\) → 3 partitions</li>
+    <li>3 parties : \(\{\{1\},\{2\},\{3\}\}\) → 1 partition</li>
+  </ul>
+  <p>Nombre de Bell : \(B_3 = 1+3+1 = 5\).</p>
+  <p>Application : regroupement de mesures en classes lors d'une analyse statistique.</p>
+</div>
+
+<h3>8.4 Applications à la base de données — Normalisation</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Lien entre ensembles et normalisation SQL</span>
+  <p>La <strong>normalisation</strong> d'une base de données vise à réduire les redondances en décomposant les tables. Elle repose sur les notions de dépendances fonctionnelles, qui sont des applications :</p>
+  <table class="wide">
+    <tr><th>Concept</th><th>Interprétation ensembliste</th></tr>
+    <tr><td>Clé primaire</td><td>Application injective : chaque valeur de clé identifie un unique enregistrement</td></tr>
+    <tr><td>Clé étrangère</td><td>Application (possible non-injective) vers la clé primaire d'une autre table</td></tr>
+    <tr><td>Dépendance fonctionnelle \(A \to B\)</td><td>Application de l'attribut A vers l'attribut B</td></tr>
+    <tr><td>1FN (première forme normale)</td><td>Domaines atomiques = ensembles de valeurs scalaires</td></tr>
+    <tr><td>Jointure</td><td>Produit cartésien filtré par une condition</td></tr>
+  </table>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Jointure et produit cartésien</span>
+  <p>Table <code>Pièces(id_pièce, nom, id_machine)</code> et table <code>Machines(id_machine, désignation)</code>.</p>
+  <p>La jointure donne :</p>
+  <pre style="background:#1e2a3a;color:#e8edf4;border-radius:8px;padding:.8rem 1rem;font-family:monospace;font-size:.88rem;overflow-x:auto">SELECT p.nom, m.désignation
+FROM Pièces p
+JOIN Machines m ON p.id_machine = m.id_machine;</pre>
+  <p>Cela correspond à : \(\sigma_{p.id\_machine = m.id\_machine}(\text{Pièces} \times \text{Machines})\), c'est-à-dire un sous-ensemble du produit cartésien des deux tables, filtré par la condition d'égalité des clés.</p>
+  <p>Cardinalité maximale (sans filtre) : \(|\text{Pièces}| \times |\text{Machines}|\) ; après jointure, au plus \(\min(|\text{Pièces}|, |\text{Machines}|)\) lignes si la clé étrangère est bien renseignée.</p>
+</div>
+
+<h3>8.5 Exercices de synthèse</h3>
+
+<div class="exo">
+  <p><strong>Exercice 1.</strong> Soit \(E = \{1,2,3,4,5,6,7,8,9,10\}\), \(A = \{x \in E \mid x \text{ est pair}\}\), \(B = \{x \in E \mid x \text{ est divisible par 3}\}\).</p>
+  <ol>
+    <li>Déterminer \(A\), \(B\), \(A \cup B\), \(A \cap B\), \(A \setminus B\), \(\bar{A}\).</li>
+    <li>Vérifier le principe d'inclusion-exclusion : \(|A \cup B| = |A| + |B| - |A \cap B|\).</li>
+  </ol>
+</div>
+
+<div class="corr" id="corr1">
+  <p><strong>Correction :</strong></p>
+  <p>\(A = \{2,4,6,8,10\}\), \(B = \{3,6,9\}\).</p>
+  <p>\(A \cup B = \{2,3,4,6,8,9,10\}\) → \(|A \cup B| = 7\).</p>
+  <p>\(A \cap B = \{6\}\) → \(|A \cap B| = 1\).</p>
+  <p>\(A \setminus B = \{2,4,8,10\}\).</p>
+  <p>\(\bar{A} = \{1,3,5,7,9\}\).</p>
+  <p>Vérification : \(5 + 3 - 1 = 7\) ✓</p>
+</div>
+<button class="bc" onclick="document.getElementById('corr1').style.display='block'">Voir la correction</button>
+
+<div class="exo">
+  <p><strong>Exercice 2.</strong> Soient \(f : \mathbb{R} \to \mathbb{R}\) définie par \(f(x) = 2x+1\) et \(g : \mathbb{R} \to \mathbb{R}\) définie par \(g(x) = x^2\).</p>
+  <ol>
+    <li>\(f\) est-elle injective ? surjective ? bijective ?</li>
+    <li>\(g\) est-elle injective ? surjective ?</li>
+    <li>Calculer \(g \circ f\) et \(f \circ g\). Sont-elles égales ?</li>
+    <li>Déterminer \(f^{-1}\).</li>
+  </ol>
+</div>
+
+<div class="corr" id="corr2">
+  <p><strong>Correction :</strong></p>
+  <p>\(f\) est bijective : \(f(x_1)=f(x_2) \Rightarrow 2x_1+1=2x_2+1 \Rightarrow x_1=x_2\) (injection) ; tout \(y\) a pour antécédent \(\frac{y-1}{2}\) (surjection).</p>
+  <p>\(g\) n'est pas injective (\(g(1)=g(-1)=1\)) ni surjective sur \(\mathbb{R}\) (\(g(x)\geq 0\) : les réels négatifs n'ont pas d'antécédent).</p>
+  <p>\((g\circ f)(x) = g(f(x)) = (2x+1)^2 = 4x^2+4x+1\).</p>
+  <p>\((f\circ g)(x) = f(g(x)) = 2x^2+1\).</p>
+  <p>Elles ne sont pas égales : la composition n'est pas commutative.</p>
+  <p>\(f^{-1}(y) = \frac{y-1}{2}\).</p>
+</div>
+<button class="bc" onclick="document.getElementById('corr2').style.display='block'">Voir la correction</button>
+
 <div class="retenir">
   <strong>À retenir — Liens entre les notions</strong>
   <ul>

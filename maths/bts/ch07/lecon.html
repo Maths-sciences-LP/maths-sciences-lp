@@ -5,24 +5,966 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch07 – Transformée de Laplace – BTS</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}
+table{border-collapse:collapse;width:100%;margin:1rem 0}
+th,td{border:1px solid #cbd5e1;padding:.55rem .75rem;text-align:left;vertical-align:middle}
+th{background:var(--p-bg);color:var(--p);font-weight:600}
+tr:nth-child(even) td{background:#f8fafc}
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+@media(max-width:640px){.formula-grid{grid-template-columns:1fr}}
+.etape{background:#f0f4f8;border-left:4px solid var(--p);padding:.6rem 1rem;margin:.45rem 0;border-radius:0 6px 6px 0}
+.etape strong{color:var(--p)}
+.stable-badge{display:inline-block;background:#16a34a;color:#fff;font-size:.78rem;padding:.1rem .55rem;border-radius:10px;margin-left:.4rem}
+.unstable-badge{display:inline-block;background:#dc2626;color:#fff;font-size:.78rem;padding:.1rem .55rem;border-radius:10px;margin-left:.4rem}
+/* Schéma bloc */
+.bloc-schema{display:flex;align-items:center;justify-content:center;gap:0;margin:18px 0;flex-wrap:wrap}
+.bloc-box{background:var(--p-bg);border:2px solid var(--p-border);border-radius:8px;padding:10px 20px;text-align:center;font-weight:600;color:var(--p);font-size:.95em}
+.bloc-arrow{font-size:1.5em;color:var(--p);padding:0 8px;font-weight:700}
+.bloc-label{font-size:.78em;color:#718096;margin-top:4px;font-weight:400}
+@media(max-width:600px){.bloc-schema{flex-direction:column}.bloc-arrow{transform:rotate(90deg)}}
+/* Tableau Laplace */
+.table-laplace{width:100%;border-collapse:collapse;margin:16px 0;font-size:.93em}
+.table-laplace th{background:var(--p);color:#fff;padding:9px 14px;text-align:center;font-weight:600}
+.table-laplace td{padding:8px 14px;border:1px solid var(--p-border);text-align:center;vertical-align:middle}
+.table-laplace tr:nth-child(even) td{background:var(--p-bg)}
+.table-laplace tr:hover td{background:#dbe6f5}
+/* Step list */
+.step-list{counter-reset:step-counter;list-style:none;padding:0;margin:10px 0}
+.step-list li{counter-increment:step-counter;display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
+.step-list li::before{content:counter(step-counter);background:var(--p);color:#fff;border-radius:50%;width:26px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9em;margin-top:2px}
+/* Pôles grid */
+.poles-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.pole-card{background:var(--p-bg);border:1px solid var(--p-border);border-radius:8px;padding:10px 14px;font-size:.9em}
+.pole-card strong{display:block;color:var(--p);margin-bottom:4px}
+@media(max-width:600px){.poles-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-bts.html" class="nb">&larr; Retour au sommaire</a>
 <header>
-  <h1>Chapitre 07 – Transformée de Laplace</h1>
-  <p class="sous-titre">BTS — Groupement B1</p>
+  <h1>Chapitre 7 – Transformée de Laplace</h1>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; Groupement B1</p>
+  <p class="maj">Dernière mise à jour : mars 2026</p>
 </header>
 
-<div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+<!-- ============================================================
+     OBJECTIFS
+     ============================================================ -->
+<section class="objectifs">
+  <h2>Objectifs du chapitre</h2>
+  <ul>
+    <li>Connaître la définition de la transformée de Laplace et ses conditions d'existence.</li>
+    <li>Utiliser le tableau des transformées usuelles (échelon, impulsion, exponentielle, sinusoïdes).</li>
+    <li>Appliquer les propriétés fondamentales : linéarité, décalage temporel et fréquentiel, dérivation, intégration.</li>
+    <li>Utiliser les théorèmes de la valeur initiale et de la valeur finale.</li>
+    <li>Définir et calculer la fonction de transfert \(H(s) = S(s)/E(s)\) d'un système linéaire.</li>
+    <li>Déterminer les pôles et zéros d'une fonction de transfert et en déduire la stabilité du système.</li>
+    <li>Effectuer une décomposition en éléments simples pour calculer la transformée de Laplace inverse.</li>
+    <li>Résoudre une équation différentielle par la méthode de Laplace et analyser la réponse indicielle d'un système du 1er et du 2e ordre.</li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     SITUATION PROFESSIONNELLE
+     ============================================================ -->
+<div class="situation">
+  <h2>Situation professionnelle</h2>
+  <p><strong>Contexte :</strong> Un ingénieur en automatisme chez un fabricant de systèmes de régulation thermique industrielle doit analyser le comportement d'une boucle de régulation contrôlant la température d'un four de traitement thermique. La consigne passe en échelon de 50 °C à 200 °C.</p>
+  <p>Pour prédire le dépassement, le temps de réponse et la stabilité du système, il modélise le four comme un système du 2e ordre avec :</p>
+  <ul>
+    <li>Une pulsation propre \(\omega_n = 0{,}5\) rad/s</li>
+    <li>Un facteur d'amortissement \(\xi = 0{,}4\) (régime sous-amorti)</li>
+    <li>Un gain statique \(K = 1\)</li>
+  </ul>
+  <p>Il utilise la transformée de Laplace pour passer du domaine temporel (équations différentielles complexes) au domaine fréquentiel (algèbre des fonctions de transfert), ce qui simplifie considérablement l'analyse.</p>
+  <p><strong>Questions :</strong> Quelle sera la réponse en température \(T(t)\) après l'application de l'échelon ? Y aura-t-il un dépassement ? Le système est-il stable ? Quelle est la valeur finale ?</p>
 </div>
 
+<!-- ============================================================
+     1. DÉFINITIONS
+     ============================================================ -->
+<h2>1. Définitions fondamentales</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Transformée de Laplace</strong></p>
+  <p>Soit \(f(t)\) une fonction causale (nulle pour \(t < 0\)). Sa <strong>transformée de Laplace</strong> est l'intégrale :</p>
+  \[
+    \mathcal{L}\{f(t)\} = F(s) = \int_0^{+\infty} f(t)\,e^{-st}\,dt
+  \]
+  <p>où \(s\) est une variable complexe. On note de façon équivalente :</p>
+  \[f(t) \;\xleftrightarrow{\;\mathcal{L}\;}\; F(s)\]
 </div>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Variable complexe \(s\)</strong></p>
+  <p>La variable \(s = \sigma + j\omega\) est une variable complexe (\(j^2 = -1\)) :</p>
+  <ul>
+    <li>\(\sigma = \operatorname{Re}(s)\) : partie réelle — liée à l'amortissement</li>
+    <li>\(\omega = \operatorname{Im}(s)\) : partie imaginaire — liée à la fréquence</li>
+    <li>Le plan complexe \((\sigma,\,\omega)\) est appelé <strong>plan de Laplace</strong> ou <strong>plan complexe s</strong></li>
+  </ul>
+</div>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Conditions d'existence (convergence)</strong></p>
+  <p>L'intégrale \(\displaystyle\int_0^{+\infty} f(t)\,e^{-st}\,dt\) converge si \(\operatorname{Re}(s) > \sigma_0\), où \(\sigma_0\) est l'<strong>abscisse de convergence</strong>.</p>
+  <p>En pratique pour les BTS, toutes les fonctions physiques rencontrées (croissance au plus exponentielle) admettent une transformée de Laplace.</p>
+</div>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Transformée de Laplace inverse</strong></p>
+  <p>L'opération inverse est notée \(\mathcal{L}^{-1}\) :</p>
+  \[
+    f(t) = \mathcal{L}^{-1}\{F(s)\}
+  \]
+  <p>En pratique, on ne calcule pas l'intégrale inverse directement. On utilise une <strong>décomposition en éléments simples</strong> de \(F(s)\), puis on lit le tableau des transformées usuelles.</p>
+</div>
+
+<!-- ============================================================
+     2. TRANSFORMÉES USUELLES
+     ============================================================ -->
+<h2>2. Tableau des transformées usuelles</h2>
+
+<p>Ce tableau est fondamental. On suppose les conditions initiales nulles et \(t \geq 0\) pour toutes les fonctions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Fonction temporelle \(f(t)\)</th>
+      <th>Transformée \(F(s) = \mathcal{L}\{f(t)\}\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Impulsion de Dirac</td>
+      <td>\(\delta(t)\)</td>
+      <td>\(1\)</td>
+    </tr>
+    <tr>
+      <td>Échelon unité</td>
+      <td>\(u(t) = 1\)</td>
+      <td>\(\dfrac{1}{s}\)</td>
+    </tr>
+    <tr>
+      <td>Rampe linéaire</td>
+      <td>\(t \cdot u(t)\)</td>
+      <td>\(\dfrac{1}{s^2}\)</td>
+    </tr>
+    <tr>
+      <td>Monôme</td>
+      <td>\(t^n \cdot u(t)\)</td>
+      <td>\(\dfrac{n!}{s^{n+1}}\)</td>
+    </tr>
+    <tr>
+      <td>Exponentielle décroissante</td>
+      <td>\(e^{-at}\cdot u(t)\)</td>
+      <td>\(\dfrac{1}{s+a}\)</td>
+    </tr>
+    <tr>
+      <td>Cosinus</td>
+      <td>\(\cos(\omega_0 t)\cdot u(t)\)</td>
+      <td>\(\dfrac{s}{s^2 + \omega_0^2}\)</td>
+    </tr>
+    <tr>
+      <td>Sinus</td>
+      <td>\(\sin(\omega_0 t)\cdot u(t)\)</td>
+      <td>\(\dfrac{\omega_0}{s^2 + \omega_0^2}\)</td>
+    </tr>
+    <tr>
+      <td>Exp × cosinus (oscillations amorties)</td>
+      <td>\(e^{-at}\cos(\omega_0 t)\cdot u(t)\)</td>
+      <td>\(\dfrac{s+a}{(s+a)^2 + \omega_0^2}\)</td>
+    </tr>
+    <tr>
+      <td>Exp × sinus (oscillations amorties)</td>
+      <td>\(e^{-at}\sin(\omega_0 t)\cdot u(t)\)</td>
+      <td>\(\dfrac{\omega_0}{(s+a)^2 + \omega_0^2}\)</td>
+    </tr>
+    <tr>
+      <td>Exp × rampe (pôle double)</td>
+      <td>\(t\,e^{-at}\cdot u(t)\)</td>
+      <td>\(\dfrac{1}{(s+a)^2}\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 1 — Calcul à partir de la définition</span>
+  <p>Calculer \(\mathcal{L}\{e^{-3t}\cdot u(t)\}\) directement.</p>
+  \[
+    F(s) = \int_0^{+\infty} e^{-3t}\,e^{-st}\,dt = \int_0^{+\infty} e^{-(s+3)t}\,dt
+    = \left[\frac{e^{-(s+3)t}}{-(s+3)}\right]_0^{+\infty}
+  \]
+  <p>Pour \(\operatorname{Re}(s) > -3\), le terme en \(+\infty\) vaut 0, donc :</p>
+  \[F(s) = 0 - \frac{1}{-(s+3)} = \frac{1}{s+3}\]
+  <p>On retrouve bien la ligne du tableau avec \(a = 3\).</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 2 — Lecture du tableau</span>
+  <p>Lire directement depuis le tableau :</p>
+  <ul>
+    <li>\(\mathcal{L}\{\sin(5t)\} = \dfrac{5}{s^2+25}\)</li>
+    <li>\(\mathcal{L}\{t^2\} = \dfrac{2!}{s^3} = \dfrac{2}{s^3}\)</li>
+    <li>\(\mathcal{L}\{e^{-2t}\cos(3t)\} = \dfrac{s+2}{(s+2)^2+9}\)</li>
+  </ul>
+</div>
+
+<!-- ============================================================
+     3. PROPRIÉTÉS FONDAMENTALES
+     ============================================================ -->
+<h2>3. Propriétés fondamentales</h2>
+
+<div class="prop">
+  <span class="label-prop">Propriété 1</span>
+  <p><strong>Linéarité</strong></p>
+  \[
+    \mathcal{L}\{\alpha\,f(t) + \beta\,g(t)\} = \alpha\,F(s) + \beta\,G(s) \quad (\alpha, \beta \in \mathbb{R})
+  \]
+  <p>La transformée de Laplace est un opérateur linéaire.</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple</span>
+  <p>Calculer \(\mathcal{L}\{3e^{-2t} - 5\sin(4t)\}\) pour \(t \geq 0\).</p>
+  \[
+    \mathcal{L}\{3e^{-2t}\} = \frac{3}{s+2} \qquad \mathcal{L}\{5\sin(4t)\} = \frac{20}{s^2+16}
+  \]
+  \[
+    \Rightarrow \quad \mathcal{L}\{3e^{-2t} - 5\sin(4t)\} = \frac{3}{s+2} - \frac{20}{s^2+16}
+  \]
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété 2</span>
+  <p><strong>Décalage fréquentiel (translation en \(s\))</strong></p>
+  <p>Si \(f(t) \xleftrightarrow{\mathcal{L}} F(s)\), alors :</p>
+  \[
+    e^{-at}f(t) \;\xleftrightarrow{\;\mathcal{L}\;}\; F(s+a)
+  \]
+  <p>Multiplier par \(e^{-at}\) dans le temps revient à remplacer \(s\) par \(s+a\) dans \(F(s)\).</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple</span>
+  <p>En appliquant ce théorème à \(\cos(\omega_0 t) \xleftrightarrow{\mathcal{L}} \dfrac{s}{s^2+\omega_0^2}\) :</p>
+  \[
+    e^{-at}\cos(\omega_0 t) \;\xleftrightarrow{\;\mathcal{L}\;}\; \frac{s+a}{(s+a)^2 + \omega_0^2}
+  \]
+  <p>On retrouve la ligne correspondante du tableau.</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété 3</span>
+  <p><strong>Décalage temporel (théorème du retard)</strong></p>
+  \[
+    f(t-T)\,u(t-T) \;\xleftrightarrow{\;\mathcal{L}\;}\; e^{-Ts}\,F(s) \qquad (T \geq 0)
+  \]
+  <p>Un retard de \(T\) secondes dans le temps correspond à une multiplication par \(e^{-Ts}\) dans le domaine de Laplace.</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété 4 — Fondamentale</span>
+  <p><strong>Transformée de la dérivée</strong></p>
+  \[
+    \mathcal{L}\{f'(t)\} = s\,F(s) - f(0^-)
+  \]
+  \[
+    \mathcal{L}\{f''(t)\} = s^2\,F(s) - s\,f(0^-) - f'(0^-)
+  \]
+  <p>En général, pour des <strong>conditions initiales nulles</strong> (cas BTS courant) :</p>
+  \[
+    \mathcal{L}\left\{f^{(n)}(t)\right\} = s^n\,F(s)
+  \]
+  <p><strong>Intérêt majeur :</strong> la dérivation devient une multiplication par \(s\). Une équation différentielle devient une équation algébrique, beaucoup plus simple à résoudre.</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété 5</span>
+  <p><strong>Transformée de l'intégrale</strong></p>
+  \[
+    \mathcal{L}\left\{\int_0^t f(\tau)\,d\tau\right\} = \frac{F(s)}{s}
+  \]
+  <p>Intégrer dans le temps revient à diviser par \(s\) dans le domaine de Laplace.</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété 6</span>
+  <p><strong>Théorème de la valeur initiale</strong></p>
+  \[
+    f(0^+) = \lim_{s \to +\infty} s\,F(s)
+  \]
+  <p>Permet de trouver la valeur de \(f\) à l'instant initial sans calculer \(f(t)\).</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété 7</span>
+  <p><strong>Théorème de la valeur finale</strong></p>
+  \[
+    \lim_{t \to +\infty} f(t) = \lim_{s \to 0}\, s\,F(s)
+  \]
+  <p><strong>Condition :</strong> ce théorème n'est valable que si \(f(t)\) admet une limite finie en \(+\infty\), c'est-à-dire si le système est stable (tous les pôles de \(sF(s)\) ont une partie réelle strictement négative).</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple — Valeur finale</span>
+  <p>Soit \(F(s) = \dfrac{5}{s(s+2)}\). Déterminer \(\displaystyle\lim_{t\to+\infty} f(t)\).</p>
+  <p>Pôles de \(sF(s) = \dfrac{5}{s+2}\) : unique pôle en \(s = -2\) (partie réelle négative) → limite finite.</p>
+  \[
+    \lim_{t\to+\infty} f(t) = \lim_{s\to 0}\, s \cdot \frac{5}{s(s+2)} = \lim_{s\to 0}\, \frac{5}{s+2} = \frac{5}{2} = 2{,}5
+  \]
+</div>
+
+<div class="exo">
+  <span class="label-meth" style="background:#7c3aed">Exercice</span>
+  <p>Soit \(F(s) = \dfrac{s+3}{s^2+4s+3}\).</p>
+  <ol>
+    <li>Factoriser le dénominateur et trouver les pôles.</li>
+    <li>Calculer la valeur initiale \(f(0^+)\).</li>
+    <li>Le système est-il stable ? Si oui, calculer la valeur finale.</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Factorisation :</strong> \(s^2+4s+3 = (s+1)(s+3)\) donc pôles \(p_1 = -1\) et \(p_2 = -3\).</p>
+    <p><strong>2. Valeur initiale :</strong></p>
+    \[f(0^+) = \lim_{s\to+\infty} s\cdot\frac{s+3}{(s+1)(s+3)} = \lim_{s\to+\infty} \frac{s}{s+1} = 1\]
+    <p><strong>3. Stabilité :</strong> \(\operatorname{Re}(p_1) = -1 < 0\) et \(\operatorname{Re}(p_2) = -3 < 0\) → système <strong>stable</strong>.</p>
+    <p>Valeur finale :</p>
+    \[\lim_{t\to+\infty}f(t) = \lim_{s\to 0}\,s\cdot\frac{s+3}{(s+1)(s+3)} = \lim_{s\to 0}\frac{s}{s+1} = 0\]
+    <p>La fonction \(f(t)\) tend vers 0 (régime libre qui s'amortit).</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     4. FONCTION DE TRANSFERT
+     ============================================================ -->
+<h2>4. Fonction de transfert</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Fonction de transfert \(H(s)\)</strong></p>
+  <p>Pour un système linéaire invariant dans le temps (LTI), à conditions initiales nulles, la <strong>fonction de transfert</strong> est le rapport de la transformée de la sortie sur la transformée de l'entrée :</p>
+  \[
+    H(s) = \frac{S(s)}{E(s)}
+  \]
+  <p>où \(E(s) = \mathcal{L}\{e(t)\}\) est la transformée de l'entrée et \(S(s) = \mathcal{L}\{s(t)\}\) celle de la sortie.</p>
+  <p>La sortie dans le domaine de Laplace est directement : \(S(s) = H(s) \cdot E(s)\).</p>
+</div>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Pôles et zéros</strong></p>
+  <p>Toute fonction de transfert rationnelle s'écrit :</p>
+  \[
+    H(s) = K \cdot \frac{(s - z_1)(s - z_2) \cdots (s - z_m)}{(s - p_1)(s - p_2) \cdots (s - p_n)} \quad (n \geq m)
+  \]
+  <ul>
+    <li><strong>Zéros</strong> \(z_i\) : valeurs de \(s\) qui annulent le numérateur (\(H(z_i) = 0\))</li>
+    <li><strong>Pôles</strong> \(p_i\) : valeurs de \(s\) qui annulent le dénominateur (\(|H(p_i)| \to \infty\))</li>
+    <li><strong>Représentation graphique :</strong> pôles notés × et zéros notés ○ dans le plan complexe</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Critère de stabilité de Laplace</span>
+  <p><strong>Stabilité d'un système à partir des pôles</strong></p>
+  <p>Un système est <strong>stable</strong> si et seulement si tous ses pôles ont une partie réelle strictement négative :</p>
+  <ul>
+    <li>\(\operatorname{Re}(p_i) < 0\) pour tout \(i\) → <strong>stable</strong> <span class="stable-badge">STABLE</span></li>
+    <li>\(\operatorname{Re}(p_i) = 0\) pour au moins un pôle → <strong>oscillations entretenues</strong></li>
+    <li>\(\operatorname{Re}(p_i) > 0\) pour au moins un \(i\) → <strong>instable</strong> <span class="unstable-badge">INSTABLE</span></li>
+  </ul>
+  <p>Les pôles stables se trouvent dans le <strong>demi-plan gauche</strong> du plan de Laplace (\(\sigma < 0\)).</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 1 — Analyse pôles-zéros</span>
+  <p>Analyser \(H(s) = \dfrac{s+2}{s^2 + 3s + 2}\).</p>
+  <p><strong>Factorisation du dénominateur :</strong> \(s^2+3s+2 = (s+1)(s+2)\)</p>
+  <p><strong>Pôles :</strong> \(p_1 = -1\), \(p_2 = -2\) &nbsp;&nbsp; — &nbsp;&nbsp; <strong>Zéro :</strong> \(z_1 = -2\)</p>
+  <p>Tous les pôles ont une partie réelle négative → <span class="stable-badge">STABLE</span></p>
+  <p>Remarque : \(p_2 = z_1 = -2\) → simplification : \(H(s) = \dfrac{1}{s+1}\)</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 2 — Système instable</span>
+  <p>Analyser \(H(s) = \dfrac{1}{s^2 - s + 2}\).</p>
+  <p>Discriminant : \(\Delta = 1 - 8 = -7 < 0\)</p>
+  <p>Pôles complexes : \(p_{1,2} = \dfrac{1 \pm j\sqrt{7}}{2}\) avec \(\operatorname{Re}(p) = \dfrac{1}{2} > 0\)</p>
+  <p>Au moins un pôle avec partie réelle positive → <span class="unstable-badge">INSTABLE</span></p>
+</div>
+
+<!-- Plan pôles-zéros -->
+<h3>Visualisation : diagramme pôles-zéros dans le plan de Laplace</h3>
+<div class="chart-wrap" style="background:#1a1a2e;border-radius:8px;padding:1rem">
+  <canvas id="poleZeroChart" width="600" height="420"></canvas>
+</div>
+
+<!-- ============================================================
+     5. DÉCOMPOSITION EN ÉLÉMENTS SIMPLES
+     ============================================================ -->
+<h2>5. Décomposition en éléments simples (DES)</h2>
+
+<p>La décomposition en éléments simples permet d'exprimer une fraction rationnelle \(F(s)\) (avec \(\deg \text{num} < \deg \text{den}\)) comme somme de fractions plus simples, afin d'appliquer le tableau des transformées inverses.</p>
+
+<div class="meth">
+  <span class="label-meth">Méthode — Types d'éléments simples</span>
+
+  <p><strong>Cas 1 : Pôle réel simple \(p_i\)</strong></p>
+  \[\frac{A_i}{s - p_i} \quad \text{avec} \quad A_i = \lim_{s \to p_i}(s - p_i)\,F(s)\]
+
+  <p><strong>Cas 2 : Pôle réel double \(p_i\)</strong></p>
+  \[\frac{A_1}{s-p_i} + \frac{A_2}{(s-p_i)^2} \quad \text{avec} \quad A_2 = \lim_{s\to p_i}(s-p_i)^2 F(s),\quad A_1 = \lim_{s\to p_i}\frac{d}{ds}\left[(s-p_i)^2 F(s)\right]\]
+
+  <p><strong>Cas 3 : Pôles complexes conjugués \(-a \pm j\omega_0\)</strong></p>
+  \[\frac{As + B}{(s+a)^2 + \omega_0^2} \quad \Rightarrow \quad \mathcal{L}^{-1} = \text{combinaison de } e^{-at}\cos(\omega_0 t) \text{ et } e^{-at}\sin(\omega_0 t)\]
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 1 — Pôles réels simples</span>
+  <p>Décomposer \(F(s) = \dfrac{5s + 6}{s(s+2)(s+3)}\).</p>
+  <p>On pose : \(F(s) = \dfrac{A}{s} + \dfrac{B}{s+2} + \dfrac{C}{s+3}\)</p>
+  <p><strong>Calcul de A</strong> (multiplier par \(s\), puis \(s\to 0\)) :</p>
+  \[A = \left.\frac{5s+6}{(s+2)(s+3)}\right|_{s=0} = \frac{6}{2 \times 3} = 1\]
+  <p><strong>Calcul de B</strong> (multiplier par \(s+2\), puis \(s\to -2\)) :</p>
+  \[B = \left.\frac{5s+6}{s(s+3)}\right|_{s=-2} = \frac{-10+6}{(-2)(1)} = \frac{-4}{-2} = 2\]
+  <p><strong>Calcul de C</strong> (multiplier par \(s+3\), puis \(s\to -3\)) :</p>
+  \[C = \left.\frac{5s+6}{s(s+2)}\right|_{s=-3} = \frac{-15+6}{(-3)(-1)} = \frac{-9}{3} = -3\]
+  <p>Résultat : \(F(s) = \dfrac{1}{s} + \dfrac{2}{s+2} - \dfrac{3}{s+3}\)</p>
+  <p>Transformée inverse : \(\quad f(t) = (1 + 2e^{-2t} - 3e^{-3t})\,u(t)\)</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 2 — Pôles complexes conjugués</span>
+  <p>Calculer \(\mathcal{L}^{-1}\!\left\{\dfrac{2s+6}{(s+1)^2 + 4}\right\}\).</p>
+  <p>On identifie la forme avec \(a = 1\), \(\omega_0 = 2\). On réécrit le numérateur :</p>
+  \[2s + 6 = 2(s+1) + 4 = 2(s+1) + 2 \cdot 2\]
+  \[F(s) = \frac{2(s+1)}{(s+1)^2+4} + \frac{2 \cdot 2}{(s+1)^2+4}\]
+  <p>Par transformée inverse terme à terme :</p>
+  \[f(t) = 2e^{-t}\cos(2t) + 2e^{-t}\sin(2t) = 2e^{-t}\bigl[\cos(2t) + \sin(2t)\bigr]\]
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 3 — Pôle double</span>
+  <p>Calculer \(\mathcal{L}^{-1}\!\left\{\dfrac{3}{s(s+2)^2}\right\}\).</p>
+  <p>On pose : \(\dfrac{3}{s(s+2)^2} = \dfrac{A}{s} + \dfrac{B_1}{s+2} + \dfrac{B_2}{(s+2)^2}\)</p>
+  \[A = \left.\frac{3}{(s+2)^2}\right|_{s=0} = \frac{3}{4}\]
+  \[B_2 = \left.\frac{3}{s}\right|_{s=-2} = \frac{3}{-2} = -\frac{3}{2}\]
+  <p>Pour \(B_1\), on identifie en développant ou en posant \(s = 1\) :</p>
+  \[\frac{3}{1 \cdot 9} = \frac{3}{4} + \frac{B_1}{3} + \frac{-3/2}{9} \Rightarrow \frac{1}{3} = \frac{3}{4} + \frac{B_1}{3} - \frac{1}{6} \Rightarrow B_1 = -\frac{3}{4}\]
+  \[F(s) = \frac{3/4}{s} - \frac{3/4}{s+2} - \frac{3/2}{(s+2)^2}\]
+  \[f(t) = \frac{3}{4}\left(1 - e^{-2t}\right) - \frac{3}{2}\,t\,e^{-2t}\]
+</div>
+
+<!-- ============================================================
+     6. APPLICATION : CIRCUIT RC
+     ============================================================ -->
+<h2>6. Application : circuit RC</h2>
+
+<p>Un circuit RC série est alimenté par un échelon de tension \(e(t) = E_0\,u(t)\) avec \(E_0 = 10\) V, \(R = 1\) k\(\Omega\), \(C = 100\) \(\mu\)F.</p>
+
+<div class="grid2">
+  <div>
+    <p><strong>Équation différentielle :</strong></p>
+    \[RC\,\frac{du_C}{dt} + u_C(t) = e(t)\]
+    <p>Constante de temps : \(\tau = RC = 10^3 \times 10^{-4} = 0{,}1\) s</p>
+    <p>Conditions initiales : \(u_C(0^-) = 0\)</p>
+  </div>
+  <div>
+    <p><strong>Résolution dans le domaine de Laplace :</strong></p>
+    \[\tau\left[s\,U_C(s) - \underbrace{u_C(0^-)}_{=0}\right] + U_C(s) = \frac{E_0}{s}\]
+    \[(\tau s + 1)\,U_C(s) = \frac{E_0}{s}\]
+    \[U_C(s) = \frac{E_0}{s(\tau s + 1)}\]
+  </div>
+</div>
+
+<p><strong>Décomposition en éléments simples :</strong></p>
+\[U_C(s) = \frac{E_0/\tau}{s\left(s + \frac{1}{\tau}\right)} = \frac{A}{s} + \frac{B}{s + \frac{1}{\tau}}\]
+\[A = E_0 = 10 \qquad B = -E_0 = -10\]
+\[U_C(s) = 10\left(\frac{1}{s} - \frac{1}{s + 10}\right)\]
+
+<p><strong>Transformée inverse :</strong></p>
+\[
+  \boxed{u_C(t) = 10\left(1 - e^{-10t}\right)\,u(t) \quad \text{[V]}}
+\]
+
+<div class="att">
+  <span class="label-att">Attention — Fonction de transfert du circuit RC</span>
+  <p>La fonction de transfert \(H(s) = \dfrac{U_C(s)}{E(s)}\) est obtenue en posant \(e(t) = \delta(t)\) (entrée impulsionnelle), soit \(E(s) = 1\) :</p>
+  \[H(s) = \frac{1}{\tau s + 1} = \frac{1}{0{,}1s + 1}\]
+  <p>Pôle unique : \(p = -\dfrac{1}{\tau} = -10\) &nbsp;→&nbsp; \(\operatorname{Re}(p) = -10 < 0\) &nbsp;→&nbsp; <span class="stable-badge">STABLE</span></p>
+</div>
+
+<!-- ============================================================
+     7. SYSTÈME DU 1er ORDRE
+     ============================================================ -->
+<h2>7. Systèmes du 1er ordre</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Forme canonique du 1er ordre</strong></p>
+  \[
+    H(s) = \frac{K}{1 + \tau s}
+  \]
+  <ul>
+    <li>\(K\) : gain statique (rapport sortie/entrée en régime permanent)</li>
+    <li>\(\tau\) : constante de temps (s) — caractérise la rapidité de la réponse</li>
+    <li>Pôle unique : \(p = -1/\tau\) (toujours stable si \(\tau > 0\))</li>
+  </ul>
+</div>
+
+<h3>Réponse indicielle (\(E(s) = 1/s\))</h3>
+\[
+  S(s) = H(s) \cdot \frac{1}{s} = \frac{K}{s(1 + \tau s)} = K\left(\frac{1}{s} - \frac{1}{s + 1/\tau}\right)
+\]
+\[
+  \boxed{s(t) = K\left(1 - e^{-t/\tau}\right)\,u(t)}
+\]
+
+<div class="prop">
+  <span class="label-prop">Propriété — Lecture graphique de &tau;</span>
+  <table>
+    <thead>
+      <tr><th>Instant</th><th>Valeur de \(s(t)/K\)</th><th>Interprétation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>\(t = \tau\)</td><td>\(1 - e^{-1} \approx 63{,}2\,\%\)</td><td>Méthode de lecture de \(\tau\)</td></tr>
+      <tr><td>\(t = 2\tau\)</td><td>\(\approx 86{,}5\,\%\)</td><td></td></tr>
+      <tr><td>\(t = 3\tau\)</td><td>\(\approx 95{,}0\,\%\)</td><td>Souvent considéré comme "permanent"</td></tr>
+      <tr><td>\(t = 5\tau\)</td><td>\(\approx 99{,}3\,\%\)</td><td>Très proche du régime final</td></tr>
+    </tbody>
+  </table>
+  <p>La tangente à l'origine coupe la valeur finale \(K\) exactement en \(t = \tau\).</p>
+</div>
+
+<div class="chart-wrap" style="background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:1rem">
+  <canvas id="stepResponse1Chart" width="600" height="340"></canvas>
+</div>
+
+<!-- ============================================================
+     8. SYSTÈME DU 2e ORDRE
+     ============================================================ -->
+<h2>8. Systèmes du 2e ordre</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Forme canonique du 2e ordre</strong></p>
+  \[
+    H(s) = \frac{K\,\omega_n^2}{s^2 + 2\xi\omega_n\,s + \omega_n^2}
+  \]
+  <ul>
+    <li>\(K\) : gain statique</li>
+    <li>\(\omega_n\) : pulsation propre non amortie (rad/s)</li>
+    <li>\(\xi\) (xi) : facteur d'amortissement (sans dimension) — détermine le régime</li>
+  </ul>
+</div>
+
+<h3>Régimes selon la valeur de &xi;</h3>
+<p>Le discriminant du dénominateur : \(\Delta = 4\omega_n^2(\xi^2 - 1)\)</p>
+
+<table>
+  <thead>
+    <tr><th>Valeur de \(\xi\)</th><th>Régime</th><th>Nature des pôles</th><th>Comportement</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(\xi > 1\)</td>
+      <td><strong>Sur-amorti</strong></td>
+      <td>2 réels négatifs distincts</td>
+      <td>Pas de dépassement, réponse lente</td>
+    </tr>
+    <tr>
+      <td>\(\xi = 1\)</td>
+      <td><strong>Critique</strong></td>
+      <td>1 réel double \(-\omega_n\)</td>
+      <td>Pas de dépassement, réponse la plus rapide sans oscillation</td>
+    </tr>
+    <tr>
+      <td>\(0 < \xi < 1\)</td>
+      <td><strong>Sous-amorti</strong></td>
+      <td>2 complexes conjugués</td>
+      <td>Dépassement et oscillations amorties</td>
+    </tr>
+    <tr>
+      <td>\(\xi = 0\)</td>
+      <td><strong>Non amorti</strong></td>
+      <td>Purs imaginaires \(\pm j\omega_n\)</td>
+      <td>Oscillations permanentes</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Pulsation propre amortie</strong></p>
+  \[\omega_d = \omega_n\sqrt{1 - \xi^2} \quad (0 < \xi < 1)\]
+  <p>C'est la pulsation des oscillations en régime sous-amorti.</p>
+</div>
+
+<h3>Réponse indicielle — régime sous-amorti (\(0 < \xi < 1\))</h3>
+\[
+  \boxed{s(t) = K\left[1 - \frac{e^{-\xi\omega_n t}}{\sqrt{1-\xi^2}}\,\sin\!\left(\omega_d t + \varphi\right)\right]\,u(t)
+  \quad \text{avec } \varphi = \arccos(\xi)}
+\]
+
+<div class="prop">
+  <span class="label-prop">Propriété — Premier dépassement</span>
+  \[
+    D\% = 100 \times \exp\!\left(-\frac{\pi\xi}{\sqrt{1-\xi^2}}\right)
+  \]
+  <p>Le dépassement ne dépend que de \(\xi\) (pas de \(\omega_n\) ni de \(K\)).</p>
+  <p>Valeurs numériques :</p>
+  <table>
+    <thead><tr><th>\(\xi\)</th><th>0,1</th><th>0,2</th><th>0,4</th><th>0,6</th><th>0,7</th><th>0,8</th></tr></thead>
+    <tbody>
+      <tr><td>\(D\%\)</td><td>72,9 %</td><td>52,7 %</td><td>25,4 %</td><td>9,5 %</td><td>4,6 %</td><td>1,5 %</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple — Four industriel (situation professionnelle)</span>
+  <p>Données : \(\omega_n = 0{,}5\) rad/s, \(\xi = 0{,}4\), \(K = 1\).</p>
+  \[H(s) = \frac{(0{,}5)^2}{s^2 + 2(0{,}4)(0{,}5)s + (0{,}5)^2} = \frac{0{,}25}{s^2 + 0{,}4s + 0{,}25}\]
+  <p><strong>Pôles :</strong> \(s^2 + 0{,}4s + 0{,}25 = 0 \Rightarrow \Delta = 0{,}16 - 1 = -0{,}84 < 0\)</p>
+  \[p_{1,2} = \frac{-0{,}4 \pm j\sqrt{0{,}84}}{2} = -0{,}2 \pm j\,0{,}458\]
+  <p>Parties réelles négatives → <span class="stable-badge">STABLE</span></p>
+  <p><strong>Pulsation amortie :</strong> \(\omega_d = 0{,}5\sqrt{1-0{,}16} \approx 0{,}458\) rad/s</p>
+  <p><strong>Dépassement :</strong> \(D\% = 100\,e^{-\pi\times 0{,}4/\sqrt{0{,}84}} \approx 25{,}4\,\%\)</p>
+  <p><strong>Conséquence pratique :</strong> Pour un échelon de 150 °C, la température atteindra au maximum :</p>
+  \[T_{max} = 200 + 0{,}254 \times 150 \approx 238\,\text{°C}\]
+  <p>L'ingénieur doit vérifier que les matériaux du four supportent cette surtempérature transitoire de 38 °C.</p>
+</div>
+
+<div class="chart-wrap" style="background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:1rem">
+  <canvas id="stepResponse2Chart" width="600" height="360"></canvas>
+</div>
+
+<!-- ============================================================
+     9. MÉTHODE GÉNÉRALE
+     ============================================================ -->
+<h2>9. Résolution d'une équation différentielle par Laplace</h2>
+
+<div class="meth">
+  <span class="label-meth">Méthode générale en 6 étapes</span>
+  <div class="etape"><strong>Étape 1.</strong> Écrire l'équation différentielle reliant l'entrée \(e(t)\) et la sortie \(s(t)\).</div>
+  <div class="etape"><strong>Étape 2.</strong> Appliquer \(\mathcal{L}\{\cdot\}\) membre à membre en utilisant la propriété de dérivation.</div>
+  <div class="etape"><strong>Étape 3.</strong> Substituer les conditions initiales \(s(0^-), s'(0^-), \ldots\) (souvent nulles).</div>
+  <div class="etape"><strong>Étape 4.</strong> Résoudre l'équation algébrique pour exprimer \(S(s)\).</div>
+  <div class="etape"><strong>Étape 5.</strong> Décomposer \(S(s)\) en éléments simples.</div>
+  <div class="etape"><strong>Étape 6.</strong> Calculer \(s(t) = \mathcal{L}^{-1}\{S(s)\}\) par lecture du tableau des transformées usuelles.</div>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple complet</span>
+  <p>Résoudre \(y'' + 5y' + 6y = 6\,u(t)\) avec \(y(0^-) = y'(0^-) = 0\).</p>
+
+  <p><strong>Étapes 2 et 3</strong> (CI nulles) :</p>
+  \[s^2\,Y(s) + 5s\,Y(s) + 6\,Y(s) = \frac{6}{s}\]
+
+  <p><strong>Étape 4 :</strong></p>
+  \[Y(s)(s^2+5s+6) = \frac{6}{s} \implies Y(s) = \frac{6}{s(s+2)(s+3)}\]
+
+  <p><strong>Étape 5 — DES :</strong></p>
+  \[Y(s) = \frac{A}{s} + \frac{B}{s+2} + \frac{C}{s+3}\]
+  \[A = \frac{6}{2\times3} = 1 \qquad B = \frac{6}{(-2)(1)} = -3 \qquad C = \frac{6}{(-3)(-1)} = 2\]
+
+  <p><strong>Étape 6 :</strong></p>
+  \[\boxed{y(t) = \left(1 - 3e^{-2t} + 2e^{-3t}\right)u(t)}\]
+
+  <p><strong>Vérification — valeur finale :</strong> \(\displaystyle\lim_{s\to 0} s\cdot\frac{6}{s(s^2+5s+6)} = \frac{6}{6} = 1 = \lim_{t\to\infty} y(t)\) ✓</p>
+</div>
+
+<div class="exo">
+  <span class="label-meth" style="background:#7c3aed">Exercice d'application</span>
+  <p>Un circuit RL série (résistance \(R = 2\,\Omega\), inductance \(L = 1\) H) est soumis à une tension \(e(t) = 4\,u(t)\) V. L'équation est \(L\,\dfrac{di}{dt} + Ri = e(t)\) avec \(i(0^-) = 1\) A.</p>
+  <p>Déterminer \(i(t)\) pour \(t \geq 0\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Transformée de Laplace (avec CI) :</strong></p>
+    \[s\,I(s) - i(0^-) + 2\,I(s) = \frac{4}{s}\]
+    \[(s+2)\,I(s) = \frac{4}{s} + 1 = \frac{4+s}{s}\]
+    \[I(s) = \frac{s+4}{s(s+2)}\]
+    <p><strong>DES :</strong></p>
+    \[I(s) = \frac{A}{s} + \frac{B}{s+2}\]
+    \[A = \left.\frac{s+4}{s+2}\right|_{s=0} = \frac{4}{2} = 2 \qquad B = \left.\frac{s+4}{s}\right|_{s=-2} = \frac{2}{-2} = -1\]
+    \[I(s) = \frac{2}{s} - \frac{1}{s+2}\]
+    <p><strong>Solution :</strong></p>
+    \[\boxed{i(t) = \left(2 - e^{-2t}\right)u(t) \text{ [A]}}\]
+    <p>Valeur initiale : \(i(0^+) = 2 - 1 = 1\) A ✓ (continuité du courant dans l'inductance)</p>
+    <p>Valeur finale : \(i(\infty) = 2\) A = \(E/R = 4/2\) ✓</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     À RETENIR
+     ============================================================ -->
+<div class="retenir">
+  <h2>À retenir — Formules essentielles</h2>
+  <div class="formula-grid">
+    <div class="formule-box">
+      <p><strong>Définition</strong></p>
+      \[\mathcal{L}\{f(t)\} = \int_0^{+\infty}\!\! f(t)\,e^{-st}\,dt\]
+    </div>
+    <div class="formule-box">
+      <p><strong>Dérivation (CI nulles)</strong></p>
+      \[\mathcal{L}\bigl\{f^{(n)}(t)\bigr\} = s^n F(s)\]
+    </div>
+    <div class="formule-box">
+      <p><strong>Intégration</strong></p>
+      \[\mathcal{L}\!\left\{\int_0^t\! f\right\} = \frac{F(s)}{s}\]
+    </div>
+    <div class="formule-box">
+      <p><strong>Valeur finale</strong></p>
+      \[\lim_{t\to\infty} f(t) = \lim_{s\to 0} s\,F(s)\]
+    </div>
+    <div class="formule-box">
+      <p><strong>Fonction de transfert</strong></p>
+      \[H(s) = \frac{S(s)}{E(s)}\]
+    </div>
+    <div class="formule-box">
+      <p><strong>Stabilité</strong></p>
+      <p>Tous les pôles : \(\operatorname{Re}(p_i) < 0\)</p>
+    </div>
+    <div class="formule-box">
+      <p><strong>Système du 1er ordre</strong></p>
+      \[H(s) = \frac{K}{1+\tau s}\]
+      \[s(t) = K(1-e^{-t/\tau})\,u(t)\]
+    </div>
+    <div class="formule-box">
+      <p><strong>Système du 2e ordre</strong></p>
+      \[H(s) = \frac{K\omega_n^2}{s^2+2\xi\omega_n s+\omega_n^2}\]
+      \[D\% = 100\,e^{-\pi\xi/\sqrt{1-\xi^2}}\]
+    </div>
+  </div>
+
+  <h3>Transformées à mémoriser</h3>
+  <table>
+    <thead><tr><th>\(f(t)\) pour \(t \geq 0\)</th><th>\(F(s)\)</th></tr></thead>
+    <tbody>
+      <tr><td>\(\delta(t)\)</td><td>\(1\)</td></tr>
+      <tr><td>\(u(t)\)</td><td>\(1/s\)</td></tr>
+      <tr><td>\(e^{-at}u(t)\)</td><td>\(1/(s+a)\)</td></tr>
+      <tr><td>\(\sin(\omega_0 t)\,u(t)\)</td><td>\(\omega_0/(s^2+\omega_0^2)\)</td></tr>
+      <tr><td>\(\cos(\omega_0 t)\,u(t)\)</td><td>\(s/(s^2+\omega_0^2)\)</td></tr>
+      <tr><td>\(e^{-at}\sin(\omega_0 t)\,u(t)\)</td><td>\(\omega_0/[(s+a)^2+\omega_0^2]\)</td></tr>
+      <tr><td>\(e^{-at}\cos(\omega_0 t)\,u(t)\)</td><td>\((s+a)/[(s+a)^2+\omega_0^2]\)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- /.c -->
+
 <script src="../../../nav.js"></script>
+<script>
+// ── Plan pôles-zéros ────────────────────────────────────────────────────
+(function() {
+  const ctx = document.getElementById('poleZeroChart').getContext('2d');
+  // H(s) = 5(s+2) / [s(s+1)((s+1)²+4)]
+  // Pôles : 0, -1, -1+2j, -1-2j   |   Zéros : -2
+  const poles = [{x:0,y:0},{x:-1,y:0},{x:-1,y:2},{x:-1,y:-2}];
+  const zeros = [{x:-2,y:0}];
+
+  // Axe imaginaire (ligne verticale x=0)
+  const axeImag = Array.from({length:21},(_,i)=>({x:0, y:-3+i*0.3}));
+
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {
+          label: 'Pôles ×',
+          data: poles,
+          backgroundColor: '#ef4444',
+          pointStyle: 'crossRot',
+          pointRadius: 12,
+          pointBorderWidth: 3,
+          pointBorderColor: '#ef4444'
+        },
+        {
+          label: 'Zéros ○',
+          data: zeros,
+          backgroundColor: 'rgba(0,0,0,0)',
+          pointStyle: 'circle',
+          pointRadius: 10,
+          pointBorderWidth: 3,
+          pointBorderColor: '#60a5fa'
+        },
+        {
+          label: 'Axe imaginaire (Re=0)',
+          data: [{x:0,y:-3},{x:0,y:3}],
+          type: 'line',
+          borderColor: 'rgba(255,255,255,0.35)',
+          borderWidth: 1,
+          borderDash: [4,4],
+          pointRadius: 0,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Plan pôles-zéros — H(s) = 5(s+2) / [s(s+1)((s+1)²+4)]',
+          color: '#c7d4e8',
+          font: {size:13, weight:'bold'}
+        },
+        legend: {labels:{color:'#c7d4e8', font:{size:12}}}
+      },
+      scales: {
+        x: {
+          title: {display:true, text:'Partie réelle σ', color:'#aab'},
+          grid: {color:'rgba(255,255,255,0.12)'},
+          ticks: {color:'#c7d4e8'},
+          min: -4, max: 2
+        },
+        y: {
+          title: {display:true, text:'Partie imaginaire jω', color:'#aab'},
+          grid: {color:'rgba(255,255,255,0.12)'},
+          ticks: {color:'#c7d4e8'},
+          min: -3, max: 3
+        }
+      }
+    }
+  });
+})();
+
+// ── Réponse indicielle 1er ordre ────────────────────────────────────────
+(function() {
+  const ctx = document.getElementById('stepResponse1Chart').getContext('2d');
+  const tau = 0.1, K = 1, tMax = 0.6, N = 300;
+  const labels = [], data = [], tangente = [];
+  for (let i = 0; i <= N; i++) {
+    const t = (tMax * i) / N;
+    labels.push(t.toFixed(4));
+    data.push(K * (1 - Math.exp(-t / tau)));
+    // Tangente à l'origine : pente = K/tau, coupe K à t=tau
+    tangente.push(t <= tau ? (K / tau) * t : null);
+  }
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'u_C(t) = 10(1−e^{−t/τ})',
+          data,
+          borderColor: '#1e3a5f',
+          borderWidth: 2.5,
+          fill: false, pointRadius: 0, tension: 0.4
+        },
+        {
+          label: 'Tangente à l\'origine',
+          data: tangente,
+          borderColor: '#f59e0b',
+          borderWidth: 1.5,
+          borderDash: [5,4],
+          fill: false, pointRadius: 0
+        },
+        {
+          label: 'Valeur finale E₀ = 10 V',
+          data: labels.map(()=>1),
+          borderColor: '#dc2626',
+          borderWidth: 1,
+          borderDash: [6,4],
+          fill: false, pointRadius: 0
+        },
+        {
+          label: '63,2% à t=τ=0,1 s',
+          data: labels.map(t=>{
+            const tv = parseFloat(t);
+            return Math.abs(tv - tau) < tMax/N*2 ? 0.632 : null;
+          }),
+          borderColor: '#10b981',
+          pointRadius: 8, pointStyle:'circle',
+          showLine: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Réponse indicielle — Circuit RC (τ = 0,1 s)',
+          color: '#1e3a5f', font:{size:14,weight:'bold'}
+        },
+        legend: {labels:{color:'#333', font:{size:12}}}
+      },
+      scales: {
+        x: {title:{display:true, text:'Temps (s)', color:'#555'}, ticks:{maxTicksLimit:8}},
+        y: {title:{display:true, text:'u_C(t) / E₀', color:'#555'}, min:0, max:1.15}
+      }
+    }
+  });
+})();
+
+// ── Réponse indicielle 2e ordre ─────────────────────────────────────────
+(function() {
+  const ctx = document.getElementById('stepResponse2Chart').getContext('2d');
+  const wn = 1, tMax = 25, N = 500;
+  const labels = [];
+  for (let i = 0; i <= N; i++) labels.push(((tMax*i)/N).toFixed(3));
+
+  function resp(xi) {
+    return labels.map(tStr => {
+      const t = parseFloat(tStr);
+      if (xi < 1) {
+        const wd = wn * Math.sqrt(1-xi*xi);
+        const phi = Math.acos(xi);
+        return 1 - Math.exp(-xi*wn*t)/Math.sqrt(1-xi*xi)*Math.sin(wd*t+phi);
+      } else if (xi === 1) {
+        return 1 - (1+wn*t)*Math.exp(-wn*t);
+      } else {
+        const sq = Math.sqrt(xi*xi-1);
+        const r1 = wn*(-xi+sq), r2 = wn*(-xi-sq);
+        return 1 + (r2/(r2-r1))*Math.exp(r1*t) + (-r1/(r2-r1))*Math.exp(r2*t);
+      }
+    });
+  }
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {label:'ξ = 0,2', data:resp(0.2), borderColor:'#ef4444', borderWidth:2, fill:false, pointRadius:0, tension:0.2},
+        {label:'ξ = 0,4', data:resp(0.4), borderColor:'#f97316', borderWidth:2, fill:false, pointRadius:0, tension:0.2},
+        {label:'ξ = 0,7', data:resp(0.7), borderColor:'#eab308', borderWidth:2, fill:false, pointRadius:0, tension:0.2},
+        {label:'ξ = 1,0 (critique)', data:resp(1.0), borderColor:'#22c55e', borderWidth:2.5, fill:false, pointRadius:0, tension:0.2},
+        {label:'ξ = 2,0 (sur-amorti)', data:resp(2.0), borderColor:'#3b82f6', borderWidth:2, fill:false, pointRadius:0, tension:0.2},
+        {label:'Valeur finale', data:labels.map(()=>1), borderColor:'#9ca3af', borderWidth:1, borderDash:[4,4], fill:false, pointRadius:0}
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Réponse indicielle — Système du 2e ordre (ωn = 1 rad/s) pour différents ξ',
+          color: '#1e3a5f', font:{size:13, weight:'bold'}
+        },
+        legend: {labels:{color:'#333', font:{size:12}}}
+      },
+      scales: {
+        x: {title:{display:true, text:'Temps normalisé ωn·t (rad)', color:'#555'}, ticks:{maxTicksLimit:10}},
+        y: {title:{display:true, text:'Sortie s(t)/K', color:'#555'}, min:0, max:1.5}
+      }
+    }
+  });
+})();
+</script>
 </body>
 </html>
