@@ -32,90 +32,216 @@
 <a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 
 <header>
-  <h1>Devoir Surveillé – Chapitre 2</h1>
-  <p class="sous-titre">Statistiques à une variable &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 2</h1>
+  <p class="sous-titre">Statistiques &agrave; une variable &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
 </header>
 
 <div class="dh">
-  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
-  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
-  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
-  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
 </div>
 
 <div class="comp-legend">
-  <span class="comp comp-app">APP – S'Approprier</span>
-  <span class="comp comp-ana">ANA – Analyser</span>
-  <span class="comp comp-rea">REA – Réaliser</span>
-  <span class="comp comp-val">VAL – Valider</span>
-  <span class="comp comp-com">COM – Communiquer</span>
+  <span class="comp comp-app">APP &ndash; S'Approprier</span>
+  <span class="comp comp-ana">ANA &ndash; Analyser</span>
+  <span class="comp comp-rea">REA &ndash; R&eacute;aliser</span>
+  <span class="comp comp-val">VAL &ndash; Valider</span>
+  <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ===== EXERCICE 1 ===== -->
+
+<!-- ================================================================
+     DS SOCLE — très guidé, formules données, calculs amorcés
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<!-- ===== EXERCICE 1 SOCLE ===== -->
 <div class="partie">
   <div class="partie-header">
-    <span class="partie-title">Exercice 1 – Durées de trajet</span>
+    <span class="partie-title">Exercice 1 &ndash; Dur&eacute;es de trajet</span>
     <span class="pts">10 points</span>
   </div>
 
-  <p>On a relevé les durées de trajet (en minutes) de 20 employés d'un atelier pour se rendre au travail :</p>
+  <p>On a relev&eacute; les dur&eacute;es de trajet (en minutes) de 20 employ&eacute;s d'un atelier pour se rendre au travail :</p>
   <p style="text-align:center;font-weight:600;margin:10px 0">15 &nbsp; 20 &nbsp; 25 &nbsp; 15 &nbsp; 30 &nbsp; 20 &nbsp; 25 &nbsp; 35 &nbsp; 20 &nbsp; 15 &nbsp; 40 &nbsp; 25 &nbsp; 20 &nbsp; 30 &nbsp; 15 &nbsp; 25 &nbsp; 20 &nbsp; 35 &nbsp; 30 &nbsp; 25</p>
 
-  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Identifier la population, le caractère étudié et sa nature (quantitatif ou qualitatif). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
-  <span class="answer-line"></span>
-  <span class="answer-line"></span>
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Compl&eacute;ter les phrases suivantes : <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="margin-left:18px">
+    &bull; La <strong>population</strong> &eacute;tudi&eacute;e est : les .......... employ&eacute;s de l'atelier.<br>
+    &bull; Le <strong>caract&egrave;re</strong> &eacute;tudi&eacute; est : la .......... de trajet.<br>
+    &bull; Ce caract&egrave;re est <strong>quantitatif / qualitatif</strong> (entourer la bonne r&eacute;ponse).
+  </p>
 
-  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Construire le tableau des effectifs et des fréquences (arrondir au centième). <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Compl&eacute;ter le tableau des effectifs et des fr&eacute;quences. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <p style="margin-left:18px;font-size:.88em;color:#718096"><em>Rappel : fr&eacute;quence = effectif &divide; effectif total. Arrondir au centi&egrave;me.</em></p>
   <table>
-    <tr><th>Durée (min)</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th><th>Total</th></tr>
-    <tr><td>Effectif</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>Fréquence</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><th>Dur&eacute;e (min)</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th><th>Total</th></tr>
+    <tr><td>Effectif</td><td>4</td><td>5</td><td></td><td></td><td></td><td></td><td>20</td></tr>
+    <tr><td>Fr&eacute;quence</td><td>0,20</td><td></td><td></td><td></td><td></td><td></td><td>1</td></tr>
   </table>
 
-  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Quel est le mode de cette série ? Interpréter. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Le mode est la valeur qui a le plus grand effectif. Quel est le mode ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="margin-left:18px">
+    Les valeurs qui ont l'effectif le plus grand sont : .......... et ..........<br>
+    Donc le mode est .......... min et .......... min.
+  </p>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Compl&eacute;ter le tableau des effectifs cumul&eacute;s croissants. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="margin-left:18px;font-size:.88em;color:#718096"><em>Rappel : on additionne les effectifs au fur et &agrave; mesure.</em></p>
+  <table>
+    <tr><th>Dur&eacute;e (min)</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th></tr>
+    <tr><td>ECC</td><td>4</td><td>4 + 5 = 9</td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> En utilisant le tableau des ECC : combien d'employ&eacute;s mettent au plus 25 minutes ? <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <p style="margin-left:18px">
+    D'apr&egrave;s le tableau, ECC(25) = .......... Donc .......... employ&eacute;s mettent au plus 25 minutes.
+  </p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Population : les <strong>20</strong> employ&eacute;s. Caract&egrave;re : <strong>dur&eacute;e</strong> de trajet. Nature : <strong>quantitatif</strong> discret.</p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>Dur&eacute;e</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th><th>Total</th></tr>
+      <tr><td>Effectif</td><td>4</td><td>5</td><td>5</td><td>3</td><td>2</td><td>1</td><td>20</td></tr>
+      <tr><td>Fr&eacute;quence</td><td>0,20</td><td>0,25</td><td>0,25</td><td>0,15</td><td>0,10</td><td>0,05</td><td>1</td></tr>
+    </table>
+    <p><strong>3.</strong> Le mode est <strong>20 min et 25 min</strong> (effectif maximal = 5 chacun).</p>
+    <p><strong>4.</strong> ECC : 4 ; 9 ; 14 ; 17 ; 19 ; 20.</p>
+    <p><strong>5.</strong> ECC(25) = 14. Donc <strong>14 employ&eacute;s</strong> mettent au plus 25 minutes, soit 70 %.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Pannes en atelier</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Le responsable maintenance d'un atelier d'agencement a class&eacute; les 200 pannes survenues sur une ann&eacute;e par cat&eacute;gorie :</p>
+  <table>
+    <tr><th>Cat&eacute;gorie</th><th>&Eacute;lectrique</th><th>M&eacute;canique</th><th>Hydraulique</th><th>Autre</th></tr>
+    <tr><td>Fr&eacute;quence</td><td>40 %</td><td>35 %</td><td>15 %</td><td>10 %</td></tr>
+  </table>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Compl&eacute;ter : le caract&egrave;re &eacute;tudi&eacute; est la .......... de panne. Il est quantitatif / qualitatif (entourer). <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Compléter le tableau des effectifs cumulés croissants. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer le nombre de pannes de chaque cat&eacute;gorie. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="margin-left:18px;font-size:.88em;color:#718096"><em>Rappel : nombre de pannes = effectif total &times; fr&eacute;quence</em></p>
+  <p style="margin-left:18px">
+    &Eacute;lectrique : \(200 \times 0{,}40 =\) ..........<br>
+    M&eacute;canique : \(200 \times 0{,}35 =\) ..........<br>
+    Hydraulique : \(200 \times\) .......... = ..........<br>
+    Autre : \(200 \times\) .......... = ..........
+  </p>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer l'angle de chaque secteur pour un diagramme circulaire. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <p style="margin-left:18px;font-size:.88em;color:#718096"><em>Rappel : angle = 360&deg; &times; fr&eacute;quence</em></p>
+  <p style="margin-left:18px">
+    &Eacute;lectrique : \(360 \times 0{,}40 =\) ..........&deg;<br>
+    M&eacute;canique : \(360 \times 0{,}35 =\) ..........&deg;<br>
+    Hydraulique : \(360 \times\) .......... = ..........&deg;<br>
+    Autre : \(360 \times\) .......... = ..........&deg;
+  </p>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> V&eacute;rifier que la somme des angles vaut 360&deg;. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <p style="margin-left:18px">.......... + .......... + .......... + .......... = ..........&deg;</p>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Quelle cat&eacute;gorie de panne est la plus fr&eacute;quente ? Sur quoi faut-il concentrer les efforts de maintenance ? <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <p style="margin-left:18px">
+    La cat&eacute;gorie la plus fr&eacute;quente est .......... (...... %). Les efforts de pr&eacute;vention devraient se concentrer sur ..........
+  </p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Caract&egrave;re : cat&eacute;gorie de panne. C'est un caract&egrave;re <strong>qualitatif</strong>.</p>
+    <p><strong>2.</strong> &Eacute;lectrique : 80. M&eacute;canique : 70. Hydraulique : 30. Autre : 20.</p>
+    <p><strong>3.</strong> &Eacute;lectrique : 144&deg;. M&eacute;canique : 126&deg;. Hydraulique : 54&deg;. Autre : 36&deg;.</p>
+    <p><strong>4.</strong> \(144 + 126 + 54 + 36 = 360°\) &#10004;</p>
+    <p><strong>5.</strong> Les pannes &eacute;lectriques (40 %) sont les plus fr&eacute;quentes, suivies des pannes m&eacute;caniques (35 %). Les efforts de pr&eacute;vention devraient se concentrer sur la <strong>maintenance &eacute;lectrique</strong>.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     DS STANDARD — le DS original tel quel
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<!-- ===== EXERCICE 1 STANDARD ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Dur&eacute;es de trajet</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>On a relev&eacute; les dur&eacute;es de trajet (en minutes) de 20 employ&eacute;s d'un atelier pour se rendre au travail :</p>
+  <p style="text-align:center;font-weight:600;margin:10px 0">15 &nbsp; 20 &nbsp; 25 &nbsp; 15 &nbsp; 30 &nbsp; 20 &nbsp; 25 &nbsp; 35 &nbsp; 20 &nbsp; 15 &nbsp; 40 &nbsp; 25 &nbsp; 20 &nbsp; 30 &nbsp; 15 &nbsp; 25 &nbsp; 20 &nbsp; 35 &nbsp; 30 &nbsp; 25</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Identifier la population, le caract&egrave;re &eacute;tudi&eacute; et sa nature (quantitatif ou qualitatif). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Construire le tableau des effectifs et des fr&eacute;quences (arrondir au centi&egrave;me). <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
   <table>
-    <tr><th>Durée (min)</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th></tr>
+    <tr><th>Dur&eacute;e (min)</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th><th>Total</th></tr>
+    <tr><td>Effectif</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>Fr&eacute;quence</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Quel est le mode de cette s&eacute;rie ? Interpr&eacute;ter. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Compl&eacute;ter le tableau des effectifs cumul&eacute;s croissants. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <table>
+    <tr><th>Dur&eacute;e (min)</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th></tr>
     <tr><td>ECC</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   </table>
 
-  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Combien d'employés mettent au plus 25 minutes ? Formuler une phrase de réponse. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Combien d'employ&eacute;s mettent au plus 25 minutes ? Formuler une phrase de r&eacute;ponse. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Population : les 20 employés. Caractère : durée de trajet. Nature : quantitatif discret.</p>
+    <p><strong>1.</strong> Population : les 20 employ&eacute;s. Caract&egrave;re : dur&eacute;e de trajet. Nature : quantitatif discret.</p>
     <p><strong>2.</strong></p>
     <table>
-      <tr><th>Durée</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th><th>Total</th></tr>
+      <tr><th>Dur&eacute;e</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th><th>Total</th></tr>
       <tr><td>Effectif</td><td>4</td><td>5</td><td>5</td><td>3</td><td>2</td><td>1</td><td>20</td></tr>
-      <tr><td>Fréquence</td><td>0,20</td><td>0,25</td><td>0,25</td><td>0,15</td><td>0,10</td><td>0,05</td><td>1</td></tr>
+      <tr><td>Fr&eacute;quence</td><td>0,20</td><td>0,25</td><td>0,25</td><td>0,15</td><td>0,10</td><td>0,05</td><td>1</td></tr>
     </table>
-    <p><strong>3.</strong> Le mode est <strong>20 min et 25 min</strong> (effectif maximal = 5 chacun). La durée la plus fréquente est 20 ou 25 minutes.</p>
+    <p><strong>3.</strong> Le mode est <strong>20 min et 25 min</strong> (effectif maximal = 5 chacun).</p>
     <p><strong>4.</strong> ECC : 4 ; 9 ; 14 ; 17 ; 19 ; 20.</p>
-    <p><strong>5.</strong> 14 employés sur 20 mettent au plus 25 minutes pour se rendre au travail, soit 70 % de l'effectif.</p>
+    <p><strong>5.</strong> 14 employ&eacute;s sur 20 mettent au plus 25 minutes, soit 70 %.</p>
   </div>
 </div>
 
-<!-- ===== EXERCICE 2 ===== -->
+<!-- ===== EXERCICE 2 STANDARD ===== -->
 <div class="partie">
   <div class="partie-header">
-    <span class="partie-title">Exercice 2 – Pannes en atelier</span>
+    <span class="partie-title">Exercice 2 &ndash; Pannes en atelier</span>
     <span class="pts">10 points</span>
   </div>
 
-  <p>Le responsable maintenance d'un atelier d'agencement a classé les 200 pannes survenues sur une année par catégorie :</p>
+  <p>Le responsable maintenance d'un atelier d'agencement a class&eacute; les 200 pannes survenues sur une ann&eacute;e par cat&eacute;gorie :</p>
   <table>
-    <tr><th>Catégorie</th><th>Électrique</th><th>Mécanique</th><th>Hydraulique</th><th>Autre</th></tr>
-    <tr><td>Fréquence</td><td>40 %</td><td>35 %</td><td>15 %</td><td>10 %</td></tr>
+    <tr><th>Cat&eacute;gorie</th><th>&Eacute;lectrique</th><th>M&eacute;canique</th><th>Hydraulique</th><th>Autre</th></tr>
+    <tr><td>Fr&eacute;quence</td><td>40 %</td><td>35 %</td><td>15 %</td><td>10 %</td></tr>
   </table>
 
-  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Quel est le caractère étudié ? Est-il quantitatif ou qualitatif ? <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Quel est le caract&egrave;re &eacute;tudi&eacute; ? Est-il quantitatif ou qualitatif ? <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer le nombre de pannes de chaque catégorie. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer le nombre de pannes de chaque cat&eacute;gorie. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
@@ -123,23 +249,151 @@
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> Vérifier que la somme des angles vaut bien 360°. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> V&eacute;rifier que la somme des angles vaut bien 360&deg;. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Rédiger un court paragraphe résumant la répartition des pannes et la catégorie sur laquelle concentrer les efforts de prévention. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> R&eacute;diger un court paragraphe r&eacute;sumant la r&eacute;partition des pannes et la cat&eacute;gorie sur laquelle concentrer les efforts de pr&eacute;vention. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Caractère : catégorie de panne. C'est un caractère <strong>qualitatif</strong> (non mesurable).</p>
-    <p><strong>2.</strong> Électrique : \(200 \times 0{,}40 = 80\). Mécanique : \(200 \times 0{,}35 = 70\). Hydraulique : \(200 \times 0{,}15 = 30\). Autre : \(200 \times 0{,}10 = 20\).</p>
-    <p><strong>3.</strong> Électrique : \(360° \times 0{,}40 = 144°\). Mécanique : \(360° \times 0{,}35 = 126°\). Hydraulique : \(360° \times 0{,}15 = 54°\). Autre : \(360° \times 0{,}10 = 36°\).</p>
-    <p><strong>4.</strong> \(144 + 126 + 54 + 36 = 360°\) ✓</p>
-    <p><strong>5.</strong> Les pannes électriques représentent la catégorie la plus fréquente (40 %) suivies des pannes mécaniques (35 %). À elles deux, elles constituent 75 % des pannes. Les efforts de prévention devraient prioritairement se concentrer sur la maintenance électrique.</p>
+    <p><strong>1.</strong> Caract&egrave;re : cat&eacute;gorie de panne. C'est un caract&egrave;re <strong>qualitatif</strong> (non mesurable).</p>
+    <p><strong>2.</strong> &Eacute;lectrique : \(200 \times 0{,}40 = 80\). M&eacute;canique : \(200 \times 0{,}35 = 70\). Hydraulique : \(200 \times 0{,}15 = 30\). Autre : \(200 \times 0{,}10 = 20\).</p>
+    <p><strong>3.</strong> &Eacute;lectrique : \(360° \times 0{,}40 = 144°\). M&eacute;canique : \(360° \times 0{,}35 = 126°\). Hydraulique : \(360° \times 0{,}15 = 54°\). Autre : \(360° \times 0{,}10 = 36°\).</p>
+    <p><strong>4.</strong> \(144 + 126 + 54 + 36 = 360°\) &#10004;</p>
+    <p><strong>5.</strong> Les pannes &eacute;lectriques repr&eacute;sentent la cat&eacute;gorie la plus fr&eacute;quente (40 %) suivies des pannes m&eacute;caniques (35 %). &Agrave; elles deux, elles constituent 75 % des pannes. Les efforts de pr&eacute;vention devraient prioritairement se concentrer sur la maintenance &eacute;lectrique.</p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, moins de guidage
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- ===== EXERCICE 1 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Dur&eacute;es de trajet &ndash; &Eacute;tude compl&egrave;te</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>On a relev&eacute; les dur&eacute;es de trajet (en minutes) de 20 employ&eacute;s d'un atelier pour se rendre au travail :</p>
+  <p style="text-align:center;font-weight:600;margin:10px 0">15 &nbsp; 20 &nbsp; 25 &nbsp; 15 &nbsp; 30 &nbsp; 20 &nbsp; 25 &nbsp; 35 &nbsp; 20 &nbsp; 15 &nbsp; 40 &nbsp; 25 &nbsp; 20 &nbsp; 30 &nbsp; 15 &nbsp; 25 &nbsp; 20 &nbsp; 35 &nbsp; 30 &nbsp; 25</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Identifier la population, le caract&egrave;re &eacute;tudi&eacute; et sa nature. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Construire le tableau des effectifs, fr&eacute;quences et effectifs cumul&eacute;s croissants. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <table>
+    <tr><th>Dur&eacute;e (min)</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th><th>Total</th></tr>
+    <tr><td>Effectif</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>Fr&eacute;quence</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>ECC</td><td></td><td></td><td></td><td></td><td></td><td></td><td>&mdash;</td></tr>
+  </table>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> D&eacute;terminer le mode et la m&eacute;diane de cette s&eacute;rie. Interpr&eacute;ter chacun de ces indicateurs en contexte. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer la moyenne \(\bar{x}\) de la s&eacute;rie en utilisant la formule de la moyenne pond&eacute;r&eacute;e :
+  \[\bar{x} = \frac{\sum n_i \times x_i}{N}\]
+  <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> La direction envisage de d&eacute;caler l'heure d'embauche de 15 minutes pour les employ&eacute;s habitant le plus loin. En utilisant vos r&eacute;sultats, proposer un crit&egrave;re statistique (m&eacute;diane, quartile...) pour d&eacute;finir &laquo; habiter loin &raquo;. Justifier. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Population : les 20 employ&eacute;s. Caract&egrave;re : dur&eacute;e de trajet. Nature : quantitatif discret.</p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>Dur&eacute;e</th><th>15</th><th>20</th><th>25</th><th>30</th><th>35</th><th>40</th><th>Total</th></tr>
+      <tr><td>Effectif</td><td>4</td><td>5</td><td>5</td><td>3</td><td>2</td><td>1</td><td>20</td></tr>
+      <tr><td>Fr&eacute;quence</td><td>0,20</td><td>0,25</td><td>0,25</td><td>0,15</td><td>0,10</td><td>0,05</td><td>1</td></tr>
+      <tr><td>ECC</td><td>4</td><td>9</td><td>14</td><td>17</td><td>19</td><td>20</td><td>&mdash;</td></tr>
+    </table>
+    <p><strong>3.</strong> Mode : <strong>20 min et 25 min</strong> (effectif = 5 chacun). La majorit&eacute; des employ&eacute;s met entre 20 et 25 min.<br>
+    M&eacute;diane : \(N = 20\) (pair), rangs 10 et 11. ECC(20) = 9 &lt; 10 et ECC(25) = 14 &ge; 10, donc les valeurs aux rangs 10 et 11 sont toutes deux 25.<br>
+    \(Me = \frac{25+25}{2} = \mathbf{25 \text{ min}}\). La moiti&eacute; des employ&eacute;s met au plus 25 min.</p>
+    <p><strong>4.</strong> \(\bar{x} = \frac{4 \times 15 + 5 \times 20 + 5 \times 25 + 3 \times 30 + 2 \times 35 + 1 \times 40}{20} = \frac{60+100+125+90+70+40}{20} = \frac{485}{20} = \mathbf{24{,}25 \text{ min}}\)</p>
+    <p><strong>5.</strong> On peut utiliser le <strong>3<sup>e</sup> quartile \(Q_3\)</strong> comme seuil. Les employ&eacute;s dont le trajet d&eacute;passe \(Q_3 = 30\) min (soit 25 % de l'effectif) seraient consid&eacute;r&eacute;s comme &laquo; habitant loin &raquo;. Cela correspond aux 6 employ&eacute;s ayant un trajet de 30 min ou plus (30 % de l'effectif). Ce crit&egrave;re est objectif et bas&eacute; sur la distribution r&eacute;elle des donn&eacute;es.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Pannes en atelier &ndash; Analyse approfondie</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Le responsable maintenance d'un atelier d'agencement a class&eacute; les 200 pannes survenues sur une ann&eacute;e. Voici les donn&eacute;es mensuelles du nombre total de pannes :</p>
+  <table>
+    <tr><th>Mois</th><th>Jan</th><th>F&eacute;v</th><th>Mars</th><th>Avr</th><th>Mai</th><th>Juin</th><th>Juil</th><th>Ao&ucirc;t</th><th>Sep</th><th>Oct</th><th>Nov</th><th>D&eacute;c</th></tr>
+    <tr><td>Pannes</td><td>22</td><td>18</td><td>15</td><td>12</td><td>14</td><td>16</td><td>10</td><td>8</td><td>19</td><td>24</td><td>21</td><td>21</td></tr>
+  </table>
+
+  <p>La r&eacute;partition par cat&eacute;gorie sur l'ann&eacute;e est :</p>
+  <table>
+    <tr><th>Cat&eacute;gorie</th><th>&Eacute;lectrique</th><th>M&eacute;canique</th><th>Hydraulique</th><th>Autre</th></tr>
+    <tr><td>Fr&eacute;quence</td><td>40 %</td><td>35 %</td><td>15 %</td><td>10 %</td></tr>
+  </table>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Identifier les deux caract&egrave;res &eacute;tudi&eacute;s (nombre mensuel de pannes et cat&eacute;gorie). Pr&eacute;ciser leur nature. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer la moyenne, la m&eacute;diane et l'&eacute;tendue du nombre mensuel de pannes. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer le nombre de pannes et l'angle du diagramme circulaire pour chaque cat&eacute;gorie. V&eacute;rifier la somme des angles. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-ana">ANA</span> Les mois d'octobre &agrave; f&eacute;vrier concentrent-ils plus de pannes que les autres mois ? Calculer le pourcentage de pannes sur cette p&eacute;riode et interpr&eacute;ter. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Le budget annuel de maintenance pr&eacute;ventive est de 15 000 &euro;. Proposer une r&eacute;partition de ce budget entre les cat&eacute;gories de pannes, en justifiant votre choix par les donn&eacute;es statistiques. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Nombre mensuel de pannes : caract&egrave;re <strong>quantitatif discret</strong>. Cat&eacute;gorie de panne : caract&egrave;re <strong>qualitatif</strong>.</p>
+    <p><strong>2.</strong><br>
+    S&eacute;rie tri&eacute;e : 8 ; 10 ; 12 ; 14 ; 15 ; 16 ; 18 ; 19 ; 21 ; 21 ; 22 ; 24<br>
+    Somme = 200. Moyenne : \(\bar{x} = \frac{200}{12} \approx \mathbf{16{,}7}\) pannes/mois.<br>
+    M&eacute;diane : \(N = 12\), rangs 6 et 7 : 16 et 18. \(Me = \frac{16+18}{2} = \mathbf{17}\) pannes.<br>
+    &Eacute;tendue : \(24 - 8 = \mathbf{16}\) pannes.</p>
+    <p><strong>3.</strong><br>
+    &Eacute;lectrique : 80 pannes, 144&deg;. M&eacute;canique : 70 pannes, 126&deg;. Hydraulique : 30 pannes, 54&deg;. Autre : 20 pannes, 36&deg;.<br>
+    V&eacute;rification : \(144 + 126 + 54 + 36 = 360°\) &#10004;</p>
+    <p><strong>4.</strong> Pannes octobre &agrave; f&eacute;vrier : \(24 + 21 + 21 + 22 + 18 = 106\) pannes sur 200, soit \(\frac{106}{200} = 53\,\%\). Ces 5 mois (42 % de l'ann&eacute;e) concentrent 53 % des pannes. La p&eacute;riode hivernale est plus critique, probablement en raison des conditions de fonctionnement (froid, humidit&eacute;).</p>
+    <p><strong>5.</strong> On peut r&eacute;partir proportionnellement aux fr&eacute;quences, avec un bonus pour les pannes les plus co&ucirc;teuses :<br>
+    &bull; &Eacute;lectrique (40 %) : 6 000 &euro;<br>
+    &bull; M&eacute;canique (35 %) : 5 250 &euro;<br>
+    &bull; Hydraulique (15 %) : 2 250 &euro;<br>
+    &bull; Autre (10 %) : 1 500 &euro;<br>
+    Total : 15 000 &euro;. Cette r&eacute;partition est proportionnelle &agrave; la fr&eacute;quence des pannes, ce qui est un crit&egrave;re objectif et justifi&eacute; par les donn&eacute;es.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 
 <script>
 function toggle(btn){
@@ -150,5 +404,6 @@ function toggle(btn){
 </script>
 </div>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>
