@@ -51,7 +51,117 @@
   <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
-<!-- ===== EXERCICE 1 ===== -->
+<!-- ================================================================
+     DS SOCLE — version guidée, formules données, calculs amorcés
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<!-- ===== EXERCICE 1 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Temps d'arrêt machine</span>
+    <span class="pts">12 points</span>
+  </div>
+
+  <p>Le responsable d'un atelier d'agencement a relevé les durées d'arrêt (en minutes) d'une machine à commande numérique sur 15 jours :</p>
+  <p style="text-align:center;font-weight:600;margin:10px 0">12 &nbsp; 8 &nbsp; 15 &nbsp; 10 &nbsp; 22 &nbsp; 8 &nbsp; 14 &nbsp; 10 &nbsp; 18 &nbsp; 8 &nbsp; 12 &nbsp; 25 &nbsp; 10 &nbsp; 14 &nbsp; 12</p>
+
+  <div class="retenir" style="margin:12px 0">
+    <strong>Formules utiles :</strong><br>
+    Moyenne : \(\bar{x} = \dfrac{\text{somme des valeurs}}{n}\) &nbsp;|&nbsp;
+    Médiane : valeur de rang \(\dfrac{n+1}{2}\) (série triée) &nbsp;|&nbsp;
+    Étendue : max − min
+  </div>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer la moyenne. Le calcul est amorcé : <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <p style="margin-left:20px">\(\bar{x} = \dfrac{12 + 8 + 15 + 10 + 22 + 8 + 14 + 10 + 18 + 8 + 12 + 25 + 10 + 14 + 12}{15} = \dfrac{……}{15} = \)……</p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-app">APP</span> Le mode est la valeur qui apparaît <strong>le plus souvent</strong>. Compter les occurrences : <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <p style="margin-left:20px">8 apparaît …… fois &nbsp;|&nbsp; 10 apparaît …… fois &nbsp;|&nbsp; 12 apparaît …… fois → Le mode est : ……</p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> La série triée est donnée ci-dessous. Trouver la médiane : <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <p style="text-align:center;font-weight:600;margin:8px 0">8 &nbsp; 8 &nbsp; 8 &nbsp; 10 &nbsp; 10 &nbsp; 10 &nbsp; 12 &nbsp; <span style="color:var(--p);font-size:1.1em">?</span> &nbsp; 12 &nbsp; 14 &nbsp; 14 &nbsp; 15 &nbsp; 18 &nbsp; 22 &nbsp; 25</p>
+  <p style="margin-left:20px">Il y a \(n = 15\) valeurs. La médiane est la valeur de rang \(\dfrac{15+1}{2} = \)…… → Me = …… min</p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Trouver Q1 et Q3 en utilisant la série triée ci-dessus : <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <p style="margin-left:20px">Première moitié (rangs 1 à 7) : 8, 8, 8, <strong>10</strong>, 10, 10, 12 → Q1 = valeur de rang 4 = …… min<br>
+  Seconde moitié (rangs 9 à 15) : 12, 14, 14, <strong>15</strong>, 18, 22, 25 → Q3 = valeur de rang 4 = …… min<br>
+  IQR = Q3 − Q1 = …… − …… = …… min</p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Compléter la phrase : <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="margin-left:20px">« 50 % des jours, la durée d'arrêt de la machine est comprise entre …… min et …… min. »</p>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Somme = 198. \(\bar{x} = \dfrac{198}{15} = \mathbf{13{,}2}\) min.</p>
+    <p><strong>2.</strong> 8 apparaît 3 fois, 10 apparaît 3 fois, 12 apparaît 3 fois. Trois modes : 8, 10 et 12 (série trimodale). On retient souvent le plus petit : <strong>8 min</strong>.</p>
+    <p><strong>3.</strong> Rang = 8. La 8<sup>e</sup> valeur est <strong>12</strong>. Me = <strong>12 min</strong>.</p>
+    <p><strong>4.</strong> Q1 = <strong>10 min</strong>. Q3 = <strong>15 min</strong>. IQR = 15 − 10 = <strong>5 min</strong>.</p>
+    <p><strong>5.</strong> « 50 % des jours, la durée d'arrêt est comprise entre <strong>10 min et 15 min</strong>. »</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Contrôle qualité</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un contrôleur qualité relève le nombre de pièces défectueuses produites chaque jour pendant 20 jours :</p>
+  <table>
+    <tr><th>Nb de défauts (x<sub>i</sub>)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>Total</th></tr>
+    <tr><td>Nb de jours (n<sub>i</sub>)</td><td>3</td><td>5</td><td>6</td><td>3</td><td>2</td><td>1</td><td><strong>20</strong></td></tr>
+    <tr><td>n<sub>i</sub> × x<sub>i</sub></td><td>0</td><td>5</td><td>12</td><td>……</td><td>……</td><td>……</td><td><strong>……</strong></td></tr>
+  </table>
+
+  <div class="retenir" style="margin:12px 0">
+    <strong>Formule :</strong> Moyenne pondérée = \(\dfrac{\text{somme des } n_i \times x_i}{\text{somme des } n_i}\)
+  </div>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Compléter le tableau (les 3 premiers produits sont faits) puis calculer la moyenne. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <p style="margin-left:20px">\(3 \times 3 = \)…… &nbsp;|&nbsp; \(2 \times 4 = \)…… &nbsp;|&nbsp; \(1 \times 5 = \)……<br>
+  Total = 0 + 5 + 12 + …… + …… + …… = ……<br>
+  Moyenne = \(\dfrac{……}{20}\) = …… défauts/jour</p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Étendue = valeur max − valeur min = …… − …… = …… <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> La norme impose : moyenne &lt; 2,5 et étendue &lt; 6. Compléter : <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="margin-left:20px">Moyenne : …… &lt; 2,5 ? → …… (oui/non)<br>
+  Étendue : …… &lt; 6 ? → …… (oui/non)<br>
+  Conclusion : l'atelier est …… (conforme/non conforme)</p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-com">COM</span> Si la moyenne dépassait le seuil, proposer une action corrective : <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> 9 + 8 + 5 = 22. Total = 0 + 5 + 12 + 9 + 8 + 5 = <strong>39</strong>. Moyenne = \(\dfrac{39}{20} = \mathbf{1{,}95}\) défauts/jour.</p>
+    <p><strong>2.</strong> Étendue = 5 − 0 = <strong>5</strong>.</p>
+    <p><strong>3.</strong> 1,95 &lt; 2,5 : oui. 5 &lt; 6 : oui. L'atelier est <strong>conforme</strong>.</p>
+    <p><strong>4.</strong> Vérifier les réglages machines avant chaque série, former les opérateurs aux points critiques de fabrication.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — version classique (contenu original)
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<!-- ===== EXERCICE 1 STANDARD ===== -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Exercice 1 – Temps d'arrêt machine</span>
@@ -92,7 +202,7 @@
   </div>
 </div>
 
-<!-- ===== EXERCICE 2 ===== -->
+<!-- ===== EXERCICE 2 STANDARD ===== -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Exercice 2 – Contrôle qualité</span>
@@ -129,6 +239,117 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — version avancée, écart-type, analyse critique
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- ===== EXERCICE 1 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Temps d'arrêt machine</span>
+    <span class="pts">12 points</span>
+  </div>
+
+  <p>Le responsable d'un atelier d'agencement a relevé les durées d'arrêt (en minutes) d'une machine à commande numérique sur 15 jours :</p>
+  <p style="text-align:center;font-weight:600;margin:10px 0">12 &nbsp; 8 &nbsp; 15 &nbsp; 10 &nbsp; 22 &nbsp; 8 &nbsp; 14 &nbsp; 10 &nbsp; 18 &nbsp; 8 &nbsp; 12 &nbsp; 25 &nbsp; 10 &nbsp; 14 &nbsp; 12</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer la moyenne \(\bar{x}\) de cette série. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Ranger la série par ordre croissant. Déterminer la médiane, Q1, Q3 et l'écart interquartile. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer l'écart-type \(\sigma\) de la série. Compléter un tableau \(x_i\), \((x_i - \bar{x})\), \((x_i - \bar{x})^2\). <span style="font-size:.85em;color:#718096">(4 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-ana">ANA</span> On considère que toute valeur \(x_i\) telle que \(|x_i - \bar{x}| > 2\sigma\) est une valeur suspecte. Y en a-t-il dans cette série ? Si oui, lesquelles ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Le responsable hésite entre la moyenne et la médiane pour fixer un objectif d'arrêt. Lequel recommanderiez-vous et pourquoi ? <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\bar{x} = \dfrac{198}{15} = \mathbf{13{,}2}\) min.</p>
+    <p><strong>2.</strong> Série triée : 8, 8, 8, 10, 10, 10, 12, 12, 12, 14, 14, 15, 18, 22, 25.<br>
+    Me = 8<sup>e</sup> valeur = <strong>12 min</strong>. Q1 = 4<sup>e</sup> valeur = <strong>10 min</strong>. Q3 = 12<sup>e</sup> valeur = <strong>15 min</strong>. IQR = <strong>5 min</strong>.</p>
+    <p><strong>3.</strong></p>
+    <table>
+      <tr><th>x<sub>i</sub></th><th>x<sub>i</sub> − x̄</th><th>(x<sub>i</sub> − x̄)²</th></tr>
+      <tr><td>8 (×3)</td><td>−5,2</td><td>27,04 (×3 = 81,12)</td></tr>
+      <tr><td>10 (×3)</td><td>−3,2</td><td>10,24 (×3 = 30,72)</td></tr>
+      <tr><td>12 (×3)</td><td>−1,2</td><td>1,44 (×3 = 4,32)</td></tr>
+      <tr><td>14 (×2)</td><td>+0,8</td><td>0,64 (×2 = 1,28)</td></tr>
+      <tr><td>15</td><td>+1,8</td><td>3,24</td></tr>
+      <tr><td>18</td><td>+4,8</td><td>23,04</td></tr>
+      <tr><td>22</td><td>+8,8</td><td>77,44</td></tr>
+      <tr><td>25</td><td>+11,8</td><td>139,24</td></tr>
+    </table>
+    <p>Somme des carrés = 81,12 + 30,72 + 4,32 + 1,28 + 3,24 + 23,04 + 77,44 + 139,24 = <strong>360,4</strong></p>
+    <p>\(\sigma^2 = \dfrac{360{,}4}{15} \approx 24{,}03\) → \(\sigma = \sqrt{24{,}03} \approx \mathbf{4{,}9}\) min.</p>
+    <p><strong>4.</strong> Seuil : \(2\sigma \approx 9{,}8\). On cherche \(|x_i - 13{,}2| > 9{,}8\), soit \(x_i < 3{,}4\) ou \(x_i > 23{,}0\).<br>
+    → <strong>25 min est suspecte</strong> (25 − 13,2 = 11,8 > 9,8). Les autres valeurs sont dans la plage normale.</p>
+    <p><strong>5.</strong> La médiane (12 min) est plus robuste que la moyenne (13,2 min) car elle n'est pas influencée par les valeurs extrêmes (22 min, 25 min). Pour fixer un objectif réaliste, la <strong>médiane est préférable</strong> : elle représente mieux le fonctionnement « typique » de la machine.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Contrôle qualité : analyse approfondie</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un contrôleur qualité relève le nombre de pièces défectueuses produites chaque jour pendant 20 jours :</p>
+  <table>
+    <tr><th>Nb de défauts (x<sub>i</sub>)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td>Nb de jours (n<sub>i</sub>)</td><td>3</td><td>5</td><td>6</td><td>3</td><td>2</td><td>1</td></tr>
+  </table>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer la moyenne pondérée et l'étendue. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer l'écart-type de cette série à partir du tableau de calcul \((x_i - \bar{x})^2 \times n_i\). <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> La norme qualité impose : moyenne &lt; 2,5, étendue &lt; 6, <strong>et</strong> écart-type &lt; 1,8. L'atelier satisfait-il les trois critères ? <span style="font-size:.85em;color:#718096">(1,5 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> Si le jour de 5 défauts est remplacé par un jour à 2 défauts, recalculer la nouvelle moyenne. Quel impact cela a-t-il sur la conformité ? <span style="font-size:.85em;color:#718096">(1,5 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Moyenne = \(\dfrac{0+5+12+9+8+5}{20} = \dfrac{39}{20} = \mathbf{1{,}95}\). Étendue = 5 − 0 = <strong>5</strong>.</p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>x<sub>i</sub></th><th>n<sub>i</sub></th><th>(x<sub>i</sub> − 1,95)²</th><th>n<sub>i</sub> × (x<sub>i</sub> − 1,95)²</th></tr>
+      <tr><td>0</td><td>3</td><td>3,8025</td><td>11,4075</td></tr>
+      <tr><td>1</td><td>5</td><td>0,9025</td><td>4,5125</td></tr>
+      <tr><td>2</td><td>6</td><td>0,0025</td><td>0,015</td></tr>
+      <tr><td>3</td><td>3</td><td>1,1025</td><td>3,3075</td></tr>
+      <tr><td>4</td><td>2</td><td>4,2025</td><td>8,405</td></tr>
+      <tr><td>5</td><td>1</td><td>9,3025</td><td>9,3025</td></tr>
+      <tr><td colspan="3"><strong>Total</strong></td><td><strong>36,95</strong></td></tr>
+    </table>
+    <p>\(\sigma^2 = \dfrac{36{,}95}{20} = 1{,}8475\) → \(\sigma = \sqrt{1{,}8475} \approx \mathbf{1{,}36}\).</p>
+    <p><strong>3.</strong> Moyenne 1,95 &lt; 2,5 ✓. Étendue 5 &lt; 6 ✓. Écart-type 1,36 &lt; 1,8 ✓. <strong>L'atelier satisfait les trois critères.</strong></p>
+    <p><strong>4.</strong> Nouvelle somme = 39 − 5 + 2 = 36. Nouvelle moyenne = \(\dfrac{36}{20} = 1{,}8\). La moyenne baisse de 1,95 à 1,8 → l'atelier reste conforme et <strong>gagne en marge de sécurité</strong>.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <script>
 function toggle(btn){
   const corr=btn.nextElementSibling;
@@ -138,5 +359,6 @@ function toggle(btn){
 </script>
 </div>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

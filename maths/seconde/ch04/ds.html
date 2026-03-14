@@ -51,6 +51,109 @@
   <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
+<!-- ================================================================
+     DS SOCLE — guidé, étape par étape
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<!-- ===== EXERCICE 1 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Tirage de billes (guid&eacute;)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un sac contient <strong>5 billes rouges</strong>, <strong>3 billes bleues</strong> et <strong>2 billes vertes</strong>, indiscernables au toucher. On tire une bille au hasard.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Combien y a-t-il de billes en tout ? Compl&eacute;ter : <span style="font-size:.85em;color:#718096">(2 pts)</span><br>
+  Total = 5 + &hellip; + &hellip; = &hellip;&hellip; billes.<br>
+  Univers des couleurs : \(\Omega = \{\) &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; \(\}\)</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer la probabilit&eacute; de tirer une bille rouge. <span style="font-size:.85em;color:#718096">(2 pts)</span><br>
+  <em>Rappel : \(P = \dfrac{\text{nombre de cas favorables}}{\text{nombre total de cas}}\)</em><br>
+  \(P(\text{rouge}) = \dfrac{\ldots}{\ldots} = \) &hellip;&hellip;</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer la probabilit&eacute; de ne <strong>pas</strong> tirer une bille verte. <span style="font-size:.85em;color:#718096">(2 pts)</span><br>
+  <em>Rappel : \(P(\overline{A}) = 1 - P(A)\)</em><br>
+  \(P(\text{verte}) = \dfrac{\ldots}{\ldots} = \) &hellip;&hellip; &nbsp; donc &nbsp; \(P(\overline{\text{verte}}) = 1 - \) &hellip;&hellip; = &hellip;&hellip;</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-ana">ANA</span> Calculer la probabilit&eacute; de tirer une bille rouge <strong>ou</strong> bleue. <span style="font-size:.85em;color:#718096">(2 pts)</span><br>
+  Nombre de billes rouges ou bleues = &hellip; + &hellip; = &hellip;&hellip;<br>
+  \(P(\text{R ou B}) = \dfrac{\ldots}{\ldots} = \) &hellip;&hellip;</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-val">VAL</span> V&eacute;rifier que la somme vaut 1. Compl&eacute;ter : <span style="font-size:.85em;color:#718096">(2 pts)</span><br>
+  \(P(R) + P(B) + P(V) = \) &hellip;&hellip; + &hellip;&hellip; + &hellip;&hellip; = &hellip;&hellip;</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Total : \(5 + 3 + 2 = 10\) billes. \(\Omega = \{R;\, B;\, V\}\).</p>
+    <p><strong>2.</strong> \(P(R) = \dfrac{5}{10} = \mathbf{0{,}5}\).</p>
+    <p><strong>3.</strong> \(P(V) = \frac{2}{10} = 0{,}2\). Donc \(P(\overline{V}) = 1 - 0{,}2 = \mathbf{0{,}8}\).</p>
+    <p><strong>4.</strong> Rouges ou bleues : \(5 + 3 = 8\). \(P(R \cup B) = \frac{8}{10} = \mathbf{0{,}8}\).</p>
+    <p><strong>5.</strong> \(0{,}5 + 0{,}3 + 0{,}2 = 1\) &#10003;</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Contr&ocirc;le qualit&eacute; (guid&eacute;)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un atelier de menuiserie produit des panneaux. On sait que <strong>2&nbsp;%</strong> sont d&eacute;fectueux (\(p = 0{,}02\)).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Sur 1&nbsp;000 panneaux, combien sont d&eacute;fectueux ? Compl&eacute;ter : <span style="font-size:.85em;color:#718096">(2 pts)</span><br>
+  Nombre pr&eacute;vu = &hellip;&hellip; &times; 0,02 = &hellip;&hellip;</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-app">APP</span> On contr&ocirc;le 200 panneaux et on en trouve 7 d&eacute;fectueux. Calculer la fr&eacute;quence \(f\). <span style="font-size:.85em;color:#718096">(2 pts)</span><br>
+  \(f = \dfrac{7}{\ldots} = \) &hellip;&hellip;</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer l&rsquo;intervalle de fluctuation. On donne la formule : <span style="font-size:.85em;color:#718096">(3 pts)</span><br>
+  \(\left[p - \dfrac{1}{\sqrt{n}}\;;\; p + \dfrac{1}{\sqrt{n}}\right]\) avec \(p = 0{,}02\) et \(n = 200\).<br><br>
+  &Eacute;tape 1 : \(\dfrac{1}{\sqrt{200}} \approx \) &hellip;&hellip; (arrondir au dix-milli&egrave;me)<br>
+  &Eacute;tape 2 : Borne inf&eacute;rieure = \(0{,}02 - \) &hellip;&hellip; = &hellip;&hellip;<br>
+  &Eacute;tape 3 : Borne sup&eacute;rieure = \(0{,}02 + \) &hellip;&hellip; = &hellip;&hellip;<br>
+  <em>Si la borne inf&eacute;rieure est n&eacute;gative, on la remplace par 0.</em><br>
+  Intervalle : [ &hellip;&hellip; ; &hellip;&hellip; ]</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> Est-ce que \(f\) est dans l&rsquo;intervalle ? Entourer la bonne r&eacute;ponse et conclure : <span style="font-size:.85em;color:#718096">(2 pts)</span><br>
+  &nbsp;&nbsp;&nbsp; <strong>OUI</strong> &nbsp;/&nbsp; <strong>NON</strong><br>
+  Conclusion : la machine est &nbsp; <strong>conforme</strong> &nbsp;/&nbsp; <strong>non conforme</strong></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Compl&eacute;ter la phrase : <span style="font-size:.85em;color:#718096">(1 pt)</span><br>
+  &laquo;&nbsp;Si la fr&eacute;quence sort de l&rsquo;intervalle de fluctuation, cela signifie que le r&eacute;sultat est __________________ de la valeur th&eacute;orique et on peut __________________ le bon fonctionnement de la machine.&nbsp;&raquo;</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(1\,000 \times 0{,}02 = \mathbf{20}\) panneaux.</p>
+    <p><strong>2.</strong> \(f = \frac{7}{200} = \mathbf{0{,}035}\) soit 3,5&nbsp;%.</p>
+    <p><strong>3.</strong> \(\frac{1}{\sqrt{200}} \approx 0{,}0707\). Borne inf. = \(0{,}02 - 0{,}0707 = -0{,}0507\) &rarr; on prend 0. Borne sup. = \(0{,}02 + 0{,}0707 = 0{,}0907\). Intervalle : \(\mathbf{[0\;;\; 0{,}0907]}\).</p>
+    <p><strong>4.</strong> \(f = 0{,}035 \in [0\;;\; 0{,}0907]\) &rarr; <strong>OUI</strong>. La machine est <strong>conforme</strong>.</p>
+    <p><strong>5.</strong> &laquo;&nbsp;anormalement &eacute;loign&eacute;&nbsp;&raquo; et &laquo;&nbsp;remettre en cause&nbsp;&raquo;.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — version classique (existante)
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- ===== EXERCICE 1 ===== -->
 <div class="partie">
   <div class="partie-header">
@@ -123,6 +226,93 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, raisonnement autonome
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- ===== EXERCICE 1 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Loterie de chantier</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Lors d&rsquo;une journ&eacute;e portes ouvertes, un lyc&eacute;e professionnel organise une loterie. Une urne contient 20 jetons identiques au toucher : 8 jetons &laquo;&nbsp;menuiserie&nbsp;&raquo;, 5 jetons &laquo;&nbsp;agencement&nbsp;&raquo;, 4 jetons &laquo;&nbsp;charpente&nbsp;&raquo; et 3 jetons &laquo;&nbsp;peinture&nbsp;&raquo;. On tire un jeton au hasard.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> D&eacute;finir l&rsquo;univers \(\Omega\) et pr&eacute;ciser le nombre d&rsquo;issues. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer la probabilit&eacute; de chaque &eacute;v&eacute;nement (sous forme de fraction irr&eacute;ductible et en pourcentage) : <span style="font-size:.85em;color:#718096">(2 pts)</span><br>
+  a) Tirer &laquo;&nbsp;menuiserie&nbsp;&raquo;. &emsp; b) Tirer &laquo;&nbsp;agencement&nbsp;&raquo; ou &laquo;&nbsp;charpente&nbsp;&raquo;.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> On d&eacute;finit l&rsquo;&eacute;v&eacute;nement A : &laquo;&nbsp;ne pas tirer menuiserie&nbsp;&raquo;. Exprimer \(P(A)\) de deux fa&ccedil;ons diff&eacute;rentes et v&eacute;rifier qu&rsquo;on obtient le m&ecirc;me r&eacute;sultat. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> V&eacute;rifier que \(P(\text{menuiserie}) + P(\text{agencement}) + P(\text{charpente}) + P(\text{peinture}) = 1\). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\Omega = \{\text{M};\, \text{A};\, \text{C};\, \text{P}\}\), 20 issues &eacute;quiprobables.</p>
+    <p><strong>2a.</strong> \(P(\text{M}) = \frac{8}{20} = \frac{2}{5} = 40\%\).</p>
+    <p><strong>2b.</strong> \(P(\text{A} \cup \text{C}) = \frac{5+4}{20} = \frac{9}{20} = 45\%\).</p>
+    <p><strong>3.</strong> M&eacute;thode 1 (compl&eacute;mentaire) : \(P(A) = 1 - P(\text{M}) = 1 - \frac{2}{5} = \frac{3}{5}\).<br>
+    M&eacute;thode 2 (directe) : \(P(A) = \frac{5+4+3}{20} = \frac{12}{20} = \frac{3}{5}\). M&ecirc;me r&eacute;sultat &#10003;.</p>
+    <p><strong>4.</strong> \(\frac{8}{20} + \frac{5}{20} + \frac{4}{20} + \frac{3}{20} = \frac{20}{20} = 1\) &#10003;</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Deux ateliers, deux machines</span>
+    <span class="pts">12 points</span>
+  </div>
+
+  <p>Deux ateliers de menuiserie fabriquent des pi&egrave;ces d&rsquo;agencement. Chaque atelier poss&egrave;de une machine de d&eacute;coupe.</p>
+  <ul>
+    <li><strong>Atelier Nord</strong> : production de 400 pi&egrave;ces, dont 14 d&eacute;fectueuses.</li>
+    <li><strong>Atelier Sud</strong> : production de 250 pi&egrave;ces, dont 13 d&eacute;fectueuses.</li>
+  </ul>
+  <p>Le fabricant affirme que ses machines ont un taux de d&eacute;faut th&eacute;orique de <strong>3&nbsp;%</strong> (\(p = 0{,}03\)).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer la fr&eacute;quence de d&eacute;faut pour chaque atelier. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Pour l&rsquo;atelier Nord (\(n = 400\)), calculer l&rsquo;intervalle de fluctuation au seuil de 95&nbsp;% avec \(p = 0{,}03\). La fr&eacute;quence observ&eacute;e est-elle compatible ? <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> M&ecirc;me question pour l&rsquo;atelier Sud (\(n = 250\)). <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-ana">ANA</span> Calculer la fr&eacute;quence globale en regroupant les deux ateliers. Est-elle compatible avec \(p = 0{,}03\) ? (Calculer l&rsquo;intervalle de fluctuation pour \(n = 650\).) <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> R&eacute;diger un bilan argument&eacute; : le fabricant dit-il vrai ? Quel atelier semble poser probl&egrave;me ? Proposer une explication possible. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Atelier Nord : \(f_N = \frac{14}{400} = 0{,}035 = 3{,}5\%\). Atelier Sud : \(f_S = \frac{13}{250} = 0{,}052 = 5{,}2\%\).</p>
+    <p><strong>2.</strong> \(\frac{1}{\sqrt{400}} = 0{,}05\). Intervalle : \([0{,}03 - 0{,}05\;;\; 0{,}03 + 0{,}05] = [0\;;\; 0{,}08]\). \(f_N = 0{,}035 \in [0\;;\; 0{,}08]\) &rarr; compatible.</p>
+    <p><strong>3.</strong> \(\frac{1}{\sqrt{250}} \approx 0{,}0632\). Intervalle : \([0\;;\; 0{,}0932]\). \(f_S = 0{,}052 \in [0\;;\; 0{,}0932]\) &rarr; compatible.</p>
+    <p><strong>4.</strong> Global : \(f = \frac{14+13}{400+250} = \frac{27}{650} \approx 0{,}0415 = 4{,}15\%\). \(\frac{1}{\sqrt{650}} \approx 0{,}0392\). Intervalle : \([0\;;\; 0{,}0692]\). \(0{,}0415 \in [0\;;\; 0{,}0692]\) &rarr; compatible.</p>
+    <p><strong>5.</strong> Statistiquement, les deux r&eacute;sultats sont compatibles avec 3&nbsp;%. N&eacute;anmoins, l&rsquo;atelier Sud (5,2&nbsp;%) a un taux nettement plus &eacute;lev&eacute; que l&rsquo;atelier Nord (3,5&nbsp;%). M&ecirc;me si on ne peut pas conclure formellement, il serait prudent de v&eacute;rifier la machine de l&rsquo;atelier Sud (usure des lames, r&eacute;glage). Avec un &eacute;chantillon plus grand, l&rsquo;&eacute;cart pourrait devenir significatif.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <script>
 function toggle(btn){
   const corr=btn.nextElementSibling;
@@ -132,5 +322,6 @@ function toggle(btn){
 </script>
 </div>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>
