@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Exercices – Propagation d'un signal sonore | Première ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9;--s-bg:#e0f2fe;--s-border:#7dd3fc}</style>
+</head>
+<body><div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch10 – Propagation d'un signal sonore</h1>
+  <p class="sous-titre">Exercices | Première Bac Pro ERA-MA – Groupement 3</p>
+</header>
+
+<div class="intro-box">
+  <strong>Rappels du cours</strong>
+  <ul>
+    <li>Le son nécessite un milieu matériel pour se propager</li>
+    <li>\(\lambda = c_{\text{son}} \times T = c_{\text{son}} / f\) avec \(c_{\text{son}} \approx 340\) m/s dans l'air</li>
+    <li>Domaine audible : 20 Hz à 20 kHz</li>
+    <li>\(L = 10 \log(I/I_0)\) avec \(I_0 = 10^{-12}\) W/m²</li>
+    <li>Seuil de danger : 85 dB ; Seuil de douleur : 120 dB</li>
+    <li>Doubler la distance ≈ −6 dB</li>
+  </ul>
+</div>
+
+<!-- ===== SOCLE ===== -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<h2>Exercices guidés</h2>
+
+<div class="exo">
+  <strong>Exercice S1 – Vitesse du son</strong><br>
+  Un menuisier entend un écho 4 secondes après avoir frappé un coup de marteau dans un grand hangar. Le son a fait un aller-retour jusqu'au mur du fond.<br><br>
+  <strong>a)</strong> Quelle est la vitesse du son dans l'air ? \(v = \ldots\) m/s<br><br>
+  <strong>b)</strong> Quelle distance totale le son a-t-il parcourue en 4 s ? \(d_{\text{totale}} = v \times t = \ldots \times \ldots = \ldots\) m<br><br>
+  <strong>c)</strong> Le son a fait un aller-retour. Quelle est la distance du mur ? \(d = \dfrac{d_{\text{totale}}}{2} = \ldots\) m
+
+  <div class="corr">
+    <strong>Correction S1</strong><br>
+    <strong>a)</strong> \(v = 340\) m/s<br>
+    <strong>b)</strong> \(d_{\text{totale}} = 340 \times 4 = 1\,360\) m<br>
+    <strong>c)</strong> \(d = \dfrac{1\,360}{2} = 680\) m
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice S2 – Longueur d'onde</strong><br>
+  Le la du diapason a une fréquence de 440 Hz. La vitesse du son dans l'air est 340 m/s.<br><br>
+  <strong>a)</strong> Écris la formule : \(\lambda = \dfrac{\ldots}{\ldots}\)<br><br>
+  <strong>b)</strong> Remplace : \(\lambda = \dfrac{340}{\ldots} = \ldots\) m<br><br>
+  <strong>c)</strong> Convertis en cm : \(\lambda = \ldots\) cm<br><br>
+  <strong>d)</strong> Le la est-il un son grave ou aigu ?
+
+  <div class="corr">
+    <strong>Correction S2</strong><br>
+    <strong>a)</strong> \(\lambda = \dfrac{c_{\text{son}}}{f}\)<br>
+    <strong>b)</strong> \(\lambda = \dfrac{340}{440} = 0{,}773\) m<br>
+    <strong>c)</strong> \(\lambda = 77{,}3\) cm<br>
+    <strong>d)</strong> 440 Hz est un son de fréquence moyenne (médium). Pour comparaison : les graves sont en dessous de ~300 Hz et les aigus au-dessus de ~3 000 Hz.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice S3 – Niveaux sonores</strong><br>
+  Classe les situations suivantes de la plus calme à la plus bruyante, puis indique si une protection auditive est nécessaire (seuil : 85 dB) :<br><br>
+  <table style="width:100%;border-collapse:collapse;margin:10px 0">
+    <tr style="background:var(--p-bg)">
+      <th style="padding:6px;border:1px solid var(--p-border)">Situation</th>
+      <th style="padding:6px;border:1px solid var(--p-border)">Niveau (dB)</th>
+      <th style="padding:6px;border:1px solid var(--p-border)">Protection ?</th>
+    </tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">Bureau calme</td><td style="padding:6px;border:1px solid #e2e8f0">40</td><td style="padding:6px;border:1px solid #e2e8f0">…</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">Scie circulaire</td><td style="padding:6px;border:1px solid #e2e8f0">100</td><td style="padding:6px;border:1px solid #e2e8f0">…</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">Conversation</td><td style="padding:6px;border:1px solid #e2e8f0">60</td><td style="padding:6px;border:1px solid #e2e8f0">…</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">Ponceuse</td><td style="padding:6px;border:1px solid #e2e8f0">85</td><td style="padding:6px;border:1px solid #e2e8f0">…</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">Défonceuse</td><td style="padding:6px;border:1px solid #e2e8f0">105</td><td style="padding:6px;border:1px solid #e2e8f0">…</td></tr>
+  </table>
+
+  <div class="corr">
+    <strong>Correction S3</strong><br>
+    Classement : Bureau (40) < Conversation (60) < Ponceuse (85) < Scie circulaire (100) < Défonceuse (105)<br><br>
+    Protection nécessaire : Ponceuse (85 dB, à la limite), Scie circulaire (100 dB, <strong>oui</strong>), Défonceuse (105 dB, <strong>oui</strong>).
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+
+<!-- ===== STANDARD ===== -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<h2>Exercices d'application</h2>
+
+<div class="exo">
+  <strong>Exercice 1 – Son et distance</strong><br>
+  Un menuisier travaille à la scie circulaire (niveau sonore : 100 dB à 1 m). Son collègue travaille à 4 m de la scie.<br><br>
+  <strong>a)</strong> Sachant que le niveau diminue de 6 dB chaque fois qu'on double la distance, calcule le niveau sonore à 2 m puis à 4 m de la scie.<br>
+  <strong>b)</strong> Le collègue a-t-il besoin de protections auditives ? Justifie.<br>
+  <strong>c)</strong> À quelle distance minimale faudrait-il se trouver pour être sous le seuil de danger (85 dB) ?<br>
+  <strong>d)</strong> Le menuisier porte un casque anti-bruit qui atténue de 30 dB. Quel niveau sonore perçoit-il ?
+
+  <div class="corr">
+    <strong>Correction exercice 1</strong><br>
+    <strong>a)</strong> À 2 m : 100 − 6 = <strong>94 dB</strong><br>
+    À 4 m : 94 − 6 = <strong>88 dB</strong><br><br>
+    <strong>b)</strong> 88 dB > 85 dB → <strong>oui</strong>, le collègue a besoin de protections auditives.<br><br>
+    <strong>c)</strong> Il faut passer de 100 dB à 85 dB, soit −15 dB.<br>
+    −6 dB à 2 m, −12 dB à 4 m, −18 dB à 8 m (82 dB).<br>
+    Il faudrait se trouver à environ <strong>6 m</strong> (−15 dB ≈ entre 4 et 8 m). Plus précisément : chaque doublement = −6 dB. 15/6 = 2,5 doublements. \(d = 1 \times 2^{2,5} = 5{,}66\) m ≈ <strong>6 m</strong>.<br><br>
+    <strong>d)</strong> 100 − 30 = <strong>70 dB</strong>. Le casque ramène le son au niveau d'un aspirateur.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 – Longueur d'onde et fréquence</strong><br>
+  Un technicien d'agencement mesure les fréquences émises par différentes machines de l'atelier :<br>
+  <table style="width:100%;border-collapse:collapse;margin:10px 0">
+    <tr style="background:var(--p-bg)">
+      <th style="padding:6px;border:1px solid var(--p-border)">Machine</th>
+      <th style="padding:6px;border:1px solid var(--p-border)">Fréquence principale</th>
+    </tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">Scie circulaire</td><td style="padding:6px;border:1px solid #e2e8f0">3 000 Hz</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">Raboteuse</td><td style="padding:6px;border:1px solid #e2e8f0">1 500 Hz</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">Compresseur</td><td style="padding:6px;border:1px solid #e2e8f0">200 Hz</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">Aspirateur industriel</td><td style="padding:6px;border:1px solid #e2e8f0">500 Hz</td></tr>
+  </table>
+  <strong>a)</strong> Calcule la longueur d'onde de chaque son dans l'air (\(c = 340\) m/s).<br>
+  <strong>b)</strong> Classe ces sons du plus grave au plus aigu.<br>
+  <strong>c)</strong> Tous ces sons sont-ils audibles ? Justifie.<br>
+  <strong>d)</strong> La fréquence de la scie change-t-elle si on coupe du chêne (bois dur) au lieu du sapin (bois tendre) ? Explique qualitativement.
+
+  <div class="corr">
+    <strong>Correction exercice 2</strong><br>
+    <strong>a)</strong><br>
+    Scie : \(\lambda = 340/3\,000 = 0{,}113\) m = 11,3 cm<br>
+    Raboteuse : \(\lambda = 340/1\,500 = 0{,}227\) m = 22,7 cm<br>
+    Compresseur : \(\lambda = 340/200 = 1{,}70\) m<br>
+    Aspirateur : \(\lambda = 340/500 = 0{,}68\) m = 68 cm<br><br>
+    <strong>b)</strong> Du plus grave au plus aigu : Compresseur (200 Hz) < Aspirateur (500 Hz) < Raboteuse (1 500 Hz) < Scie (3 000 Hz)<br><br>
+    <strong>c)</strong> Oui, tous entre 20 Hz et 20 000 Hz → tous audibles.<br><br>
+    <strong>d)</strong> Oui, la fréquence peut changer : le bois dur oppose plus de résistance à la lame, ce qui peut ralentir légèrement la rotation et modifier la fréquence du son émis. De plus, la vibration de la pièce elle-même dépend de sa densité et de sa rigidité.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice 3 – Isolation phonique d'une cloison</strong><br>
+  Un aménageur d'intérieur conçoit une cloison séparative entre un atelier de menuiserie (niveau sonore 95 dB) et un bureau adjacent. Le niveau sonore dans le bureau ne doit pas dépasser 45 dB.<br><br>
+  <strong>a)</strong> Quel affaiblissement acoustique la cloison doit-elle offrir ?<br>
+  <strong>b)</strong> Une cloison simple en plaque de plâtre offre un affaiblissement de 35 dB. Est-ce suffisant ?<br>
+  <strong>c)</strong> Une cloison double avec isolant offre 50 dB. Est-ce suffisant ?<br>
+  <strong>d)</strong> Quelle solution technique proposes-tu ?
+
+  <div class="corr">
+    <strong>Correction exercice 3</strong><br>
+    <strong>a)</strong> Affaiblissement nécessaire : \(95 - 45 = 50\) dB<br><br>
+    <strong>b)</strong> Cloison simple : 35 dB. Niveau dans le bureau : \(95 - 35 = 60\) dB > 45 dB → <strong>non, insuffisant</strong>.<br><br>
+    <strong>c)</strong> Cloison double : 50 dB. Niveau dans le bureau : \(95 - 50 = 45\) dB = 45 dB → <strong>oui, juste suffisant</strong>.<br><br>
+    <strong>d)</strong> Installer une cloison double avec isolant (laine de roche ou laine de bois) et veiller à l'étanchéité à l'air (joints, pas de trous). On peut aussi ajouter des panneaux acoustiques absorbants côté atelier pour réduire le bruit à la source.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+
+<!-- ===== APPROFONDISSEMENT ===== -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<h2>Exercices avancés</h2>
+
+<div class="exo">
+  <strong>Exercice A1 – Exposition au bruit en atelier</strong><br>
+  La réglementation limite la dose de bruit quotidienne. Pour 85 dB, la durée maximale d'exposition est de 8 heures. Pour chaque augmentation de 3 dB, la durée est divisée par 2 :<br>
+  <table style="width:100%;border-collapse:collapse;margin:10px 0">
+    <tr style="background:var(--p-bg)">
+      <th style="padding:6px;border:1px solid var(--p-border)">Niveau (dB)</th>
+      <th style="padding:6px;border:1px solid var(--p-border)">Durée max</th>
+    </tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">85</td><td style="padding:6px;border:1px solid #e2e8f0">8 h</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">88</td><td style="padding:6px;border:1px solid #e2e8f0">4 h</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">91</td><td style="padding:6px;border:1px solid #e2e8f0">2 h</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">94</td><td style="padding:6px;border:1px solid #e2e8f0">1 h</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">97</td><td style="padding:6px;border:1px solid #e2e8f0">30 min</td></tr>
+    <tr><td style="padding:6px;border:1px solid #e2e8f0">100</td><td style="padding:6px;border:1px solid #e2e8f0">15 min</td></tr>
+  </table>
+  Un menuisier travaille dans les conditions suivantes pendant une journée :
+  <ul>
+    <li>Scie circulaire (100 dB) : 1 h</li>
+    <li>Raboteuse (94 dB) : 2 h</li>
+    <li>Ponçage (88 dB) : 3 h</li>
+    <li>Assemblage calme (70 dB) : 2 h</li>
+  </ul>
+  <strong>a)</strong> Pour chaque activité, calcule la fraction de la dose quotidienne utilisée (temps réel / temps max autorisé).<br>
+  <strong>b)</strong> La dose totale dépasse-t-elle 100 % ? La journée est-elle conforme ?<br>
+  <strong>c)</strong> Avec un casque anti-bruit atténuant de 25 dB, recalcule les niveaux perçus et les nouvelles fractions de dose.<br>
+  <strong>d)</strong> La journée est-elle conforme avec le casque ?
+
+  <div class="corr">
+    <strong>Correction A1</strong><br>
+    <strong>a)</strong><br>
+    Scie (100 dB) : durée max = 15 min = 0,25 h. Fraction = \(\dfrac{1}{0{,}25} = 4\) = 400 %<br>
+    Raboteuse (94 dB) : durée max = 1 h. Fraction = \(\dfrac{2}{1} = 2\) = 200 %<br>
+    Ponçage (88 dB) : durée max = 4 h. Fraction = \(\dfrac{3}{4} = 0{,}75\) = 75 %<br>
+    Assemblage (70 dB) : en dessous du seuil, pas de limite. Fraction ≈ 0 %<br><br>
+    <strong>b)</strong> Dose totale : 400 + 200 + 75 + 0 = <strong>675 %</strong>. Largement au-dessus de 100 % → <strong>journée non conforme</strong> sans protections.<br><br>
+    <strong>c)</strong> Avec casque (−25 dB) :<br>
+    Scie : 100 − 25 = 75 dB → sous le seuil, fraction ≈ 0 %<br>
+    Raboteuse : 94 − 25 = 69 dB → sous le seuil, fraction ≈ 0 %<br>
+    Ponçage : 88 − 25 = 63 dB → sous le seuil, fraction ≈ 0 %<br>
+    Assemblage : 70 dB, pas de casque nécessaire, fraction ≈ 0 %<br><br>
+    <strong>d)</strong> Dose totale ≈ 0 %. <strong>Oui</strong>, la journée est conforme avec le casque anti-bruit.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice A2 – Conception d'un studio d'enregistrement</strong><br>
+  Un architecte d'intérieur aménage un studio d'enregistrement musical dans un immeuble. Le studio est situé entre un atelier de menuiserie (95 dB) et un appartement (objectif : 30 dB max).<br><br>
+  <strong>a)</strong> Quel affaiblissement acoustique total faut-il entre l'atelier et l'appartement ?<br>
+  <strong>b)</strong> Le studio est séparé de l'atelier par un mur de 250 mm en béton (affaiblissement 55 dB) et de l'appartement par une double cloison avec isolant (affaiblissement 52 dB). L'atténuation totale est-elle suffisante ?<br>
+  <strong>c)</strong> Le son de la scie circulaire a une fréquence de 3 000 Hz. Calcule sa longueur d'onde dans l'air et dans le béton (\(c_{\text{béton}} = 3\,400\) m/s).<br>
+  <strong>d)</strong> Pourquoi les basses fréquences (graves) sont-elles plus difficiles à isoler que les hautes fréquences ? Propose une solution.
+
+  <div class="corr">
+    <strong>Correction A2</strong><br>
+    <strong>a)</strong> Affaiblissement nécessaire : \(95 - 30 = 65\) dB<br><br>
+    <strong>b)</strong> Côté atelier : 55 dB → le son arrive dans le studio à \(95 - 55 = 40\) dB.<br>
+    Les 40 dB du studio sont ensuite atténués de 52 dB par la double cloison → le son arrive dans l'appartement à \(40 - 52 = -12\) dB, ce qui signifie qu'il est inaudible. L'atténuation totale est de \(55 + 52 = 107\) dB > 65 dB → <strong>oui, largement suffisant</strong>.<br>
+    Remarque : en pratique, l'addition simple des affaiblissements n'est valable que si les parois sont bien désolidarisées.<br><br>
+    <strong>c)</strong> Dans l'air : \(\lambda = \dfrac{340}{3\,000} = 0{,}113\) m = 11,3 cm<br>
+    Dans le béton : \(\lambda = \dfrac{3\,400}{3\,000} = 1{,}13\) m<br><br>
+    <strong>d)</strong> Les basses fréquences ont une grande longueur d'onde (ex. 100 Hz → λ = 3,4 m). Pour qu'une paroi soit efficace, son épaisseur doit être significative par rapport à la longueur d'onde. Les parois fines sont donc peu efficaces pour les graves. Solution : augmenter la masse de la paroi (loi de masse) et/ou utiliser des systèmes masse-ressort-masse avec un espace d'air important.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice A3 – Problème de synthèse (type BTS)</strong><br>
+  Un fabricant de mobilier souhaite réduire le bruit dans son atelier. Il fait réaliser un bilan acoustique. Les résultats sont :
+  <ul>
+    <li>5 postes de travail avec des machines émettant chacune 95 dB à 1 m</li>
+    <li>L'atelier mesure 30 m × 20 m × 5 m</li>
+    <li>Le temps de réverbération actuel est de 3 secondes</li>
+    <li>L'objectif est de ramener le niveau sonore ambiant à 80 dB maximum</li>
+  </ul>
+  <strong>a)</strong> Quand on ajoute deux sources identiques, le niveau augmente de 3 dB. Quand on ajoute 5 sources identiques de 95 dB, le niveau total vaut environ \(95 + 10 \log(5)\). Calcule ce niveau.<br>
+  <strong>b)</strong> Calcule la surface totale des murs, sol et plafond de l'atelier.<br>
+  <strong>c)</strong> Le fabricant envisage d'installer des panneaux acoustiques absorbants au plafond (surface : 300 m²). Ces panneaux ont un coefficient d'absorption de 0,85 (ils absorbent 85 % de l'énergie sonore). L'absorption supplémentaire se traduit par une réduction estimée à \(\Delta L = 10 \log\left(\dfrac{A_{\text{après}}}{A_{\text{avant}}}\right)\). Si l'absorption totale passe de 100 m² (situation actuelle) à 355 m², calcule la réduction de niveau.<br>
+  <strong>d)</strong> Le niveau final est-il conforme à l'objectif de 80 dB ? Propose des mesures complémentaires si nécessaire.
+
+  <div class="corr">
+    <strong>Correction A3</strong><br>
+    <strong>a)</strong> \(L_{\text{total}} = 95 + 10 \log(5) = 95 + 10 \times 0{,}699 = 95 + 7{,}0 = 102\) dB<br>
+    Le niveau ambiant est d'environ <strong>102 dB</strong>.<br><br>
+    <strong>b)</strong> Surface totale :<br>
+    Sol et plafond : \(2 \times 30 \times 20 = 1\,200\) m²<br>
+    Murs : \(2 \times (30 + 20) \times 5 = 500\) m²<br>
+    Total : \(1\,200 + 500 = 1\,700\) m²<br><br>
+    <strong>c)</strong> \(A_{\text{après}} = 100 + 0{,}85 \times 300 = 100 + 255 = 355\) m²<br>
+    \(\Delta L = 10 \log\left(\dfrac{355}{100}\right) = 10 \times \log(3{,}55) = 10 \times 0{,}550 = 5{,}5\) dB de réduction<br><br>
+    <strong>d)</strong> Niveau après traitement : \(102 - 5{,}5 = 96{,}5\) dB<br>
+    96,5 dB > 80 dB → <strong>non conforme</strong>. Le traitement acoustique seul ne suffit pas.<br>
+    Mesures complémentaires :<br>
+    - Capotage des machines (réduction 5-15 dB à la source)<br>
+    - Écrans anti-bruit entre les postes<br>
+    - Panneaux absorbants également sur les murs<br>
+    - Port obligatoire de protections individuelles<br>
+    - Isolation des machines les plus bruyantes dans des cabines dédiées
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+
+<footer>
+  <p>Première Bac Pro ERA-MA – Groupement 3 | Physique-Chimie – Chapitre 10 | maths-sciences-lp.github.io</p>
+</footer>
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Propagation d'un signal sonore | Première ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9;--s-bg:#e0f2fe;--s-border:#7dd3fc}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Chapitre 10 – Propagation d'un signal sonore</h1>
+  <p class="sous-titre">Première Bac Pro ERA-MA | Physique – Ondes | Son et acoustique</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Comprendre que la propagation du son nécessite un milieu matériel</li>
+    <li>Connaître la vitesse du son dans différents milieux</li>
+    <li>Utiliser la relation \(\lambda = c_{\text{son}} \times T\)</li>
+    <li>Définir le niveau d'intensité acoustique en décibels (dB)</li>
+    <li>Connaître les seuils de dangerosité et les moyens de protection</li>
+    <li>Définir le domaine audible : 20 Hz à 20 kHz</li>
+  </ul>
+</div>
+
+<!-- ========== SITUATION PRO ========== -->
+<h2>1. Situation professionnelle</h2>
+
+<div class="situation">
+  <strong>Contexte : Le bruit en atelier de menuiserie</strong><br>
+  Un atelier de menuiserie est un environnement bruyant : scie circulaire, raboteuse, défonceuse, compresseur... Le niveau sonore peut dépasser <strong>100 dB</strong>, bien au-dessus du seuil de danger (85 dB). Un menuisier agenceur doit comprendre les risques liés au bruit, les moyens de protection et les principes de l'isolation phonique pour ses projets d'agencement intérieur.
+</div>
+
+<p>Le son intervient dans les métiers du bois sous plusieurs aspects :</p>
+<ul>
+  <li><strong>Bruit des machines</strong> : scie circulaire (95-105 dB), raboteuse (90-100 dB), défonceuse (95-105 dB)</li>
+  <li><strong>Protection auditive</strong> : obligation réglementaire à partir de 85 dB (port de protections)</li>
+  <li><strong>Isolation phonique</strong> : conception de cloisons, planchers et plafonds acoustiques en agencement</li>
+  <li><strong>Confort acoustique</strong> : choix de matériaux absorbants pour les projets d'aménagement intérieur</li>
+</ul>
+
+<!-- ========== PROPAGATION ========== -->
+<h2>2. Propagation du son</h2>
+
+<h3>2.1. Le son est une onde mécanique</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  Le <strong>son</strong> est une onde mécanique produite par la vibration d'un objet (source sonore). Cette vibration se transmet de proche en proche dans le milieu environnant par des compressions et des raréfactions successives de la matière.
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété fondamentale</span>
+  Le son <strong>nécessite un milieu matériel</strong> pour se propager. Il ne se propage <strong>pas dans le vide</strong>.<br>
+  C'est ce qui distingue le son des ondes électromagnétiques (qui, elles, se propagent dans le vide).
+</div>
+
+<div class="ex">
+  <strong>Expérience de la cloche sous vide</strong><br>
+  On place un réveil qui sonne sous une cloche en verre. Si on fait le vide dans la cloche (on retire l'air), le son disparaît progressivement. Quand on remet l'air, le son revient. Cela prouve que le son a besoin d'air (ou d'un autre milieu) pour se propager.
+</div>
+
+<h3>2.2. Vitesse du son</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  La <strong>vitesse du son</strong> (ou célérité) dépend du milieu de propagation. Elle est plus grande dans les solides que dans les liquides, et plus grande dans les liquides que dans les gaz.
+</div>
+
+<table style="width:100%;border-collapse:collapse;margin:10px 0">
+  <tr style="background:var(--p-bg)">
+    <th style="padding:8px;border:1px solid var(--p-border)">Milieu</th>
+    <th style="padding:8px;border:1px solid var(--p-border)">Vitesse du son (m/s)</th>
+    <th style="padding:8px;border:1px solid var(--p-border)">Exemple</th>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">Air (20°C)</td>
+    <td style="padding:8px;border:1px solid #e2e8f0"><strong>340 m/s</strong></td>
+    <td style="padding:8px;border:1px solid #e2e8f0">Atelier, salle</td>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">Eau</td>
+    <td style="padding:8px;border:1px solid #e2e8f0"><strong>1 500 m/s</strong></td>
+    <td style="padding:8px;border:1px solid #e2e8f0">Piscine, mer</td>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">Bois (chêne)</td>
+    <td style="padding:8px;border:1px solid #e2e8f0"><strong>3 500 – 4 000 m/s</strong></td>
+    <td style="padding:8px;border:1px solid #e2e8f0">Panneau, poutre</td>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">Acier</td>
+    <td style="padding:8px;border:1px solid #e2e8f0"><strong>5 000 m/s</strong></td>
+    <td style="padding:8px;border:1px solid #e2e8f0">Tuyau, poutrelle</td>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">Vide</td>
+    <td style="padding:8px;border:1px solid #e2e8f0"><strong>0 m/s</strong></td>
+    <td style="padding:8px;border:1px solid #e2e8f0">Le son ne se propage pas</td>
+  </tr>
+</table>
+
+<div class="att">
+  <span class="label-att">Attention</span>
+  <ul>
+    <li>La vitesse du son dans l'air dépend de la température : elle augmente d'environ 0,6 m/s par degré Celsius</li>
+    <li>Ne pas confondre la vitesse du son (~340 m/s) avec la vitesse de la lumière (~3 × 10⁸ m/s, soit environ 900 000 fois plus rapide)</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <strong>Exemple : L'orage</strong><br>
+  On voit l'éclair avant d'entendre le tonnerre car la lumière se propage beaucoup plus vite que le son. En comptant les secondes entre l'éclair et le tonnerre, on peut estimer la distance de l'orage :<br>
+  \(d = v_{\text{son}} \times t = 340 \times t\)<br>
+  Si on compte 6 secondes : \(d = 340 \times 6 = 2\,040\) m ≈ <strong>2 km</strong>.
+</div>
+
+<!-- ========== LONGUEUR D'ONDE ========== -->
+<h2>3. Caractéristiques d'un son</h2>
+
+<h3>3.1. Fréquence, période, longueur d'onde</h3>
+
+<div class="formule-box">
+  <strong>Relations fondamentales</strong><br>
+  \[ \lambda = c_{\text{son}} \times T = \frac{c_{\text{son}}}{f} \]
+  <ul>
+    <li>\(\lambda\) : longueur d'onde, en <strong>m</strong></li>
+    <li>\(c_{\text{son}}\) : vitesse du son dans le milieu, en <strong>m/s</strong></li>
+    <li>\(T\) : période, en <strong>s</strong></li>
+    <li>\(f\) : fréquence, en <strong>Hz</strong></li>
+  </ul>
+  <p>Rappel : \(f = \dfrac{1}{T}\) et \(T = \dfrac{1}{f}\)</p>
+</div>
+
+<div class="ex">
+  <strong>Exemple : Son d'une scie circulaire</strong><br>
+  Le son caractéristique d'une scie circulaire en fonctionnement a une fréquence d'environ 3 000 Hz.<br>
+  \(\lambda = \dfrac{c_{\text{son}}}{f} = \dfrac{340}{3\,000} = 0{,}113\) m ≈ <strong>11,3 cm</strong><br>
+  \(T = \dfrac{1}{f} = \dfrac{1}{3\,000} = 3{,}33 \times 10^{-4}\) s ≈ 0,33 ms
+</div>
+
+<h3>3.2. Domaine audible</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  L'oreille humaine perçoit les sons dont la fréquence est comprise entre <strong>20 Hz</strong> et <strong>20 000 Hz</strong> (20 kHz). C'est le <strong>domaine audible</strong>.
+  <ul>
+    <li>En dessous de 20 Hz : <strong>infrasons</strong> (imperceptibles, mais ressentis par le corps)</li>
+    <li>Au-dessus de 20 kHz : <strong>ultrasons</strong> (utilisés en médecine, nettoyage industriel)</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  <ul>
+    <li>Un son de basse fréquence est perçu comme <strong>grave</strong> (grosse caisse, basse)</li>
+    <li>Un son de haute fréquence est perçu comme <strong>aigu</strong> (sifflet, scie circulaire)</li>
+    <li>La sensibilité de l'oreille diminue avec l'âge, surtout pour les hautes fréquences</li>
+  </ul>
+</div>
+
+<!-- ========== MICROPHONE ========== -->
+<h3>3.3. Pression acoustique et microphone</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  La <strong>pression acoustique</strong> est la variation de pression de l'air causée par le passage d'une onde sonore. Un <strong>microphone</strong> convertit ces variations de pression en un signal électrique.
+</div>
+
+<p>Le microphone est un capteur de pression acoustique. Le signal électrique obtenu reproduit la forme de l'onde sonore : on peut l'afficher sur un oscilloscope ou le traiter numériquement.</p>
+
+<!-- ========== NIVEAU SONORE ========== -->
+<h2>4. Intensité sonore et niveau acoustique</h2>
+
+<h3>4.1. Intensité sonore</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  L'<strong>intensité sonore</strong> \(I\) est la puissance acoustique reçue par unité de surface. Elle s'exprime en <strong>W/m²</strong> (watt par mètre carré).
+</div>
+
+<h3>4.2. Niveau d'intensité acoustique</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  Le <strong>niveau d'intensité acoustique</strong> \(L\) (ou niveau sonore) s'exprime en <strong>décibels (dB)</strong>. Il est défini par :
+  \[ L = 10 \times \log\left(\frac{I}{I_0}\right) \]
+  avec \(I_0 = 10^{-12}\) W/m² (seuil d'audibilité).
+</div>
+
+<div class="att">
+  <span class="label-att">Attention</span>
+  L'échelle des décibels est <strong>logarithmique</strong> :
+  <ul>
+    <li>+3 dB = intensité doublée</li>
+    <li>+10 dB = intensité multipliée par 10</li>
+    <li>+20 dB = intensité multipliée par 100</li>
+  </ul>
+  Un son de 90 dB n'est pas « un peu plus fort » que 80 dB : il est <strong>10 fois</strong> plus intense !
+</div>
+
+<h3>4.3. Échelle des niveaux sonores</h3>
+
+<div class="chart-wrap">
+  <canvas id="chartDecibels"></canvas>
+</div>
+
+<table style="width:100%;border-collapse:collapse;margin:10px 0;font-size:0.92em">
+  <tr style="background:var(--p-bg)">
+    <th style="padding:6px;border:1px solid var(--p-border)">Niveau (dB)</th>
+    <th style="padding:6px;border:1px solid var(--p-border)">Source</th>
+    <th style="padding:6px;border:1px solid var(--p-border)">Perception</th>
+  </tr>
+  <tr><td style="padding:6px;border:1px solid #e2e8f0">0</td><td style="padding:6px;border:1px solid #e2e8f0">Seuil d'audibilité</td><td style="padding:6px;border:1px solid #e2e8f0">Silence</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e2e8f0">30</td><td style="padding:6px;border:1px solid #e2e8f0">Chuchotement</td><td style="padding:6px;border:1px solid #e2e8f0">Très calme</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e2e8f0">50</td><td style="padding:6px;border:1px solid #e2e8f0">Conversation normale</td><td style="padding:6px;border:1px solid #e2e8f0">Modéré</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e2e8f0">70</td><td style="padding:6px;border:1px solid #e2e8f0">Aspirateur</td><td style="padding:6px;border:1px solid #e2e8f0">Gênant</td></tr>
+  <tr style="background:#fef3c7"><td style="padding:6px;border:1px solid #e2e8f0"><strong>85</strong></td><td style="padding:6px;border:1px solid #e2e8f0"><strong>Seuil de danger</strong></td><td style="padding:6px;border:1px solid #e2e8f0"><strong>Risque auditif (8h)</strong></td></tr>
+  <tr style="background:#fee2e2"><td style="padding:6px;border:1px solid #e2e8f0">95-105</td><td style="padding:6px;border:1px solid #e2e8f0">Scie circulaire, raboteuse</td><td style="padding:6px;border:1px solid #e2e8f0">Dangereux</td></tr>
+  <tr style="background:#fee2e2"><td style="padding:6px;border:1px solid #e2e8f0">110</td><td style="padding:6px;border:1px solid #e2e8f0">Concert, tronçonneuse</td><td style="padding:6px;border:1px solid #e2e8f0">Très dangereux</td></tr>
+  <tr style="background:#fee2e2"><td style="padding:6px;border:1px solid #e2e8f0">120</td><td style="padding:6px;border:1px solid #e2e8f0">Seuil de douleur</td><td style="padding:6px;border:1px solid #e2e8f0">Douloureux</td></tr>
+  <tr style="background:#fee2e2"><td style="padding:6px;border:1px solid #e2e8f0">140</td><td style="padding:6px;border:1px solid #e2e8f0">Avion au décollage</td><td style="padding:6px;border:1px solid #e2e8f0">Lésions immédiates</td></tr>
+</table>
+
+<!-- ========== ATTÉNUATION ========== -->
+<h2>5. Atténuation du son avec la distance</h2>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  L'intensité sonore <strong>diminue</strong> quand on s'éloigne de la source. Pour une source ponctuelle en champ libre, l'intensité est inversement proportionnelle au carré de la distance :
+  \[ I \propto \frac{1}{d^2} \]
+  Doubler la distance divise l'intensité par 4, ce qui correspond à une diminution de <strong>6 dB</strong>.
+</div>
+
+<div class="ex">
+  <strong>Exemple : Scie circulaire</strong><br>
+  À 1 m d'une scie circulaire, le niveau sonore est de 100 dB.<br>
+  À 2 m : environ 100 − 6 = <strong>94 dB</strong><br>
+  À 4 m : environ 100 − 12 = <strong>88 dB</strong><br>
+  À 8 m : environ 100 − 18 = <strong>82 dB</strong><br>
+  Il faut s'éloigner de 8 m pour passer sous le seuil de danger (85 dB) !
+</div>
+
+<!-- ========== PROTECTION ========== -->
+<h2>6. Protection auditive</h2>
+
+<h3>6.1. Effets du bruit sur l'oreille</h3>
+
+<div class="att">
+  <span class="label-att">Danger</span>
+  <ul>
+    <li><strong>Fatigue auditive</strong> : diminution temporaire de l'audition après exposition au bruit (réversible)</li>
+    <li><strong>Acouphènes</strong> : bourdonnements ou sifflements dans les oreilles (souvent irréversibles)</li>
+    <li><strong>Surdité professionnelle</strong> : perte définitive de l'audition due à l'exposition prolongée au bruit (irréversible)</li>
+  </ul>
+  La surdité professionnelle est la <strong>première maladie professionnelle</strong> dans les métiers du bois.
+</div>
+
+<h3>6.2. Réglementation</h3>
+
+<table style="width:100%;border-collapse:collapse;margin:10px 0">
+  <tr style="background:var(--p-bg)">
+    <th style="padding:8px;border:1px solid var(--p-border)">Niveau (dB)</th>
+    <th style="padding:8px;border:1px solid var(--p-border)">Obligation</th>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">≥ 80 dB (8h)</td>
+    <td style="padding:8px;border:1px solid #e2e8f0">L'employeur doit mettre à disposition des protections auditives</td>
+  </tr>
+  <tr style="background:#fef3c7">
+    <td style="padding:8px;border:1px solid #e2e8f0"><strong>≥ 85 dB (8h)</strong></td>
+    <td style="padding:8px;border:1px solid #e2e8f0"><strong>Port obligatoire de protections auditives</strong></td>
+  </tr>
+  <tr style="background:#fee2e2">
+    <td style="padding:8px;border:1px solid #e2e8f0">≥ 87 dB</td>
+    <td style="padding:8px;border:1px solid #e2e8f0">Valeur limite d'exposition (protections comprises)</td>
+  </tr>
+</table>
+
+<h3>6.3. Moyens de protection</h3>
+
+<div class="retenir">
+  <strong>Les 3 niveaux de protection contre le bruit</strong>
+  <ol>
+    <li><strong>À la source</strong> : machines moins bruyantes, capotage des machines, entretien régulier (lames affûtées)</li>
+    <li><strong>Sur le trajet</strong> : écrans anti-bruit, isolation phonique de l'atelier, éloignement des postes de travail</li>
+    <li><strong>Au niveau du récepteur</strong> : bouchons d'oreilles (atténuation 15-25 dB), casque anti-bruit (atténuation 25-35 dB), casque anti-bruit actif (atténuation 30-40 dB)</li>
+  </ol>
+</div>
+
+<!-- ========== ISOLATION PHONIQUE ========== -->
+<h2>7. Isolation phonique en agencement</h2>
+
+<div class="situation">
+  <strong>Application professionnelle</strong><br>
+  Un aménageur d'intérieur doit souvent concevoir des cloisons offrant une bonne isolation phonique. Les principes physiques utilisés sont :
+  <ul>
+    <li><strong>Masse</strong> : plus une paroi est lourde, plus elle atténue le son (loi de masse)</li>
+    <li><strong>Désolidarisation</strong> : une double paroi avec un espace d'air entre les deux (principe masse-ressort-masse) est plus efficace qu'une paroi simple de même masse</li>
+    <li><strong>Absorption</strong> : les matériaux poreux (laine de bois, laine de roche) absorbent l'énergie sonore en la transformant en chaleur</li>
+  </ul>
+</div>
+
+<table style="width:100%;border-collapse:collapse;margin:10px 0">
+  <tr style="background:var(--p-bg)">
+    <th style="padding:8px;border:1px solid var(--p-border)">Type de cloison</th>
+    <th style="padding:8px;border:1px solid var(--p-border)">Affaiblissement acoustique</th>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">Cloison plaque de plâtre simple (72 mm)</td>
+    <td style="padding:8px;border:1px solid #e2e8f0">≈ 35 dB</td>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">Cloison plaque de plâtre double + laine (120 mm)</td>
+    <td style="padding:8px;border:1px solid #e2e8f0">≈ 50 dB</td>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">Cloison bois massif (80 mm)</td>
+    <td style="padding:8px;border:1px solid #e2e8f0">≈ 35 dB</td>
+  </tr>
+  <tr>
+    <td style="padding:8px;border:1px solid #e2e8f0">Cloison bois + isolant + bois (140 mm)</td>
+    <td style="padding:8px;border:1px solid #e2e8f0">≈ 45 dB</td>
+  </tr>
+</table>
+
+<!-- ========== RÉSUMÉ ========== -->
+<h2>8. Résumé du chapitre</h2>
+
+<div class="retenir">
+  <strong>Formules et résultats essentiels</strong>
+  <table style="width:100%;border-collapse:collapse;margin:10px 0">
+    <tr style="background:var(--p-bg)">
+      <th style="padding:8px;border:1px solid var(--p-border);text-align:left">Grandeur</th>
+      <th style="padding:8px;border:1px solid var(--p-border);text-align:left">Formule / Valeur</th>
+      <th style="padding:8px;border:1px solid var(--p-border);text-align:left">Unités</th>
+    </tr>
+    <tr>
+      <td style="padding:8px;border:1px solid #e2e8f0">Longueur d'onde</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">\(\lambda = c_{\text{son}} \times T = c_{\text{son}} / f\)</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">m</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;border:1px solid #e2e8f0">Vitesse du son (air)</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">≈ 340 m/s</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">m/s</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;border:1px solid #e2e8f0">Domaine audible</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">20 Hz – 20 kHz</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">Hz</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;border:1px solid #e2e8f0">Niveau sonore</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">\(L = 10 \log(I/I_0)\)</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">dB</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;border:1px solid #e2e8f0">Seuil de danger</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">85 dB (exposition 8h)</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">dB</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;border:1px solid #e2e8f0">Seuil de douleur</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">120 dB</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">dB</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;border:1px solid #e2e8f0">Atténuation / distance</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">−6 dB quand d est doublée</td>
+      <td style="padding:8px;border:1px solid #e2e8f0">—</td>
+    </tr>
+  </table>
+</div>
+
+<footer>
+  <p>Première Bac Pro ERA-MA – Groupement 3 | Physique-Chimie – Chapitre 10 | maths-sciences-lp.github.io</p>
+</footer>
+</div>
+<script src="../../../nav.js"></script>
+<script>
+// Graphique niveaux sonores
+const ctx = document.getElementById('chartDecibels');
+if(ctx){
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Silence','Chuchotement','Conversation','Bureau','Aspirateur','Seuil danger','Scie circulaire','Concert','Seuil douleur','Avion'],
+      datasets: [{
+        label: 'Niveau sonore (dB)',
+        data: [0, 30, 50, 60, 70, 85, 100, 110, 120, 140],
+        backgroundColor: [
+          '#86efac','#86efac','#86efac','#86efac','#fde68a',
+          '#fbbf24','#f87171','#f87171','#ef4444','#ef4444'
+        ],
+        borderColor: [
+          '#2da44e','#2da44e','#2da44e','#2da44e','#d97706',
+          '#d97706','#c53030','#c53030','#991b1b','#991b1b'
+        ],
+        borderWidth: 1.5
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: 'Échelle des niveaux sonores', font: { size: 14 } }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 150,
+          title: { display: true, text: 'Niveau sonore (dB)' }
+        }
+      }
+    }
+  });
+}
+</script>
+</body>
+</html>

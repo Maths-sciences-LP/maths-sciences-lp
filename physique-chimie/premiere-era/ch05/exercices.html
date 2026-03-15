@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Exercices – Minimiser les transferts thermiques | Première ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9;--s-bg:#e0f2fe;--s-border:#7dd3fc}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA</a>
+
+<header>
+  <h1>Ch05 – Minimiser les transferts thermiques</h1>
+  <p class="sous-titre">Exercices | Première Bac Pro ERA-MA – Groupement 3</p>
+</header>
+
+<div class="objectifs">
+  <strong>Rappels</strong>
+  <ul>
+    <li>Conductance thermique : \(G = \dfrac{\lambda \cdot S}{e}\) (en W/K)</li>
+    <li>Flux thermique : \(\Phi = G \cdot (T_1 - T_2)\) (en W)</li>
+    <li>Résistance thermique : \(R = 1/G = e / (\lambda \cdot S)\) (en K/W)</li>
+    <li>Épaisseur en mètres, surface en m²</li>
+  </ul>
+</div>
+
+<!-- ==================== SOCLE ==================== -->
+<div class="diff-socle">
+<h2><span class="tag-socle">Socle</span> Exercices guidés</h2>
+
+<div class="exo">
+  <strong>Exercice S1 – Conductance d'un mur (guidé)</strong><br>
+  Un mur en béton a les caractéristiques suivantes : S = 10 m², e = 20 cm, \(\lambda = 1{,}7\) W/m·K.<br><br>
+  <strong>Étape 1 :</strong> Convertir l'épaisseur en mètres.<br>
+  \(e = 20 \text{ cm} = \ldots \text{ m}\)<br><br>
+  <strong>Étape 2 :</strong> Écrire la formule de la conductance.<br>
+  \(G = \dfrac{\ldots \times \ldots}{\ldots}\)<br><br>
+  <strong>Étape 3 :</strong> Remplacer et calculer.<br>
+  \(G = \dfrac{\ldots \times \ldots}{\ldots} = \ldots\) W/K
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    Étape 1 : \(e = 20 / 100 = 0{,}20\) m<br>
+    Étape 2 : \(G = \dfrac{\lambda \times S}{e}\)<br>
+    Étape 3 : \(G = \dfrac{1{,}7 \times 10}{0{,}20} = \dfrac{17}{0{,}20} = 85\) W/K
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice S2 – Flux thermique (guidé)</strong><br>
+  Le mur de l'exercice précédent sépare une pièce à 19 °C de l'extérieur à 5 °C.<br><br>
+  <strong>Étape 1 :</strong> Calculer la différence de température.<br>
+  \(\Delta T = T_1 - T_2 = \ldots - \ldots = \ldots\) K<br><br>
+  <strong>Étape 2 :</strong> Écrire la formule du flux thermique.<br>
+  \(\Phi = G \times \ldots\)<br><br>
+  <strong>Étape 3 :</strong> Calculer.<br>
+  \(\Phi = \ldots \times \ldots = \ldots\) W<br><br>
+  <strong>Étape 4 :</strong> Convertir en kW.<br>
+  \(\Phi = \ldots\) kW
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    Étape 1 : \(\Delta T = 19 - 5 = 14\) K<br>
+    Étape 2 : \(\Phi = G \times (T_1 - T_2)\)<br>
+    Étape 3 : \(\Phi = 85 \times 14 = 1\,190\) W<br>
+    Étape 4 : \(\Phi = 1{,}19\) kW
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice S3 – Comparer deux matériaux (guidé)</strong><br>
+  Calculer la conductance G de deux plaques de même surface (S = 8 m²) et même épaisseur (e = 10 cm) :<br><br>
+  <table>
+    <tr><th>Matériau</th><th>\(\lambda\) (W/m·K)</th><th>G (W/K)</th></tr>
+    <tr><td>Béton</td><td>1,7</td><td>… = …</td></tr>
+    <tr><td>Laine de verre</td><td>0,032</td><td>… = …</td></tr>
+  </table>
+  Quel matériau est le meilleur isolant ?
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    Béton : \(G = \dfrac{1{,}7 \times 8}{0{,}10} = 136\) W/K<br>
+    Laine de verre : \(G = \dfrac{0{,}032 \times 8}{0{,}10} = 2{,}56\) W/K<br><br>
+    La laine de verre est le meilleur isolant (G = 2,56 W/K, soit 53 fois moins que le béton).
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice S4 – Énergie perdue (guidé)</strong><br>
+  Un mur laisse passer un flux \(\Phi = 500\) W pendant 8 heures.<br><br>
+  <strong>Étape 1 :</strong> Convertir \(\Phi\) en kW.<br>
+  \(\Phi = \ldots\) kW<br><br>
+  <strong>Étape 2 :</strong> Calculer l'énergie en kWh.<br>
+  \(E = \Phi \times t = \ldots \times \ldots = \ldots\) kWh<br><br>
+  <strong>Étape 3 :</strong> Calculer le coût (0,18 €/kWh).<br>
+  Coût = \(\ldots \times 0{,}18 = \ldots\) €
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    Étape 1 : \(\Phi = 0{,}500\) kW<br>
+    Étape 2 : \(E = 0{,}500 \times 8 = 4\) kWh<br>
+    Étape 3 : Coût = \(4 \times 0{,}18 = 0{,}72\) €
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+</div>
+
+<!-- ==================== STANDARD ==================== -->
+<div class="diff-standard">
+<h2><span class="tag-standard">Standard</span> Exercices du programme</h2>
+
+<div class="exo">
+  <strong>Exercice 1 – Isolation d'une cloison d'atelier</strong><br>
+  Un menuisier agenceur installe une cloison entre son atelier chauffé (18 °C) et un local de stockage non chauffé (6 °C). La cloison mesure 3 m × 4 m = 12 m².
+  <table>
+    <tr><th>Solution</th><th>Matériau</th><th>\(\lambda\) (W/m·K)</th><th>Épaisseur (cm)</th></tr>
+    <tr><td>A</td><td>Placo seul</td><td>0,25</td><td>1,3</td></tr>
+    <tr><td>B</td><td>Placo + polystyrène</td><td>0,035</td><td>8 (isolant)</td></tr>
+    <tr><td>C</td><td>Placo + laine de verre</td><td>0,032</td><td>10 (isolant)</td></tr>
+  </table>
+  <ol>
+    <li>Calculer la conductance G de chaque solution (pour l'isolant uniquement dans B et C). (3 pts)</li>
+    <li>Calculer le flux thermique \(\Phi\) pour chaque solution. (3 pts)</li>
+    <li>Calculer l'énergie perdue en un mois (200 heures de chauffage) pour chaque solution en kWh. (2 pts)</li>
+    <li>Quelle solution recommander ? Justifier. (2 pts)</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    \(\Delta T = 18 - 6 = 12\) K<br><br>
+    1. A : \(G = 0{,}25 \times 12 / 0{,}013 = 230{,}8\) W/K<br>
+    B : \(G = 0{,}035 \times 12 / 0{,}08 = 5{,}25\) W/K<br>
+    C : \(G = 0{,}032 \times 12 / 0{,}10 = 3{,}84\) W/K<br><br>
+    2. A : \(\Phi = 230{,}8 \times 12 = 2\,770\) W<br>
+    B : \(\Phi = 5{,}25 \times 12 = 63\) W<br>
+    C : \(\Phi = 3{,}84 \times 12 = 46{,}1\) W<br><br>
+    3. A : \(E = 2{,}770 \times 200 / 1000 = 554\) kWh<br>
+    B : \(E = 0{,}063 \times 200 = 12{,}6\) kWh<br>
+    C : \(E = 0{,}046 \times 200 = 9{,}2\) kWh<br><br>
+    4. La solution C (laine de verre 10 cm) est la plus performante (flux le plus faible). La solution A est catastrophique (60 fois plus de pertes que C).
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 – Fenêtre simple vs double vitrage</strong><br>
+  Un poseur de cuisines remplace une fenêtre de S = 2 m². Intérieur : 20 °C, extérieur : 3 °C.
+  <ul>
+    <li>Simple vitrage : verre 4 mm, \(\lambda = 1{,}0\)</li>
+    <li>Double vitrage : 2 vitres de 4 mm + lame d'air de 16 mm (\(\lambda_{\text{air}} = 0{,}025\))</li>
+  </ul>
+  <ol>
+    <li>Calculer G et \(\Phi\) pour le simple vitrage. (2 pts)</li>
+    <li>Pour le double vitrage, calculer G de la lame d'air seule (l'air est l'élément isolant principal). (2 pts)</li>
+    <li>Calculer le flux à travers le double vitrage (en utilisant G de l'air). (2 pts)</li>
+    <li>Calculer le rapport des flux. Par combien l'isolation est-elle améliorée ? (2 pts)</li>
+    <li>Calculer l'énergie économisée en un hiver (150 jours, 12 h de chauffage/jour). (2 pts)</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    \(\Delta T = 20 - 3 = 17\) K<br><br>
+    1. Simple vitrage :<br>
+    \(G = 1{,}0 \times 2 / 0{,}004 = 500\) W/K<br>
+    \(\Phi = 500 \times 17 = 8\,500\) W = 8,5 kW (!)<br><br>
+    2. Lame d'air :<br>
+    \(G = 0{,}025 \times 2 / 0{,}016 = 3{,}125\) W/K<br><br>
+    3. \(\Phi = 3{,}125 \times 17 = 53{,}1\) W<br><br>
+    4. Rapport : \(8\,500 / 53{,}1 = 160\). L'isolation est améliorée d'un facteur 160.<br>
+    <em>Note : en réalité, le simple vitrage a aussi des pertes par convection et rayonnement. Le calcul montre surtout l'importance de la lame d'air.</em><br><br>
+    5. Heures : \(150 \times 12 = 1\,800\) h<br>
+    Économie en puissance : \(8{,}500 - 0{,}053 = 8{,}447\) kW<br>
+    Énergie : \(8{,}447 \times 1\,800 = 15\,205\) kWh<br>
+    Coût économisé : \(15\,205 \times 0{,}18 = 2\,737\) €
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice 3 – Influence de l'épaisseur</strong><br>
+  Un ébéniste isole le plafond de son atelier (S = 50 m², \(\Delta T = 15\) K) avec de la laine de verre (\(\lambda = 0{,}032\)). Il hésite entre 10 cm et 20 cm d'épaisseur.
+  <ol>
+    <li>Calculer G et \(\Phi\) pour 10 cm. (2 pts)</li>
+    <li>Calculer G et \(\Phi\) pour 20 cm. (2 pts)</li>
+    <li>Par combien le flux est-il réduit en doublant l'épaisseur ? (1 pt)</li>
+    <li>Calculer l'économie annuelle de chauffage en passant de 10 à 20 cm (2 000 heures, 0,18 €/kWh). (2 pts)</li>
+    <li>Le surcoût de l'isolant est de 5 €/m² pour les 10 cm supplémentaires. Calculer le temps de retour sur investissement. (1 pt)</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1. e = 10 cm : \(G = 0{,}032 \times 50 / 0{,}10 = 16\) W/K<br>
+    \(\Phi = 16 \times 15 = 240\) W<br><br>
+    2. e = 20 cm : \(G = 0{,}032 \times 50 / 0{,}20 = 8\) W/K<br>
+    \(\Phi = 8 \times 15 = 120\) W<br><br>
+    3. \(240 / 120 = 2\). Le flux est divisé par 2.<br><br>
+    4. \(\Delta \Phi = 240 - 120 = 120\) W = 0,12 kW<br>
+    \(E = 0{,}12 \times 2\,000 = 240\) kWh<br>
+    Économie : \(240 \times 0{,}18 = 43{,}20\) €/an<br><br>
+    5. Surcoût : \(50 \times 5 = 250\) €<br>
+    Retour : \(250 / 43{,}20 = 5{,}8\) ans ≈ <strong>6 ans</strong>.
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+</div>
+
+<!-- ==================== APPROFONDISSEMENT ==================== -->
+<div class="diff-appro">
+<h2><span class="tag-appro">Approfondissement</span> Exercices type BTS</h2>
+
+<div class="exo">
+  <strong>Exercice A1 – Mur composite</strong><br>
+  Un installateur d'agencement doit calculer les pertes à travers un mur composite constitué de :
+  <table>
+    <tr><th>Couche</th><th>Épaisseur (cm)</th><th>\(\lambda\) (W/m·K)</th></tr>
+    <tr><td>Enduit extérieur</td><td>2</td><td>1,15</td></tr>
+    <tr><td>Parpaing</td><td>20</td><td>1,10</td></tr>
+    <tr><td>Laine de roche</td><td>12</td><td>0,034</td></tr>
+    <tr><td>Placo</td><td>1,3</td><td>0,25</td></tr>
+  </table>
+  Surface du mur : S = 15 m². Températures : intérieur 20 °C, extérieur 2 °C.
+  <ol>
+    <li>Calculer la résistance thermique de chaque couche : \(R = e / (\lambda \cdot S)\). (4 pts)</li>
+    <li>Calculer la résistance totale. (1 pt)</li>
+    <li>En déduire la conductance totale \(G = 1/R\). (1 pt)</li>
+    <li>Calculer le flux thermique \(\Phi\). (1 pt)</li>
+    <li>Quelle couche assure la quasi-totalité de l'isolation ? Calculer son pourcentage dans la résistance totale. (2 pts)</li>
+    <li>Calculer l'énergie perdue en un hiver (180 jours, 12 h/jour) et son coût (0,18 €/kWh). (1 pt)</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(R = e / (\lambda \times S)\) :<br>
+    Enduit : \(0{,}02 / (1{,}15 \times 15) = 0{,}00116\) K/W<br>
+    Parpaing : \(0{,}20 / (1{,}10 \times 15) = 0{,}01212\) K/W<br>
+    Laine de roche : \(0{,}12 / (0{,}034 \times 15) = 0{,}23529\) K/W<br>
+    Placo : \(0{,}013 / (0{,}25 \times 15) = 0{,}00347\) K/W<br><br>
+    2. \(R_{\text{total}} = 0{,}00116 + 0{,}01212 + 0{,}23529 + 0{,}00347 = 0{,}25204\) K/W<br><br>
+    3. \(G = 1 / 0{,}25204 = 3{,}97\) W/K<br><br>
+    4. \(\Phi = 3{,}97 \times (20 - 2) = 3{,}97 \times 18 = 71{,}4\) W<br><br>
+    5. Laine de roche : \(0{,}23529 / 0{,}25204 \times 100 = 93{,}4\) %. L'isolant assure 93 % de la résistance thermique totale.<br><br>
+    6. \(E = 0{,}0714 \times 180 \times 12 = 154{,}2\) kWh. Coût : \(154{,}2 \times 0{,}18 = 27{,}76\) €.
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice A2 – Bilan thermique d'un local</strong><br>
+  Un fabricant de mobilier souhaite calculer la puissance de chauffage nécessaire pour son showroom (8 m × 6 m × 3 m). Températures : intérieur 20 °C, extérieur 0 °C.
+  <table>
+    <tr><th>Paroi</th><th>S (m²)</th><th>G (W/K)</th></tr>
+    <tr><td>Murs (isolés)</td><td>60</td><td>12</td></tr>
+    <tr><td>Toit (isolé 15 cm)</td><td>48</td><td>5,1</td></tr>
+    <tr><td>Sol</td><td>48</td><td>8,6</td></tr>
+    <tr><td>Fenêtres (double vitrage)</td><td>12</td><td>33,6</td></tr>
+    <tr><td>Porte d'entrée</td><td>4</td><td>10</td></tr>
+  </table>
+  Le renouvellement d'air (VMC) entraîne une perte supplémentaire de 250 W/K.
+  <ol>
+    <li>Calculer le flux thermique de chaque paroi. (3 pts)</li>
+    <li>Calculer le flux dû à la VMC. (1 pt)</li>
+    <li>Calculer le flux total. Quelle puissance de chauffage est nécessaire ? (1 pt)</li>
+    <li>Quel poste représente les plus grandes pertes ? Proposer des améliorations. (2 pts)</li>
+    <li>Si le chauffage fonctionne 10 h/jour, 180 jours/an, calculer le coût annuel (0,18 €/kWh). (2 pts)</li>
+    <li>En remplaçant les fenêtres par du triple vitrage (G divisé par 2,5), recalculer les pertes totales et l'économie annuelle. (1 pt)</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    \(\Delta T = 20\) K<br><br>
+    1. Murs : \(12 \times 20 = 240\) W<br>
+    Toit : \(5{,}1 \times 20 = 102\) W<br>
+    Sol : \(8{,}6 \times 20 = 172\) W<br>
+    Fenêtres : \(33{,}6 \times 20 = 672\) W<br>
+    Porte : \(10 \times 20 = 200\) W<br><br>
+    2. VMC : \(250 \times 20 = 5\,000\) W<br><br>
+    3. Total : \(240 + 102 + 172 + 672 + 200 + 5\,000 = 6\,386\) W ≈ <strong>6,4 kW</strong>. Prévoir ~8 kW avec une marge de sécurité.<br><br>
+    4. La VMC (78 % des pertes). Solutions : VMC double flux (récupère 70-80 % de la chaleur), ou réduire le débit quand le local est inoccupé.<br><br>
+    5. \(E = 6{,}386 \times 10 \times 180 / 1000 = 11\,495\) kWh. Coût : \(11\,495 \times 0{,}18 = 2\,069\) €/an.<br><br>
+    6. Nouvelles fenêtres : \(G' = 33{,}6 / 2{,}5 = 13{,}44\) W/K. \(\Phi' = 13{,}44 \times 20 = 268{,}8\) W.<br>
+    Nouveau total : \(240 + 102 + 172 + 268{,}8 + 200 + 5\,000 = 5\,982{,}8\) W.<br>
+    Économie : \((6\,386 - 5\,983) \times 10 \times 180 / 1000 \times 0{,}18 = 130{,}6\) €/an.
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <strong>Exercice A3 – Problème ouvert : choix d'isolant</strong><br>
+  Un aménageur d'intérieur doit isoler les combles perdus d'une maison (S = 80 m²). Température intérieur : 20 °C, combles : 5 °C en hiver. Budget isolant : 2 000 €. Chauffage : 2 000 h/an à 0,18 €/kWh.
+  <table>
+    <tr><th>Isolant</th><th>\(\lambda\) (W/m·K)</th><th>Prix (€/m²) pour 10 cm</th><th>Prix (€/m²) pour 20 cm</th></tr>
+    <tr><td>Laine de verre</td><td>0,032</td><td>6</td><td>11</td></tr>
+    <tr><td>Laine de bois</td><td>0,038</td><td>15</td><td>28</td></tr>
+    <tr><td>Ouate de cellulose</td><td>0,040</td><td>8</td><td>14</td></tr>
+  </table>
+  <ol>
+    <li>Calculer G et \(\Phi\) pour chaque isolant en 10 cm et en 20 cm.</li>
+    <li>Calculer le coût total de chaque solution (6 combinaisons).</li>
+    <li>Identifier les solutions qui rentrent dans le budget de 2 000 €.</li>
+    <li>Pour les solutions possibles, calculer l'énergie économisée par rapport à l'absence d'isolant (hypothèse : combles non isolés → pertes = 2 000 W).</li>
+    <li>Recommander la meilleure solution en justifiant (performance, coût, impact environnemental).</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    \(\Delta T = 15\) K<br><br>
+    1. Laine verre 10 cm : \(G = 0{,}032 \times 80 / 0{,}10 = 25{,}6\) → \(\Phi = 384\) W<br>
+    Laine verre 20 cm : \(G = 12{,}8\) → \(\Phi = 192\) W<br>
+    Laine bois 10 cm : \(G = 0{,}038 \times 80 / 0{,}10 = 30{,}4\) → \(\Phi = 456\) W<br>
+    Laine bois 20 cm : \(G = 15{,}2\) → \(\Phi = 228\) W<br>
+    Ouate 10 cm : \(G = 0{,}040 \times 80 / 0{,}10 = 32\) → \(\Phi = 480\) W<br>
+    Ouate 20 cm : \(G = 16\) → \(\Phi = 240\) W<br><br>
+    2. Coûts :<br>
+    Laine verre 10 cm : \(80 \times 6 = 480\) € | 20 cm : \(80 \times 11 = 880\) €<br>
+    Laine bois 10 cm : \(80 \times 15 = 1\,200\) € | 20 cm : \(80 \times 28 = 2\,240\) €<br>
+    Ouate 10 cm : \(80 \times 8 = 640\) € | 20 cm : \(80 \times 14 = 1\,120\) €<br><br>
+    3. Dans le budget : laine verre 10 cm (480 €), laine verre 20 cm (880 €), laine bois 10 cm (1 200 €), ouate 10 cm (640 €), ouate 20 cm (1 120 €). Hors budget : laine bois 20 cm (2 240 €).<br><br>
+    4. Économie par rapport à 2 000 W (sans isolant) :<br>
+    Laine verre 20 cm : \(\Delta\Phi = 2000 - 192 = 1808\) W → \(E = 1{,}808 \times 2000 = 3\,616\) kWh → \(651\) €/an<br>
+    Ouate 20 cm : \(\Delta\Phi = 1760\) W → \(3\,520\) kWh → \(634\) €/an<br>
+    Laine verre 10 cm : \(\Delta\Phi = 1616\) W → \(3\,232\) kWh → \(582\) €/an<br><br>
+    5. <strong>Laine de verre 20 cm</strong> : meilleur rapport performance/prix (880 € d'investissement, 651 €/an d'économie → amortissement en 1,4 an). La ouate de cellulose 20 cm est une alternative écologique intéressante (matériau recyclé, 1 120 €, amortissement en 1,8 an).
+  </div>
+  <button class="bc" onclick="this.previousElementSibling.style.display=this.previousElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+</div>
+</div>
+
+<div style="margin-top:30px;padding-top:18px;border-top:1px solid #e2e8f0;text-align:center;color:#718096;font-size:.82em">
+  Première Bac Pro ERA-MA – Groupement 3 | Physique-Chimie – Chapitre 5 | maths-sciences-lp.github.io
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

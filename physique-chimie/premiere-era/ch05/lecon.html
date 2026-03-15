@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Minimiser les transferts thermiques | Première ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9;--s-bg:#e0f2fe;--s-border:#7dd3fc}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA</a>
+
+<header>
+  <h1>Chapitre 5 – Minimiser les transferts thermiques pour économiser l'énergie</h1>
+  <p class="sous-titre">Première Bac Pro ERA-MA | Physique – Thermique | Conductance et isolation</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Comparer expérimentalement la conductivité thermique de différents matériaux</li>
+    <li>Définir et calculer la conductance thermique d'une plaque plane : \(G = \dfrac{\lambda \cdot S}{e}\)</li>
+    <li>Calculer la puissance thermique traversant une plaque plane : \(\Phi = G \cdot (T_1 - T_2)\)</li>
+    <li>Connaître l'unité de la conductance thermique (W/K)</li>
+    <li>Appliquer ces notions au choix d'un isolant en agencement</li>
+  </ul>
+</div>
+
+<!-- ========== SITUATION PRO ========== -->
+<h2>1. Situation professionnelle – Isolation d'une cloison</h2>
+
+<div class="situation">
+  <strong>Contexte professionnel</strong><br>
+  Un menuisier agenceur doit isoler une cloison séparant un salon chauffé d'un garage non chauffé dans une maison en rénovation. Le client souhaite réduire sa facture de chauffage. Plusieurs isolants sont disponibles : laine de verre, polystyrène, laine de bois, mousse polyuréthane. Comment choisir le meilleur matériau et la bonne épaisseur ? Pour répondre, il faut savoir calculer les pertes thermiques à travers une paroi.
+</div>
+
+<!-- ========== CONDUCTIVITÉ ========== -->
+<h2>2. Rappel – La conductivité thermique \(\lambda\)</h2>
+
+<div class="def">
+  <span class="label label-def">Définition – Conductivité thermique</span><br>
+  La <strong>conductivité thermique</strong> \(\lambda\) (lambda) d'un matériau caractérise sa capacité à conduire la chaleur. Elle s'exprime en <strong>W/(m·K)</strong> (watts par mètre et par kelvin).
+  <ul>
+    <li>\(\lambda\) petit → bon <strong>isolant</strong> (laine de verre, polystyrène)</li>
+    <li>\(\lambda\) grand → bon <strong>conducteur</strong> (métaux)</li>
+  </ul>
+</div>
+
+<h3>Expérience – Comparer la conductivité de matériaux</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode expérimentale</span><br>
+  On place des plaques de même épaisseur et même surface de différents matériaux entre une source chaude (plaque chauffante à 80 °C) et un capteur de température (thermomètre côté froid). Après un temps donné, on relève la température côté froid.
+  <ul>
+    <li>Plus la température monte vite côté froid → le matériau est un bon <strong>conducteur</strong></li>
+    <li>Plus la température reste basse côté froid → le matériau est un bon <strong>isolant</strong></li>
+  </ul>
+</div>
+
+<table>
+  <tr><th>Matériau</th><th>\(\lambda\) (W/m·K)</th><th>Classement</th></tr>
+  <tr><td>Aluminium</td><td>237</td><td>Excellent conducteur</td></tr>
+  <tr><td>Acier</td><td>50</td><td>Bon conducteur</td></tr>
+  <tr><td>Béton</td><td>1,7</td><td>Conducteur moyen</td></tr>
+  <tr><td>Brique</td><td>0,84</td><td>Isolant moyen</td></tr>
+  <tr><td>Bois (résineux)</td><td>0,12</td><td>Bon isolant</td></tr>
+  <tr><td>Laine de bois</td><td>0,038</td><td>Très bon isolant</td></tr>
+  <tr><td>Polystyrène expansé</td><td>0,035</td><td>Très bon isolant</td></tr>
+  <tr><td>Laine de verre</td><td>0,032</td><td>Très bon isolant</td></tr>
+  <tr><td>Mousse polyuréthane</td><td>0,022</td><td>Excellent isolant</td></tr>
+</table>
+
+<!-- ========== CONDUCTANCE THERMIQUE ========== -->
+<h2>3. La conductance thermique d'une plaque plane</h2>
+
+<div class="def">
+  <span class="label label-def">Définition – Conductance thermique G</span><br>
+  La <strong>conductance thermique</strong> G d'une plaque plane est une grandeur qui caractérise la facilité avec laquelle la chaleur traverse cette plaque. Elle dépend du matériau, de la surface et de l'épaisseur :
+  \[ G = \frac{\lambda \cdot S}{e} \]
+  <ul>
+    <li>\(G\) : conductance thermique en <strong>watts par kelvin (W/K)</strong></li>
+    <li>\(\lambda\) : conductivité thermique en W/(m·K)</li>
+    <li>\(S\) : surface de la plaque en m²</li>
+    <li>\(e\) : épaisseur de la plaque en m</li>
+  </ul>
+</div>
+
+<div class="formule-box">
+  \[ \boxed{G = \frac{\lambda \cdot S}{e}} \quad \text{(en W/K)} \]
+  <small>Plus G est grand, plus la chaleur passe facilement.<br>Plus G est petit, meilleure est l'isolation.</small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété – Influence des paramètres</span><br>
+  <table>
+    <tr><th>Paramètre</th><th>Si on augmente...</th><th>G...</th><th>Isolation...</th></tr>
+    <tr><td>\(\lambda\) (conductivité)</td><td>Matériau plus conducteur</td><td>Augmente</td><td>Diminue</td></tr>
+    <tr><td>\(S\) (surface)</td><td>Paroi plus grande</td><td>Augmente</td><td>Diminue</td></tr>
+    <tr><td>\(e\) (épaisseur)</td><td>Paroi plus épaisse</td><td>Diminue</td><td>Augmente</td></tr>
+  </table>
+  <strong>Pour bien isoler :</strong> choisir un matériau de \(\lambda\) faible et une épaisseur \(e\) grande.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 1 – Conductance d'un mur en béton</span>
+  <p><strong>Données :</strong> Mur en béton, \(\lambda = 1{,}7\) W/(m·K), surface S = 10 m², épaisseur e = 20 cm = 0,20 m.</p>
+  \[ G = \frac{\lambda \cdot S}{e} = \frac{1{,}7 \times 10}{0{,}20} = \frac{17}{0{,}20} = 85 \text{ W/K} \]
+  <p>Ce mur a une conductance de 85 W/K : chaque kelvin de différence de température entraîne un flux de 85 W à travers le mur.</p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 2 – Conductance d'un mur isolé</span>
+  <p><strong>Données :</strong> Plaque de polystyrène, \(\lambda = 0{,}035\) W/(m·K), S = 10 m², e = 10 cm = 0,10 m.</p>
+  \[ G = \frac{0{,}035 \times 10}{0{,}10} = \frac{0{,}35}{0{,}10} = 3{,}5 \text{ W/K} \]
+  <p>L'isolant a une conductance de 3,5 W/K, soit <strong>24 fois plus faible</strong> que le mur en béton. L'isolation est bien plus efficace.</p>
+</div>
+
+<!-- ========== PUISSANCE THERMIQUE ========== -->
+<h2>4. La puissance thermique traversant une plaque plane</h2>
+
+<div class="def">
+  <span class="label label-def">Définition – Flux thermique (puissance thermique)</span><br>
+  Le <strong>flux thermique</strong> \(\Phi\) (phi) est la puissance thermique qui traverse la plaque. Il est proportionnel à la conductance G et à la différence de température entre les deux faces :
+  \[ \Phi = G \cdot (T_1 - T_2) \]
+  <ul>
+    <li>\(\Phi\) : flux thermique en <strong>watts (W)</strong></li>
+    <li>\(G\) : conductance en W/K</li>
+    <li>\(T_1 - T_2\) : différence de température en K (ou °C)</li>
+  </ul>
+</div>
+
+<div class="formule-box">
+  \[ \boxed{\Phi = G \cdot (T_1 - T_2) = \frac{\lambda \cdot S}{e} \cdot (T_1 - T_2)} \quad \text{(en W)} \]
+  <small>\(\Phi\) représente la puissance de chauffage perdue à travers la paroi.</small>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention – Unités</span><br>
+  <ul>
+    <li>\(\lambda\) en W/(m·K), pas en W/(m·°C) (numériquement c'est pareil car 1 K = 1 °C de différence)</li>
+    <li>\(e\) en <strong>mètres</strong>, pas en centimètres ! Ne pas oublier de convertir.</li>
+    <li>\(S\) en <strong>m²</strong></li>
+    <li>La différence \(T_1 - T_2\) : \(T_1\) est la face chaude, \(T_2\) la face froide</li>
+  </ul>
+</div>
+
+<!-- ========== EXEMPLES NUMÉRIQUES ========== -->
+<h2>5. Exemples numériques</h2>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 3 – Flux à travers un mur non isolé</span>
+  <p><strong>Situation :</strong> Un mur en béton (S = 12 m², e = 20 cm, \(\lambda = 1{,}7\) W/m·K). Intérieur : 20 °C, extérieur : 5 °C.</p>
+  <p><strong>Étape 1 :</strong> Calculer G.</p>
+  \[ G = \frac{1{,}7 \times 12}{0{,}20} = \frac{20{,}4}{0{,}20} = 102 \text{ W/K} \]
+  <p><strong>Étape 2 :</strong> Calculer \(\Phi\).</p>
+  \[ \Phi = G \times (T_1 - T_2) = 102 \times (20 - 5) = 102 \times 15 = 1\,530 \text{ W} \]
+  <p><strong>Conclusion :</strong> 1 530 W s'échappent à travers ce mur. C'est équivalent à un radiateur de 1,5 kW qui chauffe... l'extérieur !</p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 4 – Flux à travers le même mur isolé</span>
+  <p><strong>Situation :</strong> On ajoute 10 cm de laine de verre (\(\lambda = 0{,}032\)) sur le même mur.</p>
+  <p><strong>Conductance de l'isolant seul :</strong></p>
+  \[ G_{\text{isolant}} = \frac{0{,}032 \times 12}{0{,}10} = 3{,}84 \text{ W/K} \]
+  <p><strong>Flux à travers l'isolant :</strong></p>
+  \[ \Phi_{\text{isolant}} = 3{,}84 \times 15 = 57{,}6 \text{ W} \]
+  <p><strong>Comparaison :</strong> Sans isolant : 1 530 W. Avec isolant : environ 58 W. Les pertes sont divisées par <strong>26</strong>.</p>
+</div>
+
+<!-- ========== GRAPHIQUE ========== -->
+<h2>6. Graphique – Influence de l'épaisseur d'isolant</h2>
+
+<div class="chart-wrap">
+  <canvas id="chartEpaisseur" height="220"></canvas>
+</div>
+
+<script>
+(function(){
+  var epaisseurs = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+  var S = 12, lambda = 0.032, dT = 15;
+  var flux = epaisseurs.map(function(e){
+    var G = lambda * S / (e / 100);
+    return Math.round(G * dT * 10) / 10;
+  });
+  new Chart(document.getElementById('chartEpaisseur'), {
+    type: 'line',
+    data: {
+      labels: epaisseurs.map(function(e){ return e + ' cm'; }),
+      datasets: [{
+        label: 'Flux thermique Φ (W)',
+        data: flux,
+        borderColor: '#e11d48',
+        backgroundColor: 'rgba(225,29,72,0.08)',
+        borderWidth: 2.5,
+        pointBackgroundColor: '#e11d48',
+        pointRadius: 5,
+        tension: 0.3,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Pertes thermiques en fonction de l\'épaisseur de laine de verre (S=12 m², ΔT=15 K)',
+          font: { size: 12 }
+        }
+      },
+      scales: {
+        x: { title: { display: true, text: 'Épaisseur d\'isolant (cm)' } },
+        y: { beginAtZero: true, title: { display: true, text: 'Flux Φ (W)' } }
+      }
+    }
+  });
+})();
+</script>
+
+<p>On observe que les premiers centimètres d'isolant sont les plus efficaces : passer de 2 à 6 cm réduit beaucoup les pertes, mais au-delà de 12-14 cm, le gain supplémentaire est de plus en plus faible.</p>
+
+<!-- ========== RÉSISTANCE THERMIQUE ========== -->
+<h2>7. La résistance thermique (pour aller plus loin)</h2>
+
+<div class="def">
+  <span class="label label-def">Définition – Résistance thermique R</span><br>
+  La <strong>résistance thermique</strong> R est l'inverse de la conductance G :
+  \[ R = \frac{1}{G} = \frac{e}{\lambda \cdot S} \quad \text{(en K/W)} \]
+  Plus R est grand, meilleure est l'isolation.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété – Parois superposées</span><br>
+  Pour une paroi constituée de plusieurs couches (ex : béton + isolant + placo), les résistances thermiques s'additionnent :
+  \[ R_{\text{total}} = R_1 + R_2 + R_3 + \ldots \]
+  Le flux total est alors :
+  \[ \Phi = \frac{T_1 - T_2}{R_{\text{total}}} \]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple 5 – Mur composite (béton + isolant + placo)</span>
+  <p>Un mur est composé de : béton (20 cm, \(\lambda = 1{,}7\)) + polystyrène (10 cm, \(\lambda = 0{,}035\)) + placo (1,3 cm, \(\lambda = 0{,}25\)). Surface = 10 m².</p>
+  <p>Résistances (par m²) :</p>
+  \[ R_{\text{béton}} = \frac{0{,}20}{1{,}7 \times 10} = 0{,}0118 \text{ K/W} \]
+  \[ R_{\text{polystyrène}} = \frac{0{,}10}{0{,}035 \times 10} = 0{,}286 \text{ K/W} \]
+  \[ R_{\text{placo}} = \frac{0{,}013}{0{,}25 \times 10} = 0{,}0052 \text{ K/W} \]
+  \[ R_{\text{total}} = 0{,}0118 + 0{,}286 + 0{,}0052 = 0{,}303 \text{ K/W} \]
+  <p>Pour \(\Delta T = 15\) K : \(\Phi = 15 / 0{,}303 = 49{,}5\) W.</p>
+  <p><strong>Conclusion :</strong> L'isolant domine la résistance totale (94 %). Le béton et le placo contribuent très peu à l'isolation.</p>
+</div>
+
+<!-- ========== APPLICATION ========== -->
+<h2>8. Application aux métiers de l'agencement</h2>
+
+<div class="ex">
+  <span class="label label-ex">Application – Choix d'un isolant pour une cloison</span>
+  <p>Un technicien d'agencement compare trois isolants pour une cloison de 8 m² entre un salon (20 °C) et un garage (5 °C) :</p>
+  <table>
+    <tr><th>Isolant</th><th>\(\lambda\) (W/m·K)</th><th>Épaisseur (cm)</th><th>G (W/K)</th><th>\(\Phi\) (W)</th><th>Prix (€/m²)</th></tr>
+    <tr><td>Laine de verre</td><td>0,032</td><td>10</td><td>2,56</td><td>38,4</td><td>8</td></tr>
+    <tr><td>Polystyrène</td><td>0,035</td><td>10</td><td>2,80</td><td>42,0</td><td>12</td></tr>
+    <tr><td>Laine de bois</td><td>0,038</td><td>10</td><td>3,04</td><td>45,6</td><td>18</td></tr>
+  </table>
+  <p>Les trois isolants sont proches en performance. La laine de bois est la plus chère mais c'est un matériau naturel et elle offre un bon confort d'été (déphasage thermique élevé). La laine de verre est la plus performante et la moins chère.</p>
+</div>
+
+<!-- ========== À RETENIR ========== -->
+<h2>9. À retenir</h2>
+
+<div class="retenir">
+  <strong>Formules clés du chapitre :</strong>
+  <ul>
+    <li>Conductance thermique : \( G = \dfrac{\lambda \cdot S}{e} \) (en W/K)</li>
+    <li>Flux thermique : \( \Phi = G \cdot (T_1 - T_2) \) (en W)</li>
+    <li>Résistance thermique : \( R = \dfrac{1}{G} = \dfrac{e}{\lambda \cdot S} \) (en K/W)</li>
+    <li>Pour des couches superposées : \( R_{\text{total}} = R_1 + R_2 + \ldots \)</li>
+  </ul>
+  <strong>À savoir expliquer :</strong>
+  <ul>
+    <li>Pour réduire les pertes thermiques : choisir un matériau de \(\lambda\) faible et augmenter l'épaisseur \(e\).</li>
+    <li>La conductance G traduit la facilité de passage de la chaleur (plus G est grand, plus la chaleur passe).</li>
+    <li>Le flux \(\Phi\) est la puissance perdue à travers la paroi (en watts).</li>
+    <li>Les premiers centimètres d'isolant sont les plus efficaces (gain décroissant).</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention aux erreurs fréquentes</span>
+  <ul>
+    <li>Toujours convertir l'épaisseur en <strong>mètres</strong> (10 cm = 0,10 m).</li>
+    <li>Ne pas confondre <strong>conductivité \(\lambda\)</strong> (propriété du matériau) et <strong>conductance G</strong> (propriété de la paroi).</li>
+    <li>Ne pas confondre <strong>conductance G</strong> (en W/K) et <strong>résistance R</strong> (en K/W) : ce sont des inverses.</li>
+    <li>Le flux \(\Phi\) est en watts (pas en joules) : c'est une puissance, pas une énergie.</li>
+    <li>Pour calculer l'énergie perdue en une durée t : \(E = \Phi \times t\).</li>
+  </ul>
+</div>
+
+<!-- ========== MINI EXERCICES ========== -->
+<h2>10. Mini exercices</h2>
+
+<div class="exo">
+  <strong>Exercice 1 – Conductance d'une vitre</strong><br>
+  Calculer la conductance thermique d'une vitre de fenêtre : S = 1,5 m², e = 4 mm = 0,004 m, \(\lambda = 1{,}0\) W/m·K.<br>
+  <details>
+    <summary>Voir la solution</summary>
+    <p>\[ G = \frac{1{,}0 \times 1{,}5}{0{,}004} = \frac{1{,}5}{0{,}004} = 375 \text{ W/K} \]</p>
+    <p>La vitre a une très grande conductance : elle laisse facilement passer la chaleur.</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 – Flux à travers un mur</strong><br>
+  Un mur en brique (S = 15 m², e = 20 cm, \(\lambda = 0{,}84\)) sépare une pièce à 19 °C de l'extérieur à 4 °C.<br>
+  Calculer G puis \(\Phi\).<br>
+  <details>
+    <summary>Voir la solution</summary>
+    <p>\(G = \dfrac{0{,}84 \times 15}{0{,}20} = 63\) W/K</p>
+    <p>\(\Phi = 63 \times (19 - 4) = 63 \times 15 = 945\) W</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 3 – Comparaison d'épaisseurs</strong><br>
+  Pour un mur de 10 m² en polystyrène (\(\lambda = 0{,}035\)), calculer G pour e = 5 cm, 10 cm et 20 cm. Conclure.<br>
+  <details>
+    <summary>Voir la solution</summary>
+    <p>e = 5 cm : \(G = 0{,}035 \times 10 / 0{,}05 = 7{,}0\) W/K</p>
+    <p>e = 10 cm : \(G = 0{,}035 \times 10 / 0{,}10 = 3{,}5\) W/K</p>
+    <p>e = 20 cm : \(G = 0{,}035 \times 10 / 0{,}20 = 1{,}75\) W/K</p>
+    <p>Doubler l'épaisseur divise la conductance par 2. L'isolation s'améliore proportionnellement à l'épaisseur.</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 4 – Énergie perdue en une journée</strong><br>
+  Un mur laisse passer un flux \(\Phi = 200\) W. Calculer l'énergie perdue en 10 heures (en kWh) et le coût (à 0,18 €/kWh).<br>
+  <details>
+    <summary>Voir la solution</summary>
+    <p>\(E = \Phi \times t = 0{,}200 \times 10 = 2\) kWh</p>
+    <p>Coût : \(2 \times 0{,}18 = 0{,}36\) €/jour</p>
+  </details>
+</div>
+
+<div style="margin-top:30px;padding-top:18px;border-top:1px solid #e2e8f0;text-align:center;color:#718096;font-size:.82em">
+  Première Bac Pro ERA-MA – Groupement 3 | Physique-Chimie – Chapitre 5 | maths-sciences-lp.github.io
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
