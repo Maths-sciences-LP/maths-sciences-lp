@@ -6,9 +6,9 @@
   <title>Ch03 – Obtenir de l'énergie mécanique à l'aide d'un moteur électrique – DS</title>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" href="../../../styles.css">
-<link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
+  <link rel="stylesheet" href="../../../print.css" media="print">
+  <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+    .info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
     .info-ds div{flex:1;min-width:150px}
     .info-ds strong{display:block;color:var(--p);margin-bottom:2px}
     .pts{font-size:.8em;background:#ede9fe;color:#5b21b6;padding:2px 8px;border-radius:4px;font-weight:600}
@@ -25,111 +25,377 @@
     <h1>Chapitre 3 – Devoir Surveillé</h1>
     <p class="sous-titre">Obtenir de l'énergie mécanique à l'aide d'un moteur électrique &nbsp;|&nbsp; Terminale Bac Pro ICCER</p>
   </header>
-  <div class="info-ds">
-    <div><strong>Durée</strong>55 minutes</div>
-    <div><strong>Barème</strong>20 points</div>
-    <div><strong>Documents</strong>Non autorisés (sauf fiche de formules fournie)</div>
-    <div><strong>Calculatrice</strong>Autorisée</div>
-  </div>
 
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 1</span>
-      <span class="exo-title">Ventilateur d'une centrale de traitement d'air</span>
-      <span class="pts">7 points</span>
-    </div>
-    <p class="enonce">
-      Un technicien CVC intervient sur le moteur asynchrone triphasé d'un ventilateur équipant une centrale de traitement d'air (CTA). Il relève la plaque signalétique suivante :
-    </p>
-    <div class="plaque">
-      <strong>MOTEUR ASYNCHRONE TRIPHASÉ</strong><br>
-      P = 5,5 kW &nbsp;|&nbsp; 400 V / 50 Hz<br>
-      I = 11,2 A &nbsp;|&nbsp; cos φ = 0,82<br>
-      n = 1 440 tr/min &nbsp;|&nbsp; η = 0,87
-    </div>
-    <p></p>
-    <div class="q"><strong>1.</strong> Identifier la puissance P = 5,5 kW indiquée sur la plaque : s'agit-il de la puissance absorbée ou de la puissance utile ? Justifier. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>2.</strong> Calculer la puissance absorbée P<sub>a</sub> par le moteur à partir de la tension, de l'intensité et du facteur de puissance. On rappelle : \(P_a = U \times I \times \sqrt{3} \times \cos(\varphi)\). <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>3.</strong> Vérifier la valeur du rendement η à partir du rapport P<sub>u</sub>/P<sub>a</sub>. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>4.</strong> Calculer les pertes totales du moteur : P<sub>pertes</sub> = P<sub>a</sub> − P<sub>u</sub>. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>5.</strong> La vitesse de synchronisme d'un moteur à 2 paires de pôles alimenté en 50 Hz est n<sub>s</sub> = 1 500 tr/min. Calculer le glissement g du moteur. On rappelle : \(g = \dfrac{n_s - n}{n_s}\). <span class="q-pts">(1,5 pt)</span></div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <p><strong>1.</strong> La puissance P = 5,5 kW est la <strong>puissance utile</strong> (mécanique) délivrée sur l'arbre du moteur. Sur une plaque signalétique, la puissance indiquée est toujours la puissance utile.</p>
-      <p><strong>2.</strong> \(P_a = U \times I \times \sqrt{3} \times \cos(\varphi) = 400 \times 11{,}2 \times 1{,}732 \times 0{,}82\)<br>
-        \(P_a = 400 \times 11{,}2 \times 1{,}732 \times 0{,}82 \approx \mathbf{6\,362\text{ W}} \approx 6{,}36\text{ kW}\)</p>
-      <p><strong>3.</strong> \(\eta = \dfrac{P_u}{P_a} = \dfrac{5\,500}{6\,362} \approx \mathbf{0{,}865 \approx 0{,}87}\)<br>
-        On retrouve bien la valeur η = 0,87 de la plaque signalétique. ✓</p>
-      <p><strong>4.</strong> \(P_{pertes} = P_a - P_u = 6\,362 - 5\,500 = \mathbf{862\text{ W}}\)<br>
-        Ces pertes se dissipent sous forme de chaleur (pertes Joule, pertes fer, pertes mécaniques).</p>
-      <p><strong>5.</strong> \(g = \dfrac{n_s - n}{n_s} = \dfrac{1\,500 - 1\,440}{1\,500} = \dfrac{60}{1\,500} = \mathbf{0{,}04 = 4\,\%}\)<br>
-        Le glissement de 4 % est une valeur normale pour un moteur asynchrone en charge.</p>
-    </div>
-  </div>
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!--                    DS NIVEAU SOCLE                       -->
+  <!-- ════════════════════════════════════════════════════════ -->
 
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 2</span>
-      <span class="exo-title">Bilan de puissance d'un circulateur</span>
-      <span class="pts">7 points</span>
+  <div class="diff-socle">
+    <div class="info-ds">
+      <div><strong>Durée</strong>55 minutes</div>
+      <div><strong>Barème</strong>20 points</div>
+      <div><strong>Documents</strong>Non autorisés (fiche de formules fournie)</div>
+      <div><strong>Calculatrice</strong>Autorisée</div>
     </div>
-    <p class="enonce">
-      Un installateur thermique réalise le bilan énergétique d'un circulateur de chauffage entraîné par un moteur asynchrone monophasé.<br>
-      Données :
-      <ul>
-        <li>Puissance électrique absorbée par le moteur : P<sub>a</sub> = 850 W</li>
-        <li>Rendement du moteur : η<sub>m</sub> = 0,82</li>
-        <li>Rendement de la pompe (circulateur) : η<sub>p</sub> = 0,65</li>
+
+    <div class="exo">
+      <div class="exo-header">
+        <span class="exo-num">Exercice 1</span>
+        <span class="exo-title">Moteur d'un ventilateur de CTA — calculs guidés</span>
+        <span class="pts">8 points</span>
+        <span class="tag-socle">Socle</span>
+      </div>
+      <p class="enonce">Un technicien CVC intervient sur le moteur asynchrone triphasé d'un ventilateur équipant une centrale de traitement d'air (CTA). Il relève la plaque signalétique suivante :</p>
+      <div class="plaque">
+        <strong>MOTEUR ASYNCHRONE TRIPHASÉ</strong><br>
+        P = 5,5 kW &nbsp;|&nbsp; 400 V / 50 Hz<br>
+        I = 11,2 A &nbsp;|&nbsp; cos &phi; = 0,82<br>
+        n = 1 440 tr/min &nbsp;|&nbsp; &eta; = 0,87
+      </div>
+
+      <div class="q"><strong>1.</strong> QCM — La puissance P = 5,5 kW indiquée sur la plaque est : <span class="q-pts">(1 pt)</span></div>
+      <ul style="list-style:none;padding-left:1em">
+        <li>a) La puissance électrique absorbée par le moteur</li>
+        <li>b) La puissance mécanique utile fournie sur l'arbre</li>
+        <li>c) La puissance perdue en chaleur</li>
       </ul>
-    </p>
-    <div class="q"><strong>1.</strong> Calculer la puissance mécanique P<sub>méca</sub> transmise par le moteur à la pompe. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>2.</strong> Calculer les pertes dans le moteur. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>3.</strong> Calculer la puissance hydraulique P<sub>hydr</sub> utile fournie par le circulateur au fluide. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>4.</strong> Calculer les pertes dans la pompe. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>5.</strong> Calculer le rendement global η<sub>g</sub> de l'ensemble moteur + pompe. Vérifier que η<sub>g</sub> = η<sub>m</sub> × η<sub>p</sub>. <span class="q-pts">(2 pts)</span></div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <p><strong>1.</strong> \(P_{m\acute{e}ca} = P_a \times \eta_m = 850 \times 0{,}82 = \mathbf{697\text{ W}}\)</p>
-      <p><strong>2.</strong> Pertes moteur = P<sub>a</sub> − P<sub>méca</sub> = 850 − 697 = <strong>153 W</strong></p>
-      <p><strong>3.</strong> \(P_{hydr} = P_{m\acute{e}ca} \times \eta_p = 697 \times 0{,}65 = \mathbf{453\text{ W}}\)</p>
-      <p><strong>4.</strong> Pertes pompe = P<sub>méca</sub> − P<sub>hydr</sub> = 697 − 453 = <strong>244 W</strong></p>
-      <p><strong>5.</strong> \(\eta_g = \dfrac{P_{hydr}}{P_a} = \dfrac{453}{850} \approx \mathbf{0{,}533}\)<br>
-        Vérification : \(\eta_m \times \eta_p = 0{,}82 \times 0{,}65 = 0{,}533\) ✓<br>
-        Le rendement global est bien le produit des rendements individuels. Seulement 53 % de l'énergie électrique est convertie en énergie hydraulique utile.</p>
+
+      <div class="q"><strong>2.</strong> Compléter le calcul de la puissance électrique absorbée : <span class="q-pts">(2 pts)</span></div>
+      <p style="text-align:center">\(P_a = \sqrt{3} \times U \times I \times \cos\varphi = 1{,}732 \times \boxed{\phantom{400}} \times \boxed{\phantom{11,2}} \times \boxed{\phantom{0,82}} = \boxed{\phantom{6\,362}} \text{ W}\)</p>
+
+      <div class="q"><strong>3.</strong> Compléter le calcul du rendement pour vérifier la plaque : <span class="q-pts">(1,5 pt)</span></div>
+      <p style="text-align:center">\(\eta = \dfrac{P_u}{P_a} = \dfrac{\boxed{\phantom{5\,500}}}{\boxed{\phantom{6\,362}}} = \boxed{\phantom{0,87}}\)</p>
+
+      <div class="q"><strong>4.</strong> Compléter le calcul des pertes : <span class="q-pts">(1,5 pt)</span></div>
+      <p style="text-align:center">\(P_{pertes} = P_a - P_u = \boxed{\phantom{6\,362}} - \boxed{\phantom{5\,500}} = \boxed{\phantom{862}} \text{ W}\)</p>
+
+      <div class="q"><strong>5.</strong> La vitesse de synchronisme est \(n_s = 1\,500\) tr/min. Compléter le calcul du glissement : <span class="q-pts">(2 pts)</span></div>
+      <p style="text-align:center">\(g = \dfrac{n_s - n}{n_s} = \dfrac{\boxed{\phantom{1\,500}} - \boxed{\phantom{1\,440}}}{\boxed{\phantom{1\,500}}} = \dfrac{\boxed{\phantom{60}}}{\boxed{\phantom{1\,500}}} = \boxed{\phantom{0,04}} = \boxed{\phantom{4}} \%\)</p>
+
+      <button class="bc" onclick="toggle(this)">Voir la correction</button>
+      <div class="corr">
+        <p><strong>1.</strong> Réponse <strong>b)</strong> : c'est la puissance mécanique utile. Sur une plaque signalétique, la puissance indiquée est toujours la puissance utile.</p>
+        <p><strong>2.</strong> \(P_a = 1{,}732 \times 400 \times 11{,}2 \times 0{,}82 \approx \mathbf{6\,362\text{ W}}\)</p>
+        <p><strong>3.</strong> \(\eta = \dfrac{5\,500}{6\,362} \approx \mathbf{0{,}865 \approx 0{,}87}\)</p>
+        <p><strong>4.</strong> \(P_{pertes} = 6\,362 - 5\,500 = \mathbf{862\text{ W}}\)</p>
+        <p><strong>5.</strong> \(g = \dfrac{1\,500 - 1\,440}{1\,500} = \dfrac{60}{1\,500} = \mathbf{0{,}04 = 4\,\%}\)</p>
+      </div>
     </div>
+
+    <div class="exo">
+      <div class="exo-header">
+        <span class="exo-num">Exercice 2</span>
+        <span class="exo-title">Circulateur de chauffage — bilan guidé</span>
+        <span class="pts">7 points</span>
+        <span class="tag-socle">Socle</span>
+      </div>
+      <p class="enonce">Un installateur thermique réalise le bilan énergétique d'un circulateur de chauffage entraîné par un moteur monophasé.<br>
+      Données : \(P_a = 850\) W, rendement moteur \(\eta_m = 0{,}82\), rendement pompe \(\eta_p = 0{,}65\).</p>
+
+      <div class="q"><strong>1.</strong> Compléter le calcul de la puissance mécanique : <span class="q-pts">(1,5 pt)</span></div>
+      <p style="text-align:center">\(P_{meca} = P_a \times \eta_m = \boxed{\phantom{850}} \times \boxed{\phantom{0,82}} = \boxed{\phantom{697}} \text{ W}\)</p>
+
+      <div class="q"><strong>2.</strong> Compléter le calcul des pertes dans le moteur : <span class="q-pts">(1 pt)</span></div>
+      <p style="text-align:center">\(P_{pertes,m} = P_a - P_{meca} = \boxed{\phantom{850}} - \boxed{\phantom{697}} = \boxed{\phantom{153}} \text{ W}\)</p>
+
+      <div class="q"><strong>3.</strong> Compléter le calcul de la puissance hydraulique utile : <span class="q-pts">(1,5 pt)</span></div>
+      <p style="text-align:center">\(P_{hydr} = P_{meca} \times \eta_p = \boxed{\phantom{697}} \times \boxed{\phantom{0,65}} = \boxed{\phantom{453}} \text{ W}\)</p>
+
+      <div class="q"><strong>4.</strong> Compléter le calcul des pertes dans la pompe : <span class="q-pts">(1 pt)</span></div>
+      <p style="text-align:center">\(P_{pertes,p} = P_{meca} - P_{hydr} = \boxed{\phantom{697}} - \boxed{\phantom{453}} = \boxed{\phantom{244}} \text{ W}\)</p>
+
+      <div class="q"><strong>5.</strong> Compléter le calcul du rendement global : <span class="q-pts">(2 pts)</span></div>
+      <p style="text-align:center">\(\eta_g = \dfrac{P_{hydr}}{P_a} = \dfrac{\boxed{\phantom{453}}}{\boxed{\phantom{850}}} = \boxed{\phantom{0,533}}\)</p>
+      <p>Vérification : \(\eta_m \times \eta_p = \boxed{\phantom{0,82}} \times \boxed{\phantom{0,65}} = \boxed{\phantom{0,533}}\)</p>
+
+      <button class="bc" onclick="toggle(this)">Voir la correction</button>
+      <div class="corr">
+        <p><strong>1.</strong> \(P_{meca} = 850 \times 0{,}82 = \mathbf{697\text{ W}}\)</p>
+        <p><strong>2.</strong> \(P_{pertes,m} = 850 - 697 = \mathbf{153\text{ W}}\)</p>
+        <p><strong>3.</strong> \(P_{hydr} = 697 \times 0{,}65 = \mathbf{453\text{ W}}\)</p>
+        <p><strong>4.</strong> \(P_{pertes,p} = 697 - 453 = \mathbf{244\text{ W}}\)</p>
+        <p><strong>5.</strong> \(\eta_g = \dfrac{453}{850} = \mathbf{0{,}533}\). Vérification : \(0{,}82 \times 0{,}65 = 0{,}533\).</p>
+      </div>
+    </div>
+
+    <div class="exo">
+      <div class="exo-header">
+        <span class="exo-num">Exercice 3</span>
+        <span class="exo-title">Énergie et coût de fonctionnement — QCM et calcul</span>
+        <span class="pts">5 points</span>
+        <span class="tag-socle">Socle</span>
+      </div>
+      <p class="enonce">Un ventilateur d'extraction fonctionne pendant 6 000 h/an. Sa puissance électrique absorbée est \(P_a = 5\,500\) W. Le prix du kWh est 0,2276 EUR.</p>
+
+      <div class="q"><strong>1.</strong> QCM — Pour calculer l'énergie en kWh, il faut : <span class="q-pts">(1 pt)</span></div>
+      <ul style="list-style:none;padding-left:1em">
+        <li>a) Multiplier la puissance en watts par le temps en secondes</li>
+        <li>b) Multiplier la puissance en kW par le temps en heures</li>
+        <li>c) Diviser la puissance par le temps</li>
+      </ul>
+
+      <div class="q"><strong>2.</strong> Convertir la puissance en kW : <span class="q-pts">(1 pt)</span></div>
+      <p style="text-align:center">\(P_a = \dfrac{5\,500}{1\,000} = \boxed{\phantom{5,5}} \text{ kW}\)</p>
+
+      <div class="q"><strong>3.</strong> Calculer l'énergie annuelle : <span class="q-pts">(1,5 pt)</span></div>
+      <p style="text-align:center">\(W = P_a \times t = \boxed{\phantom{5,5}} \times \boxed{\phantom{6\,000}} = \boxed{\phantom{33\,000}} \text{ kWh}\)</p>
+
+      <div class="q"><strong>4.</strong> Calculer le coût annuel : <span class="q-pts">(1,5 pt)</span></div>
+      <p style="text-align:center">\(\text{Coût} = \boxed{\phantom{33\,000}} \times 0{,}2276 = \boxed{\phantom{7\,511}} \text{ EUR}\)</p>
+
+      <button class="bc" onclick="toggle(this)">Voir la correction</button>
+      <div class="corr">
+        <p><strong>1.</strong> Réponse <strong>b)</strong> : on multiplie la puissance en kW par le temps en heures pour obtenir des kWh.</p>
+        <p><strong>2.</strong> \(P_a = \dfrac{5\,500}{1\,000} = \mathbf{5{,}5\text{ kW}}\)</p>
+        <p><strong>3.</strong> \(W = 5{,}5 \times 6\,000 = \mathbf{33\,000\text{ kWh}}\)</p>
+        <p><strong>4.</strong> \(\text{Coût} = 33\,000 \times 0{,}2276 = \mathbf{7\,511\text{ EUR}}\)</p>
+      </div>
+    </div>
+
+    <div class="total-bar">TOTAL : 20 points</div>
   </div>
 
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 3</span>
-      <span class="exo-title">Économie d'énergie avec un variateur de fréquence</span>
-      <span class="pts">6 points</span>
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!--                  DS NIVEAU STANDARD                      -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="diff-standard">
+    <div class="info-ds">
+      <div><strong>Durée</strong>55 minutes</div>
+      <div><strong>Barème</strong>20 points</div>
+      <div><strong>Documents</strong>Non autorisés (sauf fiche de formules fournie)</div>
+      <div><strong>Calculatrice</strong>Autorisée</div>
     </div>
-    <p class="enonce">
-      Un technicien chauffagiste propose d'installer un variateur de fréquence sur le ventilateur d'extraction d'une chaufferie collective. Le ventilateur tourne actuellement à pleine vitesse en permanence (n = 1 440 tr/min) et sa puissance absorbée est P<sub>100%</sub> = 5 500 W.<br>
-      Avec le variateur, la vitesse sera réduite à 70 % de la vitesse nominale pendant 80 % du temps de fonctionnement.<br>
-      On rappelle la <strong>loi cubique</strong> : \(P_{r\acute{e}duit} = P_{100\%} \times \left(\dfrac{n'}{n}\right)^3\)<br>
-      Durée de fonctionnement : 6 000 h/an. Prix du kWh : 0,2276 €.
-    </p>
-    <div class="q"><strong>1.</strong> Calculer la puissance absorbée lorsque le ventilateur tourne à 70 % de sa vitesse. <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>2.</strong> Calculer l'énergie annuelle consommée sans variateur. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>3.</strong> Calculer l'énergie annuelle consommée avec variateur (80 % du temps à 70 % de vitesse, 20 % à pleine vitesse). <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>4.</strong> En déduire l'économie annuelle en euros. <span class="q-pts">(1 pt)</span></div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <p><strong>1.</strong> \(P_{70\%} = P_{100\%} \times \left(\dfrac{70}{100}\right)^3 = 5\,500 \times 0{,}7^3 = 5\,500 \times 0{,}343 = \mathbf{1\,886{,}5\text{ W}}\)</p>
-      <p><strong>2.</strong> Sans variateur : \(W_1 = P_{100\%} \times t = 5\,500 \times 6\,000 = 33\,000\,000\text{ Wh} = \mathbf{33\,000\text{ kWh}}\)</p>
-      <p><strong>3.</strong> Avec variateur :<br>
-        – 80 % du temps à vitesse réduite : \(W_{70\%} = 1\,886{,}5 \times (0{,}8 \times 6\,000) = 1\,886{,}5 \times 4\,800 = 9\,055\,200\text{ Wh}\)<br>
-        – 20 % du temps à pleine vitesse : \(W_{100\%} = 5\,500 \times (0{,}2 \times 6\,000) = 5\,500 \times 1\,200 = 6\,600\,000\text{ Wh}\)<br>
-        Total : \(W_2 = 9\,055\,200 + 6\,600\,000 = 15\,655\,200\text{ Wh} = \mathbf{15\,655\text{ kWh}}\)</p>
-      <p><strong>4.</strong> Économie en énergie : 33 000 − 15 655 = 17 345 kWh<br>
-        Économie en euros : 17 345 × 0,2276 = <strong>3 947,72 €/an</strong><br>
-        Le variateur de fréquence permet une économie considérable grâce à la loi cubique : réduire la vitesse de 30 % divise la puissance par presque 3.</p>
+
+    <div class="exo">
+      <div class="exo-header">
+        <span class="exo-num">Exercice 1</span>
+        <span class="exo-title">Ventilateur d'une centrale de traitement d'air</span>
+        <span class="pts">7 points</span>
+        <span class="tag-standard">Standard</span>
+      </div>
+      <p class="enonce">
+        Un technicien CVC intervient sur le moteur asynchrone triphasé d'un ventilateur équipant une centrale de traitement d'air (CTA). Il relève la plaque signalétique suivante :
+      </p>
+      <div class="plaque">
+        <strong>MOTEUR ASYNCHRONE TRIPHASÉ</strong><br>
+        P = 5,5 kW &nbsp;|&nbsp; 400 V / 50 Hz<br>
+        I = 11,2 A &nbsp;|&nbsp; cos &phi; = 0,82<br>
+        n = 1 440 tr/min &nbsp;|&nbsp; &eta; = 0,87
+      </div>
+      <p></p>
+      <div class="q"><strong>1.</strong> Identifier la puissance P = 5,5 kW indiquée sur la plaque : s'agit-il de la puissance absorbée ou de la puissance utile ? Justifier. <span class="q-pts">(1 pt)</span></div>
+      <div class="q"><strong>2.</strong> Calculer la puissance absorbée P<sub>a</sub> par le moteur à partir de la tension, de l'intensité et du facteur de puissance. On rappelle : \(P_a = U \times I \times \sqrt{3} \times \cos(\varphi)\). <span class="q-pts">(2 pts)</span></div>
+      <div class="q"><strong>3.</strong> Vérifier la valeur du rendement &eta; à partir du rapport P<sub>u</sub>/P<sub>a</sub>. <span class="q-pts">(1,5 pt)</span></div>
+      <div class="q"><strong>4.</strong> Calculer les pertes totales du moteur : P<sub>pertes</sub> = P<sub>a</sub> − P<sub>u</sub>. <span class="q-pts">(1 pt)</span></div>
+      <div class="q"><strong>5.</strong> La vitesse de synchronisme d'un moteur à 2 paires de pôles alimenté en 50 Hz est n<sub>s</sub> = 1 500 tr/min. Calculer le glissement g du moteur. On rappelle : \(g = \dfrac{n_s - n}{n_s}\). <span class="q-pts">(1,5 pt)</span></div>
+      <button class="bc" onclick="toggle(this)">Voir la correction</button>
+      <div class="corr">
+        <p><strong>1.</strong> La puissance P = 5,5 kW est la <strong>puissance utile</strong> (mécanique) délivrée sur l'arbre du moteur. Sur une plaque signalétique, la puissance indiquée est toujours la puissance utile.</p>
+        <p><strong>2.</strong> \(P_a = U \times I \times \sqrt{3} \times \cos(\varphi) = 400 \times 11{,}2 \times 1{,}732 \times 0{,}82\)<br>
+          \(P_a \approx \mathbf{6\,362\text{ W}} \approx 6{,}36\text{ kW}\)</p>
+        <p><strong>3.</strong> \(\eta = \dfrac{P_u}{P_a} = \dfrac{5\,500}{6\,362} \approx \mathbf{0{,}865 \approx 0{,}87}\)<br>
+          On retrouve bien la valeur de la plaque signalétique.</p>
+        <p><strong>4.</strong> \(P_{pertes} = P_a - P_u = 6\,362 - 5\,500 = \mathbf{862\text{ W}}\)<br>
+          Ces pertes se dissipent sous forme de chaleur (pertes Joule, pertes fer, pertes mécaniques).</p>
+        <p><strong>5.</strong> \(g = \dfrac{n_s - n}{n_s} = \dfrac{1\,500 - 1\,440}{1\,500} = \dfrac{60}{1\,500} = \mathbf{0{,}04 = 4\,\%}\)<br>
+          Le glissement de 4 % est une valeur normale pour un moteur asynchrone en charge.</p>
+      </div>
     </div>
+
+    <div class="exo">
+      <div class="exo-header">
+        <span class="exo-num">Exercice 2</span>
+        <span class="exo-title">Bilan de puissance d'un circulateur</span>
+        <span class="pts">7 points</span>
+        <span class="tag-standard">Standard</span>
+      </div>
+      <p class="enonce">
+        Un installateur thermique réalise le bilan énergétique d'un circulateur de chauffage entraîné par un moteur asynchrone monophasé.<br>
+        Données :
+        <ul>
+          <li>Puissance électrique absorbée par le moteur : P<sub>a</sub> = 850 W</li>
+          <li>Rendement du moteur : &eta;<sub>m</sub> = 0,82</li>
+          <li>Rendement de la pompe (circulateur) : &eta;<sub>p</sub> = 0,65</li>
+        </ul>
+      </p>
+      <div class="q"><strong>1.</strong> Calculer la puissance mécanique P<sub>méca</sub> transmise par le moteur à la pompe. <span class="q-pts">(1,5 pt)</span></div>
+      <div class="q"><strong>2.</strong> Calculer les pertes dans le moteur. <span class="q-pts">(1 pt)</span></div>
+      <div class="q"><strong>3.</strong> Calculer la puissance hydraulique P<sub>hydr</sub> utile fournie par le circulateur au fluide. <span class="q-pts">(1,5 pt)</span></div>
+      <div class="q"><strong>4.</strong> Calculer les pertes dans la pompe. <span class="q-pts">(1 pt)</span></div>
+      <div class="q"><strong>5.</strong> Calculer le rendement global &eta;<sub>g</sub> de l'ensemble moteur + pompe. Vérifier que &eta;<sub>g</sub> = &eta;<sub>m</sub> × &eta;<sub>p</sub>. <span class="q-pts">(2 pts)</span></div>
+      <button class="bc" onclick="toggle(this)">Voir la correction</button>
+      <div class="corr">
+        <p><strong>1.</strong> \(P_{m\acute{e}ca} = P_a \times \eta_m = 850 \times 0{,}82 = \mathbf{697\text{ W}}\)</p>
+        <p><strong>2.</strong> Pertes moteur = P<sub>a</sub> − P<sub>méca</sub> = 850 − 697 = <strong>153 W</strong></p>
+        <p><strong>3.</strong> \(P_{hydr} = P_{m\acute{e}ca} \times \eta_p = 697 \times 0{,}65 = \mathbf{453\text{ W}}\)</p>
+        <p><strong>4.</strong> Pertes pompe = P<sub>méca</sub> − P<sub>hydr</sub> = 697 − 453 = <strong>244 W</strong></p>
+        <p><strong>5.</strong> \(\eta_g = \dfrac{P_{hydr}}{P_a} = \dfrac{453}{850} \approx \mathbf{0{,}533}\)<br>
+          Vérification : \(\eta_m \times \eta_p = 0{,}82 \times 0{,}65 = 0{,}533\)<br>
+          Le rendement global est bien le produit des rendements individuels. Seulement 53 % de l'énergie électrique est convertie en énergie hydraulique utile.</p>
+      </div>
+    </div>
+
+    <div class="exo">
+      <div class="exo-header">
+        <span class="exo-num">Exercice 3</span>
+        <span class="exo-title">Économie d'énergie avec un variateur de fréquence</span>
+        <span class="pts">6 points</span>
+        <span class="tag-standard">Standard</span>
+      </div>
+      <p class="enonce">
+        Un technicien chauffagiste propose d'installer un variateur de fréquence sur le ventilateur d'extraction d'une chaufferie collective. Le ventilateur tourne actuellement à pleine vitesse en permanence (n = 1 440 tr/min) et sa puissance absorbée est P<sub>100%</sub> = 5 500 W.<br>
+        Avec le variateur, la vitesse sera réduite à 70 % de la vitesse nominale pendant 80 % du temps de fonctionnement.<br>
+        On rappelle la <strong>loi cubique</strong> : \(P_{r\acute{e}duit} = P_{100\%} \times \left(\dfrac{n'}{n}\right)^3\)<br>
+        Durée de fonctionnement : 6 000 h/an. Prix du kWh : 0,2276 EUR.
+      </p>
+      <div class="q"><strong>1.</strong> Calculer la puissance absorbée lorsque le ventilateur tourne à 70 % de sa vitesse. <span class="q-pts">(2 pts)</span></div>
+      <div class="q"><strong>2.</strong> Calculer l'énergie annuelle consommée sans variateur. <span class="q-pts">(1 pt)</span></div>
+      <div class="q"><strong>3.</strong> Calculer l'énergie annuelle consommée avec variateur (80 % du temps à 70 % de vitesse, 20 % à pleine vitesse). <span class="q-pts">(2 pts)</span></div>
+      <div class="q"><strong>4.</strong> En déduire l'économie annuelle en euros. <span class="q-pts">(1 pt)</span></div>
+      <button class="bc" onclick="toggle(this)">Voir la correction</button>
+      <div class="corr">
+        <p><strong>1.</strong> \(P_{70\%} = P_{100\%} \times \left(\dfrac{70}{100}\right)^3 = 5\,500 \times 0{,}7^3 = 5\,500 \times 0{,}343 = \mathbf{1\,886{,}5\text{ W}}\)</p>
+        <p><strong>2.</strong> Sans variateur : \(W_1 = P_{100\%} \times t = 5\,500 \times 6\,000 = 33\,000\,000\text{ Wh} = \mathbf{33\,000\text{ kWh}}\)</p>
+        <p><strong>3.</strong> Avec variateur :<br>
+          – 80 % du temps à vitesse réduite : \(W_{70\%} = 1\,886{,}5 \times (0{,}8 \times 6\,000) = 1\,886{,}5 \times 4\,800 = 9\,055\,200\text{ Wh}\)<br>
+          – 20 % du temps à pleine vitesse : \(W_{100\%} = 5\,500 \times (0{,}2 \times 6\,000) = 5\,500 \times 1\,200 = 6\,600\,000\text{ Wh}\)<br>
+          Total : \(W_2 = 9\,055\,200 + 6\,600\,000 = 15\,655\,200\text{ Wh} = \mathbf{15\,655\text{ kWh}}\)</p>
+        <p><strong>4.</strong> Économie en énergie : 33 000 − 15 655 = 17 345 kWh<br>
+          Économie en euros : 17 345 × 0,2276 = <strong>3 947,72 EUR/an</strong><br>
+          Le variateur de fréquence permet une économie considérable grâce à la loi cubique : réduire la vitesse de 30 % divise la puissance par presque 3.</p>
+      </div>
+    </div>
+
+    <div class="total-bar">TOTAL : 20 points</div>
   </div>
 
-  <div class="total-bar">TOTAL : 20 points</div>
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!--              DS NIVEAU APPROFONDISSEMENT                 -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="diff-appro">
+    <div class="info-ds">
+      <div><strong>Durée</strong>55 minutes</div>
+      <div><strong>Barème</strong>20 points</div>
+      <div><strong>Documents</strong>Non autorisés (sauf fiche de formules fournie)</div>
+      <div><strong>Calculatrice</strong>Autorisée</div>
+    </div>
+
+    <div class="exo">
+      <div class="exo-header">
+        <span class="exo-num">Exercice 1</span>
+        <span class="exo-title">Audit énergétique d'une chaufferie collective</span>
+        <span class="pts">10 points</span>
+        <span class="tag-appro">Approfondissement</span>
+      </div>
+      <p class="enonce">
+        Un technicien de maintenance énergétique réalise l'audit d'une chaufferie collective équipée de deux moteurs asynchrones triphasés 400 V / 50 Hz :</p>
+      <ul>
+        <li><strong>Moteur 1 (ventilateur CTA) :</strong> plaque signalétique : P = 5,5 kW, I = 11,2 A, cos &phi; = 0,82, n = 1 440 tr/min, &eta; = 0,87</li>
+        <li><strong>Moteur 2 (pompe de circulation) :</strong> plaque signalétique : P = 3,0 kW, I = 6,8 A, cos &phi; = 0,78, n = 2 880 tr/min, &eta; = 0,84</li>
+      </ul>
+      <p>La pompe de circulation a un rendement hydraulique \(\eta_p = 0{,}68\). Les deux moteurs fonctionnent 5 500 h/an. Prix du kWh : 0,2276 EUR.</p>
+
+      <div class="q"><strong>1.</strong> Pour chaque moteur, calculer la puissance électrique absorbée, la vitesse angulaire et le couple moteur. Présenter les résultats dans un tableau comparatif. <span class="q-pts">(4 pts)</span></div>
+      <div class="q"><strong>2.</strong> Pour le moteur 2 (pompe), calculer la puissance hydraulique utile transmise au fluide. En déduire le rendement global de l'ensemble moteur + pompe. <span class="q-pts">(2 pts)</span></div>
+      <div class="q"><strong>3.</strong> Calculer l'énergie totale annuelle consommée par les deux moteurs et le coût correspondant. <span class="q-pts">(2 pts)</span></div>
+      <div class="q"><strong>4.</strong> Le technicien propose de remplacer les deux moteurs par des moteurs IE4 (haut rendement) : \(\eta'_1 = 0{,}93\) et \(\eta'_2 = 0{,}91\). Calculer la nouvelle consommation annuelle et l'économie réalisée. Si le surcoût total des moteurs IE4 est de 1 400 EUR, calculer le temps de retour sur investissement. <span class="q-pts">(2 pts)</span></div>
+
+      <button class="bc" onclick="toggle(this)">Voir la correction</button>
+      <div class="corr">
+        <p><strong>1.</strong> Tableau comparatif :</p>
+        <table style="width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em">
+          <tr style="background:var(--p-bg)">
+            <th style="border:1px solid #ccc;padding:6px">Grandeur</th>
+            <th style="border:1px solid #ccc;padding:6px">Moteur 1 (ventilateur)</th>
+            <th style="border:1px solid #ccc;padding:6px">Moteur 2 (pompe)</th>
+          </tr>
+          <tr>
+            <td style="border:1px solid #ccc;padding:6px">\(P_{elec}\)</td>
+            <td style="border:1px solid #ccc;padding:6px">\(\dfrac{5\,500}{0{,}87} \approx 6\,322\) W</td>
+            <td style="border:1px solid #ccc;padding:6px">\(\dfrac{3\,000}{0{,}84} \approx 3\,571\) W</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #ccc;padding:6px">\(\omega\)</td>
+            <td style="border:1px solid #ccc;padding:6px">\(\dfrac{2\pi \times 1\,440}{60} \approx 150{,}8\) rad/s</td>
+            <td style="border:1px solid #ccc;padding:6px">\(\dfrac{2\pi \times 2\,880}{60} \approx 301{,}6\) rad/s</td>
+          </tr>
+          <tr>
+            <td style="border:1px solid #ccc;padding:6px">\(C\)</td>
+            <td style="border:1px solid #ccc;padding:6px">\(\dfrac{5\,500}{150{,}8} \approx 36{,}5\) N·m</td>
+            <td style="border:1px solid #ccc;padding:6px">\(\dfrac{3\,000}{301{,}6} \approx 9{,}9\) N·m</td>
+          </tr>
+        </table>
+        <p><strong>2.</strong> \(P_{hydr} = P_{mec,2} \times \eta_p = 3\,000 \times 0{,}68 = \mathbf{2\,040\text{ W}}\)<br>
+        \(\eta_{g} = \dfrac{P_{hydr}}{P_{elec,2}} = \dfrac{2\,040}{3\,571} \approx \mathbf{0{,}571}\)<br>
+        Vérification : \(0{,}84 \times 0{,}68 = 0{,}571\)</p>
+        <p><strong>3.</strong> \(W_{totale} = (6{,}322 + 3{,}571) \times 5\,500 = 9{,}893 \times 5\,500 = \mathbf{54\,412\text{ kWh/an}}\)<br>
+        Coût : \(54\,412 \times 0{,}2276 = \mathbf{12\,384\text{ EUR/an}}\)</p>
+        <p><strong>4.</strong> Avec moteurs IE4 :<br>
+        \(P'_{elec,1} = \dfrac{5\,500}{0{,}93} = 5\,914\text{ W}\)<br>
+        \(P'_{elec,2} = \dfrac{3\,000}{0{,}91} = 3\,297\text{ W}\)<br>
+        \(W'_{totale} = (5{,}914 + 3{,}297) \times 5\,500 = 50\,661\text{ kWh/an}\)<br>
+        Économie : \((54\,412 - 50\,661) \times 0{,}2276 = 3\,751 \times 0{,}2276 = \mathbf{854\text{ EUR/an}}\)<br>
+        Temps de retour : \(\dfrac{1\,400}{854} \approx \mathbf{1{,}6\text{ an}}\). L'investissement est amorti en moins de 2 ans.</p>
+      </div>
+    </div>
+
+    <div class="exo">
+      <div class="exo-header">
+        <span class="exo-num">Exercice 2</span>
+        <span class="exo-title">Optimisation par variateur de fréquence — étude complète</span>
+        <span class="pts">10 points</span>
+        <span class="tag-appro">Approfondissement</span>
+      </div>
+      <p class="enonce">
+        Un bureau d'études CVC étudie l'installation d'un variateur de fréquence sur le ventilateur d'extraction d'une chaufferie. Le ventilateur est entraîné par un moteur triphasé 400 V : \(P_{mec} = 5{,}5\) kW, \(\eta = 0{,}87\), \(\cos\varphi = 0{,}82\), \(n = 1\,440\) tr/min.<br>
+        Le profil de fonctionnement annuel est le suivant (durée totale : 7 000 h/an) :
+      </p>
+      <table style="width:100%;border-collapse:collapse;margin:10px 0">
+        <tr style="background:var(--p-bg)">
+          <th style="border:1px solid #ccc;padding:8px">Saison</th>
+          <th style="border:1px solid #ccc;padding:8px">Durée (h)</th>
+          <th style="border:1px solid #ccc;padding:8px">Vitesse</th>
+        </tr>
+        <tr><td style="border:1px solid #ccc;padding:8px">Hiver (pleine charge)</td><td style="border:1px solid #ccc;padding:8px">2 000</td><td style="border:1px solid #ccc;padding:8px">100 %</td></tr>
+        <tr><td style="border:1px solid #ccc;padding:8px">Mi-saison</td><td style="border:1px solid #ccc;padding:8px">3 000</td><td style="border:1px solid #ccc;padding:8px">70 %</td></tr>
+        <tr><td style="border:1px solid #ccc;padding:8px">Été (charge réduite)</td><td style="border:1px solid #ccc;padding:8px">2 000</td><td style="border:1px solid #ccc;padding:8px">40 %</td></tr>
+      </table>
+      <p>On rappelle la <strong>loi cubique</strong> : \(P = P_{nom} \times \left(\dfrac{n'}{n}\right)^3\). Prix du kWh : 0,2276 EUR. Coût du variateur installé : 3 200 EUR.</p>
+
+      <div class="q"><strong>1.</strong> Calculer la puissance électrique absorbée à pleine charge et le courant de ligne. <span class="q-pts">(2 pts)</span></div>
+      <div class="q"><strong>2.</strong> Calculer le couple moteur à pleine charge. <span class="q-pts">(1 pt)</span></div>
+      <div class="q"><strong>3.</strong> En appliquant la loi cubique, calculer la puissance mécanique puis la puissance électrique absorbée à 70 % et à 40 % de la vitesse nominale. <span class="q-pts">(2 pts)</span></div>
+      <div class="q"><strong>4.</strong> Calculer l'énergie annuelle consommée sans variateur (100 % du temps à pleine charge) et avec variateur (profil saisonnier). <span class="q-pts">(3 pts)</span></div>
+      <div class="q"><strong>5.</strong> Calculer l'économie annuelle en euros et le temps de retour sur investissement. Rédiger une conclusion argumentée pour le client. <span class="q-pts">(2 pts)</span></div>
+
+      <button class="bc" onclick="toggle(this)">Voir la correction</button>
+      <div class="corr">
+        <p><strong>1.</strong> \(P_{elec} = \dfrac{5\,500}{0{,}87} \approx \mathbf{6\,322\text{ W}}\)<br>
+        \(I = \dfrac{6\,322}{1{,}732 \times 400 \times 0{,}82} = \dfrac{6\,322}{568{,}1} \approx \mathbf{11{,}1\text{ A}}\)</p>
+        <p><strong>2.</strong> \(\omega = \dfrac{2\pi \times 1\,440}{60} \approx 150{,}8\text{ rad/s}\)<br>
+        \(C = \dfrac{5\,500}{150{,}8} \approx \mathbf{36{,}5\text{ N·m}}\)</p>
+        <p><strong>3.</strong> À 70 % : \(P_{mec,70\%} = 5\,500 \times 0{,}70^3 = 5\,500 \times 0{,}343 = 1\,887\text{ W}\)<br>
+        \(P_{elec,70\%} = \dfrac{1\,887}{0{,}87} \approx \mathbf{2\,169\text{ W}}\)<br>
+        À 40 % : \(P_{mec,40\%} = 5\,500 \times 0{,}40^3 = 5\,500 \times 0{,}064 = 352\text{ W}\)<br>
+        \(P_{elec,40\%} = \dfrac{352}{0{,}87} \approx \mathbf{405\text{ W}}\)</p>
+        <p><strong>4.</strong> Sans variateur : \(W_1 = 6{,}322 \times 7\,000 = \mathbf{44\,254\text{ kWh/an}}\)<br>
+        Avec variateur :<br>
+        Hiver : \(6{,}322 \times 2\,000 = 12\,644\text{ kWh}\)<br>
+        Mi-saison : \(2{,}169 \times 3\,000 = 6\,507\text{ kWh}\)<br>
+        Été : \(0{,}405 \times 2\,000 = 810\text{ kWh}\)<br>
+        Total : \(W_2 = 12\,644 + 6\,507 + 810 = \mathbf{19\,961\text{ kWh/an}}\)</p>
+        <p><strong>5.</strong> Économie : \(44\,254 - 19\,961 = 24\,293\text{ kWh}\)<br>
+        Économie en euros : \(24\,293 \times 0{,}2276 = \mathbf{5\,529\text{ EUR/an}}\)<br>
+        Temps de retour : \(\dfrac{3\,200}{5\,529} \approx \mathbf{0{,}58\text{ an}} \approx 7\text{ mois}\)<br>
+        <em>Conclusion :</em> L'installation d'un variateur de fréquence permet de réduire la consommation de 55 % grâce à la loi cubique. L'investissement de 3 200 EUR est amorti en 7 mois seulement. Au-delà de l'économie financière, la réduction de vitesse diminue le bruit, l'usure mécanique et prolonge la durée de vie du moteur. C'est un investissement très rentable et recommandé.</p>
+      </div>
+    </div>
+
+    <div class="total-bar">TOTAL : 20 points</div>
+  </div>
+
 </div>
 <script>
 function toggle(btn){
@@ -138,6 +404,7 @@ function toggle(btn){
   else{c.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>
