@@ -223,6 +223,7 @@ function update() {
 }
 
 function drawScene() {
+  animId = null;
   const W = cv.width, H = cv.height;
   const dpr = window.devicePixelRatio || 1;
   if (cv.width !== cv.clientWidth * dpr) {

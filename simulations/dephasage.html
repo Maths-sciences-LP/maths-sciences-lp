@@ -500,17 +500,31 @@ function arrowHead(ctx, xTip, yTip, xBase, yBase) {
 
 // ─── BOUCLE D'ANIMATION ───────────────────────────────────────────────────────
 function loop() {
+  animId = null;
   if (!paused) {
     animTime += 0.008; // vitesse d'animation
     drawOnde();
+    animId = requestAnimationFrame(loop);
   }
-  animId = requestAnimationFrame(loop);
+}
+
+function startLoop() {
+  if (!animId && !paused) animId = requestAnimationFrame(loop);
+}
+
+function stopLoop() {
+  if (animId) { cancelAnimationFrame(animId); animId = null; }
 }
 
 // ─── CONTRÔLES ────────────────────────────────────────────────────────────────
 function togglePause() {
   paused = !paused;
   document.getElementById('btnPause').textContent = paused ? '▶ Reprendre' : '⏸ Pause';
+  if (paused) {
+    stopLoop();
+  } else {
+    startLoop();
+  }
 }
 
 function resetParams() {
@@ -520,12 +534,19 @@ function resetParams() {
   paused = false;
   document.getElementById('btnPause').textContent = '⏸ Pause';
   update();
+  startLoop();
 }
 
 // ─── INITIALISATION ───────────────────────────────────────────────────────────
+// Pause animation when tab is hidden to save CPU
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopLoop();
+  else if (!paused) startLoop();
+});
+
 window.addEventListener('resize', () => { cvOnde.width = 0; }); // force redraw
 update();
-loop();
+startLoop();
 </script>
 <script src="../nav.js"></script>
 </body>

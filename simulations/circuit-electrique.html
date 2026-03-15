@@ -423,6 +423,7 @@ function initElectrons() {
 }
 
 function animate() {
+  animId = null;
   const v = getValues();
   const speed = Math.min(v.I * 0.003, 0.015);
 

@@ -176,6 +176,7 @@ const cvP = $('cvPile');
 const ctxP = cvP.getContext('2d');
 
 function drawPile() {
+  animId = null;
   const W = cvP.width, H = cvP.height;
   ctxP.clearRect(0, 0, W, H);
   animFrame++;
@@ -355,6 +356,15 @@ function updateBat() {
     </p>
   `;
 }
+
+// Pause animation when tab is hidden to save CPU
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    if (animId) { cancelAnimationFrame(animId); animId = null; }
+  } else {
+    startPileAnimation();
+  }
+});
 
 // Init
 updatePile();

@@ -207,6 +207,7 @@ function updateDB(A) {
 
 /* ── Waveform animation ── */
 function animate() {
+  animId = null;
   const cv = document.getElementById('waveCanvas');
   const ctx = cv.getContext('2d');
   const W = cv.offsetWidth; cv.width = W; const H = 200; cv.height = H;
