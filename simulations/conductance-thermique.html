@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Conductance Thermique et Isolation – Simulation</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f4f9;color:#1e293b;line-height:1.6}
+header{background:linear-gradient(135deg,#e67e22,#d35400);color:#fff;padding:30px 20px 24px;text-align:center;position:relative}
+header h1{font-size:1.6em;margin-bottom:4px}
+header p{font-size:.92em;opacity:.88}
+.btn-back{position:absolute;left:15px;top:15px;background:rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:5px 12px;border-radius:5px;font-size:.85em;transition:background .2s}
+.btn-back:hover{background:rgba(255,255,255,.35)}
+.container{max-width:860px;margin:24px auto;padding:0 16px}
+.card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:22px;margin-bottom:20px}
+.card h2{font-size:1.15em;color:#e67e22;margin-bottom:14px;border-bottom:2px solid #fef3c7;padding-bottom:8px}
+.row{display:flex;gap:20px;flex-wrap:wrap}
+.col{flex:1;min-width:260px}
+canvas{width:100%;border-radius:8px;border:1px solid #e2e8f0;display:block}
+label{display:block;font-size:.88em;font-weight:600;color:#475569;margin:10px 0 4px}
+label:first-child{margin-top:0}
+input[type=range]{width:100%;accent-color:#e67e22}
+select{width:100%;padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;font-size:.9em;background:#fff}
+.val{font-size:.82em;color:#64748b}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:12px}
+.res-box{background:#fff7ed;border-radius:8px;padding:10px 12px;text-align:center}
+.res-label{font-size:.78em;color:#64748b;text-transform:uppercase;letter-spacing:.03em}
+.res-value{font-size:1.1em;font-weight:700;color:#c2410c}
+.layers-panel{margin-top:10px}
+.layer-row{display:flex;align-items:center;gap:8px;padding:8px;background:#fefce8;border-radius:6px;margin-bottom:6px;flex-wrap:wrap}
+.layer-row select{width:auto;flex:1;min-width:120px}
+.layer-row input{width:100px}
+.layer-row .layer-r{font-size:.85em;color:#92400e;font-weight:600;min-width:100px}
+.btn{padding:6px 14px;border:none;border-radius:6px;cursor:pointer;font-size:.85em;font-weight:600;transition:all .15s}
+.btn-add{background:#16a34a;color:#fff}.btn-add:hover{background:#15803d}
+.btn-del{background:#dc2626;color:#fff;padding:4px 10px;font-size:.8em}.btn-del:hover{background:#b91c1c}
+.btn-mode{background:#e67e22;color:#fff;margin-right:8px}.btn-mode:hover{background:#d35400}
+.btn-mode.active{background:#c2410c;box-shadow:0 0 0 2px #fed7aa}
+.mode-toggle{margin-bottom:14px}
+.formulas{background:#f8fafc;border-left:4px solid #e67e22;padding:14px 16px;border-radius:0 8px 8px 0;margin-top:10px;font-size:.92em}
+.context{background:linear-gradient(135deg,#fff7ed,#f0fdf4);border:2px solid #e67e22;border-radius:10px;padding:16px 18px;font-size:.9em}
+.context strong{color:#c2410c}
+.cost-box{background:#fef9c3;border:2px solid #eab308;border-radius:10px;padding:16px;margin-top:12px}
+.cost-box h3{color:#a16207;font-size:1em;margin-bottom:8px}
+.cost-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.cost-row label{margin:0;min-width:auto}
+.cost-row input{width:100px;padding:5px 8px;border:1px solid #cbd5e1;border-radius:5px;font-size:.9em}
+.cost-result{font-size:1.2em;font-weight:700;color:#a16207}
+.chart-container{height:250px;margin-top:14px}
+@media(max-width:600px){
+  .row{flex-direction:column}
+  header h1{font-size:1.25em}
+  .results{grid-template-columns:1fr 1fr}
+  .layer-row{flex-direction:column;align-items:stretch}
+  .layer-row input{width:100%}
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="../simulations.html" class="btn-back">← Retour</a>
+  <h1>Conductance Thermique et Isolation</h1>
+  <p>Première Bac Pro · Ch05 ERA</p>
+</header>
+
+<div class="container">
+
+<!-- MODE TOGGLE -->
+<div class="card">
+  <h2>Mode de simulation</h2>
+  <div class="mode-toggle">
+    <button class="btn btn-mode active" id="btnSingle" onclick="setMode('single')">Couche unique</button>
+    <button class="btn btn-mode" id="btnComposite" onclick="setMode('composite')">Paroi composite (jusqu'à 3 couches)</button>
+  </div>
+
+  <!-- SINGLE LAYER -->
+  <div id="singlePanel">
+    <div class="row">
+      <div class="col">
+        <canvas id="cvSingle" width="400" height="300"></canvas>
+      </div>
+      <div class="col">
+        <label>Matériau</label>
+        <select id="matSingle">
+          <option value="1.75">Béton (λ = 1,75)</option>
+          <option value="0.84">Brique (λ = 0,84)</option>
+          <option value="0.04">Laine de verre (λ = 0,04)</option>
+          <option value="0.035">Polystyrène (λ = 0,035)</option>
+          <option value="0.15">Bois (λ = 0,15)</option>
+          <option value="0.35">Plâtre (λ = 0,35)</option>
+          <option value="0.025">Air (λ = 0,025)</option>
+        </select>
+
+        <label>Épaisseur e <span class="val" id="eVal">0.10 m</span></label>
+        <input type="range" id="eSlider" min="0.01" max="0.5" value="0.10" step="0.005">
+
+        <label>Surface S <span class="val" id="sVal">10 m²</span></label>
+        <input type="range" id="sSlider" min="1" max="20" value="10" step="0.5">
+
+        <label>ΔT = T<sub>int</sub> − T<sub>ext</sub> <span class="val" id="dtVal">20 °C</span></label>
+        <input type="range" id="dtSlider" min="1" max="40" value="20" step="1">
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPOSITE -->
+  <div id="compositePanel" style="display:none">
+    <div class="row">
+      <div class="col">
+        <canvas id="cvComposite" width="400" height="300"></canvas>
+      </div>
+      <div class="col">
+        <label>Surface S <span class="val" id="sValC">10 m²</span></label>
+        <input type="range" id="sSliderC" min="1" max="20" value="10" step="0.5">
+
+        <label>ΔT = T<sub>int</sub> − T<sub>ext</sub> <span class="val" id="dtValC">20 °C</span></label>
+        <input type="range" id="dtSliderC" min="1" max="40" value="20" step="1">
+
+        <div class="layers-panel" id="layersPanel"></div>
+        <button class="btn btn-add" id="btnAddLayer" onclick="addLayer()">+ Ajouter une couche</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="card">
+  <h2>Résultats</h2>
+  <div class="results" id="results">
+    <div class="res-box"><div class="res-label">Conductance G</div><div class="res-value" id="resG">—</div></div>
+    <div class="res-box"><div class="res-label">Résistance R</div><div class="res-value" id="resR">—</div></div>
+    <div class="res-box"><div class="res-label">Flux Φ</div><div class="res-value" id="resPhi">—</div></div>
+    <div class="res-box"><div class="res-label">λ matériau</div><div class="res-value" id="resLambda">—</div></div>
+  </div>
+
+  <!-- ENERGY COST -->
+  <div class="cost-box">
+    <h3>Estimation du coût énergétique annuel</h3>
+    <div class="cost-row">
+      <label>Durée de chauffe :</label>
+      <input type="number" id="hours" value="5000" min="100" max="8760" step="100"> h/an
+      <label style="margin-left:10px">Prix kWh :</label>
+      <input type="number" id="price" value="0.22" min="0.01" max="1" step="0.01"> €
+    </div>
+    <div>Coût annuel estimé (pertes par cette paroi) : <span class="cost-result" id="costResult">—</span></div>
+  </div>
+
+  <div class="formulas">
+    <strong>Formules :</strong><br>
+    \( G = \dfrac{\lambda \cdot S}{e} \) (W/K)
+    &nbsp;|&nbsp;
+    \( R = \dfrac{e}{\lambda \cdot S} = \dfrac{1}{G} \) (K/W)
+    &nbsp;|&nbsp;
+    \( \Phi = G \times \Delta T \) (W)
+    <br>Paroi composite : \( R_{\text{total}} = R_1 + R_2 + R_3 \), \( G_{\text{total}} = \dfrac{1}{R_{\text{total}}} \)
+  </div>
+</div>
+
+<!-- COMPARISON CHART -->
+<div class="card">
+  <h2>Comparaison des matériaux (Φ pour e = épaisseur choisie)</h2>
+  <div class="chart-container">
+    <canvas id="chartCompare"></canvas>
+  </div>
+</div>
+
+<div class="card context">
+  <strong>Contexte professionnel :</strong> Un menuisier agenceur doit isoler une cloison séparant un salon chauffé d'un garage non chauffé. Le client souhaite réduire sa facture de chauffage. Plusieurs isolants sont disponibles : laine de verre, polystyrène, laine de bois, mousse polyuréthane. Le calcul de la conductance thermique permet de choisir le meilleur matériau et la bonne épaisseur.
+</div>
+
+</div>
+
+<script>
+const materials = [
+  { name: 'Béton', lambda: 1.75, color: '#94a3b8', pattern: null },
+  { name: 'Brique', lambda: 0.84, color: '#dc2626', pattern: 'brick' },
+  { name: 'Laine de verre', lambda: 0.04, color: '#fbbf24', pattern: 'fiber' },
+  { name: 'Polystyrène', lambda: 0.035, color: '#a3e635', pattern: 'dots' },
+  { name: 'Bois', lambda: 0.15, color: '#a16207', pattern: 'wood' },
+  { name: 'Plâtre', lambda: 0.35, color: '#f1f5f9', pattern: null },
+  { name: 'Air', lambda: 0.025, color: '#e0f2fe', pattern: null },
+];
+
+let mode = 'single';
+let layers = [{ matIdx: 0, e: 0.10 }];
+
+// Chart
+const chartCtx = document.getElementById('chartCompare').getContext('2d');
+const chart = new Chart(chartCtx, {
+  type: 'bar',
+  data: {
+    labels: materials.map(m => m.name),
+    datasets: [{
+      label: 'Flux Φ (W)',
+      data: [],
+      backgroundColor: materials.map(m => m.color + 'cc'),
+      borderColor: materials.map(m => m.color),
+      borderWidth: 2,
+      borderRadius: 4
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: 'Flux Φ (W)' } },
+      x: { title: { display: true, text: 'Matériau' } }
+    }
+  }
+});
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('singlePanel').style.display = m === 'single' ? '' : 'none';
+  document.getElementById('compositePanel').style.display = m === 'composite' ? '' : 'none';
+  document.getElementById('btnSingle').classList.toggle('active', m === 'single');
+  document.getElementById('btnComposite').classList.toggle('active', m === 'composite');
+  if (m === 'composite' && layers.length === 0) addLayer();
+  updateAll();
+}
+
+function addLayer() {
+  if (layers.length >= 3) return;
+  layers.push({ matIdx: 2, e: 0.08 });
+  renderLayers();
+  updateAll();
+}
+
+function removeLayer(i) {
+  layers.splice(i, 1);
+  renderLayers();
+  updateAll();
+}
+
+function renderLayers() {
+  const panel = document.getElementById('layersPanel');
+  panel.innerHTML = '';
+  layers.forEach((l, i) => {
+    const row = document.createElement('div');
+    row.className = 'layer-row';
+    row.innerHTML = `
+      <strong style="min-width:70px">Couche ${i + 1}</strong>
+      <select onchange="layers[${i}].matIdx=this.selectedIndex;updateAll()">
+        ${materials.map((m, j) => `<option value="${j}" ${j === l.matIdx ? 'selected' : ''}>${m.name} (λ=${m.lambda})</option>`).join('')}
+      </select>
+      <label style="margin:0;white-space:nowrap">e =</label>
+      <input type="range" min="0.01" max="0.5" step="0.005" value="${l.e}"
+        onchange="layers[${i}].e=parseFloat(this.value);updateAll()"
+        oninput="layers[${i}].e=parseFloat(this.value);this.nextElementSibling.textContent=this.value+' m';updateAll()">
+      <span class="val">${l.e} m</span>
+      <span class="layer-r" id="layerR${i}"></span>
+      ${layers.length > 1 ? `<button class="btn btn-del" onclick="removeLayer(${i})">×</button>` : ''}
+    `;
+    panel.appendChild(row);
+  });
+  document.getElementById('btnAddLayer').style.display = layers.length >= 3 ? 'none' : '';
+}
+
+function updateAll() {
+  if (mode === 'single') updateSingle();
+  else updateComposite();
+  updateChart();
+  updateCost();
+}
+
+function updateSingle() {
+  const lambda = parseFloat(document.getElementById('matSingle').value);
+  const e = parseFloat(document.getElementById('eSlider').value);
+  const S = parseFloat(document.getElementById('sSlider').value);
+  const dT = parseFloat(document.getElementById('dtSlider').value);
+
+  document.getElementById('eVal').textContent = e.toFixed(3) + ' m';
+  document.getElementById('sVal').textContent = S.toFixed(1) + ' m²';
+  document.getElementById('dtVal').textContent = dT + ' °C';
+
+  const G = lambda * S / e;
+  const R = e / (lambda * S);
+  const Phi = G * dT;
+
+  document.getElementById('resG').textContent = G.toFixed(2) + ' W/K';
+  document.getElementById('resR').textContent = R.toFixed(4) + ' K/W';
+  document.getElementById('resPhi').textContent = Phi.toFixed(1) + ' W';
+  document.getElementById('resLambda').textContent = lambda + ' W/(m·K)';
+
+  drawSingleWall(lambda, e, S, dT, Phi);
+}
+
+function updateComposite() {
+  const S = parseFloat(document.getElementById('sSliderC').value);
+  const dT = parseFloat(document.getElementById('dtSliderC').value);
+
+  document.getElementById('sValC').textContent = S.toFixed(1) + ' m²';
+  document.getElementById('dtValC').textContent = dT + ' °C';
+
+  let Rtotal = 0;
+  layers.forEach((l, i) => {
+    const mat = materials[l.matIdx];
+    const Ri = l.e / (mat.lambda * S);
+    Rtotal += Ri;
+    const el = document.getElementById('layerR' + i);
+    if (el) el.textContent = 'R = ' + Ri.toFixed(4) + ' K/W';
+  });
+
+  const Gtotal = 1 / Rtotal;
+  const Phi = Gtotal * dT;
+
+  document.getElementById('resG').textContent = Gtotal.toFixed(2) + ' W/K';
+  document.getElementById('resR').textContent = Rtotal.toFixed(4) + ' K/W';
+  document.getElementById('resPhi').textContent = Phi.toFixed(1) + ' W';
+  document.getElementById('resLambda').textContent = 'composite';
+
+  drawCompositeWall(S, dT, Phi);
+}
+
+function updateChart() {
+  const e = mode === 'single' ? parseFloat(document.getElementById('eSlider').value) : 0.1;
+  const S = mode === 'single' ? parseFloat(document.getElementById('sSlider').value) : parseFloat(document.getElementById('sSliderC').value);
+  const dT = mode === 'single' ? parseFloat(document.getElementById('dtSlider').value) : parseFloat(document.getElementById('dtSliderC').value);
+
+  chart.data.datasets[0].data = materials.map(m => {
+    const G = m.lambda * S / e;
+    return Math.round(G * dT * 10) / 10;
+  });
+  chart.update();
+}
+
+function updateCost() {
+  const Phi = parseFloat(document.getElementById('resPhi').textContent);
+  const hours = parseFloat(document.getElementById('hours').value) || 5000;
+  const price = parseFloat(document.getElementById('price').value) || 0.22;
+  if (isNaN(Phi)) { document.getElementById('costResult').textContent = '—'; return; }
+  const kWh = Phi * hours / 1000;
+  const cost = kWh * price;
+  document.getElementById('costResult').textContent = cost.toFixed(2) + ' € (' + kWh.toFixed(0) + ' kWh)';
+}
+
+// Canvas drawing - single wall
+function drawSingleWall(lambda, e, S, dT, Phi) {
+  const cv = document.getElementById('cvSingle');
+  const ctx = cv.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const dispW = cv.clientWidth, dispH = cv.clientWidth * 300 / 400;
+  if (cv.width !== dispW * dpr) { cv.width = dispW * dpr; cv.height = dispH * dpr; ctx.scale(dpr, dpr); }
+  const w = dispW, h = dispH;
+  ctx.clearRect(0, 0, w, h);
+
+  const wallX = w * 0.25, wallW = w * 0.5, wallY = 30, wallH = h - 60;
+
+  // Hot side (red gradient)
+  const gradL = ctx.createLinearGradient(0, 0, wallX, 0);
+  gradL.addColorStop(0, '#fca5a5');
+  gradL.addColorStop(1, '#fef2f2');
+  ctx.fillStyle = gradL;
+  ctx.fillRect(0, wallY, wallX, wallH);
+
+  // Cold side (blue gradient)
+  const gradR = ctx.createLinearGradient(wallX + wallW, 0, w, 0);
+  gradR.addColorStop(0, '#dbeafe');
+  gradR.addColorStop(1, '#93c5fd');
+  ctx.fillStyle = gradR;
+  ctx.fillRect(wallX + wallW, wallY, w - wallX - wallW, wallH);
+
+  // Wall
+  const matName = document.getElementById('matSingle').options[document.getElementById('matSingle').selectedIndex].text.split(' (')[0];
+  const mat = materials.find(m => m.name === matName) || materials[0];
+  ctx.fillStyle = mat.color;
+  ctx.fillRect(wallX, wallY, wallW, wallH);
+  ctx.strokeStyle = '#475569';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(wallX, wallY, wallW, wallH);
+
+  // Labels
+  ctx.fillStyle = '#b91c1c';
+  ctx.font = 'bold 13px "Segoe UI",sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('T_int', wallX / 2, h - 10);
+  ctx.fillText('CHAUD', wallX / 2, wallY + 20);
+
+  ctx.fillStyle = '#1d4ed8';
+  ctx.fillText('T_ext', wallX + wallW + (w - wallX - wallW) / 2, h - 10);
+  ctx.fillText('FROID', wallX + wallW + (w - wallX - wallW) / 2, wallY + 20);
+
+  ctx.fillStyle = '#1e293b';
+  ctx.font = '11px "Segoe UI",sans-serif';
+  ctx.fillText(matName, wallX + wallW / 2, wallY + wallH / 2 - 10);
+  ctx.fillText('e = ' + e.toFixed(3) + ' m', wallX + wallW / 2, wallY + wallH / 2 + 8);
+  ctx.fillText('λ = ' + lambda, wallX + wallW / 2, wallY + wallH / 2 + 24);
+
+  // Heat flow arrows
+  const arrowCount = Math.min(Math.max(Math.round(Phi / 200), 1), 8);
+  const arrowSpacing = wallH / (arrowCount + 1);
+  ctx.strokeStyle = '#ea580c';
+  ctx.fillStyle = '#ea580c';
+  ctx.lineWidth = Math.min(1 + Phi / 500, 4);
+
+  for (let i = 0; i < arrowCount; i++) {
+    const ay = wallY + arrowSpacing * (i + 1);
+    const ax1 = wallX + 10, ax2 = wallX + wallW - 10;
+    ctx.beginPath();
+    ctx.moveTo(ax1, ay);
+    ctx.lineTo(ax2, ay);
+    ctx.stroke();
+    // Arrowhead
+    ctx.beginPath();
+    ctx.moveTo(ax2, ay);
+    ctx.lineTo(ax2 - 8, ay - 4);
+    ctx.lineTo(ax2 - 8, ay + 4);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  // Phi label
+  ctx.fillStyle = '#ea580c';
+  ctx.font = 'bold 12px "Segoe UI",sans-serif';
+  ctx.fillText('Φ = ' + Phi.toFixed(1) + ' W', wallX + wallW / 2, wallY - 10);
+
+  // ΔT
+  ctx.fillStyle = '#7c3aed';
+  ctx.fillText('ΔT = ' + dT + ' °C', w / 2, h - 2);
+}
+
+// Canvas drawing - composite wall
+function drawCompositeWall(S, dT, Phi) {
+  const cv = document.getElementById('cvComposite');
+  const ctxC = cv.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const dispW = cv.clientWidth, dispH = cv.clientWidth * 300 / 400;
+  if (cv.width !== dispW * dpr) { cv.width = dispW * dpr; cv.height = dispH * dpr; ctxC.scale(dpr, dpr); }
+  const w = dispW, h = dispH;
+  ctxC.clearRect(0, 0, w, h);
+
+  const margin = w * 0.12;
+  const totalE = layers.reduce((s, l) => s + l.e, 0);
+  const wallStartX = margin;
+  const wallTotalW = w - 2 * margin;
+  const wallY = 30, wallH = h - 60;
+
+  // Hot side
+  const gradL = ctxC.createLinearGradient(0, 0, wallStartX, 0);
+  gradL.addColorStop(0, '#fca5a5');
+  gradL.addColorStop(1, '#fef2f2');
+  ctxC.fillStyle = gradL;
+  ctxC.fillRect(0, wallY, wallStartX, wallH);
+
+  // Cold side
+  const gradR = ctxC.createLinearGradient(wallStartX + wallTotalW, 0, w, 0);
+  gradR.addColorStop(0, '#dbeafe');
+  gradR.addColorStop(1, '#93c5fd');
+  ctxC.fillStyle = gradR;
+  ctxC.fillRect(wallStartX + wallTotalW, wallY, w - wallStartX - wallTotalW, wallH);
+
+  // Draw layers
+  let curX = wallStartX;
+  layers.forEach((l, i) => {
+    const mat = materials[l.matIdx];
+    const layerW = (l.e / totalE) * wallTotalW;
+    ctxC.fillStyle = mat.color;
+    ctxC.fillRect(curX, wallY, layerW, wallH);
+    ctxC.strokeStyle = '#475569';
+    ctxC.lineWidth = 1.5;
+    ctxC.strokeRect(curX, wallY, layerW, wallH);
+
+    ctxC.fillStyle = '#1e293b';
+    ctxC.font = '10px "Segoe UI",sans-serif';
+    ctxC.textAlign = 'center';
+    if (layerW > 30) {
+      ctxC.fillText(mat.name, curX + layerW / 2, wallY + wallH / 2 - 6);
+      ctxC.fillText(l.e.toFixed(3) + ' m', curX + layerW / 2, wallY + wallH / 2 + 8);
+    }
+    curX += layerW;
+  });
+
+  // Labels
+  ctxC.fillStyle = '#b91c1c';
+  ctxC.font = 'bold 12px "Segoe UI",sans-serif';
+  ctxC.textAlign = 'center';
+  ctxC.fillText('CHAUD', margin / 2, wallY + 18);
+
+  ctxC.fillStyle = '#1d4ed8';
+  ctxC.fillText('FROID', wallStartX + wallTotalW + (w - wallStartX - wallTotalW) / 2, wallY + 18);
+
+  // Heat arrows
+  const arrowCount = Math.min(Math.max(Math.round(Phi / 200), 1), 6);
+  const arrowSpacing = wallH / (arrowCount + 1);
+  ctxC.strokeStyle = '#ea580c';
+  ctxC.fillStyle = '#ea580c';
+  ctxC.lineWidth = Math.min(1 + Phi / 500, 4);
+
+  for (let i = 0; i < arrowCount; i++) {
+    const ay = wallY + arrowSpacing * (i + 1);
+    ctxC.beginPath();
+    ctxC.moveTo(wallStartX + 5, ay);
+    ctxC.lineTo(wallStartX + wallTotalW - 5, ay);
+    ctxC.stroke();
+    ctxC.beginPath();
+    ctxC.moveTo(wallStartX + wallTotalW - 5, ay);
+    ctxC.lineTo(wallStartX + wallTotalW - 13, ay - 4);
+    ctxC.lineTo(wallStartX + wallTotalW - 13, ay + 4);
+    ctxC.closePath();
+    ctxC.fill();
+  }
+
+  ctxC.fillStyle = '#ea580c';
+  ctxC.font = 'bold 12px "Segoe UI",sans-serif';
+  ctxC.fillText('Φ = ' + Phi.toFixed(1) + ' W', w / 2, wallY - 10);
+
+  ctxC.fillStyle = '#7c3aed';
+  ctxC.fillText('ΔT = ' + dT + ' °C', w / 2, h - 2);
+}
+
+// Event listeners - single mode
+['matSingle', 'eSlider', 'sSlider', 'dtSlider'].forEach(id => {
+  document.getElementById(id).addEventListener('input', updateAll);
+});
+
+// Event listeners - composite mode
+['sSliderC', 'dtSliderC'].forEach(id => {
+  document.getElementById(id).addEventListener('input', updateAll);
+});
+
+// Cost inputs
+['hours', 'price'].forEach(id => {
+  document.getElementById(id).addEventListener('input', updateCost);
+});
+
+// Init
+renderLayers();
+updateAll();
+</script>
+</body>
+</html>
