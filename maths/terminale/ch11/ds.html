@@ -248,6 +248,106 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, type BTS
+     ================================================================ -->
+<div class="diff-appro">
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Angles dans une charpente</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un charpentier con&ccedil;oit une toiture &agrave; deux pans. Sur le plan en coupe (unit&eacute; : 1 m), le pied gauche de la charpente est en \(A(0\,;\,0)\), le pied droit en \(B(12\,;\,0)\) et le fa&icirc;tage en \(C(6\,;\,5)\). Un contreventement relie le point \(D(3\,;\,0)\) au fa&icirc;tage \(C\).
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Calculer les vecteurs \(\overrightarrow{AC}\) et \(\overrightarrow{BC}\). En d&eacute;duire les longueurs des deux pans de toiture.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer l'angle au fa&icirc;tage \(\widehat{ACB}\) &agrave; l'aide du produit scalaire de \(\overrightarrow{CA}\) et \(\overrightarrow{CB}\). Arrondir au degr&eacute;.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> Calculer l'angle que fait le pan gauche \([AC]\) avec l'horizontale \([AB]\). V&eacute;rifier que la pente est d'environ 40°.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> Calculer la longueur du contreventement \([DC]\) et l'angle que fait \([DC]\) avec l'horizontale.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> Le charpentier veut savoir si le contreventement \([DC]\) est perpendiculaire au pan gauche \([AC]\). Justifier par le produit scalaire.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AC} = \begin{pmatrix}6\\5\end{pmatrix}\), \(\|\overrightarrow{AC}\| = \sqrt{36 + 25} = \sqrt{61} \approx 7{,}81\) m.<br>
+    \(\overrightarrow{BC} = \begin{pmatrix}-6\\5\end{pmatrix}\), \(\|\overrightarrow{BC}\| = \sqrt{36 + 25} = \sqrt{61} \approx 7{,}81\) m. La toiture est sym&eacute;trique.</p>
+    <p><strong>2.</strong> \(\overrightarrow{CA} = \begin{pmatrix}-6\\-5\end{pmatrix}\) et \(\overrightarrow{CB} = \begin{pmatrix}6\\-5\end{pmatrix}\).<br>
+    \(\overrightarrow{CA} \cdot \overrightarrow{CB} = (-6) \times 6 + (-5) \times (-5) = -36 + 25 = -11\).<br>
+    \(\cos(\widehat{ACB}) = \dfrac{-11}{\sqrt{61} \times \sqrt{61}} = \dfrac{-11}{61} \approx -0{,}180\).<br>
+    \(\widehat{ACB} = \arccos(-0{,}180) \approx 100°\).</p>
+    <p><strong>3.</strong> \(\overrightarrow{AB} = \begin{pmatrix}12\\0\end{pmatrix}\). \(\overrightarrow{AB} \cdot \overrightarrow{AC} = 12 \times 6 + 0 \times 5 = 72\).<br>
+    \(\cos\alpha = \dfrac{72}{12 \times \sqrt{61}} = \dfrac{72}{12 \times 7{,}81} = \dfrac{72}{93{,}72} \approx 0{,}768\).<br>
+    \(\alpha = \arccos(0{,}768) \approx 40°\) &check;.</p>
+    <p><strong>4.</strong> \(\overrightarrow{DC} = \begin{pmatrix}3\\5\end{pmatrix}\). \(\|\overrightarrow{DC}\| = \sqrt{9 + 25} = \sqrt{34} \approx 5{,}83\) m.<br>
+    Angle avec l'horizontale : \(\tan\beta = \dfrac{5}{3}\), \(\beta = \arctan(1{,}667) \approx 59°\).</p>
+    <p><strong>5.</strong> \(\overrightarrow{DC} \cdot \overrightarrow{AC} = 3 \times 6 + 5 \times 5 = 18 + 25 = 43 \neq 0\).<br>
+    Le produit scalaire n'est pas nul, donc le contreventement n'est pas perpendiculaire au pan gauche.</p>
+  </div>
+</div>
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Projection d'une force sur un plan inclin&eacute;</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien &eacute;tudie la descente d'une charge sur un plan inclin&eacute;. Le plan inclin&eacute; fait un angle de \(30°\) avec l'horizontale. La force de pesanteur est \(\vec{P}\begin{pmatrix}0\\-800\end{pmatrix}\) (en newtons). Le vecteur directeur du plan inclin&eacute; est \(\vec{d}\begin{pmatrix}\cos 30°\\\sin 30°\end{pmatrix} = \begin{pmatrix}\frac{\sqrt{3}}{2}\\\frac{1}{2}\end{pmatrix}\).
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Calculer \(\vec{P} \cdot \vec{d}\). Interpr&eacute;ter le signe du r&eacute;sultat.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer la norme \(\|\vec{d}\|\). Montrer que \(\vec{d}\) est un vecteur unitaire.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> En d&eacute;duire la composante de \(\vec{P}\) le long du plan inclin&eacute; : \(F_{\parallel} = \dfrac{\vec{P} \cdot \vec{d}}{\|\vec{d}\|}\). Donner la valeur en newtons.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> Calculer la composante normale (perpendiculaire au plan) : \(F_{\perp} = \sqrt{\|\vec{P}\|^2 - F_{\parallel}^2}\). V&eacute;rifier que \(F_{\perp} = \|\vec{P}\| \times \cos 30°\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> Le technicien ajoute un frein qui exerce une force \(\vec{F_f}\begin{pmatrix}-200\\0\end{pmatrix}\). Calculer \(\vec{F_f} \cdot \vec{d}\) et en d&eacute;duire la composante du freinage le long du plan. La charge est-elle en &eacute;quilibre ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\vec{P} \cdot \vec{d} = 0 \times \dfrac{\sqrt{3}}{2} + (-800) \times \dfrac{1}{2} = -400\). Le signe n&eacute;gatif indique que la pesanteur agit dans le sens oppos&eacute; au vecteur \(\vec{d}\) orient&eacute; vers le haut du plan.</p>
+    <p><strong>2.</strong> \(\|\vec{d}\| = \sqrt{\left(\dfrac{\sqrt{3}}{2}\right)^2 + \left(\dfrac{1}{2}\right)^2} = \sqrt{\dfrac{3}{4} + \dfrac{1}{4}} = \sqrt{1} = 1\). C'est bien un vecteur unitaire.</p>
+    <p><strong>3.</strong> \(F_{\parallel} = \dfrac{-400}{1} = -400\) N. La composante le long du plan vaut 400 N dirig&eacute;e vers le bas.</p>
+    <p><strong>4.</strong> \(F_{\perp} = \sqrt{800^2 - 400^2} = \sqrt{640\,000 - 160\,000} = \sqrt{480\,000} \approx 693\) N.<br>
+    V&eacute;rification : \(800 \times \cos 30° = 800 \times \dfrac{\sqrt{3}}{2} \approx 800 \times 0{,}866 = 693\) N &check;.</p>
+    <p><strong>5.</strong> \(\vec{F_f} \cdot \vec{d} = (-200) \times \dfrac{\sqrt{3}}{2} + 0 \times \dfrac{1}{2} = -100\sqrt{3} \approx -173\) N.<br>
+    La composante de freinage le long du plan est d'environ 173 N. La force motrice le long du plan est de 400 N, le freinage ne compense que 173 N : la charge n'est pas en &eacute;quilibre, elle glisse.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <div class="total-bar" style="background:var(--p);color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px">TOTAL : 20 points</div>
 
 </div>
@@ -260,5 +360,6 @@ function toggle(btn){
 }
 </script>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>
