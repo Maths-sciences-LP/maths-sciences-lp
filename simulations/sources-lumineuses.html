@@ -42,13 +42,13 @@
   </header>
 
   <div class="explication">
-    <strong>Objectif :</strong> Comparer les sources lumineuses (incandescence, fluocompacte, LED) en termes d'efficacite lumineuse (lm/W), de spectre d'emission, de duree de vie et de cout. L'eclairage represente 30 a 40 % de la consommation electrique d'un atelier.
+    <strong>Objectif :</strong> Comparer les sources lumineuses (incandescence, fluocompacte, LED) en termes d'efficacité lumineuse (lm/W), de spectre d'émission, de durée de vie et de coût. L'éclairage représente 30 à 40 % de la consommation électrique d'un atelier.
   </div>
 
   <!-- SPECTRA -->
   <div class="card">
-    <h2>1. Spectres d'emission</h2>
-    <p style="font-size:0.93em;">Les sources lumineuses n'emettent pas la lumiere de la meme facon. L'incandescence produit un spectre continu, tandis que la fluorescence produit des raies discretes.</p>
+    <h2>1. Spectres d'émission</h2>
+    <p style="font-size:0.93em;">Les sources lumineuses n'émettent pas la lumière de la même façon. L'incandescence produit un spectre continu, tandis que la fluorescence produit des raies discrètes.</p>
     <div class="row3">
       <div style="text-align:center;">
         <strong>Incandescence</strong>
@@ -58,7 +58,7 @@
       <div style="text-align:center;">
         <strong>Fluocompacte</strong>
         <canvas id="cvSpecFluo" width="240" height="120"></canvas>
-        <p style="font-size:0.82em;color:#6b7280;">Raies discretes</p>
+        <p style="font-size:0.82em;color:#6b7280;">Raies discrètes</p>
       </div>
       <div style="text-align:center;">
         <strong>LED blanche</strong>
@@ -70,9 +70,9 @@
 
   <!-- EFFICIENCY CALCULATOR -->
   <div class="card">
-    <h2>2. Efficacite et consommation</h2>
+    <h2>2. Efficacité et consommation</h2>
     <div>
-      <label>Puissance electrique consommee P : <span class="val" id="vP">60</span> W</label>
+      <label>Puissance électrique consommée P : <span class="val" id="vP">60</span> W</label>
       <input type="range" id="sP" min="1" max="100" value="60" step="1" oninput="updateCalc()">
     </div>
 
@@ -80,9 +80,9 @@
       <thead>
         <tr>
           <th>Source</th>
-          <th>Efficacite (lm/W)</th>
+          <th>Efficacité (lm/W)</th>
           <th>Flux lumineux (lm)</th>
-          <th>Duree de vie (h)</th>
+          <th>Durée de vie (h)</th>
           <th>Conso annuelle (kWh)</th>
         </tr>
       </thead>
@@ -95,10 +95,10 @@
 
   <!-- COLOR TEMPERATURE -->
   <div class="card">
-    <h2>3. Temperature de couleur</h2>
-    <p style="font-size:0.93em;">La temperature de couleur (en kelvins) indique la teinte de la lumiere : chaude (jaune) ou froide (blanche-bleue).</p>
+    <h2>3. Température de couleur</h2>
+    <p style="font-size:0.93em;">La température de couleur (en kelvins) indique la teinte de la lumière : chaude (jaune) ou froide (blanche-bleue).</p>
     <div>
-      <label>Temperature de couleur : <span class="val" id="vTC">4000</span> K</label>
+      <label>Température de couleur : <span class="val" id="vTC">4000</span> K</label>
       <input type="range" id="sTC" min="2700" max="6500" value="4000" step="100" oninput="updateColor()">
     </div>
     <div class="color-preview" id="colorPreview">4000 K</div>
@@ -109,7 +109,7 @@
 
   <!-- COST OVER 10 YEARS -->
   <div class="card">
-    <h2>4. Cout sur 10 ans</h2>
+    <h2>4. Coût sur 10 ans</h2>
     <div class="row">
       <div>
         <label>Heures d'utilisation par jour : <span class="val" id="vHJ">8</span> h</label>
@@ -230,10 +230,10 @@ function updateCalc() {
   const pLed = (targetFlux / 130).toFixed(1);
 
   $('resCalc').innerHTML = `
-    <p>Pour obtenir le meme flux lumineux qu'une ampoule a incandescence de <strong>${P} W</strong> (${targetFlux} lm) :</p>
+    <p>Pour obtenir le même flux lumineux qu'une ampoule à incandescence de <strong>${P} W</strong> (${targetFlux} lm) :</p>
     <p>- Fluocompacte : <span class="val">${pFluo} W</span> suffisent</p>
     <p>- LED : <span class="val">${pLed} W</span> suffisent</p>
-    <p style="font-size:0.88em;color:#6b7280;">La LED consomme environ <strong>${(P / (targetFlux / 130)).toFixed(0)}&times; moins</strong> qu'une ampoule a incandescence pour le meme eclairage.</p>
+    <p style="font-size:0.88em;color:#6b7280;">La LED consomme environ <strong>${(P / (targetFlux / 130)).toFixed(0)}&times; moins</strong> qu'une ampoule à incandescence pour le même éclairage.</p>
   `;
 }
 
@@ -264,11 +264,11 @@ function updateColor() {
   preview.textContent = T + ' K';
 
   let desc;
-  if (T < 3000) desc = 'Blanc chaud — Ambiance chaleureuse, ideal pour les espaces de detente. Ressemble a la lumiere d\'une ampoule classique.';
-  else if (T < 4000) desc = 'Blanc chaud neutre — Bon compromis entre confort et visibilite. Adapte aux bureaux et salles de classe.';
-  else if (T < 5000) desc = 'Blanc neutre — Eclairage fonctionnel, bon rendu des couleurs. Recommande pour les ateliers de menuiserie.';
-  else if (T < 5500) desc = 'Lumiere du jour — Eclairage vif et stimulant. Ideal pour les travaux de precision et le controle qualite.';
-  else desc = 'Blanc froid — Lumiere tres blanche/bleutee. Utilisee dans les environnements techniques, les hopitaux, les laboratoires.';
+  if (T < 3000) desc = 'Blanc chaud — Ambiance chaleureuse, idéal pour les espaces de détente. Ressemble à la lumière d\'une ampoule classique.';
+  else if (T < 4000) desc = 'Blanc chaud neutre — Bon compromis entre confort et visibilité. Adapté aux bureaux et salles de classe.';
+  else if (T < 5000) desc = 'Blanc neutre — Éclairage fonctionnel, bon rendu des couleurs. Recommandé pour les ateliers de menuiserie.';
+  else if (T < 5500) desc = 'Lumiere du jour — Éclairage vif et stimulant. Idéal pour les travaux de précision et le contrôle qualité.';
+  else desc = 'Blanc froid — Lumière très blanche/bleutée. Utilisée dans les environnements techniques, les hôpitaux, les laboratoires.';
 
   $('colorDesc').innerHTML = `<strong>${T < 3000 ? '2700-3000 K' : T < 4000 ? '3000-4000 K' : T < 5000 ? '4000-5000 K' : T < 5500 ? '5000-5500 K' : '5500-6500 K'} :</strong> ${desc}`;
 }
@@ -305,21 +305,21 @@ function updateCost() {
     data: {
       labels: sources.map(s => s.name),
       datasets: [
-        { label: 'Cout electricite (\u20AC)', data: costs.map(c => c.elec.toFixed(2)), backgroundColor: ['#fbbf24', '#a78bfa', '#38bdf8'] },
-        { label: 'Cout ampoules (\u20AC)', data: costs.map(c => c.ampoules.toFixed(2)), backgroundColor: ['#f59e0b', '#7c3aed', '#0284c7'] }
+        { label: 'Coût électricité (\u20AC)', data: costs.map(c => c.elec.toFixed(2)), backgroundColor: ['#fbbf24', '#a78bfa', '#38bdf8'] },
+        { label: 'Coût ampoules (\u20AC)', data: costs.map(c => c.ampoules.toFixed(2)), backgroundColor: ['#f59e0b', '#7c3aed', '#0284c7'] }
       ]
     },
     options: {
       responsive: true,
-      plugins: { title: { display: true, text: 'Cout total sur 10 ans (pour un eclairage equivalent)', font: { size: 14 } } },
-      scales: { x: { stacked: true }, y: { stacked: true, title: { display: true, text: 'Cout (\u20AC)' } } }
+      plugins: { title: { display: true, text: 'Coût total sur 10 ans (pour un éclairage équivalent)', font: { size: 14 } } },
+      scales: { x: { stacked: true }, y: { stacked: true, title: { display: true, text: 'Coût (\u20AC)' } } }
     }
   });
 
   $('resCost').innerHTML = `
-    <p><strong>Hypotheses :</strong> eclairage equivalent a une ampoule a incandescence de ${P} W (${targetFlux} lm), ${hj} h/jour, ${prix.toFixed(2)} \u20AC/kWh, sur 10 ans.</p>
+    <p><strong>Hypothèses :</strong> éclairage équivalent à une ampoule à incandescence de ${P} W (${targetFlux} lm), ${hj} h/jour, ${prix.toFixed(2)} \u20AC/kWh, sur 10 ans.</p>
     <table class="compare">
-      <thead><tr><th>Source</th><th>Puissance</th><th>Ampoules necessaires</th><th>Cout elec.</th><th>Cout ampoules</th><th>Total</th></tr></thead>
+      <thead><tr><th>Source</th><th>Puissance</th><th>Ampoules nécessaires</th><th>Coût élec.</th><th>Coût ampoules</th><th>Total</th></tr></thead>
       <tbody>
         ${sources.map((s, i) => `<tr>
           <td><strong style="color:${s.color}">${s.name}</strong></td>

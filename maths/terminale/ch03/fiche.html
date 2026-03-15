@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch03 – Suites numériques (suite géométrique) – Term Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul,.fiche-card ol{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-term-iccer.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche r&eacute;sum&eacute; &mdash; Suites num&eacute;riques (suite g&eacute;om&eacute;trique)</h1>
+<p class="sous-titre">Chapitre 3 | Terminale Bac Pro | Math&eacute;matiques</p>
+
+<div class="fiche-grid">
+
+  <!-- Définition -->
+  <div class="fiche-card">
+    <h3>D&eacute;finition</h3>
+    <p>Une suite \((u_n)\) est <strong>g&eacute;om&eacute;trique</strong> si chaque terme s'obtient en <strong>multipliant</strong> le pr&eacute;c&eacute;dent par un m&ecirc;me nombre \(q\) (la raison) :</p>
+    <div class="fiche-formula">
+      \(u_{n+1} = u_n \times q\)
+    </div>
+    <p>Pour v&eacute;rifier : calculer \(\dfrac{u_1}{u_0}\), \(\dfrac{u_2}{u_1}\), etc. Si tous les quotients sont &eacute;gaux, la suite est g&eacute;om&eacute;trique.</p>
+  </div>
+
+  <!-- Terme général -->
+  <div class="fiche-card">
+    <h3>Terme de rang \(n\)</h3>
+    <div class="fiche-formula">
+      \(u_n = u_0 \times q^n\)
+    </div>
+    <p>Permet de calculer <strong>directement</strong> n'importe quel terme sans calculer tous les pr&eacute;c&eacute;dents.</p>
+    <p>Calculatrice : touche <kbd>^</kbd> ou <kbd>x<sup>y</sup></kbd> pour \(q^n\).</p>
+  </div>
+
+  <!-- Raison et pourcentage -->
+  <div class="fiche-card">
+    <h3>Raison et pourcentage</h3>
+    <ul>
+      <li>Augmentation de \(t\,\%\) &rarr; \(q = 1 + \dfrac{t}{100}\)</li>
+      <li>Diminution de \(t\,\%\) &rarr; \(q = 1 - \dfrac{t}{100}\)</li>
+    </ul>
+    <div class="fiche-formula">
+      Ex : \(-15\,\%\) &rarr; \(q = 0{,}85\) &nbsp;|&nbsp; \(+6\,\%\) &rarr; \(q = 1{,}06\)
+    </div>
+  </div>
+
+  <!-- Sens de variation -->
+  <div class="fiche-card">
+    <h3>Sens de variation</h3>
+    <p>(pour \(u_0 > 0\))</p>
+    <ul>
+      <li>\(q > 1\) &rarr; suite <strong>croissante</strong> (valorisation)</li>
+      <li>\(0 < q < 1\) &rarr; suite <strong>d&eacute;croissante</strong> (d&eacute;pr&eacute;ciation)</li>
+      <li>\(q = 1\) &rarr; suite <strong>constante</strong></li>
+    </ul>
+  </div>
+
+  <!-- Somme des termes -->
+  <div class="fiche-card full">
+    <h3>Somme des premiers termes</h3>
+    <p>Somme de \(u_0\) &agrave; \(u_n\) (\(n+1\) termes, avec \(q \neq 1\)) :</p>
+    <div class="fiche-formula">
+      \(S_n = u_0 \times \dfrac{1 - q^{n+1}}{1 - q}\)
+    </div>
+    <p>Si \(q = 1\) : \(S_n = (n+1) \times u_0\). Attention au nombre de termes : de \(u_0\) &agrave; \(u_n\), il y a \(n+1\) termes.</p>
+  </div>
+
+  <!-- Représentation graphique -->
+  <div class="fiche-card full">
+    <h3>Repr&eacute;sentation graphique</h3>
+    <p>Nuage de points \((n,\,u_n)\) dans un rep&egrave;re. Les points ne sont <strong>jamais reli&eacute;s</strong> : une suite est un ph&eacute;nom&egrave;ne <strong>discret</strong> (valeurs enti&egrave;res de \(n\) uniquement).</p>
+  </div>
+
+</div><!-- fin fiche-grid -->
+
+<!-- Pièges -->
+<div class="piege">
+  <strong>Pi&egrave;ge 1 :</strong> Confondre la <strong>raison</strong> et le <strong>taux</strong>. Une baisse de 15 % donne \(q = 0{,}85\), pas \(q = 0{,}15\) ni \(q = -0{,}15\).
+</div>
+<div class="piege">
+  <strong>Pi&egrave;ge 2 :</strong> Se tromper de rang. \(u_0\) est le terme initial (rang 0). Apr&egrave;s 5 ans de d&eacute;pr&eacute;ciation, on calcule \(u_5\), pas \(u_4\).
+</div>
+<div class="piege">
+  <strong>Pi&egrave;ge 3 :</strong> Relier les points du nuage. Une suite est discr&egrave;te : il n'y a pas de valeur entre \(n = 2\) et \(n = 3\).
+</div>
+
+<!-- Astuces -->
+<div class="astuce">
+  <strong>Astuce calculatrice :</strong> Pour calculer \(0{,}85^5\), taper <kbd>0,85</kbd> <kbd>^</kbd> <kbd>5</kbd> <kbd>=</kbd>.
+</div>
+<div class="astuce">
+  <strong>Astuce tableur :</strong> Colonne B : <code>=B2*q</code> (r&eacute;currence) ou <code>=u0*q^A2</code> (terme g&eacute;n&eacute;ral). Colonne C : <code>=C2+B3</code> (somme cumul&eacute;e).
+</div>
+
+<!-- Méthode type -->
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>R&eacute;sum&eacute; express &mdash; M&eacute;thode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier \(u_0\) (valeur initiale) et le taux de variation.</li>
+      <li>Calculer la raison : \(q = 1 + \frac{t}{100}\) ou \(q = 1 - \frac{t}{100}\).</li>
+      <li>&Eacute;crire le terme g&eacute;n&eacute;ral : \(u_n = u_0 \times q^n\).</li>
+      <li>Pour un terme pr&eacute;cis : remplacer \(n\) et calculer \(q^n\).</li>
+      <li>Pour un cumul : appliquer \(S_n = u_0 \times \frac{1 - q^{n+1}}{1 - q}\).</li>
+      <li>D&eacute;terminer le sens de variation en comparant \(q\) &agrave; 1.</li>
+    </ol>
+  </div>
+</div>
+
+</div><!-- fin .fiche -->
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

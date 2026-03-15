@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch06 – Inéquations du premier degré – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Inéquations du premier degré</h1>
+<p class="sous-titre">Chapitre 6 | Seconde Bac Pro | Mathématiques</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>1. Définition</h3>
+    <p>Une <strong>inéquation</strong> utilise un signe d'inégalité au lieu du signe =.</p>
+    <ul>
+      <li>\(ax + b &lt; c\) &nbsp; (strictement inférieur)</li>
+      <li>\(ax + b &gt; c\) &nbsp; (strictement supérieur)</li>
+      <li>\(ax + b \leq c\) &nbsp; (inférieur ou égal)</li>
+      <li>\(ax + b \geq c\) &nbsp; (supérieur ou égal)</li>
+    </ul>
+    <p>La solution est un <strong>intervalle</strong> (ensemble de valeurs), pas un nombre unique.</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>2. Règle d'or</h3>
+    <div class="fiche-formula" style="background:#fee2e2;border:1px solid #e53e3e">
+      Multiplier ou diviser par un nombre <strong>négatif</strong> &rarr; le sens de l'inégalité <strong>s'inverse</strong> !
+    </div>
+    <p>Ce qui ne change pas le sens :</p>
+    <ul>
+      <li>Ajouter / soustraire un même nombre</li>
+      <li>Multiplier / diviser par un nombre <strong>positif</strong></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>3. Intervalles</h3>
+    <ul>
+      <li>\(x \geq a\) &rarr; \([a ; +\infty[\) &nbsp; (fermé : a inclus)</li>
+      <li>\(x > a\) &rarr; \(]a ; +\infty[\) &nbsp; (ouvert : a exclu)</li>
+      <li>\(x \leq b\) &rarr; \(]-\infty ; b]\) &nbsp; (fermé : b inclus)</li>
+      <li>\(x < b\) &rarr; \(]-\infty ; b[\) &nbsp; (ouvert : b exclu)</li>
+      <li>\(\pm\infty\) toujours avec crochet ouvert</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>4. Droite graduée</h3>
+    <ul>
+      <li>Point plein <strong>&bull;</strong> = valeur incluse (crochet fermé)</li>
+      <li>Point vide <strong>&cir;</strong> = valeur exclue (crochet ouvert)</li>
+      <li>On colorie la zone correspondant aux solutions</li>
+    </ul>
+    <p>Exemple : \(x \geq 3\) &rarr; point plein en 3, zone coloriée vers la droite.</p>
+  </div>
+
+</div>
+
+<!-- 3 pièges -->
+<div class="piege"><strong>Piège 1 :</strong> Oublier d'inverser le signe en divisant par un nombre négatif. Exemple : \(-3x > 9\) donne \(x < -3\), pas \(x > -3\).</div>
+<div class="piege"><strong>Piège 2 :</strong> Confondre crochet ouvert et fermé. \(x > 3\) donne \(]3 ; +\infty[\) (ouvert, 3 exclu), pas \([3 ; +\infty[\).</div>
+<div class="piege"><strong>Piège 3 :</strong> Ne pas interpréter le résultat dans le contexte. \(x \leq 38{,}75\) pour un nombre de m² à commander : arrondir à l'entier inférieur (38 m²).</div>
+
+<!-- 2 astuces -->
+<div class="astuce"><strong>Astuce :</strong> Pour retenir le sens des crochets : crochet fermé [ = la valeur est <strong>incluse</strong> (symboles \(\leq\) ou \(\geq\)) ; crochet ouvert ] = la valeur est <strong>exclue</strong> (symboles \(&lt;\) ou \(&gt;\)).</div>
+<div class="astuce"><strong>Astuce :</strong> Résolution graphique : la solution de \(ax + b < 0\) correspond aux valeurs de \(x\) pour lesquelles la droite \(y = ax + b\) est en dessous de l'axe des abscisses.</div>
+
+<!-- Méthode type -->
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Écrire l'inéquation à partir de la contrainte du problème</li>
+      <li>Isoler les termes en \(x\) d'un côté (comme pour une équation)</li>
+      <li>Diviser par le coefficient de \(x\) — <strong>si négatif : inverser le signe !</strong></li>
+      <li>Écrire la solution sous forme d'intervalle</li>
+      <li>Interpréter dans le contexte (arrondir si nécessaire, vérifier la cohérence)</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

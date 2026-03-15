@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch07 – Transmettre l'information – Term ERA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-term-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA (Grpt 3)</a>
+<div class="fiche">
+<h1>Fiche résumé — Transmettre l'information</h1>
+<p class="sous-titre">Chapitre 7 | Terminale ERA-MA | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>Système de transmission</h3>
+    <p>Tout système de transmission comporte :</p>
+    <ul>
+      <li><strong>Émetteur</strong> : produit le signal</li>
+      <li><strong>Canal</strong> : transporte le signal</li>
+      <li><strong>Récepteur</strong> : capte et interprète le signal</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Deux types de propagation</h3>
+    <ul>
+      <li><strong>Libre (sans fil)</strong> : WiFi, Bluetooth, 4G/5G, infrarouge — ondes dans l'air</li>
+      <li><strong>Guidée (avec fil)</strong> : câble cuivre, câble coaxial, fibre optique</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Les trois types d'ondes</h3>
+    <table style="width:100%;font-size:.82rem;margin:4px 0">
+      <tr><th>Onde</th><th>Nature</th><th>Vitesse</th><th>Vide ?</th></tr>
+      <tr><td><strong>Sonore</strong></td><td>Vibration mécanique</td><td>v &asymp; 340 m/s (air)</td><td>Non</td></tr>
+      <tr><td><strong>Lumineuse</strong></td><td>Electromagnétique</td><td>c = 3 &times; 10<sup>8</sup> m/s</td><td>Oui</td></tr>
+      <tr><td><strong>Radio / WiFi</strong></td><td>Electromagnétique</td><td>c = 3 &times; 10<sup>8</sup> m/s</td><td>Oui</td></tr>
+    </table>
+    <div class="fiche-formula">\[ c = 3 \times 10^8 \text{ m/s} \quad \text{(vitesse de la lumière dans le vide)} \]</div>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Comparaison des technologies de transmission</h3>
+    <table style="width:100%;font-size:.82rem;margin:4px 0">
+      <tr><th>Technologie</th><th>Support</th><th>Débit max</th><th>Usage</th></tr>
+      <tr><td>Câble cuivre</td><td>Fil</td><td>&asymp; 6 Mbit/s</td><td>Téléphonie, ADSL</td></tr>
+      <tr><td>Câble coaxial</td><td>Fil blindé</td><td>&asymp; 100 Mbit/s</td><td>TV, vidéosurveillance</td></tr>
+      <tr><td>WiFi (ac/ax)</td><td>Air</td><td>&asymp; 600 Mbit/s</td><td>Bureaux, domotique</td></tr>
+      <tr style="background:#f0fff4;font-weight:600"><td>Fibre optique</td><td>Verre</td><td>&gt; 10 Gbit/s</td><td>Réseau immeuble, FTTH</td></tr>
+    </table>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Fibre optique — Principe</h3>
+    <ul>
+      <li>Guide la <strong>lumière</strong> par <strong>réflexion totale interne</strong></li>
+      <li>Condition : n<sub>coeur</sub> &gt; n<sub>gaine</sub></li>
+      <li>Angle d'incidence &gt; angle critique &theta;<sub>c</sub></li>
+    </ul>
+    <p style="font-size:.8rem;color:#718096">Fibre monomode : coeur &asymp; 9 &mu;m, n<sub>1</sub> &asymp; 1,48, n<sub>2</sub> &asymp; 1,46</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Avantages de la fibre optique</h3>
+    <ul>
+      <li>Très haut débit (&gt; 10 Gbit/s)</li>
+      <li>Insensible aux parasites EM</li>
+      <li>Faibles pertes sur longue distance</li>
+      <li>Légère et fine</li>
+      <li>Sécurisée (difficile à intercepter)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Pièges fréquents</h3>
+    <div class="piege">
+      <strong>Piège 1 :</strong> Les ondes sonores ne se propagent <strong>pas dans le vide</strong> (il faut un milieu matériel). En revanche, la lumière et les ondes radio se propagent dans le vide.
+    </div>
+    <div class="piege">
+      <strong>Piège 2 :</strong> La fibre optique transporte de la <strong>lumière</strong>, pas de l'électricité. Ne pas confondre fibre optique (guidée) et WiFi (propagation libre).
+    </div>
+    <div class="piege">
+      <strong>Piège 3 :</strong> La lumière dans la fibre ne va pas exactement à c = 3 &times; 10<sup>8</sup> m/s mais à environ 2 &times; 10<sup>8</sup> m/s (ralentissement dans le verre).
+    </div>
+    <div class="astuce">
+      <strong>Astuce :</strong> Bâtiment neuf = filaire (fiable, haut débit). Rénovation sans gaine = sans fil (WiFi). Longue distance / très haut débit = fibre optique.
+    </div>
+  </div>
+
+</div>
+
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">← Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices →</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

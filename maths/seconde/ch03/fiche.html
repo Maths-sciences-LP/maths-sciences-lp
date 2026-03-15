@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch03 – Indicateurs statistiques – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Indicateurs statistiques</h1>
+<p class="sous-titre">Chapitre 3 | Seconde Bac Pro | Mathématiques</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>1. Moyenne</h3>
+    <div class="fiche-formula">\(\bar{x} = \dfrac{\sum x_i}{N}\) &nbsp; ou &nbsp; \(\bar{x} = \dfrac{\sum x_i \cdot n_i}{N}\)</div>
+    <p>Avec des classes : utiliser le <strong>centre de classe</strong> \(c_i = \dfrac{a+b}{2}\).</p>
+    <div class="fiche-formula">\(\bar{x} = \dfrac{\sum c_i \cdot n_i}{N}\)</div>
+  </div>
+
+  <div class="fiche-card">
+    <h3>2. Médiane</h3>
+    <p>Valeur qui partage la série triée en deux moitiés égales (50 % de chaque côté).</p>
+    <ul>
+      <li>\(N\) impair : \(Me\) = valeur au rang \(\dfrac{N+1}{2}\)</li>
+      <li>\(N\) pair : \(Me\) = moyenne des rangs \(\dfrac{N}{2}\) et \(\dfrac{N}{2}+1\)</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>3. Quartiles Q1 et Q3</h3>
+    <ul>
+      <li><strong>Q1 :</strong> 25 % des données lui sont inferieures ou égales</li>
+      <li><strong>Q3 :</strong> 75 % des données lui sont inferieures ou égales</li>
+      <li>Q1 = médiane de la 1re moitié, Q3 = médiane de la 2e moitié</li>
+    </ul>
+    <div class="fiche-formula">\(\text{IQR} = Q_3 - Q_1\)</div>
+    <p>L'IQR mesure la dispersion des 50 % centraux.</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>4. Indicateurs de dispersion</h3>
+    <div class="fiche-formula">\(\text{Étendue} = x_{\max} - x_{\min}\)</div>
+    <div class="fiche-formula">\(\sigma = \sqrt{\dfrac{\sum (x_i - \bar{x})^2}{N}}\)</div>
+    <ul>
+      <li><strong>Étendue :</strong> sensible aux valeurs extrêmes</li>
+      <li><strong>Écart-type \(\sigma\) :</strong> dispersion autour de la moyenne</li>
+      <li>Plus \(\sigma\) est petit, plus la série est homogène</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>5. Boîte à moustaches (box plot)</h3>
+    <p>Représente les 5 valeurs clés : <strong>Min — Q1 — Me — Q3 — Max</strong></p>
+    <ul>
+      <li>La boîte s'étend de Q1 à Q3 (50 % centraux)</li>
+      <li>Le trait vertical dans la boîte = médiane</li>
+      <li>Les moustaches s'étendent de Min à Q1 et de Q3 à Max</li>
+      <li>Longueur de la boîte = IQR (indicateur de régularité)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3 pièges -->
+<div class="piege"><strong>Piège 1 :</strong> La moyenne est sensible aux valeurs extrêmes. Une seule valeur aberrante peut la tirer vers le haut ou le bas. La médiane est plus robuste.</div>
+<div class="piege"><strong>Piège 2 :</strong> Ne pas oublier de trier la série dans l'ordre croissant avant de chercher la médiane et les quartiles.</div>
+<div class="piege"><strong>Piège 3 :</strong> L'étendue ne dépend que de deux valeurs (min et max). Elle ne reflète pas bien la dispersion de l'ensemble des données. Préférer l'IQR ou l'écart-type.</div>
+
+<!-- 2 astuces -->
+<div class="astuce"><strong>Astuce :</strong> Pour comparer deux séries, comparer leurs médianes (efficacité) ET leurs IQR ou écarts-types (régularité). Même moyenne ne veut pas dire même dispersion.</div>
+<div class="astuce"><strong>Astuce :</strong> Sur une boîte à moustaches, une moustache très longue d'un côté signale des valeurs potentiellement aberrantes à investiguer.</div>
+
+<!-- Méthode type -->
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Trier les données dans l'ordre croissant</li>
+      <li>Calculer la moyenne \(\bar{x} = \frac{\sum x_i \cdot n_i}{N}\)</li>
+      <li>Déterminer la médiane (rang central de la série triée)</li>
+      <li>Calculer Q1, Q3 et l'IQR = Q3 − Q1</li>
+      <li>Calculer l'étendue et éventuellement l'écart-type</li>
+      <li>Tracer la boîte à moustaches si demandé</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch04 – Fonctions polynômes de degré 3 – Term Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul,.fiche-card ol{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-term-iccer.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche r&eacute;sum&eacute; &mdash; Fonctions polyn&ocirc;mes de degr&eacute; 3</h1>
+<p class="sous-titre">Chapitre 4 | Terminale Bac Pro | Math&eacute;matiques</p>
+
+<div class="fiche-grid">
+
+  <!-- Définition -->
+  <div class="fiche-card">
+    <h3>D&eacute;finition</h3>
+    <p>Forme g&eacute;n&eacute;rale :</p>
+    <div class="fiche-formula">
+      \(f(x) = ax^3 + bx^2 + cx + d\) &nbsp; avec \(a \neq 0\)
+    </div>
+    <p>D&eacute;finie sur \(\mathbb{R}\) tout entier. La courbe a une forme en &laquo; S &raquo;.</p>
+    <ul>
+      <li>\(a > 0\) &rarr; S montant (bas-gauche vers haut-droit)</li>
+      <li>\(a < 0\) &rarr; S invers&eacute; (haut-gauche vers bas-droit)</li>
+    </ul>
+  </div>
+
+  <!-- Dérivée -->
+  <div class="fiche-card">
+    <h3>D&eacute;riv&eacute;e</h3>
+    <div class="fiche-formula">
+      \(f'(x) = 3ax^2 + 2bx + c\)
+    </div>
+    <p>La d&eacute;riv&eacute;e d'un polyn&ocirc;me de degr&eacute; 3 est un <strong>polyn&ocirc;me de degr&eacute; 2</strong>.</p>
+    <p>R&egrave;gles : \((x^3)' = 3x^2\), \((x^2)' = 2x\), \((x)' = 1\), \((k)' = 0\).</p>
+  </div>
+
+  <!-- Lien dérivée / variations -->
+  <div class="fiche-card">
+    <h3>D&eacute;riv&eacute;e et variations</h3>
+    <ul>
+      <li>\(f'(x) > 0\) &rarr; \(f\) <strong>croissante</strong></li>
+      <li>\(f'(x) < 0\) &rarr; \(f\) <strong>d&eacute;croissante</strong></li>
+      <li>\(f'(x_0) = 0\) et changement de signe &rarr; <strong>extremum</strong></li>
+    </ul>
+    <div class="fiche-formula">
+      \(f'\) passe de \(+\) &agrave; \(-\) &rarr; maximum local<br>
+      \(f'\) passe de \(-\) &agrave; \(+\) &rarr; minimum local
+    </div>
+  </div>
+
+  <!-- Tableau de variations -->
+  <div class="fiche-card">
+    <h3>M&eacute;thode &mdash; Tableau de variations</h3>
+    <ol>
+      <li>Calculer \(f'(x) = 3ax^2 + 2bx + c\).</li>
+      <li>R&eacute;soudre \(f'(x) = 0\) (discriminant \(\Delta\)).</li>
+      <li>Dresser le tableau de signe de \(f'\).</li>
+      <li>En d&eacute;duire les variations de \(f\).</li>
+      <li>Calculer \(f(x_1)\) et \(f(x_2)\) aux extrema.</li>
+    </ol>
+  </div>
+
+  <!-- Discriminant et cas -->
+  <div class="fiche-card full">
+    <h3>R&ocirc;le du discriminant \(\Delta\) de \(f'(x)\)</h3>
+    <ul>
+      <li><strong>\(\Delta > 0\)</strong> : deux racines r&eacute;elles distinctes \(x_1\) et \(x_2\) &rarr; la courbe a <strong>1 maximum local et 1 minimum local</strong>.</li>
+      <li><strong>\(\Delta = 0\)</strong> : une racine double &rarr; point d'inflexion horizontal, <strong>pas d'extremum</strong>. Fonction monotone.</li>
+      <li><strong>\(\Delta < 0\)</strong> : pas de racine r&eacute;elle &rarr; \(f'\) garde un signe constant &rarr; <strong>fonction strictement monotone</strong>, pas d'extremum.</li>
+    </ul>
+    <div class="fiche-formula">
+      Rappel : \(\Delta = (2b)^2 - 4 \times 3a \times c = 4b^2 - 12ac\)
+    </div>
+  </div>
+
+  <!-- Fonction cube -->
+  <div class="fiche-card">
+    <h3>Fonction cube \(f(x) = x^3\)</h3>
+    <ul>
+      <li>Strictement croissante sur \(\mathbb{R}\)</li>
+      <li>Passe par l'origine</li>
+      <li>Fonction impaire : \(f(-x) = -f(x)\)</li>
+      <li>\(f'(x) = 3x^2 \geq 0\)</li>
+    </ul>
+    <p>\(f'(0) = 0\) mais <strong>pas d'extremum</strong> en 0 (point d'inflexion).</p>
+  </div>
+
+  <!-- Nombre de solutions -->
+  <div class="fiche-card">
+    <h3>Nombre de solutions de \(f(x) = c\)</h3>
+    <p>Graphiquement : compter les intersections de la courbe avec la droite \(y = c\).</p>
+    <ul>
+      <li>Si \(\Delta > 0\) : selon la valeur de \(c\), il peut y avoir <strong>1, 2 ou 3</strong> solutions.</li>
+      <li>Si \(\Delta \leq 0\) : toujours <strong>1 seule</strong> solution (fonction monotone).</li>
+    </ul>
+  </div>
+
+</div><!-- fin fiche-grid -->
+
+<!-- Pièges -->
+<div class="piege">
+  <strong>Pi&egrave;ge 1 :</strong> Oublier de multiplier les coefficients lors de la d&eacute;rivation. \((ax^3)' = 3ax^2\), pas \(ax^2\). Le coefficient 3 vient de l'exposant.
+</div>
+<div class="piege">
+  <strong>Pi&egrave;ge 2 :</strong> Croire que \(f'(x_0) = 0\) implique toujours un extremum. Si le signe de \(f'\) ne change pas (cas \(\Delta \leq 0\)), il n'y a pas d'extremum.
+</div>
+<div class="piege">
+  <strong>Pi&egrave;ge 3 :</strong> Confondre le cube d'un nombre n&eacute;gatif. \((-2)^3 = -8\), pas \(+8\). Le cube d'un n&eacute;gatif est n&eacute;gatif.
+</div>
+
+<!-- Astuces -->
+<div class="astuce">
+  <strong>Astuce allure :</strong> Le signe de \(a\) d&eacute;termine le comportement aux extr&ecirc;mes. Si \(a > 0\), la courbe &laquo; monte &raquo; vers \(+\infty\) &agrave; droite. Si \(a < 0\), elle &laquo; descend &raquo; vers \(-\infty\) &agrave; droite.
+</div>
+<div class="astuce">
+  <strong>Astuce d&eacute;rivation :</strong> D&eacute;river terme par terme. Chaque \(x^n\) donne \(n \cdot x^{n-1}\). Les constantes disparaissent.
+</div>
+
+<!-- Méthode type -->
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>R&eacute;sum&eacute; express &mdash; M&eacute;thode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier \(a\), \(b\), \(c\), \(d\) dans \(f(x) = ax^3 + bx^2 + cx + d\).</li>
+      <li>Calculer \(f'(x) = 3ax^2 + 2bx + c\).</li>
+      <li>Calculer \(\Delta = 4b^2 - 12ac\) pour \(f'(x) = 0\).</li>
+      <li>Si \(\Delta > 0\) : trouver \(x_1\) et \(x_2\), dresser le tableau de signe de \(f'\), puis le tableau de variations.</li>
+      <li>Calculer \(f(x_1)\) et \(f(x_2)\) pour identifier max et min locaux.</li>
+      <li>Pour \(f(x) = c\) : tracer la droite \(y = c\) et compter les intersections.</li>
+    </ol>
+  </div>
+</div>
+
+</div><!-- fin .fiche -->
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

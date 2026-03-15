@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch03 – Moteur électrique – Term ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+<div class="fiche">
+<h1>Fiche résumé — Moteur électrique</h1>
+<p class="sous-titre">Chapitre 3 | Terminale ICCER | Physique-Chimie</p>
+
+<!-- BILAN DE PUISSANCE -->
+<div class="fiche-grid">
+<div class="fiche-card">
+  <h3>Bilan de puissance</h3>
+  <p>Le moteur convertit l'énergie électrique en énergie mécanique (avec des pertes).</p>
+  <div class="fiche-formula">\[ P_a = P_u + P_{\text{pertes}} \]</div>
+  <ul>
+    <li>\(P_a\) : puissance absorbée (W) -- entrée</li>
+    <li>\(P_u\) : puissance utile mécanique (W) -- sortie</li>
+    <li>\(P_{\text{pertes}}\) : chaleur, frottements, pertes fer</li>
+  </ul>
+</div>
+
+<div class="fiche-card">
+  <h3>Rendement</h3>
+  <div class="fiche-formula">\[ \boxed{\eta = \frac{P_u}{P_a}} \]</div>
+  <p>\(\eta\) sans unité, compris entre 0 et 1 (ou en %).
+  <br>Toujours \(\eta < 1\) (pertes inévitables).
+  <br>Bon moteur industriel : 80 % - 95 %.</p>
+</div>
+</div>
+
+<!-- FORMULES Pa -->
+<div class="fiche-grid">
+<div class="fiche-card full">
+  <h3>Puissance absorbée selon le type de moteur</h3>
+  <div class="fiche-formula">
+    Moteur CC : \(\quad P_a = U \times I\) <br>
+    Moteur asynchrone triphasé : \(\quad P_a = \sqrt{3} \times U \times I \times \cos\varphi\)
+  </div>
+  <p style="font-size:.82rem;color:#718096">U en V | I en A | cos \(\varphi\) sans unité | P en W</p>
+</div>
+</div>
+
+<!-- MOTEUR CC vs ASYNCHRONE -->
+<div class="fiche-grid">
+<div class="fiche-card">
+  <h3>Moteur à courant continu (CC)</h3>
+  <ul>
+    <li>Alimenté en tension continue.</li>
+    <li>Vitesse proportionnelle à la tension : \(n \propto U\).</li>
+    <li>Couple au démarrage élevé.</li>
+    <li>Entretien régulier (balais + collecteur).</li>
+    <li>Usages : actionneurs 24 V, outillage portatif.</li>
+  </ul>
+</div>
+
+<div class="fiche-card">
+  <h3>Moteur asynchrone</h3>
+  <ul>
+    <li>Alimenté en tension alternative (triphasé 50 Hz).</li>
+    <li>Champ magnétique tournant &rarr; rotor en retard.</li>
+    <li>Très robuste, peu d'entretien.</li>
+    <li>Usages : pompes, ventilateurs CTA, compresseurs.</li>
+  </ul>
+  <div class="fiche-formula">\[ n_s = \frac{60 \times f}{p} \;\text{(tr/min)} \]</div>
+  <p style="font-size:.82rem">f en Hz | p = paires de pôles | Vitesse réelle &lt; \(n_s\) (glissement 2-5 %)</p>
+</div>
+</div>
+
+<!-- VITESSES DE SYNCHRONISME -->
+<div class="fiche-grid">
+<div class="fiche-card">
+  <h3>Vitesses de synchronisme (50 Hz)</h3>
+  <ul>
+    <li>p = 1 &rarr; \(n_s\) = 3 000 tr/min</li>
+    <li>p = 2 &rarr; \(n_s\) = 1 500 tr/min</li>
+    <li>p = 3 &rarr; \(n_s\) = 1 000 tr/min</li>
+    <li>p = 4 &rarr; \(n_s\) = 750 tr/min</li>
+  </ul>
+  <p>Vitesse réglée par variateur de fréquence : \(n_s \propto f\).</p>
+</div>
+
+<div class="fiche-card">
+  <h3>Puissance mécanique utile</h3>
+  <div class="fiche-formula">\[ P_u = T_{em} \times \omega \]</div>
+  <p>\(T_{em}\) : couple moteur (N.m)</p>
+  <div class="fiche-formula">\[ \omega = \frac{2\pi \times n}{60} \;\text{(rad/s)} \]</div>
+  <p>n : vitesse en tr/min</p>
+</div>
+</div>
+
+<!-- PLAQUE SIGNALÉTIQUE -->
+<div class="fiche-grid">
+<div class="fiche-card full">
+  <h3>Lire une plaque signalétique</h3>
+  <ul>
+    <li><strong>U</strong> (V) : tension nominale | <strong>I</strong> (A) : courant nominal | <strong>f</strong> (Hz) : fréquence</li>
+    <li><strong>P</strong> ou <strong>P<sub>u</sub></strong> (W) : puissance utile mécanique (sur la plaque d'un moteur asynchrone)</li>
+    <li><strong>cos \(\varphi\)</strong> : facteur de puissance | <strong>n</strong> (tr/min) : vitesse nominale | <strong>\(\eta\)</strong> (%) : rendement</li>
+  </ul>
+</div>
+</div>
+
+<!-- PIEGES ET ASTUCES -->
+<div class="fiche-grid">
+<div class="fiche-card full">
+  <h3>Pièges et astuces</h3>
+  <div class="piege"><strong>Piège 1 :</strong> Sur la plaque d'un moteur asynchrone, la puissance indiquée est la <strong>puissance utile mécanique \(P_u\)</strong>, pas la puissance absorbée \(P_a\). Il faut diviser par \(\eta\) pour obtenir \(P_a\).</div>
+  <div class="piege"><strong>Piège 2 :</strong> Ne pas confondre la vitesse de synchronisme \(n_s\) et la vitesse réelle \(n\). Le moteur asynchrone tourne toujours <strong>plus lentement</strong> que \(n_s\) (glissement).</div>
+  <div class="piege"><strong>Piège 3 :</strong> Le rendement n'est jamais égal à 1 (ni à 100 %). Il y a toujours des pertes (Joule, frottements, pertes fer).</div>
+  <div class="astuce"><strong>Astuce :</strong> Pour identifier rapidement le type de moteur : 2 bornes (+/&minus;) avec balais = moteur CC ; 3 ou 6 bornes avec cos \(\varphi\) et f = 50 Hz sur la plaque = moteur asynchrone.</div>
+  <div class="astuce"><strong>Astuce :</strong> Pour trouver le nombre de paires de pôles p, observer la vitesse nominale sur la plaque : n &asymp; 1 450 tr/min &rarr; p = 2, n &asymp; 2 900 tr/min &rarr; p = 1.</div>
+</div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">← Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices →</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

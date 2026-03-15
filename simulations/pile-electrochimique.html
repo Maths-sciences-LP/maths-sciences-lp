@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pile Electrochimique — Simulation</title>
+<title>Pile Électrochimique — Simulation</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
@@ -39,12 +39,12 @@
 <div class="container">
   <header>
     <a href="../simulations.html" class="btn-back">&larr; Retour</a>
-    <h1>Pile Electrochimique</h1>
+    <h1>Pile Électrochimique</h1>
     <p>Terminale Bac Pro &middot; Ch02 ERA</p>
   </header>
 
   <div class="explication">
-    <strong>Principe :</strong> Une pile transforme de l'<strong>energie chimique en energie electrique</strong> grace a une reaction d'oxydoreduction spontanee. L'anode (borne &minus;) est le siege de l'oxydation, la cathode (borne +) est le siege de la reduction. La force electromotrice (f.e.m.) est : <strong>E = E&deg;(cathode) &minus; E&deg;(anode)</strong>.
+    <strong>Principe :</strong> Une pile transforme de l'<strong>énergie chimique en énergie électrique</strong> grâce à une réaction d'oxydoréduction spontanée. L'anode (borne &minus;) est le siège de l'oxydation, la cathode (borne +) est le siège de la réduction. La force électromotrice (f.e.m.) est : <strong>E = E&deg;(cathode) &minus; E&deg;(anode)</strong>.
   </div>
 
   <!-- CELL BUILDER -->
@@ -52,7 +52,7 @@
     <h2>1. Construire une pile</h2>
     <div class="row">
       <div>
-        <label>Metal de l'anode (borne &minus;) :</label>
+        <label>Métal de l'anode (borne &minus;) :</label>
         <select id="selAnode" onchange="updatePile()">
           <option value="Zn" selected>Zinc (Zn)</option>
           <option value="Fe">Fer (Fe)</option>
@@ -61,7 +61,7 @@
         </select>
       </div>
       <div>
-        <label>Metal de la cathode (borne +) :</label>
+        <label>Métal de la cathode (borne +) :</label>
         <select id="selCathode" onchange="updatePile()">
           <option value="Cu" selected>Cuivre (Cu)</option>
           <option value="Ag">Argent (Ag)</option>
@@ -72,8 +72,8 @@
 
     <canvas id="cvPile" width="820" height="360" style="margin-top:15px;"></canvas>
 
-    <div id="warnSame" class="warn" style="display:none;">Les deux electrodes sont identiques : aucune reaction n'est possible. La f.e.m. serait nulle.</div>
-    <div id="warnReverse" class="warn" style="display:none;">Attention : E&deg;(anode) > E&deg;(cathode). En pratique, les roles seraient inverses. La pile fonctionne dans l'autre sens.</div>
+    <div id="warnSame" class="warn" style="display:none;">Les deux électrodes sont identiques : aucune réaction n'est possible. La f.e.m. serait nulle.</div>
+    <div id="warnReverse" class="warn" style="display:none;">Attention : E&deg;(anode) > E&deg;(cathode). En pratique, les rôles seraient inversés. La pile fonctionne dans l'autre sens.</div>
 
     <div class="result" id="resPile"></div>
   </div>
@@ -84,10 +84,10 @@
     <p style="font-size:0.93em;">Sur un chantier, les outils sans fil utilisent principalement des accumulateurs Li-ion. Voici une comparaison des technologies courantes :</p>
     <table class="compare">
       <thead>
-        <tr><th>Type</th><th>Tension (V)</th><th>Energie massique (Wh/kg)</th><th>Cycles</th><th>Effet memoire</th><th>Usage</th></tr>
+        <tr><th>Type</th><th>Tension (V)</th><th>Énergie massique (Wh/kg)</th><th>Cycles</th><th>Effet mémoire</th><th>Usage</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Pile saline</strong></td><td>1,5</td><td>~30</td><td>1 (jetable)</td><td>-</td><td>Telecommandes, lampes</td></tr>
+        <tr><td><strong>Pile saline</strong></td><td>1,5</td><td>~30</td><td>1 (jetable)</td><td>-</td><td>Télécommandes, lampes</td></tr>
         <tr><td><strong>Pile alcaline</strong></td><td>1,5</td><td>~80</td><td>1 (jetable)</td><td>-</td><td>Appareils courants</td></tr>
         <tr><td><strong>Ni-Cd</strong></td><td>1,2</td><td>~50</td><td>~1 000</td><td>Oui</td><td>Ancien outillage (interdit UE)</td></tr>
         <tr><td><strong>Ni-MH</strong></td><td>1,2</td><td>~80</td><td>~500</td><td>Faible</td><td>Piles rechargeables AA/AAA</td></tr>
@@ -99,14 +99,14 @@
 
   <!-- ENERGY CALCULATOR -->
   <div class="card">
-    <h2>3. Calculer l'energie d'un accumulateur</h2>
+    <h2>3. Calculer l'énergie d'un accumulateur</h2>
     <div class="row">
       <div>
         <label>Tension nominale U : <span class="val" id="vUbat">18</span> V</label>
         <input type="range" id="sUbat" min="1" max="60" value="18" step="0.1" oninput="updateBat()" style="width:100%;accent-color:#b45309;">
       </div>
       <div>
-        <label>Capacite Q : <span class="val" id="vQbat">5.0</span> Ah</label>
+        <label>Capacité Q : <span class="val" id="vQbat">5.0</span> Ah</label>
         <input type="range" id="sQbat" min="0.5" max="20" value="5" step="0.1" oninput="updateBat()" style="width:100%;accent-color:#b45309;">
       </div>
     </div>
@@ -128,6 +128,11 @@ const metals = {
 };
 
 let animFrame = 0;
+let animId = null;
+
+function startPileAnimation() {
+  if (!animId) animId = requestAnimationFrame(drawPile);
+}
 
 function updatePile() {
   const anodeKey = $('selAnode').value;
@@ -154,11 +159,14 @@ function updatePile() {
 
   $('resPile').innerHTML = `
     <div class="reaction"><span class="label-r">Oxydation (anode \u2212) :</span> ${oxReaction}</div>
-    <div class="reaction"><span class="label-r">Reduction (cathode +) :</span> ${redReaction}</div>
+    <div class="reaction"><span class="label-r">Réduction (cathode +) :</span> ${redReaction}</div>
     <div class="reaction"><span class="label-r">Bilan :</span> ${overallLeft} \u2192 ${overallRight}</div>
     <div class="fem-big">E = E\u00B0(cathode) \u2212 E\u00B0(anode) = ${cathode.E0.toFixed(2)} \u2212 (${anode.E0.toFixed(2)}) = ${fem.toFixed(2)} V</div>
     <p style="text-align:center;font-size:0.9em;color:#6b7280;">E\u00B0(${cathode.symbol}) = ${cathode.E0.toFixed(2)} V &nbsp;|&nbsp; E\u00B0(${anode.symbol}) = ${anode.E0.toFixed(2)} V</p>
   `;
+
+  // Restart animation when pile configuration changes
+  startPileAnimation();
 }
 
 function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
@@ -168,6 +176,7 @@ const cvP = $('cvPile');
 const ctxP = cvP.getContext('2d');
 
 function drawPile() {
+  animId = null;
   const W = cvP.width, H = cvP.height;
   ctxP.clearRect(0, 0, W, H);
   animFrame++;
@@ -247,7 +256,7 @@ function drawPile() {
   ctxP.fillText(cathode.name + ' (' + cathode.symbol + ')', 625, 326);
   ctxP.font = '10px Segoe UI';
   ctxP.fillStyle = '#16a34a';
-  ctxP.fillText('Reduction', 625, 340);
+  ctxP.fillText('Réduction', 625, 340);
 
   // External wire
   ctxP.strokeStyle = '#1e293b';
@@ -313,7 +322,14 @@ function drawPile() {
     }
   }
 
-  requestAnimationFrame(drawPile);
+  // Only continue animation if there's electron flow (fem > 0 and different metals)
+  const anodeKey2 = $('selAnode').value;
+  const cathodeKey2 = $('selCathode').value;
+  if (fem > 0 && anodeKey2 !== cathodeKey2) {
+    animId = requestAnimationFrame(drawPile);
+  } else {
+    animId = null;
+  }
 }
 
 // Battery energy calculator
@@ -333,18 +349,26 @@ function updateBat() {
 
   $('resBat').innerHTML = `
     <p><strong>Charge :</strong> Q = ${Q.toFixed(1)} Ah = ${Qc.toFixed(0)} C (coulombs)</p>
-    <p><strong>Energie stockee :</strong> E = U &times; Q = ${U.toFixed(1)} &times; ${Q.toFixed(1)} = <span class="val">${E.toFixed(1)} Wh</span> = ${(E / 1000).toFixed(3)} kWh</p>
-    <p><strong>Energie en joules :</strong> ${Ej.toFixed(0)} J</p>
+    <p><strong>Énergie stockée :</strong> E = U &times; Q = ${U.toFixed(1)} &times; ${Q.toFixed(1)} = <span class="val">${E.toFixed(1)} Wh</span> = ${(E / 1000).toFixed(3)} kWh</p>
+    <p><strong>Énergie en joules :</strong> ${Ej.toFixed(0)} J</p>
     <p style="margin-top:10px;padding-top:8px;border-top:1px solid #e5e7eb;">
       <strong>Exemple :</strong> Avec un outil consommant 500 W, cette batterie tiendrait environ <span class="val">${tMin.toFixed(1)} min</span>.
     </p>
   `;
 }
 
+// Pause animation when tab is hidden to save CPU
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    if (animId) { cancelAnimationFrame(animId); animId = null; }
+  } else {
+    startPileAnimation();
+  }
+});
+
 // Init
 updatePile();
 updateBat();
-drawPile();
 </script>
 </body>
 </html>

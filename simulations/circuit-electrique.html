@@ -125,6 +125,8 @@ function getValues() {
 
 function update() {
   const v = getValues();
+  // Restart animation when parameters change
+  startAnimation();
   const res = document.getElementById('results');
   let extra = '';
   if (mode === 'serie') {
@@ -421,6 +423,7 @@ function initElectrons() {
 }
 
 function animate() {
+  animId = null;
   const v = getValues();
   const speed = Math.min(v.I * 0.003, 0.015);
 
@@ -453,14 +456,32 @@ function animate() {
     ctx.fillText('← e⁻', mx, my + 116);
   }
 
-  animId = requestAnimationFrame(animate);
+  // Only continue animation if there's current flowing
+  if (v.U > 0 && v.I > 0) {
+    animId = requestAnimationFrame(animate);
+  } else {
+    animId = null;
+  }
 }
+
+function startAnimation() {
+  if (!animId) animId = requestAnimationFrame(animate);
+}
+
+// Pause animation when tab is hidden to save CPU
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    if (animId) { cancelAnimationFrame(animId); animId = null; }
+  } else {
+    startAnimation();
+  }
+});
 
 window.addEventListener('resize', () => { resize(); initElectrons(); });
 resize();
 initElectrons();
 update();
-animate();
+startAnimation();
 </script>
 </body>
 </html>

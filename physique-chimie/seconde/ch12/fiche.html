@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch12 – Changements d'état et énergie thermique – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../index.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Changements d'état et énergie thermique</h1>
+<p class="sous-titre">Chapitre 12 | Seconde Bac Pro | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>Les 3 états de la matière</h3>
+    <ul>
+      <li><strong>Solide</strong> : forme et volume propres, particules ordonnées</li>
+      <li><strong>Liquide</strong> : forme du contenant, volume propre, particules mobiles</li>
+      <li><strong>Gaz</strong> : occupe tout le volume disponible, particules très agitées</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Les 6 changements d'état</h3>
+    <ul>
+      <li><strong>Fusion</strong> : solide &rarr; liquide (absorbe)</li>
+      <li><strong>Solidification</strong> : liquide &rarr; solide (dégage)</li>
+      <li><strong>Vaporisation</strong> : liquide &rarr; gaz (absorbe)</li>
+      <li><strong>Condensation</strong> : gaz &rarr; liquide (dégage)</li>
+      <li><strong>Sublimation</strong> : solide &rarr; gaz (absorbe)</li>
+      <li><strong>Condensation solide</strong> : gaz &rarr; solide (dégage)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Formule clé</h3>
+    <div class="fiche-formula">\( Q = m \times L \)</div>
+    <ul>
+      <li>\(Q\) : énergie en <strong>Joules (J)</strong></li>
+      <li>\(m\) : masse en <strong>kg</strong></li>
+      <li>\(L\) : chaleur latente en <strong>J/kg</strong></li>
+      <li>\(L_f\)(eau) = 334 000 J/kg</li>
+      <li>\(L_v\)(eau) = 2 256 000 J/kg</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Palier de température</h3>
+    <ul>
+      <li>Pendant un changement d'état d'un corps pur, la <strong>température reste constante</strong></li>
+      <li>Eau : palier à 0 °C (fusion) et 100 °C (ébullition)</li>
+      <li>L'énergie sert à changer l'état, pas à chauffer</li>
+    </ul>
+    <p>Vaporisation = ébullition (dans tout le liquide) + évaporation (en surface, à toute T).</p>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Applications en atelier</h3>
+    <ul>
+      <li><strong>Séchage du bois</strong> : vaporisation de l'eau contenue dans le bois. Très énergivore car \(L_v\) est élevée.</li>
+      <li><strong>Solvants de vernis</strong> : s'évaporent à température ambiante &rarr; vapeurs toxiques et inflammables, ventilation obligatoire.</li>
+      <li>Bois vert : 50-100 % d'humidité. Bois séché en étuve : 6-12 % (menuiserie intérieure).</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Confondre fusion et dissolution. La fusion est un changement d'état (glace &rarr; eau). La dissolution est le mélange d'un soluté dans un solvant.</div>
+<div class="piege"><strong>Piège 2 :</strong> Utiliser la masse en grammes dans \(Q = m \times L\). La masse doit être en <strong>kg</strong> car \(L\) est en J/kg.</div>
+<div class="piege"><strong>Piège 3 :</strong> Croire que la température monte pendant un changement d'état. Non : elle reste constante sur le palier tant que les deux phases coexistent.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Retenir que \(L_v\)(eau) est environ 7 fois plus grand que \(L_f\)(eau). Il faut beaucoup plus d'énergie pour vaporiser l'eau que pour la faire fondre.</div>
+<div class="astuce"><strong>Astuce :</strong> Pour les changements d'état : les transitions « vers le haut » (solide &rarr; liquide &rarr; gaz) absorbent de la chaleur, celles « vers le bas » en dégagent.</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier le changement d'état : quel est l'état initial et l'état final ?</li>
+      <li>Déterminer s'il absorbe ou dégage de la chaleur (endothermique ou exothermique).</li>
+      <li>Repérer les données : masse \(m\) (en kg) et chaleur latente \(L\) (en J/kg).</li>
+      <li>Appliquer \(Q = m \times L\) et calculer en Joules.</li>
+      <li>Convertir si nécessaire : 1 kJ = 1 000 J, 1 MJ = 1 000 000 J.</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

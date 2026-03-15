@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch08 – Fonction linéaire et proportionnalité – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Fonction linéaire et proportionnalité</h1>
+<p class="sous-titre">Chapitre 8 | Seconde Bac Pro | Mathématiques</p>
+
+<div class="fiche-grid">
+  <div class="fiche-card">
+    <h3>Proportionnalité</h3>
+    <p>Deux grandeurs \(x\) et \(y\) sont <strong>proportionnelles</strong> si \(\dfrac{y}{x}\) est constant.</p>
+    <div class="fiche-formula">\(y = kx\) avec \(k = \dfrac{y}{x}\)</div>
+    <p>Dans un tableau de proportionnalité, le quotient \(\dfrac{\text{2e ligne}}{\text{1re ligne}}\) est le même pour chaque colonne.</p>
+  </div>
+  <div class="fiche-card">
+    <h3>Fonction linéaire</h3>
+    <div class="fiche-formula">\(f(x) = ax\)</div>
+    <ul>
+      <li>\(a\) = coefficient directeur (ou de proportionnalité)</li>
+      <li>\(f(0) = 0\) toujours (passe par l'origine)</li>
+      <li>\(f(1) = a\) (l'image de 1 donne le coefficient)</li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Sens de variation</h3>
+    <ul>
+      <li>\(a > 0\) : fonction <strong>croissante</strong></li>
+      <li>\(a < 0\) : fonction <strong>décroissante</strong></li>
+    </ul>
+    <p>La courbe est une <strong>droite passant par l'origine</strong>.</p>
+  </div>
+  <div class="fiche-card">
+    <h3>Trouver le coefficient</h3>
+    <p>Si on connait \(f(x_0) = y_0\) :</p>
+    <div class="fiche-formula">\(a = \dfrac{y_0}{x_0}\)</div>
+    <p>Lecture graphique avec deux points :</p>
+    <div class="fiche-formula">\(a = \dfrac{y_2 - y_1}{x_2 - x_1}\)</div>
+  </div>
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Confondre fonction linéaire \(f(x) = ax\) et fonction affine \(f(x) = ax + b\). Seule la fonction linéaire traduit une proportionnalité stricte et passe par l'origine.</div>
+<div class="piege"><strong>Piège 2 :</strong> Oublier que \(f(0) = 0\). Si \(f(0) \neq 0\), ce n'est pas une fonction linéaire (il y a une partie fixe : abonnement, frais de déplacement...).</div>
+<div class="piege"><strong>Piège 3 :</strong> Inverser le coefficient. Si 3 kg coûtent 12 euros, \(a = \dfrac{12}{3} = 4\) euros/kg, et non \(\dfrac{3}{12}\). Toujours diviser la grandeur dépendante par la variable.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Pour vérifier rapidement un tableau de proportionnalité, calculer le quotient \(\dfrac{y}{x}\) pour chaque colonne. S'ils sont tous égaux, c'est proportionnel.</div>
+<div class="astuce"><strong>Astuce :</strong> Sur un graphique, le coefficient \(a\) se lit directement : c'est l'ordonnée du point d'abscisse 1 (car \(f(1) = a\)).</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier si la situation est proportionnelle : vérifier que \(\dfrac{y}{x}\) est constant (pas de frais fixes).</li>
+      <li>Calculer le coefficient : \(a = \dfrac{y_0}{x_0}\) à partir d'un couple connu.</li>
+      <li>Écrire la fonction : \(f(x) = ax\).</li>
+      <li>Vérifier : \(f(0) = 0\) et le graphique est une droite passant par l'origine.</li>
+      <li>Calculer des images ou antécédents selon le besoin.</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

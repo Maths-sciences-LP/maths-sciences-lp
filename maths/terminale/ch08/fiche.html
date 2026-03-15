@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch08 – Calcul intégral – Term Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-term-iccer.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé &mdash; Calcul intégral</h1>
+<p class="sous-titre">Chapitre 8 | Terminale Bac Pro | Mathématiques</p>
+
+<!-- LIGNE 1 -->
+<div class="fiche-grid">
+
+<div class="fiche-card">
+  <h3>Notion d'intégrale</h3>
+  <div class="fiche-formula">
+    \(\displaystyle\int_a^b f(x)\,\mathrm{d}x\) = aire algébrique sous la courbe
+  </div>
+  <p>Si \(f \geq 0\) sur \([a,b]\), l'intégrale donne directement l'aire. Si \(f\) change de signe, découper selon les zéros.</p>
+</div>
+
+<div class="fiche-card">
+  <h3>Primitives &mdash; définition</h3>
+  <div class="fiche-formula">
+    \(F\) est une primitive de \(f\) si \(F'(x) = f(x)\)
+  </div>
+  <p>Toutes les primitives de \(f\) s'écrivent \(F(x) + C\) avec \(C \in \mathbb{R}\).</p>
+</div>
+
+</div>
+
+<!-- LIGNE 2 : TABLEAU PRIMITIVES -->
+<div class="fiche-grid">
+<div class="fiche-card full">
+  <h3>Primitives usuelles</h3>
+  <table style="width:100%;font-size:.82rem;border-collapse:collapse;margin:4px 0">
+    <thead><tr>
+      <th style="border-bottom:1px solid #93c5fd;padding:4px;text-align:left">\(f(x)\)</th>
+      <th style="border-bottom:1px solid #93c5fd;padding:4px;text-align:left">\(F(x)\)</th>
+      <th style="border-bottom:1px solid #93c5fd;padding:4px;text-align:left">Condition</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>\(k\)</td><td>\(kx\)</td><td></td></tr>
+      <tr><td>\(x^n\)</td><td>\(\dfrac{x^{n+1}}{n+1}\)</td><td>\(n \neq -1\)</td></tr>
+      <tr><td>\(\dfrac{1}{x}\)</td><td>\(\ln|x|\)</td><td>\(x \neq 0\)</td></tr>
+      <tr><td>\(e^x\)</td><td>\(e^x\)</td><td></td></tr>
+      <tr><td>\(e^{ax+b}\)</td><td>\(\dfrac{1}{a}\,e^{ax+b}\)</td><td>\(a \neq 0\)</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- LIGNE 3 -->
+<div class="fiche-grid">
+
+<div class="fiche-card">
+  <h3>Théorème fondamental</h3>
+  <div class="fiche-formula">
+    \(\displaystyle\int_a^b f(x)\,\mathrm{d}x = \Big[F(x)\Big]_a^b = F(b) - F(a)\)
+  </div>
+  <p><strong>Méthode :</strong> 1. Trouver \(F\) &mdash; 2. Écrire \([F]_a^b\) &mdash; 3. Calculer \(F(b)-F(a)\).</p>
+</div>
+
+<div class="fiche-card">
+  <h3>Propriétés</h3>
+  <ul>
+    <li><strong>Linéarité :</strong> \(\int(\lambda f + \mu g) = \lambda\int f + \mu\int g\)</li>
+    <li><strong>Chasles :</strong> \(\int_a^b f = \int_a^c f + \int_c^b f\)</li>
+    <li>\(\int_a^a f = 0\)</li>
+    <li>\(\int_a^b f = -\int_b^a f\)</li>
+  </ul>
+</div>
+
+</div>
+
+<!-- LIGNE 4 -->
+<div class="fiche-grid">
+
+<div class="fiche-card">
+  <h3>Calcul d'aires</h3>
+  <ul>
+    <li>\(f \geq 0\) : \(\mathcal{A} = \int_a^b f(x)\,\mathrm{d}x\)</li>
+    <li>\(f \leq 0\) : \(\mathcal{A} = -\int_a^b f(x)\,\mathrm{d}x\)</li>
+    <li>Entre 2 courbes (\(f \geq g\)) :</li>
+  </ul>
+  <div class="fiche-formula">
+    \(\mathcal{A} = \displaystyle\int_a^b \bigl(f(x)-g(x)\bigr)\,\mathrm{d}x\)
+  </div>
+</div>
+
+<div class="fiche-card">
+  <h3>Valeur moyenne</h3>
+  <div class="fiche-formula">
+    \(\overline{f} = \dfrac{1}{b-a}\displaystyle\int_a^b f(x)\,\mathrm{d}x\)
+  </div>
+  <p>C'est la hauteur du rectangle de même base et de même aire que la surface sous la courbe.</p>
+</div>
+
+</div>
+
+<!-- APPLICATIONS PRO -->
+<div class="fiche-grid">
+<div class="fiche-card full">
+  <h3>Applications professionnelles</h3>
+  <div class="fiche-formula">
+    \(E = \displaystyle\int_{t_1}^{t_2} P(t)\,\mathrm{d}t\) &nbsp; (énergie = intégrale de la puissance, en kWh si \(P\) en kW et \(t\) en h)
+  </div>
+  <ul>
+    <li><strong>Chauffage :</strong> énergie consommée par une chaudière sur un intervalle de temps</li>
+    <li><strong>Menuiserie :</strong> section transversale d'un profilé = intégrale du profil</li>
+  </ul>
+</div>
+</div>
+
+<!-- PIÈGES ET ASTUCES -->
+<div class="fiche-grid">
+<div class="fiche-card full">
+  <h3>Pièges et astuces</h3>
+
+  <div class="piege">
+    <strong>Piège 1 :</strong> Si \(f\) change de signe, l'intégrale n'est pas l'aire ! Il faut découper l'intervalle aux zéros et sommer les valeurs absolues.
+  </div>
+
+  <div class="piege">
+    <strong>Piège 2 :</strong> La primitive de \(x^n\) est \(\dfrac{x^{n+1}}{n+1}\) : ne pas oublier de diviser par \(n+1\). Et cette formule ne marche pas pour \(n = -1\).
+  </div>
+
+  <div class="piege">
+    <strong>Piège 3 :</strong> Pour la valeur moyenne, ne pas oublier le facteur \(\dfrac{1}{b-a}\) devant l'intégrale.
+  </div>
+
+  <div class="astuce">
+    <strong>Astuce :</strong> Toujours vérifier la primitive en la dérivant : si \(F'(x) = f(x)\), c'est bon.
+  </div>
+
+  <div class="astuce">
+    <strong>Astuce :</strong> L'intégrale d'une constante \(k\) sur \([a,b]\) vaut simplement \(k \times (b-a)\).
+  </div>
+</div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

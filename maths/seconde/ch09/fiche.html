@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch09 – Fonction affine – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Fonction affine</h1>
+<p class="sous-titre">Chapitre 9 | Seconde Bac Pro | Mathématiques</p>
+
+<div class="fiche-grid">
+  <div class="fiche-card">
+    <h3>Définition</h3>
+    <div class="fiche-formula">\(f(x) = ax + b\)</div>
+    <ul>
+      <li>\(a\) = <strong>coefficient directeur</strong> (pente)</li>
+      <li>\(b\) = <strong>ordonnée à l'origine</strong></li>
+      <li>Si \(b = 0\) : fonction linéaire \(f(x) = ax\)</li>
+      <li>Si \(a = 0\) : fonction constante \(f(x) = b\)</li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Représentation graphique</h3>
+    <p>La courbe est une <strong>droite</strong>.</p>
+    <ul>
+      <li>\(f(0) = b\) : la droite coupe l'axe \(y\) en \((0\,;\,b)\)</li>
+      <li>Pour tracer : placer <strong>2 points</strong> et relier</li>
+      <li>Deux droites de même \(a\) sont <strong>parallèles</strong></li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Sens de variation</h3>
+    <ul>
+      <li>\(a > 0\) : fonction <strong>croissante</strong> (droite monte)</li>
+      <li>\(a < 0\) : fonction <strong>décroissante</strong> (droite descend)</li>
+      <li>\(a = 0\) : fonction <strong>constante</strong> (droite horizontale)</li>
+    </ul>
+    <p>Pas de maximum ni de minimum (si \(a \neq 0\)).</p>
+  </div>
+  <div class="fiche-card">
+    <h3>Déterminer f(x) = ax + b</h3>
+    <p>A partir de deux points \((x_1;y_1)\) et \((x_2;y_2)\) :</p>
+    <div class="fiche-formula">\(a = \dfrac{y_2 - y_1}{x_2 - x_1}\)</div>
+    <div class="fiche-formula">\(b = y_1 - a \cdot x_1\)</div>
+  </div>
+  <div class="fiche-card full">
+    <h3>Système de deux équations (résolution graphique)</h3>
+    <p>\(\begin{cases} y = ax + b \\ y = cx + d \end{cases}\) : la solution est le <strong>point d'intersection</strong> des deux droites.</p>
+    <ul>
+      <li>Droites sécantes : <strong>une solution</strong> unique</li>
+      <li>Droites parallèles : <strong>aucune solution</strong></li>
+      <li>Droites confondues : <strong>infinité de solutions</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Confondre \(a\) et \(b\). Dans \(f(x) = 3x + 5\), le coefficient directeur est 3 (pas 5). L'ordonnée à l'origine est 5 (pas 3).</div>
+<div class="piege"><strong>Piège 2 :</strong> Croire que la droite passe par l'origine. Seule la fonction linéaire (\(b = 0\)) passe par l'origine. Si \(b \neq 0\), la droite coupe l'axe \(y\) en \((0\,;\,b)\).</div>
+<div class="piege"><strong>Piège 3 :</strong> Inverser numérateur et dénominateur dans le calcul de \(a\). La formule est \(a = \dfrac{\Delta y}{\Delta x}\) (variation de \(y\) divisée par variation de \(x\)), jamais l'inverse.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Pour tracer rapidement une droite : partir du point \((0\,;\,b)\) sur l'axe \(y\), puis avancer de 1 en \(x\) et monter de \(a\) en \(y\). Placer ce deuxième point et relier.</div>
+<div class="astuce"><strong>Astuce :</strong> Pour résoudre graphiquement un système, tracer les deux droites avec soin (au moins 2 points chacune) et lire les coordonnées de l'intersection.</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier \(a\) (coefficient directeur) et \(b\) (ordonnée à l'origine) dans l'expression.</li>
+      <li>Calculer \(f(0) = b\) pour placer le premier point sur l'axe \(y\).</li>
+      <li>Calculer \(f(1) = a + b\) pour placer le deuxième point.</li>
+      <li>Tracer la droite passant par ces deux points.</li>
+      <li>Déterminer le sens de variation : \(a > 0\) croissante, \(a < 0\) décroissante.</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

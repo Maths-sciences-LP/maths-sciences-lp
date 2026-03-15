@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch11 – Figures planes : périmètres et aires – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Figures planes : périmètres et aires</h1>
+<p class="sous-titre">Chapitre 11 | Seconde Bac Pro | Mathématiques</p>
+
+<div class="fiche-grid">
+  <div class="fiche-card">
+    <h3>Périmètres</h3>
+    <div class="fiche-formula">Rectangle : \(P = 2(L + l)\)</div>
+    <div class="fiche-formula">Carré : \(P = 4a\)</div>
+    <div class="fiche-formula">Triangle : \(P = a + b + c\)</div>
+    <div class="fiche-formula">Cercle : \(P = 2\pi r = \pi d\)</div>
+  </div>
+  <div class="fiche-card">
+    <h3>Aires</h3>
+    <div class="fiche-formula">Rectangle : \(\mathcal{A} = L \times l\)</div>
+    <div class="fiche-formula">Carré : \(\mathcal{A} = a^2\)</div>
+    <div class="fiche-formula">Triangle : \(\mathcal{A} = \dfrac{b \times h}{2}\)</div>
+    <div class="fiche-formula">Disque : \(\mathcal{A} = \pi r^2\)</div>
+  </div>
+  <div class="fiche-card">
+    <h3>Autres figures</h3>
+    <div class="fiche-formula">Trapèze : \(\mathcal{A} = \dfrac{(B + b) \times h}{2}\)</div>
+    <div class="fiche-formula">Parallélogramme : \(\mathcal{A} = b \times h\)</div>
+    <div class="fiche-formula">Losange : \(\mathcal{A} = \dfrac{d_1 \times d_2}{2}\)</div>
+  </div>
+  <div class="fiche-card">
+    <h3>Conversions d'unités</h3>
+    <p><strong>Longueurs :</strong> 1 m = 100 cm = 1 000 mm</p>
+    <p><strong>Aires :</strong> coefficients au carré</p>
+    <ul>
+      <li>1 m² = 10 000 cm²</li>
+      <li>1 cm² = 100 mm²</li>
+    </ul>
+    <p><strong>Angles d'un triangle :</strong></p>
+    <div class="fiche-formula">\(\hat{A} + \hat{B} + \hat{C} = 180°\)</div>
+  </div>
+  <div class="fiche-card full">
+    <h3>Figures composées</h3>
+    <p>Décomposer la figure en figures simples. L'aire totale est la <strong>somme</strong> (ou la <strong>différence</strong>) des aires des parties. Exemple : une fenêtre arrondie = rectangle + demi-disque.</p>
+  </div>
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Confondre la conversion des longueurs et des aires. 1 m = 100 cm mais 1 m² = 10 000 cm² (le coefficient est au carré). Ne jamais écrire 1 m² = 100 cm².</div>
+<div class="piege"><strong>Piège 2 :</strong> Utiliser le côté oblique au lieu de la hauteur. Dans un triangle ou un parallélogramme, la hauteur est la <strong>perpendiculaire</strong> à la base, pas un côté quelconque.</div>
+<div class="piege"><strong>Piège 3 :</strong> Oublier de diviser par 2 pour le triangle. L'aire du triangle est \(\dfrac{b \times h}{2}\), pas \(b \times h\). Un triangle, c'est la moitié d'un rectangle.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Pour le disque, bien distinguer rayon et diamètre. Si on donne le diamètre \(d\), le rayon est \(r = \dfrac{d}{2}\). Toutes les formules utilisent le rayon.</div>
+<div class="astuce"><strong>Astuce :</strong> En situation professionnelle, toujours ajouter une marge pour les chutes (typiquement 10 %). Calculer l'aire nette, puis multiplier par 1,10.</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier la figure (rectangle, triangle, cercle, composée...).</li>
+      <li>Relever les mesures nécessaires (base, hauteur, rayon, côtés).</li>
+      <li>Vérifier que toutes les mesures sont dans la <strong>même unité</strong>.</li>
+      <li>Appliquer la formule correspondante (périmètre ou aire).</li>
+      <li>Si figure composée : décomposer, calculer chaque partie, puis additionner (ou soustraire).</li>
+      <li>Convertir le résultat dans l'unité demandée si nécessaire.</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch14 – Solides usuels, volumes et agrandissement – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Solides usuels, volumes et agrandissement</h1>
+<p class="sous-titre">Chapitre 14 | Seconde Bac Pro | Mathématiques</p>
+
+<div class="fiche-grid">
+  <div class="fiche-card">
+    <h3>Volumes à connaitre</h3>
+    <div class="fiche-formula">Cube : \(V = a^3\)</div>
+    <div class="fiche-formula">Pavé droit : \(V = L \times l \times h\)</div>
+    <div class="fiche-formula">Cylindre : \(V = \pi r^2 h\)</div>
+  </div>
+  <div class="fiche-card">
+    <h3>Volumes donnés en énoncé</h3>
+    <div class="fiche-formula">Pyramide : \(V = \dfrac{1}{3} \times \mathcal{A}_{\text{base}} \times h\)</div>
+    <div class="fiche-formula">Cône : \(V = \dfrac{1}{3}\pi r^2 h\)</div>
+    <div class="fiche-formula">Boule : \(V = \dfrac{4}{3}\pi r^3\)</div>
+  </div>
+  <div class="fiche-card">
+    <h3>Conversions de volumes</h3>
+    <ul>
+      <li>1 m³ = 1 000 dm³ = <strong>1 000 L</strong></li>
+      <li>1 L = 1 dm³ = 1 000 cm³ = 1 000 mL</li>
+      <li>1 cm³ = 1 mL</li>
+    </ul>
+    <p>Entre deux unités de volume consécutives : facteur <strong>&times; 1 000</strong> (ou &divide; 1 000).</p>
+  </div>
+  <div class="fiche-card">
+    <h3>Agrandissement / Réduction</h3>
+    <p>Si toutes les longueurs sont multipliées par \(k\) :</p>
+    <div class="fiche-formula">Longueurs : \(\times\, k\)</div>
+    <div class="fiche-formula">Aires : \(\times\, k^2\)</div>
+    <div class="fiche-formula">Volumes : \(\times\, k^3\)</div>
+  </div>
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Oublier le facteur \(\dfrac{1}{3}\) pour la pyramide et le cône. Ces solides « pointus » ont un volume trois fois plus petit que le prisme ou le cylindre correspondant.</div>
+<div class="piege"><strong>Piège 2 :</strong> Confondre rayon et diamètre dans la formule du cylindre. Si on donne le diamètre \(d\), il faut d'abord calculer \(r = \dfrac{d}{2}\) avant d'appliquer \(V = \pi r^2 h\).</div>
+<div class="piege"><strong>Piège 3 :</strong> Croire que doubler les longueurs double le volume. Si \(k = 2\), les longueurs sont multipliées par 2, les aires par 4 et les volumes par <strong>8</strong>. Le facteur est \(k^3\), pas \(k\).</div>
+
+<div class="astuce"><strong>Astuce :</strong> Pour convertir des m³ en litres, multiplier par 1 000. Pour convertir des cm³ en litres, diviser par 1 000 (car 1 L = 1 000 cm³).</div>
+<div class="astuce"><strong>Astuce :</strong> Retenir la hiérarchie : longueurs en \(k\), surfaces en \(k^2\), volumes en \(k^3\). L'exposant correspond à la dimension (1D, 2D, 3D).</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier le solide (cube, pavé, cylindre, pyramide, cône, boule).</li>
+      <li>Relever les mesures nécessaires (rayon, hauteur, côtés, aire de base).</li>
+      <li>Convertir toutes les mesures dans la <strong>même unité</strong> avant de calculer.</li>
+      <li>Appliquer la formule de volume correspondante.</li>
+      <li>Convertir le résultat dans l'unité demandée (m³, L, cm³...).</li>
+      <li>Pour un agrandissement/réduction : multiplier le volume par \(k^3\).</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

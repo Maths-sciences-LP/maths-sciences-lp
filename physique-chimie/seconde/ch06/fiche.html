@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch06 – Forces et équilibre – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Forces et équilibre</h1>
+<p class="sous-titre">Chapitre 6 | Seconde Bac Pro | Physique-Chimie</p>
+
+<div class="fiche-grid">
+  <div class="fiche-card">
+    <h3>Les 4 caractéristiques d'une force</h3>
+    <ul>
+      <li><strong>Point d'application</strong> : endroit où la force s'applique</li>
+      <li><strong>Direction</strong> : droite d'action (verticale, horizontale...)</li>
+      <li><strong>Sens</strong> : orientation le long de la droite</li>
+      <li><strong>Valeur</strong> : intensité en Newtons (N)</li>
+    </ul>
+    <p>Représentation par un vecteur \(\vec{F}\) (longueur proportionnelle à la valeur).</p>
+  </div>
+  <div class="fiche-card">
+    <h3>Le poids</h3>
+    <div class="fiche-formula">\(P = m \times g\)</div>
+    <p>P en N, m en kg, g en N/kg</p>
+    <ul>
+      <li>\(g = 9{,}81 \approx 10\) N/kg sur Terre</li>
+      <li>Direction : <strong>verticale</strong>, sens : <strong>vers le bas</strong></li>
+      <li>Point d'application : <strong>centre de gravité</strong></li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Masse ≠ Poids</h3>
+    <ul>
+      <li><strong>Masse</strong> (kg) : propriété intrinsèque, constante partout</li>
+      <li><strong>Poids</strong> (N) : force, dépend de l'endroit (g varie)</li>
+      <li>Terre : g ≈ 10 N/kg | Lune : g ≈ 1,6 N/kg</li>
+      <li>Exemple : 80 kg → 800 N sur Terre, 128 N sur la Lune</li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Condition d'équilibre</h3>
+    <div class="fiche-formula">\(\sum \vec{F} = \vec{0}\)</div>
+    <p><strong>2 forces en équilibre</strong> : même droite d'action, même valeur, sens opposés.</p>
+    <p><strong>3 forces en équilibre</strong> : coplanaires et concourantes (leurs droites d'action se croisent en un point).</p>
+  </div>
+  <div class="fiche-card full">
+    <h3>3e loi de Newton et plan incliné</h3>
+    <ul>
+      <li><strong>Actions réciproques</strong> : si A exerce \(\vec{F}\) sur B, alors B exerce \(-\vec{F}\) sur A (même valeur, sens opposés, mais sur des objets différents)</li>
+      <li><strong>Plan incliné</strong> : composante parallèle \(P_\parallel = P\sin\theta\) et perpendiculaire \(P_\perp = P\cos\theta\)</li>
+      <li>L'objet glisse si \(P_\parallel > f_{\max} = \mu \times P_\perp\)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Confondre masse et poids. La masse s'exprime en <strong>kg</strong>, le poids en <strong>N</strong>. On ne dit pas « je pèse 70 kg » en physique, mais « ma masse est 70 kg et mon poids est 700 N ».</div>
+<div class="piege"><strong>Piège 2 :</strong> Croire que les forces d'actions réciproques s'annulent. Elles ne s'annulent pas car elles s'appliquent sur des <strong>objets différents</strong> (l'une sur A, l'autre sur B).</div>
+<div class="piege"><strong>Piège 3 :</strong> Oublier la réaction du support. Un objet posé sur une table est soumis à <strong>deux forces</strong> : son poids (vers le bas) ET la réaction du support (vers le haut). Sans la réaction, il traverserait la table.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Pour calculer rapidement un poids : multiplier la masse par 10. Exemple : planche de 8 kg → P ≈ 80 N. Pour plus de précision, utiliser g = 9,81 N/kg.</div>
+<div class="astuce"><strong>Astuce :</strong> Pour vérifier un équilibre à 2 forces : dessiner les deux vecteurs. S'ils sont sur la même droite, de même longueur et de sens opposés → équilibre confirmé.</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier l'<strong>objet étudié</strong> et lister toutes les forces qui s'exercent sur lui</li>
+      <li>Pour chaque force : préciser les <strong>4 caractéristiques</strong> (point d'application, direction, sens, valeur)</li>
+      <li>Calculer le <strong>poids</strong> si nécessaire : \(P = m \times g\)</li>
+      <li>Vérifier la condition d'<strong>équilibre</strong> : \(\sum \vec{F} = \vec{0}\)</li>
+      <li>Conclure : l'objet est-il en équilibre ? Les fixations/supports sont-ils suffisants ?</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

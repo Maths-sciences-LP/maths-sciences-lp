@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch05 – Mouvement et trajectoire – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Mouvement et trajectoire</h1>
+<p class="sous-titre">Chapitre 5 | Seconde Bac Pro | Physique-Chimie</p>
+
+<div class="fiche-grid">
+  <div class="fiche-card">
+    <h3>Référentiel et trajectoire</h3>
+    <ul>
+      <li><strong>Référentiel</strong> : solide de référence pour décrire un mouvement (terrestre, géocentrique, héliocentrique)</li>
+      <li>Un objet peut être en mouvement dans un référentiel et au repos dans un autre (<strong>relativité du mouvement</strong>)</li>
+      <li><strong>Trajectoire</strong> : ensemble des positions successives de l'objet</li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Types de trajectoires</h3>
+    <ul>
+      <li><strong>Rectiligne</strong> : droite (chariot sur rail, pièce sur guide)</li>
+      <li><strong>Circulaire</strong> : cercle ou arc (dent de scie circulaire, fraise en rotation)</li>
+      <li><strong>Curviligne</strong> : courbe quelconque (balle lancée, profil CNC courbe)</li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Vitesse moyenne — Formules</h3>
+    <div class="fiche-formula">\(v = \dfrac{d}{\Delta t}\)</div>
+    <div class="fiche-formula">\(d = v \times \Delta t\)</div>
+    <div class="fiche-formula">\(\Delta t = \dfrac{d}{v}\)</div>
+    <p>v en m/s, d en m, Δt en s (ou v en km/h, d en km, Δt en h)</p>
+  </div>
+  <div class="fiche-card">
+    <h3>Conversion et types de mouvements</h3>
+    <div class="fiche-formula">\(1\;\text{m/s} = 3{,}6\;\text{km/h}\)</div>
+    <p>m/s → km/h : <strong>×3,6</strong> | km/h → m/s : <strong>÷3,6</strong></p>
+    <ul>
+      <li><strong>Uniforme</strong> : vitesse constante (positions équidistantes)</li>
+      <li><strong>Accéléré</strong> : vitesse croissante (positions de plus en plus espacées)</li>
+      <li><strong>Décéléré</strong> : vitesse décroissante (positions de plus en plus rapprochées)</li>
+    </ul>
+  </div>
+  <div class="fiche-card full">
+    <h3>Chronophotographie</h3>
+    <ul>
+      <li>Photos prises à intervalles de temps <strong>réguliers</strong> (τ = durée entre 2 flashs)</li>
+      <li>Vitesse entre 2 positions : \(v = d / \tau\)</li>
+      <li>Positions <strong>équidistantes</strong> → mouvement uniforme | Espaces <strong>croissants</strong> → accéléré | Espaces <strong>décroissants</strong> → décéléré</li>
+    </ul>
+  </div>
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Oublier de convertir les unités. Si d est en km et Δt en heures, la vitesse est en km/h. Pour obtenir des m/s, il faut d en mètres et Δt en secondes.</div>
+<div class="piege"><strong>Piège 2 :</strong> Confondre vitesse moyenne et vitesse instantanée. La formule \(v = d/\Delta t\) donne la vitesse <strong>moyenne</strong> sur l'intervalle. La vitesse instantanée peut varier à chaque instant.</div>
+<div class="piege"><strong>Piège 3 :</strong> Dire qu'un mouvement est « accéléré » parce que l'objet va vite. Un mouvement accéléré signifie que la vitesse <strong>augmente</strong>, pas qu'elle est élevée. Un objet lent peut être en mouvement accéléré.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Pour convertir m/s en km/h, retenir « <strong>×3,6</strong> ». Exemple : 0,5 m/s × 3,6 = 1,8 km/h. Pour l'inverse, diviser par 3,6.</div>
+<div class="astuce"><strong>Astuce :</strong> Sur une chronophotographie, regarder si les espacements <strong>augmentent, diminuent ou restent constants</strong>. Cela suffit à identifier le type de mouvement sans calcul.</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier le <strong>référentiel</strong> et la <strong>trajectoire</strong> (rectiligne, circulaire, curviligne)</li>
+      <li>Repérer les <strong>données</strong> : distance d, durée Δt, intervalle τ (chronophotographie)</li>
+      <li>Convertir toutes les grandeurs dans les <strong>mêmes unités</strong> (SI de préférence)</li>
+      <li>Appliquer la formule \(v = d / \Delta t\) pour calculer la vitesse moyenne</li>
+      <li>Analyser les espacements pour déterminer le <strong>type de mouvement</strong> (uniforme, accéléré, décéléré)</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

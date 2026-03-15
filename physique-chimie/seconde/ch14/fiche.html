@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch14 – Lumière, couleurs et photodétecteurs – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Lumière, couleurs et photodétecteurs</h1>
+<p class="sous-titre">Chapitre 14 | Seconde Bac Pro | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>Nature de la lumière</h3>
+    <ul>
+      <li>Onde <strong>électromagnétique</strong></li>
+      <li>Spectre visible : <strong>380 nm</strong> (violet) à <strong>780 nm</strong> (rouge)</li>
+      <li>1 nm = \(10^{-9}\) m</li>
+    </ul>
+    <div class="fiche-formula">\( c = \lambda \times f \)</div>
+    <p>\(c = 3 \times 10^8\) m/s, \(\lambda\) en m, \(f\) en Hz</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Spectre visible</h3>
+    <ul>
+      <li>Violet : 380-450 nm</li>
+      <li>Bleu : 450-495 nm</li>
+      <li>Vert : 495-570 nm</li>
+      <li>Jaune : 570-590 nm</li>
+      <li>Orange : 590-620 nm</li>
+      <li>Rouge : 620-780 nm</li>
+    </ul>
+    <p>Lumière blanche = superposition de toutes les couleurs.</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Synthèse additive (RGB)</h3>
+    <ul>
+      <li>Primaires : <strong>Rouge + Vert + Bleu</strong></li>
+      <li>R + G = Jaune</li>
+      <li>R + B = Magenta</li>
+      <li>G + B = Cyan</li>
+      <li>R + G + B = <strong>Blanc</strong></li>
+    </ul>
+    <p>Utilisée pour les écrans et éclairages LED RGB.</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Synthèse soustractive (CMJ)</h3>
+    <ul>
+      <li>Primaires : <strong>Cyan + Magenta + Jaune</strong></li>
+      <li>Chaque filtre <em>absorbe</em> une composante</li>
+      <li>C + M + J = <strong>Noir</strong> (en théorie)</li>
+    </ul>
+    <p>Utilisée pour l'impression et les pigments (peinture, lasure bois).</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Photodétecteurs</h3>
+    <ul>
+      <li><strong>LDR</strong> : résistance diminue avec la lumière (éclairage automatique)</li>
+      <li><strong>Photodiode</strong> : rapide, capteurs de présence sur machines</li>
+      <li><strong>Cellule photovoltaïque</strong> : convertit lumière en électricité</li>
+      <li><strong>Capteur CCD/CMOS</strong> : imagerie (caméra de contrôle qualité)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Éclairement et loi en 1/d²</h3>
+    <div class="fiche-formula">\( E = \dfrac{I}{d^2} \)</div>
+    <ul>
+      <li>\(E\) : éclairement en <strong>lux (lx)</strong></li>
+      <li>\(I\) : intensité lumineuse en <strong>candelas (cd)</strong></li>
+      <li>\(d\) : distance en <strong>m</strong></li>
+      <li>Atelier : 500 lx recommandés (norme)</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Confondre synthèse additive et soustractive. Additive (lumières) : R+G+B = blanc. Soustractive (pigments) : C+M+J = noir.</div>
+<div class="piege"><strong>Piège 2 :</strong> Oublier de convertir les nm en m pour utiliser \(c = \lambda \times f\). Exemple : 550 nm = \(550 \times 10^{-9}\) m.</div>
+<div class="piege"><strong>Piège 3 :</strong> Penser qu'un objet rouge « produit » de la lumière rouge. En réalité, il <strong>absorbe</strong> toutes les couleurs sauf le rouge qu'il <strong>diffuse</strong>.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Pour la finition du bois, choisir une source avec un IRC (indice de rendu des couleurs) supérieur ou égal à 90 pour percevoir les teintes fidèlement.</div>
+<div class="astuce"><strong>Astuce :</strong> La loi en \(1/d^2\) signifie que si on double la distance, l'éclairement est divisé par 4. Rapprocher la source améliore beaucoup l'éclairage.</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier le type de synthèse : additive (lumières, écrans) ou soustractive (pigments, impression).</li>
+      <li>Pour calculer \(f\) ou \(\lambda\) : utiliser \(c = \lambda \times f\) avec \(\lambda\) en mètres.</li>
+      <li>Pour l'éclairement : appliquer \(E = I/d^2\), vérifier que la distance est en mètres.</li>
+      <li>Pour choisir un photodétecteur : LDR pour l'éclairage automatique, photodiode pour la détection rapide.</li>
+      <li>Vérifier les unités : \(\lambda\) en m (ou nm pour le spectre), \(f\) en Hz, \(E\) en lux.</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

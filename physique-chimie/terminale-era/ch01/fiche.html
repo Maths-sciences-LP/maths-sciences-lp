@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch01 – Transporter l'énergie électrique – Term ERA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-term-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA (Grpt 3)</a>
+<div class="fiche">
+<h1>Fiche résumé — Transporter l'énergie sous forme électrique</h1>
+<p class="sous-titre">Chapitre 1 | Terminale ERA-MA | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>Loi d'Ohm</h3>
+    <div class="fiche-formula">\( U = R \times I \)</div>
+    <ul>
+      <li>\(U\) : tension (V)</li>
+      <li>\(R\) : résistance (\(\Omega\))</li>
+      <li>\(I\) : intensité (A)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Puissance électrique</h3>
+    <div class="fiche-formula">\( P = U \times I \)</div>
+    <ul>
+      <li>\(P\) : puissance (W)</li>
+      <li>\(U\) : tension (V)</li>
+      <li>\(I\) : intensité (A)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Pertes par effet Joule</h3>
+    <div class="fiche-formula">\( P_J = R \times I^2 \)</div>
+    <p>Les câbles ont une résistance R. Le courant qui les traverse provoque un échauffement : c'est l'effet Joule. Ces pertes sont proportionnelles à \(I^2\).</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Pourquoi la haute tension ?</h3>
+    <div class="fiche-formula">\( P_J = \dfrac{R \times P^2}{U^2} \)</div>
+    <p>Pour une puissance P constante, si on augmente U, alors I diminue.</p>
+    <p><strong>Multiplier U par k divise les pertes par k².</strong></p>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Le transformateur</h3>
+    <div class="fiche-formula">\( \dfrac{U_1}{U_2} = \dfrac{N_1}{N_2} \)</div>
+    <ul>
+      <li>\(U_1\), \(N_1\) : tension et nombre de spires au <strong>primaire</strong></li>
+      <li>\(U_2\), \(N_2\) : tension et nombre de spires au <strong>secondaire</strong></li>
+      <li><strong>Élévateur</strong> : \(N_2 > N_1\) donc \(U_2 > U_1\) (avant transport)</li>
+      <li><strong>Abaisseur</strong> : \(N_2 < N_1\) donc \(U_2 < U_1\) (avant distribution)</li>
+      <li>Transfo idéal : \(P_1 = P_2\), donc \(U_1 \times I_1 = U_2 \times I_2\)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Le réseau électrique</h3>
+    <p>Centrale (20 kV) → Transfo élévateur → Lignes HT (400 kV) → Transfos abaisseurs successifs → Consommateur (230 V / 400 V)</p>
+  </div>
+
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Ne pas confondre \(P_J = R \times I^2\) (pertes Joule) et \(P = U \times I\) (puissance transportée). Les pertes dépendent de \(I^2\), pas de \(U\).</div>
+<div class="piege"><strong>Piège 2 :</strong> Si la tension est multipliée par k, les pertes sont divisées par \(k^2\) (pas par k). Exemple : U \(\times\) 10 \(\Rightarrow\) pertes \(\div\) 100.</div>
+<div class="piege"><strong>Piège 3 :</strong> Le transformateur ne fonctionne qu'en courant alternatif (AC). Il ne fonctionne pas en courant continu (DC).</div>
+
+<div class="astuce"><strong>Astuce :</strong> Pour trouver \(U_2\), isoler dans la formule : \(U_2 = U_1 \times \dfrac{N_2}{N_1}\). Vérifier si le résultat est cohérent : \(N_2 > N_1 \Rightarrow U_2 > U_1\).</div>
+<div class="astuce"><strong>Astuce :</strong> Pour calculer les pertes Joule : d'abord \(I = P / U\), puis \(P_J = R \times I^2\).</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">← Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices →</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch11 – Transferts thermiques et équilibre thermique – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Transferts thermiques et équilibre thermique</h1>
+<p class="sous-titre">Chapitre 11 | Seconde Bac Pro | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>Principe fondamental</h3>
+    <ul>
+      <li>Le transfert thermique va <strong>du chaud vers le froid</strong></li>
+      <li><strong>Équilibre thermique</strong> : quand les deux corps ont la même température, le transfert s'arrête</li>
+      <li>On ne dit pas « le froid entre » mais « la chaleur sort »</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Les 3 modes de transfert</h3>
+    <ul>
+      <li><strong>Conduction</strong> : de proche en proche dans les solides, sans déplacement de matière</li>
+      <li><strong>Convection</strong> : par déplacement d'un fluide (air chaud monte)</li>
+      <li><strong>Rayonnement</strong> : ondes électromagnétiques (IR), sans milieu nécessaire</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Flux thermique</h3>
+    <div class="fiche-formula">\( \Phi = \dfrac{Q}{t} \)</div>
+    <ul>
+      <li>\(\Phi\) : flux en <strong>Watts (W)</strong></li>
+      <li>\(Q\) : énergie en Joules (J)</li>
+      <li>\(t\) : durée en secondes (s)</li>
+    </ul>
+    <div class="fiche-formula">\( \Phi = \dfrac{\Delta T}{R_{th}} \)</div>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Résistance thermique</h3>
+    <div class="fiche-formula">\( R_{th} = \dfrac{e}{\lambda \cdot S} \)</div>
+    <ul>
+      <li>\(e\) : épaisseur (m)</li>
+      <li>\(\lambda\) : conductivité thermique (W·m⁻¹·K⁻¹)</li>
+      <li>\(S\) : surface (m²)</li>
+      <li>\(R_{th}\) en <strong>K/W</strong></li>
+      <li>Grand \(R_{th}\) = bon isolant</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Conductivités thermiques</h3>
+    <ul>
+      <li>Air : 0,025 | Polystyrène : 0,035 | Laine de verre : 0,04 (isolants)</li>
+      <li><strong>Bois de pin : 0,12</strong> | Bois de chêne : 0,17 (isolants naturels)</li>
+      <li>Verre : 1 | Acier : 50 | Aluminium : 230 (conducteurs)</li>
+    </ul>
+    <p>Le bois est 300 à 400 fois plus isolant que l'acier.</p>
+  </div>
+
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Oublier de convertir l'épaisseur en mètres : 18 mm = 0,018 m, 4 cm = 0,04 m.</div>
+<div class="piege"><strong>Piège 2 :</strong> Confondre \(\lambda\) (conductivité, propriété du matériau) et \(R_{th}\) (résistance, dépend aussi de \(e\) et \(S\)). Un matériau avec un petit \(\lambda\) isole bien.</div>
+<div class="piege"><strong>Piège 3 :</strong> Dire « le froid passe à travers le mur ». En physique, c'est la chaleur qui s'échappe du côté chaud vers le côté froid.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Analogie électrique : \(\Phi = \Delta T / R_{th}\) est l'équivalent thermique de \(I = U / R\) (loi d'Ohm). Le flux joue le rôle du courant, \(\Delta T\) celui de la tension.</div>
+<div class="astuce"><strong>Astuce :</strong> Pour comparer deux matériaux, calculer \(R_{th}\) à épaisseur et surface identiques : celui qui a le plus grand \(R_{th}\) isole le mieux.</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Repérer les données : \(e\), \(\lambda\), \(S\), \(\Delta T\) (= \(T_{chaud} - T_{froid}\)).</li>
+      <li>Convertir les unités : mm en m, cm² en m².</li>
+      <li>Calculer \(R_{th} = e / (\lambda \times S)\) en K/W.</li>
+      <li>Calculer le flux \(\Phi = \Delta T / R_{th}\) en W.</li>
+      <li>Si demandé, calculer l'énergie sur une durée : \(Q = \Phi \times t\) en J (puis convertir en kJ, kWh si nécessaire).</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

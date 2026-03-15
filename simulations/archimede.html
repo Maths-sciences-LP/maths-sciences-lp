@@ -146,6 +146,7 @@ const els = {
 };
 
 let animY = 0, targetY = 0;
+let animId = null;
 
 // Material presets
 document.getElementById('matPresets').addEventListener('click', e => {
@@ -203,6 +204,9 @@ function update() {
     verd.className = 'verdict sinks';
   }
 
+  // Restart animation when inputs change
+  startAnimation();
+
   // Target Y for animation
   const containerTop = 80;
   const waterLevel = 160;
@@ -219,6 +223,7 @@ function update() {
 }
 
 function drawScene() {
+  animId = null;
   const W = cv.width, H = cv.height;
   const dpr = window.devicePixelRatio || 1;
   if (cv.width !== cv.clientWidth * dpr) {
@@ -271,6 +276,7 @@ function drawScene() {
   const objX = cx + cw / 2;
 
   // Smooth animation
+  const prevAnimY = animY;
   animY += (targetY - animY) * 0.12;
 
   // Map targetY to canvas coordinates
@@ -343,7 +349,16 @@ function drawScene() {
   ctx.textAlign = 'center';
   ctx.fillText(fluidName, cx + cw / 2, cy + ch + 20);
 
-  requestAnimationFrame(drawScene);
+  // Continue animating only if values haven't converged
+  if (Math.abs(animY - targetY) > 0.1) {
+    animId = requestAnimationFrame(drawScene);
+  } else {
+    animId = null;
+  }
+}
+
+function startAnimation() {
+  if (!animId) animId = requestAnimationFrame(drawScene);
 }
 
 function drawArrow(ctx, x1, y1, x2, y2, color, label) {
@@ -375,7 +390,7 @@ function drawArrow(ctx, x1, y1, x2, y2, color, label) {
 }
 
 update();
-drawScene();
+startAnimation();
 </script>
 </body>
 </html>

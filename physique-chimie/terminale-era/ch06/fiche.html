@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch06 – Choisir une source lumineuse – Term ERA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-term-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA (Grpt 3)</a>
+<div class="fiche">
+<h1>Fiche résumé — Choisir une source lumineuse</h1>
+<p class="sous-titre">Chapitre 6 | Terminale ERA-MA | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>Lumière et spectre visible</h3>
+    <ul>
+      <li>La lumière est une <strong>onde électromagnétique</strong></li>
+      <li>Spectre visible : <strong>380 nm</strong> (violet) à <strong>780 nm</strong> (rouge)</li>
+      <li>1 nm = 10<sup>-9</sup> m</li>
+    </ul>
+    <div class="fiche-formula">\[ c = \lambda \times \nu \]</div>
+    <p style="font-size:.8rem;color:#718096">c = 3 &times; 10<sup>8</sup> m/s | &lambda; en m | &nu; en Hz</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Types de spectres</h3>
+    <ul>
+      <li><strong>Continu</strong> : toutes les longueurs d'onde (soleil, incandescence)</li>
+      <li><strong>De raies</strong> : quelques &lambda; précises (lampe Na, Hg)</li>
+      <li><strong>Large centré</strong> : LED (pic + phosphore)</li>
+      <li><strong>Monochromatique</strong> : une seule &lambda; (laser)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Efficacité lumineuse</h3>
+    <div class="fiche-formula">\[ \eta = \frac{\Phi}{P} \quad \text{(lm/W)} \]</div>
+    <p>&Phi; = flux lumineux (lm) ; P = puissance (W)</p>
+    <div class="astuce">
+      <strong>Astuce :</strong> Plus &eta; est grand, moins la source consomme pour le même éclairage. LED (&asymp; 120 lm/W) = 8 fois mieux que l'incandescence (&asymp; 15 lm/W).
+    </div>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Température de couleur</h3>
+    <ul>
+      <li><strong>2 700 K</strong> : blanc chaud (jaune) — maisons</li>
+      <li><strong>4 000 K</strong> : blanc neutre — bureaux</li>
+      <li><strong>6 500 K</strong> : blanc froid (bleuté) — ateliers</li>
+    </ul>
+    <p style="font-size:.8rem;color:#718096">Ateliers : 4 000-6 500 K recommandé pour le contrôle qualité.</p>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Comparaison des sources lumineuses</h3>
+    <table style="width:100%;font-size:.82rem;margin:4px 0">
+      <tr><th>Type</th><th>&eta; (lm/W)</th><th>Durée de vie</th><th>IRC</th></tr>
+      <tr><td>Incandescence</td><td>&asymp; 15</td><td>1 000 h</td><td>100</td></tr>
+      <tr><td>Halogène</td><td>&asymp; 25</td><td>2 000 h</td><td>100</td></tr>
+      <tr><td>Fluorescent</td><td>&asymp; 80</td><td>10 000 h</td><td>80-85</td></tr>
+      <tr style="background:#f0fff4;font-weight:600"><td>LED</td><td>100-150</td><td>25 000-50 000 h</td><td>80-95</td></tr>
+    </table>
+    <p style="font-size:.8rem;color:#718096">IRC (Indice de Rendu des Couleurs) : IRC &ge; 80 recommandé pour les ateliers.</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Le laser — Caractéristiques</h3>
+    <ul>
+      <li><strong>Monochromatique</strong> : une seule &lambda;</li>
+      <li><strong>Cohérent</strong> : ondes en phase</li>
+      <li><strong>Directionnel</strong> : faisceau très étroit</li>
+      <li><strong>Intense</strong> : énergie concentrée</li>
+    </ul>
+    <p style="font-size:.8rem;color:#718096">Applications : niveau laser, télémètre, découpe, traceur.</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Sécurité laser</h3>
+    <ul>
+      <li>Classes 1 (inoffensif) à 4 (dangereux)</li>
+      <li>Niveaux de chantier : classe 2 (&lambda; = 635 nm)</li>
+      <li><strong>Ne jamais regarder dans le faisceau !</strong></li>
+    </ul>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Pièges fréquents</h3>
+    <div class="piege">
+      <strong>Piège 1 :</strong> Confondre flux lumineux (lm) et puissance (W). Le lumen mesure la lumière utile perçue par l'oeil, le watt mesure la consommation électrique.
+    </div>
+    <div class="piege">
+      <strong>Piège 2 :</strong> Croire qu'une lumière « froide » (blanc froid = 6 500 K) est physiquement froide. La température de couleur n'est pas la température physique de la lampe.
+    </div>
+    <div class="piege">
+      <strong>Piège 3 :</strong> Négliger l'IRC. Une lampe sodium (IRC = 25) a un bon rendement mais les couleurs apparaissent faussées — inutilisable pour le contrôle qualité d'une finition bois.
+    </div>
+    <div class="astuce">
+      <strong>Astuce :</strong> Pour choisir un éclairage d'atelier, vérifier 3 critères : efficacité (&eta; en lm/W), température de couleur (4 000-6 500 K) et IRC (&ge; 80).
+    </div>
+  </div>
+
+</div>
+
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">← Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices →</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch08 – Signal sonore – Term ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-term-iccer.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Propagation d'un signal sonore</h1>
+<p class="sous-titre">Chapitre 8 | Terminale ICCER | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <!-- NATURE DU SON -->
+  <div class="fiche-card">
+    <h3>Nature du son</h3>
+    <ul>
+      <li>Onde <strong>mécanique longitudinale</strong> (compressions / dilatations).</li>
+      <li>Nécessite un <strong>milieu matériel</strong> (gaz, liquide, solide).</li>
+      <li><strong>Pas de son dans le vide.</strong></li>
+    </ul>
+  </div>
+
+  <!-- VITESSE DU SON -->
+  <div class="fiche-card">
+    <h3>Vitesse du son</h3>
+    <p>Dépend du <strong>milieu</strong>, pas de la fréquence.</p>
+    <ul>
+      <li>Air (20 °C) : <strong>340 m/s</strong></li>
+      <li>Eau : ~1 500 m/s</li>
+      <li>Acier : ~5 000 m/s</li>
+    </ul>
+    <p style="margin-top:4px;font-size:.82rem">Plus le milieu est dense, plus le son est rapide.</p>
+  </div>
+
+  <!-- FRÉQUENCE, PÉRIODE, LONGUEUR D'ONDE -->
+  <div class="fiche-card full">
+    <h3>Fréquence, période et longueur d'onde</h3>
+    <div class="fiche-formula">
+      \(f = \dfrac{1}{T}\)
+      <span style="font-size:.8rem;margin-left:12px">\(f\) en Hz &nbsp;| \(T\) en s</span>
+    </div>
+    <div class="fiche-formula">
+      \(\lambda = c_\text{son} \times T = \dfrac{c_\text{son}}{f}\)
+      <span style="font-size:.8rem;margin-left:12px">\(\lambda\) en m &nbsp;| \(c_\text{son}\) en m/s &nbsp;| \(f\) en Hz</span>
+    </div>
+    <p style="margin-top:6px"><strong>Domaine audible :</strong> 20 Hz &ndash; 20 kHz &nbsp;| Infrasons &lt; 20 Hz &nbsp;| Ultrasons &gt; 20 kHz</p>
+  </div>
+
+  <!-- NIVEAU D'INTENSITÉ ACOUSTIQUE -->
+  <div class="fiche-card">
+    <h3>Niveau d'intensité acoustique</h3>
+    <div class="fiche-formula">
+      \(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\)
+    </div>
+    <p><small>\(L\) en dB &nbsp;| \(I\) en W/m² &nbsp;| \(I_0 = 10^{-12}\) W/m²</small></p>
+    <div class="fiche-formula">
+      \(I = I_0 \times 10^{L/10}\)
+    </div>
+    <ul style="margin-top:6px">
+      <li><strong>+10 dB</strong> = intensité &times; 10</li>
+      <li><strong>+3 dB</strong> = intensité &times; 2</li>
+      <li>Seuil de risque : <strong>85 dB</strong></li>
+    </ul>
+  </div>
+
+  <!-- ATTÉNUATION -->
+  <div class="fiche-card">
+    <h3>Atténuation avec la distance</h3>
+    <p>Source ponctuelle en champ libre :</p>
+    <div class="fiche-formula">
+      \(L_2 = L_1 - 20 \times \log\!\left(\dfrac{r_2}{r_1}\right)\)
+    </div>
+    <p><small>\(L_1\) à la distance \(r_1\) &nbsp;| \(L_2\) à la distance \(r_2\)</small></p>
+    <p style="margin-top:6px"><strong>Doubler la distance</strong> = <strong>-6 dB</strong></p>
+    <div class="fiche-formula" style="font-size:.82rem">
+      \(I(r) = \dfrac{P_\text{ac}}{4\pi r^2}\)
+    </div>
+  </div>
+
+  <!-- REPÈRES DE NIVEAUX SONORES -->
+  <div class="fiche-card">
+    <h3>Repères de niveaux sonores</h3>
+    <ul>
+      <li>0 dB : seuil d'audition</li>
+      <li>30 dB : norme chambre (nuit)</li>
+      <li>35 dB : norme séjour</li>
+      <li>60 dB : conversation</li>
+      <li><strong>85 dB : seuil de risque auditif</strong></li>
+      <li>90 dB : compresseur frigorifique</li>
+      <li>140 dB : seuil de douleur</li>
+    </ul>
+  </div>
+
+  <!-- PROTECTION / LASERS -->
+  <div class="fiche-card">
+    <h3>Protection et lasers</h3>
+    <p><strong>Réduction du bruit :</strong></p>
+    <ul>
+      <li>Éloignement (loi en 1/r²)</li>
+      <li>Encoffrement acoustique</li>
+      <li>Silent-blocs, conduits flexibles</li>
+      <li>EPI auditifs (obligatoires dès 80 dB)</li>
+    </ul>
+    <p style="margin-top:6px"><strong>Lasers :</strong> classes 1 &rarr; 4. Danger pour l'oeil et la peau (classes 3B, 4). Lunettes de protection spécifiques obligatoires.</p>
+  </div>
+
+</div><!-- fin fiche-grid -->
+
+<!-- PIÈGES ET ASTUCES -->
+<div class="piege">
+  <strong>Piège n°1 :</strong> Confondre intensité \(I\) (en W/m²) et niveau sonore \(L\) (en dB). Doubler l'intensité n'ajoute que +3 dB, pas +100 %.
+</div>
+<div class="piege">
+  <strong>Piège n°2 :</strong> Oublier que le logarithme porte sur un rapport \(I/I_0\). Il faut toujours diviser par \(I_0 = 10^{-12}\) W/m² avant de prendre le log.
+</div>
+<div class="piege">
+  <strong>Piège n°3 :</strong> Croire que le son se propage dans le vide. L'espace est silencieux : pas de milieu matériel = pas de propagation sonore.
+</div>
+
+<div class="astuce">
+  <strong>Astuce :</strong> Pour calculer rapidement \(\log(I/I_0)\), compter les puissances de 10. Si \(I = 10^{-3}\) W/m², alors \(I/I_0 = 10^{-3}/10^{-12} = 10^9\), donc \(L = 10 \times 9 = 90\) dB.
+</div>
+<div class="astuce">
+  <strong>Astuce :</strong> Règle des 6 dB : chaque fois que l'on double la distance, on perd 6 dB. Pour passer de 95 dB (1 m) sous 85 dB, il faut s'éloigner au-delà de ~3,2 m.
+</div>
+
+</div><!-- fin fiche -->
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

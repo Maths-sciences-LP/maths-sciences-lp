@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch11 – Produit scalaire – Term Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-term-iccer.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Produit scalaire</h1>
+<p class="sous-titre">Chapitre 11 | Terminale Bac Pro | Mathématiques</p>
+
+<div class="fiche-grid">
+
+  <!-- FORMULE NORME/ANGLE -->
+  <div class="fiche-card">
+    <h3>Formule avec normes et angle</h3>
+    <div class="fiche-formula">
+      \(\vec{u} \cdot \vec{v} = |\vec{u}| \times |\vec{v}| \times \cos\theta\)
+    </div>
+    <ul>
+      <li>\(\theta = 0°\) : \(\vec{u}\cdot\vec{v} = |\vec{u}|\,|\vec{v}|\)</li>
+      <li>\(\theta = 90°\) : \(\vec{u}\cdot\vec{v} = 0\)</li>
+      <li>\(\theta = 180°\) : \(\vec{u}\cdot\vec{v} = -|\vec{u}|\,|\vec{v}|\)</li>
+    </ul>
+  </div>
+
+  <!-- FORMULE COORDONNÉES -->
+  <div class="fiche-card">
+    <h3>Formule avec coordonnées</h3>
+    <div class="fiche-formula">
+      \(\vec{u}\begin{pmatrix}a\\b\end{pmatrix} \cdot \vec{v}\begin{pmatrix}c\\d\end{pmatrix} = ac + bd\)
+    </div>
+    <p>Formule la plus pratique en exercice. Valable en repère orthonormé uniquement.</p>
+  </div>
+
+  <!-- ORTHOGONALITÉ -->
+  <div class="fiche-card">
+    <h3>Orthogonalité</h3>
+    <div class="fiche-formula">
+      \(\vec{u} \perp \vec{v} \;\Longleftrightarrow\; \vec{u}\cdot\vec{v} = 0\)
+    </div>
+    <ul>
+      <li>Si \(ac + bd = 0\) : vecteurs perpendiculaires</li>
+      <li>Deux droites sont perpendiculaires ssi leurs vecteurs directeurs sont orthogonaux</li>
+    </ul>
+  </div>
+
+  <!-- CALCUL D'ANGLE -->
+  <div class="fiche-card">
+    <h3>Calcul d'un angle</h3>
+    <div class="fiche-formula">
+      \(\cos\theta = \dfrac{\vec{u}\cdot\vec{v}}{|\vec{u}| \times |\vec{v}|}\)
+    </div>
+    <div class="fiche-formula">
+      \(\theta = \arccos\!\left(\dfrac{ac+bd}{\sqrt{a^2+b^2}\,\sqrt{c^2+d^2}}\right)\)
+    </div>
+    <p>\(\theta \in [0°\,;\,180°]\). Calculatrice en mode DEG.</p>
+  </div>
+
+  <!-- PROPRIÉTÉS -->
+  <div class="fiche-card">
+    <h3>Propriétés</h3>
+    <ul>
+      <li>\(\vec{u}\cdot\vec{v} = \vec{v}\cdot\vec{u}\) (commutativité)</li>
+      <li>\(\vec{u}\cdot(\vec{v}+\vec{w}) = \vec{u}\cdot\vec{v} + \vec{u}\cdot\vec{w}\)</li>
+      <li>\((k\,\vec{u})\cdot\vec{v} = k\,(\vec{u}\cdot\vec{v})\)</li>
+      <li>\(\vec{u}\cdot\vec{u} = |\vec{u}|^2\) (carré scalaire)</li>
+    </ul>
+  </div>
+
+  <!-- VECTEUR NORMAL ET ÉQUATION DE DROITE -->
+  <div class="fiche-card">
+    <h3>Vecteur normal et équation de droite</h3>
+    <div class="fiche-formula">
+      \(\vec{n}\begin{pmatrix}a\\b\end{pmatrix}\) normal \(\Rightarrow\) droite : \(ax + by + c = 0\)
+    </div>
+    <ul>
+      <li>Si \(\vec{u}\begin{pmatrix}a\\b\end{pmatrix}\) est directeur, alors \(\vec{n}\begin{pmatrix}-b\\a\end{pmatrix}\) est normal</li>
+      <li>\(c\) se trouve en injectant un point connu</li>
+    </ul>
+  </div>
+
+  <!-- DISTANCE POINT-DROITE -->
+  <div class="fiche-card full">
+    <h3>Distance d'un point à une droite</h3>
+    <div class="fiche-formula">
+      \(d(M,\,d) = \dfrac{|ax_M + by_M + c|}{\sqrt{a^2 + b^2}}\)
+    </div>
+    <p>Droite \(d : ax + by + c = 0\), point \(M(x_M\,;\,y_M)\). Valeur absolue au numérateur, racine au dénominateur.</p>
+  </div>
+
+  <!-- EXTENSION 3D -->
+  <div class="fiche-card full">
+    <h3>Extension en 3D</h3>
+    <div class="fiche-formula">
+      \(\vec{u}\begin{pmatrix}a\\b\\c\end{pmatrix} \cdot \vec{v}\begin{pmatrix}d\\e\\f\end{pmatrix} = ad + be + cf\)
+      &nbsp;&nbsp;&nbsp;
+      \(|\vec{u}| = \sqrt{a^2+b^2+c^2}\)
+    </div>
+    <p>Toutes les propriétés (orthogonalité, angle, etc.) restent identiques en 3D.</p>
+  </div>
+
+</div><!-- fiche-grid -->
+
+<!-- PIÈGES -->
+<div class="piege">
+  <strong>Piège 1 :</strong> Le produit scalaire est un <em>nombre</em> (scalaire), pas un vecteur. On ne peut pas écrire \((\vec{u}\cdot\vec{v})\cdot\vec{w}\).
+</div>
+<div class="piege">
+  <strong>Piège 2 :</strong> Dans la formule de distance point-droite, ne pas oublier la <strong>valeur absolue</strong> au numérateur. Sans elle, le résultat peut être négatif, ce qui est absurde pour une distance.
+</div>
+<div class="piege">
+  <strong>Piège 3 :</strong> La formule par coordonnées \(ac + bd\) ne fonctionne qu'en repère <strong>orthonormé</strong>. Vérifier que le repère l'est avant de l'appliquer.
+</div>
+
+<!-- ASTUCES -->
+<div class="astuce">
+  <strong>Astuce 1 :</strong> Si \(\vec{u}\cdot\vec{v} > 0\), l'angle est aigu (\(< 90°\)). Si \(\vec{u}\cdot\vec{v} < 0\), l'angle est obtus (\(> 90°\)). Cela permet de vérifier rapidement la cohérence du résultat.
+</div>
+<div class="astuce">
+  <strong>Astuce 2 :</strong> Pour trouver un vecteur normal à partir d'un vecteur directeur \(\begin{pmatrix}a\\b\end{pmatrix}\), il suffit d'échanger les coordonnées et de changer un signe : \(\begin{pmatrix}-b\\a\end{pmatrix}\).
+</div>
+
+</div><!-- fiche -->
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

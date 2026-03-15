@@ -162,9 +162,9 @@
 
         if (a === 0) {
             if (b === c) {
-                resDiv.innerHTML = "<p>L'équation est de la forme \( 0x + ${b} = ${c} \).<br><strong>Une infinité de solutions.</strong></p>";
+                resDiv.innerHTML = `<p>L'équation est de la forme \\( 0x + ${b} = ${c} \\).<br><strong>Une infinité de solutions.</strong></p>`;
             } else {
-                resDiv.innerHTML = "<p class='error'>L'équation \( 0x + ${b} = ${c} \) est impossible.<br><strong>Aucune solution.</strong></p>";
+                resDiv.innerHTML = `<p class='error'>L'équation \\( 0x + ${b} = ${c} \\) est impossible.<br><strong>Aucune solution.</strong></p>`;
             }
             MathJax.typeset();
             return;
@@ -205,6 +205,6 @@
     }
 </script>
 
-<script src="/nav.js"></script>
+<script src="../nav.js"></script>
 </body>
 </html>

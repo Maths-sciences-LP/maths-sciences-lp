@@ -193,6 +193,7 @@ const STARS = Array.from({ length: 55 }, () => ({
 let particles = [];
 let paused    = false;
 let frame     = 0;
+let animId    = null;
 
 // ─── Getters ───────────────────────────────────────────────────────────────────
 const getGES  = () => parseInt(document.getElementById('ges').value);
@@ -596,28 +597,43 @@ function updateBilan() {
 
 // ─── BOUCLE PRINCIPALE ─────────────────────────────────────────────────────────
 function loop() {
-  if (!paused) {
-    frame++;
-    ctx.clearRect(0, 0, W, H);
+  animId = null;
+  if (paused) return;
 
-    drawBackground();
-    drawSun();
-    drawThermometer();
+  frame++;
+  ctx.clearRect(0, 0, W, H);
 
-    handleSpawns();
-    updateParticles();
-    particles.forEach(drawParticle);
+  drawBackground();
+  drawSun();
+  drawThermometer();
 
-    // Mise à jour du bilan HTML toutes les ~0.5 s
-    if (frame % 30 === 0) updateBilan();
-  }
-  requestAnimationFrame(loop);
+  handleSpawns();
+  updateParticles();
+  particles.forEach(drawParticle);
+
+  // Mise à jour du bilan HTML toutes les ~0.5 s
+  if (frame % 30 === 0) updateBilan();
+
+  animId = requestAnimationFrame(loop);
+}
+
+function startLoop() {
+  if (!animId) animId = requestAnimationFrame(loop);
+}
+
+function stopLoop() {
+  if (animId) { cancelAnimationFrame(animId); animId = null; }
 }
 
 // ─── CONTRÔLES ─────────────────────────────────────────────────────────────────
 function togglePause() {
   paused = !paused;
   document.getElementById('btnPause').textContent = paused ? '▶ Reprendre' : '⏸ Pause';
+  if (paused) {
+    stopLoop();
+  } else {
+    startLoop();
+  }
 }
 
 function resetSim() {
@@ -630,6 +646,7 @@ function resetSim() {
   paused = false;
   document.getElementById('btnPause').textContent = '⏸ Pause';
   updateBilan();
+  startLoop();
 }
 
 // Sliders
@@ -657,10 +674,16 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
+// Pause animation when tab is hidden to save CPU
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopLoop();
+  else if (!paused) startLoop();
+});
+
 // Initialisation
 updateBilan();
-loop();
+startLoop();
 </script>
-<script src="/nav.js"></script>
+<script src="../nav.js"></script>
 </body>
 </html>

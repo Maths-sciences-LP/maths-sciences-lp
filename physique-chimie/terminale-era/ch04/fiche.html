@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch04 – Vitesse et accélération – Term ERA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-term-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA (Grpt 3)</a>
+<div class="fiche">
+<h1>Fiche résumé — Vitesse et accélération</h1>
+<p class="sous-titre">Chapitre 4 | Terminale ERA-MA | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>Vitesse moyenne</h3>
+    <div class="fiche-formula">\( v = \dfrac{d}{t} \)</div>
+    <ul>
+      <li>\(v\) : vitesse (m/s)</li>
+      <li>\(d\) : distance (m)</li>
+      <li>\(t\) : durée (s)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Conversion m/s et km/h</h3>
+    <div class="fiche-formula">\( 1\ \text{m/s} = 3{,}6\ \text{km/h} \)</div>
+    <ul>
+      <li>km/h → m/s : <strong>diviser par 3,6</strong></li>
+      <li>m/s → km/h : <strong>multiplier par 3,6</strong></li>
+    </ul>
+    <p>Exemple : 72 km/h = 72 / 3,6 = 20 m/s</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Accélération</h3>
+    <div class="fiche-formula">\( a = \dfrac{\Delta v}{\Delta t} = \dfrac{v_f - v_i}{t_f - t_i} \)</div>
+    <ul>
+      <li>\(a\) : accélération (m/s²)</li>
+      <li>\(v_f\) : vitesse finale (m/s)</li>
+      <li>\(v_i\) : vitesse initiale (m/s)</li>
+      <li>\(\Delta t\) : durée (s)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Signe de l'accélération</h3>
+    <ul>
+      <li>\(a > 0\) : l'objet <strong>accélère</strong></li>
+      <li>\(a = 0\) : vitesse constante (MRU)</li>
+      <li>\(a < 0\) : l'objet <strong>décélère</strong> (freinage)</li>
+    </ul>
+    <div class="fiche-formula">\( v = v_0 + a \times t \)</div>
+    <p>Vitesse à l'instant t dans un MRUA</p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>MRU (mouvement rectiligne uniforme)</h3>
+    <ul>
+      <li>Ligne droite, vitesse <strong>constante</strong></li>
+      <li>Accélération nulle : \(a = 0\)</li>
+      <li>Graphe v(t) : <strong>droite horizontale</strong></li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>MRUA (mouvement rectiligne uniformément accéléré)</h3>
+    <ul>
+      <li>Ligne droite, accélération <strong>constante</strong></li>
+      <li>Vitesse varie linéairement</li>
+      <li>Graphe v(t) : <strong>droite oblique</strong></li>
+      <li>Pente montante si \(a > 0\), descendante si \(a < 0\)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Lecture d'un graphe v(t)</h3>
+    <ul>
+      <li><strong>Pente</strong> de la droite v(t) = accélération \(a\)</li>
+      <li><strong>Aire sous la courbe</strong> v(t) = distance parcourue \(d\)</li>
+      <li>Droite horizontale → MRU | Droite montante → accélération | Droite descendante → freinage</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Ne pas confondre vitesse et accélération. Un objet peut avoir une grande vitesse avec une accélération nulle (MRU : vitesse constante).</div>
+<div class="piege"><strong>Piège 2 :</strong> L'accélération est <strong>négative</strong> lors d'un freinage : ce n'est pas une erreur de calcul, c'est physiquement correct (\(v_f < v_i\)).</div>
+<div class="piege"><strong>Piège 3 :</strong> Toujours vérifier les unités : distance en m, durée en s, vitesse en m/s, accélération en m/s². L'unité correcte est m/s² (pas « m/s/s »).</div>
+
+<div class="astuce"><strong>Astuce :</strong> Pour la conversion rapide, retenir que 36 km/h = 10 m/s. Cela permet de convertir mentalement par proportionnalité.</div>
+<div class="astuce"><strong>Astuce :</strong> Sur un graphe v(t), la pente \(= \Delta v / \Delta t\) se lit directement en traçant un triangle rectangle sous la droite. L'aire sous la courbe donne la distance (rectangle pour un MRU, triangle pour un MRUA partant de 0).</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">← Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices →</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

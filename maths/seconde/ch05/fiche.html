@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch05 – Équations du premier degré – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Équations du premier degré</h1>
+<p class="sous-titre">Chapitre 5 | Seconde Bac Pro | Mathématiques</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>1. Définition</h3>
+    <p>Une <strong>équation du premier degré</strong> contient une inconnue \(x\) au degré 1 (pas de \(x^2\), pas de \(\frac{1}{x}\)).</p>
+    <p>Formes courantes :</p>
+    <ul>
+      <li>\(ax = b\)</li>
+      <li>\(ax + b = c\)</li>
+      <li>\(ax + b = cx + d\)</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>2. Formules de résolution</h3>
+    <div class="fiche-formula">\(ax = b \implies x = \dfrac{b}{a}\) &nbsp; (si \(a \neq 0\))</div>
+    <div class="fiche-formula">\(ax + b = c \implies x = \dfrac{c - b}{a}\)</div>
+    <p><strong>Règles :</strong></p>
+    <ul>
+      <li>On peut ajouter/soustraire le même nombre des deux côtés</li>
+      <li>On peut multiplier/diviser par un nombre non nul</li>
+      <li>Un terme qui change de côté change de signe</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>3. Les 5 étapes de résolution d'un problème</h3>
+    <ol style="padding-left:18px;margin:0;font-size:.84rem;line-height:1.5">
+      <li><strong>Choisir l'inconnue :</strong> nommer \(x\) et préciser son unité</li>
+      <li><strong>Traduire l'énoncé :</strong> écrire l'équation (mise en équation)</li>
+      <li><strong>Résoudre :</strong> isoler \(x\) étape par étape</li>
+      <li><strong>Vérifier :</strong> remplacer \(x\) par la valeur trouvée dans l'équation de départ</li>
+      <li><strong>Conclure en phrase :</strong> répondre à la question avec l'unité</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 3 pièges -->
+<div class="piege"><strong>Piège 1 :</strong> Mauvaise traduction du problème en équation. Relire l'énoncé phrase par phrase et vérifier que chaque terme a un sens concret.</div>
+<div class="piege"><strong>Piège 2 :</strong> Signe moins perdu lors de la résolution. Exemple : \(5x + 3 = -12\) donne \(5x = -12 - 3 = -15\), pas \(5x = -12 + 3\).</div>
+<div class="piege"><strong>Piège 3 :</strong> Ne pas conclure dans le contexte. Donner \(x = 4{,}7\) quand on cherche un nombre de planches (entier) : il faut arrondir et interpréter.</div>
+
+<!-- 2 astuces -->
+<div class="astuce"><strong>Astuce :</strong> Pour vérifier, remplacer toujours \(x\) par la solution dans l'équation de départ (pas dans une étape intermédiaire).</div>
+<div class="astuce"><strong>Astuce :</strong> Résolution graphique : la solution de \(ax + b = c\) est l'abscisse du point d'intersection de \(y = ax + b\) et \(y = c\).</div>
+
+<!-- Méthode type -->
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Poser \(x\) = la grandeur inconnue (avec unité)</li>
+      <li>Écrire l'équation à partir des données du problème</li>
+      <li>Regrouper les termes en \(x\) d'un côté, les nombres de l'autre</li>
+      <li>Diviser par le coefficient de \(x\) pour isoler \(x\)</li>
+      <li>Vérifier en remplaçant dans l'équation initiale et conclure</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

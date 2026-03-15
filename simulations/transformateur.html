@@ -37,13 +37,13 @@
 <div class="container">
   <header>
     <a href="../simulations.html" class="btn-back">&larr; Retour</a>
-    <h1>Transformateur et Transport d'Energie</h1>
+    <h1>Transformateur et Transport d'Énergie</h1>
     <p>Terminale Bac Pro &middot; Ch01 ERA</p>
   </header>
 
   <div class="explication">
-    <strong>Principe :</strong> Un transformateur modifie la tension alternative grace a deux bobines (primaire et secondaire) couplees magnetiquement. La relation fondamentale est :
-    <strong>U2/U1 = N2/N1 = m</strong> (rapport de transformation). Le transport en haute tension reduit les pertes par effet Joule dans les lignes (<strong>P<sub>pertes</sub> = R &times; I&sup2;</strong>).
+    <strong>Principe :</strong> Un transformateur modifie la tension alternative grâce à deux bobines (primaire et secondaire) couplées magnétiquement. La relation fondamentale est :
+    <strong>U2/U1 = N2/N1 = m</strong> (rapport de transformation). Le transport en haute tension réduit les pertes par effet Joule dans les lignes (<strong>P<sub>pertes</sub> = R &times; I&sup2;</strong>).
   </div>
 
   <!-- TRANSFORMER VISUALIZATION -->
@@ -73,17 +73,17 @@
   <!-- TRANSPORT LOSSES -->
   <div class="card">
     <h2>2. Pertes en ligne lors du transport</h2>
-    <p style="font-size:0.93em;">On transporte une puissance \( P = 100\,\text{kW} \). Observez l'effet de la tension de transport et de la resistance de la ligne sur les pertes.</p>
+    <p style="font-size:0.93em;">On transporte une puissance \( P = 100\,\text{kW} \). Observez l'effet de la tension de transport et de la résistance de la ligne sur les pertes.</p>
 
     <div class="row">
       <div>
-        <label>Resistance de la ligne R : <span class="val" id="vRL">5</span> &Omega;</label>
+        <label>Résistance de la ligne R : <span class="val" id="vRL">5</span> &Omega;</label>
         <input type="range" id="sRL" min="0.5" max="50" step="0.5" value="5" oninput="updateTransport()">
       </div>
       <div>
         <label>Tension de transport U : <span class="val" id="vUT">230</span> V</label>
         <input type="range" id="sUT" min="230" max="400000" step="100" value="230" oninput="updateTransport()">
-        <p class="info">De 230 V (basse tension) a 400 000 V (THT)</p>
+        <p class="info">De 230 V (basse tension) à 400 000 V (THT)</p>
       </div>
     </div>
 
@@ -93,7 +93,7 @@
     <canvas id="cvTransport" width="820" height="260" style="margin-top:15px;"></canvas>
 
     <div class="warn">
-      <strong>Conclusion :</strong> Plus la tension de transport est elevee, plus le courant est faible (car P = U &times; I), et donc plus les pertes \( P_{\text{pertes}} = R \times I^2 \) sont faibles. C'est pourquoi on transporte l'electricite en haute tension !
+      <strong>Conclusion :</strong> Plus la tension de transport est élevée, plus le courant est faible (car P = U &times; I), et donc plus les pertes \( P_{\text{pertes}} = R \times I^2 \) sont faibles. C'est pourquoi on transporte l'électricité en haute tension !
     </div>
   </div>
 </div>
@@ -105,8 +105,14 @@ const $ = id => document.getElementById(id);
 const cvT = $('cvTransfo');
 const ctxT = cvT.getContext('2d');
 let animFrame = 0;
+let animId = null;
+
+function startTransformerAnimation() {
+  if (!animId) animId = requestAnimationFrame(drawTransformer);
+}
 
 function drawTransformer() {
+  animId = null;
   const W = cvT.width, H = cvT.height;
   const dpr = window.devicePixelRatio || 1;
   cvT.style.width = W + 'px';
@@ -128,7 +134,7 @@ function drawTransformer() {
   ctxT.fillStyle = '#475569';
   ctxT.font = '12px Segoe UI';
   ctxT.textAlign = 'center';
-  ctxT.fillText('Noyau ferromagnetique', 410, 255);
+  ctxT.fillText('Noyau ferromagnétique', 410, 255);
 
   // Primary coil (left)
   const coilColors = ['#7c3aed', '#6d28d9'];
@@ -246,7 +252,10 @@ function drawTransformer() {
   ctxT.textAlign = 'center';
   ctxT.fillText('m = N2/N1 = ' + m.toFixed(2), 410, 309);
 
-  requestAnimationFrame(drawTransformer);
+  // Only continue animation if U1 > 0 (electrons flowing)
+  if (U1 > 0) {
+    animId = requestAnimationFrame(drawTransformer);
+  }
 }
 
 function update() {
@@ -263,9 +272,12 @@ function update() {
   const I2 = U1 > 0 && U2 > 0 ? 100000 / U2 : 0;
 
   let typeLabel, typeBadge;
-  if (m > 1) { typeLabel = 'Elevateur'; typeBadge = '<span class="badge badge-up">Elevateur (m > 1)</span>'; }
+  if (m > 1) { typeLabel = 'Élévateur'; typeBadge = '<span class="badge badge-up">Élévateur (m > 1)</span>'; }
   else if (m < 1) { typeLabel = 'Abaisseur'; typeBadge = '<span class="badge badge-down">Abaisseur (m < 1)</span>'; }
   else { typeLabel = 'Isolement'; typeBadge = '<span class="badge badge-eq">Isolement (m = 1)</span>'; }
+
+  // Restart animation when parameters change
+  startTransformerAnimation();
 
   $('resTransfo').innerHTML = `
     <p><strong>Rapport de transformation :</strong> m = N2 / N1 = ${N2} / ${N1} = <span class="val">${m.toFixed(3)}</span> ${typeBadge}</p>
@@ -297,11 +309,11 @@ function updateTransport() {
   const Putile = P - Ppertes;
 
   $('resTransport').innerHTML = `
-    <p><strong>Puissance transportee :</strong> P = 100 kW a U = ${uLabel}</p>
+    <p><strong>Puissance transportée :</strong> P = 100 kW à U = ${uLabel}</p>
     <p><strong>Courant dans la ligne :</strong> I = P / U = ${I.toFixed(3)} A</p>
     <p><strong>Pertes par effet Joule :</strong> P<sub>pertes</sub> = R &times; I&sup2; = ${R} &times; ${I.toFixed(3)}&sup2; = <span class="val" style="color:${pct > 50 ? '#dc2626' : pct > 10 ? '#d97706' : '#16a34a'}">${Ppertes.toFixed(1)} W (${pct.toFixed(2)} %)</span></p>
-    <p><strong>Puissance utile recue :</strong> ${Math.max(0, Putile).toFixed(1)} W</p>
-    ${pct > 100 ? '<p style="color:#dc2626;font-weight:bold;">Les pertes depassent la puissance transportee ! Situation impossible en pratique.</p>' : ''}
+    <p><strong>Puissance utile reçue :</strong> ${Math.max(0, Putile).toFixed(1)} W</p>
+    ${pct > 100 ? '<p style="color:#dc2626;font-weight:bold;">Les pertes dépassent la puissance transportée ! Situation impossible en pratique.</p>' : ''}
   `;
 
   // Draw comparison bar chart
@@ -368,10 +380,18 @@ function drawTransportChart(R) {
   ctxTr.stroke();
 }
 
+// Pause animation when tab is hidden to save CPU
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    if (animId) { cancelAnimationFrame(animId); animId = null; }
+  } else {
+    startTransformerAnimation();
+  }
+});
+
 // Init
 update();
 updateTransport();
-drawTransformer();
 </script>
 </body>
 </html>

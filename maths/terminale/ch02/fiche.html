@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch02 – Probabilités – Term Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul,.fiche-card ol{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-term-iccer.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche r&eacute;sum&eacute; &mdash; Probabilit&eacute;s</h1>
+<p class="sous-titre">Chapitre 2 | Terminale Bac Pro | Math&eacute;matiques</p>
+
+<div class="fiche-grid">
+
+  <!-- Rappels -->
+  <div class="fiche-card">
+    <h3>Rappels essentiels</h3>
+    <ul>
+      <li>\(0 \leq P(A) \leq 1\)</li>
+      <li>&Eacute;v&eacute;nement certain : \(P = 1\)</li>
+      <li>&Eacute;v&eacute;nement impossible : \(P = 0\)</li>
+    </ul>
+    <div class="fiche-formula">
+      &Eacute;v&eacute;nement contraire : \(P(\bar{A}) = 1 - P(A)\)
+    </div>
+  </div>
+
+  <!-- Probabilité conditionnelle -->
+  <div class="fiche-card">
+    <h3>Probabilit&eacute; conditionnelle</h3>
+    <p>Probabilit&eacute; de \(A\) <em>sachant que</em> \(B\) est r&eacute;alis&eacute; :</p>
+    <div class="fiche-formula">
+      \(P(A|B) = \dfrac{P(A \cap B)}{P(B)}\)
+    </div>
+    <p>Se lit sur l'arbre : c'est la probabilit&eacute; inscrite sur la branche qui part du n&oelig;ud \(B\) vers \(A\).</p>
+  </div>
+
+  <!-- Arbre de probabilités -->
+  <div class="fiche-card">
+    <h3>Arbre de probabilit&eacute;s &mdash; R&egrave;gles</h3>
+    <ol>
+      <li>Sur chaque n&oelig;ud, la somme des branches = <strong>1</strong>.</li>
+      <li>Probabilit&eacute; d'un chemin = <strong>produit</strong> des branches.</li>
+      <li>Plusieurs chemins vers un m&ecirc;me &eacute;v&eacute;nement &rarr; on <strong>additionne</strong>.</li>
+      <li>Somme de toutes les feuilles = <strong>1</strong>.</li>
+    </ol>
+    <div class="fiche-formula">
+      \(P(A \cap B) = P(B) \times P(A|B)\)
+    </div>
+  </div>
+
+  <!-- Formule des probabilités totales -->
+  <div class="fiche-card">
+    <h3>Probabilit&eacute;s totales</h3>
+    <p>Si \(B\) et \(\bar{B}\) couvrent tous les cas :</p>
+    <div class="fiche-formula">
+      \(P(A) = P(B) \times P(A|B) + P(\bar{B}) \times P(A|\bar{B})\)
+    </div>
+    <p>Sur l'arbre : rep&eacute;rer <strong>tous</strong> les chemins qui arrivent &agrave; \(A\), multiplier sur chaque chemin, puis additionner.</p>
+  </div>
+
+  <!-- Indépendance -->
+  <div class="fiche-card">
+    <h3>Ind&eacute;pendance</h3>
+    <p>\(A\) et \(B\) sont ind&eacute;pendants si et seulement si :</p>
+    <div class="fiche-formula">
+      \(P(A \cap B) = P(A) \times P(B)\)
+    </div>
+    <p>Cons&eacute;quence : \(P(A|B) = P(A)\).<br>
+    Conna&icirc;tre \(B\) ne change rien pour \(A\).</p>
+  </div>
+
+  <!-- Tableau croisé -->
+  <div class="fiche-card">
+    <h3>Tableau crois&eacute;</h3>
+    <p>Permet de lire directement les probabilit&eacute;s :</p>
+    <div class="fiche-formula">
+      \(P = \dfrac{\text{effectif de la case}}{\text{effectif total}}\)
+    </div>
+    <p>La ligne/colonne &laquo; Total &raquo; sert de r&eacute;f&eacute;rence pour le calcul.</p>
+  </div>
+
+</div><!-- fin fiche-grid -->
+
+<!-- Pièges -->
+<div class="piege">
+  <strong>Pi&egrave;ge 1 :</strong> Confondre \(P(A|B)\) et \(P(B|A)\). Ce sont deux probabilit&eacute;s diff&eacute;rentes ! V&eacute;rifier dans quel sens on conditionne.
+</div>
+<div class="piege">
+  <strong>Pi&egrave;ge 2 :</strong> Additionner l&agrave; o&ugrave; il faut multiplier. Sur un chemin de l'arbre, on <strong>multiplie</strong>. Entre chemins diff&eacute;rents, on <strong>additionne</strong>.
+</div>
+<div class="piege">
+  <strong>Pi&egrave;ge 3 :</strong> Confondre &eacute;v&eacute;nements <strong>incompatibles</strong> (\(P(A \cap B) = 0\)) et &eacute;v&eacute;nements <strong>ind&eacute;pendants</strong> (\(P(A \cap B) = P(A) \times P(B)\)). Ce n'est pas la m&ecirc;me chose.
+</div>
+
+<!-- Astuces -->
+<div class="astuce">
+  <strong>Astuce v&eacute;rification :</strong> La somme des probabilit&eacute;s de toutes les feuilles de l'arbre doit toujours &ecirc;tre &eacute;gale &agrave; 1. Si ce n'est pas le cas, il y a une erreur de calcul.
+</div>
+<div class="astuce">
+  <strong>Astuce &eacute;v&eacute;nement contraire :</strong> Pour calculer \(P(\text{au moins un})\), c'est souvent plus rapide de passer par le contraire : \(P(\text{au moins un}) = 1 - P(\text{aucun})\).
+</div>
+
+<!-- Méthode type -->
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>R&eacute;sum&eacute; express &mdash; M&eacute;thode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Lire les donn&eacute;es : identifier les &eacute;v&eacute;nements et leurs probabilit&eacute;s.</li>
+      <li>Construire l'arbre pond&eacute;r&eacute; (v&eacute;rifier que chaque n&oelig;ud somme &agrave; 1).</li>
+      <li>Multiplier le long de chaque chemin pour obtenir les probabilit&eacute;s des feuilles.</li>
+      <li>Pour un &eacute;v&eacute;nement global : additionner les chemins correspondants (probabilit&eacute;s totales).</li>
+      <li>Pour une conditionnelle : utiliser \(P(A|B) = \dfrac{P(A \cap B)}{P(B)}\).</li>
+      <li>V&eacute;rifier : la somme de toutes les feuilles = 1.</li>
+    </ol>
+  </div>
+</div>
+
+</div><!-- fin .fiche -->
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

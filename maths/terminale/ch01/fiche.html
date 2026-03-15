@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch01 – Statistiques à deux variables – Term Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-term-iccer.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche r&eacute;sum&eacute; &mdash; Statistiques &agrave; deux variables</h1>
+<p class="sous-titre">Chapitre 1 | Terminale Bac Pro | Math&eacute;matiques</p>
+
+<div class="fiche-grid">
+
+  <!-- Nuage de points et point moyen -->
+  <div class="fiche-card">
+    <h3>Nuage de points</h3>
+    <p>Une s&eacute;rie &agrave; deux variables est un ensemble de couples \((x_i\,;\,y_i)\). On les repr&eacute;sente dans un rep&egrave;re : c'est le <strong>nuage de points</strong>.</p>
+    <div class="fiche-formula">
+      Point moyen : \(G\!\left(\bar{x}\,;\,\bar{y}\right)\) avec
+      \(\bar{x} = \dfrac{\sum x_i}{n}\), \(\bar{y} = \dfrac{\sum y_i}{n}\)
+    </div>
+    <p>Le point moyen \(G\) est le &laquo; centre de gravit&eacute; &raquo; du nuage.</p>
+  </div>
+
+  <!-- Droite de régression -->
+  <div class="fiche-card">
+    <h3>Droite de r&eacute;gression</h3>
+    <p>&Eacute;quation : \(y = ax + b\)</p>
+    <ul>
+      <li>\(a\) = coefficient directeur (pente)</li>
+      <li>\(b\) = ordonn&eacute;e &agrave; l'origine</li>
+    </ul>
+    <div class="fiche-formula">
+      La droite passe <strong>toujours</strong> par \(G(\bar{x}\,;\,\bar{y})\).
+    </div>
+    <p>Obtenue &agrave; la calculatrice : menu Stat &rarr; LinReg.</p>
+  </div>
+
+  <!-- Coefficient de corrélation -->
+  <div class="fiche-card">
+    <h3>Coefficient de corr&eacute;lation \(r\)</h3>
+    <p>\(-1 \leq r \leq 1\). Il mesure la qualit&eacute; de la liaison lin&eacute;aire.</p>
+    <ul>
+      <li>\(|r| > 0{,}95\) &rarr; liaison tr&egrave;s forte</li>
+      <li>\(0{,}85 < |r| \leq 0{,}95\) &rarr; liaison forte</li>
+      <li>\(|r| \leq 0{,}85\) &rarr; ajustement affine &agrave; rejeter</li>
+    </ul>
+    <p>\(r > 0\) : liaison positive ; \(r < 0\) : liaison n&eacute;gative.</p>
+  </div>
+
+  <!-- Interpolation / Extrapolation -->
+  <div class="fiche-card">
+    <h3>Interpolation / Extrapolation</h3>
+    <ul>
+      <li><strong>Interpoler</strong> : estimer \(y\) pour \(x\) <em>dans</em> l'intervalle des donn&eacute;es &rarr; fiable.</li>
+      <li><strong>Extrapoler</strong> : estimer \(y\) pour \(x\) <em>hors</em> de l'intervalle &rarr; risqu&eacute;.</li>
+    </ul>
+    <div class="astuce">
+      <strong>Astuce :</strong> Toujours pr&eacute;ciser s'il s'agit d'une interpolation ou d'une extrapolation, et interpr&eacute;ter le r&eacute;sultat dans le contexte.
+    </div>
+  </div>
+
+  <!-- Changement de variable -->
+  <div class="fiche-card full">
+    <h3>Ajustements non affines &mdash; Changements de variable</h3>
+    <p>Si le nuage n'est pas rectiligne (\(|r|\) faible), on peut lin&eacute;ariser par un changement de variable :</p>
+    <ul>
+      <li><strong>Exponentielle</strong> \(y = A \cdot q^x\) &rarr; poser \(z = \log(y)\), ajuster \((x, z)\)</li>
+      <li><strong>Puissance</strong> \(y = A \cdot x^k\) &rarr; poser \(z = \log(y)\) et \(u = \log(x)\)</li>
+      <li><strong>Inverse</strong> \(y = \frac{a}{x} + b\) &rarr; poser \(z = \frac{1}{x}\), ajuster \((z, y)\)</li>
+    </ul>
+  </div>
+
+</div><!-- fin fiche-grid -->
+
+<!-- Pièges -->
+<div class="piege">
+  <strong>Pi&egrave;ge 1 :</strong> Oublier de v&eacute;rifier \(|r|\) avant d'utiliser la droite de r&eacute;gression. Si \(|r| \leq 0{,}85\), l'ajustement affine n'est pas pertinent.
+</div>
+<div class="piege">
+  <strong>Pi&egrave;ge 2 :</strong> Confondre \(r\) et \(r^2\). Certaines calculatrices affichent \(r^2\) (coefficient de d&eacute;termination) au lieu de \(r\). V&eacute;rifier le libell&eacute;.
+</div>
+<div class="piege">
+  <strong>Pi&egrave;ge 3 :</strong> Extrapoler loin de la zone de donn&eacute;es sans signaler que le r&eacute;sultat est moins fiable. Le mod&egrave;le a toujours des limites.
+</div>
+
+<!-- Astuce -->
+<div class="astuce">
+  <strong>Astuce calculatrice :</strong> Le signe de \(a\) (coefficient directeur) et le signe de \(r\) sont toujours identiques. Si ce n'est pas le cas, v&eacute;rifier la saisie des donn&eacute;es.
+</div>
+
+<!-- Méthode type -->
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>R&eacute;sum&eacute; express &mdash; M&eacute;thode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Saisir les donn&eacute;es \((x_i\,;\,y_i)\) dans la calculatrice (listes).</li>
+      <li>Lancer la r&eacute;gression lin&eacute;aire &rarr; obtenir \(a\), \(b\) et \(r\).</li>
+      <li>V&eacute;rifier que \(|r|\) est proche de 1. Sinon, tenter un changement de variable.</li>
+      <li>&Eacute;crire l'&eacute;quation \(y = ax + b\).</li>
+      <li>Pour estimer \(y\) : remplacer \(x\) par la valeur voulue.</li>
+      <li>Pr&eacute;ciser : interpolation ou extrapolation ? Interpr&eacute;ter dans le contexte.</li>
+    </ol>
+  </div>
+</div>
+
+</div><!-- fin .fiche -->
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

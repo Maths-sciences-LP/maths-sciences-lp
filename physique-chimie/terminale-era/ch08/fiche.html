@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch08 – Atténuer une onde sonore – Term ERA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-term-erama.html" class="nb">← RETOUR SOMMAIRE ERA-MA (Grpt 3)</a>
+<div class="fiche">
+<h1>Fiche résumé — Atténuer une onde sonore par transmission</h1>
+<p class="sous-titre">Chapitre 8 | Terminale ERA-MA | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <div class="fiche-card">
+    <h3>Niveau sonore (dB)</h3>
+    <div class="fiche-formula">\[ L = 10 \times \log\!\left(\frac{I}{I_0}\right) \quad \text{(dB)} \]</div>
+    <p>I<sub>0</sub> = 10<sup>-12</sup> W/m<sup>2</sup> (seuil d'audition)</p>
+    <ul>
+      <li>+10 dB = intensité &times; <strong>10</strong></li>
+      <li>+20 dB = intensité &times; <strong>100</strong></li>
+      <li>+30 dB = intensité &times; <strong>1 000</strong></li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Repères de niveaux sonores</h3>
+    <ul>
+      <li>0 dB : seuil d'audition</li>
+      <li>40 dB : bibliothèque</li>
+      <li>60 dB : conversation normale</li>
+      <li>80 dB : circulation dense</li>
+      <li>100 dB : marteau-piqueur</li>
+      <li>130 dB : seuil de douleur</li>
+    </ul>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Indice d'affaiblissement R</h3>
+    <div class="fiche-formula">\[ R = L_i - L_t \quad \text{(dB)} \]</div>
+    <p>L<sub>i</sub> = niveau incident (source) ; L<sub>t</sub> = niveau transmis (après la paroi).</p>
+    <p><strong>Plus R est grand, meilleure est l'isolation.</strong></p>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Coefficient d'atténuation &tau;</h3>
+    <div class="fiche-formula">\[ \tau = \frac{p_{\text{transmise}}}{p_{\text{incidente}}} \]</div>
+    <div class="fiche-formula">\[ R = -20 \times \log(\tau) \]</div>
+    <p style="font-size:.8rem;color:#718096">&tau; = 1 : rien n'est bloqué | &tau; &rarr; 0 : quasi tout est bloqué</p>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Valeurs de R selon les matériaux</h3>
+    <table style="width:100%;font-size:.82rem;margin:4px 0">
+      <tr><th>Paroi</th><th>Épaisseur</th><th>Masse (kg/m<sup>2</sup>)</th><th>R (dB)</th></tr>
+      <tr><td>Vitrage simple</td><td>4 mm</td><td>&asymp; 10</td><td>&asymp; 25</td></tr>
+      <tr><td>Double vitrage 4/16/4</td><td>24 mm</td><td>&asymp; 20</td><td>&asymp; 32</td></tr>
+      <tr><td>Cloison placo 72 mm</td><td>72 mm</td><td>&asymp; 25</td><td>&asymp; 38</td></tr>
+      <tr><td>Brique creuse</td><td>10 cm</td><td>&asymp; 70</td><td>&asymp; 40</td></tr>
+      <tr><td>Béton 15 cm</td><td>15 cm</td><td>&asymp; 360</td><td>&asymp; 52</td></tr>
+      <tr><td>Béton 20 cm</td><td>20 cm</td><td>&asymp; 480</td><td>&asymp; 57</td></tr>
+    </table>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Loi de masse</h3>
+    <p>Plus une paroi est <strong>lourde</strong> (masse surfacique en kg/m<sup>2</sup> élevée), meilleure est l'isolation acoustique.</p>
+    <div class="astuce">
+      <strong>Astuce :</strong> En doublant la masse surfacique, on gagne environ <strong>+6 dB</strong> sur R.
+    </div>
+  </div>
+
+  <div class="fiche-card">
+    <h3>Méthode de calcul</h3>
+    <ol style="padding-left:16px;margin:0;font-size:.84rem">
+      <li>Identifier L<sub>i</sub> et L<sub>t</sub> (en dB)</li>
+      <li>Calculer R = L<sub>i</sub> - L<sub>t</sub></li>
+      <li>Si on connait &tau; : R = -20 &times; log(&tau;)</li>
+      <li>Comparer au seuil réglementaire</li>
+    </ol>
+    <p style="font-size:.8rem;color:#718096;margin-top:4px">Réglementation : D<sub>nT,A</sub> &ge; 53 dB entre logements.</p>
+  </div>
+
+  <div class="fiche-card full">
+    <h3>Pièges fréquents</h3>
+    <div class="piege">
+      <strong>Piège 1 :</strong> L'échelle des dB est <strong>logarithmique</strong>. 80 dB n'est pas « deux fois » 40 dB, c'est 10 000 fois plus intense !
+    </div>
+    <div class="piege">
+      <strong>Piège 2 :</strong> Ne pas confondre <strong>isolation acoustique</strong> (bloquer le son, R) et <strong>isolation thermique</strong> (bloquer la chaleur). La laine de verre isole bien en thermique mais est peu efficace seule en acoustique.
+    </div>
+    <div class="piege">
+      <strong>Piège 3 :</strong> &tau; est un rapport de <strong>pressions</strong> (pas d'intensités). C'est pourquoi la formule est R = -20 &times; log(&tau;) et non -10 &times; log(&tau;).
+    </div>
+    <div class="astuce">
+      <strong>Astuce :</strong> L'isolation globale d'un mur est limitée par le <strong>maillon le plus faible</strong> : une fente ou une porte mal isolée ruine tout l'effort. Soigner l'étanchéité est aussi important que le choix du matériau.
+    </div>
+  </div>
+
+</div>
+
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">← Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices →</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

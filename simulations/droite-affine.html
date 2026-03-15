@@ -85,7 +85,7 @@ canvas{display:block;margin:0 auto;max-width:100%;cursor:crosshair}
 <div class="container">
   <header>
     <a href="../simulations.html" class="btn-back">&larr; Retour</a>
-    <h1>Fonctions Lineaire et Affine</h1>
+    <h1>Fonctions Linéaire et Affine</h1>
     <p class="sous-titre">2nde Bac Pro &middot; Ch08-09 &middot; f(x) = ax + b</p>
   </header>
 
@@ -99,7 +99,7 @@ canvas{display:block;margin:0 auto;max-width:100%;cursor:crosshair}
     <!-- Indicators -->
     <div class="indicators">
       <span class="indicator ind-affine" id="indAffine">Fonction affine</span>
-      <span class="indicator ind-linear ind-hidden" id="indLinear">Fonction lineaire (b = 0)</span>
+      <span class="indicator ind-linear ind-hidden" id="indLinear">Fonction linéaire (b = 0)</span>
       <span class="indicator ind-constant ind-hidden" id="indConstant">Fonction constante (a = 0)</span>
     </div>
 
@@ -112,7 +112,7 @@ canvas{display:block;margin:0 auto;max-width:100%;cursor:crosshair}
     <div class="legend">
       <div class="legend-item"><div class="legend-line" style="background:#2563eb"></div> f(x) = ax + b</div>
       <div class="legend-item" id="legendG" style="display:none"><div class="legend-line" style="background:#16a34a"></div> g(x) = cx + d</div>
-      <div class="legend-item"><div style="width:12px;height:12px;border-radius:50%;background:#dc2626"></div> Ordonnee a l'origine</div>
+      <div class="legend-item"><div style="width:12px;height:12px;border-radius:50%;background:#dc2626"></div> Ordonnée à l'origine</div>
     </div>
 
     <!-- Sliders f -->
@@ -122,7 +122,7 @@ canvas{display:block;margin:0 auto;max-width:100%;cursor:crosshair}
         <input type="range" id="sliderA" min="-5" max="5" step="0.1" value="2" oninput="update()">
       </div>
       <div class="slider-group">
-        <label>Ordonnee a l'origine b <span class="val-badge" id="valB">1</span></label>
+        <label>Ordonnée à l'origine b <span class="val-badge" id="valB">1</span></label>
         <input type="range" id="sliderB" min="-10" max="10" step="0.5" value="1" oninput="update()">
       </div>
     </div>
@@ -147,7 +147,7 @@ canvas{display:block;margin:0 auto;max-width:100%;cursor:crosshair}
           <input type="range" id="sliderC" min="-5" max="5" step="0.1" value="-1" oninput="update()">
         </div>
         <div class="slider-group">
-          <label>Ordonnee a l'origine d <span class="val-badge" id="valD">3</span></label>
+          <label>Ordonnée à l'origine d <span class="val-badge" id="valD">3</span></label>
           <input type="range" id="sliderD" min="-10" max="10" step="0.5" value="3" oninput="update()">
         </div>
       </div>
@@ -161,8 +161,8 @@ canvas{display:block;margin:0 auto;max-width:100%;cursor:crosshair}
 
     <!-- Context pro -->
     <div class="context-pro">
-      <strong>Contexte professionnel :</strong> Prix de revient = cout fixe + cout unitaire &times; quantite.<br>
-      Le coefficient directeur <em>a</em> represente le cout unitaire et l'ordonnee a l'origine <em>b</em> represente le cout fixe.
+      <strong>Contexte professionnel :</strong> Prix de revient = coût fixe + coût unitaire &times; quantité.<br>
+      Le coefficient directeur <em>a</em> représente le coût unitaire et l'ordonnée à l'origine <em>b</em> représente le coût fixe.
     </div>
 
   </div>

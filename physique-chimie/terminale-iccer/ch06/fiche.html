@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch06 – Transport par un fluide en mouvement – Term ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-term-iccer.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Transport de masse et de volume par un fluide</h1>
+<p class="sous-titre">Chapitre 6 | Terminale ICCER | Physique-Chimie</p>
+
+<div class="fiche-grid">
+
+  <!-- DÉBIT VOLUMIQUE -->
+  <div class="fiche-card">
+    <h3>Débit volumique Q<sub>v</sub></h3>
+    <p>Volume de fluide traversant une section par unité de temps.</p>
+    <div class="fiche-formula">
+      \(Q_v = \dfrac{V}{t}\)
+    </div>
+    <p><small>\(Q_v\) en m³/s &nbsp;| \(V\) en m³ &nbsp;| \(t\) en s</small></p>
+    <div class="fiche-formula">
+      \(Q_v = S \times v\)
+    </div>
+    <p><small>\(S\) en m² (section) &nbsp;| \(v\) en m/s (vitesse moyenne)</small></p>
+  </div>
+
+  <!-- DÉBIT MASSIQUE -->
+  <div class="fiche-card">
+    <h3>Débit massique Q<sub>m</sub></h3>
+    <p>Masse de fluide traversant une section par unité de temps.</p>
+    <div class="fiche-formula">
+      \(Q_m = \dfrac{m}{t}\)
+    </div>
+    <p><small>\(Q_m\) en kg/s &nbsp;| \(m\) en kg &nbsp;| \(t\) en s</small></p>
+    <div class="fiche-formula">
+      \(Q_m = \rho \times Q_v\)
+    </div>
+    <p><small>\(\rho\) en kg/m³ (masse volumique du fluide)</small></p>
+  </div>
+
+  <!-- CONVERSIONS -->
+  <div class="fiche-card">
+    <h3>Conversions usuelles</h3>
+    <ul>
+      <li>1 L/s = 10⁻³ m³/s</li>
+      <li>1 L/min = 1,67 × 10⁻⁵ m³/s</li>
+      <li>1 m³/h = 2,78 × 10⁻⁴ m³/s</li>
+      <li>1 L = 10⁻³ m³</li>
+    </ul>
+    <p style="margin-top:6px"><strong>Masses volumiques :</strong></p>
+    <ul>
+      <li>Eau : 1 000 kg/m³</li>
+      <li>Eau glycolée 30 % : 1 040 kg/m³</li>
+      <li>Huile hydraulique : 870 kg/m³</li>
+      <li>Air (20 °C) : 1,2 kg/m³</li>
+    </ul>
+  </div>
+
+  <!-- ÉQUATION DE CONTINUITÉ -->
+  <div class="fiche-card">
+    <h3>Équation de continuité</h3>
+    <p>En écoulement permanent d'un fluide <strong>incompressible</strong>, le débit volumique est conservé :</p>
+    <div class="fiche-formula">
+      \(Q_v = S_1 \times v_1 = S_2 \times v_2\)
+    </div>
+    <ul>
+      <li>Si la section <strong>diminue</strong>, la vitesse <strong>augmente</strong>.</li>
+      <li>Si la section <strong>augmente</strong>, la vitesse <strong>diminue</strong>.</li>
+    </ul>
+    <p><small>Analogie : pincer un tuyau d'arrosage accélère le jet.</small></p>
+  </div>
+
+  <!-- SECTION CIRCULAIRE -->
+  <div class="fiche-card full">
+    <h3>Formules utiles pour les canalisations circulaires</h3>
+    <div class="fiche-formula">
+      \(S = \pi \times \left(\dfrac{d}{2}\right)^2 = \pi \times r^2\)
+    </div>
+    <div class="fiche-formula">
+      \(v = \dfrac{Q_v}{S} = \dfrac{Q_v}{\pi \, r^2}\)
+    </div>
+    <p><small>En ICCER : vitesse recommandée dans les canalisations ECS : <strong>0,5 à 1,5 m/s</strong> (limiter bruit et érosion).</small></p>
+  </div>
+
+</div><!-- fin fiche-grid -->
+
+<!-- PIÈGES ET ASTUCES -->
+<div class="piege">
+  <strong>Piège n°1 :</strong> Oublier de convertir les unités. Le débit en L/min ou m³/h doit être converti en m³/s avant tout calcul avec \(Q_v = S \times v\).
+</div>
+<div class="piege">
+  <strong>Piège n°2 :</strong> Confondre le diamètre et le rayon dans \(S = \pi r^2\). Avec un DN25 (diamètre 25 mm), le rayon vaut 12,5 mm = 0,0125 m.
+</div>
+<div class="piege">
+  <strong>Piège n°3 :</strong> Appliquer l'équation de continuité \(S_1 v_1 = S_2 v_2\) à un gaz sans précaution. Cette forme n'est valable que pour les fluides <strong>incompressibles</strong> (liquides). Pour un gaz, utiliser la conservation du débit massique \(Q_m = \rho_1 S_1 v_1 = \rho_2 S_2 v_2\).
+</div>
+
+<div class="astuce">
+  <strong>Astuce :</strong> Le rapport des vitesses est l'inverse du rapport des sections : \(v_2/v_1 = S_1/S_2\). Si la section est divisée par 4, la vitesse est multipliée par 4.
+</div>
+<div class="astuce">
+  <strong>Astuce :</strong> Pour passer de L/min à m³/s : diviser par 60 000. Exemple : 60 L/min = 60/60 000 = 10⁻³ m³/s.
+</div>
+
+</div><!-- fin fiche -->
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

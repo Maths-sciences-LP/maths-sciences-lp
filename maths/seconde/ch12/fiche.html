@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch12 – Théorème de Pythagore et réciproque – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Théorème de Pythagore et réciproque</h1>
+<p class="sous-titre">Chapitre 12 | Seconde Bac Pro | Mathématiques</p>
+
+<div class="fiche-grid">
+  <div class="fiche-card">
+    <h3>Théorème de Pythagore</h3>
+    <p>Dans un triangle <strong>rectangle en A</strong> :</p>
+    <div class="fiche-formula">\(BC^2 = AB^2 + AC^2\)</div>
+    <p>L'hypoténuse \(BC\) est le côté opposé à l'angle droit. C'est le <strong>plus grand côté</strong>.</p>
+  </div>
+  <div class="fiche-card">
+    <h3>Formules dérivées</h3>
+    <p>Calculer l'hypoténuse :</p>
+    <div class="fiche-formula">\(BC = \sqrt{AB^2 + AC^2}\)</div>
+    <p>Calculer un côté de l'angle droit :</p>
+    <div class="fiche-formula">\(AB = \sqrt{BC^2 - AC^2}\)</div>
+  </div>
+  <div class="fiche-card">
+    <h3>Réciproque</h3>
+    <p>Si \(BC^2 = AB^2 + AC^2\), alors le triangle est <strong>rectangle en A</strong>.</p>
+    <ul>
+      <li>Identifier le plus grand côté (candidat hypoténuse)</li>
+      <li>Calculer son carré</li>
+      <li>Calculer la somme des carrés des deux autres</li>
+      <li>Comparer : si égalité, le triangle est rectangle</li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Triplets pythagoriciens</h3>
+    <ul>
+      <li><strong>3 – 4 – 5</strong> (et ses multiples : 6-8-10, 9-12-15)</li>
+      <li><strong>5 – 12 – 13</strong></li>
+      <li><strong>8 – 15 – 17</strong></li>
+      <li><strong>7 – 24 – 25</strong></li>
+    </ul>
+    <p>Permettent de vérifier rapidement un résultat exact.</p>
+  </div>
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Mettre l'hypoténuse du mauvais côté de l'égalité. L'hypoténuse est <strong>seule</strong> d'un côté : \(c^2 = a^2 + b^2\). Ne jamais écrire \(a^2 = b^2 + c^2\) si \(c\) est l'hypoténuse.</div>
+<div class="piege"><strong>Piège 2 :</strong> Oublier la racine carrée. Après avoir trouvé \(BC^2 = 100\), il faut encore prendre \(BC = \sqrt{100} = 10\). Le résultat de Pythagore donne le <strong>carré</strong> de la longueur, pas la longueur.</div>
+<div class="piege"><strong>Piège 3 :</strong> Appliquer Pythagore à un triangle qui n'est pas rectangle. Le théorème ne s'applique <strong>que</strong> dans un triangle rectangle. Vérifier d'abord qu'il y a un angle de 90°.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Sur chantier, la règle des 3-4-5 permet de tracer un angle droit sans rapporteur : mesurer 3 m, 4 m et vérifier que la diagonale fait 5 m.</div>
+<div class="astuce"><strong>Astuce :</strong> Si le résultat n'est pas un entier, donner la valeur exacte \(\sqrt{...}\) puis l'arrondi. Exemple : \(\sqrt{74} \approx 8{,}60\) cm.</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Repérer l'angle droit et identifier l'hypoténuse (côté opposé, le plus grand).</li>
+      <li>Écrire l'égalité de Pythagore : hypoténuse² = côté₁² + côté₂².</li>
+      <li>Remplacer par les valeurs connues et calculer les carrés.</li>
+      <li>Isoler l'inconnue (somme ou différence des carrés).</li>
+      <li>Prendre la racine carrée pour obtenir la longueur.</li>
+      <li>Vérifier la cohérence : l'hypoténuse doit rester le plus grand côté.</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

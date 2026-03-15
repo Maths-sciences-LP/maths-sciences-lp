@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch02 – Grandeurs électriques et circuits – 2nde Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; Retour au sommaire</a>
+<div class="fiche">
+<h1>Fiche résumé — Grandeurs électriques et circuits</h1>
+<p class="sous-titre">Chapitre 2 | Seconde Bac Pro | Physique-Chimie</p>
+
+<div class="fiche-grid">
+  <div class="fiche-card">
+    <h3>Les 4 grandeurs fondamentales</h3>
+    <ul>
+      <li><strong>Tension U</strong> — Volt (V) — Voltmètre en <em>parallèle</em></li>
+      <li><strong>Intensité I</strong> — Ampère (A) — Ampèremètre en <em>série</em></li>
+      <li><strong>Résistance R</strong> — Ohm (Ω) — Ohmmètre hors tension</li>
+      <li><strong>Puissance P</strong> — Watt (W) — Calcul : \(P = U \times I\)</li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Composants d'un circuit</h3>
+    <ul>
+      <li><strong>Générateur</strong> : fournit l'énergie (pile, prise secteur)</li>
+      <li><strong>Conducteurs</strong> : transportent le courant (câbles)</li>
+      <li><strong>Récepteurs</strong> : convertissent l'énergie (moteur, lampe)</li>
+      <li><strong>Interrupteur</strong> : ouvre ou ferme le circuit</li>
+      <li>Le circuit doit être <strong>fermé</strong> pour que le courant circule</li>
+    </ul>
+  </div>
+  <div class="fiche-card">
+    <h3>Circuit en série</h3>
+    <div class="fiche-formula">\(I = I_1 = I_2 = \ldots\)</div>
+    <div class="fiche-formula">\(U = U_1 + U_2 + \ldots\)</div>
+    <div class="fiche-formula">\(R_{tot} = R_1 + R_2 + \ldots\)</div>
+    <p>Une seule boucle — si un composant tombe en panne, <strong>tout s'arrête</strong>.</p>
+  </div>
+  <div class="fiche-card">
+    <h3>Circuit en parallèle</h3>
+    <div class="fiche-formula">\(U = U_1 = U_2 = \ldots\)</div>
+    <div class="fiche-formula">\(I = I_1 + I_2 + \ldots\)</div>
+    <div class="fiche-formula">\(\dfrac{1}{R_{eq}} = \dfrac{1}{R_1} + \dfrac{1}{R_2} + \ldots\)</div>
+    <p>Plusieurs branches — panne d'un composant : <strong>les autres continuent</strong>.</p>
+  </div>
+  <div class="fiche-card full">
+    <h3>Lois de Kirchhoff</h3>
+    <ul>
+      <li><strong>Loi des nœuds</strong> : \(\sum I_{\text{entrant}} = \sum I_{\text{sortant}}\) (conservation du courant)</li>
+      <li><strong>Loi des mailles</strong> : \(\sum U_k = 0\) dans toute maille fermée (la tension du générateur = somme des chutes de tension)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="piege"><strong>Piège 1 :</strong> Brancher un ampèremètre en parallèle provoque un court-circuit (destruction de l'appareil). L'ampèremètre se branche toujours <strong>en série</strong>.</div>
+<div class="piege"><strong>Piège 2 :</strong> Confondre série et parallèle. En <strong>série</strong>, c'est l'intensité qui est identique partout ; en <strong>parallèle</strong>, c'est la tension qui est identique aux bornes de chaque branche.</div>
+<div class="piege"><strong>Piège 3 :</strong> Oublier les conversions de multiples : 1 mA = 0,001 A, 1 kΩ = 1 000 Ω. Toujours convertir en unités SI avant de calculer.</div>
+
+<div class="astuce"><strong>Astuce :</strong> Moyen mnémotechnique — « Le <strong>V</strong>oltmètre se branche en <strong>P</strong>arallèle (V et P : les deux ont des jambages) ; l'<strong>A</strong>mpèremètre se branche en <strong>S</strong>érie (A et S : les deux sont dans le fil). »</div>
+<div class="astuce"><strong>Astuce :</strong> En atelier, les prises sont en <strong>parallèle</strong> (chaque machine reçoit 230 V) — c'est pourquoi une machine en panne n'arrête pas les autres.</div>
+
+<div class="fiche-grid">
+  <div class="fiche-card full">
+    <h3>Résumé express — Méthode type</h3>
+    <ol style="padding-left:18px;margin:0">
+      <li>Identifier le <strong>type de circuit</strong> (série ou parallèle)</li>
+      <li>Repérer les <strong>grandeurs connues</strong> (U, I, R) et leurs unités</li>
+      <li>Appliquer la <strong>loi adaptée</strong> : loi des mailles (série) ou loi des nœuds (parallèle)</li>
+      <li>Calculer les grandeurs manquantes avec \(P = U \times I\) si nécessaire</li>
+      <li><strong>Vérifier</strong> la cohérence avec les propriétés du circuit</li>
+    </ol>
+  </div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

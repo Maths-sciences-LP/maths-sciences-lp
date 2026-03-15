@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fiche résumé – Ch07 – Trigonométrie – Term Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.fiche{max-width:780px;margin:0 auto}
+.fiche h1{font-size:1.3rem;text-align:center;margin-bottom:4px}
+.fiche .sous-titre{text-align:center;margin-bottom:16px}
+.fiche-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:600px){.fiche-grid{grid-template-columns:1fr}}
+.fiche-card{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:12px 14px}
+.fiche-card h3{font-size:.82rem;color:var(--p);margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}
+.fiche-card p,.fiche-card li{font-size:.84rem;line-height:1.5}
+.fiche-card ul{padding-left:16px;margin:0}
+.fiche-card li{margin-bottom:3px}
+.fiche-card.full{grid-column:1/-1}
+.fiche-formula{background:var(--p-bg);border-radius:6px;padding:8px 12px;margin:6px 0;text-align:center;font-size:.92rem}
+.piege{border-left:3px solid #e53e3e;background:#fff5f5;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.piege strong{color:#e53e3e}
+.astuce{border-left:3px solid #16a34a;background:#f0fff4;border-radius:0 8px 8px 0;padding:8px 12px;margin:6px 0;font-size:.82rem}
+.astuce strong{color:#16a34a}
+@media print{
+  body{font-size:11pt}
+  .fiche{max-width:100%}
+  .nb,.nav-footer{display:none}
+  .fiche-card{break-inside:avoid;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-term-iccer.html" class="nb">&larr; Retour au programme</a>
+<div class="fiche">
+<h1>Fiche résumé &mdash; Trigonométrie</h1>
+<p class="sous-titre">Chapitre 7 | Terminale Bac Pro | Mathématiques</p>
+
+<!-- LIGNE 1 -->
+<div class="fiche-grid">
+
+<div class="fiche-card">
+  <h3>Triangle rectangle &mdash; SOH-CAH-TOA</h3>
+  <div class="fiche-formula">
+    \(\sin\alpha = \dfrac{\text{opposé}}{\text{hypoténuse}}\)<br>
+    \(\cos\alpha = \dfrac{\text{adjacent}}{\text{hypoténuse}}\)<br>
+    \(\tan\alpha = \dfrac{\text{opposé}}{\text{adjacent}}\)
+  </div>
+</div>
+
+<div class="fiche-card">
+  <h3>Valeurs remarquables</h3>
+  <table style="width:100%;font-size:.8rem;border-collapse:collapse;margin:4px 0">
+    <thead><tr>
+      <th style="border-bottom:1px solid #93c5fd;padding:3px"></th>
+      <th style="border-bottom:1px solid #93c5fd;padding:3px">0°</th>
+      <th style="border-bottom:1px solid #93c5fd;padding:3px">30°</th>
+      <th style="border-bottom:1px solid #93c5fd;padding:3px">45°</th>
+      <th style="border-bottom:1px solid #93c5fd;padding:3px">60°</th>
+      <th style="border-bottom:1px solid #93c5fd;padding:3px">90°</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><strong>sin</strong></td><td>0</td><td>\(\frac{1}{2}\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>1</td></tr>
+      <tr><td><strong>cos</strong></td><td>1</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(\frac{1}{2}\)</td><td>0</td></tr>
+      <tr><td><strong>tan</strong></td><td>0</td><td>\(\frac{1}{\sqrt{3}}\)</td><td>1</td><td>\(\sqrt{3}\)</td><td>&mdash;</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<!-- LIGNE 2 -->
+<div class="fiche-grid">
+
+<div class="fiche-card">
+  <h3>Cercle trigonométrique et radians</h3>
+  <div class="fiche-formula">
+    \(M = (\cos x\,;\, \sin x)\) sur le cercle de rayon 1
+  </div>
+  <div class="fiche-formula">
+    \(\alpha_{\text{rad}} = \alpha_{°} \times \dfrac{\pi}{180}\qquad \alpha_{°} = \alpha_{\text{rad}} \times \dfrac{180}{\pi}\)
+  </div>
+</div>
+
+<div class="fiche-card">
+  <h3>Relation fondamentale</h3>
+  <div class="fiche-formula">
+    \(\cos^2(x) + \sin^2(x) = 1\)
+  </div>
+  <ul>
+    <li>\(\sin\) et \(\cos\) sont dans \([-1\,;\,1]\)</li>
+    <li>Période : \(2\pi\) (360°)</li>
+    <li>\(\cos x = \sin\!\left(x+\frac{\pi}{2}\right)\)</li>
+  </ul>
+</div>
+
+</div>
+
+<!-- LIGNE 3 -->
+<div class="fiche-grid">
+
+<div class="fiche-card">
+  <h3>Résoudre \(\sin(x) = a\)</h3>
+  <div class="fiche-formula">
+    \(x_0 = \arcsin(a)\) puis \(x_1 = \pi - x_0\)
+  </div>
+  <p>Solutions : \(x = x_0 + 2k\pi\) ou \(x = \pi - x_0 + 2k\pi\).</p>
+</div>
+
+<div class="fiche-card">
+  <h3>Résoudre \(\cos(x) = a\)</h3>
+  <div class="fiche-formula">
+    \(x_0 = \arccos(a)\) puis \(x_1 = 2\pi - x_0\)
+  </div>
+  <p>Solutions : \(x = x_0 + 2k\pi\) ou \(x = -x_0 + 2k\pi\).</p>
+</div>
+
+</div>
+
+<!-- LIGNE 4 -->
+<div class="fiche-grid">
+
+<div class="fiche-card">
+  <h3>Loi des sinus</h3>
+  <div class="fiche-formula">
+    \(\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}\)
+  </div>
+  <p>Utiliser quand on connaît un côté et l'angle opposé + un autre élément.</p>
+</div>
+
+<div class="fiche-card">
+  <h3>Loi des cosinus</h3>
+  <div class="fiche-formula">
+    \(a^2 = b^2 + c^2 - 2bc\cos A\)
+  </div>
+  <p>Utiliser quand on connaît 3 côtés, ou 2 côtés et l'angle compris. Si \(A=90°\), on retrouve Pythagore.</p>
+</div>
+
+</div>
+
+<!-- FORMULES D'ADDITION -->
+<div class="fiche-grid">
+<div class="fiche-card full">
+  <h3>Formules d'addition et de duplication</h3>
+  <div class="fiche-formula">
+    \(\sin(a+b) = \sin a\cos b + \cos a\sin b\qquad \cos(a+b) = \cos a\cos b - \sin a\sin b\)
+  </div>
+  <div class="fiche-formula">
+    \(\sin(2a) = 2\sin a\cos a \qquad \cos(2a) = \cos^2 a - \sin^2 a\)
+  </div>
+</div>
+</div>
+
+<!-- PIÈGES ET ASTUCES -->
+<div class="fiche-grid">
+<div class="fiche-card full">
+  <h3>Pièges et astuces</h3>
+
+  <div class="piege">
+    <strong>Piège 1 :</strong> \(\sin\) et \(\cos\) sont toujours entre \(-1\) et \(1\). L'équation \(\sin(x) = 2\) n'a aucune solution.
+  </div>
+
+  <div class="piege">
+    <strong>Piège 2 :</strong> La tangente n'est pas définie pour \(90° + k \times 180°\). Vérifier que l'angle n'est pas un multiple impair de \(90°\).
+  </div>
+
+  <div class="piege">
+    <strong>Piège 3 :</strong> Bien vérifier que la calculatrice est en mode degrés ou radians selon l'énoncé, sinon tous les résultats sont faux.
+  </div>
+
+  <div class="astuce">
+    <strong>Astuce pro :</strong> Pour calculer une longueur de chevron, canalisation ou pente : \(\theta = \arctan\!\left(\dfrac{\text{dénivelée}}{\text{distance horizontale}}\right)\).
+  </div>
+
+  <div class="astuce">
+    <strong>Astuce :</strong> Loi des sinus quand on a un angle et son côté opposé ; loi des cosinus quand on a 3 côtés ou 2 côtés + angle compris.
+  </div>
+</div>
+</div>
+
+</div>
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">&larr; Cours complet</a>
+  <a href="exercices.html" class="nav-btn">Exercices &rarr;</a>
+</div>
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
