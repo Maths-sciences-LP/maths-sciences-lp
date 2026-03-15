@@ -47,6 +47,7 @@
             text-transform: uppercase; letter-spacing: 0.5px;
         }
         .badge-term { background: #ede9fe; color: #6d28d9; }
+        .badge-1ere { background: #dcfce7; color: #166534; }
         .badge-2nde { background: #dbeafe; color: #1d4ed8; }
         .card h3 { font-size: 1em; margin: 0 0 6px 0; }
         .card p { font-size: 0.85em; color: #666; margin: 0 0 14px 0; flex-grow: 1; }
@@ -79,6 +80,7 @@
         <span class="filtre-label">Niveau :</span>
         <button class="btn-filtre active" onclick="filtrer('tous', this)">Tous</button>
         <button class="btn-filtre" onclick="filtrer('term', this)">Terminale Pro</button>
+        <button class="btn-filtre" onclick="filtrer('1ere', this)">1ère Pro</button>
         <button class="btn-filtre" onclick="filtrer('2nde', this)">2nde Pro</button>
     </div>
 
@@ -165,6 +167,24 @@
     <div class="theme-section" data-theme="thermo">
         <div class="theme-titre theme-thermo">🌡️ Thermique</div>
         <div class="grid">
+            <div class="card" data-niveau="1ere">
+                <div>
+                    <div class="icon">🔥</div>
+                    <span class="badge-niveau badge-1ere">1ère Pro · Ch03</span>
+                    <h3>Combustion</h3>
+                    <p>Complète/incomplète — danger CO, bilan énergétique, équation équilibrée.</p>
+                </div>
+                <a href="simulations/combustion.html" class="btn-lancer btn-thermo">Lancer →</a>
+            </div>
+            <div class="card" data-niveau="1ere">
+                <div>
+                    <div class="icon">🧱</div>
+                    <span class="badge-niveau badge-1ere">1ère ERA · Ch05</span>
+                    <h3>Conductance Thermique</h3>
+                    <p>G = λS/e — mur composite, résistance thermique, coût énergétique.</p>
+                </div>
+                <a href="simulations/conductance-thermique.html" class="btn-lancer btn-thermo">Lancer →</a>
+            </div>
             <div class="card" data-niveau="2nde">
                 <div>
                     <div class="icon">🔥</div>
@@ -226,6 +246,24 @@
     <div class="theme-section" data-theme="meca">
         <div class="theme-titre theme-meca">💧 Mécanique</div>
         <div class="grid">
+            <div class="card" data-niveau="1ere">
+                <div>
+                    <div class="icon">⚖️</div>
+                    <span class="badge-niveau badge-1ere">1ère Pro · Ch06</span>
+                    <h3>Moments et Rotation</h3>
+                    <p>M = F × d — levier, équilibre en rotation, condition ΣM = 0.</p>
+                </div>
+                <a href="simulations/moments.html" class="btn-lancer btn-meca">Lancer →</a>
+            </div>
+            <div class="card" data-niveau="1ere">
+                <div>
+                    <div class="icon">🏊</div>
+                    <span class="badge-niveau badge-1ere">1ère ICCER · Ch08</span>
+                    <h3>Force d'Archimède</h3>
+                    <p>FA = ρ·V·g — flottaison, poussée, pourcentage immergé.</p>
+                </div>
+                <a href="simulations/archimede.html" class="btn-lancer btn-meca">Lancer →</a>
+            </div>
             <div class="card" data-niveau="2nde">
                 <div>
                     <div class="icon">🏃</div>
@@ -357,6 +395,15 @@
     <div class="theme-section" data-theme="signal">
         <div class="theme-titre theme-signal">📡 Signaux & Optique</div>
         <div class="grid">
+            <div class="card" data-niveau="1ere">
+                <div>
+                    <div class="icon">🌈</div>
+                    <span class="badge-niveau badge-1ere">1ère Pro · Ch09-10</span>
+                    <h3>Spectre Électromagnétique</h3>
+                    <p>Radio → gamma — c = λf, applications, zoom visible, énergie E = hf.</p>
+                </div>
+                <a href="simulations/ondes-em.html" class="btn-lancer btn-signal">Lancer →</a>
+            </div>
             <div class="card" data-niveau="2nde">
                 <div>
                     <div class="icon">🔊</div>
@@ -553,6 +600,15 @@
                 </div>
                 <a href="simulations/solides.html" class="btn-lancer btn-maths">Lancer →</a>
             </div>
+            <div class="card" data-niveau="1ere">
+                <div>
+                    <div class="icon">📈</div>
+                    <span class="badge-niveau badge-1ere">1ère Pro · Ch06</span>
+                    <h3>Fonction Dérivée</h3>
+                    <p>Tangente, sécante, signe de f'(x), tableau de variations.</p>
+                </div>
+                <a href="simulations/derivee.html" class="btn-lancer btn-maths">Lancer →</a>
+            </div>
             <div class="card" data-niveau="term">
                 <div>
                     <div class="icon">📊</div>
@@ -644,9 +700,7 @@ function filtrer(niveau, btn) {
     btn.classList.add('active');
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
-        card.style.display = '';
-        if (niveau === 'term' && card.dataset.niveau === '2nde') card.style.display = 'none';
-        if (niveau === '2nde' && card.dataset.niveau === 'term') card.style.display = 'none';
+        card.style.display = (niveau === 'tous' || card.dataset.niveau === niveau) ? '' : 'none';
     });
     document.querySelectorAll('.theme-section').forEach(section => {
         const visibles = [...section.querySelectorAll('.card')].filter(c => c.style.display !== 'none');
