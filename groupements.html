@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Vue d'ensemble des 6 groupements de physique-chimie en Bac Professionnel — programmes, filières et contenus disponibles.">
+<title>Groupements de Physique-Chimie – Bac Pro</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f7fa;color:#1e293b;line-height:1.6}
+
+  /* Nav */
+  nav{background:#1e3a5f;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  nav ul{list-style:none;display:flex;max-width:960px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav li{flex-shrink:0}
+  nav a{display:block;padding:14px 22px;color:#cbd5e1;text-decoration:none;font-weight:600;font-size:.95rem;white-space:nowrap;transition:background .2s,color .2s}
+  nav a:hover,nav a.active{background:#2563eb;color:#fff}
+
+  /* Hero */
+  header{background:linear-gradient(135deg,#1e3a5f 0%,#7c3aed 100%);color:#fff;text-align:center;padding:48px 20px 40px}
+  header h1{font-size:clamp(1.4rem,4vw,2.2rem);font-weight:800;margin-bottom:8px}
+  header p.sub{font-size:1rem;opacity:.88}
+
+  /* Main */
+  main{max-width:1080px;margin:0 auto;padding:36px 16px 64px}
+
+  /* Intro */
+  .intro{background:#fff;border-radius:12px;padding:24px;margin-bottom:32px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .intro p{margin-bottom:8px;font-size:.92rem}
+  .intro strong{color:#1e3a5f}
+
+  /* Legend */
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px;font-size:.85rem}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+  .dot-ok{background:#16a34a}
+  .dot-wip{background:#f59e0b}
+  .dot-no{background:#cbd5e1}
+
+  /* Groupement card */
+  .grpt{background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.07);margin-bottom:28px;overflow:hidden}
+  .grpt-header{padding:20px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .grpt-num{font-size:1.6rem;font-weight:800;color:#fff;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .grpt-info{flex:1;min-width:200px}
+  .grpt-title{font-size:1.15rem;font-weight:700;color:#1e293b}
+  .grpt-desc{font-size:.82rem;color:#64748b;margin-top:2px}
+  .grpt-filieres{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+  .tag{font-size:.72rem;padding:3px 8px;border-radius:20px;font-weight:600;background:#e2e8f0;color:#475569}
+  .tag-mon{background:#dbeafe;color:#1d4ed8}
+
+  .grpt-body{padding:0 24px 24px}
+  .grpt-body h4{font-size:.88rem;font-weight:700;color:#475569;margin:16px 0 8px;border-bottom:1px solid #e2e8f0;padding-bottom:4px}
+
+  /* Niveau tabs */
+  .niveau-tabs{display:flex;gap:6px;margin-bottom:12px}
+  .niveau-tab{font-size:.78rem;padding:4px 12px;border-radius:20px;border:1px solid #e2e8f0;background:#f8fafc;color:#64748b;cursor:default;font-weight:600}
+  .niveau-tab.active{background:#2563eb;color:#fff;border-color:#2563eb}
+
+  /* Chapter list */
+  .chapitres{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+  .ch{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;font-size:.84rem;background:#f8fafc;border:1px solid #e2e8f0;text-decoration:none;color:#1e293b;transition:background .15s}
+  a.ch:hover{background:#eff6ff;border-color:#93c5fd}
+  .ch .status{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .ch .status-ok{background:#16a34a}
+  .ch .status-no{background:#cbd5e1}
+  .ch .domain-tag{font-size:.68rem;padding:2px 6px;border-radius:4px;font-weight:600;flex-shrink:0}
+  .dt-elec{background:#dbeafe;color:#1d4ed8}
+  .dt-therm{background:#fee2e2;color:#dc2626}
+  .dt-meca{background:#fef3c7;color:#b45309}
+  .dt-chim{background:#d1fae5;color:#059669}
+  .dt-sig{background:#ede9fe;color:#7c3aed}
+  .ch .ch-title{flex:1}
+  .ch .ch-link{font-size:.72rem;color:#2563eb;font-weight:600}
+
+  /* Colors per groupement */
+  .g1 .grpt-header{background:#eff6ff;border-bottom:3px solid #2563eb}
+  .g1 .grpt-num{background:#2563eb}
+  .g2 .grpt-header{background:#fef3c7;border-bottom:3px solid #f59e0b}
+  .g2 .grpt-num{background:#f59e0b}
+  .g3 .grpt-header{background:#f0fdf4;border-bottom:3px solid #16a34a}
+  .g3 .grpt-num{background:#16a34a}
+  .g4 .grpt-header{background:#faf5ff;border-bottom:3px solid #7c3aed}
+  .g4 .grpt-num{background:#7c3aed}
+  .g5 .grpt-header{background:#fdf2f8;border-bottom:3px solid #db2777}
+  .g5 .grpt-num{background:#db2777}
+  .g6 .grpt-header{background:#f0f9ff;border-bottom:3px solid #0891b2}
+  .g6 .grpt-num{background:#0891b2}
+
+  /* Footer */
+  footer{text-align:center;padding:28px;font-size:.78rem;color:#94a3b8;background:#1e293b;color:#64748b}
+  footer a{color:#94a3b8}
+
+  @media(max-width:600px){
+    nav a{padding:11px 14px;font-size:.82rem}
+    .grpt-header{padding:16px}
+    .grpt-body{padding:0 16px 16px}
+    .chapitres{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="groupements.html" class="active">Groupements</a></li>
+    <li><a href="simulations.html">Simulations</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1>Groupements de Physique-Chimie</h1>
+  <p class="sub">Vue d'ensemble des 6 groupements — Baccalauréat Professionnel</p>
+</header>
+
+<main>
+
+  <div class="intro">
+    <p>En physique-chimie, les spécialités de Bac Pro sont réparties en <strong>6 groupements</strong>. Chaque groupement a son propre programme en première et terminale. Le programme de seconde est commun à tous.</p>
+    <p>Ce site couvre actuellement les <strong>groupements 1 et 3</strong>. Les autres groupements seront ajoutés progressivement.</p>
+  </div>
+
+  <div class="legend">
+    <span><span class="dot dot-ok"></span> Contenu disponible</span>
+    <span><span class="dot dot-wip"></span> En cours</span>
+    <span><span class="dot dot-no"></span> À venir</span>
+    <span class="tag tag-mon">= filière du lycée</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- GROUPEMENT 1 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="grpt g1">
+    <div class="grpt-header">
+      <div class="grpt-num">1</div>
+      <div class="grpt-info">
+        <div class="grpt-title">Groupement 1 — Mécanique / Énergie / Maintenance</div>
+        <div class="grpt-desc">Accent sur le domaine mécanique. Aéronautique, maintenance, transition énergétique.</div>
+        <div class="grpt-filieres">
+          <span class="tag tag-mon">ICCER</span>
+          <span class="tag tag-mon">MEE</span>
+          <span class="tag">MFER</span>
+          <span class="tag">Aéronautique</span>
+          <span class="tag">Maintenance véhicules</span>
+          <span class="tag">Maintenance équipements</span>
+          <span class="tag">Chaudronnerie</span>
+          <span class="tag">Usinage</span>
+          <span class="tag">Carrosserie</span>
+          <span class="tag">+15 autres</span>
+        </div>
+      </div>
+    </div>
+    <div class="grpt-body">
+
+      <h4>Première — 10 chapitres</h4>
+      <div class="chapitres">
+        <a class="ch" href="physique-chimie/premiere-iccer/ch01/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Énergie et puissance électrique</span></a>
+        <a class="ch" href="physique-chimie/premiere-iccer/ch02/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch02 — Transporter l'énergie électrique</span></a>
+        <a class="ch" href="physique-chimie/premiere-iccer/ch03/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch03 — Combustion du carbone et hydrocarbures</span></a>
+        <a class="ch" href="physique-chimie/premiere-iccer/ch04/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch04 — Les trois modes de transfert thermique</span></a>
+        <a class="ch" href="physique-chimie/premiere-iccer/ch05/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch05 — Vitesse et accélération</span></a>
+        <a class="ch" href="physique-chimie/premiere-iccer/ch06/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch06 — Équilibre et rotation (moments)</span></a>
+        <a class="ch" href="physique-chimie/premiere-iccer/ch07/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch07 — Pression et force pressante</span></a>
+        <a class="ch" href="physique-chimie/premiere-iccer/ch08/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch08 — Force d'Archimède</span></a>
+        <a class="ch" href="physique-chimie/premiere-iccer/ch09/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch09 — Solutions aqueuses et concentration</span></a>
+        <a class="ch" href="physique-chimie/premiere-iccer/ch10/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch10 — Ondes électromagnétiques</span></a>
+      </div>
+
+      <h4>Terminale — 8 chapitres</h4>
+      <div class="chapitres">
+        <a class="ch" href="physique-chimie/terminale-iccer/ch01/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Puissance consommée</span></a>
+        <a class="ch" href="physique-chimie/terminale-iccer/ch02/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch02 — Courant continu / alternatif</span></a>
+        <a class="ch" href="physique-chimie/terminale-iccer/ch03/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch03 — Moteur électrique synchrone / asynchrone</span></a>
+        <a class="ch" href="physique-chimie/terminale-iccer/ch04/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch04 — Rayonnement thermique et effet de serre</span></a>
+        <a class="ch" href="physique-chimie/terminale-iccer/ch05/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch05 — Pression dans un fluide immobile</span></a>
+        <a class="ch" href="physique-chimie/terminale-iccer/ch06/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch06 — Transport de masse et volume par un fluide</span></a>
+        <a class="ch" href="physique-chimie/terminale-iccer/ch07/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch07 — Oxydoréduction et corrosion</span></a>
+        <a class="ch" href="physique-chimie/terminale-iccer/ch08/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch08 — Propagation d'un signal sonore</span></a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- GROUPEMENT 2 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="grpt g2">
+    <div class="grpt-header">
+      <div class="grpt-num">2</div>
+      <div class="grpt-info">
+        <div class="grpt-title">Groupement 2 — Électricité / Numérique</div>
+        <div class="grpt-desc">Accent sur le domaine électricité. Électrotechnique, systèmes numériques.</div>
+        <div class="grpt-filieres">
+          <span class="tag">MELEC</span>
+          <span class="tag">CIEL (ex-SN)</span>
+        </div>
+      </div>
+    </div>
+    <div class="grpt-body">
+
+      <h4>Première — 10 chapitres</h4>
+      <div class="chapitres">
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Énergie et puissance électrique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch02 — Transporter l'énergie électrique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch03 — Puissance en régime sinusoïdal</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch04 — Champ magnétique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch05 — Combustion du carbone et hydrocarbures</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch06 — Les trois modes de transfert thermique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch07 — Vitesse et accélération</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch08 — Pression et force pressante</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch09 — Solutions aqueuses et concentration</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch10 — Ondes électromagnétiques</span></div>
+      </div>
+
+      <h4>Terminale — 8 chapitres</h4>
+      <div class="chapitres">
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Redressement et filtrage</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch02 — Réseau triphasé</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch03 — Stockage électrochimique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch04 — Rayonnement thermique et effet de serre</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch05 — Propagation d'un signal sonore</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch06 — Transmission de l'information</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch07 — Fonctionnement d'un réseau informatique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch08 — Caractéristiques d'un réseau</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- GROUPEMENT 3 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="grpt g3">
+    <div class="grpt-header">
+      <div class="grpt-num">3</div>
+      <div class="grpt-info">
+        <div class="grpt-title">Groupement 3 — Bâtiment / Bois / Agencement</div>
+        <div class="grpt-desc">Accent sur les transferts thermiques et l'acoustique. Bâtiment, menuiserie, agencement.</div>
+        <div class="grpt-filieres">
+          <span class="tag tag-mon">ERA</span>
+          <span class="tag tag-mon">TMA (ERA-MA)</span>
+          <span class="tag tag-mon">TEB</span>
+          <span class="tag">OBM</span>
+          <span class="tag">Aménagement-finition</span>
+          <span class="tag">Menuiserie alu-verre</span>
+          <span class="tag">Constructeur bois</span>
+          <span class="tag">Patrimoine bâti</span>
+          <span class="tag">Gros œuvre</span>
+        </div>
+      </div>
+    </div>
+    <div class="grpt-body">
+
+      <h4>Première — 10 chapitres</h4>
+      <div class="chapitres">
+        <a class="ch" href="physique-chimie/premiere-era/ch01/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Énergie et puissance électrique</span></a>
+        <a class="ch" href="physique-chimie/premiere-era/ch02/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch02 — Puissance en régime sinusoïdal</span></a>
+        <a class="ch" href="physique-chimie/premiere-era/ch03/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch03 — Combustion du carbone et hydrocarbures</span></a>
+        <a class="ch" href="physique-chimie/premiere-era/ch04/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch04 — Les trois modes de transfert thermique</span></a>
+        <a class="ch" href="physique-chimie/premiere-era/ch05/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch05 — Conductance thermique</span></a>
+        <a class="ch" href="physique-chimie/premiere-era/ch06/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch06 — Équilibre et rotation (moments)</span></a>
+        <a class="ch" href="physique-chimie/premiere-era/ch07/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch07 — Pression et force pressante</span></a>
+        <a class="ch" href="physique-chimie/premiere-era/ch08/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch08 — Solutions aqueuses et concentration</span></a>
+        <a class="ch" href="physique-chimie/premiere-era/ch09/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch09 — Ondes électromagnétiques</span></a>
+        <a class="ch" href="physique-chimie/premiere-era/ch10/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch10 — Propagation d'un signal sonore</span></a>
+      </div>
+
+      <h4>Terminale — 8 chapitres</h4>
+      <div class="chapitres">
+        <a class="ch" href="physique-chimie/terminale-era/ch01/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Transporter l'énergie électrique</span></a>
+        <a class="ch" href="physique-chimie/terminale-era/ch02/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch02 — Stockage électrochimique</span></a>
+        <a class="ch" href="physique-chimie/terminale-era/ch03/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch03 — Rayonnement thermique et effet de serre</span></a>
+        <a class="ch" href="physique-chimie/terminale-era/ch04/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch04 — Vitesse et accélération</span></a>
+        <a class="ch" href="physique-chimie/terminale-era/ch05/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch05 — Oxydoréduction et corrosion</span></a>
+        <a class="ch" href="physique-chimie/terminale-era/ch06/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch06 — Sources lumineuses</span></a>
+        <a class="ch" href="physique-chimie/terminale-era/ch07/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch07 — Transmission de l'information</span></a>
+        <a class="ch" href="physique-chimie/terminale-era/ch08/lecon.html"><span class="status status-ok"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch08 — Atténuation d'une onde sonore</span></a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- GROUPEMENT 4 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="grpt g4">
+    <div class="grpt-header">
+      <div class="grpt-num">4</div>
+      <div class="grpt-info">
+        <div class="grpt-title">Groupement 4 — Optique / Impression / Arts</div>
+        <div class="grpt-desc">Accent sur les signaux (optique, imagerie). Microtechniques, photographie, production imprimée.</div>
+        <div class="grpt-filieres">
+          <span class="tag">Microtechniques</span>
+          <span class="tag">Optique lunetterie</span>
+          <span class="tag">Photographie</span>
+          <span class="tag">Produits imprimés</span>
+        </div>
+      </div>
+    </div>
+    <div class="grpt-body">
+
+      <h4>Première — 10 chapitres</h4>
+      <div class="chapitres">
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Énergie et puissance électrique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch02 — Puissance en régime sinusoïdal</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch03 — Combustion du carbone et hydrocarbures</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch04 — Conductance thermique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch05 — Équilibre et rotation (moments)</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch06 — Pression et force pressante</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch07 — Solutions aqueuses et concentration</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch08 — Lentilles et formation d'images</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch09 — Ondes électromagnétiques</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch10 — Sources lumineuses et spectres</span></div>
+      </div>
+
+      <h4>Terminale — 8 chapitres</h4>
+      <div class="chapitres">
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Stockage électrochimique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch02 — Rayonnement thermique et effet de serre</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch03 — Transmission de l'information</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch04 — Écran et image numérisée</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch05 — Propagation d'un signal sonore</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch06 — pH et solutions acido-basiques</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch07 — Pression dans un fluide (Pascal)</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch08 — Rendement énergétique d'une lampe</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- GROUPEMENT 5 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="grpt g5">
+    <div class="grpt-header">
+      <div class="grpt-num">5</div>
+      <div class="grpt-info">
+        <div class="grpt-title">Groupement 5 — Chimie / Hygiène / Santé</div>
+        <div class="grpt-desc">Accent sur la chimie. Laboratoire, hygiène, esthétique, environnement.</div>
+        <div class="grpt-filieres">
+          <span class="tag">ASSP</span>
+          <span class="tag">Bio-industries</span>
+          <span class="tag">Esthétique</span>
+          <span class="tag">Hygiène-propreté</span>
+          <span class="tag">Plastiques</span>
+          <span class="tag">Procédés chimie</span>
+          <span class="tag">Coiffure</span>
+          <span class="tag">+5 autres</span>
+        </div>
+      </div>
+    </div>
+    <div class="grpt-body">
+
+      <h4>Première — 10 chapitres</h4>
+      <div class="chapitres">
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Énergie et puissance électrique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch02 — Combustion du carbone et hydrocarbures</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch03 — Les trois modes de transfert thermique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch04 — Vitesse et accélération</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch05 — Pression et force pressante</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch06 — Masse volumique et ions</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch07 — Solutions aqueuses et concentration</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch08 — Oxydoréduction</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch09 — Ondes électromagnétiques</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch10 — Pression dans un fluide (Pascal)</span></div>
+      </div>
+
+      <h4>Terminale — 10 chapitres</h4>
+      <div class="chapitres">
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Transporter l'énergie électrique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch02 — Stockage électrochimique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch03 — Rayonnement thermique et effet de serre</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch04 — Force d'Archimède</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch05 — pH et solutions acido-basiques</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch06 — Transmission de l'information</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch07 — Conductance thermique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch08 — Débit d'un fluide</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch09 — Chimie organique et groupes caractéristiques</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch10 — Matières plastiques et recyclage</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- GROUPEMENT 6 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="grpt g6">
+    <div class="grpt-header">
+      <div class="grpt-num">6</div>
+      <div class="grpt-info">
+        <div class="grpt-title">Groupement 6 — Métiers divers / Services</div>
+        <div class="grpt-desc">Programme le plus léger en PC. Mode, cuir, arts, transport, topographie.</div>
+        <div class="grpt-filieres">
+          <span class="tag tag-mon">TOPO</span>
+          <span class="tag">Travaux publics</span>
+          <span class="tag">Mode-vêtements</span>
+          <span class="tag">Cuir</span>
+          <span class="tag">Arts de la pierre</span>
+          <span class="tag">Technicien Gaz</span>
+          <span class="tag">Scierie</span>
+          <span class="tag">+8 autres</span>
+        </div>
+      </div>
+    </div>
+    <div class="grpt-body">
+
+      <h4>Première — 8 chapitres</h4>
+      <div class="chapitres">
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Énergie et puissance électrique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch02 — Combustion du carbone et hydrocarbures</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch03 — Les trois modes de transfert thermique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch04 — Vitesse et accélération</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch05 — Pression et force pressante</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch06 — Solutions aqueuses et concentration</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch07 — Ondes électromagnétiques</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch08 — Lentilles et formation d'images</span></div>
+      </div>
+
+      <h4>Terminale — 8 chapitres</h4>
+      <div class="chapitres">
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-elec">Élec</span><span class="ch-title">Ch01 — Stockage électrochimique</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-therm">Therm</span><span class="ch-title">Ch02 — Rayonnement thermique et effet de serre</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-meca">Méca</span><span class="ch-title">Ch03 — Vitesse et accélération</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch04 — Sources lumineuses et spectres</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch05 — Transmission de l'information</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-sig">Signal</span><span class="ch-title">Ch06 — Propagation d'un signal sonore</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch07 — pH et solutions acido-basiques</span></div>
+        <div class="ch"><span class="status status-no"></span><span class="domain-tag dt-chim">Chim</span><span class="ch-title">Ch08 — Réaction chimique et réactif limitant</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="intro" style="margin-top:12px">
+    <p><strong>Source officielle :</strong> La liste complète des filières par groupement est disponible sur <a href="https://eduscol.education.gouv.fr/5898/programmes-et-ressources-en-physique-chimie-voie-professionnelle" target="_blank" rel="noopener">Éduscol</a> (fichier Excel téléchargeable). Dernière mise à jour : arrêté du 6 juin 2023.</p>
+    <p><strong>Programme de seconde :</strong> Le programme de physique-chimie de seconde est <strong>commun à tous les groupements</strong>. → <a href="pc-2nde-pro.html">Voir les cours de seconde</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <p>maths-sciences-lp.github.io — <a href="index.html">Retour à l'accueil</a></p>
+</footer>
+
+</body>
+</html>
