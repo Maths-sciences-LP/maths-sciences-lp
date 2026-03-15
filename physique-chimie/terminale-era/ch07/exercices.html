@@ -81,7 +81,139 @@
 <p style="font-size:.85em;color:#718096;margin-top:6px">Le rayon lumineux reste confiné dans le cœur par réflexions successives (angle d'incidence &gt; angle critique θc).</p>
 </div>
 
-<!-- SECTION EXERCICES DE BASE -->
+<!-- SECTION SOCLE -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+<h2>Exercices – Niveau Socle</h2>
+
+<!-- EXERCICE S1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S1</span>
+    <span class="exo-title">Types de transmission – Compléter le tableau</span>
+  </div>
+  <p>Un technicien en agencement doit choisir un mode de communication pour relier des capteurs à un automate dans un atelier de menuiserie. Pour cela, il doit d'abord connaître les différents types de transmission.</p>
+  <p class="q"><strong>1.</strong> Compléter le tableau suivant :</p>
+  <table>
+    <tr><th>Type de transmission</th><th>Support utilisé</th><th>Exemple de technologie</th><th>Avantage principal</th></tr>
+    <tr><td><strong>Filaire</strong></td><td>Câble en cuivre ou fibre optique</td><td>............</td><td>............</td></tr>
+    <tr><td><strong>Sans fil</strong></td><td>............</td><td>............</td><td>Pas besoin de câbles</td></tr>
+  </table>
+  <p><em>Aide :</em> choisir parmi les mots suivants : <strong>Ethernet</strong> – <strong>WiFi</strong> – <strong>ondes radio</strong> – <strong>fiabilité et débit élevé</strong>.</p>
+  <p class="q"><strong>2.</strong> Parmi les technologies suivantes, indiquer si elles sont filaires (F) ou sans fil (SF) :</p>
+  <table>
+    <tr><th>Technologie</th><th>F ou SF ?</th></tr>
+    <tr><td>Bluetooth</td><td>............</td></tr>
+    <tr><td>Fibre optique</td><td>............</td></tr>
+    <tr><td>WiFi</td><td>............</td></tr>
+    <tr><td>Câble Ethernet</td><td>............</td></tr>
+    <tr><td>4G</td><td>............</td></tr>
+  </table>
+  <p class="q"><strong>3.</strong> Dans un atelier de menuiserie avec des machines qui produisent des perturbations électromagnétiques, est-il préférable d'utiliser une liaison filaire ou sans fil ? Justifier en une phrase.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Tableau complété :</p>
+    <table>
+      <tr><th>Type de transmission</th><th>Support utilisé</th><th>Exemple de technologie</th><th>Avantage principal</th></tr>
+      <tr><td><strong>Filaire</strong></td><td>Câble en cuivre ou fibre optique</td><td><strong>Ethernet</strong></td><td><strong>Fiabilité et débit élevé</strong></td></tr>
+      <tr><td><strong>Sans fil</strong></td><td><strong>Ondes radio</strong></td><td><strong>WiFi</strong></td><td>Pas besoin de câbles</td></tr>
+    </table>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>Technologie</th><th>F ou SF ?</th></tr>
+      <tr><td>Bluetooth</td><td><strong>SF</strong></td></tr>
+      <tr><td>Fibre optique</td><td><strong>F</strong></td></tr>
+      <tr><td>WiFi</td><td><strong>SF</strong></td></tr>
+      <tr><td>Câble Ethernet</td><td><strong>F</strong></td></tr>
+      <tr><td>4G</td><td><strong>SF</strong></td></tr>
+    </table>
+    <p><strong>3.</strong> Il est préférable d'utiliser une liaison <strong>filaire</strong> (câble blindé ou fibre optique) car les perturbations électromagnétiques des machines peuvent perturber les transmissions sans fil.</p>
+  </div>
+</div>
+
+<!-- EXERCICE S2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S2</span>
+    <span class="exo-title">Calcul guidé de la longueur d'onde – WiFi à 5 GHz</span>
+  </div>
+  <p>Un agenceur installe un réseau WiFi dans un showroom d'exposition de meubles. Le réseau WiFi émet à la fréquence \(f = 5 \text{ GHz}\).</p>
+  <p>On rappelle la relation : \(\lambda = \dfrac{c}{f}\) avec \(c = 3 \times 10^8 \text{ m/s}\).</p>
+
+  <p class="q"><strong>Étape 1 – Convertir la fréquence en Hz.</strong></p>
+  <p>On sait que \(1 \text{ GHz} = 10^9 \text{ Hz}\).</p>
+  <p>Donc : \(f = 5 \text{ GHz} = 5 \times 10^{...} \text{ Hz}\)</p>
+  <p>Compléter l'exposant : ............</p>
+
+  <p class="q"><strong>Étape 2 – Appliquer la formule.</strong></p>
+  <p>\[\lambda = \frac{c}{f} = \frac{3 \times 10^8}{5 \times 10^{...}} = \frac{3}{5} \times 10^{8-...} = \text{............} \text{ m}\]</p>
+  <p>Compléter les pointillés.</p>
+
+  <p class="q"><strong>Étape 3 – Convertir en centimètres.</strong></p>
+  <p>On sait que \(1 \text{ m} = 100 \text{ cm}\).</p>
+  <p>\(\lambda = \text{............} \text{ m} = \text{............} \text{ cm}\)</p>
+
+  <p class="q"><strong>Étape 4 – Conclure.</strong></p>
+  <p>Cette longueur d'onde est-elle plus grande ou plus petite qu'un meuble ? Les meubles du showroom peuvent-ils bloquer le signal WiFi ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> \(f = 5 \text{ GHz} = 5 \times 10^{\mathbf{9}} \text{ Hz}\)</p>
+    <p><strong>Étape 2 :</strong>
+      \[\lambda = \frac{3 \times 10^8}{5 \times 10^9} = \frac{3}{5} \times 10^{8-9} = 0{,}6 \times 10^{-1} = \mathbf{0{,}06 \text{ m}}\]
+    </p>
+    <p><strong>Étape 3 :</strong> \(\lambda = 0{,}06 \text{ m} = \mathbf{6 \text{ cm}}\)</p>
+    <p><strong>Étape 4 :</strong> La longueur d'onde (6 cm) est bien plus petite qu'un meuble (de l'ordre du mètre). Les meubles sont des obstacles importants pour le signal WiFi à 5 GHz et peuvent le bloquer ou l'atténuer significativement.</p>
+  </div>
+</div>
+
+<!-- EXERCICE S3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S3</span>
+    <span class="exo-title">Calcul guidé d'atténuation en décibels</span>
+  </div>
+  <p>Un menuisier-agenceur installe un câble de transmission entre un capteur de température et un automate dans un atelier. On mesure :</p>
+  <ul>
+    <li>Puissance en entrée du câble : \(P_\text{entrée} = 2 \text{ mW}\)</li>
+    <li>Puissance en sortie du câble : \(P_\text{sortie} = 0{,}2 \text{ mW}\)</li>
+  </ul>
+  <p>On rappelle la formule de l'atténuation : \(A = 10 \cdot \log\!\left(\dfrac{P_\text{sortie}}{P_\text{entrée}}\right)\) en dB.</p>
+
+  <p class="q"><strong>Étape 1 – Calculer le rapport des puissances.</strong></p>
+  <p>\[\frac{P_\text{sortie}}{P_\text{entrée}} = \frac{0{,}2}{2} = \text{............}\]</p>
+
+  <p class="q"><strong>Étape 2 – Trouver le logarithme.</strong></p>
+  <p>On donne : \(\log(0{,}1) = -1\).</p>
+  <p>Donc : \(\log\!\left(\dfrac{P_\text{sortie}}{P_\text{entrée}}\right) = \log(\text{............}) = \text{............}\)</p>
+
+  <p class="q"><strong>Étape 3 – Calculer l'atténuation.</strong></p>
+  <p>\[A = 10 \times \text{............} = \text{............} \text{ dB}\]</p>
+
+  <p class="q"><strong>Étape 4 – Interpréter le résultat.</strong></p>
+  <p>Le signe de \(A\) est ............(positif / négatif). Cela signifie que le signal a ............ (gagné / perdu) de la puissance en traversant le câble.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong>
+      \[\frac{P_\text{sortie}}{P_\text{entrée}} = \frac{0{,}2}{2} = \mathbf{0{,}1}\]
+    </p>
+    <p><strong>Étape 2 :</strong>
+      \[\log(0{,}1) = \mathbf{-1}\]
+    </p>
+    <p><strong>Étape 3 :</strong>
+      \[A = 10 \times (-1) = \mathbf{-10 \text{ dB}}\]
+    </p>
+    <p><strong>Étape 4 :</strong> Le signe de \(A\) est <strong>négatif</strong>. Cela signifie que le signal a <strong>perdu</strong> de la puissance en traversant le câble. La puissance a été divisée par 10 (il ne reste que 10 % de la puissance initiale).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- SECTION EXERCICES STANDARD -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
 <h2>Exercices de base</h2>
 
 <!-- EXERCICE 1 -->
@@ -176,6 +308,8 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard (base) -->
+
 <!-- CHART DEBITS -->
 <h2>Comparaison des débits</h2>
 <div class="chart-container">
@@ -183,6 +317,8 @@
 </div>
 
 <!-- SECTION EXERCICES GUIDES -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
 <h2>Exercices guidés</h2>
 
 <!-- EXERCICE 4 -->
@@ -273,6 +409,13 @@
     <p><strong>4.</strong> On privilégiera le <strong>câble Ethernet blindé</strong> pour une installation industrielle : fiabilité, immunité aux perturbations, sécurité réseau, coût maîtrisé sur 25 m. Le WiFi sera réservé aux terminaux mobiles ou aux zones difficiles à câbler.</p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+<!-- SECTION APPROFONDISSEMENT -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+<h2>Exercices d'approfondissement</h2>
 
 <!-- EXERCICE 7 -->
 <div class="exo">
@@ -372,6 +515,8 @@
   </div>
 </div>
 
+</div><!-- fin diff-appro -->
+
 <!-- ENCADRES -->
 <div class="retenir">
   <strong>A retenir – Bilan du chapitre</strong>
@@ -433,6 +578,7 @@
 
 <script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </div>
 </body>
 </html>

@@ -51,7 +51,143 @@
   <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
-<!-- ===== EXERCICE 1 ===== -->
+<!-- ================================================================
+     DS NIVEAU SOCLE — très guidé, formules données, cases à remplir
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<!-- ===== EXERCICE 1 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Calcul de l'hypoténuse</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <div style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.92em">
+    <strong>Formule à utiliser :</strong> Dans un triangle rectangle en A, l'hypoténuse est BC.<br>
+    \(\mathbf{BC^2 = AB^2 + AC^2}\) &nbsp;puis&nbsp; \(\mathbf{BC = \sqrt{BC^2}}\)
+  </div>
+
+  <p>Un technicien en maintenance automobile installe une rampe d'accès. La rampe forme un triangle rectangle avec le sol. La hauteur est de <strong>8 m</strong> et la distance au sol est de <strong>6 m</strong>.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Entoure le bon schéma : le côté oblique est <span style="border:1px solid #aaa;padding:2px 8px;border-radius:4px">l'hypoténuse</span> / <span style="border:1px solid #aaa;padding:2px 8px;border-radius:4px">un côté de l'angle droit</span>. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Compléter la résolution ci-dessous. <span style="font-size:.85em;color:#718096">(4 pts)</span></div>
+  <p style="margin-left:18px">
+    \(BC^2 = AB^2 + AC^2\)<br>
+    \(BC^2 = 6^2 + 8^2\)<br>
+    \(BC^2 = \ldots\ldots + \ldots\ldots\)<br>
+    \(BC^2 = \ldots\ldots\)<br>
+    \(BC = \sqrt{\ldots\ldots} = \ldots\ldots\) m
+  </p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-val">VAL</span> Vérifier : calculer \(6^2 + 8^2\) et le comparer à \(10^2\). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="margin-left:18px">
+    \(6^2 + 8^2 = \ldots\ldots + \ldots\ldots = \ldots\ldots\)<br>
+    \(10^2 = \ldots\ldots\)<br>
+    Ces deux valeurs sont-elles égales ? ……
+  </p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-com">COM</span> Conclusion : La longueur de la rampe est ……… m. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le côté oblique est <strong>l'hypoténuse</strong> (le plus grand côté, opposé à l'angle droit).</p>
+    <p><strong>2.</strong> \(BC^2 = 6^2 + 8^2 = 36 + 64 = 100\), donc \(BC = \sqrt{100} = \mathbf{10}\) m.</p>
+    <p><strong>3.</strong> \(6^2 + 8^2 = 36 + 64 = 100\). Et \(10^2 = 100\). Oui, ces deux valeurs sont égales ✓.</p>
+    <p><strong>4.</strong> La longueur de la rampe est <strong>10 m</strong>.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Vérifier l'équerrage d'un panneau</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <div style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.92em">
+    <strong>Méthode :</strong> Pour un rectangle de côtés \(a\) et \(b\), la diagonale \(d\) vérifie : \(d^2 = a^2 + b^2\).
+  </div>
+
+  <p>Un menuisier agenceur vérifie un panneau de <strong>90 cm × 120 cm</strong>.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Compléter le calcul de la diagonale théorique. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <p style="margin-left:18px">
+    \(d^2 = 90^2 + 120^2 = \ldots\ldots + \ldots\ldots = \ldots\ldots\)<br>
+    \(d = \sqrt{\ldots\ldots} = \ldots\ldots\) cm
+  </p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-val">VAL</span> La diagonale mesurée est <strong>152 cm</strong>. Comparer avec la valeur calculée. Le panneau est-il d'équerre ? Entourer la bonne réponse : <span style="border:1px solid #aaa;padding:2px 8px;border-radius:4px">OUI</span> / <span style="border:1px solid #aaa;padding:2px 8px;border-radius:4px">NON</span>. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-com">COM</span> Calculer l'écart entre la diagonale mesurée et la diagonale théorique. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <p style="margin-left:18px">Écart = \(152 - \ldots\ldots = \ldots\ldots\) cm</p>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(d^2 = 8\,100 + 14\,400 = 22\,500\), donc \(d = \sqrt{22\,500} = \mathbf{150}\) cm.</p>
+    <p><strong>2.</strong> 152 cm ≠ 150 cm → le panneau <strong>n'est pas d'équerre</strong>. Réponse : NON.</p>
+    <p><strong>3.</strong> Écart = \(152 - 150 = \mathbf{2}\) cm.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Ce triangle est-il rectangle ?</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <div style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.92em">
+    <strong>Réciproque de Pythagore :</strong> On vérifie si le carré du plus grand côté est égal à la somme des carrés des deux autres.<br>
+    Si <strong>oui</strong> → triangle rectangle. Si <strong>non</strong> → triangle non rectangle.
+  </div>
+
+  <p>Un menuisier mesure les trois côtés d'une pièce triangulaire : <strong>5 cm, 12 cm et 13 cm</strong>.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Le plus grand côté est : ……… cm. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Compléter. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <p style="margin-left:18px">
+    Grand côté au carré : \(\ldots\ldots^2 = \ldots\ldots\)<br>
+    Somme des carrés des deux autres : \(\ldots\ldots^2 + \ldots\ldots^2 = \ldots\ldots + \ldots\ldots = \ldots\ldots\)<br>
+    Ces deux valeurs sont-elles égales ? ……
+  </p>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Ce triangle est-il rectangle ? Entourer : <span style="border:1px solid #aaa;padding:2px 8px;border-radius:4px">OUI</span> / <span style="border:1px solid #aaa;padding:2px 8px;border-radius:4px">NON</span>. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-com">COM</span> Donner un autre triplet pythagoricien (trois nombres différents de ceux-ci). <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le plus grand côté est <strong>13 cm</strong>.</p>
+    <p><strong>2.</strong> \(13^2 = 169\). Et \(5^2 + 12^2 = 25 + 144 = 169\). Oui, elles sont égales ✓.</p>
+    <p><strong>3.</strong> OUI, ce triangle est rectangle.</p>
+    <p><strong>4.</strong> Exemples : <strong>3-4-5</strong>, <strong>8-15-17</strong>, <strong>6-8-10</strong>.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS NIVEAU STANDARD — DS original
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<!-- ===== EXERCICE 1 STANDARD ===== -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Exercice 1 – Échafaudage</span>
@@ -81,7 +217,7 @@
   </div>
 </div>
 
-<!-- ===== EXERCICE 2 ===== -->
+<!-- ===== EXERCICE 2 STANDARD ===== -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Exercice 2 – Diagonale d'un panneau</span>
@@ -109,7 +245,7 @@
   </div>
 </div>
 
-<!-- ===== EXERCICE 3 ===== -->
+<!-- ===== EXERCICE 3 STANDARD ===== -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Exercice 3 – Triangle quelconque</span>
@@ -137,6 +273,120 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS NIVEAU APPROFONDISSEMENT — problèmes ouverts, analyse
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- ===== EXERCICE 1 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Implantation d'une cloison</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un agenceur intérieur doit installer une cloison perpendiculaire à un mur de 8 m de long. Le mur adjacent mesure 6 m. Il veut utiliser la méthode 3-4-5 pour garantir l'angle droit.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Expliquer en quoi consiste la méthode des 3-4-5 et pourquoi elle garantit un angle droit. Justifier mathématiquement. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> L'agenceur choisit une unité de 2 m. Calculer les trois longueurs à mesurer sur la corde et vérifier par le calcul qu'elles forment bien un triangle rectangle. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-val">VAL</span> Après pose, un contrôleur mesure la diagonale d'un espace rectangulaire de 6 m × 8 m et obtient 10,04 m. L'angle droit est-il respecté ? Calculer l'écart en cm et évaluer si ce défaut est acceptable pour un chantier d'agencement (tolérance usuelle : ±5 mm). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> La méthode 3-4-5 consiste à former un triangle avec des côtés proportionnels à 3, 4 et 5 unités. Elle garantit un angle droit car \(3^2 + 4^2 = 9 + 16 = 25 = 5^2\) (triplet pythagoricien) : par la réciproque du théorème de Pythagore, ce triangle est rectangle en l'angle entre les côtés de longueur 3 et 4.</p>
+    <p><strong>2.</strong> Unité = 2 m. Longueurs : \(3 \times 2 = 6\) m ; \(4 \times 2 = 8\) m ; \(5 \times 2 = 10\) m.<br>
+    Vérification : \(6^2 + 8^2 = 36 + 64 = 100 = 10^2\) ✓</p>
+    <p><strong>3.</strong> Diagonale théorique : \(d = \sqrt{6^2 + 8^2} = \sqrt{100} = 10\) m.<br>
+    Écart : \(10{,}04 - 10{,}00 = 0{,}04\) m = <strong>4 cm</strong>.<br>
+    4 cm &gt; 5 mm → le défaut <strong>n'est pas acceptable</strong> pour un chantier d'agencement de précision. Il faut recorriger l'angle.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Vérification multi-panneaux</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>Un menuisier agenceur reçoit trois panneaux. Il mesure leurs diagonales pour vérifier l'équerrage.</p>
+  <table>
+    <tr><th>Panneau</th><th>Largeur</th><th>Hauteur</th><th>Diagonale mesurée</th></tr>
+    <tr><td>A</td><td>60 cm</td><td>80 cm</td><td>101 cm</td></tr>
+    <tr><td>B</td><td>36 cm</td><td>48 cm</td><td>60 cm</td></tr>
+    <tr><td>C</td><td>50 cm</td><td>70 cm</td><td>86,2 cm</td></tr>
+  </table>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Pour chaque panneau, calculer la diagonale théorique (valeur arrondie au mm si nécessaire). <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-val">VAL</span> Comparer les valeurs théoriques et mesurées. Quels panneaux sont d'équerre ? Quels panneaux ne le sont pas ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Pour le ou les panneaux non d'équerre, calculer l'écart en mm et expliquer quelle correction doit être effectuée. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <ul>
+      <li>Panneau A : \(d^2 = 60^2 + 80^2 = 3\,600 + 6\,400 = 10\,000\), \(d = 100\) cm.</li>
+      <li>Panneau B : \(d^2 = 36^2 + 48^2 = 1\,296 + 2\,304 = 3\,600\), \(d = 60\) cm.</li>
+      <li>Panneau C : \(d^2 = 50^2 + 70^2 = 2\,500 + 4\,900 = 7\,400\), \(d = \sqrt{7\,400} \approx 86{,}0\) cm.</li>
+    </ul>
+    <p><strong>2.</strong> Panneau A : 101 ≠ 100 → <strong>pas d'équerre</strong>. Panneau B : 60 = 60 → <strong>d'équerre</strong> ✓. Panneau C : 86,2 ≠ 86,0 → <strong>pas d'équerre</strong>.</p>
+    <p><strong>3.</strong> Panneau A : écart = 101 − 100 = 10 mm → rapprocher les angles opposés de 10 mm. Panneau C : écart = 86,2 − 86,0 = 2 mm → correction légère de 2 mm sur la diagonale longue.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Toiture et calcul de hauteur</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>Un charpentier étudie une toiture. La base de la toiture mesure 10 m (largeur de la maison). La toiture est symétrique et l'arête faîtière est à mi-largeur. La longueur d'un versant (pente) est de 6,5 m.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-ana">ANA</span> Décrire le triangle rectangle formé par la hauteur de la toiture, la demi-base et le versant. Identifier l'hypoténuse et les deux côtés de l'angle droit. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer la hauteur \(h\) de la toiture (valeur exacte et arrondie au centimètre). <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-com">COM</span> Un client souhaite savoir si le triangle de toiture (côtés 5 m, 12 m, 13 m) est rectangle. Rédiger la vérification complète et conclure en une phrase rédigée. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le triangle rectangle a pour hypoténuse le versant (6,5 m). Les deux côtés de l'angle droit sont la demi-base (\(10/2 = 5\) m) et la hauteur \(h\).</p>
+    <p><strong>2.</strong> Par Pythagore : \(6{,}5^2 = 5^2 + h^2\)<br>
+    \(h^2 = 6{,}5^2 - 5^2 = 42{,}25 - 25 = 17{,}25\)<br>
+    Valeur exacte : \(h = \sqrt{17{,}25}\) m. Valeur arrondie : \(h \approx \mathbf{4{,}15}\) m.</p>
+    <p><strong>3.</strong> \(13^2 = 169\) et \(5^2 + 12^2 = 25 + 144 = 169\). Comme \(13^2 = 5^2 + 12^2\), d'après la réciproque du théorème de Pythagore, le triangle de côtés 5 m, 12 m et 13 m est <strong>rectangle</strong> en l'angle opposé au côté de 13 m.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <script>
 function toggle(btn){
   const corr=btn.nextElementSibling;
@@ -146,5 +396,6 @@ function toggle(btn){
 </script>
 </div>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

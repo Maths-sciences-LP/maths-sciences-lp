@@ -206,6 +206,114 @@
   </div>
 </div>
 
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<h2>Appliquer Snell-Descartes &mdash; m&eacute;thode pas &agrave; pas</h2>
+
+<!-- EXO S1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S1</span>
+    <span class="exo-title">Loi de la r&eacute;flexion &mdash; calcul guid&eacute;</span>
+  </div>
+  <div class="methode">
+    <strong>R&egrave;gle &agrave; retenir :</strong> Angle r&eacute;fl&eacute;chi = angle incident &nbsp; (\(\theta_r = \theta_i\))<br>
+    Les angles se mesurent toujours par rapport &agrave; la <strong>normale</strong> (perpendiculaire &agrave; la surface).
+  </div>
+  <p><span style="background:#fef3c7;color:#92400e;border-radius:4px;font-size:.8em;font-weight:700;padding:2px 8px">Atelier MAMA</span><br><br>
+  Un menuisier utilise un miroir de contr&ocirc;le pour v&eacute;rifier l&apos;assemblage d&apos;un meuble. Un rayon lumineux frappe le miroir avec un angle incident de <strong>40&deg;</strong> par rapport &agrave; la normale.</p>
+  <div class="q"><strong>1.</strong> Quel est l&apos;angle r&eacute;fl&eacute;chi ? \(\theta_r = \theta_i = \) &hellip;&hellip;&hellip;&deg;</div>
+  <div class="q"><strong>2.</strong> Un deuxi&egrave;me rayon fait un angle de <strong>50&deg; par rapport &agrave; la surface</strong> du miroir. Calculer l&apos;angle par rapport &agrave; la normale :<br>
+  Angle par rapport &agrave; la normale = 90&deg; &ndash; 50&deg; = &hellip;&hellip;&hellip;&deg;<br>
+  Donc l&apos;angle r&eacute;fl&eacute;chi = &hellip;&hellip;&hellip;&deg;</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\theta_r = 40°\)</p>
+    <p><strong>2.</strong> Angle/normale = 90&deg; &ndash; 50&deg; = 40&deg; &nbsp;&rarr;&nbsp; \(\theta_r = 40°\)</p>
+  </div>
+</div>
+
+<!-- EXO S2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S2</span>
+    <span class="exo-title">R&eacute;fraction air &rarr; verre &mdash; calcul guid&eacute;</span>
+  </div>
+  <div class="methode">
+    <strong>Formule de Snell-Descartes :</strong> \(n_1 \sin\theta_1 = n_2 \sin\theta_2\)<br>
+    Pour trouver \(\theta_2\) : \(\sin\theta_2 = \dfrac{n_1 \times \sin\theta_1}{n_2}\) puis \(\theta_2 = \arcsin(\ldots)\)
+  </div>
+  <p><span style="background:#fef3c7;color:#92400e;border-radius:4px;font-size:.8em;font-weight:700;padding:2px 8px">Atelier MAMA</span><br><br>
+  Un capteur laser CNC utilise un faisceau passant de l&apos;air (\(n_1 = 1{,}00\)) dans une lentille en verre (\(n_2 = 1{,}50\)). Angle incident \(\theta_1 = 30°\).</p>
+  <div class="q">
+    <strong>&Eacute;tape 1 &mdash; Identifier les milieux :</strong><br>
+    Milieu 1 = &hellip;&hellip;&hellip;&hellip;&hellip; &nbsp; (\(n_1 =\) &hellip;&hellip;&hellip;) &nbsp;&nbsp;|&nbsp;&nbsp; Milieu 2 = &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; &nbsp; (\(n_2 =\) &hellip;&hellip;&hellip;)
+  </div>
+  <div class="q">
+    <strong>&Eacute;tape 2 &mdash; Calculer \(\sin\theta_2\) :</strong><br>
+    \(\sin\theta_2 = \dfrac{n_1 \times \sin\theta_1}{n_2} = \dfrac{\ldots \times \sin 30°}{\ldots} = \dfrac{\ldots \times 0{,}500}{\ldots} = \) &hellip;&hellip;&hellip;&hellip;
+  </div>
+  <div class="q">
+    <strong>&Eacute;tape 3 &mdash; Calculer \(\theta_2\) :</strong><br>
+    \(\theta_2 = \arcsin(\ldots\ldots) = \) &hellip;&hellip;&hellip;&deg;<br>
+    (Utiliser la touche SHIFT + SIN de la calculatrice en mode DEG)
+  </div>
+  <div class="q">
+    <strong>&Eacute;tape 4 &mdash; Conclure :</strong><br>
+    Le rayon s&apos;est-il rapproch&eacute; ou &eacute;loign&eacute; de la normale en passant dans le verre ?<br>
+    (Comparer \(\theta_1\) et \(\theta_2\))
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>&Eacute;tape 1 :</strong> Milieu 1 = air (\(n_1 = 1{,}00\)) ; Milieu 2 = verre (\(n_2 = 1{,}50\)).</p>
+    <p><strong>&Eacute;tape 2 :</strong> \(\sin\theta_2 = \dfrac{1{,}00 \times 0{,}500}{1{,}50} = 0{,}333\)</p>
+    <p><strong>&Eacute;tape 3 :</strong> \(\theta_2 = \arcsin(0{,}333) \approx \mathbf{19{,}5°}\)</p>
+    <p><strong>&Eacute;tape 4 :</strong> \(\theta_2 = 19{,}5° < \theta_1 = 30°\) &rarr; le rayon <strong>se rapproche</strong> de la normale (le verre est plus dense que l&apos;air).</p>
+  </div>
+</div>
+
+<!-- EXO S3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S3</span>
+    <span class="exo-title">Vitesse de la lumi&egrave;re &mdash; calcul guid&eacute;</span>
+  </div>
+  <div class="methode">
+    <strong>Formule :</strong> \(v = \dfrac{c}{n}\) &nbsp; avec \(c = 3 \times 10^8\) m/s (vitesse dans le vide)<br>
+    Plus l&apos;indice \(n\) est grand, plus la lumi&egrave;re est <strong>ralentie</strong>.
+  </div>
+  <p>Calculer la vitesse de la lumi&egrave;re dans le verre ordinaire (\(n = 1{,}50\)) et dans l&apos;eau (\(n = 1{,}33\)).</p>
+  <div class="q">
+    <strong>Dans le verre :</strong><br>
+    \(v = \dfrac{c}{n} = \dfrac{3 \times 10^8}{1{,}50} = \) &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; m/s
+  </div>
+  <div class="q">
+    <strong>Dans l&apos;eau :</strong><br>
+    \(v = \dfrac{3 \times 10^8}{\ldots\ldots} = \) &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; m/s
+  </div>
+  <div class="q">
+    <strong>Conclusion :</strong> La lumi&egrave;re est plus rapide dans &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; que dans &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Verre :</strong> \(v = \dfrac{3 \times 10^8}{1{,}50} = \mathbf{2{,}00 \times 10^8 \text{ m/s}}\)</p>
+    <p><strong>Eau :</strong> \(v = \dfrac{3 \times 10^8}{1{,}33} \approx \mathbf{2{,}26 \times 10^8 \text{ m/s}}\)</p>
+    <p><strong>Conclusion :</strong> La lumi&egrave;re est plus rapide dans l&apos;eau que dans le verre (car \(n_{eau} < n_{verre}\)).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- ============================================================ SECTION 2 -->
 <h2>Exercices guid&eacute;s</h2>
 
@@ -425,8 +533,16 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes complets
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
 <!-- ============================================================ SECTION 4 -->
-<h2>Exercices contextualis&eacute;s en atelier</h2>
+<h2>Probl&egrave;mes complets &mdash; Fibre optique et atelier</h2>
 
 <!-- EXO 8 -->
 <div class="exo">
@@ -532,6 +648,8 @@
     <p><strong>5.</strong> La <strong>dispersion</strong> : l&rsquo;indice de r&eacute;fraction \(n\) varie avec la longueur d&rsquo;onde de la lumi&egrave;re. Le rouge est moins d&eacute;vi&eacute; que le violet, ce qui &eacute;tale les couleurs comme dans un arc-en-ciel. Le capteur colorim&eacute;trique mesure l&rsquo;intensit&eacute; de chaque longueur d&rsquo;onde s&eacute;par&eacute;e par le prisme pour valider la teinte de la lasure appliqu&eacute;e.</p>
   </div>
 </div>
+
+</div><!-- fin diff-appro -->
 
 <!-- ============================================================ CHART.JS -->
 <h2>Comparaison des indices de r&eacute;fraction</h2>
@@ -659,6 +777,7 @@ function toggle(btn) {
 })();
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 <!--
   Chapitre 13 – Réflexion et réfraction de la lumière
   2nde Bac Pro – Physique-Chimie

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch08 – R&eacute;flexion et r&eacute;fraction – 2de Bac Pro</title>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<title>DS Ch08 – Solutions chimiques et concentration – 2de Bac Pro</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
@@ -25,7 +25,8 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
-@media print{.nb,.bc{display:none}}</style>
+.aide-box{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:.9em}
+@media print{.nb,.bc,.tag-socle,.tag-standard,.tag-appro{display:none}}</style>
 </head>
 <body>
 <div class="c">
@@ -33,7 +34,7 @@
 
 <header>
   <h1>Devoir Surveill&eacute; &ndash; Chapitre 8</h1>
-  <p class="sous-titre">R&eacute;flexion et r&eacute;fraction &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+  <p class="sous-titre">Solutions chimiques et concentration &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
 </header>
 
 <div class="dh">
@@ -51,7 +52,179 @@
   <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ===== PARTIE A ===== -->
+<!-- ================================================================
+     DS SOCLE — très guidé, formules données, tableaux pré-remplis
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<h2 style="color:#059669;border-left:4px solid #059669;padding-left:10px">Devoir Surveill&eacute; &ndash; Niveau Socle</h2>
+<p style="background:#f0fff4;border:1px solid #a7f3d0;border-radius:6px;padding:10px 14px;font-size:.9em">
+  Les formules et les &eacute;tapes sont indiqu&eacute;es pour chaque question. Utilise-les pour r&eacute;pondre.
+</p>
+
+<!-- SOCLE Partie A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Vocabulaire des solutions</span>
+    <span class="pts">6 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="aide-box">
+    <strong>Aide :</strong> Une solution = solvant (liquide majoritaire) + soluté (ce qui est dissous).<br>
+    pH &lt; 7 = acide &nbsp;|&nbsp; pH = 7 = neutre &nbsp;|&nbsp; pH &gt; 7 = basique
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Compléter le tableau ci-dessous :
+  </div>
+  <table>
+    <thead><tr><th>Mélange</th><th>Solvant</th><th>Soluté</th></tr></thead>
+    <tbody>
+      <tr><td>Eau + sel de cuisine</td><td><span class="answer-line" style="width:120px;display:inline-block"></span></td><td><span class="answer-line" style="width:120px;display:inline-block"></span></td></tr>
+      <tr><td>White-spirit + résine de lasure</td><td><span class="answer-line" style="width:120px;display:inline-block"></span></td><td><span class="answer-line" style="width:120px;display:inline-block"></span></td></tr>
+      <tr><td>Eau + dégraissant</td><td><span class="answer-line" style="width:120px;display:inline-block"></span></td><td><span class="answer-line" style="width:120px;display:inline-block"></span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Indiquer "acide", "neutre" ou "basique" pour chaque pH :
+  </div>
+  <table>
+    <thead><tr><th>pH</th><th>Acide / Neutre / Basique</th></tr></thead>
+    <tbody>
+      <tr><td>pH = 2 (décapant acide)</td><td><span class="answer-line" style="width:150px;display:inline-block"></span></td></tr>
+      <tr><td>pH = 7 (eau pure)</td><td><span class="answer-line" style="width:150px;display:inline-block"></span></td></tr>
+      <tr><td>pH = 11 (dégraissant)</td><td><span class="answer-line" style="width:150px;display:inline-block"></span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-com">COM</span>
+    Un menuisier utilise un dégraissant de pH = 12. Citer deux EPI à porter obligatoirement.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Eau + sel : solvant = eau, soluté = sel. | White-spirit + résine : solvant = white-spirit, soluté = résine. | Eau + dégraissant : solvant = eau, soluté = dégraissant.</p>
+    <p><strong>2.</strong> pH 2 : acide. pH 7 : neutre. pH 11 : basique.</p>
+    <p><strong>3.</strong> Gants nitrile + lunettes de protection (ou tablier).</p>
+  </div>
+</div>
+
+<!-- SOCLE Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Calcul de concentration massique</span>
+    <span class="pts">8 pts</span>
+  </div>
+
+  <div class="aide-box">
+    <strong>Formules données :</strong><br>
+    \( C_m = \dfrac{m}{V} \) &nbsp;|&nbsp; \( m = C_m \times V \) &nbsp;|&nbsp; \( V = \dfrac{m}{C_m} \)<br>
+    Attention : convertir les mL en L avant de calculer (1 L = 1 000 mL).
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Un apprenti dissout \( m = 40\,\text{g} \) de sel dans \( V = 500\,\text{mL} \).<br>
+    Convertir : \( V = 500\,\text{mL} = \) ......... L<br>
+    Calculer \( C_m = \dfrac{m}{V} = \dfrac{40}{\ldots} = \) ......... g/L
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Un bac de dégraissage contient \( V = 5\,\text{L} \) à \( C_m = 30\,\text{g/L} \).<br>
+    Calculer la masse : \( m = C_m \times V = 30 \times \) ......... = ......... g
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Un technicien veut préparer une solution à \( C_m = 10\,\text{g/L} \) en utilisant \( m = 30\,\text{g} \) de produit.<br>
+    Calculer le volume : \( V = \dfrac{m}{C_m} = \dfrac{30}{\ldots} = \) ......... L
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( V = 0{,}5\,\text{L} \) ; \( C_m = 40/0{,}5 = \mathbf{80\,\text{g/L}} \)</p>
+    <p><strong>2.</strong> \( m = 30 \times 5 = \mathbf{150\,\text{g}} \)</p>
+    <p><strong>3.</strong> \( V = 30/10 = \mathbf{3\,\text{L}} \)</p>
+  </div>
+</div>
+
+<!-- SOCLE Partie C -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C &ndash; Protocole de dissolution</span>
+    <span class="pts">6 pts</span>
+  </div>
+
+  <div class="aide-box">
+    <strong>Les 5 étapes de la dissolution :</strong><br>
+    ① Peser la masse de soluté<br>
+    ② Introduire dans la fiole jaugée<br>
+    ③ Ajouter de l'eau distillée (environ 2/3)<br>
+    ④ Agiter pour dissoudre<br>
+    ⑤ Compléter jusqu'au trait de jauge
+  </div>
+
+  <p>Un technicien veut préparer 1 L d'une solution de dégraissant à \( C_m = 15\,\text{g/L} \).</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Calculer la masse de dégraissant à peser :<br>
+    \( m = C_m \times V = \ldots \times \ldots = \) ......... g
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-com">COM</span> <span class="bareme">(3 pts)</span>
+    Remettre les étapes dans l'ordre correct en numérotant de 1 à 5 :
+  </div>
+  <table>
+    <thead><tr><th>Ordre</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><span class="answer-line" style="width:40px;display:inline-block"></span></td><td>Agiter jusqu'à dissolution complète</td></tr>
+      <tr><td><span class="answer-line" style="width:40px;display:inline-block"></span></td><td>Peser la masse de dégraissant</td></tr>
+      <tr><td><span class="answer-line" style="width:40px;display:inline-block"></span></td><td>Compléter jusqu'au trait de jauge avec de l'eau distillée</td></tr>
+      <tr><td><span class="answer-line" style="width:40px;display:inline-block"></span></td><td>Introduire le dégraissant dans la fiole jaugée de 1 L</td></tr>
+      <tr><td><span class="answer-line" style="width:40px;display:inline-block"></span></td><td>Ajouter de l'eau distillée jusqu'aux 2/3 de la fiole</td></tr>
+    </tbody>
+  </table>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-app">APP</span> <span class="bareme">(1 pt)</span>
+    Pourquoi faut-il utiliser de l'eau distillée et non de l'eau du robinet ?
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( m = 15 \times 1 = \mathbf{15\,\text{g}} \)</p>
+    <p><strong>2.</strong> Ordre correct : ① Peser → ② Introduire → ③ Ajouter eau (2/3) → ④ Agiter → ⑤ Compléter.</p>
+    <p><strong>3.</strong> L'eau du robinet contient des minéraux dissous qui peuvent fausser la concentration ou réagir avec le soluté. L'eau distillée est pure.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — exercices du programme, contextes pro
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<h2 style="color:#1d4ed8;border-left:4px solid #1d4ed8;padding-left:10px">Devoir Surveill&eacute; &ndash; Niveau Standard</h2>
+
+<!-- STANDARD Partie A -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie A &ndash; R&eacute;flexion</span>
@@ -61,88 +234,210 @@
 
   <div class="q">
     <strong>1.</strong> <span class="comp comp-app">APP</span>
-    &Eacute;noncer la loi de la r&eacute;flexion.
+    &Eacute;noncer la d&eacute;finition d'une solution chimique en précisant le rôle du solvant et du soluté.
   </div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
-    <strong>2.</strong> <span class="comp comp-rea">REA</span>
-    Un rayon frappe un miroir avec un angle d'incidence \(i_1 = 50°\). Quel est l'angle de r&eacute;flexion ?
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Écrire la formule de la concentration massique \( C_m \) en précisant les unités de chaque grandeur.
   </div>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>3.</strong> <span class="comp comp-app">APP</span>
-    La lumi&egrave;re se propage-t-elle en ligne droite dans un milieu homog&egrave;ne ?
+    Expliquer ce que représente la loi de dilution \( C_1 V_1 = C_2 V_2 \). Quelle grandeur est conservée lors d'une dilution ?
   </div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>4.</strong> <span class="comp comp-com">COM</span>
-    Citer deux exemples de r&eacute;flexion dans la vie courante.
+    Un dégraissant d'atelier a un pH de 11. Quel danger présente-t-il ? Citer deux EPI obligatoires et expliquer pourquoi un dégraissant alcalin est efficace sur les graisses.
   </div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> L'angle de r&eacute;flexion est &eacute;gal &agrave; l'angle d'incidence : \(i_{\text{r&eacute;flexion}} = i_{\text{incidence}}\), les angles &eacute;tant mesur&eacute;s par rapport &agrave; la normale.</p>
-    <p><strong>2.</strong> L'angle de r&eacute;flexion vaut \(50°\).</p>
-    <p><strong>3.</strong> Oui, la lumi&egrave;re se propage en ligne droite (propagation rectiligne) dans un milieu transparent et homog&egrave;ne.</p>
-    <p><strong>4.</strong> Miroir, surface d'un lac, r&eacute;troviseur.</p>
+    <p><strong>1.</strong> Une solution chimique est un mélange homogène d'un solvant (liquide présent en plus grande quantité, qui dissout) et d'un soluté (substance dissoute). La dissolution répartit le soluté de façon uniforme dans le solvant.</p>
+    <p><strong>2.</strong> \( C_m = m/V \) avec \( C_m \) en g/L, \( m \) en grammes et \( V \) en litres.</p>
+    <p><strong>3.</strong> La loi de dilution exprime la conservation de la masse de soluté lors d'une dilution. En diluant (en ajoutant du solvant), la concentration diminue mais la quantité de soluté reste identique.</p>
+    <p><strong>4.</strong> pH = 11 → solution basique forte → irritante et corrosive pour la peau et les muqueuses. EPI : gants nitrile + lunettes. Efficacité sur les graisses : les bases saponifient les acides gras, ce qui solubilise les corps gras dans l'eau (saponification).</p>
   </div>
 </div>
 
-<!-- ===== PARTIE B ===== -->
+<!-- STANDARD Partie B -->
 <div class="partie">
   <div class="partie-header">
-    <span class="partie-title">Partie B &ndash; R&eacute;fraction</span>
+    <span class="partie-title">Partie B &ndash; Bain de traitement du bois en atelier MAMA</span>
     <span class="pts">12 pts</span>
   </div>
 
-  <p>Un rayon lumineux passe de l'air (\(n_1 = 1\)) dans le verre (\(n_2 = 1{,}5\)) avec un angle d'incidence \(i_1 = 60°\).</p>
+  <p><em>Un menuisier agenceur prépare un bain de traitement fongicide pour l'imprégnation de charpentes. La fiche technique indique une concentration d'utilisation de \( C_m = 25\,\text{g/L} \). Le produit concentré a une concentration \( C_1 = 500\,\text{g/L} \). Le bac a un volume \( V = 10\,\text{L} \).</em></p>
 
   <div class="q">
-    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
     <span class="bareme">(3 pts)</span>
-    &Eacute;crire la loi de Snell-Descartes.
+    Calculez la masse totale de fongicide nécessaire pour préparer ce bain.
   </div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>2.</strong> <span class="comp comp-rea">REA</span>
     <span class="bareme">(4 pts)</span>
-    Calculer \(\sin(i_2)\) puis d&eacute;terminer \(i_2\).
+    En utilisant la loi de dilution \( C_1 V_1 = C_2 V_2 \), calculez le volume \( V_1 \) de produit concentré à prélever, puis le volume d'eau \( V_{eau} \) à ajouter.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-val">VAL</span>
+    <span class="bareme">(2 pts)</span>
+    Vérifiez que la masse de fongicide dans \( V_1 \) est bien égale à la masse calculée en question 1.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-com">COM</span>
+    <span class="bareme">(3 pts)</span>
+    Le fongicide a un pH de 9. Décrire le protocole de préparation du bain en 4 étapes et indiquer les précautions de sécurité.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( m = C_m \times V = 25 \times 10 = \mathbf{250\,\text{g}} \)</p>
+    <p><strong>2.</strong> \( V_1 = \dfrac{C_2 \times V_2}{C_1} = \dfrac{25 \times 10}{500} = \dfrac{250}{500} = \mathbf{0{,}5\,\text{L} = 500\,\text{mL}} \)<br>
+    \( V_{eau} = V_2 - V_1 = 10 - 0{,}5 = \mathbf{9{,}5\,\text{L}} \)</p>
+    <p><strong>3.</strong> \( m = C_1 \times V_1 = 500 \times 0{,}5 = 250\,\text{g} \) ✓ Égal à la masse calculée en question 1.</p>
+    <p><strong>4.</strong> Protocole : ① Mettre les EPI (gants + lunettes, car pH = 9 → basique). ② Prélever 500 mL de fongicide concentré. ③ Verser dans le bac et ajouter 9,5 L d'eau distillée progressivement. ④ Agiter jusqu'à homogénéité. Précautions : manipuler en zone ventilée, étiqueter le bac avec la concentration et la date.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, type BTS
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<h2 style="color:#7c3aed;border-left:4px solid #7c3aed;padding-left:10px">Devoir Surveill&eacute; &ndash; Niveau Approfondissement</h2>
+
+<!-- APPRO Partie A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Analyse et raisonnement</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Expliquer la différence entre dissolution et dissociation ionique. Donner un exemple de chaque dans un contexte d'atelier MAMA.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span>
+    Un technicien mesure la concentration d'un bain de dégraissage à \( C_m = 15\,\text{g/L} \) alors que la valeur cible est \( C_{opt} = 40\,\text{g/L} \) pour un volume de bac \( V = 300\,\text{L} \). Calculer la masse de dégraissant à ajouter pour retrouver la concentration optimale.
   </div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>3.</strong> <span class="comp comp-ana">ANA</span>
-    <span class="bareme">(2 pts)</span>
-    Le rayon r&eacute;fract&eacute; se rapproche-t-il ou s'&eacute;loigne-t-il de la normale ? Justifier.
+    Un bac de traitement contient une solution de fongicide à \( C_m = 60\,\text{g/L} \). Par évaporation, le volume passe de 20 L à 18 L (la masse de soluté reste constante). Calculer la nouvelle concentration. Est-ce conforme si la concentration maximale autorisée est 70 g/L ?
   </div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
-    <strong>4.</strong> <span class="comp comp-rea">REA</span>
+    <strong>4.</strong> <span class="comp comp-com">COM</span>
+    Rédiger une procédure de sécurité en 5 règles pour la manipulation de solutions chimiques en atelier de menuiserie (pH &lt; 4 ou pH &gt; 10).
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Dissolution : dispersion moléculaire du soluté dans le solvant (ex : résine de lasure dans le white-spirit). Dissociation ionique : séparation en ions dans l'eau (ex : sel de cuivre CuSO₄ → Cu²⁺ + SO₄²⁻ dans l'eau).</p>
+    <p><strong>2.</strong> \( m_{ajout} = (C_{opt} - C_{actuelle}) \times V = (40 - 15) \times 300 = 25 \times 300 = \mathbf{7\,500\,\text{g} = 7{,}5\,\text{kg}} \)</p>
+    <p><strong>3.</strong> Masse de soluté : \( m = 60 \times 20 = 1\,200\,\text{g} \). Nouvelle concentration : \( C_m = 1\,200 / 18 \approx \mathbf{66{,}7\,\text{g/L}} \). Conforme car 66,7 &lt; 70 g/L ✓. Cependant, il faut surveiller car l'évaporation continue pourrait dépasser la limite.</p>
+    <p><strong>4.</strong> ① Porter les EPI adaptés (gants, lunettes, tablier) avant toute manipulation. ② Travailler dans un espace ventilé ou sous hotte aspirante. ③ Ne jamais verser l'eau dans un acide concentré (risque d'éclaboussures) – toujours ajouter l'acide à l'eau. ④ Étiqueter tous les contenants avec le nom, la concentration, la date et les pictogrammes de danger. ⑤ En cas de contact avec la peau, rincer immédiatement à grande eau pendant 15 minutes et consulter.</p>
+  </div>
+</div>
+
+<!-- APPRO Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Gestion d'un bain de traitement – Problème ouvert</span>
+    <span class="pts">12 pts</span>
+  </div>
+
+  <p><em>Un responsable de production dans une entreprise de menuiserie industrielle gère un bain d'imprégnation de poteaux en bois. Le bac de 500 L contient initialement une solution de sel de cuivre (fongicide/insecticide) à \( C_m = 56\,\text{g/L} \). Après une semaine d'utilisation intensive, la concentration mesurée est \( C_{mesurée} = 42\,\text{g/L} \).</em></p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(2 pts)</span>
+    Calculez la masse de sel de cuivre dans le bac en début et en fin de semaine.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span>
     <span class="bareme">(3 pts)</span>
-    L'indice de r&eacute;fraction de l'eau est \(n_{\text{eau}} = 1{,}33\). Si la lumi&egrave;re passe de l'eau dans l'air avec \(i_1 = 30°\), calculer \(i_2\).
+    Calculez la masse de sel de cuivre consommée (perte nette). Sachant que le bois absorbe environ 2 L de solution par poteau traité, estimer le nombre de poteaux traités dans la semaine.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(3 pts)</span>
+    Pour reconstituer le bain à 56 g/L sans vidanger, le sel de cuivre est disponible en solution concentrée à \( C_1 = 1\,120\,\text{g/L} \). Calculer le volume de solution concentrée à injecter. Calculer le volume d'eau actuelle du bac à prélever au préalable.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span>
+    <span class="bareme">(2 pts)</span>
+    Vérifier par le calcul que, après ajout de la solution concentrée (et prélèvement de l'eau), la concentration est bien restaurée à 56 g/L.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-com">COM</span>
+    <span class="bareme">(2 pts)</span>
+    Le sel de cuivre est un biocide classé dangereux pour l'environnement aquatique. Proposer deux mesures de gestion des déchets (eaux de rinçage, bac en fin de vie) conformes à la réglementation.
   </div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(n_1 \sin i_1 = n_2 \sin i_2\)</p>
-    <p><strong>2.</strong> \(1 \times \sin 60° = 1{,}5 \times \sin i_2\)
-    <br>\(\sin i_2 = \dfrac{\sin 60°}{1{,}5} = \dfrac{0{,}866}{1{,}5} \approx 0{,}577\)
-    <br>\(i_2 \approx 35°\)</p>
-    <p><strong>3.</strong> Le rayon se rapproche de la normale car \(i_2 = 35° < i_1 = 60°\). Quand la lumi&egrave;re passe dans un milieu plus r&eacute;fringent, elle se rapproche de la normale.</p>
-    <p><strong>4.</strong> \(1{,}33 \times \sin 30° = 1 \times \sin i_2\)
-    <br>\(\sin i_2 = 1{,}33 \times 0{,}5 = 0{,}665\)
-    <br>\(i_2 \approx 41{,}7°\)</p>
+    <p><strong>1.</strong> Début : \( m_i = 56 \times 500 = 28\,000\,\text{g} = 28\,\text{kg} \) &nbsp;|&nbsp; Fin : \( m_f = 42 \times 500 = 21\,000\,\text{g} = 21\,\text{kg} \)</p>
+    <p><strong>2.</strong> Perte : \( m_{perte} = 28\,000 - 21\,000 = 7\,000\,\text{g} \). Volume absorbé par le bois : chaque poteau absorbe 2 L à 56 g/L → masse absorbée par poteau = \( 56 \times 2 = 112\,\text{g} \). Nombre de poteaux ≈ \( 7\,000 / 112 \approx \mathbf{62\,\text{poteaux}} \).</p>
+    <p><strong>3.</strong> Masse à ajouter : \( m_{ajout} = (56 - 42) \times 500 = 14 \times 500 = 7\,000\,\text{g} \). Volume de solution concentrée : \( V_{ajout} = m/C_1 = 7\,000/1\,120 \approx 6{,}25\,\text{L} \). Volume d'eau à prélever = 6,25 L (pour maintenir le volume du bac à 500 L).</p>
+    <p><strong>4.</strong> Après opération : volume = 500 L. Masse de soluté = \( m_f + m_{ajout} = 21\,000 + 7\,000 = 28\,000\,\text{g} \). \( C_m = 28\,000/500 = 56\,\text{g/L} \) ✓</p>
+    <p><strong>5.</strong> ① Les eaux de rinçage et le contenu du bac en fin de vie ne doivent pas être rejetés dans les eaux usées ordinaires → confier à un collecteur agréé de déchets industriels dangereux (DID). ② Tenir un registre de suivi des déchets biocides (bordereau BSDD) conformément à la réglementation sur les déchets dangereux.</p>
   </div>
 </div>
+
+</div><!-- fin diff-appro -->
 
 <script>
 function toggle(btn){
@@ -152,6 +447,7 @@ function toggle(btn){
 }
 </script>
 </div>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

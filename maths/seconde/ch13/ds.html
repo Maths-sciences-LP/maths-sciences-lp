@@ -15,15 +15,15 @@
 .partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
 .partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
 .pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
-
 .q strong{color:var(--t)}
-
 .answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
 .answer-area{border:1px solid #aaa;border-radius:4px;min-height:60px;margin:8px 0;display:block}
-
 .bareme{font-style:italic;color:#718096;font-size:.85em}
 .figure-zone{background:#f7fafc;border:1px dashed #cbd5e0;border-radius:8px;padding:15px;margin:12px 0;text-align:center;min-height:100px}
-.schema{display:block;margin:10px auto;font-size:.85em;color:#718096}</style>
+.schema{display:block;margin:10px auto;font-size:.85em;color:#718096}
+.formule-aide{background:#fffbeb;border:1px solid #f59e0b;border-radius:6px;padding:10px 14px;margin:10px 0;font-size:.92em}
+.case-fill{display:inline-block;min-width:60px;border-bottom:2px solid #0056b3;text-align:center;margin:0 4px}
+</style>
 </head>
 <body>
 <div class="c">
@@ -41,7 +41,184 @@
   <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
 </div>
 
-<!-- ===== PARTIE A ===== -->
+<!-- ================================================================
+     DS SOCLE — très guidé, cases à remplir, formules données
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="formule-aide">
+  <strong>Formules données :</strong><br>
+  Théorème de Thalès : si \((DE) \parallel (BC)\), alors \(\dfrac{AD}{AB} = \dfrac{AE}{AC} = \dfrac{DE}{BC}\)<br>
+  Réciproque : si \(\dfrac{AD}{AB} = \dfrac{AE}{AC}\), alors \((DE) \parallel (BC)\)
+</div>
+
+<!-- PARTIE A Socle -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A – Reconnaître et compléter</span>
+    <span class="pts">4 points</span>
+  </div>
+  <p class="bareme">1 pt par question.</p>
+
+  <div class="q"><strong>1.</strong> Dans la figure ci-dessous, \((DE) \parallel (BC)\). Compléter les trois rapports égaux :<br>
+  \(\dfrac{AD}{\text{___}} = \dfrac{AE}{\text{___}} = \dfrac{DE}{\text{___}}\)</div>
+  <div class="figure-zone">
+    <svg width="200" height="180" viewBox="0 0 200 180" style="display:block;margin:auto">
+      <line x1="100" y1="10" x2="30" y2="160" stroke="#0056b3" stroke-width="2"/>
+      <line x1="100" y1="10" x2="170" y2="160" stroke="#0056b3" stroke-width="2"/>
+      <line x1="30" y1="160" x2="170" y2="160" stroke="#0056b3" stroke-width="2"/>
+      <line x1="65" y1="85" x2="135" y2="85" stroke="#c53030" stroke-width="2" stroke-dasharray="4"/>
+      <circle cx="100" cy="10" r="3" fill="#0056b3"/><text x="96" y="8" font-size="12" fill="#0056b3">A</text>
+      <circle cx="30" cy="160" r="3" fill="#0056b3"/><text x="18" y="164" font-size="12" fill="#0056b3">B</text>
+      <circle cx="170" cy="160" r="3" fill="#0056b3"/><text x="174" y="164" font-size="12" fill="#0056b3">C</text>
+      <circle cx="65" cy="85" r="3" fill="#c53030"/><text x="50" y="84" font-size="12" fill="#c53030">D</text>
+      <circle cx="135" cy="85" r="3" fill="#c53030"/><text x="138" y="84" font-size="12" fill="#c53030">E</text>
+    </svg>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> D est sur [AB], E est sur [AC], et \((DE) \parallel (BC)\). On donne \(\dfrac{AD}{AB} = \dfrac{1}{3}\). Entoure la bonne réponse :<br>
+  \(\dfrac{AE}{AC} =\) &nbsp;&nbsp; A) \(\dfrac{1}{2}\) &nbsp;&nbsp; B) \(\dfrac{1}{3}\) &nbsp;&nbsp; C) \(\dfrac{3}{1}\)</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> On a \(AD = 4\) cm, \(AB = 12\) cm. Calculer le rapport \(\dfrac{AD}{AB}\) :<br>
+  \(\dfrac{AD}{AB} = \dfrac{4}{12} = \dfrac{1}{\text{___}}\)</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Ce même rapport vaut \(\dfrac{1}{3}\) et \(DE = 6\) cm. \((DE) \parallel (BC)\). Calculer \(BC\) :<br>
+  \(\dfrac{DE}{BC} = \dfrac{1}{3}\) donc \(BC = 6 \times \text{___} = \text{___}\) cm</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\dfrac{AD}{AB} = \dfrac{AE}{AC} = \dfrac{DE}{BC}\)</p>
+    <p><strong>2.</strong> Réponse B : \(\dfrac{1}{3}\) (les rapports sont égaux par le théorème de Thalès)</p>
+    <p><strong>3.</strong> \(\dfrac{4}{12} = \dfrac{1}{3}\)</p>
+    <p><strong>4.</strong> \(BC = 6 \times 3 = \mathbf{18}\) cm</p>
+  </div>
+</div>
+
+<!-- PARTIE B Socle -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B – Calculs guidés de longueurs</span>
+    <span class="pts">8 points</span>
+  </div>
+  <p class="bareme">Montrer les calculs à chaque étape.</p>
+
+  <div class="q"><strong>1. (4 pts)</strong> Dans le triangle ABC, \((DE) \parallel (BC)\), \(D \in [AB]\), \(E \in [AC]\).<br>
+  Données : \(AD = 6\) cm, \(DB = 4\) cm, \(AE = 9\) cm, \(BC = 10\) cm.<br><br>
+  <strong>Étape 1 :</strong> Calculer AB = AD + DB = _____ + _____ = _____ cm<br>
+  <span class="answer-line"></span>
+  <strong>Étape 2 :</strong> Calculer le rapport : \(\dfrac{AD}{AB} = \dfrac{6}{\text{___}} = \)_____<br>
+  <span class="answer-line"></span>
+  <strong>Étape 3 :</strong> Calculer AC en utilisant \(\dfrac{AD}{AB} = \dfrac{AE}{AC}\) :<br>
+  \(\dfrac{6}{\text{___}} = \dfrac{9}{AC}\) donc \(AC = 9 \times \dfrac{\text{___}}{6} = \)_____ cm<br>
+  <span class="answer-line"></span>
+  <strong>Étape 4 :</strong> En déduire EC = AC &minus; AE = _____ &minus; 9 = _____ cm<br>
+  <span class="answer-line"></span>
+  <strong>Étape 5 :</strong> Calculer DE en utilisant \(\dfrac{AD}{AB} = \dfrac{DE}{BC}\) :<br>
+  \(DE = BC \times \dfrac{AD}{AB} = 10 \times \dfrac{6}{\text{___}} = \)_____ cm
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (4 pts)</strong> Un technicien en agencement trace une configuration de Thalès sur un plan.<br>
+  On mesure : \(AD = 3{,}6\) m, \(AB = 9\) m, \(AC = 7{,}5\) m. \((DE) \parallel (BC)\).<br><br>
+  <strong>Étape 1 :</strong> Calculer le rapport : \(\dfrac{AD}{AB} = \dfrac{3{,}6}{9} = \)_____<br>
+  <span class="answer-line"></span>
+  <strong>Étape 2 :</strong> Calculer AE : \(AE = AC \times \dfrac{AD}{AB} = 7{,}5 \times \)_____ = _____ m<br>
+  <span class="answer-line"></span>
+  <strong>Étape 3 :</strong> Calculer EC = AC &minus; AE = 7,5 &minus; _____ = _____ m
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <p>Étape 1 : \(AB = 6 + 4 = 10\) cm</p>
+    <p>Étape 2 : \(\dfrac{6}{10} = 0{,}6\)</p>
+    <p>Étape 3 : \(AC = 9 \times \dfrac{10}{6} = 15\) cm</p>
+    <p>Étape 4 : \(EC = 15 - 9 = 6\) cm</p>
+    <p>Étape 5 : \(DE = 10 \times \dfrac{6}{10} = 6\) cm</p>
+    <p><strong>2.</strong></p>
+    <p>Étape 1 : \(\dfrac{3{,}6}{9} = 0{,}4\)</p>
+    <p>Étape 2 : \(AE = 7{,}5 \times 0{,}4 = 3\) m</p>
+    <p>Étape 3 : \(EC = 7{,}5 - 3 = 4{,}5\) m</p>
+  </div>
+</div>
+
+<!-- PARTIE C Socle -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C – Réciproque : les droites sont-elles parallèles ?</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Compléter l'énoncé de la réciproque :<br>
+  « Si D est sur [AB], E est sur [AC] et \(\dfrac{AD}{\text{___}} = \dfrac{AE}{\text{___}}\), alors (DE) _____ (BC). »</div>
+  <span class="answer-area"></span>
+
+  <div class="q"><strong>2. (3 pts)</strong> Dans le triangle ABC, \(D \in [AB]\) et \(E \in [AC]\).<br>
+  On mesure : \(AD = 4\) cm, \(AB = 10\) cm, \(AE = 6\) cm, \(AC = 15\) cm.<br><br>
+  <strong>Étape 1 :</strong> Calculer \(\dfrac{AD}{AB} = \dfrac{4}{10} = \)_____<br>
+  <span class="answer-line"></span>
+  <strong>Étape 2 :</strong> Calculer \(\dfrac{AE}{AC} = \dfrac{6}{15} = \)_____<br>
+  <span class="answer-line"></span>
+  <strong>Étape 3 :</strong> Comparer les deux rapports et conclure :<br>
+  Les rapports sont _____ (égaux / différents), donc (DE) _____ (BC).
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> « Si \(\dfrac{AD}{AB} = \dfrac{AE}{AC}\), alors (DE) est parallèle à (BC). »</p>
+    <p><strong>2.</strong><br>
+    Étape 1 : \(\dfrac{4}{10} = 0{,}4\)<br>
+    Étape 2 : \(\dfrac{6}{15} = 0{,}4\)<br>
+    Étape 3 : Les rapports sont <strong>égaux</strong>, donc d'après la réciproque du théorème de Thalès, \((DE) \parallel (BC)\). ✔</p>
+  </div>
+</div>
+
+<!-- PARTIE D Socle -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie D – Problème MAMA guidé</span>
+    <span class="pts">3 points</span>
+  </div>
+
+  <p>Un technicien MAMA utilise une configuration de Thalès sur un plan à l'échelle 1/50.<br>
+  Sur le plan : \(AD = 4{,}2\) cm, \(AB = 7\) cm, \(DE = 5{,}4\) cm, \((DE) \parallel (BC)\).</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> Calculer le rapport \(k = \dfrac{AD}{AB} = \dfrac{4{,}2}{7} = \)_____</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> En déduire BC sur le plan :<br>
+  \(\dfrac{DE}{BC} = k\), donc \(BC = \dfrac{DE}{k} = \dfrac{5{,}4}{\text{___}} = \)_____ cm</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Calculer la longueur réelle de BC (échelle 1/50) :<br>
+  Longueur réelle = BC × 50 = _____ × 50 = _____ cm = _____ m</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(k = \dfrac{4{,}2}{7} = 0{,}6\)</p>
+    <p><strong>2.</strong> \(BC = \dfrac{5{,}4}{0{,}6} = 9\) cm sur le plan</p>
+    <p><strong>3.</strong> Longueur réelle : \(9 \times 50 = 450\) cm \(= 4{,}5\) m</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — le DS original
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<!-- PARTIE A Standard -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie A – Reconnaître et énoncer</span>
@@ -85,7 +262,7 @@
   </div>
 </div>
 
-<!-- ===== PARTIE B ===== -->
+<!-- PARTIE B Standard -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie B – Calculs de longueurs</span>
@@ -125,7 +302,7 @@
   </div>
 </div>
 
-<!-- ===== PARTIE C ===== -->
+<!-- PARTIE C Standard -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie C – Réciproque du théorème de Thalès</span>
@@ -153,7 +330,7 @@
   </div>
 </div>
 
-<!-- ===== PARTIE D ===== -->
+<!-- PARTIE D Standard -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie D – Problème ouvert MAMA</span>
@@ -180,6 +357,125 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, moins guidés
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- PARTIE A Appro -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A – Théorème de Thalès : analyse et calculs</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <div class="q"><strong>1. (1 pt)</strong> Énoncer complètement le théorème de Thalès (forme directe et réciproque).</div>
+  <span class="answer-area"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Dans un triangle ABC, D est sur [AB] et E est sur [AC] avec \((DE) \parallel (BC)\).<br>
+  On donne : \(AD = x\), \(AB = x + 6\), \(AE = x + 2\), \(AC = 2x + 4\) (cm, \(x > 0\)).<br>
+  a) Écrire l'égalité de Thalès, simplifier si possible et trouver \(x\).<br>
+  b) Calculer les quatre longueurs numériques et vérifier.</div>
+  <span class="answer-area"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> Un menuisier trace sur une planche un triangle ABC. Il mesure : \(AD = 5\) cm, \(AB = 12\) cm, \(AE = 7{,}5\) cm, \(AC = 18\) cm. Les droites (DE) et (BC) sont-elles parallèles ? Justifier rigoureusement.</div>
+  <span class="answer-area"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Directe : Si D∈[AB], E∈[AC] et (DE)∥(BC), alors AD/AB = AE/AC = DE/BC.<br>
+    Réciproque : Si D∈[AB], E∈[AC] et AD/AB = AE/AC, alors (DE)∥(BC).</p>
+    <p><strong>2a.</strong> \(\dfrac{x}{x+6} = \dfrac{x+2}{2x+4} = \dfrac{x+2}{2(x+2)} = \dfrac{1}{2}\)<br>
+    Donc \(\dfrac{x}{x+6} = \dfrac{1}{2}\), soit \(2x = x+6\), donc \(x = 6\).</p>
+    <p><strong>2b.</strong> AD = 6 cm, AB = 12 cm, AE = 8 cm, AC = 16 cm.<br>
+    Vérification : \(\dfrac{6}{12} = 0{,}5\) et \(\dfrac{8}{16} = 0{,}5\). ✔</p>
+    <p><strong>3.</strong> \(\dfrac{AD}{AB} = \dfrac{5}{12} \approx 0{,}417\) et \(\dfrac{AE}{AC} = \dfrac{7{,}5}{18} = \dfrac{5}{12} \approx 0{,}417\).<br>
+    Les rapports sont égaux, donc par la réciproque, (DE) ∥ (BC). ✔</p>
+  </div>
+</div>
+
+<!-- PARTIE B Appro -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B – Situations professionnelles MAMA</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <div class="q"><strong>1. (4 pts)</strong> Un technicien en agencement travaille sur un plan à l'échelle 1/40.<br>
+  Sur le plan, il trace une configuration de Thalès : \(AD = 5{,}6\) cm, \(AB = 14\) cm, \(DE = 3{,}8\) cm, \((DE) \parallel (BC)\).<br>
+  a) Calculer le rapport \(k\) de Thalès.<br>
+  b) Trouver la longueur BC sur le plan.<br>
+  c) En déduire la longueur réelle de BC (en m).<br>
+  d) Si \(AE = 4{,}2\) cm sur le plan, calculer AC et EC sur le plan, puis leurs longueurs réelles.</div>
+  <span class="answer-area"></span>
+
+  <div class="q"><strong>2. (4 pts)</strong> Lors d'une mesure sur chantier, un menuisier agenceur mesure l'ombre d'un poteau de 3 m : elle fait 2,4 m. Au même moment, une cloison projette une ombre de 6 m.<br>
+  a) Calculer la hauteur de la cloison par le théorème de Thalès.<br>
+  b) Le menuisier veut poser des baguettes de finition sur toute la hauteur de la cloison. Les baguettes font 2,5 m de long. Combien en faut-il ?<br>
+  c) Chaque baguette coûte 8,50 €. Quel est le coût total ?<br>
+  d) Une autre cloison projette une ombre de 9 m. Calculer sa hauteur et le nombre de baguettes nécessaires.</div>
+  <span class="answer-area"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong><br>
+    a) \(k = \dfrac{AD}{AB} = \dfrac{5{,}6}{14} = 0{,}4\)<br>
+    b) \(\dfrac{DE}{BC} = 0{,}4\) donc \(BC = \dfrac{3{,}8}{0{,}4} = 9{,}5\) cm<br>
+    c) Longueur réelle : \(9{,}5 \times 40 = 380\) cm \(= 3{,}80\) m<br>
+    d) \(AC = \dfrac{AE}{k} = \dfrac{4{,}2}{0{,}4} = 10{,}5\) cm sur le plan.<br>
+    \(EC = 10{,}5 - 4{,}2 = 6{,}3\) cm. En réel : \(AC = 10{,}5 \times 40 = 420\) cm \(= 4{,}20\) m ; \(EC = 6{,}3 \times 40 = 252\) cm \(= 2{,}52\) m.</p>
+    <p><strong>2.</strong><br>
+    a) \(\dfrac{h_{\text{cloison}}}{3} = \dfrac{6}{2{,}4} = 2{,}5\) donc \(h_{\text{cloison}} = 3 \times 2{,}5 = 7{,}5\) m<br>
+    b) \(\dfrac{7{,}5}{2{,}5} = 3\) baguettes<br>
+    c) \(3 \times 8{,}50 = 25{,}50\) €<br>
+    d) Hauteur : \(h = 3 \times \dfrac{9}{2{,}4} = 3 \times 3{,}75 = 11{,}25\) m.<br>
+    Baguettes : \(\dfrac{11{,}25}{2{,}5} = 4{,}5\) → 5 baguettes (arrondi supérieur).</p>
+  </div>
+</div>
+
+<!-- PARTIE C Appro -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C – Analyse et synthèse</span>
+    <span class="pts">7 points</span>
+  </div>
+
+  <div class="q"><strong>1. (3 pts)</strong> Un dessinateur en maintenance automobile trace un triangle ABC sur une planche de traçage.<br>
+  Il veut placer un point D sur [AB] et E sur [AC] de manière à ce que \((DE) \parallel (BC)\) et \(DE = 6\) cm, \(BC = 10\) cm.<br>
+  a) Quel doit être le rapport \(\dfrac{AD}{AB}\) ?<br>
+  b) Si AB = 15 cm, calculer AD et DB.<br>
+  c) Si AE = 9 cm, calculer AC.</div>
+  <span class="answer-area"></span>
+
+  <div class="q"><strong>2. (4 pts)</strong> Un technicien réalise deux mesures sur un même chantier en utilisant le théorème de Thalès avec les rayons du soleil (parallèles).<br>
+  Mesure 1 : Un poteau de 1,8 m projette une ombre de 2,4 m.<br>
+  Mesure 2 : Une poutre horizontale (hauteur inconnue h) projette une ombre de 5,6 m.<br>
+  Mesure 3 : Une cheminée projette une ombre de 14 m.<br>
+  a) Calculer la hauteur de la poutre h.<br>
+  b) Calculer la hauteur de la cheminée.<br>
+  c) Le lendemain, le même poteau de 1,8 m projette une ombre de 3,6 m. La poutre projette alors une ombre de 8,4 m. Calculer à nouveau la hauteur de la poutre et vérifier qu'on trouve le même résultat qu'en a).<br>
+  d) Que peut-on en conclure sur l'utilisation du théorème de Thalès avec les ombres ?</div>
+  <span class="answer-area"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong><br>
+    a) \(\dfrac{AD}{AB} = \dfrac{DE}{BC} = \dfrac{6}{10} = \dfrac{3}{5} = 0{,}6\)<br>
+    b) \(AD = 15 \times 0{,}6 = 9\) cm ; \(DB = 15 - 9 = 6\) cm<br>
+    c) \(\dfrac{AD}{AB} = \dfrac{AE}{AC}\) donc \(AC = \dfrac{AE \times AB}{AD} = \dfrac{9 \times 15}{9} = 15\) cm</p>
+    <p><strong>2.</strong><br>
+    a) Rapport : \(\dfrac{1{,}8}{2{,}4} = 0{,}75\). Hauteur de la poutre : \(h = 5{,}6 \times 0{,}75 = 4{,}2\) m<br>
+    b) Hauteur de la cheminée : \(h = 14 \times 0{,}75 = 10{,}5\) m<br>
+    c) Nouveau rapport : \(\dfrac{1{,}8}{3{,}6} = 0{,}5\). Hauteur de la poutre : \(8{,}4 \times 0{,}5 = 4{,}2\) m ✔<br>
+    d) Le rapport hauteur/ombre change selon l'heure de la journée (angle du soleil), mais la hauteur d'un objet ne change pas. La méthode est valable quel que soit le moment.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <script>
 function toggle(btn){
   const corr=btn.nextElementSibling;
@@ -189,5 +485,6 @@ function toggle(btn){
 </script>
 </div>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

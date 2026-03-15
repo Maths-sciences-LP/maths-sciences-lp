@@ -25,6 +25,9 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+.case-rep{display:inline-block;border-bottom:2px solid #0056b3;min-width:60px;height:22px;vertical-align:bottom;margin:0 4px}
+.tableau-guide td{height:32px;min-width:60px;border:1px solid #e2e8f0;text-align:center;background:#fff}
+.tableau-guide th{background:#ebf5ff;color:#0056b3;font-size:.9em;padding:6px}
 @media print{.nb,.bc{display:none}}</style>
 </head>
 <body>
@@ -35,6 +38,179 @@
   <h1>Devoir Surveillé – Chapitre 7</h1>
   <p class="sous-titre">Notion de fonction &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
 </header>
+
+<!-- ================================================================
+     DS SOCLE — très guidé, formules données, cases à remplir
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div style="background:#f0fff4;border:1px solid #6ee7b7;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:.9em">
+  <strong>Mode d'emploi :</strong> Les formules importantes sont rappelées dans chaque exercice. Lis attentivement les étapes et remplis les cases.
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<!-- ===== EXERCICE 1 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Images d'une fonction</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <div style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:.9em">
+    <strong>Rappel :</strong> Pour calculer \(f(a)\), on <strong>remplace \(x\) par \(a\)</strong> dans la formule.<br>
+    Exemple : si \(f(x) = -2x + 5\), alors \(f(1) = -2 \times 1 + 5 = -2 + 5 = 3\).
+  </div>
+
+  <p>Soit la fonction \(f\) définie par \(f(x) = -2x + 5\).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer \(f(-1)\), \(f(0)\) et \(f(3)\). <span class="bareme">(3 pts)</span><br>
+  Compléter les calculs :<br><br>
+  \(f(-1) = -2 \times (\ldots) + 5 = \) <span class="case-rep"></span> \(+ 5 = \) <span class="case-rep"></span><br><br>
+  \(f(0) = -2 \times \ldots + 5 = 0 + 5 = \) <span class="case-rep"></span><br><br>
+  \(f(3) = -2 \times \ldots + 5 = \) <span class="case-rep"></span> \(+ 5 = \) <span class="case-rep"></span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-ana">ANA</span> Trouver \(x\) tel que \(f(x) = -3\). <span class="bareme">(3 pts)</span><br>
+  Étape 1 : Poser l'équation : \(-2x + 5 = \) <span class="case-rep"></span><br>
+  Étape 2 : Isoler le terme en \(x\) : \(-2x = -3 - 5 = \) <span class="case-rep"></span><br>
+  Étape 3 : Diviser : \(x = \dfrac{\ldots}{-2} = \) <span class="case-rep"></span><br>
+  Conclusion : L'antécédent de \(-3\) par \(f\) est <span class="case-rep"></span>.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-app">APP</span> Pour quelle valeur de \(x\) a-t-on \(f(x) = 0\) ? <span class="bareme">(2 pts)</span><br>
+  Étape 1 : \(-2x + 5 = \) <span class="case-rep"></span><br>
+  Étape 2 : \(-2x = 0 - 5 = \) <span class="case-rep"></span><br>
+  Étape 3 : \(x = \) <span class="case-rep"></span>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(f(-1) = -2 \times (-1) + 5 = 2 + 5 = \mathbf{7}\).<br>
+    \(f(0) = -2 \times 0 + 5 = \mathbf{5}\).<br>
+    \(f(3) = -2 \times 3 + 5 = -6 + 5 = \mathbf{-1}\).</p>
+    <p><strong>2.</strong> \(-2x + 5 = -3\) → \(-2x = -8\) → \(x = \dfrac{-8}{-2} = \mathbf{4}\). L'antécédent de \(-3\) est 4.</p>
+    <p><strong>3.</strong> \(-2x + 5 = 0\) → \(-2x = -5\) → \(x = \mathbf{2{,}5}\).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Coût de production d'un menuisier</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>Un menuisier modélise le coût de production (en €) de \(n\) meubles par la fonction \(C(n) = 3n + 120\).</p>
+
+  <div style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:.9em">
+    <strong>Dans la formule \(C(n) = 3n + 120\) :</strong><br>
+    • Le nombre <strong>120</strong> est un coût qui ne change pas (coût fixe : loyer, outillage…)<br>
+    • Le nombre <strong>3</strong> est le coût pour chaque meuble fabriqué (coût par meuble)
+  </div>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Que représente le nombre 120 ? Et le nombre 3 ? <span class="bareme">(2 pts)</span><br>
+  120 = ……………………………………………………<br>
+  3 = ………………………………………………………
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer le coût pour produire 50 meubles. <span class="bareme">(2 pts)</span><br>
+  Calcul : \(C(50) = 3 \times \ldots + 120 = \ldots + 120 = \) <span class="case-rep"></span> €
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Pour quel nombre de meubles le coût atteint-il 270 € ? <span class="bareme">(2 pts)</span><br>
+  Étape 1 : \(3n + 120 = \) <span class="case-rep"></span><br>
+  Étape 2 : \(3n = 270 - 120 = \) <span class="case-rep"></span><br>
+  Étape 3 : \(n = \dfrac{\ldots}{3} = \) <span class="case-rep"></span><br>
+  Conclusion : Le menuisier fabrique <span class="case-rep"></span> meubles.
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> 120 : coût fixe (charges indépendantes du nombre de meubles). 3 : coût variable unitaire (coût pour fabriquer un meuble de plus).</p>
+    <p><strong>2.</strong> \(C(50) = 3 \times 50 + 120 = 150 + 120 = \mathbf{270}\) €.</p>
+    <p><strong>3.</strong> \(3n + 120 = 270\) → \(3n = 150\) → \(n = \mathbf{50}\) meubles.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Tableau de valeurs</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>Soit la fonction \(h\) définie par \(h(x) = x^2 + 1\).</p>
+
+  <div style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:.9em">
+    <strong>Rappel :</strong> \(x^2\) signifie \(x \times x\).<br>
+    Exemples : \((-2)^2 = (-2) \times (-2) = 4\) &nbsp;|&nbsp; \(3^2 = 3 \times 3 = 9\)
+  </div>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Compléter le tableau. Les calculs intermédiaires sont donnés. <span class="bareme">(3 pts)</span></div>
+  <table class="tableau-guide full">
+    <tr>
+      <th>\(x\)</th><th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th>
+    </tr>
+    <tr>
+      <th>Calcul \(x^2\)</th><td>\((-3)^2=9\)</td><td>\((-2)^2=4\)</td><td>\((-1)^2=1\)</td><td>\(0^2=0\)</td><td>\(1^2=1\)</td><td>\(2^2=4\)</td><td>\(3^2=9\)</td>
+    </tr>
+    <tr>
+      <th>\(h(x) = x^2+1\)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </table>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-val">VAL</span> Comparer \(h(-2)\) et \(h(2)\). Comparer \(h(-3)\) et \(h(3)\). Que remarques-tu ? <span class="bareme">(2 pts)</span><br>
+  \(h(-2) = \) …… et \(h(2) = \) …… → Ils sont <span style="border-bottom:1px solid #aaa;min-width:80px;display:inline-block">&nbsp;</span><br>
+  \(h(-3) = \) …… et \(h(3) = \) …… → Ils sont <span style="border-bottom:1px solid #aaa;min-width:80px;display:inline-block">&nbsp;</span><br>
+  Cette propriété s'appelle : ………………………………
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-com">COM</span> Quelle est la valeur minimale de \(h(x)\) d'après le tableau ? Pour quel \(x\) ? <span class="bareme">(1 pt)</span><br>
+  La valeur minimale est <span class="case-rep"></span>, atteinte pour \(x = \) <span class="case-rep"></span>.
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <table>
+      <tr><th>\(x\)</th><th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th></tr>
+      <tr><td>\(h(x)\)</td><td>10</td><td>5</td><td>2</td><td>1</td><td>2</td><td>5</td><td>10</td></tr>
+    </table>
+    <p><strong>2.</strong> \(h(-2) = h(2) = 5\) et \(h(-3) = h(3) = 10\). Deux valeurs opposées de \(x\) donnent la même image : la fonction est <strong>paire</strong>.</p>
+    <p><strong>3.</strong> La valeur minimale est \(\mathbf{1}\), atteinte pour \(x = \mathbf{0}\).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — DS original tel quel
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
 
 <div class="dh">
   <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
@@ -142,6 +318,136 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — plus ouvert, moins guidé
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<!-- ===== EXERCICE 1 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Étude d'une fonction affine</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Soit la fonction \(f\) définie par \(f(x) = -2x + 5\).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer \(f(-1)\), \(f(0)\) et \(f(3)\). On présentera les calculs détaillés. <span class="bareme">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-ana">ANA</span> Trouver \(x\) tel que \(f(x) = -3\). On justifiera chaque étape. <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-app">APP</span> Déterminer le zéro de la fonction \(f\), c'est-à-dire la valeur de \(x\) pour laquelle \(f(x) = 0\). Interpréter géométriquement ce résultat. <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> Vérifier que \(f\) est une fonction décroissante en complétant : si \(x\) augmente de 1, alors \(f(x)\) … de … <span class="bareme">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(f(-1) = -2(-1)+5 = 7\) &nbsp;|&nbsp; \(f(0) = 5\) &nbsp;|&nbsp; \(f(3) = -6+5 = -1\).</p>
+    <p><strong>2.</strong> \(-2x+5=-3 \Rightarrow -2x=-8 \Rightarrow x=4\). L'antécédent de \(-3\) est 4.</p>
+    <p><strong>3.</strong> \(-2x+5=0 \Rightarrow x=2{,}5\). Géométriquement : la courbe de \(f\) coupe l'axe des abscisses en \(x=2{,}5\).</p>
+    <p><strong>4.</strong> Si \(x\) augmente de 1, \(f(x)\) <strong>diminue</strong> de 2 (coefficient directeur \(-2\)).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Modélisation : deux ateliers en concurrence</span>
+    <span class="pts">7 points</span>
+  </div>
+
+  <p>Deux ateliers de menuiserie proposent leurs services pour fabriquer des meubles sur mesure :</p>
+  <ul>
+    <li><strong>Atelier Dupont</strong> : coût total \(C_D(n) = 5n + 80\) (en €, pour \(n\) meubles)</li>
+    <li><strong>Atelier Martin</strong> : coût total \(C_M(n) = 8n + 20\) (en €, pour \(n\) meubles)</li>
+  </ul>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Interpréter les coefficients de chaque fonction (coûts fixes et variables). <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer le coût chez chaque atelier pour une commande de 20 meubles. <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Pour quelle commande les deux ateliers pratiquent-ils le même prix ? Résoudre \(C_D(n) = C_M(n)\). <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-com">COM</span> Quel atelier conseillez-vous pour une commande de 30 meubles ? Justifier. <span class="bareme">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Dupont : coût fixe 80 €, coût par meuble 5 €. Martin : coût fixe 20 €, coût par meuble 8 €. Martin a moins de charges fixes mais est plus cher à l'unité.</p>
+    <p><strong>2.</strong> \(C_D(20) = 100+80 = \mathbf{180}\) € &nbsp;|&nbsp; \(C_M(20) = 160+20 = \mathbf{180}\) €</p>
+    <p><strong>3.</strong> \(5n+80 = 8n+20 \Rightarrow 60 = 3n \Rightarrow n = \mathbf{20}\). Pour 20 meubles, même prix (180 €).</p>
+    <p><strong>4.</strong> \(C_D(30) = 230\) € et \(C_M(30) = 260\) €. Pour 30 meubles, on conseille <strong>l'Atelier Dupont</strong> (moins cher au-delà de 20 meubles).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Tableau, symétrie et analyse</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <p>Soit la fonction \(h\) définie par \(h(x) = x^2 + 1\).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Compléter le tableau de valeurs pour \(x \in \{-3 ; -2 ; -1 ; 0 ; 1 ; 2 ; 3\}\). <span class="bareme">(2 pts)</span></div>
+  <table>
+    <tr><th>\(x\)</th><th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th></tr>
+    <tr><td>\(h(x)\)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-val">VAL</span> Démontrer que \(h(-a) = h(a)\) pour tout réel \(a\). En déduire la propriété de symétrie de la courbe. <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-com">COM</span> La fonction \(h\) admet-elle un minimum ? Si oui, lequel, et pour quelle valeur de \(x\) ? Peut-on trouver un antécédent de 0 par \(h\) ? Justifier. <span class="bareme">(1 pt)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <table>
+      <tr><th>\(x\)</th><th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th></tr>
+      <tr><td>\(h(x)\)</td><td>10</td><td>5</td><td>2</td><td>1</td><td>2</td><td>5</td><td>10</td></tr>
+    </table>
+    <p><strong>2.</strong> \(h(-a) = (-a)^2+1 = a^2+1 = h(a)\). Donc pour tout \(a\), \(h(-a) = h(a)\) : la fonction est <strong>paire</strong>. Sa courbe est symétrique par rapport à l'axe des ordonnées (\(x=0\)).</p>
+    <p><strong>3.</strong> Oui, minimum \(h(0) = 1\) pour \(x = 0\). On ne peut pas trouver d'antécédent de 0 car \(h(x) = x^2+1 \geq 1 > 0\) pour tout \(x\) : la fonction ne prend jamais la valeur 0.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <script>
 function toggle(btn){
   const corr=btn.nextElementSibling;
@@ -151,5 +457,6 @@ function toggle(btn){
 </script>
 </div>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

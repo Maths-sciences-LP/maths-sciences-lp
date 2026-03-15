@@ -37,7 +37,7 @@
 </div>
 
 <!-- ============================================================
-     NIVEAU 1 — APPLICATION DIRECTE
+     NIVEAU 1 — APPLICATION DIRECTE (COMMUN — visible par tous)
 ============================================================ -->
 <div class="niveau-header niv1">
   <span class="badge-niv badge-1">&#x1F7E2; Niveau 1</span>
@@ -151,9 +151,144 @@
 
 <hr class="sep">
 
-<!-- ============================================================
-     NIVEAU 2 — RAISONNEMENT GUIDÉ
-============================================================ -->
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés, étape par étape
+================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="niveau-header niv2">
+  <span class="badge-niv badge-2">&#x1F535; Niveau 2</span>
+  <h2>Raisonnement guid&eacute; pas &agrave; pas</h2>
+</div>
+
+<!-- EXERCICE S1 — Tableau de proportionnalité guidé -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <span class="mama-tag">Menuiserie</span>
+  <div class="exo-titre">Tableau de proportionnalit&eacute; &mdash; Colle &agrave; bois</div>
+  <p>Un menuisier agenceur utilise de la <strong>colle &agrave; bois</strong>. La quantit&eacute; de colle est proportionnelle &agrave; la surface &agrave; encoller. Pour <strong>4&thinsp;m&sup2;</strong>, il utilise <strong>1,2&thinsp;litre</strong> de colle.</p>
+
+  <div class="meth">
+    <strong>M&eacute;thode :</strong> pour compl&eacute;ter un tableau de proportionnalit&eacute; :<br>
+    &bull; <strong>&Eacute;tape 1 :</strong> Calculer le coefficient \(k = \dfrac{\text{colle}}{\text{surface}}\)<br>
+    &bull; <strong>&Eacute;tape 2 :</strong> Pour chaque surface, multiplier par \(k\)
+  </div>
+
+  <table>
+    <tr>
+      <th>Surface (m&sup2;)</th>
+      <td>2</td>
+      <td>4</td>
+      <td>6</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>Colle (L)</th>
+      <td>......&thinsp;</td>
+      <td>1,2</td>
+      <td>......&thinsp;</td>
+      <td>......&thinsp;</td>
+    </tr>
+  </table>
+
+  <p><strong>&Eacute;tape 1 :</strong> \(k = \dfrac{1{,}2}{4} = \) ......&thinsp; L/m&sup2;</p>
+  <p><strong>&Eacute;tape 2 :</strong></p>
+  <ul>
+    <li>Pour 2&thinsp;m&sup2; : \(2 \times\) ...... \(=\) ...... L</li>
+    <li>Pour 6&thinsp;m&sup2; : \(6 \times\) ...... \(=\) ...... L</li>
+    <li>Pour 10&thinsp;m&sup2; : \(10 \times\) ...... \(=\) ...... L</li>
+  </ul>
+
+  <button class="bc" onclick="toggle(this)">Voir la solution</button>
+  <div class="corr">
+    <span class="etape">&Eacute;tape 1 : Coefficient :</span>
+    <p>\(k = \dfrac{1{,}2}{4} = \mathbf{0{,}3}\) L/m&sup2;</p>
+    <span class="etape">&Eacute;tape 2 : Tableau compl&eacute;t&eacute; :</span>
+    <table>
+      <tr><th>Surface (m&sup2;)</th><td>2</td><td>4</td><td>6</td><td>10</td></tr>
+      <tr><th>Colle (L)</th><td><strong>0,6</strong></td><td>1,2</td><td><strong>1,8</strong></td><td><strong>3,0</strong></td></tr>
+    </table>
+    <p>D&eacute;tail : \(2 \times 0{,}3 = 0{,}6\) &nbsp;|&nbsp; \(6 \times 0{,}3 = 1{,}8\) &nbsp;|&nbsp; \(10 \times 0{,}3 = 3{,}0\)</p>
+  </div>
+</div>
+
+<!-- EXERCICE S2 — Pourcentage guidé -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <span class="mama-tag">Atelier</span>
+  <div class="exo-titre">Pourcentage &mdash; Remise sur du bois</div>
+  <p>Un technicien agenceur ach&egrave;te des planches de ch&ecirc;ne pour un montant de <strong>200&thinsp;&euro; HT</strong>. Le fournisseur accorde une <strong>remise de 15&thinsp;%</strong>.</p>
+
+  <div class="meth">
+    <strong>Rappel :</strong> Pour calculer \(p\%\) d&rsquo;une valeur \(V\) :<br>
+    \(p\%\) de \(V\) \(= V \times \dfrac{p}{100}\)
+  </div>
+
+  <div class="q"><strong>a.</strong> Calculer le montant de la remise.</div>
+  <p>Calcul amorc&eacute; : \(200 \times \dfrac{15}{100} = 200 \times\) ...... \(=\) ...... &euro;</p>
+
+  <div class="q"><strong>b.</strong> Calculer le prix HT apr&egrave;s remise.</div>
+  <p>Prix remis&eacute; = Prix initial &minus; Remise = \(200 -\) ...... \(=\) ...... &euro;</p>
+
+  <div class="q"><strong>c.</strong> Calculer le prix TTC (TVA &agrave; 20&thinsp;%).</div>
+  <p>Prix TTC = Prix HT remis&eacute; \(\times\) ...... \(=\) ...... \(\times 1{,}20 =\) ...... &euro;</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la solution</button>
+  <div class="corr">
+    <span class="etape">a. Montant de la remise :</span>
+    <p>\(200 \times \dfrac{15}{100} = 200 \times 0{,}15 = \mathbf{30\,\text{€}}\)</p>
+    <span class="etape">b. Prix HT apr&egrave;s remise :</span>
+    <p>\(200 - 30 = \mathbf{170\,\text{€}}\)</p>
+    <span class="etape">c. Prix TTC :</span>
+    <p>\(170 \times 1{,}20 = \mathbf{204\,\text{€}}\)</p>
+  </div>
+</div>
+
+<!-- EXERCICE S3 — Taux d'évolution guidé -->
+<div class="exo">
+  <div class="exo-num">Exercice 6</div>
+  <span class="mama-tag">Gestion d&rsquo;atelier</span>
+  <div class="exo-titre">Taux d&rsquo;&eacute;volution &mdash; Production de meubles</div>
+  <p>Un atelier de menuiserie a produit <strong>80 meubles en janvier</strong> et <strong>92 meubles en f&eacute;vrier</strong>.</p>
+
+  <div class="meth">
+    <strong>Formule du taux d&rsquo;&eacute;volution :</strong><br>
+    \(t = \dfrac{V_{\text{final}} - V_{\text{initial}}}{V_{\text{initial}}} \times 100\)
+  </div>
+
+  <div class="q"><strong>a.</strong> Calculer le taux d&rsquo;&eacute;volution. Compl&eacute;ter :</div>
+  <p>&Eacute;tape 1 &mdash; Variation : \(92 - 80 =\) ......&thinsp;</p>
+  <p>&Eacute;tape 2 &mdash; Division : \(\dfrac{......}{80} =\) ......&thinsp;</p>
+  <p>&Eacute;tape 3 &mdash; En pourcentage : \(...... \times 100 =\) ......&thinsp;%</p>
+
+  <div class="q"><strong>b.</strong> S&rsquo;agit-il d&rsquo;une hausse ou d&rsquo;une baisse ?</div>
+  <div class="q"><strong>c.</strong> En mars, la production baisse de 10&thinsp;% par rapport &agrave; f&eacute;vrier. Compl&eacute;ter :</div>
+  <p>Coefficient : \(1 - \dfrac{10}{100} =\) ......&thinsp;</p>
+  <p>Production mars : \(92 \times\) ...... \(=\) ...... meubles</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la solution</button>
+  <div class="corr">
+    <span class="etape">a. Taux d&rsquo;&eacute;volution :</span>
+    <p>Variation : \(92 - 80 = 12\)</p>
+    <p>Division : \(\dfrac{12}{80} = 0{,}15\)</p>
+    <p>En pourcentage : \(0{,}15 \times 100 = \mathbf{+15\,\%}\)</p>
+    <span class="etape">b.</span>
+    <p>Le taux est positif : c&rsquo;est une <strong>hausse de 15&thinsp;%</strong>.</p>
+    <span class="etape">c. Production en mars :</span>
+    <p>Coefficient : \(1 - 0{,}10 = 0{,}90\)</p>
+    <p>\(92 \times 0{,}90 = \mathbf{82{,}8}\), soit environ <strong>83 meubles</strong>.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <div class="niveau-header niv2">
   <span class="badge-niv badge-2">&#x1F535; Niveau 2</span>
   <h2>Raisonnement guid&eacute; &mdash; &Eacute;tape par &eacute;tape</h2>
@@ -276,9 +411,6 @@
 
 <hr class="sep">
 
-<!-- ============================================================
-     NIVEAU 3 — AUTONOMIE
-============================================================ -->
 <div class="niveau-header niv3">
   <span class="badge-niv badge-3">&#x1F7E1; Niveau 3</span>
   <h2>Autonomie &mdash; Mobiliser plusieurs notions</h2>
@@ -346,14 +478,19 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
 <hr class="sep">
 
-<!-- ============================================================
-     NIVEAU 4 — DÉFI MAMA
-============================================================ -->
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts, multi-étapes
+================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
 <div class="niveau-header niv4">
   <span class="badge-niv badge-4">&#x1F534; Niveau 4</span>
-  <h2>D&eacute;fi MAMA &mdash; Situations complexes professionnelles</h2>
+  <h2>D&eacute;fi &mdash; Situations complexes professionnelles</h2>
 </div>
 
 <!-- EXERCICE 9 -->
@@ -421,15 +558,6 @@
 
     <span class="etape">d. Classement TTC :</span>
     <table>
-      <tr><th>Entreprise</th><th>Prix TTC</th><th>Classement</th></tr>
-      <tr><td>Entreprise A</td><td><strong>9 350,00&thinsp;&euro;</strong></td><td>1<sup>re</sup> (moins ch&egrave;re)</td></tr>
-      <tr><td>Entreprise C</td><td>9 486,40&thinsp;&euro;</td><td>2<sup>e</sup></td></tr>
-      <tr><td>Entreprise B</td><td>9 200,00&thinsp;&euro;</td><td>&#x2014;</td></tr>
-    </table>
-
-    <div class="att"><strong>Correction du classement :</strong> Entreprise B TTC = 9&thinsp;200&thinsp;&euro;, Entreprise A TTC = 9&thinsp;350&thinsp;&euro;, Entreprise C TTC = 9&thinsp;486,40&thinsp;&euro;.</div>
-
-    <table>
       <tr><th>Entreprise</th><th>Prix TTC</th><th>Rang</th></tr>
       <tr><td>Entreprise B</td><td><strong>9&thinsp;200,00&thinsp;&euro;</strong></td><td>1<sup>re</sup> &mdash; <strong>la moins ch&egrave;re</strong></td></tr>
       <tr><td>Entreprise A</td><td>9&thinsp;350,00&thinsp;&euro;</td><td>2<sup>e</sup></td></tr>
@@ -443,6 +571,8 @@
     <div class="result-box">Entreprise retenue : <strong>Entreprise B &mdash; 9&thinsp;200&thinsp;&euro; TTC</strong> (la moins ch&egrave;re)</div>
   </div>
 </div>
+
+</div><!-- fin diff-appro -->
 
 <a href="ch01_ds.html" class="nav-fwd">Aller au devoir surveill&eacute; Ch01 &rarr;</a>
 
@@ -475,9 +605,11 @@ function showQcm(btn, id){
 
 /* ---- Graphique Ex7 : coût proportionnel à la surface ---- */
 (function(){
+  var canvas = document.getElementById('chartCout');
+  if(!canvas) return;
   const surfaces = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
   const k = 320 / 50; // 6.4 €/m²
-  new Chart(document.getElementById('chartCout'), {
+  new Chart(canvas, {
     type: 'scatter',
     data: {
       datasets: [
@@ -533,5 +665,6 @@ function showQcm(btn, id){
 })();
 </script>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

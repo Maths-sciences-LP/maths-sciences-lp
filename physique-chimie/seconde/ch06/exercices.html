@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exercices – Forces et équilibre | PC2 Ch.6</title>
+<title>Exercices – Forces et &eacute;quilibre | PC2 Ch.6</title>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
@@ -11,53 +11,52 @@
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
 .methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
 .attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-
-.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}</style>
+.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
+.niveau-header h2{margin:0;font-size:1.1em;color:inherit}
+.niveau-1{background:#f5f0ff;border-left:5px solid var(--p);color:#4a1d96;padding:10px 16px;border-radius:0 8px 8px 0;margin:24px 0 12px}
+.niveau-2{background:#f0fff4;border-left:5px solid #38a169;color:#065f46;padding:10px 16px;border-radius:0 8px 8px 0;margin:24px 0 12px}
+.niveau-3{background:#fffbeb;border-left:5px solid #d97706;color:#92400e;padding:10px 16px;border-radius:0 8px 8px 0;margin:24px 0 12px}
+.niveau-4{background:#fff5f5;border-left:5px solid #e53e3e;color:#991b1b;padding:10px 16px;border-radius:0 8px 8px 0;margin:24px 0 12px}
+</style>
 </head>
 <body>
 <div class="c">
 <header>
   <div class="mama-tag">2nde Bac Pro</div>
-  <h1>Chapitre 6 – Forces et équilibre</h1>
+  <h1>Chapitre 6 – Forces et &eacute;quilibre</h1>
   <p class="sous-titre">Physique-Chimie 2 &nbsp;|&nbsp; Exercices d'application</p>
 </header>
 
-<a class="nb" href="lecon.html">← Retour au cours</a>
+<a class="nb" href="lecon.html">&larr; Retour au cours</a>
 
 <div class="intro-box">
   <strong>Rappels essentiels :</strong>
-  Force : vecteur caractérisé par son point d'application, sa direction, son sens et sa valeur (en N).
+  Force : vecteur caract&eacute;ris&eacute; par son point d'application, sa direction, son sens et sa valeur (en N).
   Poids : \(P = m \times g\) avec \(g = 9{,}8\,\text{N/kg}\) sur Terre.
-  Condition d'équilibre : \(\sum \vec{F} = \vec{0}\) (forces opposées, même valeur).
-  Actions réciproques (3e loi de Newton) : si A exerce une force sur B, alors B exerce une force opposée de même valeur sur A.
+  Condition d'&eacute;quilibre : \(\sum \vec{F} = \vec{0}\) (forces oppos&eacute;es, m&ecirc;me valeur).
+  Actions r&eacute;ciproques (3&deg; loi de Newton) : si A exerce une force sur B, alors B exerce une force oppos&eacute;e de m&ecirc;me valeur sur A.
 </div>
 
 <!-- SVG Diagramme de forces -->
 <div style="margin:24px 0;text-align:center;">
 <svg width="480" height="260" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;border:1px solid #e2e8f0;border-radius:8px;background:#fafafa;">
-  <!-- Sol -->
   <rect x="60" y="200" width="360" height="15" fill="#c8b8a0" rx="3"/>
   <text x="240" y="228" text-anchor="middle" font-size="11" fill="#888">Support horizontal</text>
-  <!-- Objet -->
   <rect x="170" y="140" width="140" height="60" fill="#ddd6fe" stroke="#6f42c1" stroke-width="2" rx="5"/>
   <text x="240" y="175" text-anchor="middle" font-size="13" fill="#6f42c1" font-weight="bold">Objet</text>
-  <!-- Flèche Poids (vers le bas) -->
   <line x1="240" y1="200" x2="240" y2="255" stroke="#c53030" stroke-width="3"/>
   <polygon points="234,250 240,265 246,250" fill="#c53030"/>
   <text x="248" y="265" font-size="12" fill="#c53030" font-weight="bold">P (poids)</text>
-  <!-- Flèche Réaction N (vers le haut) -->
   <line x1="240" y1="140" x2="240" y2="85" stroke="#2f855a" stroke-width="3"/>
   <polygon points="234,90 240,75 246,90" fill="#2f855a"/>
-  <text x="248" y="82" font-size="12" fill="#2f855a" font-weight="bold">N (réaction)</text>
-  <!-- Symbole équilibre -->
-  <text x="330" y="170" font-size="14" fill="#6f42c1">⇔ Équilibre</text>
+  <text x="248" y="82" font-size="12" fill="#2f855a" font-weight="bold">N (r&eacute;action)</text>
+  <text x="330" y="170" font-size="14" fill="#6f42c1">&hArr; &Eacute;quilibre</text>
   <text x="330" y="188" font-size="12" fill="#555">P = N</text>
-  <text x="330" y="204" font-size="11" fill="#888">ΣF = 0</text>
-  <!-- Point d'application -->
+  <text x="330" y="204" font-size="11" fill="#888">&Sigma;F = 0</text>
   <circle cx="240" cy="200" r="4" fill="#d97706"/>
   <text x="255" y="202" font-size="10" fill="#d97706">point d'application</text>
 </svg>
-<p style="font-size:.82em;color:#718096;margin-top:6px;">Diagramme des forces sur un objet posé sur un support horizontal : équilibre P = N</p>
+<p style="font-size:.82em;color:#718096;margin-top:6px;">Diagramme des forces sur un objet pos&eacute; sur un support horizontal : &eacute;quilibre P = N</p>
 </div>
 
 <!-- Chart.js : Poids selon les planètes -->
@@ -65,33 +64,38 @@
 <canvas id="poidsChart" height="110"></canvas>
 </div>
 
-<!-- ===================== SECTION 1 ===================== -->
-<h2>Exercices de base</h2>
-<div class="section-intro">Maîtriser le calcul du poids, l'identification des forces et le principe des actions réciproques.</div>
+
+<!-- ================================================================
+     NIVEAU 1 — EXERCICES COMMUNS (tous niveaux)
+     ================================================================ -->
+<div class="niveau-header niveau-1">
+  <span class="badge-niv" style="background:#6f42c1;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveau 1</span>
+  <h2 style="display:inline">Exercices de base — communs &agrave; tous</h2>
+</div>
+<div class="section-intro">Ma&icirc;triser le calcul du poids, l'identification des forces et le principe des actions r&eacute;ciproques.</div>
 
 <!-- EXO 1 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Poids et masse – calculs de base</span>
-    <span class="diff diff-1">Facile</span>
+    <span class="exo-title">Poids et masse &ndash; calculs de base</span>
   </div>
   <div class="methode">
     <strong>Formule :</strong> \(P = m \times g\) &nbsp; avec \(g = 9{,}8\,\text{N/kg}\) sur Terre.<br>
     Pour calculer la masse : \(m = \dfrac{P}{g}\)
   </div>
-  <p class="q"><strong>Partie A – Calculer le poids :</strong></p>
+  <p class="q"><strong>Partie A &ndash; Calculer le poids :</strong></p>
   <table>
     <tr><th>Objet</th><th>Masse m (kg)</th><th>Poids P (N)</th></tr>
     <tr><td>Panneau de MDF</td><td>25</td><td>?</td></tr>
     <tr><td>Technicien menuisier</td><td>80</td><td>?</td></tr>
-    <tr><td>Charnière de porte</td><td>0,3</td><td>?</td></tr>
+    <tr><td>Charni&egrave;re de porte</td><td>0,3</td><td>?</td></tr>
   </table>
-  <p class="q"><strong>Partie B – Calculer la masse :</strong></p>
+  <p class="q"><strong>Partie B &ndash; Calculer la masse :</strong></p>
   <table>
     <tr><th>Objet</th><th>Poids P (N)</th><th>Masse m (kg)</th></tr>
-    <tr><td>Plateau de chêne massif</td><td>490</td><td>?</td></tr>
-    <tr><td>Scie à ruban d'atelier</td><td>1960</td><td>?</td></tr>
+    <tr><td>Plateau de ch&ecirc;ne massif</td><td>490</td><td>?</td></tr>
+    <tr><td>Scie &agrave; ruban d'atelier</td><td>1960</td><td>?</td></tr>
   </table>
   <p class="q"><strong>Partie C :</strong> Sur la Lune, \(g_{Lune} = 1{,}6\,\text{N/kg}\). Quel serait le poids du technicien menuisier (80 kg) sur la Lune ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
@@ -112,22 +116,21 @@
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
     <span class="exo-title">Identifier les forces sur un objet</span>
-    <span class="diff diff-1">Facile</span>
   </div>
-  <div class="retenir">Pour tout objet en équilibre, on identifie les forces en listant tout ce qui le <strong>touche</strong> + son poids (à distance). Chaque contact = une force de réaction.</div>
-  <p class="q"><strong>1.</strong> Un livre est posé sur une table. Identifier et nommer toutes les forces qui s'exercent sur le livre. Préciser le sens de chaque force.</p>
-  <p class="q"><strong>2.</strong> Une clé est suspendue à un fil. Identifier toutes les forces qui s'exercent sur la clé.</p>
-  <p class="q"><strong>3.</strong> Pour chaque situation, écrire la condition d'équilibre en termes de valeurs (relation entre les forces).</p>
+  <div class="retenir">Pour tout objet en &eacute;quilibre, on identifie les forces en listant tout ce qui le <strong>touche</strong> + son poids (&agrave; distance). Chaque contact = une force de r&eacute;action.</div>
+  <p class="q"><strong>1.</strong> Un livre est pos&eacute; sur une table. Identifier et nommer toutes les forces qui s'exercent sur le livre. Pr&eacute;ciser le sens de chaque force.</p>
+  <p class="q"><strong>2.</strong> Une cl&eacute; est suspendue &agrave; un fil. Identifier toutes les forces qui s'exercent sur la cl&eacute;.</p>
+  <p class="q"><strong>3.</strong> Pour chaque situation, &eacute;crire la condition d'&eacute;quilibre en termes de valeurs (relation entre les forces).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1. Livre sur table :</strong></p>
-    <p>– Poids \(\vec{P}\) : exercé par la Terre, dirigé vers le bas (vertical descendant).</p>
-    <p>– Réaction du support (réaction normale) \(\vec{N}\) : exercée par la table, dirigée vers le haut (vertical ascendant).</p>
-    <p>Condition d'équilibre : \(N = P = m \times g\)</p>
-    <p><strong>2. Clé suspendue à un fil :</strong></p>
-    <p>– Poids \(\vec{P}\) : exercé par la Terre, dirigé vers le bas.</p>
-    <p>– Tension du fil \(\vec{T}\) : exercée par le fil, dirigée vers le haut.</p>
-    <p>Condition d'équilibre : \(T = P = m \times g\)</p>
+    <p>– Poids \(\vec{P}\) : exerc&eacute; par la Terre, dirig&eacute; vers le bas (vertical descendant).</p>
+    <p>– R&eacute;action du support (r&eacute;action normale) \(\vec{N}\) : exerc&eacute;e par la table, dirig&eacute;e vers le haut (vertical ascendant).</p>
+    <p>Condition d'&eacute;quilibre : \(N = P = m \times g\)</p>
+    <p><strong>2. Cl&eacute; suspendue &agrave; un fil :</strong></p>
+    <p>– Poids \(\vec{P}\) : exerc&eacute; par la Terre, dirig&eacute; vers le bas.</p>
+    <p>– Tension du fil \(\vec{T}\) : exerc&eacute;e par le fil, dirig&eacute;e vers le haut.</p>
+    <p>Condition d'&eacute;quilibre : \(T = P = m \times g\)</p>
     <p><strong>3.</strong> Dans les deux cas : la force vers le haut = la force vers le bas. \(\sum F = 0\)</p>
   </div>
 </div>
@@ -136,199 +139,348 @@
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
-    <span class="exo-title">Actions réciproques (3e loi de Newton)</span>
-    <span class="diff diff-1">Facile</span>
+    <span class="exo-title">Actions r&eacute;ciproques (3<sup>e</sup> loi de Newton)</span>
   </div>
-  <div class="def"><strong>3e loi de Newton :</strong> Si un objet A exerce une force \(\vec{F}_{A/B}\) sur un objet B, alors B exerce sur A une force \(\vec{F}_{B/A}\) telle que :
-  \(\vec{F}_{B/A} = -\vec{F}_{A/B}\) (même valeur, même direction, sens opposés).</div>
-  <p>Un plateau de bois massif de masse \(m = 60\,\text{kg}\) est posé sur un établi en atelier.</p>
-  <p class="q"><strong>1.</strong> Le plateau exerce une force sur l'établi (vers le bas). Nommer et décrire la force réciproque.</p>
-  <p class="q"><strong>2.</strong> La Terre attire le plateau vers le bas (poids). Quelle est la force réciproque exercée par le plateau sur la Terre ?</p>
-  <p class="q"><strong>3.</strong> Calculer le poids du plateau. Quelle est la valeur de la force réciproque ?</p>
+  <div class="def"><strong>3<sup>e</sup> loi de Newton :</strong> Si un objet A exerce une force \(\vec{F}_{A/B}\) sur un objet B, alors B exerce sur A une force \(\vec{F}_{B/A}\) telle que :
+  \(\vec{F}_{B/A} = -\vec{F}_{A/B}\) (m&ecirc;me valeur, m&ecirc;me direction, sens oppos&eacute;s).</div>
+  <p>Un plateau de bois massif de masse \(m = 60\,\text{kg}\) est pos&eacute; sur un &eacute;tabli en atelier.</p>
+  <p class="q"><strong>1.</strong> Le plateau exerce une force sur l'&eacute;tabli (vers le bas). Nommer et d&eacute;crire la force r&eacute;ciproque.</p>
+  <p class="q"><strong>2.</strong> La Terre attire le plateau vers le bas (poids). Quelle est la force r&eacute;ciproque exerc&eacute;e par le plateau sur la Terre ?</p>
+  <p class="q"><strong>3.</strong> Calculer le poids du plateau. Quelle est la valeur de la force r&eacute;ciproque ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> La force réciproque est la <strong>réaction de l'établi sur le plateau</strong> : même valeur, direction verticale, sens vers le haut.</p>
-    <p><strong>2.</strong> Par la 3e loi : le plateau attire la Terre vers le haut avec la même force que le poids. C'est une force de gravitation plateau→Terre, verticale, vers le haut, de valeur égale au poids.</p>
-    <p><strong>3.</strong> \(P = m \times g = 60 \times 9{,}8 = 588\,\text{N}\). La force réciproque vaut donc aussi <strong>588 N</strong> (mais en sens opposé).</p>
+    <p><strong>1.</strong> La force r&eacute;ciproque est la <strong>r&eacute;action de l'&eacute;tabli sur le plateau</strong> : m&ecirc;me valeur, direction verticale, sens vers le haut.</p>
+    <p><strong>2.</strong> Par la 3<sup>e</sup> loi : le plateau attire la Terre vers le haut avec la m&ecirc;me force que le poids. C'est une force de gravitation plateau&rarr;Terre, verticale, vers le haut, de valeur &eacute;gale au poids.</p>
+    <p><strong>3.</strong> \(P = m \times g = 60 \times 9{,}8 = 588\,\text{N}\). La force r&eacute;ciproque vaut donc aussi <strong>588 N</strong> (mais en sens oppos&eacute;).</p>
   </div>
 </div>
 
-<!-- ===================== SECTION 2 ===================== -->
-<h2>Exercices guidés</h2>
-<div class="section-intro">Étudier l'équilibre d'un objet posé et d'un moteur suspendu à un treuil d'atelier.</div>
 
-<!-- EXO 4 -->
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="niveau-header niveau-2">
+  <span class="badge-niv" style="background:#38a169;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveau 2</span>
+  <h2 style="display:inline">Exercices guid&eacute;s &ndash; &eacute;quilibre pas &agrave; pas</h2>
+</div>
+<div class="section-intro">Des &eacute;tapes d&eacute;taill&eacute;es, des formules donn&eacute;es et des calculs amo&ntilde;c&eacute;s.</div>
+
+<!-- EXO S4 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
-    <span class="exo-title">Bloc en équilibre sur une table – étapes guidées</span>
-    <span class="diff diff-2">Intermédiaire</span>
+    <span class="exo-title">Bloc en &eacute;quilibre sur une table &ndash; &eacute;tapes guid&eacute;es</span>
   </div>
-  <p>Un bloc de masse \(m = 50\,\text{kg}\) est posé sur une table horizontale. Le bloc est en équilibre.</p>
-  <p class="q"><strong>Étape 1 :</strong> Lister toutes les forces qui s'exercent sur le bloc (nom, sens, objet exerçant la force).</p>
-  <p class="q"><strong>Étape 2 :</strong> Quel est le bilan des forces pour l'équilibre ? Écrire la condition \(\sum \vec{F} = \vec{0}\).</p>
-  <p class="q"><strong>Étape 3 :</strong> Calculer le poids \(P\) du bloc.</p>
-  <p class="q"><strong>Étape 4 :</strong> En déduire la valeur de la réaction normale \(N\) exercée par la table.</p>
-  <p class="q"><strong>Étape 5 :</strong> Si on pose en plus un objet de 10 kg sur le bloc, quelle devient la valeur de \(N\) ?</p>
+  <div class="methode">
+    <strong>M&eacute;thode &eacute;quilibre :</strong><br>
+    &Eacute;tape 1 : Lister les forces (poids vers le bas + r&eacute;action vers le haut)<br>
+    &Eacute;tape 2 : Condition d'&eacute;quilibre : \(N = P\)<br>
+    &Eacute;tape 3 : Calculer \(P = m \times g\), puis en d&eacute;duire \(N\)
+  </div>
+  <p>Un bloc de masse \(m = 50\,\text{kg}\) est pos&eacute; sur une table horizontale.</p>
+  <p class="q"><strong>1.</strong> Lister les forces sur le bloc (nom + sens) :<br>
+  &ndash; Force 1 : &ldquo;P = poids, exer&eacute; par la Terre, dirig&eacute;e vers le &hellip;&hellip;&rdquo;<br>
+  &ndash; Force 2 : &ldquo;N = &hellip;&hellip;, exerc&eacute;e par la table, dirig&eacute;e vers le &hellip;&hellip;&rdquo;</p>
+  <p class="q"><strong>2.</strong> Condition d'&eacute;quilibre : \(\sum \vec{F} = \vec{0}\) donc \(N = \) &hellip;&hellip;</p>
+  <p class="q"><strong>3.</strong> Calculer le poids : \(P = m \times g = \ldots \times 9{,}8 = \ldots\,\text{N}\)</p>
+  <p class="q"><strong>4.</strong> En d&eacute;duire \(N = \ldots\,\text{N}\)</p>
+  <p class="q"><strong>5.</strong> On pose un objet de 10 kg suppl&eacute;mentaires. Calculer la nouvelle r&eacute;action :<br>
+  Masse totale = \(50 + 10 = \ldots\,\text{kg}\)<br>
+  \(N = \ldots \times 9{,}8 = \ldots\,\text{N}\)</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>Étape 1 :</strong> Forces sur le bloc :</p>
-    <p>– Poids \(\vec{P}\) : exercé par la Terre, vertical vers le bas.</p>
-    <p>– Réaction normale \(\vec{N}\) : exercée par la table, vertical vers le haut.</p>
-    <p><strong>Étape 2 :</strong> Équilibre : \(\vec{P} + \vec{N} = \vec{0}\), donc \(\vec{N} = -\vec{P}\) → même valeur, sens opposé.</p>
-    <p><strong>Étape 3 :</strong> \(P = 50 \times 9{,}8 = 490\,\text{N}\)</p>
-    <p><strong>Étape 4 :</strong> \(N = P = 490\,\text{N}\)</p>
-    <p><strong>Étape 5 :</strong> Masse totale = 50 + 10 = 60 kg. \(N = 60 \times 9{,}8 = 588\,\text{N}\).</p>
+    <p><strong>1.</strong> Poids \(\vec{P}\) vers le bas ; R&eacute;action \(\vec{N}\) vers le haut.</p>
+    <p><strong>2.</strong> \(\vec{P} + \vec{N} = \vec{0}\) &rarr; \(N = P\)</p>
+    <p><strong>3.</strong> \(P = 50 \times 9{,}8 = 490\,\text{N}\)</p>
+    <p><strong>4.</strong> \(N = 490\,\text{N}\)</p>
+    <p><strong>5.</strong> Masse totale = 60 kg. \(N = 60 \times 9{,}8 = 588\,\text{N}\)</p>
   </div>
 </div>
 
-<!-- EXO 5 -->
+<!-- EXO S5 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
-    <span class="exo-title">Moteur suspendu à un treuil d'atelier</span>
-    <span class="diff diff-2">Intermédiaire</span>
+    <span class="exo-title">Plateau suspendu &agrave; un tr&eacute;uil &ndash; guid&eacute;</span>
   </div>
-  <div class="mama-tag">Atelier – Levage</div>
-  <p>Un plateau de bois de masse \(m = 200\,\text{kg}\) est suspendu par un câble à un treuil d'atelier pour être déplacé. Le plateau est immobile (équilibre).</p>
-  <p class="q"><strong>1.</strong> Faire le bilan des forces qui s'exercent sur le moteur.</p>
-  <p class="q"><strong>2.</strong> Calculer le poids du moteur.</p>
-  <p class="q"><strong>3.</strong> Écrire la condition d'équilibre et en déduire la tension \(T\) dans le câble.</p>
-  <p class="q"><strong>4.</strong> Le câble est vertical. Quelle est la direction et le sens de la tension ?</p>
-  <p class="q"><strong>5.</strong> Quelle force le câble exerce-t-il sur le treuil (force réciproque) ?</p>
+  <div class="mama-tag">Atelier &ndash; Levage</div>
+  <p>Un plateau de bois de masse \(m = 200\,\text{kg}\) est suspendu &agrave; un c&acirc;ble. Il est immobile.</p>
+  <div class="methode">
+    <strong>Forces sur le plateau suspendu :</strong><br>
+    &ndash; Poids \(\vec{P}\) : vers le bas<br>
+    &ndash; Tension \(\vec{T}\) : vers le haut<br>
+    &Eacute;quilibre : \(T = P\)
+  </div>
+  <p class="q"><strong>1.</strong> Calculer le poids :<br>
+  \(P = m \times g = \ldots \times 9{,}8 = \ldots\,\text{N}\)</p>
+  <p class="q"><strong>2.</strong> La condition d'&eacute;quilibre donne : \(T = P = \ldots\,\text{N}\)</p>
+  <p class="q"><strong>3.</strong> La tension est-elle vers le haut ou vers le bas ? &hellip;&hellip;</p>
+  <p class="q"><strong>4.</strong> Par la 3<sup>e</sup> loi de Newton, quelle force le plateau exerce-t-il sur le c&acirc;ble ? (valeur et sens) &hellip;&hellip;</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Forces sur le moteur :</p>
-    <p>– Poids \(\vec{P}\) : exercé par la Terre, vertical vers le bas.</p>
-    <p>– Tension \(\vec{T}\) : exercée par le câble, vertical vers le haut.</p>
-    <p><strong>2.</strong> \(P = 200 \times 9{,}8 = 1\,960\,\text{N}\)</p>
-    <p><strong>3.</strong> Équilibre : \(\vec{T} + \vec{P} = \vec{0}\) → \(T = P = 1\,960\,\text{N}\)</p>
-    <p><strong>4.</strong> La tension est <strong>verticale, dirigée vers le haut</strong> (elle tire le moteur vers le haut pour l'équilibrer).</p>
-    <p><strong>5.</strong> Par la 3e loi, le câble (et donc le moteur) exerce sur le treuil une force de <strong>1 960 N vers le bas</strong>. Le treuil doit donc être capable de supporter 1 960 N.</p>
+    <p><strong>1.</strong> \(P = 200 \times 9{,}8 = 1\,960\,\text{N}\)</p>
+    <p><strong>2.</strong> \(T = 1\,960\,\text{N}\)</p>
+    <p><strong>3.</strong> La tension est dirig&eacute;e <strong>vers le haut</strong> (elle s'oppose au poids).</p>
+    <p><strong>4.</strong> Par la 3<sup>e</sup> loi, le plateau tire le c&acirc;ble vers le bas avec une force de <strong>1 960 N</strong>.</p>
   </div>
 </div>
 
-<!-- ===================== SECTION 3 ===================== -->
-<h2>Exercices d'application</h2>
-<div class="section-intro">Pièce suspendue par deux câbles et décomposition des forces sur plan incliné.</div>
-
-<!-- EXO 6 -->
+<!-- EXO S6 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Pièce suspendue par deux câbles symétriques</span>
-    <span class="diff diff-2">Intermédiaire</span>
+    <span class="exo-title">Poids d'objets de l'atelier &ndash; tableau guid&eacute;</span>
   </div>
-  <p>Une pièce de masse \(m = 51\,\text{kg}\) est suspendue par deux câbles symétriques faisant chacun un angle de <strong>45°</strong> avec la verticale.</p>
+  <div class="mama-tag">Atelier &ndash; Calculs pratiques</div>
+  <p>Compl&eacute;ter le tableau. Utiliser \(P = m \times g\) avec \(g = 9{,}8\,\text{N/kg}\).</p>
+  <table>
+    <tr><th>Objet</th><th>Masse m (kg)</th><th>Calcul P (N)</th><th>Poids P (N)</th></tr>
+    <tr><td>Porte de placard</td><td>18</td><td>\(18 \times 9{,}8 = \ldots\)</td><td>&nbsp;</td></tr>
+    <tr><td>Perceuse d'atelier</td><td>35</td><td>\(35 \times 9{,}8 = \ldots\)</td><td>&nbsp;</td></tr>
+    <tr><td>Caisse de quincaillerie</td><td>8</td><td>\(8 \times 9{,}8 = \ldots\)</td><td>&nbsp;</td></tr>
+    <tr><td>Fraiseuse CNC</td><td>450</td><td>\(450 \times 9{,}8 = \ldots\)</td><td>&nbsp;</td></tr>
+  </table>
+  <p class="q">Quel objet est le plus lourd ? Lequel doit-on manipuler avec un engin de levage (si P &gt; 2 000 N) ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Porte : \(18 \times 9{,}8 = 176{,}4\,\text{N}\)</p>
+    <p>Perceuse : \(35 \times 9{,}8 = 343\,\text{N}\)</p>
+    <p>Caisse : \(8 \times 9{,}8 = 78{,}4\,\text{N}\)</p>
+    <p>Fraiseuse : \(450 \times 9{,}8 = 4\,410\,\text{N}\)</p>
+    <p>La fraiseuse CNC est la plus lourde (4 410 N &gt; 2 000 N) &rarr; engin de levage obligatoire.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<div class="niveau-header niveau-2">
+  <span class="badge-niv" style="background:#2b6cb0;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveaux 2&ndash;3</span>
+  <h2 style="display:inline">Exercices guid&eacute;s et d'application</h2>
+</div>
+<div class="section-intro">&Eacute;tudier l'&eacute;quilibre d'objets pos&eacute;s, suspendus et sur plan inclin&eacute;.</div>
+
+<!-- EXO ST4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Bloc en &eacute;quilibre sur une table &ndash; &eacute;tapes guid&eacute;es</span>
+  </div>
+  <p>Un bloc de masse \(m = 50\,\text{kg}\) est pos&eacute; sur une table horizontale. Le bloc est en &eacute;quilibre.</p>
+  <p class="q"><strong>&Eacute;tape 1 :</strong> Lister toutes les forces qui s'exercent sur le bloc (nom, sens, objet exer&ccedil;ant la force).</p>
+  <p class="q"><strong>&Eacute;tape 2 :</strong> Quel est le bilan des forces pour l'&eacute;quilibre ? &Eacute;crire la condition \(\sum \vec{F} = \vec{0}\).</p>
+  <p class="q"><strong>&Eacute;tape 3 :</strong> Calculer le poids \(P\) du bloc.</p>
+  <p class="q"><strong>&Eacute;tape 4 :</strong> En d&eacute;duire la valeur de la r&eacute;action normale \(N\) exerc&eacute;e par la table.</p>
+  <p class="q"><strong>&Eacute;tape 5 :</strong> Si on pose en plus un objet de 10 kg sur le bloc, quelle devient la valeur de \(N\) ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>&Eacute;tape 1 :</strong> Poids \(\vec{P}\) (Terre, vers le bas) + R&eacute;action normale \(\vec{N}\) (table, vers le haut).</p>
+    <p><strong>&Eacute;tape 2 :</strong> \(\vec{P} + \vec{N} = \vec{0}\) &rarr; \(N = P\).</p>
+    <p><strong>&Eacute;tape 3 :</strong> \(P = 50 \times 9{,}8 = 490\,\text{N}\)</p>
+    <p><strong>&Eacute;tape 4 :</strong> \(N = P = 490\,\text{N}\)</p>
+    <p><strong>&Eacute;tape 5 :</strong> Masse totale = 60 kg. \(N = 60 \times 9{,}8 = 588\,\text{N}\).</p>
+  </div>
+</div>
+
+<!-- EXO ST5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Plateau suspendu &agrave; un tr&eacute;uil d'atelier</span>
+  </div>
+  <div class="mama-tag">Atelier &ndash; Levage</div>
+  <p>Un plateau de bois de masse \(m = 200\,\text{kg}\) est suspendu par un c&acirc;ble &agrave; un tr&eacute;uil d'atelier pour &ecirc;tre d&eacute;plac&eacute;. Le plateau est immobile (&eacute;quilibre).</p>
+  <p class="q"><strong>1.</strong> Faire le bilan des forces qui s'exercent sur le plateau.</p>
+  <p class="q"><strong>2.</strong> Calculer le poids du plateau.</p>
+  <p class="q"><strong>3.</strong> &Eacute;crire la condition d'&eacute;quilibre et en d&eacute;duire la tension \(T\) dans le c&acirc;ble.</p>
+  <p class="q"><strong>4.</strong> Le c&acirc;ble est vertical. Quelle est la direction et le sens de la tension ?</p>
+  <p class="q"><strong>5.</strong> Quelle force le c&acirc;ble exerce-t-il sur le tr&eacute;uil (force r&eacute;ciproque) ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Poids \(\vec{P}\) (Terre, vers le bas) + Tension \(\vec{T}\) (c&acirc;ble, vers le haut).</p>
+    <p><strong>2.</strong> \(P = 200 \times 9{,}8 = 1\,960\,\text{N}\)</p>
+    <p><strong>3.</strong> \(\vec{T} + \vec{P} = \vec{0}\) &rarr; \(T = P = 1\,960\,\text{N}\)</p>
+    <p><strong>4.</strong> La tension est <strong>verticale, dirig&eacute;e vers le haut</strong>.</p>
+    <p><strong>5.</strong> Par la 3<sup>e</sup> loi, le plateau tire le tr&eacute;uil vers le bas avec <strong>1 960 N</strong>.</p>
+  </div>
+</div>
+
+<div class="niveau-header niveau-3">
+  <span class="badge-niv" style="background:#d97706;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveau 3</span>
+  <h2 style="display:inline">Exercices d'application &ndash; contexte professionnel</h2>
+</div>
+
+<!-- EXO ST6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Pi&egrave;ce suspendue par deux c&acirc;bles sym&eacute;triques</span>
+  </div>
+  <p>Une pi&egrave;ce de masse \(m = 51\,\text{kg}\) est suspendue par deux c&acirc;bles sym&eacute;triques faisant chacun un angle de <strong>45°</strong> avec la verticale.</p>
   <div class="methode">
-    <strong>Méthode :</strong> Chaque câble fournit une tension \(T\). La composante verticale de chaque tension est \(T \times \cos(45°)\).
-    Pour l'équilibre vertical : \(2 \times T \times \cos(45°) = P\)
+    <strong>M&eacute;thode :</strong> Chaque c&acirc;ble fournit une tension \(T\). La composante verticale de chaque tension est \(T \times \cos(45°)\).
+    Pour l'&eacute;quilibre vertical : \(2 \times T \times \cos(45°) = P\)
     donc \(T = \dfrac{P}{2 \times \cos(45°)}\)
   </div>
-  <p class="q"><strong>1.</strong> Calculer le poids de la pièce.</p>
-  <p class="q"><strong>2.</strong> En appliquant la condition d'équilibre vertical, calculer la tension \(T\) dans chaque câble.</p>
+  <p class="q"><strong>1.</strong> Calculer le poids de la pi&egrave;ce.</p>
+  <p class="q"><strong>2.</strong> En appliquant la condition d'&eacute;quilibre vertical, calculer la tension \(T\) dans chaque c&acirc;ble.</p>
   <p class="q"><strong>3.</strong> Comparer \(T\) avec \(P/2\). Pourquoi \(T > P/2\) ?</p>
-  <p class="q"><strong>4.</strong> Que se passe-t-il si l'angle avec la verticale augmente (câbles plus écartés) ? La tension augmente-t-elle ou diminue-t-elle ?</p>
+  <p class="q"><strong>4.</strong> Que se passe-t-il si l'angle avec la verticale augmente (c&acirc;bles plus &eacute;cart&eacute;s) ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(P = 51 \times 9{,}8 \approx 500\,\text{N}\)</p>
     <p><strong>2.</strong> \(T = \dfrac{P}{2\cos(45°)} = \dfrac{500}{2 \times 0{,}707} = \dfrac{500}{1{,}414} \approx 354\,\text{N}\)</p>
-    <p><strong>3.</strong> \(P/2 = 250\,\text{N}\). On a bien \(T = 354\,\text{N} > 250\,\text{N}\). Les câbles sont inclinés, donc seule une partie de leur tension (la composante verticale) compense le poids. Il faut une tension plus grande.</p>
-    <p><strong>4.</strong> Si l'angle avec la verticale augmente, \(\cos(\alpha)\) diminue, donc \(T = \dfrac{P}{2\cos(\alpha)}\) <strong>augmente</strong>. Des câbles très écartés (proches de l'horizontal) créent des tensions très élevées et sont dangereux.</p>
+    <p><strong>3.</strong> \(P/2 = 250\,\text{N}\). On a \(T = 354\,\text{N} > 250\,\text{N}\). Les c&acirc;bles inclin&eacute;s ne peuvent fournir qu'une partie de leur tension verticalement : il faut une tension plus grande.</p>
+    <p><strong>4.</strong> Si l'angle augmente, \(\cos(\alpha)\) diminue, donc \(T\) <strong>augmente</strong>. Des c&acirc;bles tr&egrave;s &eacute;cart&eacute;s cr&eacute;ent des tensions &eacute;lev&eacute;es et sont dangereux.</p>
   </div>
 </div>
 
-<!-- EXO 7 -->
+<!-- EXO ST7 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
     <span class="exo-title">Panneau sur plan inclin&eacute; de manutention</span>
-    <span class="diff diff-2">Intermédiaire</span>
   </div>
-  <div class="mama-tag">Atelier – Manutention</div>
-  <p>Un panneau de bois de masse \(m = 100\,\text{kg}\) est posé sur une rampe de déchargement inclinée à \(\alpha = 30°\) par rapport à l'horizontale.</p>
+  <div class="mama-tag">Atelier &ndash; Manutention</div>
+  <p>Un panneau de bois de masse \(m = 100\,\text{kg}\) est pos&eacute; sur une rampe de d&eacute;chargement inclin&eacute;e &agrave; \(\alpha = 30°\) par rapport &agrave; l'horizontale.</p>
   <div class="methode">
-    <strong>Décomposition du poids :</strong><br>
+    <strong>D&eacute;composition du poids :</strong><br>
     Composante normale (perpendiculaire au plan) : \(P_{\perp} = P \times \cos(\alpha)\)<br>
-    Composante tangentielle (parallèle au plan, vers le bas) : \(P_{\parallel} = P \times \sin(\alpha)\)
+    Composante tangentielle (parall&egrave;le au plan, vers le bas) : \(P_{\parallel} = P \times \sin(\alpha)\)
   </div>
   <p class="q"><strong>1.</strong> Calculer le poids \(P\) de la caisse.</p>
-  <p class="q"><strong>2.</strong> Calculer la composante normale \(P_\perp\) (perpendiculaire à la rampe).</p>
-  <p class="q"><strong>3.</strong> Calculer la composante tangentielle \(P_\parallel\) (le long de la rampe, tendant à faire glisser la caisse).</p>
-  <p class="q"><strong>4.</strong> Si la rampe est lisse (sans frottement), quelle force doit-on exercer parallèlement à la rampe pour maintenir la caisse en équilibre ?</p>
+  <p class="q"><strong>2.</strong> Calculer la composante normale \(P_\perp\) (perpendiculaire &agrave; la rampe).</p>
+  <p class="q"><strong>3.</strong> Calculer la composante tangentielle \(P_\parallel\) (le long de la rampe).</p>
+  <p class="q"><strong>4.</strong> Si la rampe est lisse, quelle force doit-on exercer pour maintenir la caisse en &eacute;quilibre ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(P = 100 \times 9{,}8 = 980\,\text{N}\)</p>
-    <p><strong>2.</strong> \(P_\perp = P \times \cos(30°) = 980 \times 0{,}866 \approx 849\,\text{N}\)</p>
-    <p><strong>3.</strong> \(P_\parallel = P \times \sin(30°) = 980 \times 0{,}5 = 490\,\text{N}\)</p>
-    <p><strong>4.</strong> Pour l'équilibre, la force à exercer vers le haut de la rampe doit compenser \(P_\parallel\) : \(F = P_\parallel = 490\,\text{N}\). C'est moitié moins que de soulever la caisse verticalement (980 N) : c'est l'avantage du plan incliné !</p>
+    <p><strong>2.</strong> \(P_\perp = 980 \times \cos(30°) = 980 \times 0{,}866 \approx 849\,\text{N}\)</p>
+    <p><strong>3.</strong> \(P_\parallel = 980 \times \sin(30°) = 980 \times 0{,}5 = 490\,\text{N}\)</p>
+    <p><strong>4.</strong> \(F = P_\parallel = 490\,\text{N}\) vers le haut de la rampe. C'est moiti&eacute; moins que de soulever la caisse verticalement (980 N) : avantage du plan inclin&eacute; !</p>
   </div>
 </div>
 
-<!-- ===================== SECTION 4 ===================== -->
-<h2>Contexte professionnel</h2>
-<div class="section-intro">Exercices avancés sur le levage d'un panneau par élingue et l'équilibre d'un volet de machine.</div>
-
-<!-- EXO 8 -->
+<!-- EXO ST8 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
     <span class="exo-title">Levage d'un panneau par &eacute;lingue &agrave; deux brins</span>
-    <span class="diff diff-3">Avancé</span>
   </div>
-  <div class="mama-tag">Atelier – Élingue / Levage</div>
-  <p>Un panneau de bois massif de masse \(m = 150\,\text{kg}\) est soulevé par une élingue à 2 brins. Les deux brins forment un angle de <strong>60°</strong> entre eux (soit chaque brin fait 30° avec la verticale).</p>
+  <div class="mama-tag">Atelier &ndash; &Eacute;lingue / Levage</div>
+  <p>Un panneau de bois massif de masse \(m = 150\,\text{kg}\) est soulev&eacute; par une &eacute;lingue &agrave; 2 brins. Les deux brins forment un angle de <strong>60°</strong> entre eux (soit chaque brin fait 30° avec la verticale).</p>
   <div class="methode">
     Angle entre chaque brin et la verticale : \(\theta = 30°\)<br>
-    Équilibre vertical : \(2T\cos\theta = P\) &nbsp; donc &nbsp; \(T = \dfrac{P}{2\cos\theta}\)
+    &Eacute;quilibre vertical : \(2T\cos\theta = P\) &nbsp; donc &nbsp; \(T = \dfrac{P}{2\cos\theta}\)
   </div>
   <p class="q"><strong>1.</strong> Calculer le poids du panneau.</p>
-  <p class="q"><strong>2.</strong> Calculer la tension \(T\) dans chaque brin de l'élingue.</p>
-  <p class="q"><strong>3.</strong> Recalculer \(T\) si l'angle entre les brins passe à <strong>120°</strong> (chaque brin à 60° de la verticale). Que constate-t-on ?</p>
-  <p class="q"><strong>4.</strong> En pratique, pourquoi ne doit-on jamais dépasser un angle de 120° entre les deux brins d'une élingue ?</p>
+  <p class="q"><strong>2.</strong> Calculer la tension \(T\) dans chaque brin de l'&eacute;lingue.</p>
+  <p class="q"><strong>3.</strong> Si l'angle entre les brins passe &agrave; 120° (chaque brin &agrave; 60° de la verticale). Recalculer \(T\). Que constate-t-on ?</p>
+  <p class="q"><strong>4.</strong> Pourquoi ne doit-on jamais d&eacute;passer 120° entre les deux brins d'une &eacute;lingue ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(P = 150 \times 9{,}8 = 1\,470\,\text{N}\)</p>
-    <p><strong>2.</strong> \(\theta = 30°\) ; \(\cos(30°) \approx 0{,}866\)<br>
-    \(T = \dfrac{1470}{2 \times 0{,}866} = \dfrac{1470}{1{,}732} \approx 849\,\text{N}\)</p>
-    <p><strong>3.</strong> \(\theta = 60°\) ; \(\cos(60°) = 0{,}5\)<br>
-    \(T = \dfrac{1470}{2 \times 0{,}5} = \dfrac{1470}{1} = 1\,470\,\text{N}\)<br>
-    La tension dans chaque brin est égale au poids total !</p>
-    <p><strong>4.</strong> Au-delà de 120° entre les brins (\(\theta > 60°\)), la tension dépasse le poids total. Les brins subissent des forces très importantes qui peuvent dépasser leur résistance maximale et provoquer une rupture → risque grave d'accident en atelier. On limite généralement l'angle entre brins à 90° maximum.</p>
+    <p><strong>2.</strong> \(T = \dfrac{1470}{2 \times \cos(30°)} = \dfrac{1470}{1{,}732} \approx 849\,\text{N}\)</p>
+    <p><strong>3.</strong> \(T = \dfrac{1470}{2 \times 0{,}5} = 1\,470\,\text{N}\). La tension &eacute;gale le poids total !</p>
+    <p><strong>4.</strong> Au-del&agrave; de 120°, la tension d&eacute;passe le poids total &rarr; risque de rupture de l'&eacute;lingue &rarr; accident grave. On limite g&eacute;n&eacute;ralement &agrave; 90° maximum.</p>
   </div>
 </div>
 
-<!-- EXO 9 -->
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="niveau-header niveau-4">
+  <span class="badge-niv" style="background:#e53e3e;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveau 4</span>
+  <h2 style="display:inline">Probl&egrave;mes complets &ndash; Statique avanc&eacute;e</h2>
+</div>
+<div class="section-intro">Moments de forces, &eacute;quilibre en rotation, probl&egrave;mes ouverts type BTS.</div>
+
+<!-- EXO A9 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
     <span class="exo-title">V&eacute;rin maintenant un couvercle de machine ouvert</span>
-    <span class="diff diff-3">Avancé</span>
   </div>
-  <div class="mama-tag">Atelier – Vérin / Machine</div>
-  <p>Le couvercle de protection d'une ponceuse à bande est modélisé comme une barre homogène de masse \(m = 8\,\text{kg}\) et de longueur \(L = 0{,}6\,\text{m}\). Il est maintenu ouvert à <strong>45°</strong> au-dessus de l'horizontale par un vérin à gaz. La charnière est à une extrémité.</p>
-  <p>Pour simplifier, on considère que :</p>
+  <div class="mama-tag">Atelier &ndash; V&eacute;rin / Machine</div>
+  <p>Le couvercle de protection d'une ponceuse &agrave; bande est mod&eacute;lis&eacute; comme une barre homog&egrave;ne de masse \(m = 8\,\text{kg}\) et de longueur \(L = 0{,}6\,\text{m}\). Il est maintenu ouvert &agrave; <strong>45°</strong> au-dessus de l'horizontale par un v&eacute;rin &agrave; gaz. La charni&egrave;re est &agrave; une extr&eacute;mit&eacute;.</p>
   <ul>
-    <li>Le poids du couvercle s'applique en son centre (\(L/2 = 0{,}3\,\text{m}\) de la charnière)</li>
-    <li>Le vérin est perpendiculaire au couvercle et s'attache à 0,45 m de la charnière</li>
+    <li>Le poids du couvercle s'applique en son centre (\(L/2 = 0{,}3\,\text{m}\) de la charni&egrave;re)</li>
+    <li>Le v&eacute;rin est perpendiculaire au couvercle et s'attache &agrave; 0,45 m de la charni&egrave;re</li>
   </ul>
   <div class="methode">
-    <strong>Équilibre en rotation :</strong> Somme des moments par rapport à la charnière = 0<br>
-    \(F_{vérin} \times d_{vérin} = P_{couvercle} \times d_{poids}\)
+    <strong>&Eacute;quilibre en rotation :</strong> Somme des moments par rapport &agrave; la charni&egrave;re = 0<br>
+    \(F_{v&eacute;rin} \times d_{v&eacute;rin} = P_{couvercle} \times d_{poids}\)
   </div>
   <p class="q"><strong>1.</strong> Calculer le poids du couvercle.</p>
-  <p class="q"><strong>2.</strong> Calculer le moment du poids par rapport à la charnière (\(M_P = P \times d_{poids} \times \cos(45°)\), la composante perpendiculaire au couvercle).</p>
-  <p class="q"><strong>3.</strong> Le vérin est perpendiculaire au couvercle (\(d_{vérin} = 0{,}45\,\text{m}\)). Calculer la force \(F_{vérin}\) nécessaire pour l'équilibre.</p>
-  <p class="q"><strong>4.</strong> Si le couvercle est complètement horizontal (0°), comment évolue la force nécessaire du vérin ? (Indication : la composante perpendiculaire du poids = \(P \times \cos(0°)\).)</p>
+  <p class="q"><strong>2.</strong> Calculer le moment du poids par rapport &agrave; la charni&egrave;re : \(M_P = P \times (L/2) \times \cos(45°)\).</p>
+  <p class="q"><strong>3.</strong> Le v&eacute;rin est perpendiculaire au couvercle (\(d_{v&eacute;rin} = 0{,}45\,\text{m}\)). Calculer la force \(F_{v&eacute;rin}\) n&eacute;cessaire pour l'&eacute;quilibre.</p>
+  <p class="q"><strong>4.</strong> Si le couvercle est compl&egrave;tement horizontal (0°), comment &eacute;volue la force n&eacute;cessaire du v&eacute;rin ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(P = 8 \times 9{,}8 = 78{,}4\,\text{N}\)</p>
-    <p><strong>2.</strong> Moment du poids : \(M_P = P \times (L/2) \times \cos(45°) = 78{,}4 \times 0{,}3 \times 0{,}707 \approx 78{,}4 \times 0{,}212 \approx 16{,}6\,\text{N.m}\)</p>
-    <p><strong>3.</strong> Équilibre en rotation : \(F_{vérin} \times d_{vérin} = M_P\)<br>
-    \(F_{vérin} = \dfrac{16{,}6}{0{,}45} \approx 36{,}9\,\text{N}\)</p>
-    <p><strong>4.</strong> À l'horizontale (0°) : \(\cos(0°) = 1\) → \(M_P = 78{,}4 \times 0{,}3 \times 1 = 23{,}5\,\text{N.m}\) → \(F_{vérin} = \dfrac{23{,}5}{0{,}45} \approx 52{,}2\,\text{N}\).
-    La force du vérin est plus grande quand le couvercle est horizontal : c'est la position la plus défavorable pour l'équilibre.</p>
+    <p><strong>2.</strong> \(M_P = 78{,}4 \times 0{,}3 \times \cos(45°) = 78{,}4 \times 0{,}3 \times 0{,}707 \approx 16{,}6\,\text{N.m}\)</p>
+    <p><strong>3.</strong> \(F_{v&eacute;rin} = \dfrac{16{,}6}{0{,}45} \approx 36{,}9\,\text{N}\)</p>
+    <p><strong>4.</strong> &Agrave; 0° : \(\cos(0°) = 1\) &rarr; \(M_P = 78{,}4 \times 0{,}3 = 23{,}5\,\text{N.m}\) &rarr; \(F_{v&eacute;rin} = \dfrac{23{,}5}{0{,}45} \approx 52{,}2\,\text{N}\). La force est plus grande &agrave; l'horizontale : position la plus d&eacute;favorable.</p>
   </div>
+</div>
+
+<!-- EXO A10 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10 &#9733;</span>
+    <span class="exo-title">Stabilit&eacute; d'une &eacute;tag&egrave;re charg&eacute;e &ndash; probl&egrave;me ouvert</span>
+  </div>
+  <div class="mama-tag">Agencement &ndash; Installation d'une biblioth&egrave;que</div>
+  <p>Un agenceur installe une &eacute;tag&egrave;re murale de masse \(m_e = 5\,\text{kg}\) et de longueur \(L = 1{,}2\,\text{m}\). Elle est fix&eacute;e au mur par deux &eacute;querre : l'une &agrave; gauche (\(x = 0\)), l'autre &agrave; \(x = 0{,}9\,\text{m}\). L'&eacute;tag&egrave;re supporte des livres de masse totale \(m_l = 20\,\text{kg}\), dont le centre de gravit&eacute; est &agrave; \(x_l = 0{,}7\,\text{m}\).</p>
+  <div class="methode">
+    <strong>Moment d'une force / par rapport &agrave; un point O :</strong> \(M = F \times d\)<br>
+    o&ugrave; \(d\) est la distance (en m) entre le point de pivot et le point d'application de la force.<br>
+    &Eacute;quilibre en rotation : \(\sum M = 0\)
+  </div>
+  <p class="q"><strong>1.</strong> Calculer le poids de l'&eacute;tag&egrave;re et le poids des livres.</p>
+  <p class="q"><strong>2.</strong> En prenant comme pivot l'&eacute;querre de gauche (\(x = 0\)), &eacute;crire l'&eacute;quation d'&eacute;quilibre en rotation : \(R_D \times 0{,}9 = P_e \times \dfrac{L}{2} + P_l \times x_l\).</p>
+  <p class="q"><strong>3.</strong> Calculer la r&eacute;action \(R_D\) de l'&eacute;querre droite, puis en d&eacute;duire la r&eacute;action \(R_G\) de l'&eacute;querre gauche (par l'&eacute;quilibre vertical).</p>
+  <p class="q"><strong>4.</strong> Quelle &eacute;querre supporte la plus grande force ? La fixation &agrave; 0,9 m vous semble-t-elle optimale ? O&ugrave; placer la deuxi&egrave;me &eacute;querre pour &eacute;quilibrer les r&eacute;actions ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_e = 5 \times 9{,}8 = 49\,\text{N}\) ; \(P_l = 20 \times 9{,}8 = 196\,\text{N}\)</p>
+    <p><strong>2.</strong> &Eacute;quation : \(R_D \times 0{,}9 = 49 \times 0{,}6 + 196 \times 0{,}7 = 29{,}4 + 137{,}2 = 166{,}6\,\text{N.m}\)</p>
+    <p><strong>3.</strong> \(R_D = \dfrac{166{,}6}{0{,}9} \approx 185\,\text{N}\)<br>
+    &Eacute;quilibre vertical : \(R_G + R_D = P_e + P_l = 245\,\text{N}\) &rarr; \(R_G = 245 - 185 = 60\,\text{N}\)</p>
+    <p><strong>4.</strong> L'&eacute;querre droite supporte 185 N, la gauche 60 N : r&eacute;partition d&eacute;s&eacute;quilibr&eacute;e. Pour &eacute;quilibrer (R_G = R_D = 122,5 N), il faudrait placer la deuxi&egrave;me &eacute;querre en x* tel que \(122{,}5 \times x^* = 166{,}6\) &rarr; \(x^* \approx 1{,}36\,\text{m}\), soit pr&egrave;s de l'extr&eacute;mit&eacute; droite de l'&eacute;tag&egrave;re.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
+
+<!-- BILAN -->
+<div style="background:#f5f0ff;border-radius:10px;padding:18px 22px;margin:32px 0;border:1px solid #c4b5fd">
+  <strong style="color:#4a1d96">Bilan des comp&eacute;tences travaill&eacute;es</strong>
+  <table style="margin:12px 0">
+    <tr><th>Comp&eacute;tence</th><th>Exercices</th></tr>
+    <tr><td>Calculer un poids et retrouver une masse</td><td>Ex 1, 6</td></tr>
+    <tr><td>Identifier les forces sur un objet</td><td>Ex 2, 4, 5</td></tr>
+    <tr><td>Appliquer la 3<sup>e</sup> loi de Newton</td><td>Ex 3, 5</td></tr>
+    <tr><td>&Eacute;quilibre sur un plan inclin&eacute;</td><td>Ex 7</td></tr>
+    <tr><td>Tensions dans une &eacute;lingue</td><td>Ex 6 (S), 8 (ST)</td></tr>
+    <tr><td>Moments de forces / &eacute;quilibre en rotation</td><td>Ex 9, 10</td></tr>
+  </table>
 </div>
 
 </div><!-- fin .c -->
@@ -381,6 +533,7 @@ function toggle(btn){
   });
 })();
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

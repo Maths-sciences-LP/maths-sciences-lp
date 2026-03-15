@@ -51,6 +51,145 @@
   <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
+<!-- ================================================================
+     NIVEAU SOCLE — DS très guidé
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<!-- ===== EXERCICE 1 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Intervalles et in&eacute;galit&eacute;s</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p class="bareme">Compl&eacute;ter les cases. Rappel : &lsquo;[&rsquo; = valeur incluse, &lsquo;]&rsquo; = valeur exclue.</p>
+
+  <p><strong>1.</strong> <span class="comp comp-app">APP</span> Compl&eacute;ter le tableau. <span style="font-size:.85em;color:#718096">(3 pts)</span></p>
+  <table style="width:100%;margin:10px 0">
+    <tr><th>Condition sur \(x\)</th><th>Intervalle</th><th>Type de crochet</th></tr>
+    <tr><td>\(x \geq 5\)</td><td><span class="answer-line" style="display:inline-block;width:100px"></span></td><td>Ferm&eacute; en 5</td></tr>
+    <tr><td>\(x &lt; 3\)</td><td><span class="answer-line" style="display:inline-block;width:100px"></span></td><td><span class="answer-line" style="display:inline-block;width:100px"></span></td></tr>
+    <tr><td>\(-2 \leq x &lt; 7\)</td><td><span class="answer-line" style="display:inline-block;width:100px"></span></td><td>Ferm&eacute; en −2, ouvert en 7</td></tr>
+  </table>
+
+  <p><strong>2.</strong> <span class="comp comp-rea">REA</span> R&eacute;soudre \(2x + 6 \leq 14\). Formule &agrave; suivre : <span style="font-size:.85em;color:#718096">(3 pts)</span></p>
+  <p style="background:#ebf5ff;border-radius:6px;padding:8px 12px;font-size:.92em">
+    &Eacute;tape 1 : \(2x \leq 14 - 6 = \) &hellip;&hellip;<br>
+    &Eacute;tape 2 : \(x \leq \dfrac{\ldots}{2} = \) &hellip;&hellip;<br>
+    Solution sous forme d&rsquo;intervalle : &hellip;&hellip;&hellip;&hellip;
+  </p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <ul>
+      <li>\(x \geq 5\) &rarr; \([5 ; +\infty[\)</li>
+      <li>\(x &lt; 3\) &rarr; \(]-\infty ; 3[\) — crochet ouvert en 3 (exclu)</li>
+      <li>\(-2 \leq x &lt; 7\) &rarr; \([-2 ; 7[\)</li>
+    </ul>
+    <p><strong>2.</strong> \(2x \leq 8\) &rarr; \(x \leq 4\). Solution : \(\mathbf{]-\infty ; 4]}\).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Budget mat&eacute;riaux</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un menuisier agenceur dispose d&rsquo;un budget de <strong>500 &euro;</strong> pour acheter des panneaux de bois. Chaque panneau co&ucirc;te <strong>35 &euro;</strong> et les frais de livraison fixes sont de <strong>45 &euro;</strong>.</p>
+
+  <p><strong>1.</strong> <span class="comp comp-ana">ANA</span> Compl&eacute;ter l&rsquo;in&eacute;quation. On appelle \(n\) le nombre de panneaux. <span style="font-size:.85em;color:#718096">(2 pts)</span></p>
+  <p style="background:#ebf5ff;border-radius:6px;padding:8px 12px;font-size:.92em">
+    D&eacute;pense totale = prix par panneau &times; nombre + livraison &le; budget<br>
+    &hellip;&hellip; &times; \(n\) + &hellip;&hellip; &le; &hellip;&hellip;
+  </p>
+  <span class="answer-line"></span>
+
+  <p><strong>2.</strong> <span class="comp comp-rea">REA</span> R&eacute;soudre l&rsquo;in&eacute;quation. <span style="font-size:.85em;color:#718096">(4 pts)</span></p>
+  <p style="background:#ebf5ff;border-radius:6px;padding:8px 12px;font-size:.92em">
+    \(35n \leq 500 - 45 = \) &hellip;&hellip;<br>
+    \(n \leq \dfrac{\ldots}{35} = \) &hellip;&hellip;
+  </p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>3.</strong> <span class="comp comp-val">VAL</span> Quel est le nombre maximal de panneaux ? V&eacute;rification : <span style="font-size:.85em;color:#718096">(2 pts)</span></p>
+  <p style="background:#ebf5ff;border-radius:6px;padding:8px 12px;font-size:.92em">
+    Le menuisier peut acheter au maximum &hellip;&hellip; panneaux.<br>
+    V&eacute;rif : \(35 \times \ldots + 45 = \ldots\) &euro; &#10003; (dans le budget ?)
+  </p>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(35n + 45 \leq 500\).</p>
+    <p><strong>2.</strong> \(35n \leq 455\) &rarr; \(n \leq \dfrac{455}{35} = 13\).</p>
+    <p><strong>3.</strong> Le menuisier peut acheter au maximum <strong>13 panneaux</strong>.<br>
+    V&eacute;rification : \(35 \times 13 + 45 = 455 + 45 = 500\) &euro; &#10003;</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Comparaison de tarifs</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>Deux fournisseurs proposent la location d&rsquo;une ponceuse :</p>
+  <ul>
+    <li><strong>Fournisseur A :</strong> 20 &euro; par jour, sans forfait.</li>
+    <li><strong>Fournisseur B :</strong> 50 &euro; de forfait + 8 &euro; par jour.</li>
+  </ul>
+  <p>On note \(j\) le nombre de jours de location.</p>
+
+  <p><strong>1.</strong> <span class="comp comp-app">APP</span> Compl&eacute;ter les formules. <span style="font-size:.85em;color:#718096">(2 pts)</span></p>
+  <p style="background:#ebf5ff;border-radius:6px;padding:8px 12px;font-size:.92em">
+    Fournisseur A : \(C_A(j) = \) &hellip;&hellip; \(\times j\)<br>
+    Fournisseur B : \(C_B(j) = \) &hellip;&hellip; + &hellip;&hellip; \(\times j\)
+  </p>
+  <span class="answer-line"></span>
+
+  <p><strong>2.</strong> <span class="comp comp-rea">REA</span> R&eacute;soudre \(C_A(j) &lt; C_B(j)\). Compl&eacute;ter le calcul. <span style="font-size:.85em;color:#718096">(2 pts)</span></p>
+  <p style="background:#ebf5ff;border-radius:6px;padding:8px 12px;font-size:.92em">
+    \(20j &lt; 50 + 8j\)<br>
+    \(20j - 8j &lt; 50\)<br>
+    \(\ldots j &lt; 50\)<br>
+    \(j &lt; \dfrac{50}{\ldots} \approx \) &hellip;&hellip;
+  </p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>3.</strong> <span class="comp comp-com">COM</span> Pour <strong>5 jours</strong>, quel fournisseur choisir ? Compl&eacute;ter. <span style="font-size:.85em;color:#718096">(2 pts)</span></p>
+  <p style="background:#ebf5ff;border-radius:6px;padding:8px 12px;font-size:.92em">
+    \(C_A(5) = 20 \times 5 = \) &hellip;&hellip; &euro;<br>
+    \(C_B(5) = 50 + 8 \times 5 = \) &hellip;&hellip; &euro;<br>
+    Le moins cher est : &hellip;&hellip;&hellip;&hellip;
+  </p>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(C_A(j) = 20j\) et \(C_B(j) = 50 + 8j\).</p>
+    <p><strong>2.</strong> \(12j &lt; 50\) &rarr; \(j &lt; \dfrac{50}{12} \approx 4{,}17\). Le fournisseur A est moins cher pour 1, 2, 3 ou 4 jours.</p>
+    <p><strong>3.</strong> \(C_A(5) = 100\) &euro; ; \(C_B(5) = 90\) &euro;. Le fournisseur <strong>B est plus avantageux</strong> (10 &euro; d&rsquo;&eacute;conomie).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — DS original
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- ===== EXERCICE 1 ===== -->
 <div class="partie">
   <div class="partie-header">
@@ -144,6 +283,114 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — DS plus ouvert
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- ===== EXERCICE 1 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – R&eacute;solution d&rsquo;in&eacute;quations</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p class="bareme">D&eacute;tailler toutes les &eacute;tapes. Donner la solution sous forme d&rsquo;intervalle. Indiquer les r&egrave;gles utilis&eacute;es (notamment en cas de division par un n&eacute;gatif).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> R&eacute;soudre \(-4x + 9 &gt; 2x - 3\). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> R&eacute;soudre \(\dfrac{3x + 1}{4} \leq x - 2\). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Justifier que \(-6x + 15 \leq -3\) poss&egrave;de une solution de la forme \([a ; +\infty[\). Donner \(a\). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(-4x + 9 &gt; 2x - 3 \Rightarrow 9 + 3 &gt; 2x + 4x \Rightarrow 12 &gt; 6x \Rightarrow x &lt; 2\). Solution : \(\mathbf{]-\infty ; 2[}\).</p>
+    <p><strong>2.</strong> \(\dfrac{3x+1}{4} \leq x - 2 \Rightarrow 3x + 1 \leq 4x - 8 \Rightarrow 1 + 8 \leq 4x - 3x \Rightarrow 9 \leq x\). Solution : \(\mathbf{[9 ; +\infty[}\).</p>
+    <p><strong>3.</strong> \(-6x + 15 \leq -3 \Rightarrow -6x \leq -18 \Rightarrow x \geq 3\) (division par \(-6\) n&eacute;gatif : on inverse le signe). La solution est \([3 ; +\infty[\), donc \(a = 3\).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Optimisation de production</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un technicien en maintenance automobile doit commander des pi&egrave;ces de rechange. Il dispose d&rsquo;un budget de <strong>1 200 &euro;</strong>. Chaque pi&egrave;ce co&ucirc;te <strong>42 &euro;</strong> et les frais d&rsquo;exp&eacute;dition s&rsquo;&eacute;l&egrave;vent &agrave; <strong>8 &euro; par pi&egrave;ce</strong> (pas de forfait fixe).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-ana">ANA</span> Mod&eacute;liser la contrainte budg&eacute;taire par une in&eacute;quation en fonction de \(n\) (nombre de pi&egrave;ces). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> R&eacute;soudre et conclure. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Le technicien doit commander <em>au moins</em> 20 pi&egrave;ces. &Eacute;crire la double contrainte et d&eacute;terminer si elle est satisfiable. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> Si la contrainte n&rsquo;est pas satisfiable, de quel suppl&eacute;ment budg&eacute;taire le technicien aurait-il besoin pour commander exactement 20 pi&egrave;ces ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Co&ucirc;t total = \((42 + 8) \times n = 50n\). In&eacute;quation : \(50n \leq 1200\).</p>
+    <p><strong>2.</strong> \(n \leq \dfrac{1200}{50} = 24\). Il peut commander au maximum <strong>24 pi&egrave;ces</strong>.</p>
+    <p><strong>3.</strong> Double contrainte : \(20 \leq n \leq 24\). Puisque 20 &le; 24, cette contrainte est <strong>satisfiable</strong>. L&rsquo;artisan peut commander entre 20 et 24 pi&egrave;ces.</p>
+    <p><strong>4.</strong> La contrainte &eacute;tant satisfiable (Ex 3), aucun suppl&eacute;ment n&rsquo;est n&eacute;cessaire.<br>
+    V&eacute;rification pour \(n = 20\) : \(50 \times 20 = 1000 \leq 1200\) &#10003;.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Analyse de deux offres</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>Un artisan menuisier h&eacute;site entre deux machines-outils propos&eacute;es en location :</p>
+  <ul>
+    <li><strong>Machine X :</strong> 80 &euro; de forfait mensuel + 12 &euro; par heure d&rsquo;utilisation.</li>
+    <li><strong>Machine Y :</strong> 0 &euro; de forfait + 20 &euro; par heure d&rsquo;utilisation.</li>
+  </ul>
+  <p>On note \(h\) le nombre d&rsquo;heures d&rsquo;utilisation mensuelle.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> &Eacute;crire les deux co&ucirc;ts \(C_X(h)\) et \(C_Y(h)\). <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Montrer que la Machine X est plus &eacute;conomique quand \(h &gt; 10\). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-com">COM</span> L&rsquo;artisan utilise la machine environ <strong>15 heures par mois</strong>. Quelle machine choisir ? Calculer l&rsquo;&eacute;conomie mensuelle et annuelle. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(C_X(h) = 80 + 12h\) et \(C_Y(h) = 20h\).</p>
+    <p><strong>2.</strong> \(C_X(h) &lt; C_Y(h) \Rightarrow 80 + 12h &lt; 20h \Rightarrow 80 &lt; 8h \Rightarrow h &gt; 10\). Donc la Machine X est moins ch&egrave;re d&egrave;s que l&rsquo;usage d&eacute;passe 10 heures.</p>
+    <p><strong>3.</strong> Pour \(h = 15\) : \(C_X(15) = 80 + 180 = 260\) &euro; ; \(C_Y(15) = 300\) &euro;.<br>
+    Choisir la <strong>Machine X</strong>. &Eacute;conomie mensuelle : \(300 - 260 = 40\) &euro;.<br>
+    &Eacute;conomie annuelle : \(40 \times 12 = \mathbf{480}\) &euro;.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <script>
 function toggle(btn){
   const corr=btn.nextElementSibling;
@@ -153,5 +400,6 @@ function toggle(btn){
 </script>
 </div>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

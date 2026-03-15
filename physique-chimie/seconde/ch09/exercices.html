@@ -11,11 +11,12 @@
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
 .methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
 .attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-
 .section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
-
 .chart-container{max-width:640px;margin:20px auto;padding:10px}
-svg text{font-family:'Segoe UI',sans-serif}</style>
+svg text{font-family:'Segoe UI',sans-serif}
+.zone-rep label{font-size:.85em;color:#718096;font-weight:600;display:block;margin-bottom:4px}
+.zone-rep textarea{width:100%;min-height:70px;border:1px dashed #cbd5e0;border-radius:6px;padding:8px;font-size:.9em;resize:vertical;box-sizing:border-box;font-family:inherit}
+</style>
 </head>
 <body>
 <div class="c">
@@ -34,16 +35,17 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   Domaines : infra &lt; 20 Hz ; audible 20–20 000 Hz ; ultra &gt; 20 000 Hz
 </div>
 
-<!-- ===== SECTION 1 ===== -->
-<h2>Exercices de base</h2>
+<!-- ================================================================
+     EXERCICES COMMUNS — tous les niveaux
+     ================================================================ -->
+<h2 style="color:var(--p);border-left:4px solid var(--p);padding-left:10px">Exercices fondamentaux – tous niveaux</h2>
 <div class="section-intro">Maîtriser les notions de fréquence, hauteur et domaines du son.</div>
 
-<!-- EXO 1 -->
+<!-- EXO 1 COMMUN -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
     <span class="exo-title">Hauteur et fréquence – Grave ou aigu ?</span>
-    <span class="diff diff-1">Facile</span>
   </div>
   <div class="def"><strong>Rappel :</strong> Plus la fréquence est élevée, plus le son est <em>aigu</em>. Plus elle est basse, plus le son est <em>grave</em>.</div>
   <p class="q"><strong>a)</strong> Classer les sons suivants du plus grave au plus aigu : 1 000 Hz, 80 Hz, 18 000 Hz, 250 Hz.</p>
@@ -51,27 +53,26 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   <table>
     <tr><th>Son</th><th>Fréquence</th><th>Domaine</th><th>Grave / Aigu</th></tr>
     <tr><td>Battement de cœur fœtal</td><td>2 Hz</td><td>?</td><td>–</td></tr>
-    <tr><td>Vibration d'une scie &agrave; ruban</td><td>80 Hz</td><td>?</td><td>?</td></tr>
+    <tr><td>Vibration d'une scie à ruban</td><td>80 Hz</td><td>?</td><td>?</td></tr>
     <tr><td>Voix humaine</td><td>250 Hz</td><td>?</td><td>?</td></tr>
     <tr><td>Sifflet à ultrasons</td><td>25 000 Hz</td><td>?</td><td>–</td></tr>
   </table>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>a)</strong> Du plus grave au plus aigu : 80 Hz → 250 Hz → 1 000 Hz → 18 000 Hz.</p>
-    <p><strong>b)</strong></p>
-    <p>- Battement de cœur (2 Hz) : <strong>infrason</strong> (non audible par l'oreille humaine).</p>
-    <p>- Scie &agrave; ruban (80 Hz) : <strong>audible</strong> – son <strong>grave</strong>.</p>
-    <p>- Voix humaine (250 Hz) : <strong>audible</strong> – son <strong>grave à médium</strong>.</p>
-    <p>- Sifflet à ultrasons (25 000 Hz) : <strong>ultrason</strong> (inaudible pour l'homme, mais perçu par les chiens).</p>
+    <p><strong>b)</strong><br>
+    – Battement de cœur (2 Hz) : <strong>infrason</strong> (non audible).<br>
+    – Scie à ruban (80 Hz) : <strong>audible</strong> – son <strong>grave</strong>.<br>
+    – Voix humaine (250 Hz) : <strong>audible</strong> – son <strong>grave à médium</strong>.<br>
+    – Sifflet à ultrasons (25 000 Hz) : <strong>ultrason</strong> (inaudible pour l'homme).</p>
   </div>
 </div>
 
-<!-- EXO 2 -->
+<!-- EXO 2 COMMUN -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
     <span class="exo-title">Célérité et distance – Tonnerre et sonar</span>
-    <span class="diff diff-1">Facile</span>
   </div>
   <div class="meth"><strong>Formule :</strong> \( d = v \times t \) avec v = 340 m/s dans l'air ; \( d = \dfrac{v \times t}{2} \) pour un aller-retour (écho).</div>
   <p class="q"><strong>a)</strong> Un orage : on voit l'éclair puis on entend le tonnerre 3 secondes plus tard. Quelle est la distance de l'orage ?</p>
@@ -80,26 +81,19 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   <!-- SVG onde sonore -->
   <svg viewBox="0 0 660 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:660px;margin:18px 0;display:block;background:#f8f4ff;border-radius:8px;padding:8px">
     <text x="330" y="18" text-anchor="middle" font-size="13" fill="#4a1d96" font-weight="bold">Représentation d'une onde sonore</text>
-    <!-- Axis -->
     <line x1="30" y1="90" x2="630" y2="90" stroke="#888" stroke-width="1.5"/>
     <line x1="30" y1="30" x2="30" y2="150" stroke="#888" stroke-width="1.5"/>
     <text x="635" y="93" font-size="11" fill="#555">t (s)</text>
     <text x="10" y="25" font-size="11" fill="#555">y</text>
-    <!-- Sine wave -->
     <path d="M30,90 C60,30 100,30 130,90 S200,150 230,90 S300,30 330,90 S400,150 430,90 S500,30 530,90 S600,150 630,90"
           stroke="#6f42c1" stroke-width="2.5" fill="none"/>
-    <!-- Period T annotation -->
     <line x1="30" y1="20" x2="230" y2="20" stroke="#e11d48" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
     <text x="130" y="15" text-anchor="middle" font-size="11" fill="#e11d48" font-weight="bold">T (période)</text>
-    <!-- Amplitude annotation -->
     <line x1="620" y1="90" x2="620" y2="30" stroke="#2f855a" stroke-width="1.5"/>
     <text x="625" y="65" font-size="10" fill="#2f855a" transform="rotate(-90,625,65)">Amplitude</text>
-    <!-- Lambda annotation -->
     <line x1="130" y1="148" x2="330" y2="148" stroke="#d97706" stroke-width="1.5"/>
     <text x="230" y="158" text-anchor="middle" font-size="11" fill="#d97706" font-weight="bold">λ</text>
-    <!-- Direction arrow -->
     <text x="400" y="108" font-size="11" fill="#4a1d96">→ propagation</text>
-    <!-- Arrowhead markers -->
     <defs>
       <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
         <path d="M0,0 L6,3 L0,6 Z" fill="#e11d48"/>
@@ -114,17 +108,16 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   </div>
 </div>
 
-<!-- EXO 3 -->
+<!-- EXO 3 COMMUN -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
     <span class="exo-title">Domaines de fréquences et applications</span>
-    <span class="diff diff-1">Facile</span>
   </div>
   <p class="q">Compléter le tableau en associant chaque application à son domaine fréquentiel :</p>
   <table>
     <tr><th>Application</th><th>Fréquence typique</th><th>Domaine</th><th>Contexte</th></tr>
-    <tr><td>D&eacute;tection d&eacute;fauts bois par ultrasons (CND)</td><td>2 MHz</td><td>?</td><td>Industrie / Atelier</td></tr>
+    <tr><td>Détection défauts bois par ultrasons (CND)</td><td>2 MHz</td><td>?</td><td>Industrie / Atelier</td></tr>
     <tr><td>Echolocation chauve-souris</td><td>50 000 Hz</td><td>?</td><td>Nature</td></tr>
     <tr><td>Vibration d'un compresseur d'atelier au ralenti</td><td>25 Hz</td><td>?</td><td>Atelier</td></tr>
     <tr><td>Alarme sonore atelier</td><td>1 000 Hz</td><td>?</td><td>Sécurité</td></tr>
@@ -132,24 +125,128 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   </table>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>- CND (2 MHz = 2 000 000 Hz) : <strong>ultrason</strong>.</p>
-    <p>- Chauve-souris (50 000 Hz) : <strong>ultrason</strong>.</p>
-    <p>- Compresseur d'atelier (25 Hz) : <strong>audible</strong> (juste au-dessus de 20 Hz) – son très grave perçu comme une vibration.</p>
-    <p>- Alarme (1 000 Hz) : <strong>audible</strong> – fréquence à laquelle l'oreille est très sensible.</p>
-    <p>- Infrasons séismes (0,5 Hz) : <strong>infrason</strong> – non perçu auditivement mais ressenti physiquement.</p>
+    <p>– CND (2 MHz = 2 000 000 Hz) : <strong>ultrason</strong>.<br>
+    – Chauve-souris (50 000 Hz) : <strong>ultrason</strong>.<br>
+    – Compresseur d'atelier (25 Hz) : <strong>audible</strong> (juste au-dessus de 20 Hz) – son très grave perçu comme une vibration.<br>
+    – Alarme (1 000 Hz) : <strong>audible</strong> – fréquence à laquelle l'oreille est très sensible.<br>
+    – Infrasons séismes (0,5 Hz) : <strong>infrason</strong> – non perçu auditivement mais ressenti physiquement.</p>
   </div>
 </div>
 
-<!-- ===== SECTION 2 ===== -->
-<h2>Exercices guidés</h2>
-<div class="section-intro">Calcul de longueur d'onde et analyse du niveau sonore en atelier.</div>
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
 
-<!-- EXO 4 -->
+<h2 style="color:#059669;border-left:4px solid #059669;padding-left:10px">Exercices guidés pas à pas</h2>
+<div class="section-intro">Formules données, étapes fléchées, calculs amorcés.</div>
+
+<!-- SOCLE EX 4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Longueur d'onde – calcul guidé étape par étape</span>
+  </div>
+  <div class="retenir">
+    <strong>Formule donnée :</strong> \( \lambda = \dfrac{v}{f} \)<br>
+    \( v \) = célérité du son (m/s) &nbsp;|&nbsp; \( f \) = fréquence (Hz) &nbsp;|&nbsp; \( \lambda \) = longueur d'onde (m)
+  </div>
+  <div class="methode">
+    <strong>Méthode :</strong><br>
+    Étape 1 : Identifier les données (v et f).<br>
+    Étape 2 : Appliquer \( \lambda = v / f \).<br>
+    Étape 3 : Calculer et donner l'unité.
+  </div>
+  <p><strong>Exemple guidé :</strong> f = 440 Hz, v = 340 m/s (air).<br>
+  \( \lambda = \dfrac{v}{f} = \dfrac{340}{440} = \) ......... m</p>
+  <p class="q"><strong>À toi – a)</strong> Une alarme d'atelier émet un son à f = 1 000 Hz dans l'air (v = 340 m/s).<br>
+  Étape 1 : v = ......... m/s ; f = ......... Hz<br>
+  Étape 2 : \( \lambda = \dfrac{340}{...} = \) ......... m</p>
+  <p class="q"><strong>b)</strong> Un compresseur vibre à f = 50 Hz dans l'air (v = 340 m/s).<br>
+  \( \lambda = \dfrac{340}{...} = \) ......... m</p>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) λ = 340 / ... = ... m&#10;b) λ = 340 / ... = ... m"></textarea>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Exemple :</strong> \( \lambda = 340/440 \approx 0{,}77\,\text{m} \)</p>
+    <p><strong>a)</strong> \( \lambda = 340/1\,000 = \mathbf{0{,}34\,\text{m} = 34\,\text{cm}} \)</p>
+    <p><strong>b)</strong> \( \lambda = 340/50 = \mathbf{6{,}8\,\text{m}} \) (très grande longueur d'onde pour un son très grave)</p>
+  </div>
+</div>
+
+<!-- SOCLE EX 5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Niveau sonore en atelier – tableau à compléter</span>
+  </div>
+  <div class="retenir">
+    <strong>Règle :</strong><br>
+    Niveau &gt; 85 dB → port des protections auditives obligatoire.<br>
+    Atténuation des bouchons : niveau reçu = niveau source − atténuation (dB).
+  </div>
+  <p>Compléter le tableau pour l'atelier de menuiserie :</p>
+  <table>
+    <thead>
+      <tr><th>Outil</th><th>Niveau (dB)</th><th>EPI obligatoires ?</th><th>Niveau reçu avec bouchons (−28 dB)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Conversation normale</td><td>60</td><td>……………</td><td>…… dB</td></tr>
+      <tr><td>Scie circulaire</td><td>100</td><td>……………</td><td>…… dB</td></tr>
+      <tr><td>Meuleuse</td><td>110</td><td>……………</td><td>…… dB</td></tr>
+      <tr><td>Dégauchisseuse</td><td>95</td><td>……………</td><td>…… dB</td></tr>
+    </tbody>
+  </table>
+  <p class="q"><strong>Question :</strong> Avec des bouchons atténuant de 28 dB, le niveau reçu sous la meuleuse (110 dB) est-il conforme (inférieur à 87 dB) ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Conversation (60 dB) : pas d'EPI, niveau reçu = 32 dB.<br>
+    Scie circulaire (100 dB) : <strong>EPI obligatoires</strong>, niveau reçu = 72 dB ✓<br>
+    Meuleuse (110 dB) : <strong>EPI obligatoires</strong>, niveau reçu = 82 dB ✓ (conforme &lt; 87 dB)<br>
+    Dégauchisseuse (95 dB) : <strong>EPI obligatoires</strong>, niveau reçu = 67 dB ✓</p>
+    <p>Oui, 110 − 28 = 82 dB &lt; 87 dB → <strong>conforme</strong>.</p>
+  </div>
+</div>
+
+<!-- SOCLE EX 6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Distance et écho – calcul guidé</span>
+  </div>
+  <div class="retenir"><strong>Formule :</strong> Pour un aller-retour : \( d = \dfrac{v \times t}{2} \) avec v = 340 m/s</div>
+  <p>Un technicien en maintenance automobile utilise un appareil à ultrasons pour mesurer l'épaisseur d'une paroi. L'écho revient après t = 0,002 s.</p>
+  <p>Étape 1 : v = ......... m/s ; t = ......... s<br>
+  Étape 2 : \( d = \dfrac{340 \times ...}{2} = \dfrac{...}{2} = \) ......... m</p>
+  <div class="zone-rep">
+    <label>Ma réponse :</label>
+    <textarea placeholder="d = (340 × ...) / 2 = ... m"></textarea>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\( d = \dfrac{340 \times 0{,}002}{2} = \dfrac{0{,}68}{2} = \mathbf{0{,}34\,\text{m} = 34\,\text{cm}} \)</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<h2 style="color:#1d4ed8;border-left:4px solid #1d4ed8;padding-left:10px">Exercices intermédiaires et d'application</h2>
+<div class="section-intro">Calcul de longueur d'onde, niveau sonore, protection auditive, timbre.</div>
+
+<!-- STANDARD EX 4 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
     <span class="exo-title">Longueur d'onde – Calcul guidé</span>
-    <span class="diff diff-2">Guidé</span>
   </div>
   <div class="retenir"><strong>Relation :</strong> \( \lambda = \dfrac{v}{f} \) où \( \lambda \) est en mètres, v en m/s, f en Hz.</div>
 
@@ -164,7 +261,6 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   <p class="q"><strong>b)</strong> Ce même son se propage dans l'eau (v = 1 500 m/s). Calculer la nouvelle longueur d'onde. Commenter.</p>
   <p class="q"><strong>c)</strong> Quelle est la longueur d'onde d'un ultrason à 40 000 Hz dans l'air ?</p>
 
-  <!-- Chart.js – Spectre fréquences -->
   <div class="chart-container">
     <canvas id="chartSpectre"></canvas>
   </div>
@@ -173,17 +269,16 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>a)</strong> \( \lambda = \dfrac{v}{f} = \dfrac{340}{440} \approx \mathbf{0{,}77 \text{ m} = 77 \text{ cm}} \)</p>
-    <p><strong>b)</strong> \( \lambda = \dfrac{1500}{440} \approx \mathbf{3{,}4 \text{ m}} \) → La longueur d'onde est plus grande dans l'eau car le son y va plus vite, mais la fréquence reste la même. Le son est plus grave à percevoir en terme de longueur d'onde physique.</p>
+    <p><strong>b)</strong> \( \lambda = \dfrac{1500}{440} \approx \mathbf{3{,}4 \text{ m}} \) → La longueur d'onde est plus grande dans l'eau car le son y va plus vite, mais la fréquence reste la même.</p>
     <p><strong>c)</strong> \( \lambda = \dfrac{340}{40000} = \mathbf{8{,}5 \times 10^{-3} \text{ m} = 8{,}5 \text{ mm}} \) → Les ultrasons ont de très petites longueurs d'onde, ce qui permet de détecter de petits défauts.</p>
   </div>
 </div>
 
-<!-- EXO 5 -->
+<!-- STANDARD EX 5 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
     <span class="exo-title">Niveau sonore – Risques en atelier</span>
-    <span class="diff diff-2">Guidé</span>
   </div>
   <div class="mama-tag">Contexte professionnel</div>
   <p>Niveaux sonores mesurés dans un atelier de menuiserie :</p>
@@ -206,37 +301,31 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   </div>
 </div>
 
-<!-- ===== SECTION 3 ===== -->
-<h2>Exercices d'application</h2>
-<div class="section-intro">Applications plus complexes faisant appel à plusieurs notions du chapitre.</div>
-
-<!-- EXO 6 -->
+<!-- STANDARD EX 6 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
     <span class="exo-title">Timbre – Même note, sons différents</span>
-    <span class="diff diff-2">Application</span>
   </div>
   <p>Un violon et une trompette jouent la même note La à 440 Hz. On analyse les deux sons à l'oscilloscope.</p>
   <p class="q"><strong>a)</strong> Ces deux sons ont-ils la même hauteur ? Justifier.</p>
   <p class="q"><strong>b)</strong> Comment explique-t-on qu'on les distingue facilement à l'oreille ?</p>
   <p class="q"><strong>c)</strong> Qu'est-ce que le <em>timbre</em> d'un son et comment apparaît-il sur l'oscilloscope ?</p>
-  <p class="q"><strong>d)</strong> Application atelier : deux toupies tournent &agrave; la m&ecirc;me vitesse (m&ecirc;me fr&eacute;quence de rotation). Peut-on les distinguer au son ? Qu'est-ce que cela implique pour la maintenance ?</p>
+  <p class="q"><strong>d)</strong> Application atelier : deux toupies tournent à la même vitesse (même fréquence de rotation). Peut-on les distinguer au son ? Qu'est-ce que cela implique pour la maintenance ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>a)</strong> Oui, même hauteur car même fréquence fondamentale f = 440 Hz. La hauteur ne dépend que de la fréquence.</p>
     <p><strong>b)</strong> On les distingue grâce au <em>timbre</em> : chaque instrument produit des harmoniques (multiples de f₀) d'amplitudes différentes, ce qui donne une "couleur" sonore unique.</p>
     <p><strong>c)</strong> Le timbre correspond à la forme de la courbe sur l'oscilloscope. Un son pur est une sinusoïde parfaite. Un son riche en harmoniques a une forme plus complexe (somme de sinusoïdes).</p>
-    <p><strong>d)</strong> Oui, deux toupies diff&eacute;rentes peuvent avoir des timbres sonores diff&eacute;rents m&ecirc;me &agrave; m&ecirc;me r&eacute;gime. En maintenance, on &eacute;coute la <em>texture sonore</em> et les <em>fr&eacute;quences des harmoniques</em> pour identifier des anomalies (roulement us&eacute;, balourd de broche).</p>
+    <p><strong>d)</strong> Oui, deux toupies différentes peuvent avoir des timbres sonores différents même à même régime. En maintenance, on écoute la <em>texture sonore</em> et les <em>fréquences des harmoniques</em> pour identifier des anomalies (roulement usé, balourd de broche).</p>
   </div>
 </div>
 
-<!-- EXO 7 -->
+<!-- STANDARD EX 7 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
     <span class="exo-title">Ultrason – Contrôle non destructif</span>
-    <span class="diff diff-2">Application</span>
   </div>
   <div class="mama-tag">Contexte professionnel</div>
   <p>Une sonde à ultrasons de fréquence f = 4 MHz est utilisée pour contrôler l'épaisseur d'une paroi métallique (acier). La célérité du son dans l'acier est v = 5 000 m/s.</p>
@@ -254,16 +343,22 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   </div>
 </div>
 
-<!-- ===== SECTION 4 ===== -->
-<h2>Contexte professionnel</h2>
-<div class="section-intro">Diagnostic et sécurité en atelier de menuiserie – problèmes avancés.</div>
+</div><!-- fin diff-standard -->
 
-<!-- EXO 8 -->
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<h2 style="color:#7c3aed;border-left:4px solid #7c3aed;padding-left:10px">Contexte professionnel – Problèmes avancés</h2>
+<div class="section-intro">Diagnostic acoustique, réglementation, problèmes ouverts multi-étapes.</div>
+
+<!-- APPRO EX 4 -->
 <div class="exo">
   <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
+    <span class="exo-num">Exercice 4</span>
     <span class="exo-title">Diagnostic bruit de broche – Toupie en atelier</span>
-    <span class="diff diff-3">Avancé</span>
   </div>
   <div class="mama-tag">Contexte professionnel</div>
   <p>Un technicien détecte avec un sonomètre une vibration anormale de fréquence f = 120 Hz sur la broche d'une toupie tournant à 3 600 tr/min.</p>
@@ -281,12 +376,11 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
   </div>
 </div>
 
-<!-- EXO 9 -->
+<!-- APPRO EX 5 -->
 <div class="exo">
   <div class="exo-header">
-    <span class="exo-num">Exercice 9</span>
+    <span class="exo-num">Exercice 5</span>
     <span class="exo-title">Protection acoustique atelier – Réglementation</span>
-    <span class="diff diff-3">Avancé</span>
   </div>
   <div class="mama-tag">Contexte professionnel</div>
   <p>Un compresseur d'atelier produit un niveau sonore de 104 dB à 1 m. La réglementation (Directive européenne bruit 2003/10/CE) fixe :</p>
@@ -312,6 +406,31 @@ svg text{font-family:'Segoe UI',sans-serif}</style>
     3. <strong>Signaler toute gêne auditive</strong> (acouphènes, baisse d'acuité) au responsable et consulter un médecin du travail.</p>
   </div>
 </div>
+
+<!-- APPRO EX 6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Analyse spectrale et maintenance préventive</span>
+  </div>
+  <div class="mama-tag">Contexte professionnel</div>
+  <p>Une rectifieuse (machine-outil) tourne à 6 000 tr/min. La roulement de broche comporte 12 billes. Un capteur de vibrations enregistre le spectre sonore et révèle un pic à 1 400 Hz.</p>
+  <p class="q"><strong>a)</strong> Convertir 6 000 tr/min en tr/s.</p>
+  <p class="q"><strong>b)</strong> Calculer la fréquence de passage des billes (fréquence de rotation × nombre de billes).</p>
+  <p class="q"><strong>c)</strong> Le pic à 1 400 Hz coïncide-t-il avec la fréquence de passage des billes ? Que peut-on en déduire ?</p>
+  <p class="q"><strong>d)</strong> Un technicien mesure aussi un pic à 200 Hz. Sachant que la fréquence de rotation est 100 tr/s, de quel harmonique s'agit-il ? Proposer une cause mécanique.</p>
+  <p class="q"><strong>e)</strong> La norme EN ISO 10816 préconise une vitesse de vibration maximale de 2,8 mm/s pour une machine de cette classe. Le technicien mesure 3,5 mm/s. Quelle décision prendre ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> 6 000 / 60 = <strong>100 tr/s</strong>.</p>
+    <p><strong>b)</strong> Fréquence de passage des billes = 100 × 12 = <strong>1 200 Hz</strong>.</p>
+    <p><strong>c)</strong> 1 400 Hz ≠ 1 200 Hz. Le pic ne coïncide pas exactement → possible usure ou défaut de forme des billes, ou fréquence de résonance de la carcasse. Diagnostic : remplacement préventif du roulement recommandé.</p>
+    <p><strong>d)</strong> 200 Hz / 100 tr/s = 2 → harmonique de rang 2 (double de la fréquence de rotation). Cause possible : balourd, désalignement d'arbre, excentricité.</p>
+    <p><strong>e)</strong> 3,5 mm/s &gt; 2,8 mm/s → dépassement de la valeur limite. Décision : arrêt de la machine pour inspection et maintenance. Continuer à fonctionner risquerait une casse de roulement et endommagerait la broche.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
 
 </div>
 
@@ -375,6 +494,7 @@ new Chart(ctx, {
   }
 });
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

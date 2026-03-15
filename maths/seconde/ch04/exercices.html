@@ -119,6 +119,122 @@ td.tl{text-align:left}
 </div>
 
 
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés, étape par étape
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="niveau-header niveau-2">
+  <span class="badge-niv badge-2">Niveau 2</span>
+  <h2>Probabilit&eacute;s pas &agrave; pas</h2>
+</div>
+
+<!-- EX S1 -->
+<div class="exo">
+  <div class="exo-num">Exercice 3</div>
+  <div class="exo-titre">Calculer une probabilit&eacute; &mdash; m&eacute;thode guid&eacute;e</div>
+  <div class="methode" style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:10px 0">
+    <strong>M&eacute;thode :</strong> Pour calculer une probabilit&eacute; :<br>
+    &bull; <strong>&Eacute;tape 1 :</strong> Compter le nombre total d&rsquo;issues (= taille de l&rsquo;univers \(\Omega\))<br>
+    &bull; <strong>&Eacute;tape 2 :</strong> Compter les issues favorables<br>
+    &bull; <strong>&Eacute;tape 3 :</strong> Appliquer \(P = \dfrac{\text{nombre de cas favorables}}{\text{nombre total de cas}}\)
+  </div>
+  <div class="enonce">
+    On lance un d&eacute; &agrave; 6 faces &eacute;quilibr&eacute;.<br><br>
+    <strong>Exemple guid&eacute; :</strong> P(obtenir 3)<br>
+    &Eacute;tape 1 : Nombre total d&rsquo;issues = &hellip;&hellip; (combien de faces ?)<br>
+    &Eacute;tape 2 : Issues favorables = \(\{3\}\), soit &hellip;&hellip; issue(s)<br>
+    &Eacute;tape 3 : \(P(3) = \dfrac{\ldots}{\ldots} = \) &hellip;&hellip;<br><br>
+    <strong>&Agrave; toi :</strong><br>
+    <strong>a)</strong> P(obtenir un nombre impair)<br>
+    &Eacute;tape 1 : Total = 6. &Eacute;tape 2 : Issues favorables = \(\{1, 3, 5\}\), soit &hellip;&hellip; issues.<br>
+    &Eacute;tape 3 : \(P(\text{impair}) = \dfrac{\ldots}{6} = \) &hellip;&hellip;<br><br>
+    <strong>b)</strong> P(obtenir un nombre &lt; 5)<br>
+    &Eacute;tape 2 : Issues favorables = \(\{\) &hellip;&hellip;&hellip;&hellip; \(\}\), soit &hellip;&hellip; issues.<br>
+    &Eacute;tape 3 : \(P = \dfrac{\ldots}{6} = \) &hellip;&hellip;
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="Exemple : P(3) = 1/6&#10;a) P(impair) = .../6 = ...&#10;b) P(<5) = .../6 = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Exemple :</strong> Total = 6, favorable = 1. \(P(3) = \frac{1}{6} \approx 0{,}17\).</p>
+      <p><strong>a)</strong> Favorables : \(\{1, 3, 5\}\), soit 3. \(P(\text{impair}) = \frac{3}{6} = \frac{1}{2} = \mathbf{0{,}5}\)</p>
+      <p><strong>b)</strong> Favorables : \(\{1, 2, 3, 4\}\), soit 4. \(P(<5) = \frac{4}{6} = \frac{2}{3} \approx \mathbf{0{,}67}\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX S2 -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <div class="exo-titre">Fr&eacute;quence observ&eacute;e &mdash; guid&eacute;</div>
+  <div class="methode" style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:10px 0">
+    <strong>Rappel :</strong> Fr&eacute;quence = \(\dfrac{\text{nombre de fois o&ugrave; l&rsquo;&eacute;v&eacute;nement se produit}}{\text{nombre total d&rsquo;exp&eacute;riences}}\)
+  </div>
+  <div class="enonce">
+    On lance une pi&egrave;ce 50 fois. On obtient Pile <strong>28 fois</strong>.<br><br>
+    <strong>a)</strong> Fr&eacute;quence observ&eacute;e de Pile :<br>
+    \(f = \dfrac{28}{\ldots} = \) &hellip;&hellip;<br><br>
+    <strong>b)</strong> Probabilit&eacute; th&eacute;orique de Pile (pi&egrave;ce &eacute;quilibr&eacute;e) = &hellip;&hellip;<br><br>
+    <strong>c)</strong> Compare f et P(Pile). Sont-ils &eacute;gaux ? Est-ce normal ?<br>
+    Compl&egrave;te : &laquo;&nbsp;La fr&eacute;quence (0,&hellip;) est __________________ de la probabilit&eacute; (0,5). C&rsquo;est normal car avec seulement &hellip;&hellip; lancers, la fr&eacute;quence __________________ autour de la probabilit&eacute;.&nbsp;&raquo;
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) f = 28/... = ...&#10;b) P(Pile) = ...&#10;c) La fréquence est ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> \(f = \frac{28}{50} = 0{,}56 = 56\%\)</p>
+      <p><strong>b)</strong> \(P(\text{Pile}) = \frac{1}{2} = 0{,}5 = 50\%\)</p>
+      <p><strong>c)</strong> La fr&eacute;quence (0,56) est <strong>proche</strong> de la probabilit&eacute; (0,5). C&rsquo;est normal car avec seulement 50 lancers, la fr&eacute;quence <strong>fluctue</strong> autour de la probabilit&eacute;.</p>
+      <div class="att-corr">Rappel : fr&eacute;quence = observ&eacute;e (r&eacute;elle). Probabilit&eacute; = th&eacute;orique. Elles se rapprochent quand on augmente le nombre d&rsquo;exp&eacute;riences.</div>
+    </div>
+  </details>
+</div>
+
+<!-- EX S3 -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <div class="exo-titre">Contr&ocirc;le qualit&eacute; guid&eacute;</div>
+  <span class="context-tag">Menuiserie &ndash; Contr&ocirc;le qualit&eacute;</span>
+  <div class="enonce">
+    Un atelier re&ccedil;oit <strong>150 planches</strong>. Apr&egrave;s v&eacute;rification, <strong>12</strong> sont d&eacute;fectueuses.<br><br>
+    <strong>a)</strong> Calculer la fr&eacute;quence de d&eacute;faut :<br>
+    \(f = \dfrac{12}{\ldots} = \) &hellip;&hellip; = &hellip;&hellip; %<br><br>
+    <strong>b)</strong> On estime que la probabilit&eacute; de d&eacute;faut est &eacute;gale &agrave; la fr&eacute;quence :<br>
+    \(P(\text{d&eacute;fectueuse}) \approx\) &hellip;&hellip;<br><br>
+    <strong>c)</strong> Sur un prochain lot de 500 planches, combien seront d&eacute;fectueuses ?<br>
+    Nombre pr&eacute;vu = &hellip;&hellip; &times; &hellip;&hellip; = &hellip;&hellip; planches
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) f = 12/150 = ...&#10;b) P ≈ ...&#10;c) 500 × ... = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> \(f = \frac{12}{150} = 0{,}08 = 8\%\)</p>
+      <p><strong>b)</strong> \(P(\text{d&eacute;fectueuse}) \approx 0{,}08\)</p>
+      <p><strong>c)</strong> \(500 \times 0{,}08 = \mathbf{40}\) planches d&eacute;fectueuses.</p>
+      <div class="att-corr">C&rsquo;est une estimation. Le nombre r&eacute;el peut varier l&eacute;g&egrave;rement &agrave; cause de la fluctuation.</div>
+    </div>
+  </details>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- ============================================================ -->
 <!--  NIVEAU 2 – APPLICATION DIRECTE                              -->
 <!-- ============================================================ -->
@@ -272,11 +388,11 @@ td.tl{text-align:left}
 
 
 <!-- ============================================================ -->
-<!--  NIVEAU 4 – PROBLÈMES COMPLETS                               -->
+<!--  NIVEAU 3-4 – PROBLÈMES                                      -->
 <!-- ============================================================ -->
-<div class="niveau-header niveau-4">
-  <span class="badge-niv badge-4">Niveau 4</span>
-  <h2>Probl&egrave;mes complets</h2>
+<div class="niveau-header niveau-3">
+  <span class="badge-niv badge-3">Niveau 3</span>
+  <h2>Probl&egrave;mes contextualis&eacute;s</h2>
 </div>
 
 <!-- EX 7 -->
@@ -319,9 +435,22 @@ td.tl{text-align:left}
   </details>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="niveau-header niveau-4">
+  <span class="badge-niv badge-4">Niveau 4</span>
+  <h2>Probl&egrave;mes complets &ndash; Raisonnement autonome</h2>
+</div>
+
 <!-- EX 8 -->
 <div class="exo">
-  <div class="exo-num">Exercice 8 &#9733;</div>
+  <div class="exo-num">Exercice 8</div>
   <div class="exo-titre">Jeu de cartes &ndash; 32 cartes</div>
   <div class="enonce">
     Un jeu de 32 cartes comporte 8 valeurs (7, 8, 9, 10, Valet, Dame, Roi, As) r&eacute;parties en 4 couleurs (&eacute;gales : pique, c&oelig;ur, carreau, tr&egrave;fle).
@@ -360,6 +489,83 @@ td.tl{text-align:left}
   </details>
 </div>
 
+<!-- EX 9 -->
+<div class="exo">
+  <div class="exo-num">Exercice 9 &#9733;</div>
+  <div class="exo-titre">Contr&ocirc;le qualit&eacute; et intervalle de fluctuation</div>
+  <span class="context-tag">Agencement &ndash; Production industrielle</span>
+  <div class="enonce">
+    Un fabricant de panneaux d&rsquo;agencement affirme que <strong>5&nbsp;%</strong> de ses panneaux pr&eacute;sentent un d&eacute;faut de surface (probabilit&eacute; th&eacute;orique \(p = 0{,}05\)).
+    <br><br>
+    Un menuisier agenceur r&eacute;ceptionne un lot de <strong>200 panneaux</strong> et en contr&ocirc;le chacun. Il d&eacute;tecte <strong>16 panneaux d&eacute;fectueux</strong>.
+    <br><br>
+    <strong>1.</strong> Calculer la fr&eacute;quence de d&eacute;faut observ&eacute;e \(f\) dans ce lot.<br>
+    <strong>2.</strong> Calculer l&rsquo;intervalle de fluctuation au seuil de 95&nbsp;% : \(\left[p - \dfrac{1}{\sqrt{n}}\;;\; p + \dfrac{1}{\sqrt{n}}\right]\) avec \(n = 200\).<br>
+    <strong>3.</strong> La fr&eacute;quence observ&eacute;e appartient-elle &agrave; cet intervalle ? Conclure : le menuisier doit-il contester la qualit&eacute; annonc&eacute;e par le fabricant ?<br>
+    <strong>4.</strong> Si le fabricant avait annonc&eacute; \(p = 0{,}08\) au lieu de 0,05, la conclusion serait-elle diff&eacute;rente ? Justifier.
+  </div>
+  <div class="zone-rep">
+    <label>Ma d&eacute;marche :</label>
+    <textarea placeholder="1. f = .../200 = ...&#10;2. 1/√200 = ... → intervalle [... ; ...]&#10;3. f ∈ intervalle ? → Conclusion...&#10;4. Avec p = 0,08 : intervalle = [...] → ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong> \(f = \dfrac{16}{200} = 0{,}08 = 8\%\).<br><br>
+      <strong>2.</strong> \(\dfrac{1}{\sqrt{200}} \approx 0{,}0707\). Intervalle :
+      \[\left[0{,}05 - 0{,}0707\;;\; 0{,}05 + 0{,}0707\right] = [-0{,}0207\;;\; 0{,}1207]\]
+      On ram&egrave;ne la borne inf&eacute;rieure &agrave; 0 : \(\mathbf{[0\;;\; 0{,}1207]}\).<br><br>
+      <strong>3.</strong> \(f = 0{,}08 \in [0\;;\; 0{,}1207]\). La fr&eacute;quence est dans l&rsquo;intervalle.
+      <div class="corr-rep">&#10004; On ne peut pas remettre en cause l&rsquo;affirmation du fabricant. Le r&eacute;sultat est compatible avec \(p = 0{,}05\).</div>
+      <strong>4.</strong> Avec \(p = 0{,}08\) : intervalle \([0{,}08 - 0{,}0707\;;\; 0{,}08 + 0{,}0707] = [0{,}0093\;;\; 0{,}1507]\).
+      \(f = 0{,}08 \in [0{,}0093\;;\; 0{,}1507]\) : compatible &eacute;galement.
+      <div class="corr-rep">&#10004; Avec \(p = 0{,}08\), la conclusion est identique. La fr&eacute;quence observ&eacute;e est compatible avec les deux hypoth&egrave;ses &mdash; un &eacute;chantillon de 200 ne permet pas de trancher entre 5&nbsp;% et 8&nbsp;%.</div>
+    </div>
+  </details>
+</div>
+
+<!-- EX 10 -->
+<div class="exo">
+  <div class="exo-num">Exercice 10 &#9733;</div>
+  <div class="exo-titre">Deux fournisseurs &ndash; Comparaison statistique</div>
+  <span class="context-tag">Menuiserie &ndash; Gestion des approvisionnements</span>
+  <div class="enonce">
+    Un artisan menuisier commande des charni&egrave;res aupr&egrave;s de deux fournisseurs. Il contr&ocirc;le ses r&eacute;ceptions sur 6 mois :
+    <br><br>
+    <table>
+      <tr><th>Fournisseur</th><th>Pi&egrave;ces re&ccedil;ues</th><th>Pi&egrave;ces d&eacute;fectueuses</th></tr>
+      <tr><td><strong>QuincPro</strong></td><td>500</td><td>18</td></tr>
+      <tr><td><strong>FerraBois</strong></td><td>300</td><td>15</td></tr>
+    </table>
+    <br>
+    <strong>1.</strong> Calculer la fr&eacute;quence de d&eacute;faut pour chaque fournisseur.<br>
+    <strong>2.</strong> QuincPro annonce un taux de d&eacute;faut de 3&nbsp;%. Calculer l&rsquo;intervalle de fluctuation pour \(n = 500\) et \(p = 0{,}03\). La fr&eacute;quence observ&eacute;e est-elle compatible ?<br>
+    <strong>3.</strong> FerraBois annonce un taux de d&eacute;faut de 3&nbsp;% &eacute;galement. Calculer l&rsquo;intervalle pour \(n = 300\) et \(p = 0{,}03\). Conclure.<br>
+    <strong>4.</strong> Quel fournisseur l&rsquo;artisan devrait-il privil&eacute;gier ? R&eacute;diger un avis argument&eacute;.
+  </div>
+  <div class="zone-rep">
+    <label>Ma d&eacute;marche :</label>
+    <textarea placeholder="1. f_Q = .../500 = ...  f_F = .../300 = ...&#10;2. Intervalle QuincPro : [... ; ...] → f ∈ ? ...&#10;3. Intervalle FerraBois : [... ; ...] → f ∈ ? ...&#10;4. Conclusion argumentée : ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9658; Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong> Fr&eacute;quences :
+      \[f_Q = \frac{18}{500} = 0{,}036 = 3{,}6\% \qquad f_F = \frac{15}{300} = 0{,}05 = 5\%\]
+      <strong>2.</strong> QuincPro : \(\frac{1}{\sqrt{500}} \approx 0{,}0447\). Intervalle :
+      \[[0{,}03 - 0{,}0447\;;\; 0{,}03 + 0{,}0447] = [0\;;\; 0{,}0747]\]
+      \(f_Q = 0{,}036 \in [0\;;\; 0{,}0747]\) : compatible avec 3&nbsp;%.
+      <div class="corr-rep">&#10004; QuincPro : fr&eacute;quence observ&eacute;e compatible avec le taux annonc&eacute;.</div>
+      <strong>3.</strong> FerraBois : \(\frac{1}{\sqrt{300}} \approx 0{,}0577\). Intervalle :
+      \[[0{,}03 - 0{,}0577\;;\; 0{,}03 + 0{,}0577] = [0\;;\; 0{,}0877]\]
+      \(f_F = 0{,}05 \in [0\;;\; 0{,}0877]\) : compatible avec 3&nbsp;%.
+      <div class="corr-rep">&#10004; FerraBois : fr&eacute;quence observ&eacute;e compatible &eacute;galement, mais plus &eacute;lev&eacute;e.</div>
+      <strong>4.</strong> Les deux sont statistiquement compatibles avec 3&nbsp;%, mais la fr&eacute;quence de FerraBois (5&nbsp;%) est nettement sup&eacute;rieure &agrave; celle de QuincPro (3,6&nbsp;%). Sur le plan pratique, l&rsquo;artisan devrait privil&eacute;gier <strong>QuincPro</strong> qui a un taux de d&eacute;faut plus faible sur un &eacute;chantillon plus large (donc plus fiable).
+    </div>
+  </details>
+</div>
+
+</div><!-- fin diff-appro -->
 
 <!-- ============================================================ -->
 <!--  BILAN                                                        -->
@@ -388,5 +594,6 @@ td.tl{text-align:left}
 
 </div><!-- fin .c -->
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

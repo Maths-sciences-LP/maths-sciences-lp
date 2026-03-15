@@ -8,7 +8,38 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.niveau-header h2{margin:0;font-size:1.1em;color:inherit}
+.niv1{background:#ebf5ff;border-left:5px solid var(--p);color:#1e40af;padding:10px 14px;border-radius:6px;margin:18px 0 10px;display:flex;align-items:center;gap:12px}
+.niv2{background:#f0fff4;border-left:5px solid var(--s);color:#065f46;padding:10px 14px;border-radius:6px;margin:18px 0 10px;display:flex;align-items:center;gap:12px}
+.niv3{background:#fffbeb;border-left:5px solid var(--o);color:#92400e;padding:10px 14px;border-radius:6px;margin:18px 0 10px;display:flex;align-items:center;gap:12px}
+.niv4{background:#fff5f5;border-left:5px solid var(--d);color:#991b1b;padding:10px 14px;border-radius:6px;margin:18px 0 10px;display:flex;align-items:center;gap:12px}
+.enonce{background:#fff;border-radius:6px;padding:12px 14px;border:1px solid #e2e8f0;margin:10px 0;font-size:.95em}
+.context-tag{display:inline-block;background:#fef3c7;color:#92400e;border-radius:4px;font-size:.72em;font-weight:700;text-transform:uppercase;padding:2px 8px;margin-bottom:8px;letter-spacing:.03em}
+.mama-tag{display:inline-block;background:#e0f2fe;color:#0369a1;border-radius:4px;font-size:.72em;font-weight:700;text-transform:uppercase;padding:2px 8px;margin-bottom:8px;letter-spacing:.03em}
+.zone-rep label{font-size:.85em;color:#718096;font-weight:600;display:block;margin-bottom:4px}
+.zone-rep textarea{width:100%;min-height:70px;border:1px dashed #cbd5e0;border-radius:6px;padding:8px;font-size:.9em;color:var(--t);background:#fff;resize:vertical;box-sizing:border-box;font-family:inherit}
+details.corr-wrap summary{cursor:pointer;font-size:.88em;font-weight:700;color:var(--s);padding:7px 12px;background:#f0fff4;border-radius:6px;border:1px solid #a7f3d0;display:inline-flex;align-items:center;gap:6px;user-select:none}
+details.corr-wrap summary:hover{background:#d1fae5}
+details.corr-wrap[open] summary{border-radius:6px 6px 0 0;background:#d1fae5}
+.corr-body{background:#f0fff4;border:1px solid #a7f3d0;border-radius:0 6px 6px 6px;padding:14px 16px}
+.corr-body p{margin:6px 0}
+.att-corr{background:#fff5f5;border-left:4px solid var(--d);padding:8px 12px;border-radius:0 6px 6px 0;margin:8px 0;font-size:.9em}
+.guide{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin:10px 0}
+.guide-step{display:flex;align-items:flex-start;gap:10px;margin:6px 0}
+.guide-num{background:var(--p);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8em;flex-shrink:0;margin-top:2px}
+.cell-blank{background:#fef9c3;padding:2px 8px;border-radius:4px;font-weight:700;color:#92400e}
+.qcm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0}
+.qcm-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px}
+.qcm-item ul{padding-left:16px;margin:6px 0}
+.qcm-item li{margin:4px 0}
+li.ok{font-weight:700;color:var(--s)}
+.bcq{font-size:.8em;margin-top:8px;padding:4px 12px;cursor:pointer;background:var(--p);color:#fff;border:none;border-radius:4px}
+.qcm-corr{display:none;margin-top:8px;background:#f0fff4;border:1px solid #a7f3d0;border-radius:6px;padding:8px 10px;font-size:.85em}
+.sep{border:none;border-top:2px dashed #e2e8f0;margin:24px 0}
+.etape{display:block;font-weight:700;color:var(--p);margin-top:10px;margin-bottom:2px}
+.methode-box{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:10px 0}
+</style>
 </head>
 <body>
 <div class="c">
@@ -29,7 +60,7 @@
     </ul>
   </div>
 
-  <!-- ===== NIVEAU 1 ===== -->
+  <!-- ===== NIVEAU 1 — COMMUN (tous niveaux) ===== -->
   <div class="niveau-header niv1">
     <span class="badge-niv badge-1">Niveau 1</span>
     <h2>Base — Appliquer directement le théorème</h2>
@@ -167,13 +198,129 @@
 
   <hr class="sep">
 
-  <!-- ===== NIVEAU 2 ===== -->
+  <!-- ================================================================
+       NIVEAU SOCLE — exercices très guidés, étape par étape
+       ================================================================ -->
+  <div class="diff-socle">
+  <span class="tag-socle">Socle</span>
+
+  <div class="niveau-header niv2">
+    <span class="badge-niv badge-2">Niveau 2</span>
+    <h2>Raisonner pas à pas — Thalès guidé</h2>
+  </div>
+
+  <!-- Ex S1 -->
+  <div class="exo">
+    <div class="exo-num">Exercice 4</div>
+    <div class="exo-titre">Calculer AB à l'aide du théorème de Thalès — méthode guidée</div>
+    <div class="methode-box">
+      <strong>Méthode :</strong> Pour trouver une longueur inconnue avec Thalès, on utilise la proportion
+      \(\dfrac{AD}{AB} = \dfrac{AE}{AC}\).<br>
+      On calcule d'abord le rapport connu, puis on résout l'équation pour l'inconnue.
+    </div>
+    <div class="enonce">
+      Dans un triangle ABC, \((DE) \parallel (BC)\), D sur [AB], E sur [AC].<br>
+      On donne : \(AD = 6\) cm, \(AE = 8\) cm, \(AC = 20\) cm. <strong>Calculer AB.</strong><br><br>
+      <strong>Étape 1 :</strong> Identifier le rapport connu (celui sans inconnue) :<br>
+      \(\dfrac{AE}{AC} = \dfrac{8}{20} = \)&hellip;&hellip;&hellip;<br><br>
+      <strong>Étape 2 :</strong> Poser l'égalité de Thalès avec l'inconnue AB :<br>
+      \(\dfrac{AD}{AB} = \dfrac{AE}{AC}\) donc \(\dfrac{6}{AB} = \)&hellip;&hellip;&hellip;<br><br>
+      <strong>Étape 3 :</strong> Résoudre l'équation :<br>
+      \(AB = 6 \div \)&hellip;&hellip; = &hellip;&hellip; cm
+    </div>
+    <div class="zone-rep">
+      <label>Mes calculs :</label>
+      <textarea placeholder="Étape 1 : AE/AC = 8/20 = ...&#10;Étape 2 : 6/AB = ...&#10;Étape 3 : AB = ..."></textarea>
+    </div>
+    <details class="corr-wrap">
+      <summary>&#9654; Voir la correction</summary>
+      <div class="corr-body">
+        <p><strong>Étape 1 :</strong> \(\dfrac{AE}{AC} = \dfrac{8}{20} = \dfrac{2}{5} = 0{,}4\)</p>
+        <p><strong>Étape 2 :</strong> \(\dfrac{6}{AB} = 0{,}4\)</p>
+        <p><strong>Étape 3 :</strong> \(AB = \dfrac{6}{0{,}4} = \mathbf{15 \text{ cm}}\)</p>
+        <p><em>Vérification : \(\dfrac{AD}{AB} = \dfrac{6}{15} = 0{,}4 = \dfrac{AE}{AC}\) ✔</em></p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Ex S2 -->
+  <div class="exo">
+    <div class="exo-num">Exercice 5</div>
+    <div class="exo-titre">Problème en deux étapes — tableau d'aide</div>
+    <div class="enonce">
+      <span class="context-tag">Agencement MAMA</span><br>
+      Un dessinateur en agencement trace un triangle ABC sur son plan. Il place un point D sur [AB] et E sur [AC] de telle sorte que \((DE) \parallel (BC)\).<br>
+      Données : \(AD = 5\) cm, \(DB = 3\) cm, \(AE = 6\) cm, \(DE = 4\) cm.<br><br>
+      <strong>Complète le tableau ci-dessous avant de répondre aux questions :</strong><br>
+      <table>
+        <thead><tr><th>Longueur</th><th>AD</th><th>DB</th><th>AB = AD + DB</th><th>AE</th></tr></thead>
+        <tbody><tr><td>Valeur (cm)</td><td>5</td><td>3</td><td class="cell-blank">?</td><td>6</td></tr></tbody>
+      </table><br>
+      <strong>a)</strong> Calculer AB = AD + DB = &hellip;&hellip; cm<br><br>
+      <strong>b)</strong> Le rapport de Thalès est \(\dfrac{AD}{AB} = \dfrac{5}{?} = \)&hellip;&hellip;<br><br>
+      <strong>c)</strong> En utilisant \(\dfrac{AD}{AB} = \dfrac{AE}{AC}\), calculer AC :<br>
+      \(\dfrac{5}{?} = \dfrac{6}{AC}\) donc \(AC = 6 \times \dfrac{?}{5} = \)&hellip;&hellip; cm<br><br>
+      <strong>d)</strong> En déduire EC = AC &minus; AE = &hellip;&hellip; cm<br><br>
+      <strong>e)</strong> Calculer BC : \(\dfrac{AD}{AB} = \dfrac{DE}{BC}\), donc \(BC = 4 \times \dfrac{?}{5} = \)&hellip;&hellip; cm
+    </div>
+    <div class="zone-rep">
+      <label>Mes calculs :</label>
+      <textarea placeholder="a) AB = 5 + 3 = ...&#10;b) AD/AB = 5/... = ...&#10;c) AC = ...&#10;d) EC = ...&#10;e) BC = ..."></textarea>
+    </div>
+    <details class="corr-wrap">
+      <summary>&#9654; Voir la correction</summary>
+      <div class="corr-body">
+        <p><strong>a)</strong> \(AB = 5 + 3 = \mathbf{8}\) cm</p>
+        <p><strong>b)</strong> \(\dfrac{AD}{AB} = \dfrac{5}{8} = 0{,}625\)</p>
+        <p><strong>c)</strong> \(\dfrac{5}{8} = \dfrac{6}{AC}\) donc \(AC = 6 \times \dfrac{8}{5} = \mathbf{9{,}6}\) cm</p>
+        <p><strong>d)</strong> \(EC = 9{,}6 - 6 = \mathbf{3{,}6}\) cm</p>
+        <p><strong>e)</strong> \(\dfrac{5}{8} = \dfrac{4}{BC}\) donc \(BC = 4 \times \dfrac{8}{5} = \mathbf{6{,}4}\) cm</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- Ex S3 -->
+  <div class="exo">
+    <div class="exo-num">Exercice 6</div>
+    <div class="exo-titre">Réciproque guidée — les droites sont-elles parallèles ?</div>
+    <div class="enonce">
+      <span class="context-tag">Menuiserie MAMA</span><br>
+      Un menuisier vérifie la coupe d'une pièce en bois. Il mesure sur un triangle : \(AD = 4\) cm, \(AB = 12\) cm, \(AE = 5\) cm, \(AC = 15\) cm.<br><br>
+      <strong>Méthode :</strong> Pour utiliser la réciproque de Thalès, on calcule les deux rapports et on les compare.<br><br>
+      <strong>Étape 1 :</strong> Calculer \(\dfrac{AD}{AB} = \dfrac{4}{12} = \)&hellip;&hellip;<br><br>
+      <strong>Étape 2 :</strong> Calculer \(\dfrac{AE}{AC} = \dfrac{5}{15} = \)&hellip;&hellip;<br><br>
+      <strong>Étape 3 :</strong> Les deux rapports sont-ils égaux ? &hellip;&hellip;<br><br>
+      <strong>Conclusion :</strong> D'après la réciproque de Thalès, (DE) &hellip;&hellip; (BC).
+    </div>
+    <div class="zone-rep">
+      <label>Mes calculs :</label>
+      <textarea placeholder="AD/AB = 4/12 = ...&#10;AE/AC = 5/15 = ...&#10;Les rapports sont ... donc (DE) ... (BC)"></textarea>
+    </div>
+    <details class="corr-wrap">
+      <summary>&#9654; Voir la correction</summary>
+      <div class="corr-body">
+        <p><strong>Étape 1 :</strong> \(\dfrac{AD}{AB} = \dfrac{4}{12} = \dfrac{1}{3}\)</p>
+        <p><strong>Étape 2 :</strong> \(\dfrac{AE}{AC} = \dfrac{5}{15} = \dfrac{1}{3}\)</p>
+        <p><strong>Étape 3 :</strong> Les deux rapports sont égaux \(\left(\dfrac{1}{3} = \dfrac{1}{3}\right)\).</p>
+        <p><strong>Conclusion :</strong> D'après la réciproque du théorème de Thalès, \((DE) \parallel (BC)\). ✔</p>
+      </div>
+    </details>
+  </div>
+
+  </div><!-- fin diff-socle -->
+
+  <!-- ================================================================
+       NIVEAU STANDARD — exercices du programme
+       ================================================================ -->
+  <div class="diff-standard">
+  <span class="tag-standard">Standard</span>
+
   <div class="niveau-header niv2">
     <span class="badge-niv badge-2">Niveau 2</span>
     <h2>Guidé — Raisonner par étapes</h2>
   </div>
 
-  <!-- Ex 4 -->
+  <!-- Ex 4 Standard -->
   <div class="exo">
     <div class="exo-num">Exercice 4</div>
     <div class="exo-titre">Calculer AB — guide étapes</div>
@@ -209,7 +356,7 @@
     </div>
   </div>
 
-  <!-- Ex 5 -->
+  <!-- Ex 5 Standard -->
   <div class="exo">
     <div class="exo-num">Exercice 5</div>
     <div class="exo-titre">Réciproque de Thalès — parallèles ou non ?</div>
@@ -227,7 +374,7 @@
     </div>
   </div>
 
-  <!-- Ex 6 -->
+  <!-- Ex 6 Standard -->
   <div class="exo">
     <div class="exo-num">Exercice 6</div>
     <div class="exo-titre">Problème en deux étapes</div>
@@ -252,13 +399,13 @@
 
   <hr class="sep">
 
-  <!-- ===== NIVEAU 3 ===== -->
+  <!-- ===== NIVEAU 3 Standard ===== -->
   <div class="niveau-header niv3">
     <span class="badge-niv badge-3">Niveau 3</span>
     <h2>Application — Raisonner avec des expressions</h2>
   </div>
 
-  <!-- Ex 7 -->
+  <!-- Ex 7 Standard -->
   <div class="exo">
     <div class="exo-num">Exercice 7</div>
     <div class="exo-titre">Thalès avec une inconnue x</div>
@@ -285,7 +432,7 @@
     </div>
   </div>
 
-  <!-- Ex 8 -->
+  <!-- Ex 8 Standard -->
   <div class="exo">
     <div class="exo-num">Exercice 8</div>
     <div class="exo-titre">Hauteur d'un arbre — triangles semblables</div>
@@ -306,18 +453,23 @@
     </div>
   </div>
 
-  <hr class="sep">
+  </div><!-- fin diff-standard -->
 
-  <!-- ===== NIVEAU 4 ===== -->
+  <!-- ================================================================
+       NIVEAU APPROFONDISSEMENT — problèmes ouverts
+       ================================================================ -->
+  <div class="diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+
   <div class="niveau-header niv4">
     <span class="badge-niv badge-4">Niveau 4</span>
     <h2>MAMA — Situations professionnelles</h2>
   </div>
 
-  <!-- Ex 9 -->
+  <!-- Ex 9 Appro -->
   <div class="exo">
     <div class="exo-num">Exercice 9</div>
-    <span class="mama-tag">📐 Agencement</span>
+    <span class="mama-tag">Agencement</span>
     <div class="exo-titre">Lecture d'un plan à l'échelle 1/25</div>
     <p>Un plan d'agencement est réalisé à l'<strong>échelle 1/25</strong> (1 cm sur le plan = 25 cm en réalité).</p>
     <p>Sur le plan :</p>
@@ -349,10 +501,10 @@
     </div>
   </div>
 
-  <!-- Ex 10 -->
+  <!-- Ex 10 Appro -->
   <div class="exo">
     <div class="exo-num">Exercice 10</div>
-    <span class="mama-tag">🪵 Menuiserie</span>
+    <span class="mama-tag">Menuiserie</span>
     <div class="exo-titre">Agrandissement d'un tiroir — effets sur les dimensions, surfaces et volumes</div>
     <p>Un tiroir modèle a pour dimensions : <strong>longueur 30 cm, largeur 20 cm, hauteur 15 cm</strong>.<br>
     On veut fabriquer une version agrandie avec un facteur \(k = 1{,}5\) sur toutes les dimensions.</p>
@@ -379,11 +531,45 @@
       <p>Grand : \(V' = 45 \times 30 \times 22{,}5 = 30\,375 \text{ cm}^3\)</p>
       <p>Facteur : \(\dfrac{30\,375}{9\,000} = 3{,}375 = 1{,}5^3 = k^3\) → les volumes sont multipliés par \(\mathbf{k^3 = 3{,}375}\)</p>
       <span class="etape">d) Coût du fond :</span>
-      <p>Prix au cm² du modèle : \(\dfrac{45}{600} = 0{,}075 \text{ €/cm}^2\)</p>
-      <p>Coût fond grand tiroir : \(1\,350 \times 0{,}075 = \mathbf{101{,}25 \text{ €}}\)</p>
       <p>Ou directement : \(45 \times k^2 = 45 \times 2{,}25 = \mathbf{101{,}25 \text{ €}}\)</p>
     </div>
   </div>
+
+  <!-- Ex 11 Appro -->
+  <div class="exo">
+    <div class="exo-num">Exercice 11 &#11088;</div>
+    <span class="mama-tag">Maintenance automobile</span>
+    <div class="exo-titre">Comparaison de deux fournisseurs de panneaux</div>
+    <p>Un atelier de maintenance automobile doit acheter des panneaux de bois pour son local. Deux fournisseurs proposent :</p>
+    <table>
+      <tr><th>Fournisseur</th><th>Prix unitaire</th><th>Frais de port</th></tr>
+      <tr><td><strong>BoisPro</strong></td><td>14,00 € / panneau</td><td>0 €</td></tr>
+      <tr><td><strong>PanneauxShop</strong></td><td>11,50 € / panneau</td><td>35 € forfait</td></tr>
+    </table>
+    <p class="q"><strong>1.</strong> Écrire le coût total chez chaque fournisseur en fonction de \(x\) (nombre de panneaux).</p>
+    <p class="q"><strong>2.</strong> Pour quelle valeur de \(x\) les deux fournisseurs coûtent-ils <em>le même prix</em> ?</p>
+    <p class="q"><strong>3.</strong> Si l'atelier commande 20 panneaux, quel fournisseur choisir ? Calculer l'économie réalisée.</p>
+    <p class="q"><strong>4.</strong> Un plan des murs de l'atelier est à l'échelle 1/30. Sur le plan, un mur mesure 12 cm. Quelle est sa longueur réelle ? En déduire le nombre minimum de panneaux de 1,20 m de large nécessaires pour couvrir ce mur.</p>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <span class="etape">1. Coûts totaux :</span>
+      <ul style="padding-left:18px;margin:6px 0">
+        <li>BoisPro : \(C_1(x) = 14x\)</li>
+        <li>PanneauxShop : \(C_2(x) = 11{,}50x + 35\)</li>
+      </ul>
+      <span class="etape">2. Même prix :</span>
+      <p>\(14x = 11{,}50x + 35 \Rightarrow 2{,}50x = 35 \Rightarrow x = 14\)</p>
+      <p>Pour <strong>14 panneaux</strong>, les deux fournisseurs coûtent le même prix.</p>
+      <span class="etape">3. Pour 20 panneaux :</span>
+      <p>\(C_1(20) = 14 \times 20 = 280\) € &nbsp;; &nbsp;\(C_2(20) = 11{,}50 \times 20 + 35 = 265\) €</p>
+      <p>Choisir <strong>PanneauxShop</strong>. Économie : \(280 - 265 = \mathbf{15}\) €.</p>
+      <span class="etape">4. Longueur réelle et panneaux :</span>
+      <p>Longueur réelle du mur : \(12 \times 30 = 360\) cm \(= 3{,}60\) m</p>
+      <p>Nombre de panneaux : \(\dfrac{360}{120} = 3\) panneaux exactement.</p>
+    </div>
+  </div>
+
+  </div><!-- fin diff-appro -->
 
 </div>
 
@@ -400,5 +586,6 @@ function showQcm(btn,id){
 }
 </script>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

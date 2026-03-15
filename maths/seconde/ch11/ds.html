@@ -16,6 +16,7 @@
 .partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
 .pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
 .answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.answer-box{border:1px solid #aaa;border-radius:6px;min-height:40px;margin:6px 0;padding:6px 10px;display:block;background:#fafafa}
 .bareme{font-style:italic;color:#718096;font-size:.85em}
 .comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
 .comp-app{background:#dbeafe;color:#1d4ed8}
@@ -25,7 +26,10 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
-@media print{.nb,.bc{display:none}}</style>
+.formule-donnee{background:#fffbeb;border:1px solid #f59e0b;border-radius:6px;padding:10px 14px;margin:8px 0;font-size:.9em}
+.encadre-rep{border:1px dashed #cbd5e0;border-radius:6px;min-height:32px;margin:6px 0;padding:4px 10px;display:block;background:#f8fafc}
+@media print{.nb,.bc{display:none}}
+</style>
 </head>
 <body>
 <div class="c">
@@ -35,6 +39,155 @@
   <h1>Devoir Surveillé – Chapitre 11</h1>
   <p class="sous-titre">Figures planes : périmètres et aires &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
 </header>
+
+
+<!-- ================================================================
+     DS SOCLE — très guidé, formules données, cases à remplir
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div class="formule-donnee">
+  <strong>Formules fournies :</strong><br>
+  &bull; Périmètre du rectangle : \(P = 2 \times (L + l)\)<br>
+  &bull; Aire du rectangle : \(\mathcal{A} = L \times l\)<br>
+  &bull; Périmètre du cercle : \(P = 2 \times \pi \times r\) &nbsp;(\(\pi \approx 3{,}14\))<br>
+  &bull; Aire du disque : \(\mathcal{A} = \pi \times r^2\)<br>
+  &bull; Aire du triangle : \(\mathcal{A} = \dfrac{b \times h}{2}\)<br>
+  &bull; Aire du trapèze : \(\mathcal{A} = \dfrac{(B + b) \times h}{2}\)<br>
+  &bull; Somme des angles d'un triangle : \(\hat{A} + \hat{B} + \hat{C} = 180°\)
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<!-- ===== EXERCICE 1 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Atelier rectangulaire</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un atelier de menuiserie est de forme rectangulaire : longueur \(L = 15\) m, largeur \(l = 8\) m.
+  On souhaite installer un poste de travail circulaire de rayon \(r = 2\) m au centre de l'atelier.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire totale de l'atelier. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="font-size:.9em">Formule : \(\mathcal{A} = L \times l = \ldots \times \ldots = \ldots\) m²</p>
+  <span class="encadre-rep">Réponse : \(\mathcal{A}_{\text{atelier}} = \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; m²</span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire du poste de travail circulaire. Arrondir au centième. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="font-size:.9em">Formule : \(\mathcal{A} = \pi \times r^2 = 3{,}14 \times \ldots^2 = 3{,}14 \times \ldots \approx \ldots\) m²</p>
+  <span class="encadre-rep">Réponse : \(\mathcal{A}_{\text{cercle}} \approx \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; m²</span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> En déduire l'aire utilisable restante. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="font-size:.9em">Aire restante = aire de l'atelier \(-\) aire du cercle \(= \ldots - \ldots = \ldots\) m²</p>
+  <span class="encadre-rep">Réponse : \(\mathcal{A}_{\text{restante}} = \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; m²</span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer le périmètre total de l'atelier et le périmètre du cercle. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="font-size:.9em">Périmètre atelier : \(P = 2 \times (L + l) = 2 \times (\ldots + \ldots) = 2 \times \ldots = \ldots\) m</p>
+  <span class="encadre-rep">Réponse : \(P_{\text{atelier}} = \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; m</span>
+  <p style="font-size:.9em">Périmètre cercle : \(P = 2 \times 3{,}14 \times r = 2 \times 3{,}14 \times \ldots \approx \ldots\) m</p>
+  <span class="encadre-rep">Réponse : \(P_{\text{cercle}} \approx \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; m</span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\mathcal{A}_{\text{atelier}} = 15 \times 8 = \mathbf{120}\) m².</p>
+    <p><strong>2.</strong> \(\mathcal{A}_{\text{cercle}} = \pi \times 2^2 = 3{,}14 \times 4 \approx \mathbf{12{,}57}\) m².</p>
+    <p><strong>3.</strong> \(\mathcal{A}_{\text{restante}} = 120 - 12{,}57 = \mathbf{107{,}43}\) m².</p>
+    <p><strong>4.</strong> \(P_{\text{atelier}} = 2 \times (15 + 8) = 2 \times 23 = \mathbf{46}\) m.&nbsp;&nbsp; \(P_{\text{cercle}} = 2 \times 3{,}14 \times 2 \approx \mathbf{12{,}57}\) m.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Panneau décoratif</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un agenceur doit calculer la surface d'un panneau décoratif composé d'un rectangle de \(60\) cm \(\times\) \(40\) cm surmonté d'un demi-cercle de diamètre \(60\) cm (rayon \(r = 30\) cm).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Faire un schéma annoté de la pièce avec les dimensions. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <div class="answer-box" style="min-height:80px">Zone schéma :</div>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire du rectangle. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <p style="font-size:.9em">Formule : \(\mathcal{A}_{\text{rect}} = L \times l = \ldots \times \ldots = \ldots\) cm²</p>
+  <span class="encadre-rep">Réponse : \(\mathcal{A}_{\text{rect}} = \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; cm²</span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire du demi-cercle. Arrondir au centième. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="font-size:.9em">Rappel : aire d'un demi-disque \(= \dfrac{\pi \times r^2}{2}\)</p>
+  <p style="font-size:.9em">\(\mathcal{A}_{\text{demi}} = \dfrac{3{,}14 \times \ldots^2}{2} = \dfrac{3{,}14 \times \ldots}{2} = \dfrac{\ldots}{2} \approx \ldots\) cm²</p>
+  <span class="encadre-rep">Réponse : \(\mathcal{A}_{\text{demi}} \approx \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; cm²</span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire totale du panneau en cm² puis en m². <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="font-size:.9em">Aire totale (cm²) \(= \ldots + \ldots = \ldots\) cm²</p>
+  <p style="font-size:.9em">Conversion en m² : on divise par \(10\,000\) : \(\ldots \div 10\,000 = \ldots\) m²</p>
+  <span class="encadre-rep">Réponse : \(\mathcal{A}_{\text{total}} = \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; cm² \(= \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; m²</span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-ana">ANA</span> Un pot de peinture couvre 2 m². Combien de panneaux peut-on peindre avec un seul pot ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="font-size:.9em">Nombre de panneaux \(= 2 \div \text{aire d'un panneau} = 2 \div \ldots \approx \ldots\)</p>
+  <p style="font-size:.9em">On prend la partie entière : on peut peindre &#160;&#160;&#160; panneaux complets.</p>
+  <span class="encadre-rep">Réponse : on peut peindre &#160;&#160;&#160;&#160;&#160; panneaux complets avec un pot.</span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Schéma : rectangle 60 × 40 avec un demi-cercle de rayon 30 cm au-dessus.</p>
+    <p><strong>2.</strong> \(\mathcal{A}_{\text{rect}} = 60 \times 40 = \mathbf{2\,400}\) cm².</p>
+    <p><strong>3.</strong> \(\mathcal{A}_{\text{demi}} = \dfrac{3{,}14 \times 30^2}{2} = \dfrac{3{,}14 \times 900}{2} = \dfrac{2\,826}{2} \approx \mathbf{1\,413}\) cm².</p>
+    <p><strong>4.</strong> \(\mathcal{A}_{\text{total}} = 2\,400 + 1\,413 = \mathbf{3\,813}\) cm² \(\approx \mathbf{0{,}38}\) m².</p>
+    <p><strong>5.</strong> \(2 \div 0{,}38 \approx 5{,}26\) donc <strong>5 panneaux complets</strong>.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 SOCLE ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Marches d'escalier</span>
+    <span class="pts">4 points</span>
+  </div>
+
+  <p>Chaque marche d'un escalier a la forme d'un trapèze de grande base \(B = 30\) cm, petite base \(b = 24\) cm et hauteur \(h = 3\) cm.</p>
+
+  <div class="formule-donnee" style="margin:8px 0">
+    Aire du trapèze : \(\mathcal{A} = \dfrac{(B + b) \times h}{2}\)
+  </div>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire d'une marche. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="font-size:.9em">\(\mathcal{A} = \dfrac{(\ldots + \ldots) \times \ldots}{2} = \dfrac{\ldots \times \ldots}{2} = \dfrac{\ldots}{2} = \ldots\) cm²</p>
+  <span class="encadre-rep">Réponse : \(\mathcal{A}_{\text{marche}} = \) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; cm²</span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-com">COM</span> L'escalier comporte 14 marches. Calculer la surface totale de bois nécessaire et exprimer le résultat en m². <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <p style="font-size:.9em">Surface totale (cm²) \(= \mathcal{A}_{\text{marche}} \times 14 = \ldots \times 14 = \ldots\) cm²</p>
+  <p style="font-size:.9em">Conversion en m² : \(\ldots \div 10\,000 = \ldots\) m²</p>
+  <span class="encadre-rep">Réponse : surface totale = &#160;&#160;&#160;&#160;&#160;&#160; cm² = &#160;&#160;&#160;&#160;&#160;&#160; m²</span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\mathcal{A} = \dfrac{(30 + 24) \times 3}{2} = \dfrac{54 \times 3}{2} = \dfrac{162}{2} = \mathbf{81}\) cm².</p>
+    <p><strong>2.</strong> \(81 \times 14 = 1\,134\) cm² \(= \mathbf{0{,}1134}\) m².</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     DS STANDARD — le DS original
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
 
 <div class="dh">
   <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
@@ -51,7 +204,7 @@
   <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
-<!-- ===== EXERCICE 1 ===== -->
+<!-- ===== EXERCICE 1 STANDARD ===== -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Exercice 1 – Atelier rectangulaire</span>
@@ -82,7 +235,7 @@
   </div>
 </div>
 
-<!-- ===== EXERCICE 2 ===== -->
+<!-- ===== EXERCICE 2 STANDARD ===== -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Exercice 2 – Pièce composite</span>
@@ -117,7 +270,7 @@
   </div>
 </div>
 
-<!-- ===== EXERCICE 3 ===== -->
+<!-- ===== EXERCICE 3 STANDARD ===== -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Exercice 3 – Triangle et trapèze</span>
@@ -140,6 +293,135 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, moins guidés, analyse
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<!-- ===== EXERCICE 1 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Aménagement d'un atelier en L</span>
+    <span class="pts">9 points</span>
+  </div>
+
+  <p>Un atelier de menuiserie a une forme en L. Il est composé de deux rectangles :</p>
+  <ul>
+    <li>Zone A (principale) : longueur \(12\) m, largeur \(8\) m</li>
+    <li>Zone B (annexe) : longueur \(5\) m, largeur \(4\) m (dans le prolongement de la largeur de la zone A)</li>
+  </ul>
+  <p>Au centre de la zone A, un poste de travail circulaire de diamètre \(D = 3\) m est installé.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Faire un schéma annoté de l'atelier en L en indiquant toutes les dimensions. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer la surface totale de l'atelier. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer le périmètre de l'atelier en L (6 côtés). Montrer le détail des calculs. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-ana">ANA</span> Calculer l'aire utilisable de la zone A après l'installation du poste circulaire. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Le sol de l'atelier entier (hors poste circulaire) doit être revêtu d'un carrelage vendu en caisses de 2 m². Quel est le nombre minimal de caisses à commander en prévoyant 8 % de chutes ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>2.</strong> \(\mathcal{A} = (12 \times 8) + (5 \times 4) = 96 + 20 = \mathbf{116 \text{ m}^2}\)</p>
+    <p><strong>3.</strong> Côtés de la figure en L : 12 m, 4 m, 5 m, (8−4)=4 m, (12−5)=7 m, 8 m. \(P = 12 + 4 + 5 + 4 + 7 + 8 = \mathbf{40 \text{ m}}\)</p>
+    <p><strong>4.</strong> Rayon du poste : \(r = 3/2 = 1{,}5\) m. \(\mathcal{A}_{\text{poste}} = \pi \times 1{,}5^2 = \pi \times 2{,}25 \approx 7{,}07 \text{ m}^2\). Aire utilisable zone A : \(96 - 7{,}07 \approx \mathbf{88{,}93 \text{ m}^2}\)</p>
+    <p><strong>5.</strong> Surface à couvrir : \(116 - 7{,}07 \approx 108{,}93 \text{ m}^2\). Avec 8 % de chutes : \(108{,}93 \times 1{,}08 \approx 117{,}64 \text{ m}^2\). Nombre de caisses : \(\lceil 117{,}64 / 2 \rceil = \lceil 58{,}82 \rceil = \mathbf{59 \text{ caisses}}\)</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Panneau de façade avec découpes</span>
+    <span class="pts">7 points</span>
+  </div>
+
+  <p>Un agenceur conçoit un panneau de façade composé d'un rectangle de \(80\) cm × \(60\) cm, surmonté d'un demi-cercle de diamètre \(80\) cm. Le panneau comporte également <strong>2 ouvertures rectangulaires</strong> de \(20\) cm × \(15\) cm chacune.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Représenter le panneau en indiquant toutes les dimensions. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire totale de la forme extérieure du panneau (rectangle + demi-cercle), sans tenir compte des ouvertures. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Calculer la surface réelle de matière (après soustraction des 2 ouvertures). Arrondir au cm². <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> Un technicien prétend qu'il faut moins de 0,5 m² de matière pour fabriquer ce panneau. A-t-il raison ? Justifier. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>2.</strong> Rectangle : \(80 \times 60 = 4\,800\) cm². Demi-cercle (rayon 40 cm) : \(\dfrac{\pi \times 40^2}{2} \approx \dfrac{5\,026{,}55}{2} \approx 2\,513{,}27\) cm². Total : \(4\,800 + 2\,513{,}27 \approx \mathbf{7\,313{,}27 \text{ cm}^2}\)</p>
+    <p><strong>3.</strong> Aire des 2 ouvertures : \(2 \times (20 \times 15) = 2 \times 300 = 600\) cm². Surface réelle : \(7\,313{,}27 - 600 \approx \mathbf{6\,713 \text{ cm}^2}\)</p>
+    <p><strong>4.</strong> \(6\,713 \text{ cm}^2 = 0{,}6713 \text{ m}^2 > 0{,}5 \text{ m}^2\). Le technicien a <strong>tort</strong> : il faut environ \(0{,}67 \text{ m}^2\) de matière.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 APPRO ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Analyse géométrique d'un escalier</span>
+    <span class="pts">4 points</span>
+  </div>
+
+  <p>Un escalier droit comporte des marches dont la section est un trapèze rectangle (un angle droit). La grande base mesure \(B = 32\) cm, la petite base mesure \(b = 26\) cm et la hauteur vaut \(h = 18\) cm.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire de la section d'une marche. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-ana">ANA</span> L'escalier comporte 12 marches. La profondeur de chaque marche (dans l'espace) est de 22 cm. Calculer le volume total de bois nécessaire pour les marches en cm³ puis en m³. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-val">VAL</span> Le bois a une masse volumique de \(0{,}70\) kg/dm³. Estimer la masse totale des 12 marches en kg. (Rappel : 1 dm³ = 1 000 cm³) <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\mathcal{A} = \dfrac{(32 + 26) \times 18}{2} = \dfrac{58 \times 18}{2} = \dfrac{1\,044}{2} = \mathbf{522 \text{ cm}^2}\)</p>
+    <p><strong>2.</strong> Volume d'une marche : \(522 \times 22 = 11\,484 \text{ cm}^3\). Volume 12 marches : \(11\,484 \times 12 = \mathbf{137\,808 \text{ cm}^3} = \mathbf{0{,}1378 \text{ m}^3}\)</p>
+    <p><strong>3.</strong> En dm³ : \(137\,808 \div 1\,000 = 137{,}808 \text{ dm}^3\). Masse : \(137{,}808 \times 0{,}70 \approx \mathbf{96{,}5 \text{ kg}}\)</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
+
+</div>
 <script>
 function toggle(btn){
   const corr=btn.nextElementSibling;
@@ -147,7 +429,7 @@ function toggle(btn){
   else{corr.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-</div>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

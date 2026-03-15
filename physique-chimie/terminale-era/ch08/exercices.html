@@ -93,6 +93,127 @@
 <p style="font-size:.85em;color:#718096;margin-top:6px">Une paroi d'indice R réduit le niveau sonore reçu. Ici : L₂ = L₁ − R = 90 − 35 = 55 dB.</p>
 </div>
 
+<!-- CHART MASSE / R -->
+<h2>Loi de masse – Évolution de R avec la masse surfacique</h2>
+<div class="chart-container">
+  <canvas id="chartSon" height="260"></canvas>
+</div>
+
+<!-- ============================================ -->
+<!-- BLOC SOCLE — Exercices très guidés          -->
+<!-- ============================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+<h2>Exercices – Niveau Socle</h2>
+
+<!-- EXERCICE S1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S1</span>
+    <span class="exo-title">Calculer un niveau sonore – Pas à pas</span>
+  </div>
+  <p>Un menuisier agenceur utilise une défonceuse portative qui produit une intensité sonore \(I = 10^{-3} \text{ W/m}^2\) à 1 m de distance.</p>
+  <p><strong>On rappelle :</strong> \(L = 10 \cdot \log\!\left(\dfrac{I}{I_0}\right)\) avec \(I_0 = 10^{-12} \text{ W/m}^2\).</p>
+
+  <p class="q"><strong>Étape 1 :</strong> Compléter le rapport.</p>
+  <p>\(\dfrac{I}{I_0} = \dfrac{10^{-3}}{10^{-12}} = 10^{-3 - (\ldots)} = 10^{\ldots}\)</p>
+
+  <p class="q"><strong>Étape 2 :</strong> Appliquer le logarithme.</p>
+  <p>\(\log(10^{\ldots}) = \ldots\)</p>
+
+  <p class="q"><strong>Étape 3 :</strong> Multiplier par 10 pour obtenir le niveau sonore.</p>
+  <p>\(L = 10 \times \ldots = \ldots \text{ dB}\)</p>
+
+  <p class="q"><strong>Étape 4 :</strong> Ce niveau est-il supérieur au seuil de danger de 85 dB ? Entourer : <strong>OUI / NON</strong></p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong>
+      \[\frac{I}{I_0} = \frac{10^{-3}}{10^{-12}} = 10^{-3-(-12)} = 10^{9}\]
+    </p>
+    <p><strong>Étape 2 :</strong>
+      \[\log(10^{9}) = 9\]
+    </p>
+    <p><strong>Étape 3 :</strong>
+      \[L = 10 \times 9 = \mathbf{90 \text{ dB}}\]
+    </p>
+    <p><strong>Étape 4 :</strong> 90 dB &gt; 85 dB → <strong>OUI</strong>, le seuil de danger est dépassé. Le port de protections auditives est obligatoire.</p>
+  </div>
+</div>
+
+<!-- EXERCICE S2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S2</span>
+    <span class="exo-title">Additionner deux sources identiques – Pas à pas</span>
+  </div>
+  <p>Dans un atelier d'agencement, deux scies circulaires identiques fonctionnent en même temps. Chaque scie produit un niveau sonore \(L = 82 \text{ dB}\).</p>
+  <p><strong>On rappelle :</strong> pour \(n\) sources identiques, \(L_\text{total} = L + 10 \cdot \log(n)\).</p>
+
+  <p class="q"><strong>Étape 1 :</strong> Combien de sources identiques y a-t-il ?</p>
+  <p>\(n = \ldots\)</p>
+
+  <p class="q"><strong>Étape 2 :</strong> Calculer \(\log(n)\).</p>
+  <p>\(\log(2) \approx \ldots\) (valeur donnée : 0,301)</p>
+
+  <p class="q"><strong>Étape 3 :</strong> Compléter le calcul.</p>
+  <p>\(L_\text{total} = 82 + 10 \times 0{,}301 = 82 + \ldots = \ldots \text{ dB}\)</p>
+
+  <p class="q"><strong>Étape 4 :</strong> Le niveau total dépasse-t-il 85 dB ? Entourer : <strong>OUI / NON</strong></p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> \(n = 2\) (deux scies identiques).</p>
+    <p><strong>Étape 2 :</strong> \(\log(2) \approx 0{,}301\).</p>
+    <p><strong>Étape 3 :</strong>
+      \[L_\text{total} = 82 + 10 \times 0{,}301 = 82 + 3{,}01 \approx \mathbf{85 \text{ dB}}\]
+    </p>
+    <p><strong>Étape 4 :</strong> Le niveau total atteint exactement 85 dB → <strong>OUI</strong>, le seuil de danger est atteint. Des mesures de protection sont nécessaires.</p>
+    <p><em>À retenir : deux sources identiques, c'est toujours +3 dB.</em></p>
+  </div>
+</div>
+
+<!-- EXERCICE S3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S3</span>
+    <span class="exo-title">Isolation par une paroi – Pas à pas</span>
+  </div>
+  <p>Un ébéniste travaille dans un atelier où le niveau sonore est \(L_1 = 92 \text{ dB}\). Une cloison sépare l'atelier du bureau de réception des clients. L'indice d'affaiblissement de la cloison est \(R = 30 \text{ dB}\).</p>
+  <p><strong>On rappelle :</strong> \(L_2 = L_1 - R\).</p>
+
+  <p class="q"><strong>Étape 1 :</strong> Compléter le calcul du niveau sonore dans le bureau.</p>
+  <p>\(L_2 = L_1 - R = \ldots - \ldots = \ldots \text{ dB}\)</p>
+
+  <p class="q"><strong>Étape 2 :</strong> Le seuil réglementaire pour un bureau est 65 dB. Comparer.</p>
+  <p>\(L_2 = \ldots \text{ dB}\) et le seuil bureau = 65 dB.</p>
+  <p>On a \(L_2 \ldots 65 \text{ dB}\) (compléter avec &lt; ou &gt;).</p>
+  <p>La cloison est-elle suffisante ? Entourer : <strong>OUI / NON</strong></p>
+
+  <p class="q"><strong>Étape 3 :</strong> Quel indice \(R\) faudrait-il pour atteindre exactement 65 dB dans le bureau ?</p>
+  <p>\(R_\text{min} = L_1 - L_\text{objectif} = \ldots - \ldots = \ldots \text{ dB}\)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong>
+      \[L_2 = L_1 - R = 92 - 30 = \mathbf{62 \text{ dB}}\]
+    </p>
+    <p><strong>Étape 2 :</strong> \(L_2 = 62 \text{ dB}\) et le seuil bureau = 65 dB.
+      <br>On a \(62 < 65\) dB → <strong>OUI</strong>, la cloison est suffisante. Le niveau dans le bureau respecte la réglementation.</p>
+    <p><strong>Étape 3 :</strong>
+      \[R_\text{min} = L_1 - L_\text{objectif} = 92 - 65 = \mathbf{27 \text{ dB}}\]
+      Notre cloison avec \(R = 30\) dB offre une marge de 3 dB, ce qui est confortable.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ============================================ -->
+<!-- BLOC STANDARD — Exercices 1 à 6              -->
+<!-- ============================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- SECTION EXERCICES DE BASE -->
 <h2>Exercices de base</h2>
 
@@ -187,12 +308,6 @@
     </p>
     <p><strong>4.</strong> 76 dB &lt; 85 dB. Le seuil de danger n'est pas dépassé avec 4 machines, mais on reste en zone de vigilance (entre 75 et 85 dB). La mise en place de protections individuelles est recommandée en cas d'exposition prolongée.</p>
   </div>
-</div>
-
-<!-- CHART MASSE / R -->
-<h2>Loi de masse – Évolution de R avec la masse surfacique</h2>
-<div class="chart-container">
-  <canvas id="chartSon" height="260"></canvas>
 </div>
 
 <!-- SECTION EXERCICES GUIDES -->
@@ -302,6 +417,14 @@
     </p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+<!-- ============================================ -->
+<!-- BLOC APPROFONDISSEMENT — Exercices 7 à 9     -->
+<!-- ============================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
 
 <!-- EXERCICE 7 -->
 <div class="exo">
@@ -425,6 +548,8 @@
   </div>
 </div>
 
+</div><!-- fin diff-appro -->
+
 <!-- ENCADRES -->
 <div class="attention">
   <strong>Attention – Les dB ne s'additionnent pas !</strong>
@@ -524,6 +649,7 @@
 
 <script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </div>
 </body>
 </html>

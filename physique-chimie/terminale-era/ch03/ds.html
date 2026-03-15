@@ -65,6 +65,198 @@
   <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
 </table>
 
+<!-- ════════════ SOCLE ════════════ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice unique</span>
+    <span class="exo-title">Contrôle thermique d'un contacteur — Démarche guidée</span>
+    <span class="pts">20 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un technicien de maintenance utilise une caméra thermique pour vérifier l'état d'un contacteur électrique dans une armoire. La caméra mesure une température de surface de \(T_s = 85\,°\text{C}\). Le contacteur a une surface rayonnante \(S = 10\,\text{cm}^2\) et une émissivité \(\varepsilon = 0{,}9\). La température ambiante est \(T_{amb} = 25\,°\text{C}\).
+  </div>
+
+  <div class="donnees">
+    <strong>Données :</strong> Constante de Stefan-Boltzmann : \(\sigma = 5{,}67 \times 10^{-8}\,\text{W·m}^{-2}\text{·K}^{-4}\) — Formule de conversion : \(T(\text{K}) = T(°\text{C}) + 273\) — Loi de Stefan-Boltzmann : \(P = \varepsilon \cdot \sigma \cdot S \cdot T^4\) — Norme IEC 60439 : échauffement maximal autorisé \(\Delta T_{max} = 40\,°\text{C}\)
+  </div>
+
+  <h3>Partie A — Conversion des températures (4 points)</h3>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Compléter la phrase : pour convertir une température de degrés Celsius en Kelvin, on utilise la formule :<br>
+    \(T(\text{K}) = T(°\text{C}) + \) ______
+    <span class="pts-q">1 pt</span>
+  </p>
+  <div class="rep-zone">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(T(\text{K}) = T(°\text{C}) + 273\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Convertir la température du contacteur en Kelvin. Compléter :<br>
+    \(T_s = 85 + \) ______ \(= \) ______ K
+    <span class="pts-q">1,5 pt</span>
+  </p>
+  <div class="rep-zone">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(T_s = 85 + 273 = 358\,\text{K}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-rea">REA</span>
+    Convertir la température ambiante en Kelvin. Compléter :<br>
+    \(T_{amb} = 25 + \) ______ \(= \) ______ K
+    <span class="pts-q">1,5 pt</span>
+  </p>
+  <div class="rep-zone">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(T_{amb} = 25 + 273 = 298\,\text{K}\)</p>
+  </div>
+
+  <h3>Partie B — La loi de Stefan-Boltzmann (4 points)</h3>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-app">APP</span>
+    La loi de Stefan-Boltzmann permet de calculer la puissance rayonnée par un objet. Compléter la formule ci-dessous en plaçant les grandeurs au bon endroit :<br>
+    \(P = \) ______ \(\times\) ______ \(\times\) ______ \(\times T^4\)<br>
+    <em>(Grandeurs à placer : \(\varepsilon\), \(\sigma\), \(S\))</em>
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(P = \varepsilon \times \sigma \times S \times T^4\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">5.</span>
+    <span class="comp comp-app">APP</span>
+    Relier chaque grandeur à sa définition en complétant le tableau :
+    <span class="pts-q">2 pts</span>
+  </p>
+  <table class="bareme-table" style="font-size:.85em;margin:8px 0 14px">
+    <tr><th>Symbole</th><th>Nom</th><th>Unité</th></tr>
+    <tr><td>\(P\)</td><td>______</td><td>______</td></tr>
+    <tr><td>\(\varepsilon\)</td><td>______</td><td>sans unité</td></tr>
+    <tr><td>\(\sigma\)</td><td>constante de Stefan-Boltzmann</td><td>W·m⁻²·K⁻⁴</td></tr>
+    <tr><td>\(S\)</td><td>______</td><td>______</td></tr>
+    <tr><td>\(T\)</td><td>______</td><td>______</td></tr>
+  </table>
+  <div class="rep-zone" style="min-height:20px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(P\) : puissance rayonnée — W (watt)</p>
+    <p>\(\varepsilon\) : émissivité — sans unité (entre 0 et 1)</p>
+    <p>\(S\) : surface rayonnante — m² (mètre carré)</p>
+    <p>\(T\) : température absolue — K (kelvin)</p>
+  </div>
+
+  <h3>Partie C — Calcul guidé de la puissance rayonnée (6 points)</h3>
+
+  <p class="q">
+    <span class="q-num">6.</span>
+    <span class="comp comp-rea">REA</span>
+    Convertir la surface en m². Compléter :<br>
+    \(S = 10\,\text{cm}^2 = 10 \times 10^{-4}\,\text{m}^2 = \) ______ m²
+    <span class="pts-q">1 pt</span>
+  </p>
+  <div class="rep-zone">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(S = 10 \times 10^{-4} = 10^{-3}\,\text{m}^2 = 0{,}001\,\text{m}^2\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">7.</span>
+    <span class="comp comp-rea">REA</span>
+    Remplacer les grandeurs par leurs valeurs dans la formule. Compléter :<br>
+    \(P = \) ______ \(\times 5{,}67 \times 10^{-8} \times\) ______ \(\times (\)______\()^4\)<br>
+    <em>(Valeurs à placer : \(0{,}9\) ; \(10^{-3}\) ; \(358\))</em>
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(P = 0{,}9 \times 5{,}67 \times 10^{-8} \times 10^{-3} \times (358)^4\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">8.</span>
+    <span class="comp comp-rea">REA</span>
+    À l'aide de la calculatrice, calculer \((358)^4\), puis en déduire \(P\). Compléter :<br>
+    \((358)^4 = \) ______<br>
+    \(P = 0{,}9 \times 5{,}67 \times 10^{-8} \times 10^{-3} \times\) ______ \(\approx\) ______ W
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\((358)^4 = 1{,}642 \times 10^{10}\)</p>
+    <p>\(P = 0{,}9 \times 5{,}67 \times 10^{-8} \times 10^{-3} \times 1{,}642 \times 10^{10} \approx 0{,}84\,\text{W}\)</p>
+  </div>
+
+  <h3>Partie D — Conclusion sur l'état du contacteur (6 points)</h3>
+
+  <p class="q">
+    <span class="q-num">9.</span>
+    <span class="comp comp-ana">ANA</span>
+    Calculer l'échauffement du contacteur par rapport à la température ambiante. Compléter :<br>
+    \(\Delta T = T_s - T_{amb} = \) ______ \(- \) ______ \(= \) ______ °C
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\Delta T = 85 - 25 = 60\,°\text{C}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">10.</span>
+    <span class="comp comp-val">VAL</span>
+    Compléter avec &gt; ou &lt; :<br>
+    L'échauffement réel \(\Delta T = \) ______ °C est ______ (supérieur / inférieur) à la limite autorisée \(\Delta T_{max} = 40\,°\text{C}\).
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'échauffement réel \(\Delta T = 60\,°\text{C}\) est <strong>supérieur</strong> à la limite autorisée \(\Delta T_{max} = 40\,°\text{C}\).</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">11.</span>
+    <span class="comp comp-com">COM</span>
+    Cocher la bonne réponse et compléter :<br>
+    ☐ Le contacteur fonctionne normalement, aucune action nécessaire.<br>
+    ☐ Le contacteur présente un échauffement anormal. Il faut ______________________________________.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>☑ Le contacteur présente un échauffement anormal. Il faut <strong>vérifier le serrage des connexions, contrôler la charge et remplacer le contacteur si nécessaire</strong>.</p>
+    <p>La caméra thermique a permis de détecter ce défaut sans arrêter l'installation : c'est l'intérêt de la maintenance préventive.</p>
+  </div>
+</div>
+</div><!-- fin diff-socle -->
+
+<!-- ════════════ STANDARD ════════════ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- EXERCICE 1 -->
 <div class="exo">
   <div class="exo-header">
@@ -211,8 +403,195 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ════════════ APPROFONDISSEMENT ════════════ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- EXERCICE 1 APPRO -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Audit thermique d'un bâtiment industriel</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un bureau d'études ERA réalise l'audit thermique d'un atelier industriel chauffé à \(T_{int} = 20\,°\text{C}\). L'enveloppe du bâtiment comporte trois types de parois extérieures, dont les caractéristiques sont résumées ci-dessous. La température extérieure est \(T_{ext} = 5\,°\text{C}\). On étudie les pertes par rayonnement thermique de chaque paroi vers l'extérieur.
+  </div>
+
+  <div class="donnees">
+    <strong>Données :</strong>
+    \(\sigma = 5{,}67 \times 10^{-8}\,\text{W·m}^{-2}\text{·K}^{-4}\) —
+    Loi de Stefan-Boltzmann : \(P = \varepsilon \cdot \sigma \cdot S \cdot T^4\) —
+    Puissance nette échangée par rayonnement : \(P_{net} = \varepsilon \cdot \sigma \cdot S \cdot (T_1^4 - T_2^4)\)
+  </div>
+
+  <table class="bareme-table" style="font-size:.85em;margin:10px 0 18px">
+    <tr><th>Paroi</th><th>Surface \(S\)</th><th>Émissivité \(\varepsilon\)</th><th>Description</th></tr>
+    <tr><td>Mur béton brut</td><td>120 m²</td><td>0,93</td><td>Façade principale non isolée</td></tr>
+    <tr><td>Bardage métallique</td><td>85 m²</td><td>0,25</td><td>Façade latérale, acier galvanisé</td></tr>
+    <tr><td>Toiture bac acier peint</td><td>200 m²</td><td>0,88</td><td>Toiture sombre, peinture mate</td></tr>
+  </table>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Convertir les températures intérieure et extérieure en Kelvin. Expliquer pourquoi on utilise la formule de puissance nette \(P_{net}\) plutôt que \(P = \varepsilon \sigma S T^4\) pour évaluer les pertes thermiques réelles.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(T_{int} = 20 + 273 = 293\,\text{K}\) ; \(T_{ext} = 5 + 273 = 278\,\text{K}\)</p>
+    <p>On utilise \(P_{net}\) car le rayonnement est un échange : la paroi rayonne vers l'extérieur mais reçoit aussi du rayonnement de l'environnement extérieur. La perte réelle est la différence \(P_{net} = \varepsilon \sigma S (T_{int}^4 - T_{ext}^4)\).</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Calculer la puissance nette perdue par rayonnement \(P_{net}\) pour chacune des trois parois. Présenter les résultats dans un tableau récapitulatif.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:120px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(T_{int}^4 = (293)^4 = 7,370 \times 10^{9}\) ; \(T_{ext}^4 = (278)^4 = 5,972 \times 10^{9}\)</p>
+    <p>\(T_{int}^4 - T_{ext}^4 = 1,398 \times 10^{9}\)</p>
+    <p><strong>Mur béton :</strong> \(P_1 = 0{,}93 \times 5{,}67 \times 10^{-8} \times 120 \times 1{,}398 \times 10^{9} \approx 884\,\text{W}\)</p>
+    <p><strong>Bardage métallique :</strong> \(P_2 = 0{,}25 \times 5{,}67 \times 10^{-8} \times 85 \times 1{,}398 \times 10^{9} \approx 168\,\text{W}\)</p>
+    <p><strong>Toiture :</strong> \(P_3 = 0{,}88 \times 5{,}67 \times 10^{-8} \times 200 \times 1{,}398 \times 10^{9} \approx 1\,395\,\text{W}\)</p>
+    <p><strong>Total :</strong> \(P_{total} \approx 2\,447\,\text{W}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-ana">ANA</span>
+    Le maître d'ouvrage envisage deux solutions d'isolation :<br>
+    <strong>Solution A :</strong> Isoler le mur béton par l'extérieur avec un bardage à faible émissivité (\(\varepsilon = 0{,}15\)), coût : 18 000 €.<br>
+    <strong>Solution B :</strong> Poser un écran réflecteur sous la toiture (\(\varepsilon_{toiture}\) passe de 0,88 à 0,20), coût : 12 000 €.<br>
+    Pour chaque solution, calculer la nouvelle puissance perdue par la paroi concernée et l'économie de puissance réalisée (en W).
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:120px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Solution A</strong> (mur béton \(\varepsilon = 0{,}15\)) :</p>
+    <p>\(P_1' = 0{,}15 \times 5{,}67 \times 10^{-8} \times 120 \times 1{,}398 \times 10^{9} \approx 143\,\text{W}\)</p>
+    <p>Économie : \(884 - 143 = 741\,\text{W}\)</p>
+    <p><strong>Solution B</strong> (toiture \(\varepsilon = 0{,}20\)) :</p>
+    <p>\(P_3' = 0{,}20 \times 5{,}67 \times 10^{-8} \times 200 \times 1{,}398 \times 10^{9} \approx 317\,\text{W}\)</p>
+    <p>Économie : \(1\,395 - 317 = 1\,078\,\text{W}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-val">VAL</span>
+    Calculer le ratio « économie de puissance / coût » (en W/€) pour chaque solution. Quelle solution recommandez-vous en priorité ? Justifier votre choix en tenant compte de l'efficacité économique et de l'impact sur les pertes totales du bâtiment.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Solution A :</strong> \(741 / 18\,000 = 0{,}041\,\text{W/€}\)</p>
+    <p><strong>Solution B :</strong> \(1\,078 / 12\,000 = 0{,}090\,\text{W/€}\)</p>
+    <p>La solution B est recommandée en priorité : elle est 2,2 fois plus rentable (meilleur ratio W/€), moins coûteuse, et concerne la plus grande source de pertes (toiture = 57 % des pertes totales). Elle réduit les pertes totales de 1 078 W, soit une baisse de 44 %.</p>
+  </div>
 </div>
+
+<!-- EXERCICE 2 APPRO -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Choix de matériaux et optimisation du rayonnement</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un ingénieur en conception d'équipements thermiques doit choisir les matériaux de surface pour deux applications opposées. Il dispose de quatre matériaux dont les émissivités sont données ci-dessous. Tous les éléments ont la même surface \(S = 0{,}02\,\text{m}^2\).
+  </div>
+
+  <div class="donnees">
+    <strong>Données :</strong>
+    \(\sigma = 5{,}67 \times 10^{-8}\,\text{W·m}^{-2}\text{·K}^{-4}\) —
+    Loi de Stefan-Boltzmann : \(P = \varepsilon \cdot \sigma \cdot S \cdot T^4\)
+  </div>
+
+  <table class="bareme-table" style="font-size:.85em;margin:10px 0 18px">
+    <tr><th>Matériau</th><th>Émissivité \(\varepsilon\)</th><th>Coût unitaire</th></tr>
+    <tr><td>Aluminium poli</td><td>0,05</td><td>8 €/pièce</td></tr>
+    <tr><td>Acier inoxydable brossé</td><td>0,35</td><td>12 €/pièce</td></tr>
+    <tr><td>Céramique blanche</td><td>0,90</td><td>20 €/pièce</td></tr>
+    <tr><td>Peinture noire mate (sur acier)</td><td>0,97</td><td>14 €/pièce</td></tr>
+  </table>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-rea">REA</span>
+    Calculer la puissance rayonnée \(P\) par chaque matériau à la température \(T = 400\,\text{K}\). Présenter les résultats dans un tableau.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:100px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\((400)^4 = 2{,}56 \times 10^{10}\)</p>
+    <p>Facteur commun : \(\sigma \times S \times T^4 = 5{,}67 \times 10^{-8} \times 0{,}02 \times 2{,}56 \times 10^{10} = 29{,}03\,\text{W}\)</p>
+    <p><strong>Aluminium poli :</strong> \(P = 0{,}05 \times 29{,}03 = 1{,}45\,\text{W}\)</p>
+    <p><strong>Acier inox brossé :</strong> \(P = 0{,}35 \times 29{,}03 = 10{,}16\,\text{W}\)</p>
+    <p><strong>Céramique blanche :</strong> \(P = 0{,}90 \times 29{,}03 = 26{,}13\,\text{W}\)</p>
+    <p><strong>Peinture noire mate :</strong> \(P = 0{,}97 \times 29{,}03 = 28{,}16\,\text{W}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-ana">ANA</span>
+    <strong>Application 1 — Dissipateur thermique :</strong> Un boîtier électronique doit évacuer un maximum de chaleur par rayonnement. Quel matériau choisissez-vous ? Calculer le rapport « puissance dissipée / coût » (en W/€) pour les deux meilleurs candidats et justifier votre choix final.
+    <span class="pts-q">2,5 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Les deux meilleurs émetteurs sont la peinture noire mate (\(P = 28{,}16\,\text{W}\)) et la céramique blanche (\(P = 26{,}13\,\text{W}\)).</p>
+    <p><strong>Peinture noire :</strong> \(28{,}16 / 14 = 2{,}01\,\text{W/€}\)</p>
+    <p><strong>Céramique :</strong> \(26{,}13 / 20 = 1{,}31\,\text{W/€}\)</p>
+    <p>Choix : <strong>peinture noire mate</strong> — elle rayonne davantage (+8 %) pour un coût inférieur (-30 %). Le rapport W/€ est 1,5 fois meilleur.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-ana">ANA</span>
+    <strong>Application 2 — Isolation thermique :</strong> Une canalisation de vapeur à \(T = 450\,\text{K}\) (\(S = 0{,}02\,\text{m}^2\)) doit conserver sa chaleur le plus longtemps possible. Quel matériau de revêtement minimise les pertes par rayonnement ? Calculer la puissance perdue avec ce matériau et comparer au pire choix possible. Exprimer la réduction en pourcentage.
+    <span class="pts-q">2,5 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\((450)^4 = 4{,}10 \times 10^{10}\)</p>
+    <p>Facteur commun : \(\sigma S T^4 = 5{,}67 \times 10^{-8} \times 0{,}02 \times 4{,}10 \times 10^{10} = 46{,}49\,\text{W}\)</p>
+    <p><strong>Meilleur choix (aluminium poli, \(\varepsilon = 0{,}05\)) :</strong> \(P_{min} = 0{,}05 \times 46{,}49 = 2{,}32\,\text{W}\)</p>
+    <p><strong>Pire choix (peinture noire, \(\varepsilon = 0{,}97\)) :</strong> \(P_{max} = 0{,}97 \times 46{,}49 = 45{,}10\,\text{W}\)</p>
+    <p>Réduction : \(\dfrac{45{,}10 - 2{,}32}{45{,}10} \times 100 \approx 94{,}9\,\%\)</p>
+    <p>L'aluminium poli réduit les pertes par rayonnement de près de 95 % par rapport à la peinture noire.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-com">COM</span>
+    Rédiger un paragraphe de synthèse (5 à 8 lignes) expliquant pourquoi le choix du matériau de surface est un levier majeur d'optimisation thermique dans le bâtiment et l'industrie. Illustrer avec les deux applications étudiées et citer au moins un exemple concret supplémentaire du domaine ERA (enveloppe du bâtiment, CVC, etc.).
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:100px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le choix du matériau de surface, via son émissivité, est un levier déterminant pour maîtriser les échanges thermiques par rayonnement. Pour un dissipateur électronique, on privilégie une surface à haute émissivité (peinture noire, \(\varepsilon = 0{,}97\)) pour évacuer la chaleur efficacement. À l'inverse, pour une canalisation de vapeur, un revêtement à faible émissivité (aluminium poli, \(\varepsilon = 0{,}05\)) réduit les pertes de 95 %. Dans le domaine ERA, ce principe s'applique par exemple aux écrans réflecteurs posés derrière les radiateurs : leur surface en aluminium à faible émissivité renvoie le rayonnement thermique vers la pièce au lieu de chauffer le mur. De même, les vitrages à couche basse émissivité (low-E) réduisent les pertes par rayonnement à travers les fenêtres tout en laissant passer la lumière visible.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

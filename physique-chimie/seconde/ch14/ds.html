@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch14 – Lumi&egrave;re, couleurs et photod&eacute;tecteurs – 2de Bac Pro</title>
+<title>DS Ch14 – Lumière, couleurs et photodétecteurs – 2de Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
@@ -16,6 +16,7 @@
 .partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
 .pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
 .answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.answer-box{border:1px dashed #aaa;border-radius:6px;min-height:60px;margin:8px 0;padding:6px;background:#fafafa}
 .bareme{font-style:italic;color:#718096;font-size:.85em}
 .comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
 .comp-app{background:#dbeafe;color:#1d4ed8}
@@ -25,7 +26,9 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
-@media print{.nb,.bc{display:none}}</style>
+.aide-box{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:.9em}
+.aide-box strong{color:#d97706}
+@media print{.nb,.bc{display:none}.diff-socle,.diff-standard,.diff-appro{display:block!important}.tag-socle,.tag-standard,.tag-appro{display:none}}</style>
 </head>
 <body>
 <div class="c">
@@ -35,6 +38,17 @@
   <h1>Devoir Surveill&eacute; &ndash; Chapitre 14</h1>
   <p class="sous-titre">Lumi&egrave;re, couleurs et photod&eacute;tecteurs &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
 </header>
+
+<!-- ================================================================
+     DS SOCLE — très guidé
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div style="background:#f0fff4;border:2px solid #2da44e;border-radius:10px;padding:14px 18px;margin-bottom:20px">
+  <strong style="color:#065f46;font-size:1.05em">DS Socle — Lumière, couleurs et photodétecteurs</strong><br>
+  <span style="font-size:.9em;color:#2d6a4f">Questions guidées avec aide à la résolution</span>
+</div>
 
 <div class="dh">
   <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
@@ -51,7 +65,156 @@
   <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ═══════ PARTIE A ═══════ -->
+<!-- PARTIE A SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Lumi&egrave;re et couleurs</span>
+    <span class="pts">10 pts</span>
+  </div>
+  <p class="bareme">2 pts/question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Le spectre visible va de ………… nm (violet) à ………… nm (rouge). Compléter avec les valeurs 380 et 700.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    La lumi&egrave;re blanche contient-elle toutes les couleurs du spectre visible ? Entourer la bonne r&eacute;ponse :<br>
+    <strong>OUI</strong> &nbsp;/&nbsp; <strong>NON</strong><br>
+    Donner un exemple d'instrument qui décompose la lumière blanche : …………………………
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-app">APP</span>
+    Les trois couleurs primaires en synth&egrave;se additive sont : ……………, ……………, ……………<br>
+    Leur m&eacute;lange donne : ……………
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-ana">ANA</span>
+    <div class="aide-box">
+      <strong>Aide :</strong> Un objet de couleur rouge ne réfléchit que la lumière rouge. S'il n'y a pas de lumière rouge dans le faisceau incident, rien n'est renvoyé vers l'œil.
+    </div>
+    Un panneau de bois teint en rouge est &eacute;clair&eacute; par une lumi&egrave;re bleue. Quelle couleur per&ccedil;oit-on ? ………………………<br>
+    Expliquer : ……………………………………………………………………………………
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-app">APP</span>
+    <div class="aide-box">
+      <strong>Formule :</strong> \(E = \dfrac{\Phi}{S}\) &nbsp; où \(E\) est en lux, \(\Phi\) en lumens, \(S\) en m²
+    </div>
+    Donner la formule de l'&eacute;clairement \(E\) en fonction du flux lumineux \(\Phi\) et de la surface \(S\) :<br>
+    \(E = \) ………………… &nbsp; unités : \(E\) en ……, \(\Phi\) en ……, \(S\) en ……
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le spectre visible va de <strong>380 nm</strong> (violet) à <strong>700 nm</strong> (rouge).</p>
+    <p><strong>2.</strong> OUI, la lumière blanche contient toutes les radiations visibles. On la décompose avec un <strong>prisme</strong> (ou un réseau de diffraction).</p>
+    <p><strong>3.</strong> Les trois couleurs primaires sont : <strong>Rouge, Vert, Bleu</strong>. Leur mélange donne la <strong>lumière blanche</strong>.</p>
+    <p><strong>4.</strong> On perçoit la couleur <strong>noire</strong>. Le panneau rouge ne réfléchit que le rouge ; la lumière bleue ne contient pas de rouge, donc rien n'est réfléchi vers l'œil.</p>
+    <p><strong>5.</strong> \(E = \Phi / S\) ; unités : \(E\) en <strong>lux (lx)</strong>, \(\Phi\) en <strong>lumens (lm)</strong>, \(S\) en <strong>m²</strong>.</p>
+  </div>
+</div>
+
+<!-- PARTIE B SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Photod&eacute;tecteurs et calculs guid&eacute;s</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span> <span class="bareme">(2 pts)</span>
+    <div class="aide-box">
+      <strong>Aide :</strong> Une LDR = Light Dependent Resistor = résistance dépendante de la lumière.
+    </div>
+    Qu'est-ce qu'une photor&eacute;sistance (LDR) ? Entourer la bonne r&eacute;ponse :<br>
+    a) Sa r&eacute;sistance augmente quand l'&eacute;clairement augmente.<br>
+    b) Sa r&eacute;sistance <em>diminue</em> quand l'&eacute;clairement augmente.<br>
+    c) Sa r&eacute;sistance ne change pas.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span> <span class="comp comp-val">VAL</span> <span class="bareme">(4 pts)</span>
+    <div class="aide-box">
+      <strong>Formule à utiliser :</strong> \(E = \dfrac{\Phi}{S}\) &nbsp;→ calculer le résultat, puis comparer à 500 lx.
+    </div>
+    L'atelier d'assemblage d'un menuisier agenceur fait <strong>40 m²</strong>. Les luminaires produisent un flux total de <strong>\(\Phi = 16\,000\)</strong> lm.<br><br>
+    <strong>Étape 1 :</strong> Écrire la formule : \(E = \dfrac{…………}{…………}\)<br>
+    <strong>Étape 2 :</strong> Calculer : \(E = \) ………… lx<br>
+    <strong>Étape 3 :</strong> Comparer à la norme (500 lx minimum pour travail de précision) : est-ce suffisant ? …………
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span> <span class="comp comp-val">VAL</span> <span class="bareme">(2 pts)</span>
+    <div class="aide-box">
+      <strong>Aide :</strong> Efficacité lumineuse = flux (lm) ÷ puissance (W). Plus ce nombre est grand, meilleure est la lampe.
+    </div>
+    Lampe A : 12 W → 1 200 lm. &nbsp;&nbsp; Lampe B : 60 W → 800 lm.<br>
+    Calculer l'efficacité lumineuse de chacune :<br>
+    Lampe A : \(1\,200 \div 12 = \) ………… lm/W<br>
+    Lampe B : \(800 \div 60 = \) ………… lm/W<br>
+    Laquelle est la plus économique ? …………
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-com">COM</span> <span class="bareme">(2 pts)</span>
+    Citer <strong>deux applications</strong> des photodétecteurs dans un atelier de menuiserie :<br>
+    1. …………………………………………………………………………<br>
+    2. …………………………………………………………………………
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Réponse b) : la résistance d'une LDR <strong>diminue</strong> quand l'éclairement augmente.</p>
+    <p><strong>2.</strong> Étape 1 : \(E = \dfrac{16\,000}{40}\). Étape 2 : \(E = \mathbf{400 \text{ lx}}\). Étape 3 : 400 lx &lt; 500 lx → <strong>non, insuffisant</strong> pour un travail de précision.</p>
+    <p><strong>3.</strong> Lampe A : \(1\,200 / 12 = \mathbf{100 \text{ lm/W}}\). Lampe B : \(800 / 60 \approx \mathbf{13{,}3 \text{ lm/W}}\). La <strong>Lampe A</strong> est bien plus économique.</p>
+    <p><strong>4.</strong> Exemples : détecteur de présence pour l'éclairage automatique ; barrière lumineuse d'arrêt d'urgence sur machine ; contrôle qualité optique des panneaux bois.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     DS STANDARD — original
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<div style="background:#dbeafe;border:2px solid #0969da;border-radius:10px;padding:14px 18px;margin-bottom:20px">
+  <strong style="color:#1e40af;font-size:1.05em">DS Standard — Lumière, couleurs et photodétecteurs</strong><br>
+  <span style="font-size:.9em;color:#1e40af">Programme complet — Exercices du Bac Pro</span>
+</div>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP &ndash; S'Approprier</span>
+  <span class="comp comp-ana">ANA &ndash; Analyser</span>
+  <span class="comp comp-rea">REA &ndash; R&eacute;aliser</span>
+  <span class="comp comp-val">VAL &ndash; Valider</span>
+  <span class="comp comp-com">COM &ndash; Communiquer</span>
+</div>
+
+<!-- PARTIE A STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie A &ndash; Lumi&egrave;re blanche, couleurs et sources</span>
@@ -73,7 +236,7 @@
 
   <div class="q">
     <strong>3.</strong> <span class="comp comp-ana">ANA</span>
-    Un objet rouge est &eacute;clair&eacute; par une lumi&egrave;re bleue. Quelle couleur per&ccedil;oit-on ? Expliquer.
+    Un panneau de bois teint en rouge est &eacute;clair&eacute; par une lumi&egrave;re bleue. Quelle couleur per&ccedil;oit-on ? Expliquer.
   </div>
   <span class="answer-line"></span>
 
@@ -91,15 +254,15 @@
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> La lumi&egrave;re blanche est une lumi&egrave;re qui contient toutes les radiations visibles du spectre. On la d&eacute;compose avec un prisme ou un r&eacute;seau de diffraction (arc-en-ciel).</p>
+    <p><strong>1.</strong> La lumi&egrave;re blanche est une lumi&egrave;re qui contient toutes les radiations visibles du spectre. On la d&eacute;compose avec un prisme ou un r&eacute;seau de diffraction.</p>
     <p><strong>2.</strong> Rouge, Vert, Bleu (RVB). Leur m&eacute;lange donne la lumi&egrave;re blanche.</p>
-    <p><strong>3.</strong> L'objet appara&icirc;t noir. L'objet rouge ne r&eacute;fl&eacute;chit que le rouge ; la lumi&egrave;re bleue ne contient pas de rouge, donc rien n'est r&eacute;fl&eacute;chi.</p>
+    <p><strong>3.</strong> L'objet appara&icirc;t noir. Le panneau rouge ne r&eacute;fl&eacute;chit que le rouge ; la lumi&egrave;re bleue ne contient pas de rouge, donc rien n'est r&eacute;fl&eacute;chi.</p>
     <p><strong>4.</strong> Exemple : tubes fluorescents (bonne efficacit&eacute; lumineuse, lumi&egrave;re diffuse uniforme) et LED (faible consommation, longue dur&eacute;e de vie).</p>
     <p><strong>5.</strong> \(E = \Phi / S\), unit&eacute;s : \(E\) en lux (lx), \(\Phi\) en lumens (lm), \(S\) en m&sup2;.</p>
   </div>
 </div>
 
-<!-- ═══════ PARTIE B ═══════ -->
+<!-- PARTIE B STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie B &ndash; Photod&eacute;tecteurs et calculs d'&eacute;clairement</span>
@@ -137,9 +300,170 @@
     <p><strong>1.</strong> Une LDR (Light Dependent Resistor) est un composant semi-conducteur dont la r&eacute;sistance diminue quand l'&eacute;clairement augmente.</p>
     <p><strong>2.</strong> \(E = \Phi / S = 16\,000 / 40 = 400\text{ lx}\). Non, 400 lx est inf&eacute;rieur &agrave; la norme de 500 lx : l'&eacute;clairage est insuffisant pour un travail de pr&eacute;cision.</p>
     <p><strong>3.</strong> Lampe 12 W : \(1\,200 / 12 = 100\text{ lm/W}\). Lampe 60 W : \(800 / 60 \approx 13{,}3\text{ lm/W}\). La lampe de 12 W a un bien meilleur rendement.</p>
-    <p><strong>4.</strong> Exemples : d&eacute;tecteur de pr&eacute;sence pour l'&eacute;clairage automatique, s&eacute;curit&eacute; machine (barri&egrave;re lumineuse d'arr&ecirc;t d'urgence), contr&ocirc;le qualit&eacute; par capteur optique.</p>
+    <p><strong>4.</strong> Exemples : d&eacute;tecteur de pr&eacute;sence pour l'&eacute;clairage automatique, s&eacute;curit&eacute; machine (barri&egrave;re lumineuse), contr&ocirc;le qualit&eacute; par capteur optique.</p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div style="background:#ede9fe;border:2px solid #6f42c1;border-radius:10px;padding:14px 18px;margin-bottom:20px">
+  <strong style="color:#5b21b6;font-size:1.05em">DS Approfondissement — Lumière, couleurs et photodétecteurs</strong><br>
+  <span style="font-size:.9em;color:#6d28d9">Problèmes contextualisés — Niveau BTS / Poursuite d'études</span>
+</div>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP &ndash; S'Approprier</span>
+  <span class="comp comp-ana">ANA &ndash; Analyser</span>
+  <span class="comp comp-rea">REA &ndash; R&eacute;aliser</span>
+  <span class="comp comp-val">VAL &ndash; Valider</span>
+  <span class="comp comp-com">COM &ndash; Communiquer</span>
+</div>
+
+<!-- PARTIE A APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Poste de finition bois : conformité normative</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <p style="background:#f5f0ff;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:.93em;border:1px solid var(--p-border)">
+    <strong>Contexte :</strong> Un atelier de menuiserie d'agencement rénove son poste de finition (lasure, teinture, vernis sur bois). Le responsable technique compare deux solutions d'éclairage pour respecter la norme NF EN 12464-1 (IRC ≥ 90 <em>et</em> \(E \geq 1\,000\) lx pour un poste de contrôle colorimétrique).<br><br>
+    <table>
+      <thead>
+        <tr><th>Solution</th><th>Technologie</th><th>Temp. couleur</th><th>IRC</th><th>Flux (lm)</th><th>Puissance (W)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>A</strong></td><td>LED blanc neutre standard</td><td>4 000 K</td><td>80</td><td>6 000</td><td>60</td></tr>
+        <tr><td><strong>B</strong></td><td>LED lumière du jour haut IRC</td><td>5 500 K</td><td>95</td><td>5 400</td><td>60</td></tr>
+      </tbody>
+    </table>
+    Surface du poste de finition : <strong>12 m²</strong>.
+  </p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Calculer l'éclairement \(E\) produit par chacune des solutions (flux reçu sur 12 m²). Montrer les calculs.
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-val">VAL</span> <span class="bareme">(2 pts)</span>
+    Dresser un tableau de conformité : vérifier pour chaque solution si les deux critères normatifs (IRC ≥ 90 <em>et</em> \(E \geq 1\,000\) lx) sont respectés.
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span> <span class="comp comp-val">VAL</span> <span class="bareme">(2 pts)</span>
+    Le technicien propose d'installer <strong>4 luminaires de la Solution B</strong>. Calculer le nouvel éclairement. Les deux critères normatifs sont-ils maintenant satisfaits ?
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-ana">ANA</span> <span class="comp comp-com">COM</span> <span class="bareme">(2 pts)</span>
+    Expliquer concrètement pourquoi un IRC de 80 pose problème pour le menuisier qui vérifie la teinte d'une lasure. Quel risque cela engendre-t-il pour la satisfaction du client ?
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-ana">ANA</span> <span class="bareme">(2 pts)</span>
+    Distinguer IRC et température de couleur. Pourquoi ces deux paramètres sont-ils <em>tous les deux</em> nécessaires pour un contrôle de teinte fiable ?
+  </div>
+  <div class="answer-box"></div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Solution A : \(E_A = 6\,000 / 12 = \mathbf{500 \text{ lx}}\). Solution B : \(E_B = 5\,400 / 12 = \mathbf{450 \text{ lx}}\).</p>
+    <p><strong>2.</strong></p>
+    <table>
+      <thead><tr><th>Solution</th><th>IRC ≥ 90 ?</th><th>E ≥ 1 000 lx ?</th><th>Conforme ?</th></tr></thead>
+      <tbody>
+        <tr><td>A (IRC=80, E=500 lx)</td><td>Non (80 &lt; 90)</td><td>Non (500 &lt; 1 000)</td><td>Non</td></tr>
+        <tr><td>B (IRC=95, E=450 lx)</td><td>Oui (95 ≥ 90)</td><td>Non (450 &lt; 1 000)</td><td>Non</td></tr>
+      </tbody>
+    </table>
+    <p>Aucune solution n'est conforme en l'état.</p>
+    <p><strong>3.</strong> \(\Phi = 4 \times 5\,400 = 21\,600\) lm. \(E = 21\,600 / 12 = \mathbf{1\,800 \text{ lx}}\). IRC = 95 ≥ 90. <strong>Les deux critères sont satisfaits.</strong></p>
+    <p><strong>4.</strong> Un IRC de 80 signifie que certaines longueurs d'onde ne sont pas fidèlement restituées. Le menuisier perçoit la teinte de la lasure de façon altérée. Une fois la pièce livrée chez le client en lumière naturelle, le décalage de teinte devient visible (bois trop terne, couleur décalée). Le client risque de refuser la commande.</p>
+    <p><strong>5.</strong> L'<strong>IRC</strong> mesure la fidélité de restitution de toutes les couleurs (présence équilibrée de toutes les longueurs d'onde). La <strong>température de couleur</strong> mesure l'équilibre chaud/froid de la source. Un IRC élevé avec une température basse (2 700 K) restituera bien les couleurs mais dans une ambiance jaunâtre, faussant la perception des teintes froides. Les deux paramètres agissent sur des aspects différents de la qualité de la lumière : ils sont complémentaires.</p>
+  </div>
+</div>
+
+<!-- PARTIE B APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Capteur infrarouge sur machine CNC bois</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <p style="background:#f5f0ff;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:.93em;border:1px solid var(--p-border)">
+    <strong>Contexte :</strong> Une machine à commande numérique (CNC) d'usinage du bois est équipée d'un capteur de proximité infrarouge. Il émet à \(\lambda = 940\) nm et mesure la puissance réfléchie par la pièce usinée.<br><br>
+    Loi d'atténuation : \(P_{\text{reçue}} = \dfrac{P_0}{d^2}\) avec \(P_0 = 1{,}2 \times 10^{-3}\) W·m².<br>
+    Courant de photodiode : \(I = k \cdot P_{\text{reçue}}\) avec \(k = 0{,}5\) A/W.<br>
+    Seuil de déclenchement de l'alerte : \(I_{\text{seuil}} = 4{,}0 \times 10^{-5}\) A.
+  </p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span> <span class="bareme">(1 pt)</span>
+    La lumière à 940 nm est-elle visible ? Justifier en comparant à la plage du spectre visible (380–700 nm). Quel avantage présente l'utilisation d'un faisceau IR invisible en atelier ?
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Calculer la puissance reçue par la photodiode à \(d = 0{,}10\) m, puis à \(d = 0{,}20\) m. Que remarque-t-on quand la distance double ? (Donner la loi physique correspondante.)
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Calculer le courant \(I\) généré par la photodiode à \(d = 0{,}10\) m.
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-rea">REA</span> <span class="comp comp-val">VAL</span> <span class="bareme">(3 pts)</span>
+    Calculer la distance maximale de détection \(d_{\text{max}}\) à laquelle le courant atteint exactement \(I_{\text{seuil}}\). Exprimer le résultat en cm. Montrer toutes les étapes de calcul.
+  </div>
+  <div class="answer-box" style="min-height:100px"></div>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-ana">ANA</span> <span class="comp comp-com">COM</span> <span class="bareme">(2 pts)</span>
+    Un film de sciure sur la lentille du capteur réduit la puissance émise de 30 %. Calculer la nouvelle distance maximale \(d_{\text{max}}'\). Analyser l'impact opérationnel pour l'opérateur de la CNC. Quelle consigne de maintenance en déduire ?
+  </div>
+  <div class="answer-box" style="min-height:80px"></div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\lambda = 940\) nm &gt; 700 nm : ce rayonnement est <strong>infrarouge</strong>, donc <strong>invisible</strong> à l'œil nu. Avantage : le faisceau ne gêne pas visuellement l'opérateur, mais cela impose de signaler sa présence lors de la maintenance.</p>
+    <p><strong>2.</strong></p>
+    <p>À \(d = 0{,}10\) m : \(P = \dfrac{1{,}2 \times 10^{-3}}{(0{,}10)^2} = \dfrac{1{,}2 \times 10^{-3}}{0{,}01} = \mathbf{0{,}12 \text{ W}}\)</p>
+    <p>À \(d = 0{,}20\) m : \(P = \dfrac{1{,}2 \times 10^{-3}}{(0{,}20)^2} = \dfrac{1{,}2 \times 10^{-3}}{0{,}04} = \mathbf{0{,}030 \text{ W}}\)</p>
+    <p>Quand la distance double, la puissance est divisée par <strong>4</strong> : c'est la <strong>loi du carré inverse de la distance</strong> (\(P \propto 1/d^2\)).</p>
+    <p><strong>3.</strong> \(I = k \times P = 0{,}5 \times 0{,}12 = \mathbf{6{,}0 \times 10^{-2} \text{ A}} = 60 \text{ mA}\)</p>
+    <p><strong>4.</strong> On cherche \(d_{\text{max}}\) tel que \(I = I_{\text{seuil}}\) :</p>
+    <p>\(I_{\text{seuil}} = k \cdot \dfrac{P_0}{d_{\text{max}}^2}\) donc \(d_{\text{max}}^2 = \dfrac{k \cdot P_0}{I_{\text{seuil}}} = \dfrac{0{,}5 \times 1{,}2 \times 10^{-3}}{4{,}0 \times 10^{-5}} = \dfrac{6{,}0 \times 10^{-4}}{4{,}0 \times 10^{-5}} = 15\)</p>
+    <p>\(d_{\text{max}} = \sqrt{15} \approx 3{,}87 \text{ m} \approx \mathbf{387 \text{ cm}}\)</p>
+    <p><strong>5.</strong> \(P_0' = 0{,}70 \times 1{,}2 \times 10^{-3} = 8{,}4 \times 10^{-4}\) W·m².</p>
+    <p>\(d_{\text{max}}'^2 = \dfrac{0{,}5 \times 8{,}4 \times 10^{-4}}{4{,}0 \times 10^{-5}} = 10{,}5\) → \(d_{\text{max}}' = \sqrt{10{,}5} \approx \mathbf{324 \text{ cm}}\)</p>
+    <p>La portée utile passe de 387 cm à 324 cm (−16 %). Si la CNC doit détecter des pièces au-delà de 3,24 m, la détection échoue <em>silencieusement</em> : la machine ne signale aucune panne mais le capteur est aveugle. Consigne de maintenance : <strong>nettoyer les optiques des capteurs à chaque maintenance préventive</strong>, et vérifier la portée effective après nettoyage.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
 
 <script>
 function toggle(btn){
@@ -148,7 +472,8 @@ function toggle(btn){
   else{corr.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-</div>
-<script src="/nav.js"></script>
+</div><!-- /c -->
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

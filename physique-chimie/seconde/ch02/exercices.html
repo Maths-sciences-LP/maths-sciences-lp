@@ -35,8 +35,8 @@
   Ces exercices portent sur les composants d'un circuit électrique, la tension (U en volts), l'intensité (I en ampères), la lecture des instruments de mesure, la loi des mailles et la loi des nœuds, appliqués à divers contextes professionnels et quotidiens.
 </div>
 
-<!-- ===== SECTION BASE ===== -->
-<h2>Base – Exercices fondamentaux</h2>
+<!-- ===== TRONC COMMUN : NIVEAU 1 ===== -->
+<h2>Base – Exercices fondamentaux <small style="font-size:.7em;color:#718096">(commun à tous)</small></h2>
 <div class="section-intro">Trois exercices pour maîtriser les grandeurs et composants de base.</div>
 
 <!-- EXO 1 -->
@@ -203,6 +203,108 @@
   </div>
 </div>
 
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<h2>Exercices guidés &ndash; Socle</h2>
+<div class="section-intro" style="background:#f0fdf4;border-color:#86efac;color:#14532d">Exercices très guidés avec formules données, tableaux à compléter et calculs amorcés.</div>
+
+<!-- EXO S1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S1</span>
+    <span class="exo-title">Identifier les composants &ndash; tableau à compléter</span>
+  </div>
+  <div class="methode"><strong>Rappel :</strong> Générateur = fournit l'énergie | Récepteur = consomme l'énergie | Interrupteur = ouvre/ferme le circuit.</div>
+  <p>Completez le tableau pour chaque composant :</p>
+  <table>
+    <thead><tr><th>Composant</th><th>Rôle (à compléter)</th><th>Exemple en atelier MAMA</th></tr></thead>
+    <tbody>
+      <tr><td>Batterie 12 V</td><td>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</td><td>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</td></tr>
+      <tr><td>Ampoule LED</td><td>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</td><td>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</td></tr>
+      <tr><td>Interrupteur mural</td><td>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</td><td>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</td></tr>
+      <tr><td>Moteur de scie</td><td>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</td><td>Scie à format</td></tr>
+    </tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Batterie :</strong> Générateur – fournit l'énergie électrique. Exemple : batterie d'un outil sans fil.</p>
+    <p><strong>Ampoule LED :</strong> Récepteur – transforme l'énergie électrique en lumière. Exemple : lampe d'atelier.</p>
+    <p><strong>Interrupteur :</strong> Ouvre ou ferme le circuit (contrôle le courant). Exemple : bouton marche/arrêt d'une machine.</p>
+    <p><strong>Moteur :</strong> Récepteur – transforme l'énergie électrique en énergie mécanique.</p>
+  </div>
+</div>
+
+<!-- EXO S2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S2</span>
+    <span class="exo-title">Conversions d'unités &ndash; guidé étape par étape</span>
+  </div>
+  <div class="methode"><strong>Formules données :</strong><br>
+  1 A = 1 000 mA → pour convertir mA en A : <strong>diviser par 1 000</strong><br>
+  1 kV = 1 000 V → pour convertir V en kV : <strong>diviser par 1 000</strong><br>
+  1 V = 1 000 mV → pour convertir mV en V : <strong>diviser par 1 000</strong></div>
+  <p><strong>1.</strong> Complétez :</p>
+  <table>
+    <thead><tr><th>Valeur de départ</th><th>Opération</th><th>Résultat</th></tr></thead>
+    <tbody>
+      <tr><td>500 mA</td><td>500 ÷ 1 000 =</td><td>&hellip;&hellip;&hellip; A</td></tr>
+      <tr><td>2 000 mA</td><td>2 000 ÷ 1 000 =</td><td>&hellip;&hellip;&hellip; A</td></tr>
+      <tr><td>0,6 kV</td><td>0,6 × 1 000 =</td><td>&hellip;&hellip;&hellip; V</td></tr>
+      <tr><td>9 000 mV</td><td>9 000 ÷ 1 000 =</td><td>&hellip;&hellip;&hellip; V</td></tr>
+    </tbody>
+  </table>
+  <p><strong>2.</strong> Un outil sans fil fonctionne sous 18 V avec une batterie de 2 000 mA·h.<br>
+  Convertir 2 000 mA·h en A·h : &hellip;&hellip;&hellip; A·h<br>
+  Calculer l'énergie : E = tension × capacité = 18 × &hellip;&hellip;&hellip; = &hellip;&hellip;&hellip; Wh</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> 500 mA = <strong>0,5 A</strong> | 2000 mA = <strong>2 A</strong> | 0,6 kV = <strong>600 V</strong> | 9000 mV = <strong>9 V</strong></p>
+    <p><strong>2.</strong> 2000 mA·h = <strong>2 A·h</strong>. E = 18 × 2 = <strong>36 Wh</strong></p>
+  </div>
+</div>
+
+<!-- EXO S3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S3</span>
+    <span class="exo-title">Loi des mailles &ndash; circuit série guidé</span>
+  </div>
+  <div class="methode"><strong>Loi des mailles (circuit série) :</strong><br>
+  \( U_{total} = U_1 + U_2 + U_3 \)<br>
+  Pour trouver \(U_2\) : \( U_2 = U_{total} - U_1 - U_3 \)</div>
+  <p>Un circuit série comporte une batterie de 12 V et trois résistances :</p>
+  <ul>
+    <li>\( U_1 = 4 \text{ V} \)</li>
+    <li>\( U_2 = ? \)</li>
+    <li>\( U_3 = 3 \text{ V} \)</li>
+    <li>Intensité : \( I = 0{,}5 \text{ A} \) (la même partout en série)</li>
+  </ul>
+  <p><strong>1.</strong> Calculer \(U_2\) :</p>
+  <p style="padding-left:1em">\( U_2 = 12 - \ldots\ldots - \ldots\ldots = \) &hellip;&hellip;&hellip; V</p>
+  <p><strong>2.</strong> Calculer les résistances avec \( R = U / I \) :</p>
+  <p style="padding-left:1em">\( R_1 = U_1 / I = 4 / 0{,}5 = \) &hellip;&hellip;&hellip; Ω</p>
+  <p style="padding-left:1em">\( R_2 = \ldots / 0{,}5 = \) &hellip;&hellip;&hellip; Ω</p>
+  <p style="padding-left:1em">\( R_3 = 3 / \ldots = \) &hellip;&hellip;&hellip; Ω</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( U_2 = 12 - 4 - 3 = \mathbf{5 \text{ V}} \)</p>
+    <p><strong>2.</strong> \( R_1 = 4/0{,}5 = \mathbf{8 \text{ Ω}} \) | \( R_2 = 5/0{,}5 = \mathbf{10 \text{ Ω}} \) | \( R_3 = 3/0{,}5 = \mathbf{6 \text{ Ω}} \)</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- ===== SECTION GUIDÉ ===== -->
 <h2>Guidé – Exercices intermédiaires guidés</h2>
 <div class="section-intro">Deux exercices avec étapes fléchées pour appliquer les lois des circuits.</div>
@@ -361,9 +463,17 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
 <!-- ===== SECTION AVANCÉ ===== -->
 <h2>Contexte professionnel – Exercices avancés</h2>
-<div class="section-intro">Diagnostic et installation électrique en atelier de menuiserie et en bâtiment.</div>
+<div class="section-intro">Diagnostic et installation électrique en atelier de menuiserie et en bâtiment. Analyse approfondie.</div>
 
 <!-- EXO 8 -->
 <div class="exo">
@@ -429,6 +539,8 @@
   </div>
 </div>
 
+</div><!-- fin diff-appro -->
+
 </div><!-- fin .c -->
 
 <script>
@@ -475,5 +587,6 @@ new Chart(ctxAuto, {
 });
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

@@ -16,6 +16,7 @@
 .partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
 .pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
 .answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.answer-box{border:1px solid #aaa;border-radius:4px;margin:6px 0;min-height:60px;display:block}
 .bareme{font-style:italic;color:#718096;font-size:.85em}
 .comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
 .comp-app{background:#dbeafe;color:#1d4ed8}
@@ -25,7 +26,9 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
-@media print{.nb,.bc{display:none}}</style>
+.formule-donnee{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:6px;padding:10px 14px;margin:10px 0;font-size:.93em}
+@media print{.nb,.bc,.diff-toggle{display:none}}
+</style>
 </head>
 <body>
 <div class="c">
@@ -51,7 +54,116 @@
   <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ════════ PARTIE A ════════ -->
+
+<!-- ================================================================
+     DS SOCLE — très guidé, formules données, cases à remplir
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="formule-donnee">
+  <strong>Formules donn&eacute;es :</strong><br>
+  P&eacute;riode : \( T = \dfrac{1}{f} \) &nbsp;|&nbsp; Fr&eacute;quence : \( f = \dfrac{1}{T} \)<br>
+  Tension : \( U_{eff} = \dfrac{U_{max}}{1{,}414} \) &nbsp;|&nbsp; \( U_{max} = U_{eff} \times 1{,}414 \)<br>
+  Concentration : \( C_m = \dfrac{m_{solut\acute{e}}}{V_{solution}} \) &nbsp;|&nbsp; \( m = C_m \times V \) &nbsp;|&nbsp; \( V = \dfrac{m}{C_m} \)<br>
+  Dilution : \( C_1 \times V_1 = C_2 \times V_2 \)
+</div>
+
+<!-- PARTIE A SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Concentration massique (10 pts)</span>
+    <span class="pts">10 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    8 g de glucose sont dissous dans 200 mL d'eau. Calculer \( C_m \).<br>
+    Formule : \( C_m = \dfrac{m}{V} = \dfrac{8}{0{,}2} = \) <span class="answer-line"></span> g/L
+  </div>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Solution à \( C_m = 12\,\text{g/L} \), volume = 1,5 L. Calculer la masse de soluté.<br>
+    Formule : \( m = C_m \times V = 12 \times \ldots\ldots = \) <span class="answer-line"></span> g
+  </div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    On dispose de 45 g de sel et on veut une solution à 30 g/L. Quel volume préparer ?<br>
+    Formule : \( V = \dfrac{m}{C_m} = \dfrac{45}{\ldots\ldots} = \) <span class="answer-line"></span> L
+  </div>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    Entourer la bonne réponse :<br>
+    L'eau distillée est un corps pur / un mélange.<br>
+    L'eau minérale est un corps pur / un mélange. (elle contient des sels minéraux)
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-app">APP</span>
+    Compléter la phrase : Diluer une solution, c'est ……………… du solvant.<br>
+    Relation de conservation lors d'une dilution : \( C_1 \times V_1 = \) …………
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(C_m = 8 / 0{,}2 = 40\,\text{g/L}\)</p>
+    <p><strong>2.</strong> \(m = 12 \times 1{,}5 = 18\,\text{g}\)</p>
+    <p><strong>3.</strong> \(V = 45 / 30 = 1{,}5\,\text{L}\)</p>
+    <p><strong>4.</strong> Eau distillée : corps pur. Eau minérale : mélange.</p>
+    <p><strong>5.</strong> Diluer = ajouter du solvant. \(C_1 V_1 = C_2 V_2\).</p>
+  </div>
+</div>
+
+<!-- PARTIE B SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Dilution (10 pts)</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <p>Solution m&egrave;re : \( C_{m1} = 60\,\text{g/L} \). On pr&eacute;l&egrave;ve \( V_1 = 100\,\text{mL} \) pour pr&eacute;parer 600 mL de solution fille.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la masse de soluté prélevée. Formule : \( m = C_{m1} \times V_1 \) <span class="bareme">(3 pts)</span><br>
+    \( m = 60 \times \ldots\ldots = \) <span class="answer-line"></span> g
+  </div>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Calculer \( C_{m2} \) (concentration de la solution fille). <span class="bareme">(4 pts)</span><br>
+    On utilise : \( C_1 V_1 = C_2 V_2 \) → \( C_2 = \dfrac{C_1 \times V_1}{V_2} = \dfrac{60 \times 100}{\ldots\ldots} = \) <span class="answer-line"></span> g/L
+  </div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    Facteur de dilution : \( F = \dfrac{V_2}{V_1} = \dfrac{600}{\ldots\ldots} = \) <span class="answer-line"></span> <span class="bareme">(3 pts)</span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(m = 60 \times 0{,}1 = 6\,\text{g}\)</p>
+    <p><strong>2.</strong> \(C_2 = \dfrac{60 \times 100}{600} = 10\,\text{g/L}\)</p>
+    <p><strong>3.</strong> \(F = 600/100 = 6\) (dilution au sixième)</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     DS STANDARD — le DS original
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<!-- PARTIE A STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie A &ndash; Concentration massique</span>
@@ -91,15 +203,15 @@
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(C_m = 8 / 0{,}2 = 40\) g/L</p>
-    <p><strong>2.</strong> \(m = 12 \times 1{,}5 = 18\) g</p>
-    <p><strong>3.</strong> \(V = 45 / 30 = 1{,}5\) L</p>
+    <p><strong>1.</strong> \(C_m = 8 / 0{,}2 = 40\,\text{g/L}\)</p>
+    <p><strong>2.</strong> \(m = 12 \times 1{,}5 = 18\,\text{g}\)</p>
+    <p><strong>3.</strong> \(V = 45 / 30 = 1{,}5\,\text{L}\)</p>
     <p><strong>4.</strong> Eau distill&eacute;e (corps pur) ; eau min&eacute;rale = m&eacute;lange (contient des sels min&eacute;raux)</p>
     <p><strong>5.</strong> Diluer = ajouter du solvant. \(C_1 V_1 = C_2 V_2\)</p>
   </div>
 </div>
 
-<!-- ════════ PARTIE B ════════ -->
+<!-- PARTIE B STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie B &ndash; Dilution</span>
@@ -128,11 +240,111 @@
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(m = 60 \times 0{,}1 = 6\) g</p>
-    <p><strong>2.</strong> \(C_{m2} = 6 / 0{,}6 = 10\) g/L (ou \(C_1 V_1 = C_2 V_2\) : \(60 \times 100 = C_2 \times 600 \Rightarrow C_2 = 10\) g/L)</p>
+    <p><strong>1.</strong> \(m = 60 \times 0{,}1 = 6\,\text{g}\)</p>
+    <p><strong>2.</strong> \(C_{m2} = 6 / 0{,}6 = 10\,\text{g/L}\) (ou \(C_1 V_1 = C_2 V_2\) : \(60 \times 100 = C_2 \times 600 \Rightarrow C_2 = 10\,\text{g/L}\))</p>
     <p><strong>3.</strong> \(F = 600 / 100 = 6\) (dilution au sixi&egrave;me)</p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, moins guidés
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- PARTIE A APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Compositions chimiques en atelier</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Un technicien en agencement prépare une solution de vernis dilué. Il dissout 24 g de résine dans 400 mL de solvant. Calculer la concentration massique \( C_m \) de la solution.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span> <span class="bareme">(2 pts)</span>
+    La fiche technique du vernis indique une concentration d'application de 40 g/L. La solution préparée est-elle conforme ? Justifier. Si non, que faut-il faire ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Un menuisier prépare une solution de traitement du bois (insecticide) à \( C_m = 15\,\text{g/L} \) en volume \( V = 2\,\text{L} \). Calculer la masse d'insecticide à peser, puis décrire le protocole de préparation (étapes ordonnées, matériel, précautions).
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-box"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span> <span class="bareme">(3 pts)</span>
+    Distinguer les notions de : corps pur, mélange homogène, mélange hétérogène. Donner un exemple de chacun tiré d'un atelier de menuiserie ou d'agencement.
+  </div>
+  <span class="answer-box"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( C_m = \dfrac{24}{0{,}4} = 60\,\text{g/L} \)</p>
+    <p><strong>2.</strong> \( 60\,\text{g/L} \neq 40\,\text{g/L} \) → solution trop concentrée. Il faut diluer : ajouter du solvant jusqu'à atteindre 40 g/L. Volume final nécessaire : \( V_2 = \dfrac{m}{C_2} = \dfrac{24}{40} = 0{,}6\,\text{L} = 600\,\text{mL} \), donc ajouter 200 mL de solvant supplémentaire.</p>
+    <p><strong>3.</strong> \( m = C_m \times V = 15 \times 2 = 30\,\text{g} \). Protocole : 1. Peser 30 g d'insecticide sur une balance. 2. Verser dans une fiole jaugée de 2 L. 3. Ajouter de l'eau progressivement en remuant. 4. Compléter jusqu'au trait de jauge. 5. Boucher et agiter. Précautions : EPI (gants, lunettes), étiqueter le flacon, ne pas inhaler les vapeurs.</p>
+    <p><strong>4.</strong> Corps pur : une seule espèce chimique (ex : eau distillée, solvant acétone pur). Mélange homogène : composition uniforme partout (ex : vernis dilué = résine + solvant bien mélangés). Mélange hétérogène : phases visibles distinctes (ex : sciure dans de l'eau, peinture non agitée avec pigments qui sédimentent).</p>
+  </div>
+</div>
+
+<!-- PARTIE B APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Dilutions en série et analyse</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <p>Un technicien de laboratoire prépare des solutions de traitement du bois par dilutions successives à partir d'une solution mère de concentration \( C_0 = 200\,\text{g/L} \).</p>
+  <p><strong>Dilution 1 :</strong> On prélève \( V_1 = 50\,\text{mL} \) de la solution mère et on complète à \( V_{tot1} = 500\,\text{mL} \).</p>
+  <p><strong>Dilution 2 :</strong> On prélève \( V_2 = 100\,\text{mL} \) de la solution de dilution 1 et on complète à \( V_{tot2} = 400\,\text{mL} \).</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Calculer la concentration \( C_1 \) après la première dilution.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Calculer la concentration \( C_2 \) après la deuxième dilution.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span> <span class="bareme">(2 pts)</span>
+    Calculer le facteur de dilution global (de \( C_0 \) à \( C_2 \)) et vérifier en le calculant directement comme \( F = C_0 / C_2 \).
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span> <span class="bareme">(2 pts)</span>
+    La fiche technique du produit de traitement indique une concentration d'application de \( 10\,\text{g/L} \). La solution finale (\( C_2 \)) est-elle utilisable directement ? Si non, proposer une modification du protocole.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( C_1 = \dfrac{C_0 \times V_1}{V_{tot1}} = \dfrac{200 \times 50}{500} = \dfrac{10\,000}{500} = 20\,\text{g/L} \)</p>
+    <p><strong>2.</strong> \( C_2 = \dfrac{C_1 \times V_2}{V_{tot2}} = \dfrac{20 \times 100}{400} = \dfrac{2\,000}{400} = 5\,\text{g/L} \)</p>
+    <p><strong>3.</strong> Facteur dilution 1 : \( F_1 = 500/50 = 10 \). Facteur dilution 2 : \( F_2 = 400/100 = 4 \). Facteur global : \( F = F_1 \times F_2 = 10 \times 4 = 40 \). Vérification : \( C_0/C_2 = 200/5 = 40 \) ✓</p>
+    <p><strong>4.</strong> \( C_2 = 5\,\text{g/L} < 10\,\text{g/L} \) → solution trop diluée, pas directement utilisable. Solution : à la dilution 2, utiliser \( V_{tot2} = 200\,\text{mL} \) au lieu de 400 mL : \( C_2 = 20 \times 100 / 200 = 10\,\text{g/L} \) ✓. Ou reprendre depuis la solution mère avec de nouveaux volumes de prélèvement.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 
 <script>
 function toggle(btn){
@@ -142,6 +354,7 @@ function toggle(btn){
 }
 </script>
 </div>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

@@ -37,8 +37,8 @@ svg-wrap{display:flex;justify-content:center;margin:16px 0}</style>
   Ces exercices portent sur les pictogrammes GHS/SGH, les phrases H et P, les EPI, la sécurité électrique, les lasers, les niveaux sonores et le tri des déchets chimiques en atelier de menuiserie.
 </div>
 
-<!-- ===== SECTION BASE ===== -->
-<h2>Base – Exercices fondamentaux</h2>
+<!-- ===== TRONC COMMUN : NIVEAU 1 ===== -->
+<h2>Base – Exercices fondamentaux <small style="font-size:.7em;color:#718096">(commun à tous)</small></h2>
 <div class="section-intro">Trois exercices pour maîtriser les notions essentielles de sécurité.</div>
 
 <!-- EXO 1 -->
@@ -176,6 +176,106 @@ svg-wrap{display:flex;justify-content:center;margin:16px 0}</style>
     <p><strong>3.</strong> Non, on ne jette pas la bombe à la poubelle ordinaire. Elle doit être déposée dans une filière de collecte spécialisée (déchetterie, bac à déchets dangereux atelier – DDS). Elle peut encore contenir du gaz sous pression et présenter un risque d'explosion dans un incinérateur classique.</p>
   </div>
 </div>
+
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés, étape par étape
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<h2>Exercices guidés &ndash; Socle</h2>
+<div class="section-intro" style="background:#f0fdf4;border-color:#86efac;color:#14532d">Exercices très guidés avec étapes détaillées, formules rappelées et cases à compléter. Idéal pour consolider les bases.</div>
+
+<!-- EXO S1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S1</span>
+    <span class="exo-title">Associer pictogramme et danger &ndash; tableau guidé</span>
+  </div>
+  <div class="methode"><strong>Aide :</strong> Les pictogrammes GHS sont des losanges rouges avec un symbole noir.<br>
+  Inflammable = flamme | Corrosif = tube qui coule | Nocif/Toxique = t&ecirc;te de mort | Danger environnement = arbre + poisson.</div>
+  <p>Compl&eacute;tez le tableau ci-dessous en cochant la bonne case :</p>
+  <table>
+    <thead><tr><th>Pictogramme</th><th>Danger principal</th><th>Exemple en atelier MAMA</th></tr></thead>
+    <tbody>
+      <tr><td>Flamme rouge</td><td>&#9744; Inflammable &nbsp; &#9744; Corrosif &nbsp; &#9744; Toxique</td><td>White-spirit ou &hellip;&hellip;&hellip;</td></tr>
+      <tr><td>T&ecirc;te de mort</td><td>&#9744; Inflammable &nbsp; &#9744; Corrosif &nbsp; &#9744; Toxique</td><td>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</td></tr>
+      <tr><td>Tube qui coule sur surface</td><td>&#9744; Inflammable &nbsp; &#9744; Corrosif &nbsp; &#9744; Toxique</td><td>D&eacute;capant bois ou &hellip;&hellip;&hellip;</td></tr>
+      <tr><td>Arbre + poisson</td><td>&#9744; Danger env. &nbsp; &#9744; Inflammable &nbsp; &#9744; Gaz</td><td>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</td></tr>
+    </tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Ligne 1 :</strong> Inflammable – white-spirit, diluant.</p>
+    <p><strong>Ligne 2 :</strong> Nocif/Toxique – certains vernis, solvants.</p>
+    <p><strong>Ligne 3 :</strong> Corrosif – d&eacute;capant chimique pour bois.</p>
+    <p><strong>Ligne 4 :</strong> Danger environnement – huile de protection du bois, produit de traitement.</p>
+  </div>
+</div>
+
+<!-- EXO S2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S2</span>
+    <span class="exo-title">Choisir son EPI &ndash; étapes guidées</span>
+  </div>
+  <div class="methode"><strong>Méthode en 2 étapes :</strong><br>
+  &bull; Étape 1 : Identifier le risque (chimique, mécanique, bruit, projection).<br>
+  &bull; Étape 2 : Choisir l'EPI adapté parmi : gants, lunettes, masque FFP2, masque vapeurs, casque anti-bruit, tablier, chaussures de sécu.</div>
+  <p>Completez le tableau pour chaque tâche en atelier MAMA :</p>
+  <table>
+    <thead><tr><th>Tâche</th><th>Risque (à compléter)</th><th>EPI (à compléter)</th></tr></thead>
+    <tbody>
+      <tr><td>Ponçage orbital (bois)</td><td>Poussières de bois = risque d'&hellip;&hellip;&hellip;</td><td>Masque &hellip;&hellip; + &hellip;&hellip;&hellip;&hellip;</td></tr>
+      <tr><td>Application de vernis</td><td>Vapeurs chimiques = risque &hellip;&hellip;&hellip;</td><td>Gants &hellip;&hellip; + masque &hellip;&hellip;&hellip;</td></tr>
+      <tr><td>Découpe à la scie à format</td><td>Projections de copeaux = risque &hellip;&hellip;</td><td>&hellip;&hellip;&hellip;&hellip; de protection</td></tr>
+    </tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Ponçage :</strong> Risque d'inhalation de poussières cancérogènes → Masque FFP2 + lunettes de protection.</p>
+    <p><strong>Vernis :</strong> Risque chimique par inhalation de vapeurs → Gants nitrile + masque à cartouche vapeurs organiques + lunettes.</p>
+    <p><strong>Scie à format :</strong> Risque de projection de copeaux et bruit élevé → Lunettes de protection + casque anti-bruit.</p>
+  </div>
+</div>
+
+<!-- EXO S3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S3</span>
+    <span class="exo-title">Lire une phrase H et P &ndash; très guidé</span>
+  </div>
+  <p>Voici un extrait de fiche de sécurité (FDS) d'un white-spirit :</p>
+  <div style="background:#f7f7f7;border:1px solid #ccc;border-radius:6px;padding:10px 14px;font-size:.9em;font-family:monospace;margin:10px 0">
+    H226 : Liquide et vapeurs inflammables.<br>
+    H336 : Peut provoquer somnolence ou vertiges.<br>
+    P210 : Tenir à l'écart de la chaleur et des flammes.<br>
+    P271 : Utiliser seulement en endroit bien ventilé.
+  </div>
+  <p><strong>1.</strong> Le H dans « H226 » signifie :</p>
+  <p style="padding-left:1em">&#9744; Hazard (danger) &nbsp;&nbsp; &#9744; Help (aide) &nbsp;&nbsp; &#9744; Haute tension</p>
+  <p><strong>2.</strong> Le P dans « P210 » signifie :</p>
+  <p style="padding-left:1em">&#9744; Précaution &nbsp;&nbsp; &#9744; Produit &nbsp;&nbsp; &#9744; Pression</p>
+  <p><strong>3.</strong> D'après H336, quel danger court un menuisier qui utilise du white-spirit dans un local fermé ?</p>
+  <p style="padding-left:1em">Réponse : Il risque des &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip; ou des &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</p>
+  <p><strong>4.</strong> D'après P271, quelle condition est indispensable avant d'utiliser ce produit ?</p>
+  <p style="padding-left:1em">Réponse : Travailler dans un endroit &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> H = Hazard (danger).</p>
+    <p><strong>2.</strong> P = Precautionary (précaution).</p>
+    <p><strong>3.</strong> Il risque des somnolences ou des vertiges (intoxication par inhalation).</p>
+    <p><strong>4.</strong> Travailler dans un endroit bien ventilé (fenêtre ouverte, ventilateur, porte ouverte).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme (anciens guidé + application)
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
 
 <!-- ===== SECTION GUIDÉ ===== -->
 <h2>Guidé – Exercices intermédiaires guidés</h2>
@@ -343,9 +443,17 @@ svg-wrap{display:flex;justify-content:center;margin:16px 0}</style>
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
 <!-- ===== SECTION AVANCÉ ===== -->
 <h2>Contexte professionnel – Exercices avancés</h2>
-<div class="section-intro">Exercices contextualisés dans l'univers de la menuiserie et de l'agencement.</div>
+<div class="section-intro">Exercices contextualisés dans l'univers de la menuiserie et de l'agencement. Analyse approfondie et mise en situation complexe.</div>
 
 <!-- EXO 8 -->
 <div class="exo">
@@ -433,6 +541,8 @@ svg-wrap{display:flex;justify-content:center;margin:16px 0}</style>
   </div>
 </div>
 
+</div><!-- fin diff-appro -->
+
 </div><!-- fin .c -->
 
 <script>
@@ -480,5 +590,6 @@ new Chart(ctxSon, {
 });
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

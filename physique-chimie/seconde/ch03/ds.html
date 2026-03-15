@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch03 – Loi d'Ohm et &eacute;quilibre d'un solide – 2de Bac Pro</title>
+<title>DS Ch03 – Loi d'Ohm et équilibre d'un solide – 2de Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
@@ -16,6 +16,7 @@
 .partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
 .pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
 .answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.answer-box{border:1px solid #aaa;border-radius:4px;margin:6px 0;min-height:52px;display:block}
 .bareme{font-style:italic;color:#718096;font-size:.85em}
 .comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
 .comp-app{background:#dbeafe;color:#1d4ed8}
@@ -25,7 +26,9 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
-@media print{.nb,.bc{display:none}}</style>
+.formule-donnee{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:6px;padding:10px 14px;margin:10px 0;font-size:.93em}
+@media print{.nb,.bc,.diff-toggle{display:none}}
+</style>
 </head>
 <body>
 <div class="c">
@@ -51,7 +54,123 @@
   <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ════════ PARTIE A ════════ -->
+
+<!-- ================================================================
+     DS SOCLE — très guidé, formules données, cases à remplir
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="formule-donnee">
+  <strong>Formules donn&eacute;es :</strong><br>
+  Poids : \( P = m \times g \) &nbsp;|&nbsp; Masse : \( m = \dfrac{P}{g} \) &nbsp;|&nbsp; \( g = 9{,}8\,\text{N/kg} \)<br>
+  &Eacute;quilibre : somme des forces = 0. Verticalement : \( R = P \). Horizontalement : \( f = T \).
+</div>
+
+<!-- PARTIE A SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Poids et masse (8 pts)</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer le poids d'un objet de 12 kg. Formule : \( P = m \times g \)<br>
+    \( P = \ldots\ldots \times 9{,}8 = \) <span class="answer-line"></span>
+  </div>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la masse d'un objet pesant 294 N. Formule : \( m = \dfrac{P}{g} \)<br>
+    \( m = \dfrac{294}{\ldots\ldots} = \) <span class="answer-line"></span>
+  </div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    Sur la Lune (\( g = 1{,}6\,\text{N/kg} \)) pour un objet de masse 30 kg :<br>
+    La masse change-t-elle sur la Lune ? (entourer) &nbsp; OUI &nbsp; / &nbsp; NON<br>
+    Son poids sur la Lune : \( P_{Lune} = 30 \times \ldots\ldots = \) <span class="answer-line"></span>
+  </div>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-rea">REA</span>
+    Poids d'un sac de 25 kg : \( P = 25 \times 9{,}8 = \) <span class="answer-line"></span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = 12 \times 9{,}8 = 117{,}6\,\text{N}\)</p>
+    <p><strong>2.</strong> \(m = 294 / 9{,}8 = 30\,\text{kg}\)</p>
+    <p><strong>3.</strong> Non, la masse ne change pas. \(P_{Lune} = 30 \times 1{,}6 = 48\,\text{N}\)</p>
+    <p><strong>4.</strong> \(P = 25 \times 9{,}8 = 245\,\text{N}\)</p>
+  </div>
+</div>
+
+<!-- PARTIE B SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; &Eacute;quilibre d'une caisse (12 pts)</span>
+    <span class="pts">12 pts</span>
+  </div>
+
+  <p>Une caisse de 40 kg est pos&eacute;e sur le sol. On tire dessus avec une corde horizontale avec une force \( T = 80\,\text{N} \). Elle ne bouge pas.</p>
+
+  <div class="formule-donnee">
+    Forces appliqu&eacute;es sur la caisse :
+    <ul>
+      <li>Poids \( P \) vers le <strong>bas</strong></li>
+      <li>R&eacute;action du sol \( R \) vers le <strong>haut</strong></li>
+      <li>Tension de la corde \( T \) vers la <strong>droite</strong></li>
+      <li>Frottement \( f \) vers la <strong>gauche</strong></li>
+    </ul>
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer le poids de la caisse. <span class="bareme">(3 pts)</span><br>
+    \( P = 40 \times 9{,}8 = \) <span class="answer-line"></span>
+  </div>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Compléter la liste des forces exercées sur la caisse en précisant le sens de chacune. <span class="bareme">(3 pts)</span><br>
+    Force 1 : Poids \( P = \ldots\ldots\,\text{N} \), direction : <span class="answer-line"></span><br>
+    Force 2 : Réaction \( R = \ldots\ldots\,\text{N} \), direction : <span class="answer-line"></span><br>
+    Force 3 : Tension \( T = \ldots\ldots\,\text{N} \), direction : <span class="answer-line"></span><br>
+    Force 4 : Frottement \( f = \ldots\ldots\,\text{N} \), direction : <span class="answer-line"></span>
+  </div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    La caisse est en équilibre vertical. Cela signifie : \( R = P = \) <span class="answer-line"></span> N. <span class="bareme">(3 pts)</span>
+  </div>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span>
+    La caisse est en équilibre horizontal. Cela signifie : \( f = T = \) <span class="answer-line"></span> N, dans le sens (entourer) : GAUCHE / DROITE. <span class="bareme">(3 pts)</span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = 40 \times 9{,}8 = 392\,\text{N}\)</p>
+    <p><strong>2.</strong> Poids 392 N vers le bas ; Réaction 392 N vers le haut ; Tension 80 N vers la droite ; Frottement 80 N vers la gauche.</p>
+    <p><strong>3.</strong> \(R = P = 392\,\text{N}\) (équilibre vertical)</p>
+    <p><strong>4.</strong> \(f = T = 80\,\text{N}\), sens : GAUCHE (opposé à T). Équilibre horizontal.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     DS STANDARD — le DS original
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<!-- PARTIE A STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie A &ndash; Poids et masse</span>
@@ -86,21 +205,21 @@
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P = 12 \times 9{,}8 = 117{,}6\) N</p>
-    <p><strong>2.</strong> \(m = 294 / 9{,}8 = 30\) kg</p>
-    <p><strong>3.</strong> Masse = 30 kg (inchang&eacute;e) ; \(P = 30 \times 1{,}6 = 48\) N</p>
-    <p><strong>4.</strong> \(P = 25 \times 9{,}8 = 245\) N</p>
+    <p><strong>1.</strong> \(P = 12 \times 9{,}8 = 117{,}6\,\text{N}\)</p>
+    <p><strong>2.</strong> \(m = 294 / 9{,}8 = 30\,\text{kg}\)</p>
+    <p><strong>3.</strong> Masse = 30 kg (inchang&eacute;e) ; \(P = 30 \times 1{,}6 = 48\,\text{N}\)</p>
+    <p><strong>4.</strong> \(P = 25 \times 9{,}8 = 245\,\text{N}\)</p>
   </div>
 </div>
 
-<!-- ════════ PARTIE B ════════ -->
+<!-- PARTIE B STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie B &ndash; &Eacute;quilibre</span>
     <span class="pts">12 pts</span>
   </div>
 
-  <p>Une caisse de 40 kg est pos&eacute;e sur le sol. On tire dessus avec une corde horizontale avec une force \(T = 80\) N. Elle ne bouge pas.</p>
+  <p>Une caisse de 40 kg est pos&eacute;e sur le sol. On tire dessus avec une corde horizontale avec une force \(T = 80\,\text{N}\). Elle ne bouge pas.</p>
 
   <div class="q">
     <strong>1.</strong> <span class="comp comp-rea">REA</span>
@@ -129,12 +248,120 @@
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P = 40 \times 9{,}8 = 392\) N</p>
+    <p><strong>1.</strong> \(P = 40 \times 9{,}8 = 392\,\text{N}\)</p>
     <p><strong>2.</strong> 4 forces : Poids (392 N &darr;), R&eacute;action (&uarr;), Tension T (&rarr; horizontal), Frottement f (&larr; horizontal)</p>
-    <p><strong>3.</strong> \(R = P = 392\) N (&eacute;quilibre vertical)</p>
-    <p><strong>4.</strong> \(f = T = 80\) N en sens oppos&eacute; &agrave; T (vers la gauche). &Eacute;quilibre horizontal.</p>
+    <p><strong>3.</strong> \(R = P = 392\,\text{N}\) (&eacute;quilibre vertical)</p>
+    <p><strong>4.</strong> \(f = T = 80\,\text{N}\) en sens oppos&eacute; &agrave; T (vers la gauche). &Eacute;quilibre horizontal.</p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, moins guidés
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- PARTIE A APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Poids, masse et comparaison</span>
+    <span class="pts">8 pts</span>
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Un menuisier agenceur transporte un plateau de bois de chêne massif de 38 kg sur un chariot. Calculer le poids de ce plateau.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span> <span class="bareme">(2 pts)</span>
+    Le chariot de l'atelier peut supporter une charge maximale de 600 N. L'opérateur veut y poser une deuxième planche de masse inconnue \( m_2 \). La masse du chariot vide est négligeable.
+    Quelle est la masse maximale de la deuxième planche ? Montrer la démarche complète.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span> <span class="bareme">(2 pts)</span>
+    Sur la station spatiale internationale (ISS), \( g \approx 0\,\text{N/kg} \) (apesanteur). Expliquer, sans calcul, la différence entre poids et masse dans ce contexte. Qu'arrive-t-il à la planche de bois en apesanteur ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span> <span class="bareme">(2 pts)</span>
+    Un technicien affirme : « Un objet de 5 kg pèse toujours 49 N ». Cette affirmation est-elle correcte ? Justifier en citant un exemple précis.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( P = 38 \times 9{,}8 = 372{,}4\,\text{N} \)</p>
+    <p><strong>2.</strong> Poids total admissible : 600 N. Poids de la planche 1 : 372,4 N. Poids restant : \( 600 - 372{,}4 = 227{,}6\,\text{N} \). Masse maximale de la 2e planche : \( m_2 = 227{,}6 / 9{,}8 \approx 23{,}2\,\text{kg} \).</p>
+    <p><strong>3.</strong> La masse est une propriété intrinsèque de la matière (invariante) ; le poids est la force exercée par la gravité. En apesanteur, \( g \approx 0 \), donc \( P \approx 0 \) : la planche flotte. Sa masse reste 38 kg (elle a toujours autant de matière), mais elle ne pèse plus rien au sens gravitationnel.</p>
+    <p><strong>4.</strong> Affirmation incorrecte. Sur Terre : \( P = 5 \times 9{,}8 = 49\,\text{N} \), vrai. Mais sur la Lune : \( P = 5 \times 1{,}6 = 8\,\text{N} \). Le poids dépend de \( g \) local, pas la masse.</p>
+  </div>
+</div>
+
+<!-- PARTIE B APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Analyse d'un système en équilibre</span>
+    <span class="pts">12 pts</span>
+  </div>
+
+  <p>Un technicien d'atelier de maintenance automobile pose une caisse d'outillage de 60 kg sur une rampe inclinée à 30° par rapport à l'horizontale. Une sangle retient la caisse immobile. La composante de la force de traction le long de la rampe est \( T = 294\,\text{N} \).</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Calculer le poids \( P \) de la caisse.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span> <span class="bareme">(3 pts)</span>
+    Identifier toutes les forces appliquées sur la caisse sur la rampe inclinée. Décrire leur direction et leur sens.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span> <span class="bareme">(3 pts)</span>
+    Sachant que la composante du poids parallèle à la rampe est \( P_{\parallel} = P \times \sin(30°) = P \times 0{,}5 \), calculer cette valeur. Comparer avec \( T \). Que peut-on en déduire ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span> <span class="bareme">(2 pts)</span>
+    La composante du poids perpendiculaire à la rampe est \( P_{\perp} = P \times \cos(30°) \approx P \times 0{,}866 \). Calculer la réaction normale de la rampe sur la caisse.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-com">COM</span> <span class="bareme">(2 pts)</span>
+    Rédiger une conclusion complète : nommer les forces, préciser les conditions d'équilibre et expliquer le rôle de la sangle.
+  </div>
+  <span class="answer-box"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( P = 60 \times 9{,}8 = 588\,\text{N} \)</p>
+    <p><strong>2.</strong> Forces : Poids \( P = 588\,\text{N} \) vertical vers le bas ; Réaction normale \( N \) perpendiculaire à la rampe ; Tension de la sangle \( T = 294\,\text{N} \) dirigée vers le haut de la pente.</p>
+    <p><strong>3.</strong> \( P_{\parallel} = 588 \times 0{,}5 = 294\,\text{N} \). Or \( T = 294\,\text{N} \). On a \( T = P_{\parallel} \) → la sangle compense exactement la composante du poids qui tire la caisse vers le bas de la pente → équilibre dans la direction de la pente.</p>
+    <p><strong>4.</strong> \( N = P_{\perp} = 588 \times 0{,}866 \approx 509\,\text{N} \).</p>
+    <p><strong>5.</strong> La caisse est en équilibre sous l'action de 3 forces : son poids (588 N vers le bas), la réaction normale de la rampe (~509 N perpendiculaire à la surface) et la tension de la sangle (294 N remontant la pente). La sangle s'oppose à la composante tangentielle du poids et empêche le glissement. Sans sangle, la caisse glisserait vers le bas de la rampe.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 
 <script>
 function toggle(btn){
@@ -144,6 +371,7 @@ function toggle(btn){
 }
 </script>
 </div>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

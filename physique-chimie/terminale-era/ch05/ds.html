@@ -33,6 +33,11 @@
 
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+
+.fill-blank{border-bottom:2px dashed #374151;padding:0 30px;font-weight:600}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;margin:8px 0}
+.choice-grid label{display:flex;align-items:center;gap:6px;font-size:.92em}
+.choice-grid input[type="radio"]{margin:0}
 @media print{.nb{display:none}.rep-zone{background:#fff}}</style>
 </head>
 <body><div class="c">
@@ -58,200 +63,632 @@
   <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
-<table class="bareme-table">
-  <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
-  <tr><td>Exercice 1 — Corrosion d'une tuyauterie acier</td><td>Q1 à Q4</td><td>APP, ANA, REA, VAL</td><td>10 pts</td></tr>
-  <tr><td>Exercice 2 — Électrolyse et galvanisation</td><td>Q1 à Q4</td><td>APP, ANA, REA, COM</td><td>10 pts</td></tr>
-  <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
-</table>
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- SOCLE -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="diff-socle">
+  <span class="tag-socle">Socle</span>
 
-<!-- EXERCICE 1 -->
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Corrosion d'une tuyauterie acier</span>
-    <span class="pts">10 points</span>
+  <table class="bareme-table">
+    <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
+    <tr><td>Exercice 1 — Corrosion d'un clou en acier</td><td>Q1 à Q5</td><td>APP, ANA, REA</td><td>10 pts</td></tr>
+    <tr><td>Exercice 2 — Protection par le zinc</td><td>Q1 à Q5</td><td>APP, ANA, REA, COM</td><td>10 pts</td></tr>
+    <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
+  </table>
+
+  <!-- EXERCICE 1 SOCLE -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Corrosion d'un clou en acier</span>
+      <span class="pts">10 points</span>
+    </div>
+
+    <div class="intro-box">
+      <strong>Contexte :</strong> Un menuisier agenceur remarque que des clous en acier utilisés pour fixer des panneaux de bois dans un local humide présentent de la rouille au bout de quelques semaines. La corrosion du fer en milieu acide suit la réaction : \(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\).
+    </div>
+
+    <div class="donnees">
+      <strong>Rappels importants :</strong><br>
+      — Un <strong>oxydant</strong> est une espèce qui <strong>gagne</strong> des électrons (elle se <strong>réduit</strong>).<br>
+      — Un <strong>réducteur</strong> est une espèce qui <strong>perd</strong> des électrons (elle s'<strong>oxyde</strong>).<br>
+      — <strong>Oxydation</strong> = perte d'électrons &nbsp;|&nbsp; <strong>Réduction</strong> = gain d'électrons.
+    </div>
+
+    <p class="q">
+      <span class="q-num">1.</span>
+      <span class="comp comp-app">APP</span>
+      Dans la réaction \(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\), compléter les phrases suivantes :<br><br>
+      a) Le fer Fe passe à Fe²⁺ : il a __________ (gagné / perdu) des électrons. Le fer est donc le __________ (oxydant / réducteur).<br><br>
+      b) Les ions H⁺ deviennent H₂ : ils ont __________ (gagné / perdu) des électrons. H⁺ est donc l'__________ (oxydant / réducteur).
+      <span class="pts-q">2 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:60px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) Le fer Fe passe à Fe²⁺ : il a <strong>perdu</strong> des électrons. Le fer est donc le <strong>réducteur</strong>.</p>
+      <p>b) Les ions H⁺ deviennent H₂ : ils ont <strong>gagné</strong> des électrons. H⁺ est donc l'<strong>oxydant</strong>.</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">2.</span>
+      <span class="comp comp-ana">ANA</span>
+      Voici les deux demi-équations de la réaction. Compléter les trous :<br><br>
+      Demi-équation d'oxydation : \(\text{Fe} \rightarrow \text{Fe}^{2+} + \) ______ \(e^-\)<br><br>
+      Demi-équation de réduction : \(2\text{H}^+ + \) ______ \(e^- \rightarrow \text{H}_2\)
+      <span class="pts-q">2 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:60px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>Oxydation : \(\text{Fe} \rightarrow \text{Fe}^{2+} + \mathbf{2}\,e^-\)</p>
+      <p>Réduction : \(2\text{H}^+ + \mathbf{2}\,e^- \rightarrow \text{H}_2\)</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">3.</span>
+      <span class="comp comp-app">APP</span>
+      La corrosion du fer en présence d'eau et d'oxygène suit la réaction :<br>
+      \(4\,\text{Fe} + 3\,\text{O}_2 + 6\,\text{H}_2\text{O} \rightarrow 4\,\text{Fe(OH)}_3\)<br><br>
+      Compter le nombre d'atomes de chaque côté et compléter le tableau :<br>
+      <table class="bareme-table" style="width:auto;margin:10px auto">
+        <tr><th>Atome</th><th>Côté gauche (réactifs)</th><th>Côté droit (produits)</th><th>Équilibré ?</th></tr>
+        <tr><td>Fe</td><td>______</td><td>______</td><td>oui / non</td></tr>
+        <tr><td>O</td><td>______ + ______ = ______</td><td>______</td><td>oui / non</td></tr>
+        <tr><td>H</td><td>______</td><td>______</td><td>oui / non</td></tr>
+      </table>
+      <span class="pts-q">3 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:50px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>Fe : gauche = 4, droite = 4 → oui</p>
+      <p>O : gauche = 6 + 6 = 12, droite = 12 → oui</p>
+      <p>H : gauche = 12, droite = 12 → oui</p>
+      <p>L'équation est bien équilibrée.</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">4.</span>
+      <span class="comp comp-app">APP</span>
+      Quelles sont les conditions qui favorisent la corrosion du fer ? Cocher les bonnes réponses :<br>
+      <div class="choice-grid">
+        <label><input type="radio" name="s1q4a"> Milieu sec</label>
+        <label><input type="radio" name="s1q4a"> Milieu humide</label>
+        <label><input type="radio" name="s1q4b"> Présence de sel</label>
+        <label><input type="radio" name="s1q4b"> Absence de sel</label>
+        <label><input type="radio" name="s1q4c"> Présence de dioxygène</label>
+        <label><input type="radio" name="s1q4c"> Absence de dioxygène</label>
+      </div>
+      <span class="pts-q">1,5 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:40px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>La corrosion est favorisée par : <strong>milieu humide</strong>, <strong>présence de sel</strong>, <strong>présence de dioxygène</strong>.</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">5.</span>
+      <span class="comp comp-rea">REA</span>
+      Un installateur d'agencement constate que sur un chantier en bord de mer, la corrosion est plus rapide. Donner une explication en une phrase.
+      <span class="pts-q">1,5 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:50px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>En bord de mer, l'air est chargé en sel (NaCl) et en humidité, ce qui accélère la corrosion car l'eau salée est un meilleur conducteur ionique.</p>
+    </div>
   </div>
 
-  <div class="intro-box">
-    <strong>Contexte :</strong> Des tuyauteries en acier d'une installation industrielle présentent des traces de corrosion. Le technicien ERA-MA analyse le phénomène chimique de corrosion du fer en milieu acide (par exemple en présence de condensats acides). La réaction globale observée est : \(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\).
+  <!-- EXERCICE 2 SOCLE -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Protection par le zinc</span>
+      <span class="pts">10 points</span>
+    </div>
+
+    <div class="intro-box">
+      <strong>Contexte :</strong> Un fabricant de mobilier métallique protège ses structures en acier en les recouvrant d'une couche de zinc (galvanisation). On réalise cette galvanisation par électrolyse dans un bain de sulfate de zinc (ZnSO₄).
+    </div>
+
+    <!-- SVG cellule d'électrolyse -->
+    <div class="svg-wrap">
+      <svg width="400" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+        <rect x="60" y="60" width="280" height="140" rx="8" fill="#f0fff4" stroke="#374151" stroke-width="2"/>
+        <rect x="60" y="110" width="280" height="90" rx="0 0 8 8" fill="#bfdbfe" opacity="0.5"/>
+        <text x="200" y="165" text-anchor="middle" font-size="11" fill="#1e40af">Électrolyte : ZnSO₄ (aq)</text>
+        <rect x="95" y="70" width="25" height="120" rx="3" fill="#fbbf24" stroke="#92400e" stroke-width="1.5"/>
+        <text x="107" y="67" text-anchor="middle" font-size="10" font-weight="bold" fill="#374151">Anode (+)</text>
+        <text x="107" y="205" text-anchor="middle" font-size="10" fill="#92400e">Zn</text>
+        <rect x="280" y="70" width="25" height="120" rx="3" fill="#9ca3af" stroke="#374151" stroke-width="1.5"/>
+        <text x="292" y="67" text-anchor="middle" font-size="10" font-weight="bold" fill="#374151">Cathode (–)</text>
+        <text x="292" y="205" text-anchor="middle" font-size="10" fill="#374151">Acier</text>
+        <rect x="150" y="15" width="100" height="30" rx="5" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+        <text x="200" y="35" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">Générateur CC</text>
+        <line x1="107" y1="70" x2="107" y2="30" stroke="#374151" stroke-width="2"/>
+        <line x1="107" y1="30" x2="150" y2="30" stroke="#374151" stroke-width="2"/>
+        <line x1="292" y1="70" x2="292" y2="30" stroke="#374151" stroke-width="2"/>
+        <line x1="250" y1="30" x2="292" y2="30" stroke="#374151" stroke-width="2"/>
+        <text x="140" y="25" text-anchor="middle" font-size="10" fill="#374151">+</text>
+        <text x="260" y="25" text-anchor="middle" font-size="10" fill="#374151">–</text>
+        <text x="165" y="145" text-anchor="middle" font-size="10" fill="#1e40af">Zn²⁺ →</text>
+        <text x="235" y="145" text-anchor="middle" font-size="10" fill="#1e40af">→ Zn²⁺</text>
+      </svg>
+      <p style="font-size:.82em;color:#718096;margin:4px 0">Schéma d'une cellule d'électrolyse pour la galvanisation au zinc</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">1.</span>
+      <span class="comp comp-app">APP</span>
+      En observant le schéma, compléter les phrases suivantes :<br><br>
+      a) L'électrode reliée au pôle <strong>+</strong> du générateur s'appelle l'__________ . Elle est en __________ (zinc / acier).<br><br>
+      b) L'électrode reliée au pôle <strong>–</strong> du générateur s'appelle la __________ . Elle est en __________ (zinc / acier).<br><br>
+      c) Le liquide dans la cuve s'appelle l'__________ . Il contient des ions __________ .
+      <span class="pts-q">2 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:60px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) L'électrode reliée au pôle + s'appelle l'<strong>anode</strong>. Elle est en <strong>zinc</strong>.</p>
+      <p>b) L'électrode reliée au pôle – s'appelle la <strong>cathode</strong>. Elle est en <strong>acier</strong>.</p>
+      <p>c) Le liquide s'appelle l'<strong>électrolyte</strong>. Il contient des ions <strong>Zn²⁺</strong> (et SO₄²⁻).</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">2.</span>
+      <span class="comp comp-ana">ANA</span>
+      Les ions Zn²⁺ se déplacent vers la cathode et se déposent sous forme de zinc métal. Compléter la demi-équation :<br><br>
+      \(\text{Zn}^{2+} + \) ______ \(e^- \rightarrow\) ________<br><br>
+      Ce phénomène est une __________ (oxydation / réduction) car les ions Zn²⁺ __________ (gagnent / perdent) des électrons.
+      <span class="pts-q">2 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:60px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>\(\text{Zn}^{2+} + \mathbf{2}\,e^- \rightarrow \text{Zn}\)</p>
+      <p>Ce phénomène est une <strong>réduction</strong> car les ions Zn²⁺ <strong>gagnent</strong> des électrons.</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">3.</span>
+      <span class="comp comp-rea">REA</span>
+      La masse de zinc déposée est donnée par la formule : \(m = \dfrac{M \times I \times t}{n \times F}\).<br><br>
+      <strong>Données :</strong> \(M(\text{Zn}) = 65{,}4\,\text{g/mol}\) ; \(n = 2\) ; \(F = 96\,500\,\text{C/mol}\) ; \(I = 5\,\text{A}\) ; \(t = 30\,\text{min}\).<br><br>
+      a) Convertir le temps en secondes : \(t = 30 \times 60 =\) ______ s<br><br>
+      b) Remplacer dans la formule :<br>
+      \(m = \dfrac{65{,}4 \times \text{______} \times \text{______}}{2 \times 96\,500}\)<br><br>
+      c) Calculer le numérateur : ______ . Puis diviser par le dénominateur pour obtenir \(m\) = ______ g.
+      <span class="pts-q">3 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:80px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) \(t = 30 \times 60 = 1\,800\,\text{s}\)</p>
+      <p>b) \(m = \dfrac{65{,}4 \times 5 \times 1\,800}{2 \times 96\,500}\)</p>
+      <p>c) Numérateur = 588 600. Dénominateur = 193 000. \(m = \dfrac{588\,600}{193\,000} \approx 3{,}05\,\text{g}\)</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">4.</span>
+      <span class="comp comp-app">APP</span>
+      Pourquoi dit-on que le zinc assure une « protection sacrificielle » de l'acier ? Choisir la bonne réponse :<br>
+      <div class="choice-grid" style="grid-template-columns:1fr">
+        <label><input type="radio" name="s2q4"> Le zinc empêche l'eau de toucher l'acier uniquement par barrière physique.</label>
+        <label><input type="radio" name="s2q4"> Le zinc, plus facilement oxydable que le fer, se corrode à la place du fer.</label>
+        <label><input type="radio" name="s2q4"> Le zinc rend l'acier plus dur et donc plus résistant.</label>
+      </div>
+      <span class="pts-q">1,5 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:40px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>Bonne réponse : <strong>Le zinc, plus facilement oxydable que le fer, se corrode à la place du fer.</strong></p>
+      <p>C'est la protection cathodique (ou sacrificielle) : le zinc, meilleur réducteur que le fer, s'oxyde en priorité.</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">5.</span>
+      <span class="comp comp-com">COM</span>
+      Citer un autre moyen de protéger l'acier contre la corrosion (autre que la galvanisation).
+      <span class="pts-q">1,5 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:50px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>Exemples acceptés : peinture anticorrosion, vernis, graissage, huilage, chromage, acier inoxydable (alliage avec du chrome).</p>
+    </div>
   </div>
 
-  <p class="q">
-    <span class="q-num">1.</span>
-    <span class="comp comp-app">APP</span>
-    Dans la réaction \(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\), identifier :<br>
-    — Le réducteur (espèce qui se fait oxyder) et l'oxydant (espèce qui se fait réduire).<br>
-    — Préciser la variation du nombre d'oxydation de chaque espèce concernée.
-    <span class="pts-q">2 pts</span>
-  </p>
-  <div class="rep-zone" style="min-height:80px">…</div>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p>\(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\)</p>
-    <p><strong>Réducteur (s'oxyde, perd des e⁻) :</strong> Fe (fer) — il cède 2 électrons</p>
-    <p><strong>Oxydant (se réduit, gagne des e⁻) :</strong> H⁺ (ions hydrogène/protons) — ils gagnent des électrons</p>
+  <div class="total-bar" style="text-align:right;font-weight:700;font-size:1.05em;margin:18px 0;padding:10px 18px;background:#f0fff4;border-radius:8px;border:1px solid #c6f6d5">Total : /20 points</div>
+</div><!-- fin diff-socle -->
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- STANDARD -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="diff-standard">
+  <span class="tag-standard">Standard</span>
+
+  <table class="bareme-table">
+    <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
+    <tr><td>Exercice 1 — Corrosion d'une tuyauterie acier</td><td>Q1 à Q4</td><td>APP, ANA, REA, VAL</td><td>10 pts</td></tr>
+    <tr><td>Exercice 2 — Électrolyse et galvanisation</td><td>Q1 à Q4</td><td>APP, ANA, REA, COM</td><td>10 pts</td></tr>
+    <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
+  </table>
+
+  <!-- EXERCICE 1 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Corrosion d'une tuyauterie acier</span>
+      <span class="pts">10 points</span>
+    </div>
+
+    <div class="intro-box">
+      <strong>Contexte :</strong> Des tuyauteries en acier d'une installation industrielle présentent des traces de corrosion. Le technicien ERA-MA analyse le phénomène chimique de corrosion du fer en milieu acide (par exemple en présence de condensats acides). La réaction globale observée est : \(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\).
+    </div>
+
+    <p class="q">
+      <span class="q-num">1.</span>
+      <span class="comp comp-app">APP</span>
+      Dans la réaction \(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\), identifier :<br>
+      — Le réducteur (espèce qui se fait oxyder) et l'oxydant (espèce qui se fait réduire).<br>
+      — Préciser la variation du nombre d'oxydation de chaque espèce concernée.
+      <span class="pts-q">2 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:80px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>\(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\)</p>
+      <p><strong>Réducteur (s'oxyde, perd des e⁻) :</strong> Fe (fer) — il cède 2 électrons</p>
+      <p><strong>Oxydant (se réduit, gagne des e⁻) :</strong> H⁺ (ions hydrogène/protons) — ils gagnent des électrons</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">2.</span>
+      <span class="comp comp-ana">ANA</span>
+      Écrire les deux demi-équations électroniques correspondant à cette réaction globale :<br>
+      — Demi-équation d'oxydation (oxydation du fer).<br>
+      — Demi-équation de réduction (réduction des ions H⁺).<br>
+      Vérifier que la somme des deux demi-équations redonne bien la réaction globale.
+      <span class="pts-q">2 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:90px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>Oxydation du fer (anode) :</strong> \(\text{Fe} \rightarrow \text{Fe}^{2+} + 2e^-\)</p>
+      <p><strong>Réduction des protons (cathode) :</strong> \(2\text{H}^+ + 2e^- \rightarrow \text{H}_2\)</p>
+      <p>Somme : \(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\) ✓</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">3.</span>
+      <span class="comp comp-rea">REA</span>
+      En milieu neutre ou basique, le fer se corrode également en présence de dioxygène dissous selon :<br>
+      \(4\,\text{Fe} + 3\,\text{O}_2 + 6\,\text{H}_2\text{O} \rightarrow 4\,\text{Fe(OH)}_3\)<br>
+      Vérifier que cette équation est bien équilibrée en comptant les atomes de Fe, O et H de chaque côté.
+      <span class="pts-q">3 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:90px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>Vérification atome par atome :</strong></p>
+      <p>Fe : gauche = 4, droite = 4 ✓</p>
+      <p>O : gauche = 3×2 + 6×1 = 6 + 6 = 12, droite = 4×3 = 12 ✓</p>
+      <p>H : gauche = 6×2 = 12, droite = 4×3 = 12 ✓</p>
+      <p>L'équation est bien équilibrée.</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">4.</span>
+      <span class="comp comp-val">VAL</span>
+      Un test à la phénolphtaléine est réalisé autour d'une pièce en acier immergée dans de l'eau légèrement salée : la solution prend une coloration rose autour de la pièce.<br>
+      a) La phénolphtaléine est rose en milieu basique. Quelle espèce produite lors de la corrosion peut rendre le milieu basique ?<br>
+      b) Conclure sur ce que révèle ce test en termes de corrosion.
+      <span class="pts-q">3 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:80px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>La phénolphtaléine devient rose en milieu basique (pH &gt; 8,2).</p>
+      <p>La présence de rose autour de la pièce en acier indique une zone basique → présence d'ions OH⁻.</p>
+      <p>Ces ions OH⁻ sont produits par la réduction de l'eau (\(\text{O}_2 + 2\text{H}_2\text{O} + 4e^- \rightarrow 4\text{OH}^-\)) à la cathode.</p>
+      <p>Cela confirme qu'une réaction d'oxydoréduction (corrosion) est en cours.</p>
+    </div>
   </div>
 
-  <p class="q">
-    <span class="q-num">2.</span>
-    <span class="comp comp-ana">ANA</span>
-    Écrire les deux demi-équations électroniques correspondant à cette réaction globale :<br>
-    — Demi-équation d'oxydation (oxydation du fer).<br>
-    — Demi-équation de réduction (réduction des ions H⁺).<br>
-    Vérifier que la somme des deux demi-équations redonne bien la réaction globale.
-    <span class="pts-q">2 pts</span>
-  </p>
-  <div class="rep-zone" style="min-height:90px">…</div>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>Oxydation du fer (anode) :</strong> \(\text{Fe} \rightarrow \text{Fe}^{2+} + 2e^-\)</p>
-    <p><strong>Réduction des protons (cathode) :</strong> \(2\text{H}^+ + 2e^- \rightarrow \text{H}_2\)</p>
-    <p>Somme : \(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\) ✓</p>
+  <!-- EXERCICE 2 -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Électrolyse et galvanisation</span>
+      <span class="pts">10 points</span>
+    </div>
+
+    <div class="intro-box">
+      <strong>Contexte :</strong> Pour protéger les pièces en acier de la corrosion, l'atelier de traitement de surface réalise une galvanisation au zinc par électrolyse. Une pièce en acier est plongée dans un bain de sulfate de zinc (ZnSO₄) et reliée à une source de courant continu.
+    </div>
+
+    <!-- SVG cellule d'électrolyse -->
+    <div class="svg-wrap">
+      <svg width="400" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+        <!-- Cuve -->
+        <rect x="60" y="60" width="280" height="140" rx="8" fill="#f0fff4" stroke="#374151" stroke-width="2"/>
+        <!-- Électrolyte (bain ZnSO4) -->
+        <rect x="60" y="110" width="280" height="90" rx="0 0 8 8" fill="#bfdbfe" opacity="0.5"/>
+        <text x="200" y="165" text-anchor="middle" font-size="11" fill="#1e40af">Électrolyte : ZnSO₄ (aq)</text>
+        <!-- Anode (zinc +) à gauche -->
+        <rect x="95" y="70" width="25" height="120" rx="3" fill="#fbbf24" stroke="#92400e" stroke-width="1.5"/>
+        <text x="107" y="67" text-anchor="middle" font-size="10" font-weight="bold" fill="#374151">Anode (+)</text>
+        <text x="107" y="205" text-anchor="middle" font-size="10" fill="#92400e">Zn</text>
+        <!-- Cathode (pièce acier –) à droite -->
+        <rect x="280" y="70" width="25" height="120" rx="3" fill="#9ca3af" stroke="#374151" stroke-width="1.5"/>
+        <text x="292" y="67" text-anchor="middle" font-size="10" font-weight="bold" fill="#374151">Cathode (–)</text>
+        <text x="292" y="205" text-anchor="middle" font-size="10" fill="#374151">Acier</text>
+        <!-- Générateur -->
+        <rect x="150" y="15" width="100" height="30" rx="5" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+        <text x="200" y="35" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">Générateur CC</text>
+        <!-- Fils de connexion -->
+        <line x1="107" y1="70" x2="107" y2="30" stroke="#374151" stroke-width="2"/>
+        <line x1="107" y1="30" x2="150" y2="30" stroke="#374151" stroke-width="2"/>
+        <line x1="292" y1="70" x2="292" y2="30" stroke="#374151" stroke-width="2"/>
+        <line x1="250" y1="30" x2="292" y2="30" stroke="#374151" stroke-width="2"/>
+        <!-- Flèches courant -->
+        <text x="140" y="25" text-anchor="middle" font-size="10" fill="#374151">+</text>
+        <text x="260" y="25" text-anchor="middle" font-size="10" fill="#374151">–</text>
+        <!-- Ions dans l'électrolyte -->
+        <text x="165" y="145" text-anchor="middle" font-size="10" fill="#1e40af">Zn²⁺ →</text>
+        <text x="235" y="145" text-anchor="middle" font-size="10" fill="#1e40af">→ Zn²⁺</text>
+      </svg>
+      <p style="font-size:.82em;color:#718096;margin:4px 0">Schéma d'une cellule d'électrolyse pour la galvanisation au zinc</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">1.</span>
+      <span class="comp comp-app">APP</span>
+      En vous aidant du schéma de la cellule d'électrolyse, légender les éléments suivants : l'anode, la cathode, l'électrolyte, le générateur. Préciser la polarité (+ ou –) de chaque électrode.
+      <span class="pts-q">2 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:70px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>Schéma attendu :</strong> générateur (+ et −), anode reliée au + du générateur, cathode reliée au −, bain électrolytique entre les deux électrodes.</p>
+      <p>Anode (+) : plaque de zinc (Zn) — Cathode (−) : pièce en acier — Électrolyte : ZnSO₄(aq)</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">2.</span>
+      <span class="comp comp-ana">ANA</span>
+      Dans la galvanisation au zinc : les ions zinc Zn²⁺ présents dans le bain migrent vers l'une des électrodes pour s'y déposer. À quelle électrode (anode ou cathode) le zinc métallique se dépose-t-il ? Écrire la demi-équation de dépôt : \(\text{Zn}^{2+} + 2e^- \rightarrow \text{Zn}\). S'agit-il d'une oxydation ou d'une réduction ?
+      <span class="pts-q">2 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:70px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>Dans la galvanisation au zinc : le zinc se dépose sur la <strong>cathode</strong> (électrode reliée au pôle − du générateur).</p>
+      <p>Les ions Zn²⁺ du bain gagnent 2 électrons et se déposent en zinc solide : \(\text{Zn}^{2+} + 2e^- \rightarrow \text{Zn}\)</p>
+      <p>Il s'agit d'une <strong>réduction</strong> (gain d'électrons).</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">3.</span>
+      <span class="comp comp-rea">REA</span>
+      La masse de zinc déposée est donnée par la loi de Faraday : \(m = \dfrac{M \cdot I \cdot t}{n \cdot F}\).<br>
+      <strong>Données :</strong> \(I = 5\,\text{A}\), \(t = 30\,\text{min}\), \(M(\text{Zn}) = 65{,}4\,\text{g/mol}\), \(n = 2\) (nombre d'électrons échangés), \(F = 96\,500\,\text{C/mol}\).<br>
+      a) Convertir \(t = 30\,\text{min}\) en secondes. b) Calculer la masse de zinc déposée \(m\) en grammes.
+      <span class="pts-q">3 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:90px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>\(t = 30\,\text{min} = 1\,800\,\text{s}\)</p>
+      <p>\(m = \dfrac{M \times I \times t}{n \times F} = \dfrac{65{,}4 \times 5 \times 1\,800}{2 \times 96\,500} = \dfrac{588\,600}{193\,000} \approx 3{,}05\,\text{g}\)</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">4.</span>
+      <span class="comp comp-com">COM</span>
+      Expliquer en quelques lignes en quoi la galvanisation au zinc protège efficacement l'acier de la corrosion. Mentionner la notion de protection cathodique (le zinc étant un métal plus facilement oxydable que le fer).
+      <span class="pts-q">3 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:85px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>La galvanisation dépose une couche de zinc à la surface de l'acier.</p>
+      <p>Le zinc est plus réducteur que le fer (il s'oxyde en priorité).</p>
+      <p>Même si la couche est rayée, le zinc se sacrifie à la place du fer (protection cathodique ou sacrificielle).</p>
+      <p>L'acier est ainsi protégé de la corrosion même en milieu humide.</p>
+    </div>
   </div>
 
-  <p class="q">
-    <span class="q-num">3.</span>
-    <span class="comp comp-rea">REA</span>
-    En milieu neutre ou basique, le fer se corrode également en présence de dioxygène dissous selon :<br>
-    \(4\,\text{Fe} + 3\,\text{O}_2 + 6\,\text{H}_2\text{O} \rightarrow 4\,\text{Fe(OH)}_3\)<br>
-    Vérifier que cette équation est bien équilibrée en comptant les atomes de Fe, O et H de chaque côté.
-    <span class="pts-q">3 pts</span>
-  </p>
-  <div class="rep-zone" style="min-height:90px">…</div>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>Vérification atome par atome :</strong></p>
-    <p>Fe : gauche = 4, droite = 4 ✓</p>
-    <p>O : gauche = 3×2 + 6×1 = 6 + 6 = 12, droite = 4×3 = 12 ✓</p>
-    <p>H : gauche = 6×2 = 12, droite = 4×3 = 12 ✓</p>
-    <p>L'équation est bien équilibrée.</p>
+  <div class="total-bar" style="text-align:right;font-weight:700;font-size:1.05em;margin:18px 0;padding:10px 18px;background:#f0fff4;border-radius:8px;border:1px solid #c6f6d5">Total : /20 points</div>
+</div><!-- fin diff-standard -->
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- APPRO -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+
+  <table class="bareme-table">
+    <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
+    <tr><td>Exercice 1 — Corrosion d'une structure métallique en milieu marin</td><td>Q1 à Q4</td><td>APP, ANA, REA, VAL</td><td>10 pts</td></tr>
+    <tr><td>Exercice 2 — Dimensionnement d'un bain de galvanisation</td><td>Q1 à Q4</td><td>APP, ANA, REA, COM</td><td>10 pts</td></tr>
+    <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
+  </table>
+
+  <!-- EXERCICE 1 APPRO -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Corrosion d'une structure métallique en milieu marin</span>
+      <span class="pts">10 points</span>
+    </div>
+
+    <div class="intro-box">
+      <strong>Contexte :</strong> Un installateur d'agencement intervient sur un chantier en bord de mer pour poser du mobilier métallique en acier sur une terrasse de restaurant. Après 18 mois, certaines ferrures présentent de la rouille. Le bureau d'études souhaite analyser quantitativement la corrosion pour choisir une protection adaptée. L'acier est un alliage contenant environ 98 % de fer en masse.
+    </div>
+
+    <div class="donnees">
+      <strong>Données :</strong> \(M(\text{Fe}) = 55{,}8\,\text{g/mol}\) ; \(M(\text{O}) = 16{,}0\,\text{g/mol}\) ; \(M(\text{H}) = 1{,}0\,\text{g/mol}\) ; Constante de Faraday \(F = 96\,500\,\text{C/mol}\).<br>
+      Couples redox : \(\text{Fe}^{2+}/\text{Fe}\) avec \(E° = -0{,}44\,\text{V}\) ; \(\text{O}_2/\text{H}_2\text{O}\) avec \(E° = +1{,}23\,\text{V}\) ; \(\text{Zn}^{2+}/\text{Zn}\) avec \(E° = -0{,}76\,\text{V}\).
+    </div>
+
+    <p class="q">
+      <span class="q-num">1.</span>
+      <span class="comp comp-app">APP</span>
+      a) Écrire les demi-équations électroniques des deux couples impliqués dans la corrosion du fer en milieu aéré (neutre) : le couple \(\text{Fe}^{2+}/\text{Fe}\) et le couple \(\text{O}_2/\text{H}_2\text{O}\).<br>
+      b) En comparant les potentiels standard, identifier quelle espèce joue le rôle d'oxydant et laquelle joue le rôle de réducteur. Justifier.
+      <span class="pts-q">2,5 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:100px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) \(\text{Fe} \rightarrow \text{Fe}^{2+} + 2e^-\) (oxydation) et \(\text{O}_2 + 2\text{H}_2\text{O} + 4e^- \rightarrow 4\text{OH}^-\) (réduction).</p>
+      <p>b) L'oxydant est O₂ (potentiel standard le plus élevé : +1,23 V) ; le réducteur est Fe (potentiel standard le plus faible : -0,44 V). La réaction spontanée se fait dans le sens où l'oxydant du couple de E° le plus élevé réagit avec le réducteur du couple de E° le plus faible.</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">2.</span>
+      <span class="comp comp-ana">ANA</span>
+      a) Écrire l'équation bilan de la corrosion du fer en milieu neutre aéré en combinant les deux demi-équations (équilibrer les électrons).<br>
+      b) Le produit initial Fe(OH)₂ se transforme ensuite en rouille Fe₂O₃·xH₂O par oxydation supplémentaire. Expliquer pourquoi la rouille, poreuse et non adhérente, ne protège pas le fer (contrairement à l'alumine Al₂O₃ qui protège l'aluminium).
+      <span class="pts-q">2,5 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:100px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) On multiplie la demi-équation d'oxydation par 2 : \(2\text{Fe} \rightarrow 2\text{Fe}^{2+} + 4e^-\).<br>
+      Réduction : \(\text{O}_2 + 2\text{H}_2\text{O} + 4e^- \rightarrow 4\text{OH}^-\).<br>
+      Bilan : \(2\text{Fe} + \text{O}_2 + 2\text{H}_2\text{O} \rightarrow 2\text{Fe(OH)}_2\).</p>
+      <p>b) La rouille est poreuse, non compacte et non adhérente : elle ne forme pas une barrière imperméable. L'oxygène et l'eau continuent à atteindre le fer sous-jacent, et la corrosion progresse. Au contraire, l'alumine forme une couche compacte, imperméable et adhérente (passivation).</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">3.</span>
+      <span class="comp comp-rea">REA</span>
+      On estime que 15 g de fer ont été corrodés sur l'ensemble des ferrures en 18 mois.<br>
+      a) Calculer la quantité de matière de fer corrodé \(n(\text{Fe})\).<br>
+      b) En déduire la quantité d'électrons échangés \(n(e^-)\), sachant que chaque atome de fer perd 2 électrons.<br>
+      c) Calculer la charge totale \(Q = n(e^-) \times F\) en coulombs. Exprimer ensuite le courant moyen de corrosion \(I\) en ampères, sachant que \(t = 18\,\text{mois}\).
+      <span class="pts-q">3 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:110px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) \(n(\text{Fe}) = \dfrac{15}{55{,}8} \approx 0{,}269\,\text{mol}\)</p>
+      <p>b) \(n(e^-) = 2 \times n(\text{Fe}) = 2 \times 0{,}269 = 0{,}538\,\text{mol}\)</p>
+      <p>c) \(Q = 0{,}538 \times 96\,500 = 51\,917\,\text{C}\).<br>
+      \(t = 18 \times 30 \times 24 \times 3600 = 46\,656\,000\,\text{s}\) (approximation).<br>
+      \(I = \dfrac{Q}{t} = \dfrac{51\,917}{46\,656\,000} \approx 1{,}11 \times 10^{-3}\,\text{A} \approx 1{,}1\,\text{mA}\).</p>
+      <p>Le courant de corrosion est très faible mais continu, ce qui explique la dégradation progressive.</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">4.</span>
+      <span class="comp comp-val">VAL</span>
+      Le bureau d'études hésite entre deux solutions de protection : une peinture anticorrosion ou la fixation d'une anode sacrificielle en zinc.<br>
+      a) En comparant les potentiels standard de \(\text{Zn}^{2+}/\text{Zn}\) (E° = -0,76 V) et \(\text{Fe}^{2+}/\text{Fe}\) (E° = -0,44 V), expliquer pourquoi le zinc se corrode à la place du fer lorsqu'ils sont en contact.<br>
+      b) Argumenter le choix entre les deux solutions en tenant compte du contexte (milieu marin, mobilier extérieur, durabilité).
+      <span class="pts-q">2 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:100px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) Le zinc a un potentiel standard plus négatif (-0,76 V) que le fer (-0,44 V). Lorsqu'ils sont en contact, le zinc est un meilleur réducteur : il s'oxyde préférentiellement (\(\text{Zn} \rightarrow \text{Zn}^{2+} + 2e^-\)), protégeant ainsi le fer qui reste à l'état réduit.</p>
+      <p>b) En milieu marin, la peinture peut être rayée ou dégradée par le sel et l'humidité, exposant l'acier. L'anode sacrificielle en zinc protège même en cas de rayure (protection cathodique). Pour du mobilier extérieur en bord de mer, la combinaison galvanisation + peinture est la solution la plus durable (double protection).</p>
+    </div>
   </div>
 
-  <p class="q">
-    <span class="q-num">4.</span>
-    <span class="comp comp-val">VAL</span>
-    Un test à la phénolphtaléine est réalisé autour d'une pièce en acier immergée dans de l'eau légèrement salée : la solution prend une coloration rose autour de la pièce.<br>
-    a) La phénolphtaléine est rose en milieu basique. Quelle espèce produite lors de la corrosion peut rendre le milieu basique ?<br>
-    b) Conclure sur ce que révèle ce test en termes de corrosion.
-    <span class="pts-q">3 pts</span>
-  </p>
-  <div class="rep-zone" style="min-height:80px">…</div>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p>La phénolphtaléine devient rose en milieu basique (pH &gt; 8,2).</p>
-    <p>La présence de rose autour de la pièce en acier indique une zone basique → présence d'ions OH⁻.</p>
-    <p>Ces ions OH⁻ sont produits par la réduction de l'eau (\(\text{O}_2 + 2\text{H}_2\text{O} + 4e^- \rightarrow 4\text{OH}^-\)) à la cathode.</p>
-    <p>Cela confirme qu'une réaction d'oxydoréduction (corrosion) est en cours.</p>
-  </div>
-</div>
+  <!-- EXERCICE 2 APPRO -->
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Dimensionnement d'un bain de galvanisation</span>
+      <span class="pts">10 points</span>
+    </div>
 
-<!-- EXERCICE 2 -->
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Électrolyse et galvanisation</span>
-    <span class="pts">10 points</span>
-  </div>
+    <div class="intro-box">
+      <strong>Contexte :</strong> Un atelier de fabrication de mobilier métallique souhaite dimensionner un bain d'électrolyse pour galvaniser des pièces en acier destinées à l'aménagement intérieur et extérieur. Le cahier des charges impose un dépôt de zinc d'épaisseur minimale \(e = 20\,\mu\text{m}\) sur une surface totale \(S = 0{,}5\,\text{m}^2\) par lot.
+    </div>
 
-  <div class="intro-box">
-    <strong>Contexte :</strong> Pour protéger les pièces en acier de la corrosion, l'atelier de traitement de surface réalise une galvanisation au zinc par électrolyse. Une pièce en acier est plongée dans un bain de sulfate de zinc (ZnSO₄) et reliée à une source de courant continu.
-  </div>
+    <div class="donnees">
+      <strong>Données :</strong> \(M(\text{Zn}) = 65{,}4\,\text{g/mol}\) ; \(\rho(\text{Zn}) = 7\,140\,\text{kg/m}^3\) ; \(n = 2\) électrons par ion Zn²⁺ ; \(F = 96\,500\,\text{C/mol}\) ; rendement faradique du bain : \(\eta = 0{,}85\) (85 %).<br>
+      Couples redox à l'anode : \(\text{Zn}^{2+}/\text{Zn}\) et \(\text{O}_2/\text{H}_2\text{O}\).
+    </div>
 
-  <!-- SVG cellule d'électrolyse -->
-  <div class="svg-wrap">
-    <svg width="400" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
-      <!-- Cuve -->
-      <rect x="60" y="60" width="280" height="140" rx="8" fill="#f0fff4" stroke="#374151" stroke-width="2"/>
-      <!-- Électrolyte (bain ZnSO4) -->
-      <rect x="60" y="110" width="280" height="90" rx="0 0 8 8" fill="#bfdbfe" opacity="0.5"/>
-      <text x="200" y="165" text-anchor="middle" font-size="11" fill="#1e40af">Électrolyte : ZnSO₄ (aq)</text>
-      <!-- Anode (zinc +) à gauche -->
-      <rect x="95" y="70" width="25" height="120" rx="3" fill="#fbbf24" stroke="#92400e" stroke-width="1.5"/>
-      <text x="107" y="67" text-anchor="middle" font-size="10" font-weight="bold" fill="#374151">Anode (+)</text>
-      <text x="107" y="205" text-anchor="middle" font-size="10" fill="#92400e">Zn</text>
-      <!-- Cathode (pièce acier –) à droite -->
-      <rect x="280" y="70" width="25" height="120" rx="3" fill="#9ca3af" stroke="#374151" stroke-width="1.5"/>
-      <text x="292" y="67" text-anchor="middle" font-size="10" font-weight="bold" fill="#374151">Cathode (–)</text>
-      <text x="292" y="205" text-anchor="middle" font-size="10" fill="#374151">Acier</text>
-      <!-- Générateur -->
-      <rect x="150" y="15" width="100" height="30" rx="5" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
-      <text x="200" y="35" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">Générateur CC</text>
-      <!-- Fils de connexion -->
-      <line x1="107" y1="70" x2="107" y2="30" stroke="#374151" stroke-width="2"/>
-      <line x1="107" y1="30" x2="150" y2="30" stroke="#374151" stroke-width="2"/>
-      <line x1="292" y1="70" x2="292" y2="30" stroke="#374151" stroke-width="2"/>
-      <line x1="250" y1="30" x2="292" y2="30" stroke="#374151" stroke-width="2"/>
-      <!-- Flèches courant -->
-      <text x="140" y="25" text-anchor="middle" font-size="10" fill="#374151">+</text>
-      <text x="260" y="25" text-anchor="middle" font-size="10" fill="#374151">–</text>
-      <!-- Ions dans l'électrolyte -->
-      <text x="165" y="145" text-anchor="middle" font-size="10" fill="#1e40af">Zn²⁺ →</text>
-      <text x="235" y="145" text-anchor="middle" font-size="10" fill="#1e40af">→ Zn²⁺</text>
-    </svg>
-    <p style="font-size:.82em;color:#718096;margin:4px 0">Schéma d'une cellule d'électrolyse pour la galvanisation au zinc</p>
-  </div>
+    <p class="q">
+      <span class="q-num">1.</span>
+      <span class="comp comp-app">APP</span>
+      a) Écrire la demi-équation de réduction à la cathode (dépôt de zinc).<br>
+      b) Écrire la demi-équation d'oxydation à l'anode, sachant qu'on utilise une anode soluble en zinc.<br>
+      c) En déduire l'équation bilan de l'électrolyse. Commenter : y a-t-il consommation nette de zinc dans l'électrolyte ?
+      <span class="pts-q">2,5 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:100px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) Cathode : \(\text{Zn}^{2+} + 2e^- \rightarrow \text{Zn}\) (réduction).</p>
+      <p>b) Anode soluble : \(\text{Zn} \rightarrow \text{Zn}^{2+} + 2e^-\) (oxydation).</p>
+      <p>c) Bilan : \(\text{Zn}(\text{anode}) \rightarrow \text{Zn}(\text{cathode})\). Il n'y a pas de consommation nette de Zn²⁺ dans l'électrolyte : le zinc est transféré de l'anode vers la cathode. La concentration du bain reste constante (avantage de l'anode soluble).</p>
+    </div>
 
-  <p class="q">
-    <span class="q-num">1.</span>
-    <span class="comp comp-app">APP</span>
-    En vous aidant du schéma de la cellule d'électrolyse, légender les éléments suivants : l'anode, la cathode, l'électrolyte, le générateur. Préciser la polarité (+ ou –) de chaque électrode.
-    <span class="pts-q">2 pts</span>
-  </p>
-  <div class="rep-zone" style="min-height:70px">…</div>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>Schéma attendu :</strong> générateur (+ et −), anode reliée au + du générateur, cathode reliée au −, bain électrolytique entre les deux électrodes.</p>
-    <p>Anode (+) : plaque de zinc (Zn) — Cathode (−) : pièce en acier — Électrolyte : ZnSO₄(aq)</p>
-  </div>
+    <p class="q">
+      <span class="q-num">2.</span>
+      <span class="comp comp-rea">REA</span>
+      a) Calculer le volume de zinc à déposer : \(V = S \times e\) (convertir les unités).<br>
+      b) En déduire la masse de zinc à déposer : \(m = \rho \times V\).<br>
+      c) Calculer la quantité de matière de zinc correspondante \(n(\text{Zn})\).
+      <span class="pts-q">3 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:110px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) \(e = 20\,\mu\text{m} = 20 \times 10^{-6}\,\text{m}\). \(V = 0{,}5 \times 20 \times 10^{-6} = 10^{-5}\,\text{m}^3 = 10\,\text{cm}^3\).</p>
+      <p>b) \(m = \rho \times V = 7\,140 \times 10^{-5} = 0{,}0714\,\text{kg} = 71{,}4\,\text{g}\).</p>
+      <p>c) \(n(\text{Zn}) = \dfrac{71{,}4}{65{,}4} \approx 1{,}092\,\text{mol}\).</p>
+    </div>
 
-  <p class="q">
-    <span class="q-num">2.</span>
-    <span class="comp comp-ana">ANA</span>
-    Dans la galvanisation au zinc : les ions zinc Zn²⁺ présents dans le bain migrent vers l'une des électrodes pour s'y déposer. À quelle électrode (anode ou cathode) le zinc métallique se dépose-t-il ? Écrire la demi-équation de dépôt : \(\text{Zn}^{2+} + 2e^- \rightarrow \text{Zn}\). S'agit-il d'une oxydation ou d'une réduction ?
-    <span class="pts-q">2 pts</span>
-  </p>
-  <div class="rep-zone" style="min-height:70px">…</div>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p>Dans la galvanisation au zinc : le zinc se dépose sur la <strong>cathode</strong> (électrode reliée au pôle − du générateur).</p>
-    <p>Les ions Zn²⁺ du bain gagnent 2 électrons et se déposent en zinc solide : \(\text{Zn}^{2+} + 2e^- \rightarrow \text{Zn}\)</p>
-    <p>Il s'agit d'une <strong>réduction</strong> (gain d'électrons).</p>
+    <p class="q">
+      <span class="q-num">3.</span>
+      <span class="comp comp-ana">ANA</span>
+      Le rendement faradique \(\eta = 0{,}85\) signifie que seuls 85 % du courant servent au dépôt de zinc (le reste provoque un dégagement de H₂ parasite).<br>
+      a) Calculer la charge théorique nécessaire : \(Q_{\text{théo}} = n(\text{Zn}) \times n_e \times F\).<br>
+      b) En tenant compte du rendement, calculer la charge réelle à fournir : \(Q_{\text{réel}} = \dfrac{Q_{\text{théo}}}{\eta}\).<br>
+      c) Si le générateur fournit un courant \(I = 20\,\text{A}\), calculer la durée de l'électrolyse en heures.
+      <span class="pts-q">3 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:110px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) \(Q_{\text{théo}} = 1{,}092 \times 2 \times 96\,500 = 210\,756\,\text{C}\).</p>
+      <p>b) \(Q_{\text{réel}} = \dfrac{210\,756}{0{,}85} \approx 247\,948\,\text{C}\).</p>
+      <p>c) \(t = \dfrac{Q_{\text{réel}}}{I} = \dfrac{247\,948}{20} = 12\,397\,\text{s} \approx 3{,}44\,\text{h} \approx 3\,\text{h}\,26\,\text{min}\).</p>
+    </div>
+
+    <p class="q">
+      <span class="q-num">4.</span>
+      <span class="comp comp-com">COM</span>
+      Le responsable de l'atelier envisage d'augmenter le courant à \(I = 40\,\text{A}\) pour réduire le temps de traitement.<br>
+      a) Quel serait le nouveau temps d'électrolyse ?<br>
+      b) En pratique, un courant trop élevé provoque un dépôt rugueux, peu adhérent et poreux. Rédiger un court argumentaire (5 lignes max) à destination du responsable, expliquant pourquoi il est préférable de respecter la densité de courant recommandée, en utilisant le vocabulaire technique adapté (densité de courant, rendement cathodique, adhérence, porosité).
+      <span class="pts-q">1,5 pts</span>
+    </p>
+    <div class="rep-zone" style="min-height:100px">…</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p>a) \(t = \dfrac{247\,948}{40} = 6\,199\,\text{s} \approx 1\,\text{h}\,43\,\text{min}\).</p>
+      <p>b) Exemple de rédaction : « Doubler l'intensité réduit certes le temps de traitement de moitié, mais une densité de courant trop élevée entraîne une cristallisation rapide et désordonnée du zinc. Le dépôt obtenu est alors rugueux, poreux et peu adhérent, ce qui réduit considérablement sa capacité de protection anticorrosion. Le rendement cathodique diminue également car une part plus importante du courant sert au dégagement parasite d'hydrogène. Il est donc recommandé de respecter la densité de courant préconisée par le fournisseur du bain pour garantir un dépôt homogène, compact et durable. »</p>
+    </div>
   </div>
 
-  <p class="q">
-    <span class="q-num">3.</span>
-    <span class="comp comp-rea">REA</span>
-    La masse de zinc déposée est donnée par la loi de Faraday : \(m = \dfrac{M \cdot I \cdot t}{n \cdot F}\).<br>
-    <strong>Données :</strong> \(I = 5\,\text{A}\), \(t = 30\,\text{min}\), \(M(\text{Zn}) = 65{,}4\,\text{g/mol}\), \(n = 2\) (nombre d'électrons échangés), \(F = 96\,500\,\text{C/mol}\).<br>
-    a) Convertir \(t = 30\,\text{min}\) en secondes. b) Calculer la masse de zinc déposée \(m\) en grammes.
-    <span class="pts-q">3 pts</span>
-  </p>
-  <div class="rep-zone" style="min-height:90px">…</div>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p>\(t = 30\,\text{min} = 1\,800\,\text{s}\)</p>
-    <p>\(m = \dfrac{M \times I \times t}{n \times F} = \dfrac{65{,}4 \times 5 \times 1\,800}{2 \times 96\,500} = \dfrac{588\,600}{193\,000} \approx 3{,}05\,\text{g}\)</p>
-  </div>
-
-  <p class="q">
-    <span class="q-num">4.</span>
-    <span class="comp comp-com">COM</span>
-    Expliquer en quelques lignes en quoi la galvanisation au zinc protège efficacement l'acier de la corrosion. Mentionner la notion de protection cathodique (le zinc étant un métal plus facilement oxydable que le fer).
-    <span class="pts-q">3 pts</span>
-  </p>
-  <div class="rep-zone" style="min-height:85px">…</div>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p>La galvanisation dépose une couche de zinc à la surface de l'acier.</p>
-    <p>Le zinc est plus réducteur que le fer (il s'oxyde en priorité).</p>
-    <p>Même si la couche est rayée, le zinc se sacrifie à la place du fer (protection cathodique ou sacrificielle).</p>
-    <p>L'acier est ainsi protégé de la corrosion même en milieu humide.</p>
-  </div>
-</div>
+  <div class="total-bar" style="text-align:right;font-weight:700;font-size:1.05em;margin:18px 0;padding:10px 18px;background:#f0fff4;border-radius:8px;border:1px solid #c6f6d5">Total : /20 points</div>
+</div><!-- fin diff-appro -->
 
 </div>
 <script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
+<script src="../../../diff.js"></script>
 <script src="/nav.js"></script>
 </body>
 </html>

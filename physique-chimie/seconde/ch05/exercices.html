@@ -11,8 +11,13 @@
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
 .methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
 .attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-
-.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}</style>
+.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
+.niveau-header h2{margin:0;font-size:1.1em;color:inherit}
+.niveau-1{background:#f5f0ff;border-left:5px solid var(--p);color:#4a1d96;padding:10px 16px;border-radius:0 8px 8px 0;margin:24px 0 12px}
+.niveau-2{background:#f0fff4;border-left:5px solid #38a169;color:#065f46;padding:10px 16px;border-radius:0 8px 8px 0;margin:24px 0 12px}
+.niveau-3{background:#fffbeb;border-left:5px solid #d97706;color:#92400e;padding:10px 16px;border-radius:0 8px 8px 0;margin:24px 0 12px}
+.niveau-4{background:#fff5f5;border-left:5px solid #e53e3e;color:#991b1b;padding:10px 16px;border-radius:0 8px 8px 0;margin:24px 0 12px}
+</style>
 </head>
 <body>
 <div class="c">
@@ -35,17 +40,13 @@
 <!-- SVG Chronophotographie -->
 <div style="margin:24px 0;text-align:center;">
 <svg width="660" height="130" viewBox="0 0 660 130" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;border:1px solid #e2e8f0;border-radius:8px;background:#fafafa;">
-  <!-- Quadrillage léger -->
   <defs>
     <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
       <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e8e8f0" stroke-width="0.7"/>
     </pattern>
   </defs>
   <rect width="660" height="130" fill="url(#grid)"/>
-  <!-- Axe horizontal -->
   <line x1="30" y1="70" x2="640" y2="70" stroke="#bbb" stroke-width="1.5"/>
-  <!-- 5 positions de la balle espacées régulièrement (mouvement uniforme) -->
-  <!-- Positions: x = 60, 180, 300, 420, 540 (écart = 120 pixels) -->
   <circle cx="60" cy="70" r="14" fill="#6f42c1" opacity="0.85"/>
   <text x="60" y="74" text-anchor="middle" font-size="11" fill="white" font-weight="bold">1</text>
   <circle cx="180" cy="70" r="14" fill="#6f42c1" opacity="0.85"/>
@@ -56,7 +57,6 @@
   <text x="420" y="74" text-anchor="middle" font-size="11" fill="white" font-weight="bold">4</text>
   <circle cx="540" cy="70" r="14" fill="#6f42c1" opacity="0.85"/>
   <text x="540" y="74" text-anchor="middle" font-size="11" fill="white" font-weight="bold">5</text>
-  <!-- Distances entre positions -->
   <line x1="74" y1="95" x2="166" y2="95" stroke="#d97706" stroke-width="1.5"/>
   <line x1="74" y1="89" x2="74" y2="101" stroke="#d97706" stroke-width="1.5"/>
   <line x1="166" y1="89" x2="166" y2="101" stroke="#d97706" stroke-width="1.5"/>
@@ -73,11 +73,10 @@
   <line x1="434" y1="89" x2="434" y2="101" stroke="#d97706" stroke-width="1.5"/>
   <line x1="526" y1="89" x2="526" y2="101" stroke="#d97706" stroke-width="1.5"/>
   <text x="480" y="112" font-size="11" fill="#d97706" text-anchor="middle">3 cm</text>
-  <!-- Intervalle de temps -->
-  <text x="330" y="20" font-size="12" fill="#2f855a" text-anchor="middle" font-weight="bold">Chronophotographie – Δt = 0,1 s entre chaque image</text>
-  <text x="330" y="38" font-size="11" fill="#555" text-anchor="middle">Espacements égaux → mouvement rectiligne uniforme</text>
+  <text x="330" y="20" font-size="12" fill="#2f855a" text-anchor="middle" font-weight="bold">Chronophotographie – &Delta;t = 0,1 s entre chaque image</text>
+  <text x="330" y="38" font-size="11" fill="#555" text-anchor="middle">Espacements &eacute;gaux &rarr; mouvement rectiligne uniforme</text>
 </svg>
-<p style="font-size:.82em;color:#718096;margin-top:6px;">Chronophotographie d'une bille : 5 positions prises à intervalles réguliers (Δt = 0,1 s)</p>
+<p style="font-size:.82em;color:#718096;margin-top:6px;">Chronophotographie d'une bille : 5 positions prises &agrave; intervalles r&eacute;guliers (&Delta;t = 0,1 s)</p>
 </div>
 
 <!-- Chart.js : position-temps d'une voiture -->
@@ -85,40 +84,44 @@
 <canvas id="posChart" height="90"></canvas>
 </div>
 
-<!-- ===================== SECTION 1 ===================== -->
-<h2>Exercices de base</h2>
-<div class="section-intro">Maîtriser les notions fondamentales : référentiel, trajectoire, vitesse moyenne.</div>
+<!-- ================================================================
+     NIVEAU 1 — EXERCICES COMMUNS (tous niveaux)
+     ================================================================ -->
+<div class="niveau-header niveau-1">
+  <span class="badge-niv" style="background:#6f42c1;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveau 1</span>
+  <h2 style="display:inline">Exercices de base — communs &agrave; tous</h2>
+</div>
+<div class="section-intro">Ma&icirc;triser les notions fondamentales : r&eacute;f&eacute;rentiel, trajectoire, vitesse moyenne.</div>
 
 <!-- EXO 1 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Référentiels et descriptions du mouvement</span>
-    <span class="diff diff-1">Facile</span>
+    <span class="exo-title">R&eacute;f&eacute;rentiels et descriptions du mouvement</span>
   </div>
-  <div class="retenir">Le <strong>référentiel</strong> est l'objet (ou le lieu) par rapport auquel on décrit le mouvement. Un même objet peut être en mouvement dans un référentiel et immobile dans un autre.</div>
-  <p class="q"><strong>1.</strong> Un passager est assis dans un bus en marche. Décrire son mouvement :</p>
+  <div class="retenir">Le <strong>r&eacute;f&eacute;rentiel</strong> est l'objet (ou le lieu) par rapport auquel on d&eacute;crit le mouvement. Un m&ecirc;me objet peut &ecirc;tre en mouvement dans un r&eacute;f&eacute;rentiel et immobile dans un autre.</div>
+  <p class="q"><strong>1.</strong> Un passager est assis dans un bus en marche. D&eacute;crire son mouvement :</p>
   <ul>
     <li>par rapport au chauffeur du bus ;</li>
-    <li>par rapport à la route.</li>
+    <li>par rapport &agrave; la route.</li>
   </ul>
-  <p class="q"><strong>2.</strong> Une roue de véhicule tourne. Décrire le mouvement :</p>
+  <p class="q"><strong>2.</strong> Une roue de v&eacute;hicule tourne. D&eacute;crire le mouvement :</p>
   <ul>
-    <li>du centre de la roue par rapport à la route ;</li>
-    <li>d'un point sur le bord extérieur de la roue par rapport au centre de la roue ;</li>
-    <li>d'un point sur le bord extérieur de la roue par rapport à la route.</li>
+    <li>du centre de la roue par rapport &agrave; la route ;</li>
+    <li>d'un point sur le bord ext&eacute;rieur de la roue par rapport au centre de la roue ;</li>
+    <li>d'un point sur le bord ext&eacute;rieur de la roue par rapport &agrave; la route.</li>
   </ul>
-  <p class="q"><strong>3.</strong> Nommer les trois principaux référentiels utilisés en sciences.</p>
+  <p class="q"><strong>3.</strong> Nommer les trois principaux r&eacute;f&eacute;rentiels utilis&eacute;s en sciences.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong></p>
-    <p>– Par rapport au chauffeur (référentiel du bus) : le passager est <strong>immobile</strong>.</p>
-    <p>– Par rapport à la route (référentiel terrestre) : le passager est <strong>en mouvement</strong> (il avance avec le bus).</p>
+    <p>– Par rapport au chauffeur (r&eacute;f&eacute;rentiel du bus) : le passager est <strong>immobile</strong>.</p>
+    <p>– Par rapport &agrave; la route (r&eacute;f&eacute;rentiel terrestre) : le passager est <strong>en mouvement</strong> (il avance avec le bus).</p>
     <p><strong>2.</strong></p>
-    <p>– Centre de la roue / route : mouvement <strong>rectiligne</strong> (se déplace en ligne droite).</p>
+    <p>– Centre de la roue / route : mouvement <strong>rectiligne</strong> (se d&eacute;place en ligne droite).</p>
     <p>– Point sur le bord / centre de la roue : mouvement <strong>circulaire</strong> (autour du centre).</p>
-    <p>– Point sur le bord / route : mouvement <strong>cycloïdal</strong> (courbe complexe, mélange avancement + rotation).</p>
-    <p><strong>3.</strong> Référentiel terrestre (lié à la Terre), référentiel géocentrique (lié au centre de la Terre), référentiel de Copernic (lié au centre du Soleil).</p>
+    <p>– Point sur le bord / route : mouvement <strong>cyclo&iuml;dal</strong> (courbe complexe, m&eacute;lange avancement + rotation).</p>
+    <p><strong>3.</strong> R&eacute;f&eacute;rentiel terrestre (li&eacute; &agrave; la Terre), r&eacute;f&eacute;rentiel g&eacute;ocentrique (li&eacute; au centre de la Terre), r&eacute;f&eacute;rentiel de Copernic (li&eacute; au centre du Soleil).</p>
   </div>
 </div>
 
@@ -127,10 +130,9 @@
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
     <span class="exo-title">Types de trajectoires</span>
-    <span class="diff diff-1">Facile</span>
   </div>
-  <div class="def">La <strong>trajectoire</strong> est l'ensemble des positions successives occupées par un objet au cours du temps.</div>
-  <p class="q"><strong>1.</strong> Pour chaque situation, nommer et décrire le type de trajectoire :</p>
+  <div class="def">La <strong>trajectoire</strong> est l'ensemble des positions successives occup&eacute;es par un objet au cours du temps.</div>
+  <p class="q"><strong>1.</strong> Pour chaque situation, nommer et d&eacute;crire le type de trajectoire :</p>
   <table>
     <tr><th>Situation</th><th>Type de trajectoire</th><th>Description</th></tr>
     <tr><td>Un piston de moteur</td><td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -138,7 +140,7 @@
     <tr><td>Une voiture sur autoroute droite</td><td>&nbsp;</td><td>&nbsp;</td></tr>
     <tr><td>Une voiture qui prend un virage</td><td>&nbsp;</td><td>&nbsp;</td></tr>
   </table>
-  <p class="q"><strong>2.</strong> Dans le système bielle-manivelle d'un moteur, quelle est la trajectoire de l'extrémité de la manivelle ?</p>
+  <p class="q"><strong>2.</strong> Dans le syst&egrave;me bielle-manivelle d'un moteur, quelle est la trajectoire de l'extr&eacute;mit&eacute; de la manivelle ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <table>
@@ -148,7 +150,7 @@
       <tr><td>Voiture sur autoroute droite</td><td>Rectiligne</td><td>Ligne droite</td></tr>
       <tr><td>Voiture en virage</td><td>Courbe (arc de cercle)</td><td>Portion de cercle ou courbe</td></tr>
     </table>
-    <p><strong>2.</strong> L'extrémité de la manivelle décrit une trajectoire <strong>circulaire</strong> (cercle de rayon = longueur de la manivelle).</p>
+    <p><strong>2.</strong> L'extr&eacute;mit&eacute; de la manivelle d&eacute;crit une trajectoire <strong>circulaire</strong> (cercle de rayon = longueur de la manivelle).</p>
   </div>
 </div>
 
@@ -157,7 +159,6 @@
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
     <span class="exo-title">Calcul de vitesse moyenne</span>
-    <span class="diff diff-1">Facile</span>
   </div>
   <div class="methode">
     <strong>Vitesse moyenne :</strong> \(v_{moy} = \dfrac{d}{t}\)
@@ -166,8 +167,8 @@
   </div>
   <p class="q"><strong>1.</strong> Une voiture parcourt 120 km en 1 h 30 min. Calculer sa vitesse moyenne en km/h.</p>
   <p class="q"><strong>2.</strong> Convertir cette vitesse en m/s.</p>
-  <p class="q"><strong>3.</strong> Un camion roule à 90 km/h pendant 2 h. Calculer la distance parcourue.</p>
-  <p class="q"><strong>4.</strong> Un piéton se déplace à 5 km/h. Combien de temps met-il pour parcourir 2 km ?</p>
+  <p class="q"><strong>3.</strong> Un camion roule &agrave; 90 km/h pendant 2 h. Calculer la distance parcourue.</p>
+  <p class="q"><strong>4.</strong> Un pi&eacute;ton se d&eacute;place &agrave; 5 km/h. Combien de temps met-il pour parcourir 2 km ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(t = 1\,\text{h}\,30\,\text{min} = 1{,}5\,\text{h}\) &nbsp;; &nbsp;\(v = \dfrac{120}{1{,}5} = 80\,\text{km/h}\)</p>
@@ -177,16 +178,122 @@
   </div>
 </div>
 
-<!-- ===================== SECTION 2 ===================== -->
-<h2>Exercices guidés</h2>
-<div class="section-intro">Analyser une chronophotographie et étudier une situation de freinage.</div>
 
-<!-- EXO 4 -->
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés, étape par étape
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="niveau-header niveau-2">
+  <span class="badge-niv" style="background:#38a169;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveau 2</span>
+  <h2 style="display:inline">Exercices guid&eacute;s pas &agrave; pas</h2>
+</div>
+<div class="section-intro">Des &eacute;tapes d&eacute;taill&eacute;es, des formules donn&eacute;es et des calculs amo&ntilde;c&eacute;s.</div>
+
+<!-- EXO S4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Analyser une chronophotographie – guid&eacute;</span>
+  </div>
+  <div class="methode">
+    <strong>Rappel :</strong> Sur une chronophotographie, si les espacements entre positions successives sont <em>&eacute;gaux</em>, le mouvement est <strong>uniforme</strong> (vitesse constante). S'ils augmentent, il est <strong>acc&eacute;l&eacute;r&eacute;</strong>.
+  </div>
+  <p>Une bille roule sur un plan. On prend des photos toutes les \(\Delta t = 0{,}1\,\text{s}\). Les positions successives sont :</p>
+  <table>
+    <tr><th>Position</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td>Abscisse (cm)</td><td>0</td><td>3</td><td>6</td><td>9</td><td>12</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Calculer la distance entre la position 1 et la position 2 :<br>
+  \(d_{1-2} = 3 - 0 = \ldots\,\text{cm}\)</p>
+  <p class="q"><strong>2.</strong> Les &eacute;carts sont-ils &eacute;gaux ? Cocher : &nbsp; ☐ Oui &nbsp; ☐ Non<br>
+  Donc le mouvement est : &nbsp; ☐ Uniforme &nbsp; ☐ Acc&eacute;l&eacute;r&eacute; &nbsp; ☐ D&eacute;c&eacute;l&eacute;r&eacute;</p>
+  <p class="q"><strong>3.</strong> Calculer la vitesse entre les positions 1 et 2. Formule : \(v = \dfrac{d}{\Delta t} = \dfrac{3\,\text{cm}}{0{,}1\,\text{s}} = \ldots\,\text{cm/s}\)</p>
+  <p class="q"><strong>4.</strong> Convertir en m/s : \(\ldots\,\text{cm/s} \div 100 = \ldots\,\text{m/s}\)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(d_{1-2} = 3\,\text{cm}\). De m&ecirc;me pour tous les intervalles : 3 cm chacun.</p>
+    <p><strong>2.</strong> Oui, les &eacute;carts sont &eacute;gaux &rarr; mouvement <strong>rectiligne uniforme</strong>.</p>
+    <p><strong>3.</strong> \(v = \dfrac{3}{0{,}1} = 30\,\text{cm/s}\)</p>
+    <p><strong>4.</strong> \(30\,\text{cm/s} \div 100 = 0{,}30\,\text{m/s}\)</p>
+  </div>
+</div>
+
+<!-- EXO S5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Vitesse d'un chariot d'atelier – guid&eacute;</span>
+  </div>
+  <div class="mama-tag">Atelier de menuiserie</div>
+  <p>Un apprenti menuisier pousse un chariot sur \(d = 18\,\text{m}\) &agrave; une vitesse de \(v = 0{,}9\,\text{m/s}\).</p>
+  <div class="methode">
+    <strong>Formule :</strong> \(t = \dfrac{d}{v}\)<br>
+    On divise la distance par la vitesse pour trouver la dur&eacute;e.
+  </div>
+  <p class="q"><strong>1.</strong> Compl&eacute;ter et calculer :<br>
+  \(t = \dfrac{d}{v} = \dfrac{\ldots}{\ldots} = \ldots\,\text{s}\)</p>
+  <p class="q"><strong>2.</strong> Convertir la vitesse en km/h. Formule : \(v(\text{km/h}) = v(\text{m/s}) \times 3{,}6 = 0{,}9 \times 3{,}6 = \ldots\,\text{km/h}\)</p>
+  <p class="q"><strong>3.</strong> Le chariot fait 8 allers-retours (16 trajets) dans la journ&eacute;e. Calculer le temps total en secondes, puis en minutes :<br>
+  Temps total (s) = \(16 \times \ldots = \ldots\,\text{s}\)<br>
+  Temps total (min) = \(\ldots \div 60 = \ldots\,\text{min}\)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(t = \dfrac{18}{0{,}9} = 20\,\text{s}\)</p>
+    <p><strong>2.</strong> \(v = 0{,}9 \times 3{,}6 = 3{,}24\,\text{km/h}\)</p>
+    <p><strong>3.</strong> Temps total = \(16 \times 20 = 320\,\text{s} \approx 5{,}3\,\text{min}\). (Avec le temps de pr&eacute;paration de 5 s par trajet : \(16 \times 25 = 400\,\text{s} \approx 6{,}7\,\text{min}\).)</p>
+  </div>
+</div>
+
+<!-- EXO S6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Vitesse d'une lame de scie – guid&eacute;</span>
+  </div>
+  <div class="mama-tag">Atelier de fabrication</div>
+  <p>Une scie alternative effectue \(n = 3\,000\,\text{courses/min}\). La course aller est de \(c = 2{,}5\,\text{cm} = 0{,}025\,\text{m}\).</p>
+  <div class="methode">
+    <strong>&Eacute;tapes &agrave; suivre :</strong><br>
+    1. Convertir les courses/min en cycles/s : \(f = n \div 60\)<br>
+    2. Distance par cycle (aller-retour) : \(d_{cycle} = 2 \times c\)<br>
+    3. Vitesse : \(v = d_{cycle} \times f\)
+  </div>
+  <p class="q"><strong>1.</strong> \(f = 3\,000 \div 60 = \ldots\,\text{cycles/s}\)</p>
+  <p class="q"><strong>2.</strong> \(d_{cycle} = 2 \times 0{,}025 = \ldots\,\text{m}\)</p>
+  <p class="q"><strong>3.</strong> \(v = \ldots \times \ldots = \ldots\,\text{m/s}\)</p>
+  <p class="q"><strong>4.</strong> La lame s'arr&ecirc;te en haut et en bas de sa course. Son mouvement est-il :<br>
+  ☐ Uniforme &nbsp; ☐ Rectiligne acc&eacute;l&eacute;r&eacute; puis d&eacute;c&eacute;l&eacute;r&eacute;</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(f = 3000 \div 60 = 50\,\text{cycles/s}\)</p>
+    <p><strong>2.</strong> \(d_{cycle} = 2 \times 0{,}025 = 0{,}05\,\text{m}\)</p>
+    <p><strong>3.</strong> \(v = 0{,}05 \times 50 = 2{,}5\,\text{m/s}\)</p>
+    <p><strong>4.</strong> Mouvement <strong>rectiligne acc&eacute;l&eacute;r&eacute; puis d&eacute;c&eacute;l&eacute;r&eacute;</strong> : la lame part de z&eacute;ro, acc&eacute;l&egrave;re, puis ralentit jusqu'&agrave; z&eacute;ro.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<div class="niveau-header niveau-2">
+  <span class="badge-niv" style="background:#2b6cb0;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveaux 2–3</span>
+  <h2 style="display:inline">Exercices guid&eacute;s et d'application</h2>
+</div>
+<div class="section-intro">Analyser une chronophotographie, &eacute;tudier des situations de l'atelier et de la logistique.</div>
+
+<!-- EXO ST4 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
     <span class="exo-title">Chronophotographie d'une bille</span>
-    <span class="diff diff-2">Intermédiaire</span>
   </div>
   <p>Une bille roule sur un plan. On prend des photos toutes les \(\Delta t = 0{,}1\,\text{s}\). Les positions successives sont :</p>
   <table>
@@ -194,171 +301,224 @@
     <tr><td>Abscisse (cm)</td><td>0</td><td>3</td><td>6</td><td>9</td><td>12</td></tr>
   </table>
   <p class="q"><strong>1.</strong> Calculer les distances entre positions successives.</p>
-  <p class="q"><strong>2.</strong> Ces distances sont-elles égales ? Que peut-on en déduire sur le type de mouvement ?</p>
+  <p class="q"><strong>2.</strong> Ces distances sont-elles &eacute;gales ? Que peut-on en d&eacute;duire sur le type de mouvement ?</p>
   <p class="q"><strong>3.</strong> Calculer la vitesse de la bille entre la position 1 et la position 2.</p>
   <p class="q"><strong>4.</strong> Calculer la vitesse entre la position 4 et la position 5. Comparer.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Distances : 1→2 : 3 cm ; 2→3 : 3 cm ; 3→4 : 3 cm ; 4→5 : 3 cm. Toutes égales.</p>
-    <p><strong>2.</strong> Les distances égales à intervalles de temps égaux indiquent un mouvement <strong>rectiligne uniforme</strong> (vitesse constante).</p>
-    <p><strong>3.</strong> \(v_{1-2} = \dfrac{3\,\text{cm}}{0{,}1\,\text{s}} = \dfrac{0{,}03\,\text{m}}{0{,}1\,\text{s}} = 0{,}30\,\text{m/s} = 30\,\text{cm/s}\)</p>
+    <p><strong>1.</strong> Distances : 1&rarr;2 : 3 cm ; 2&rarr;3 : 3 cm ; 3&rarr;4 : 3 cm ; 4&rarr;5 : 3 cm. Toutes &eacute;gales.</p>
+    <p><strong>2.</strong> Les distances &eacute;gales &agrave; intervalles de temps &eacute;gaux indiquent un mouvement <strong>rectiligne uniforme</strong> (vitesse constante).</p>
+    <p><strong>3.</strong> \(v_{1-2} = \dfrac{3\,\text{cm}}{0{,}1\,\text{s}} = \dfrac{0{,}03\,\text{m}}{0{,}1\,\text{s}} = 0{,}30\,\text{m/s}\)</p>
     <p><strong>4.</strong> \(v_{4-5} = \dfrac{3\,\text{cm}}{0{,}1\,\text{s}} = 0{,}30\,\text{m/s}\). Les deux vitesses sont identiques, ce qui confirme le mouvement uniforme.</p>
   </div>
 </div>
 
-<!-- EXO 5 -->
+<!-- EXO ST5 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
     <span class="exo-title">D&eacute;placement d'un panneau sur un chariot d'atelier</span>
-    <span class="diff diff-2">Intermédiaire</span>
   </div>
   <div class="mama-tag">Atelier de menuiserie</div>
-  <p>Un technicien menuisier pousse un chariot chargé de panneaux de MDF depuis le stock jusqu'à la scie. La distance est de \(d = 18\,\text{m}\).</p>
+  <p>Un technicien menuisier pousse un chariot charg&eacute; de panneaux de MDF depuis le stock jusqu'&agrave; la scie. La distance est de \(d = 18\,\text{m}\).</p>
   <ul>
-    <li>Vitesse de déplacement du chariot : \(v = 0{,}9\,\text{m/s}\)</li>
-    <li>Temps de préparation avant de pousser : \(t_{prépa} = 5\,\text{s}\)</li>
+    <li>Vitesse de d&eacute;placement du chariot : \(v = 0{,}9\,\text{m/s}\)</li>
+    <li>Temps de pr&eacute;paration avant de pousser : \(t_{pr&eacute;pa} = 5\,\text{s}\)</li>
   </ul>
   <div class="methode">
-    <strong>Durée totale :</strong> \(t_{total} = t_{prépa} + t_{déplacement}\)<br>
-    Avec \(t_{déplacement} = \dfrac{d}{v}\) (temps pour parcourir la distance à vitesse constante).
+    <strong>Dur&eacute;e totale :</strong> \(t_{total} = t_{pr&eacute;pa} + t_{d&eacute;placement}\)<br>
+    Avec \(t_{d&eacute;placement} = \dfrac{d}{v}\).
   </div>
   <p class="q"><strong>1.</strong> Convertir \(v = 0{,}9\,\text{m/s}\) en km/h.</p>
-  <p class="q"><strong>2.</strong> Calculer la durée de déplacement \(t_{déplacement}\).</p>
-  <p class="q"><strong>3.</strong> Calculer la durée totale \(t_{total}\).</p>
-  <p class="q"><strong>4.</strong> Le technicien effectue 8 allers-retours (soit 16 trajets) dans la journée. Calculer le temps total consacré à ces déplacements.</p>
+  <p class="q"><strong>2.</strong> Calculer la dur&eacute;e de d&eacute;placement \(t_{d&eacute;placement}\).</p>
+  <p class="q"><strong>3.</strong> Calculer la dur&eacute;e totale \(t_{total}\).</p>
+  <p class="q"><strong>4.</strong> Le technicien effectue 8 allers-retours (soit 16 trajets) dans la journ&eacute;e. Calculer le temps total consacr&eacute; &agrave; ces d&eacute;placements.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(v = 0{,}9 \times 3{,}6 = 3{,}24\,\text{km/h}\)</p>
-    <p><strong>2.</strong> \(t_{déplacement} = \dfrac{d}{v} = \dfrac{18}{0{,}9} = 20\,\text{s}\)</p>
+    <p><strong>2.</strong> \(t_{d&eacute;placement} = \dfrac{d}{v} = \dfrac{18}{0{,}9} = 20\,\text{s}\)</p>
     <p><strong>3.</strong> \(t_{total} = 5 + 20 = 25\,\text{s}\)</p>
-    <p><strong>4.</strong> Temps total = \(16 \times 25 = 400\,\text{s} \approx 6{,}7\,\text{min}\). En optimisant l'implantation de l'atelier (stock plus proche), on peut réduire significativement ce temps improductif.</p>
+    <p><strong>4.</strong> Temps total = \(16 \times 25 = 400\,\text{s} \approx 6{,}7\,\text{min}\).</p>
   </div>
 </div>
 
-<!-- ===================== SECTION 3 ===================== -->
-<h2>Exercices d'application</h2>
-<div class="section-intro">Appliquer les concepts au piston de moteur et à l'analyse d'une chronophotographie avec accélération.</div>
+<div class="niveau-header niveau-3">
+  <span class="badge-niv" style="background:#d97706;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveau 3</span>
+  <h2 style="display:inline">Exercices d'application — contexte professionnel</h2>
+</div>
 
-<!-- EXO 6 -->
+<!-- EXO ST6 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
     <span class="exo-title">Vitesse de la lame d'une scie alternative</span>
-    <span class="diff diff-2">Intermédiaire</span>
   </div>
   <div class="mama-tag">Atelier de fabrication</div>
-  <p>Une scie alternative (scie sauteuse d'établi) effectue \(n = 3\,000\,\text{courses/min}\). La course de la lame (aller simple) est \(c = 2{,}5\,\text{cm} = 0{,}025\,\text{m}\).</p>
+  <p>Une scie alternative (scie sauteuse d'&eacute;tabli) effectue \(n = 3\,000\,\text{courses/min}\). La course de la lame (aller simple) est \(c = 2{,}5\,\text{cm} = 0{,}025\,\text{m}\).</p>
   <div class="methode">
-    À chaque cycle, la lame fait un aller-retour complet (2 fois la course).<br>
+    &Agrave; chaque cycle, la lame fait un aller-retour complet (2 fois la course).<br>
     Distance par cycle : \(d_{cycle} = 2 \times c\)<br>
-    Vitesse moyenne : \(v_{moy} = d_{cycle} \times f\) où \(f\) est la fréquence en cycles/s.
+    Vitesse moyenne : \(v_{moy} = d_{cycle} \times f\) o&ugrave; \(f\) est la fr&eacute;quence en cycles/s.
   </div>
-  <p class="q"><strong>1.</strong> Convertir \(n = 3\,000\,\text{courses/min}\) en cycles/s (fréquence \(f\)).</p>
+  <p class="q"><strong>1.</strong> Convertir \(n = 3\,000\,\text{courses/min}\) en cycles/s (fr&eacute;quence \(f\)).</p>
   <p class="q"><strong>2.</strong> Calculer la distance parcourue par la lame en un cycle.</p>
   <p class="q"><strong>3.</strong> Calculer la vitesse moyenne de la lame en m/s.</p>
-  <p class="q"><strong>4.</strong> La lame s'arrête en haut et en bas de sa course. Quel est le type de mouvement sur un aller ? (Départ à 0, accélération, puis décélération jusqu'à 0.)</p>
+  <p class="q"><strong>4.</strong> La lame s'arr&ecirc;te en haut et en bas de sa course. Quel est le type de mouvement sur un aller ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(f = \dfrac{3000}{60} = 50\,\text{cycles/s}\)</p>
     <p><strong>2.</strong> \(d_{cycle} = 2 \times 0{,}025 = 0{,}05\,\text{m}\)</p>
     <p><strong>3.</strong> \(v_{moy} = 0{,}05 \times 50 = 2{,}5\,\text{m/s}\)</p>
-    <p><strong>4.</strong> Mouvement <strong>rectiligne accéléré</strong> puis <strong>décéléré</strong> : la lame part de zéro, accélère en milieu de course, puis ralentit jusqu'à zéro en fin d'aller.</p>
+    <p><strong>4.</strong> Mouvement <strong>rectiligne acc&eacute;l&eacute;r&eacute;</strong> puis <strong>d&eacute;c&eacute;l&eacute;r&eacute;</strong> : la lame part de z&eacute;ro, acc&eacute;l&egrave;re en milieu de course, puis ralentit jusqu'&agrave; z&eacute;ro en fin d'aller.</p>
   </div>
 </div>
 
-<!-- EXO 7 -->
+<!-- EXO ST7 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Chronophotographie – mouvement accéléré</span>
-    <span class="diff diff-2">Intermédiaire</span>
+    <span class="exo-title">Chronophotographie &ndash; mouvement acc&eacute;l&eacute;r&eacute;</span>
   </div>
-  <p>Une balle roule et accélère. Des photos sont prises à intervalles \(\Delta t = 0{,}05\,\text{s}\). Les distances entre positions consécutives sont :</p>
+  <p>Une balle roule et acc&eacute;l&egrave;re. Des photos sont prises &agrave; intervalles \(\Delta t = 0{,}05\,\text{s}\). Les distances entre positions cons&eacute;cutives sont :</p>
   <table>
-    <tr><th>Intervalle</th><th>1→2</th><th>2→3</th><th>3→4</th><th>4→5</th></tr>
+    <tr><th>Intervalle</th><th>1&rarr;2</th><th>2&rarr;3</th><th>3&rarr;4</th><th>4&rarr;5</th></tr>
     <tr><td>Distance (cm)</td><td>2</td><td>4</td><td>6</td><td>8</td></tr>
   </table>
-  <p class="q"><strong>1.</strong> Les distances sont-elles égales ? Quel type de mouvement cela indique-t-il ?</p>
+  <p class="q"><strong>1.</strong> Les distances sont-elles &eacute;gales ? Quel type de mouvement cela indique-t-il ?</p>
   <p class="q"><strong>2.</strong> Calculer la vitesse entre chaque paire de positions successives (en cm/s puis en m/s).</p>
-  <p class="q"><strong>3.</strong> Les vitesses augmentent-elles de façon régulière ? (Calculer les différences successives.)</p>
+  <p class="q"><strong>3.</strong> Les vitesses augmentent-elles de fa&ccedil;on r&eacute;guli&egrave;re ? (Calculer les diff&eacute;rences successives.)</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Les distances augmentent (2, 4, 6, 8 cm) → mouvement <strong>rectiligne accéléré</strong> (uniformément accéléré ici).</p>
+    <p><strong>1.</strong> Les distances augmentent (2, 4, 6, 8 cm) &rarr; mouvement <strong>rectiligne acc&eacute;l&eacute;r&eacute;</strong>.</p>
     <p><strong>2.</strong></p>
     <table>
       <tr><th>Intervalle</th><th>Distance</th><th>Vitesse (cm/s)</th><th>Vitesse (m/s)</th></tr>
-      <tr><td>1→2</td><td>2 cm</td><td>2 / 0,05 = 40 cm/s</td><td>0,40 m/s</td></tr>
-      <tr><td>2→3</td><td>4 cm</td><td>4 / 0,05 = 80 cm/s</td><td>0,80 m/s</td></tr>
-      <tr><td>3→4</td><td>6 cm</td><td>6 / 0,05 = 120 cm/s</td><td>1,20 m/s</td></tr>
-      <tr><td>4→5</td><td>8 cm</td><td>8 / 0,05 = 160 cm/s</td><td>1,60 m/s</td></tr>
+      <tr><td>1&rarr;2</td><td>2 cm</td><td>2 / 0,05 = 40 cm/s</td><td>0,40 m/s</td></tr>
+      <tr><td>2&rarr;3</td><td>4 cm</td><td>4 / 0,05 = 80 cm/s</td><td>0,80 m/s</td></tr>
+      <tr><td>3&rarr;4</td><td>6 cm</td><td>6 / 0,05 = 120 cm/s</td><td>1,20 m/s</td></tr>
+      <tr><td>4&rarr;5</td><td>8 cm</td><td>8 / 0,05 = 160 cm/s</td><td>1,60 m/s</td></tr>
     </table>
-    <p><strong>3.</strong> Différences : 80-40 = 40, 120-80 = 40, 160-120 = 40 cm/s. La vitesse augmente de 40 cm/s à chaque intervalle → accélération <strong>constante</strong> (mouvement uniformément accéléré).</p>
+    <p><strong>3.</strong> Diff&eacute;rences : 80-40 = 40, 120-80 = 40, 160-120 = 40 cm/s. La vitesse augmente de 40 cm/s &agrave; chaque intervalle &rarr; acc&eacute;l&eacute;ration <strong>constante</strong> (mouvement uniform&eacute;ment acc&eacute;l&eacute;r&eacute;).</p>
   </div>
 </div>
 
-<!-- ===================== SECTION 4 ===================== -->
-<h2>Contexte professionnel</h2>
-<div class="section-intro">Exercices avancés liés aux situations de l'atelier de menuiserie et aux activités sportives.</div>
-
-<!-- EXO 8 -->
+<!-- EXO ST8 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
     <span class="exo-title">Livraison de bois en scierie &ndash; vitesse moyenne globale</span>
-    <span class="diff diff-3">Avancé</span>
   </div>
   <div class="mama-tag">Logistique bois</div>
-  <p>Un chauffeur-livreur de bois approvisionne trois ateliers en une matinée :</p>
+  <p>Un chauffeur-livreur de bois approvisionne trois ateliers en une matin&eacute;e :</p>
   <table>
-    <tr><th>Étape</th><th>Distance</th><th>Durée</th></tr>
-    <tr><td>1 – Scierie → Atelier de menuiserie A</td><td>40 km</td><td>30 min</td></tr>
-    <tr><td>2 – Atelier A → Atelier d'agencement B</td><td>60 km</td><td>40 min</td></tr>
-    <tr><td>3 – Atelier B → Scierie</td><td>20 km</td><td>20 min</td></tr>
+    <tr><th>&Eacute;tape</th><th>Distance</th><th>Dur&eacute;e</th></tr>
+    <tr><td>1 – Scierie &rarr; Atelier de menuiserie A</td><td>40 km</td><td>30 min</td></tr>
+    <tr><td>2 – Atelier A &rarr; Atelier d'agencement B</td><td>60 km</td><td>40 min</td></tr>
+    <tr><td>3 – Atelier B &rarr; Scierie</td><td>20 km</td><td>20 min</td></tr>
   </table>
-  <p class="q"><strong>1.</strong> Calculer la vitesse moyenne de chaque étape en km/h.</p>
-  <p class="q"><strong>2.</strong> Calculer la distance totale et la durée totale du trajet.</p>
+  <p class="q"><strong>1.</strong> Calculer la vitesse moyenne de chaque &eacute;tape en km/h.</p>
+  <p class="q"><strong>2.</strong> Calculer la distance totale et la dur&eacute;e totale du trajet.</p>
   <p class="q"><strong>3.</strong> Calculer la vitesse moyenne globale du trajet.</p>
-  <p class="q"><strong>4.</strong> La vitesse moyenne globale est-elle égale à la moyenne des vitesses des 3 étapes ? Pourquoi ?</p>
+  <p class="q"><strong>4.</strong> La vitesse moyenne globale est-elle &eacute;gale &agrave; la moyenne des vitesses des 3 &eacute;tapes ? Pourquoi ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong></p>
     <table>
-      <tr><th>Étape</th><th>Calcul</th><th>Vitesse</th></tr>
+      <tr><th>&Eacute;tape</th><th>Calcul</th><th>Vitesse</th></tr>
       <tr><td>1</td><td>40 km / (30/60 h)</td><td>80 km/h</td></tr>
       <tr><td>2</td><td>60 km / (40/60 h)</td><td>90 km/h</td></tr>
       <tr><td>3</td><td>20 km / (20/60 h)</td><td>60 km/h</td></tr>
     </table>
-    <p><strong>2.</strong> Distance totale = 40 + 60 + 20 = 120 km. Durée totale = 30 + 40 + 20 = 90 min = 1,5 h.</p>
+    <p><strong>2.</strong> Distance totale = 40 + 60 + 20 = 120 km. Dur&eacute;e totale = 30 + 40 + 20 = 90 min = 1,5 h.</p>
     <p><strong>3.</strong> \(v_{moy\,globale} = \dfrac{120\,\text{km}}{1{,}5\,\text{h}} = 80\,\text{km/h}\)</p>
-    <p><strong>4.</strong> Moyenne des vitesses = (80 + 90 + 60) / 3 = 76,7 km/h ≠ 80 km/h. Ce n'est pas la même valeur car les étapes n'ont pas la même durée. La vitesse moyenne globale est le rapport distance totale / temps total, pas la moyenne arithmétique des vitesses.</p>
+    <p><strong>4.</strong> Moyenne des vitesses = (80 + 90 + 60) / 3 = 76,7 km/h &ne; 80 km/h. Ce n'est pas la m&ecirc;me valeur car les &eacute;tapes n'ont pas la m&ecirc;me dur&eacute;e.</p>
   </div>
 </div>
 
-<!-- EXO 9 -->
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="niveau-header niveau-4">
+  <span class="badge-niv" style="background:#e53e3e;color:#fff;padding:3px 10px;border-radius:10px;font-size:.85em;font-weight:700;margin-right:8px;">Niveau 4</span>
+  <h2 style="display:inline">Probl&egrave;mes complets &ndash; Contexte pro avanc&eacute;</h2>
+</div>
+<div class="section-intro">Exercices avancés li&eacute;s aux situations de l'atelier de menuiserie : fraise, livraisons, analyse compar&eacute;e.</div>
+
+<!-- EXO A9 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
     <span class="exo-title">Vitesse lin&eacute;aire de la lame d'une toupie</span>
-    <span class="diff diff-3">Avancé</span>
   </div>
   <div class="mama-tag">Atelier de menuiserie</div>
-  <p>La fraise d'une toupie a un rayon extérieur \(R = 4\,\text{cm} = 0{,}04\,\text{m}\) et tourne à la fréquence \(n = 50\,\text{tours/s}\).</p>
+  <p>La fraise d'une toupie a un rayon ext&eacute;rieur \(R = 4\,\text{cm} = 0{,}04\,\text{m}\) et tourne &agrave; la fr&eacute;quence \(n = 50\,\text{tours/s}\).</p>
   <div class="methode">
-    <strong>Vitesse linéaire en bord de fraise :</strong> \(v = 2\pi R f\)<br>
-    où \(f\) est la fréquence de rotation (en tr/s), \(R\) le rayon (en m).
+    <strong>Vitesse lin&eacute;aire en bord de fraise :</strong> \(v = 2\pi R f\)<br>
+    o&ugrave; \(f\) est la fr&eacute;quence de rotation (en tr/s), \(R\) le rayon (en m).
   </div>
-  <p class="q"><strong>1.</strong> Quelle est la trajectoire d'un point situé sur le bord extérieur de la fraise (dans le référentiel de la toupie, par rapport à l'axe de rotation) ?</p>
-  <p class="q"><strong>2.</strong> Calculer la vitesse linéaire \(v\) d'un point sur le bord extérieur de la fraise.</p>
-  <p class="q"><strong>3.</strong> Un point situé à mi-rayon (\(r = 2\,\text{cm}\)) a-t-il la même vitesse linéaire ? Calculer \(v'\).</p>
-  <p class="q"><strong>4.</strong> La vitesse de rotation monte à 200 tr/s (broche haute vitesse). Recalculer \(v\) en bord de fraise. Quel impact cela a-t-il sur la qualité de la coupe ?</p>
+  <p class="q"><strong>1.</strong> Quelle est la trajectoire d'un point situ&eacute; sur le bord ext&eacute;rieur de la fraise (dans le r&eacute;f&eacute;rentiel de la toupie) ?</p>
+  <p class="q"><strong>2.</strong> Calculer la vitesse lin&eacute;aire \(v\) d'un point sur le bord ext&eacute;rieur de la fraise.</p>
+  <p class="q"><strong>3.</strong> Un point situ&eacute; &agrave; mi-rayon (\(r = 2\,\text{cm}\)) a-t-il la m&ecirc;me vitesse lin&eacute;aire ? Calculer \(v'\).</p>
+  <p class="q"><strong>4.</strong> La vitesse de rotation monte &agrave; 200 tr/s (broche haute vitesse). Recalculer \(v\) en bord de fraise. Quel impact cela a-t-il sur la qualit&eacute; de la coupe ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Trajectoire <strong>circulaire</strong> de rayon R = 4 cm, centrée sur l'axe de la toupie.</p>
+    <p><strong>1.</strong> Trajectoire <strong>circulaire</strong> de rayon R = 4 cm, centr&eacute;e sur l'axe de la toupie.</p>
     <p><strong>2.</strong> \(v = 2\pi \times 0{,}04 \times 50 \approx 12{,}6\,\text{m/s}\)</p>
-    <p><strong>3.</strong> \(v' = 2\pi \times 0{,}02 \times 50 \approx 6{,}3\,\text{m/s}\). Non, la vitesse est plus faible à mi-rayon : elle est proportionnelle au rayon (\(v' = v/2\)).</p>
-    <p><strong>4.</strong> \(v = 2\pi \times 0{,}04 \times 200 \approx 50{,}3\,\text{m/s}\). À 200 tr/s, la vitesse est 4 fois plus grande. Une vitesse de coupe plus élevée donne une surface plus nette (moins d'arrachements) mais génère plus de chaleur et use davantage l'outil. Il faut adapter la vitesse à l'essence de bois travaillée.</p>
+    <p><strong>3.</strong> \(v' = 2\pi \times 0{,}02 \times 50 \approx 6{,}3\,\text{m/s}\). Non, la vitesse est plus faible &agrave; mi-rayon : elle est proportionnelle au rayon (\(v' = v/2\)).</p>
+    <p><strong>4.</strong> \(v = 2\pi \times 0{,}04 \times 200 \approx 50{,}3\,\text{m/s}\). &Agrave; 200 tr/s, la vitesse est 4 fois plus grande. Une vitesse de coupe plus &eacute;lev&eacute;e donne une surface plus nette mais g&eacute;n&egrave;re plus de chaleur et use davantage l'outil.</p>
   </div>
+</div>
+
+<!-- EXO A10 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10 &#9733;</span>
+    <span class="exo-title">Comparaison de deux itin&eacute;raires de livraison</span>
+  </div>
+  <div class="mama-tag">Logistique – Gestion des d&eacute;placements</div>
+  <p>Un responsable d'atelier doit choisir entre deux itin&eacute;raires pour livrer des panneaux de bois :</p>
+  <table>
+    <tr><th>Itin&eacute;raire</th><th>Distance</th><th>Vitesse moyenne</th></tr>
+    <tr><td><strong>Route nationale</strong></td><td>72 km</td><td>90 km/h</td></tr>
+    <tr><td><strong>Autoroute</strong></td><td>90 km</td><td>120 km/h</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Calculer le temps de trajet (en minutes) pour chaque itin&eacute;raire. Quelle formule utiliser ?</p>
+  <p class="q"><strong>2.</strong> Quel itin&eacute;raire est le plus rapide ? De combien de minutes ?</p>
+  <p class="q"><strong>3.</strong> Le p&eacute;age autoroute co&ucirc;te 8 € et le carburant revient &agrave; 0,12 € par km. Calculer le co&ucirc;t total de chaque itin&eacute;raire.</p>
+  <p class="q"><strong>4.</strong> En tenant compte du temps et du co&ucirc;t, quel itin&eacute;raire recommandez-vous ? Justifier.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(t = d/v\)</p>
+    <p>Nationale : \(t = \dfrac{72}{90} = 0{,}8\,\text{h} = 48\,\text{min}\)</p>
+    <p>Autoroute : \(t = \dfrac{90}{120} = 0{,}75\,\text{h} = 45\,\text{min}\)</p>
+    <p><strong>2.</strong> L'autoroute est plus rapide de 3 minutes.</p>
+    <p><strong>3.</strong></p>
+    <p>Nationale : \(72 \times 0{,}12 = 8{,}64\,€\) (pas de p&eacute;age)</p>
+    <p>Autoroute : \(90 \times 0{,}12 + 8 = 10{,}8 + 8 = 18{,}80\,€\)</p>
+    <p><strong>4.</strong> L'autoroute &eacute;conomise 3 min mais co&ucirc;te 18,80 – 8,64 = 10,16 € de plus. Pour une livraison ponctuelle urgente, l'autoroute se justifie. Pour des livraisons r&eacute;guli&egrave;res, la route nationale est plus &eacute;conomique.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
+
+<!-- BILAN -->
+<div style="background:#f5f0ff;border-radius:10px;padding:18px 22px;margin:32px 0;border:1px solid #c4b5fd">
+  <strong style="color:#4a1d96">Bilan des comp&eacute;tences travaill&eacute;es</strong>
+  <table style="margin:12px 0">
+    <tr><th>Comp&eacute;tence</th><th>Exercices</th></tr>
+    <tr><td>Identifier un r&eacute;f&eacute;rentiel</td><td>Ex 1</td></tr>
+    <tr><td>Nommer et caract&eacute;riser une trajectoire</td><td>Ex 2</td></tr>
+    <tr><td>Calculer une vitesse moyenne et convertir</td><td>Ex 3, 5, 6</td></tr>
+    <tr><td>Analyser une chronophotographie</td><td>Ex 4, 7</td></tr>
+    <tr><td>R&eacute;soudre des probl&egrave;mes contextualis&eacute;s</td><td>Ex 8, 9, 10</td></tr>
+  </table>
 </div>
 
 </div><!-- fin .c -->
@@ -377,18 +537,16 @@ function toggle(btn){
   let x=0;
   const n=80;
   for(let i=0;i<=n;i++){
-    const t=i*(10/n); // 0..10 s
+    const t=i*(10/n);
     labels.push(t.toFixed(1));
     if(t<=5){
-      // Accélération : x = 0.5*a*t^2, a=4 m/s^2
       x = 0.5*4*t*t;
     } else {
-      // Décélération depuis v=20 m/s à t=5s, position=50m
       const dt=t-5;
-      const v0=20; // m/s
-      const a=-5; // m/s^2
+      const v0=20;
+      const a=-5;
       x = 50 + v0*dt + 0.5*a*dt*dt;
-      if(x>90) x=90; // s'arrête
+      if(x>90) x=90;
     }
     pos.push(Math.min(x,90).toFixed(1));
   }
@@ -421,6 +579,7 @@ function toggle(btn){
   });
 })();
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

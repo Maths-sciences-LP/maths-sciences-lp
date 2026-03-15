@@ -51,7 +51,175 @@
   <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ════════ PARTIE A ════════ -->
+<!-- ================================================================
+     DS NIVEAU SOCLE
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:.93em">
+  <strong style="color:#14532d">DS Socle &ndash; Grandeurs électriques et circuits</strong><br>
+  Toutes les formules sont données. Les calculs sont amorcés. Tableau et cases à compléter.
+</div>
+
+<!-- PARTIE A SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Identifier les grandeurs électriques</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <p>Un technicien réalise des mesures sur l'installation électrique d'un atelier de menuiserie.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Relier chaque grandeur à son unité et à son appareil de mesure : <span class="bareme">(2 pts)</span>
+    <table>
+      <thead><tr><th>Grandeur</th><th>Unité</th><th>Appareil de mesure</th></tr></thead>
+      <tbody>
+        <tr><td>Tension \(U\)</td><td>? (V ou A ou Ω)</td><td>? (voltmètre / ampèremètre / ohmmètre)</td></tr>
+        <tr><td>Intensité \(I\)</td><td>? (V ou A ou Ω)</td><td>?</td></tr>
+        <tr><td>Résistance \(R\)</td><td>? (V ou A ou Ω)</td><td>?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Le voltmètre se branche : (cocher la bonne réponse) <span class="bareme">(2 pts)</span>
+    <p style="padding-left:1em">&#9744; En série dans le circuit &nbsp;&nbsp; &#9744; En parallèle (dérivation) aux bornes du composant</p>
+    <p>L'ampèremètre se branche :</p>
+    <p style="padding-left:1em">&#9744; En série dans le circuit &nbsp;&nbsp; &#9744; En parallèle (dérivation)</p>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Convertir les valeurs suivantes (formules données : 1 A = 1 000 mA) : <span class="bareme">(2 pts)</span>
+    <p style="padding-left:1em">1 400 mA = &hellip;&hellip;&hellip; A &nbsp;&nbsp;|&nbsp;&nbsp; 0,5 A = &hellip;&hellip;&hellip; mA &nbsp;&nbsp;|&nbsp;&nbsp; 2 500 mA = &hellip;&hellip;&hellip; A</p>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-rea">REA</span>
+    Une lampe de chantier fonctionne sous U = 230 V avec un courant I = 0,5 A.<br>
+    Calculer sa puissance avec la formule donnée : \( P = U \times I = \ldots\ldots \times \ldots\ldots = \) &hellip;&hellip;&hellip; W <span class="bareme">(2 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Tension U → Volt (V) → Voltmètre | Intensité I → Ampère (A) → Ampèremètre | Résistance R → Ohm (Ω) → Ohmmètre</p>
+    <p><strong>2.</strong> Voltmètre : &#9745; En parallèle | Ampèremètre : &#9745; En série</p>
+    <p><strong>3.</strong> 1400 mA = <strong>1,4 A</strong> | 0,5 A = <strong>500 mA</strong> | 2500 mA = <strong>2,5 A</strong></p>
+    <p><strong>4.</strong> \( P = 230 \times 0{,}5 = \mathbf{115 \text{ W}} \)</p>
+  </div>
+</div>
+
+<!-- PARTIE B SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Circuit série simple &ndash; très guidé</span>
+    <span class="pts">6 pts</span>
+  </div>
+
+  <div class="methode"><strong>Loi des mailles (série) donnée :</strong> \( U_{total} = U_1 + U_2 \)<br>
+  <strong>Loi de l'intensité (série) :</strong> L'intensité est la <strong>même partout</strong> : \( I_1 = I_2 = I \)</div>
+
+  <p>Un circuit série comporte une pile de 9 V et deux résistances. Le voltmètre mesure \(U_1 = 4 \text{ V}\) aux bornes de \(R_1\). L'ampèremètre mesure \(I = 0{,}3 \text{ A}\).</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer \(U_2\) avec la loi des mailles : <span class="bareme">(2 pts)</span>
+    <p style="padding-left:1em">\( U_2 = U_{total} - U_1 = 9 - \ldots\ldots = \) &hellip;&hellip;&hellip; V</p>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Quelle est l'intensité dans \(R_2\) ? Justifier en une phrase : <span class="bareme">(2 pts)</span>
+    <p style="padding-left:1em">\( I_2 = \) &hellip;&hellip;&hellip; A car &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</p>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Calculer \(R_1\) et \(R_2\) avec la formule donnée : \( R = U / I \) <span class="bareme">(2 pts)</span>
+    <p style="padding-left:1em">\( R_1 = U_1 / I = 4 / 0{,}3 = \) &hellip;&hellip;&hellip; Ω</p>
+    <p style="padding-left:1em">\( R_2 = U_2 / I = \ldots\ldots / 0{,}3 = \) &hellip;&hellip;&hellip; Ω</p>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( U_2 = 9 - 4 = \mathbf{5 \text{ V}} \)</p>
+    <p><strong>2.</strong> \( I_2 = 0{,}3 \text{ A} \) car en circuit série l'intensité est la même partout.</p>
+    <p><strong>3.</strong> \( R_1 = 4 / 0{,}3 \approx \mathbf{13{,}3 \text{ Ω}} \) | \( R_2 = 5 / 0{,}3 \approx \mathbf{16{,}7 \text{ Ω}} \)</p>
+  </div>
+</div>
+
+<!-- PARTIE C SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C &ndash; Circuit parallèle &ndash; guidé</span>
+    <span class="pts">6 pts</span>
+  </div>
+
+  <div class="methode"><strong>Circuit parallèle :</strong><br>
+  - Loi des nœuds : \( I_{total} = I_1 + I_2 \)<br>
+  - Tension identique dans chaque branche : \( U_1 = U_2 = U_{réseau} \)</div>
+
+  <p>Deux machines en atelier MAMA sont branchées en parallèle sur le réseau 230 V :</p>
+  <ul>
+    <li>Ponceuse : \( I_1 = 3 \text{ A} \)</li>
+    <li>Éclairage LED : \( I_2 = 0{,}5 \text{ A} \)</li>
+  </ul>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer \(I_{total}\) : <span class="bareme">(2 pts)</span>
+    <p style="padding-left:1em">\( I_{total} = I_1 + I_2 = 3 + \ldots\ldots = \) &hellip;&hellip;&hellip; A</p>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Quelle est la tension aux bornes de la ponceuse ? aux bornes de l'éclairage ? (cocher) <span class="bareme">(2 pts)</span>
+    <p style="padding-left:1em">&#9744; 115 V &nbsp;&nbsp; &#9744; 230 V &nbsp;&nbsp; &#9744; 460 V &nbsp;&nbsp; (même réponse pour les deux car circuit &hellip;&hellip;&hellip;&hellip;)</p>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-val">VAL</span>
+    Si la ponceuse tombe en panne, l'éclairage LED s'éteint-il aussi ? (entourer et justifier) <span class="bareme">(2 pts)</span>
+    <p style="padding-left:1em">OUI &nbsp;/&nbsp; NON &nbsp;&nbsp; Justification : &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</p>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( I_{total} = 3 + 0{,}5 = \mathbf{3{,}5 \text{ A}} \)</p>
+    <p><strong>2.</strong> &#9745; 230 V pour les deux, car en circuit parallèle chaque branche est reliée directement au réseau.</p>
+    <p><strong>3.</strong> NON. En circuit parallèle, chaque branche est indépendante. La panne de la ponceuse ne coupe pas l'alimentation de l'éclairage.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS NIVEAU STANDARD (DS original)
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:.93em">
+  <strong style="color:#1e40af">DS Standard &ndash; Grandeurs électriques et mouvement circulaire</strong><br>
+  Durée : 1 heure | Calculatrice autorisée | Documents non autorisés
+</div>
+
+<!-- PARTIE A STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie A &ndash; P&eacute;riode et fr&eacute;quence</span>
@@ -86,7 +254,7 @@
   </div>
 </div>
 
-<!-- ════════ PARTIE B ════════ -->
+<!-- PARTIE B STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie B &ndash; Probl&egrave;me : le man&egrave;ge</span>
@@ -130,6 +298,108 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS NIVEAU APPROFONDISSEMENT
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div style="background:#faf5ff;border:1px solid #c4b5fd;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:.93em">
+  <strong style="color:#4c1d95">DS Approfondissement &ndash; Grandeurs électriques et mouvement circulaire</strong><br>
+  Durée : 1 heure | Calculatrice autorisée | Rédaction et justifications exigées
+</div>
+
+<!-- PARTIE A APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Installation électrique d'un atelier MAMA</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <p>Un atelier de menuiserie et agencement doit être équipé. Les équipements prévus, tous branchés en parallèle sur le réseau 230 V, sont :</p>
+  <table>
+    <thead><tr><th>Équipement</th><th>Puissance</th></tr></thead>
+    <tbody>
+      <tr><td>Scie à format</td><td>2 200 W</td></tr>
+      <tr><td>Ponceuse à bande</td><td>1 200 W</td></tr>
+      <tr><td>Éclairage LED (10 tubes)</td><td>10 × 20 W = 200 W</td></tr>
+      <tr><td>Aspirateur à copeaux</td><td>600 W</td></tr>
+    </tbody>
+  </table>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculez l'intensité absorbée par chaque équipement, puis l'intensité totale. Utilisez \( I = P/U \). <span class="bareme">(4 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span>
+    En vous basant sur l'intensité totale calculée, quel disjoncteur choisir parmi 20 A, 25 A, 32 A, 40 A ? Justifiez votre choix en expliquant pourquoi les autres calibres ne conviennent pas. <span class="bareme">(3 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-val">VAL</span>
+    Au démarrage de la scie, la tension chute à 218 V. Calculez la nouvelle puissance consommée par la scie. Expliquez physiquement pourquoi la tension chute au démarrage. <span class="bareme">(3 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( I_{scie} = 2200/230 \approx 9{,}6 \text{ A} \) | \( I_{ponc} = 1200/230 \approx 5{,}2 \text{ A} \) | \( I_{ecl} = 200/230 \approx 0{,}9 \text{ A} \) | \( I_{asp} = 600/230 \approx 2{,}6 \text{ A} \) | \( I_{total} = 9{,}6+5{,}2+0{,}9+2{,}6 = 18{,}3 \text{ A} \)</p>
+    <p><strong>2.</strong> \( I_{total} = 18{,}3 \text{ A} \). Un 20 A sauterait (18,3 A en régime continu, plus courants d'appel au démarrage). Un 25 A convient : supérieur à 18,3 A en régime normal mais déclenche en cas de surcharge. Un 32 A ou 40 A fonctionnerait mais offrirait moins de protection pour les câbles. Le <strong>25 A</strong> est le bon choix.</p>
+    <p><strong>3.</strong> \( P_{scie,218V} = 218 \times I_{scie} \). Or au démarrage le courant d'appel est élevé : environ \( I_{appel} \approx 3 \times I_{normal} = 28{,}8 \text{ A} \), entraînant une chute de tension dans les câbles d'alimentation. En régime établi, si la tension chute à 218 V : \( P = 218 \times 9{,}6 \approx 2093 \text{ W} \) (au lieu de 2200 W). La chute de tension est due à la résistance des câbles (loi d'Ohm appliquée aux conducteurs) : fort courant × résistance du fil = chute de tension.</p>
+  </div>
+</div>
+
+<!-- PARTIE B APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Mouvement circulaire : plateau tournant d'une machine CNC</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <p>Une machine CNC d'usinage du bois comporte un plateau tournant de rayon 0,4 m qui effectue 120 tours par minute. Un outil est fixé à 0,3 m de l'axe.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculez la fréquence de rotation (en Hz) et la période. <span class="bareme">(2 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Calculez la vitesse linéaire d'un point situé sur le bord du plateau (r = 0,4 m), puis de l'outil (r = 0,3 m). <span class="bareme">(4 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    La fréquence de rotation est doublée à 240 tr/min pour une coupe plus rapide. Calculez la nouvelle vitesse de l'outil. Quel est le rapport entre les deux vitesses ? Que peut-on en conclure sur la relation entre fréquence et vitesse linéaire ? <span class="bareme">(4 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( f = 120/60 = 2 \text{ Hz} \) ; \( T = 1/2 = 0{,}5 \text{ s} \)</p>
+    <p><strong>2.</strong> Bord plateau : \( v = 2\pi \times 0{,}4 \times 2 \approx 5{,}03 \text{ m/s} \). Outil : \( v = 2\pi \times 0{,}3 \times 2 \approx 3{,}77 \text{ m/s} \)</p>
+    <p><strong>3.</strong> Nouvelle fréquence : \( f' = 240/60 = 4 \text{ Hz} \). Nouvelle vitesse outil : \( v' = 2\pi \times 0{,}3 \times 4 \approx 7{,}54 \text{ m/s} \). Rapport : \( v'/v = 7{,}54/3{,}77 = 2 \). La vitesse linéaire est proportionnelle à la fréquence de rotation : doubler la fréquence double la vitesse linéaire. La relation est : \( v = 2\pi r f \), donc \( v \propto f \) à rayon constant.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <script>
 function toggle(btn){
   const corr=btn.nextElementSibling;
@@ -139,5 +409,6 @@ function toggle(btn){
 </script>
 </div>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

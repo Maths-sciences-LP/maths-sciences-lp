@@ -30,6 +30,128 @@
     <div><strong>Calculatrice</strong>Autorisée</div>
   </div>
 
+  <!-- ================= NIVEAU SOCLE ================= -->
+  <div class="diff-socle">
+  <span class="tag-socle">Socle</span>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Radiateur électrique d'un local technique</span>
+      <span class="pts">8 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien chauffagiste installe un radiateur électrique dans un local technique de chaufferie. Le radiateur est branché sur une prise monophasée 230 V.<br>
+      Données :
+      <ul>
+        <li>Tension efficace : U = 230 V</li>
+        <li>Intensité efficace : I = 8,7 A</li>
+        <li>Le radiateur est un appareil purement résistif : cos(φ) = 1</li>
+      </ul>
+      Formules utiles :
+      <ul>
+        <li>Puissance apparente : S = U × I &nbsp;(en VA)</li>
+        <li>Puissance active : P = U × I × cos(φ) &nbsp;(en W)</li>
+        <li>Puissance réactive : Q = U × I × sin(φ) &nbsp;(en var)</li>
+        <li>Si cos(φ) = 1 alors sin(φ) = 0</li>
+      </ul>
+    </p>
+    <div class="q"><strong>1.</strong> Compléter le calcul de la puissance apparente :<br>
+      S = U × I = 230 × ……… = ……… VA <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Pour un radiateur, cos(φ) = 1. Compléter le calcul de la puissance active :<br>
+      P = U × I × cos(φ) = 230 × 8,7 × ……… = ……… W <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> Comme sin(φ) = 0, que vaut la puissance réactive Q ? <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> Que remarque-t-on entre les valeurs de P et de S pour un appareil purement résistif ? <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>5.</strong> Le disjoncteur du circuit est un 10 A. Le radiateur peut-il fonctionner ? Comparer I au calibre. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>6.</strong> Quel calibre de disjoncteur faut-il choisir parmi : 10 A, 16 A, 20 A ? <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> S = U × I = 230 × 8,7 = <strong>2 001 VA</strong></p>
+      <p><strong>2.</strong> P = U × I × cos(φ) = 230 × 8,7 × 1 = <strong>2 001 W</strong></p>
+      <p><strong>3.</strong> Q = U × I × sin(φ) = 230 × 8,7 × 0 = <strong>0 var</strong>. La puissance réactive est nulle.</p>
+      <p><strong>4.</strong> Pour un appareil purement résistif (cos φ = 1), on a <strong>P = S</strong>. Toute la puissance apparente est utile.</p>
+      <p><strong>5.</strong> I = 8,7 A &gt; 10 A ? Non : 8,7 A &lt; 10 A → le radiateur <strong>peut</strong> fonctionner avec un disjoncteur 10 A.<br>
+        Cependant, la marge est faible (10 − 8,7 = 1,3 A seulement).</p>
+      <p><strong>6.</strong> Pour plus de sécurité, on choisit un disjoncteur <strong>16 A</strong> (premier calibre supérieur confortable).</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Circulateur de chauffage</span>
+      <span class="pts">7 points</span>
+    </div>
+    <p class="enonce">
+      Un installateur thermique vérifie le circulateur d'un circuit de chauffage. La plaque signalétique indique :<br>
+      <ul>
+        <li>Tension : U = 230 V</li>
+        <li>Intensité : I = 0,9 A</li>
+        <li>cos(φ) = 0,65</li>
+        <li>sin(φ) = 0,76</li>
+      </ul>
+      On rappelle les formules :<br>
+      S = U × I &nbsp;|&nbsp; P = U × I × cos(φ) &nbsp;|&nbsp; Q = U × I × sin(φ)
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la puissance apparente S en complétant :<br>
+      S = U × I = ……… × ……… = ……… VA <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer la puissance active P en complétant :<br>
+      P = U × I × cos(φ) = ……… × ……… × 0,65 = ……… W <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> Calculer la puissance réactive Q en complétant :<br>
+      Q = U × I × sin(φ) = ……… × ……… × ……… = ……… var <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>4.</strong> Comparer P et S. Laquelle est la plus grande ? Pourquoi ? <span class="q-pts">(1,5 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> S = U × I = 230 × 0,9 = <strong>207 VA</strong></p>
+      <p><strong>2.</strong> P = U × I × cos(φ) = 230 × 0,9 × 0,65 = <strong>134,6 W</strong></p>
+      <p><strong>3.</strong> Q = U × I × sin(φ) = 230 × 0,9 × 0,76 = <strong>157,3 var</strong></p>
+      <p><strong>4.</strong> S = 207 VA &gt; P = 134,6 W. La puissance apparente est plus grande car le circulateur a un moteur (cos φ &lt; 1) : une partie de la puissance est réactive et ne produit pas de travail utile.</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Coût de fonctionnement d'un convecteur</span>
+      <span class="pts">5 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien CVC évalue le coût de fonctionnement d'un convecteur électrique dans un bureau.<br>
+      Données :
+      <ul>
+        <li>Puissance active du convecteur : P = 1 500 W = 1,5 kW</li>
+        <li>Durée de fonctionnement par jour : t = 8 h</li>
+        <li>Nombre de jours de fonctionnement par an : 180 jours</li>
+        <li>Prix du kWh : 0,2276 €</li>
+      </ul>
+      Formule : Énergie (en kWh) = Puissance (en kW) × temps (en h)
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la durée totale de fonctionnement par an :<br>
+      t<sub>total</sub> = 8 × ……… = ……… h <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer l'énergie consommée sur un an :<br>
+      W = P × t = 1,5 × ……… = ……… kWh <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> Calculer le coût annuel :<br>
+      Coût = W × prix = ……… × 0,2276 = ……… € <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> Si le convecteur est remplacé par un modèle de 1 000 W (1 kW), combien économise-t-on par an ? <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> t<sub>total</sub> = 8 × 180 = <strong>1 440 h</strong></p>
+      <p><strong>2.</strong> W = P × t = 1,5 × 1 440 = <strong>2 160 kWh</strong></p>
+      <p><strong>3.</strong> Coût = 2 160 × 0,2276 = <strong>491,62 €</strong></p>
+      <p><strong>4.</strong> Énergie avec le nouveau modèle : W' = 1 × 1 440 = 1 440 kWh<br>
+        Coût' = 1 440 × 0,2276 = 327,74 €<br>
+        Économie = 491,62 − 327,74 = <strong>163,88 € par an</strong></p>
+    </div>
+  </div>
+
+  <div class="total-bar">TOTAL : 20 points</div>
+
+  </div><!-- fin diff-socle -->
+
+  <!-- ================= NIVEAU STANDARD ================= -->
+  <div class="diff-standard">
+  <span class="tag-standard">Standard</span>
+
   <div class="exo">
     <div class="exo-header">
       <span class="exo-num">Exercice 1</span>
@@ -135,6 +257,8 @@
   </div>
 
   <div class="total-bar">TOTAL : 20 points</div>
+
+  </div><!-- fin diff-standard -->
 </div>
 <script>
 function toggle(btn){

@@ -8,7 +8,22 @@
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+.enonce{background:#fff;border-radius:6px;padding:12px 14px;border:1px solid #e2e8f0;margin:10px 0;font-size:.95em}
+.context-tag{display:inline-block;background:#fef3c7;color:#92400e;border-radius:4px;font-size:.72em;font-weight:700;text-transform:uppercase;padding:2px 8px;margin-bottom:8px;letter-spacing:.03em}
+.zone-rep label{font-size:.85em;color:#718096;font-weight:600;display:block;margin-bottom:4px}
+.zone-rep textarea{width:100%;min-height:70px;border:1px dashed #cbd5e0;border-radius:6px;padding:8px;font-size:.9em;color:var(--t);background:#fff;resize:vertical;box-sizing:border-box;font-family:inherit}
+.zone-rep textarea:focus{outline:none;border-color:var(--p);background:#f0f7ff}
+details.corr-wrap summary{cursor:pointer;font-size:.88em;font-weight:700;color:var(--s);padding:7px 12px;background:#f0fff4;border-radius:6px;border:1px solid #a7f3d0;display:inline-flex;align-items:center;gap:6px;user-select:none}
+details.corr-wrap summary:hover{background:#d1fae5}
+details.corr-wrap summary::marker{display:none}
+details.corr-wrap summary::-webkit-details-marker{display:none}
+details.corr-wrap[open] summary{border-radius:6px 6px 0 0;background:#d1fae5}
+.corr-body ol{padding-left:20px;margin:6px 0}
+.corr-body li{margin:5px 0}
+.att-corr{background:#fff5f5;border-left:4px solid var(--d);padding:8px 12px;border-radius:0 6px 6px 0;margin:8px 0;font-size:.9em}
+td.tl{text-align:left}
+</style>
 </head>
 <body>
 <div class="c">
@@ -24,7 +39,9 @@
   Ces exercices portent sur le calcul des <strong>périmètres</strong> et des <strong>aires</strong> des figures planes usuelles : carré, rectangle, triangle, disque. Les exercices de niveau 4 sont directement liés aux métiers de la Menuiserie-Agencement.
 </div>
 
-<!-- ================= NIVEAU 1 ================= -->
+<!-- ================================================================
+     TRONC COMMUN — Niveau 1 (tous les élèves)
+     ================================================================ -->
 <div class="niveau-header niv1">
   <span class="badge-niv badge-1">Niveau 1</span>
   <h2>Base — Calculs directs</h2>
@@ -167,7 +184,163 @@
   </div>
 </div>
 
-<!-- ================= NIVEAU 2 ================= -->
+
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés, étape par étape
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="niveau-header niv2">
+  <span class="badge-niv badge-2">Niveau 2</span>
+  <h2>Appliquer les formules — pas à pas</h2>
+</div>
+
+<!-- EX S1 -->
+<div class="exo">
+  <div class="exo-num">Exercice S1</div>
+  <div class="exo-titre">Périmètre guidé — figures simples</div>
+  <div class="meth" style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:10px 0">
+    <strong>Formules à utiliser :</strong><br>
+    &bull; Carré : \(P = 4 \times a\)<br>
+    &bull; Rectangle : \(P = 2 \times (L + l)\)<br>
+    &bull; Triangle : \(P = \text{côté}_1 + \text{côté}_2 + \text{côté}_3\)<br>
+    &bull; Cercle : \(P = 2 \times \pi \times r\) &nbsp;(avec \(\pi \approx 3{,}14\))
+  </div>
+  <div class="enonce">
+    Compléter les calculs en utilisant la bonne formule.<br><br>
+    <strong>a)</strong> Carré de côté \(a = 5\) cm :<br>
+    \(P = 4 \times \ldots = \ldots \text{ cm}\)<br><br>
+    <strong>b)</strong> Rectangle de longueur \(L = 10\) cm et largeur \(l = 4\) cm :<br>
+    \(P = 2 \times (L + l) = 2 \times (\ldots + \ldots) = 2 \times \ldots = \ldots \text{ cm}\)<br><br>
+    <strong>c)</strong> Triangle de côtés \(3\) cm, \(4\) cm et \(5\) cm :<br>
+    \(P = \ldots + \ldots + \ldots = \ldots \text{ cm}\)<br><br>
+    <strong>d)</strong> Cercle de rayon \(r = 6\) cm :<br>
+    \(P = 2 \times 3{,}14 \times \ldots \approx \ldots \text{ cm}\)
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) P = 4 × 5 = ...&#10;b) P = 2 × (10 + 4) = ...&#10;c) P = ...&#10;d) P = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> \(P = 4 \times 5 = \mathbf{20 \text{ cm}}\)</p>
+      <p><strong>b)</strong> \(P = 2 \times (10 + 4) = 2 \times 14 = \mathbf{28 \text{ cm}}\)</p>
+      <p><strong>c)</strong> \(P = 3 + 4 + 5 = \mathbf{12 \text{ cm}}\)</p>
+      <p><strong>d)</strong> \(P = 2 \times 3{,}14 \times 6 = \mathbf{37{,}68 \text{ cm}}\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX S2 -->
+<div class="exo">
+  <div class="exo-num">Exercice S2</div>
+  <div class="exo-titre">Aire guidée — figures simples</div>
+  <div class="meth" style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:10px 0">
+    <strong>Formules à utiliser :</strong><br>
+    &bull; Carré : \(\mathcal{A} = a^2 = a \times a\)<br>
+    &bull; Rectangle : \(\mathcal{A} = L \times l\)<br>
+    &bull; Triangle : \(\mathcal{A} = \dfrac{b \times h}{2}\)<br>
+    &bull; Disque : \(\mathcal{A} = \pi \times r^2\) &nbsp;(avec \(\pi \approx 3{,}14\))
+  </div>
+  <div class="enonce">
+    Compléter les calculs en utilisant la bonne formule.<br><br>
+    <strong>a)</strong> Carré de côté \(a = 6\) cm :<br>
+    \(\mathcal{A} = \ldots \times \ldots = \ldots \text{ cm}^2\)<br><br>
+    <strong>b)</strong> Rectangle \(L = 8\) cm et \(l = 5\) cm :<br>
+    \(\mathcal{A} = L \times l = \ldots \times \ldots = \ldots \text{ cm}^2\)<br><br>
+    <strong>c)</strong> Triangle de base \(b = 10\) cm et hauteur \(h = 4\) cm :<br>
+    \(\mathcal{A} = \dfrac{b \times h}{2} = \dfrac{\ldots \times \ldots}{2} = \dfrac{\ldots}{2} = \ldots \text{ cm}^2\)<br><br>
+    <strong>d)</strong> Disque de rayon \(r = 3\) cm :<br>
+    \(\mathcal{A} = 3{,}14 \times r^2 = 3{,}14 \times \ldots^2 = 3{,}14 \times \ldots \approx \ldots \text{ cm}^2\)
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="a) A = 6 × 6 = ...&#10;b) A = 8 × 5 = ...&#10;c) A = (10 × 4) ÷ 2 = ...&#10;d) A = 3,14 × 9 = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> \(\mathcal{A} = 6 \times 6 = \mathbf{36 \text{ cm}^2}\)</p>
+      <p><strong>b)</strong> \(\mathcal{A} = 8 \times 5 = \mathbf{40 \text{ cm}^2}\)</p>
+      <p><strong>c)</strong> \(\mathcal{A} = \dfrac{10 \times 4}{2} = \dfrac{40}{2} = \mathbf{20 \text{ cm}^2}\)</p>
+      <p><strong>d)</strong> \(\mathcal{A} = 3{,}14 \times 3^2 = 3{,}14 \times 9 \approx \mathbf{28{,}26 \text{ cm}^2}\)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX S3 -->
+<div class="exo">
+  <div class="exo-num">Exercice S3</div>
+  <div class="exo-titre">Problème guidé — surface d'un atelier</div>
+  <div class="enonce">
+    <span class="context-tag">Atelier menuiserie</span><br>
+    Un apprenti menuisier doit connaître la surface de l'atelier rectangulaire pour acheter du vernis de sol.<br>
+    L'atelier mesure <strong>12 m de long</strong> et <strong>6 m de large</strong>.<br><br>
+    <strong>Étape 1 — Identifier la figure :</strong><br>
+    La forme de l'atelier est un <em>rectangle</em>. La formule de l'aire est : \(\mathcal{A} = L \times l\)<br><br>
+    <strong>Étape 2 — Remplacer les valeurs :</strong><br>
+    \(\mathcal{A} = \ldots \times \ldots = \ldots \text{ m}^2\)<br><br>
+    <strong>Étape 3 — Conclusion :</strong><br>
+    La surface de l'atelier est de <strong>&hellip;&hellip; m²</strong>.<br><br>
+    <strong>Question supplémentaire :</strong> Un bidon de vernis couvre 10 m². Combien de bidons faut-il ?<br>
+    Nombre de bidons = surface ÷ 10 = &hellip;&hellip; ÷ 10 = &hellip;&hellip;
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="A = L × l = 12 × 6 = ...&#10;Nb bidons = ... ÷ 10 = ..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Étape 2 :</strong> \(\mathcal{A} = 12 \times 6 = \mathbf{72 \text{ m}^2}\)</p>
+      <p><strong>Conclusion :</strong> La surface est de 72 m².</p>
+      <p><strong>Nombre de bidons :</strong> \(72 \div 10 = 7{,}2\). Il faut donc <strong>8 bidons</strong> (on arrondit à l'entier supérieur).</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX S4 -->
+<div class="exo">
+  <div class="exo-num">Exercice S4</div>
+  <div class="exo-titre">Angle manquant — tableau à compléter</div>
+  <div class="enonce">
+    Rappel : la somme des angles d'un triangle est toujours 180°.<br>
+    Formule : angle manquant \(= 180° - \text{angle}_1 - \text{angle}_2\)<br><br>
+    Compléter le tableau :<br><br>
+    <table>
+      <tr><th>Angle 1</th><th>Angle 2</th><th>Angle 3 (à trouver)</th></tr>
+      <tr><td>60°</td><td>70°</td><td>180 − 60 − 70 = &hellip;&hellip;°</td></tr>
+      <tr><td>45°</td><td>45°</td><td>&hellip;&hellip;°</td></tr>
+      <tr><td>90°</td><td>30°</td><td>&hellip;&hellip;°</td></tr>
+      <tr><td>110°</td><td>40°</td><td>&hellip;&hellip;°</td></tr>
+    </table>
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="Ligne 1 : 180 − 60 − 70 = ...&#10;Ligne 2 : 180 − 45 − 45 = ...&#10;..."></textarea>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p>Ligne 1 : \(180 - 60 - 70 = \mathbf{50°}\)</p>
+      <p>Ligne 2 : \(180 - 45 - 45 = \mathbf{90°}\) (triangle rectangle isocèle)</p>
+      <p>Ligne 3 : \(180 - 90 - 30 = \mathbf{60°}\) (triangle rectangle)</p>
+      <p>Ligne 4 : \(180 - 110 - 40 = \mathbf{30°}\)</p>
+    </div>
+  </details>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <div class="niveau-header niv2">
   <span class="badge-niv badge-2">Niveau 2</span>
   <h2>Guidé — Raisonnement en étapes</h2>
@@ -270,7 +443,6 @@
   </div>
 </div>
 
-<!-- ================= NIVEAU 3 ================= -->
 <div class="niveau-header niv3">
   <span class="badge-niv badge-3">Niveau 3</span>
   <h2>Application — Raisonnement autonome</h2>
@@ -324,7 +496,15 @@
   </div>
 </div>
 
-<!-- ================= NIVEAU 4 MAMA ================= -->
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts MAMA
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
 <div class="niveau-header niv4">
   <span class="badge-niv badge-4">Niveau 4</span>
   <h2>MAMA — Mise en situation professionnelle</h2>
@@ -333,7 +513,7 @@
 <!-- EX 9 -->
 <div class="exo">
   <div class="exo-num">Exercice 9</div>
-  <span class="mama-tag">Parquet &amp; plinthes</span>
+  <span class="context-tag">Parquet &amp; plinthes</span>
   <div class="exo-titre">Surface à carreler et longueur de plinthe — pièce en L</div>
   <p>Une pièce a une forme en L composée de deux rectangles :</p>
   <ul>
@@ -369,7 +549,7 @@
 <!-- EX 10 -->
 <div class="exo">
   <div class="exo-num">Exercice 10</div>
-  <span class="mama-tag">Panneau de façade</span>
+  <span class="context-tag">Panneau de façade</span>
   <div class="exo-titre">Panneau rectangulaire avec découpes circulaires</div>
   <p>Un panneau rectangulaire mesure \(1{,}20\) m de long et \(0{,}80\) m de large. Il comporte <strong>3 découpes circulaires</strong> de rayon \(r = 8\) cm chacune (passages pour luminaires encastrés).</p>
   <p class="q"><strong>a)</strong> Calculer l'aire du panneau rectangulaire (en m²).</p>
@@ -392,6 +572,36 @@
   </div>
 </div>
 
+<!-- EX 11 appro bonus -->
+<div class="exo">
+  <div class="exo-num">Exercice 11 &#9733;</div>
+  <span class="context-tag">Maintenance automobile</span>
+  <div class="exo-titre">Optimisation — surface peinte sur un carter circulaire</div>
+  <p>Un technicien en maintenance automobile doit peindre un carter circulaire (disque) de diamètre \(D = 42\) cm. Au centre, une zone circulaire de rayon \(r = 6\) cm (pour le passage de l'axe) ne doit pas être peinte.</p>
+  <p class="q"><strong>a)</strong> Calculer le rayon du grand disque.</p>
+  <p class="q"><strong>b)</strong> Calculer l'aire à peindre (couronne circulaire = grand disque − petit disque). Donner le résultat arrondi au cm².</p>
+  <p class="q"><strong>c)</strong> Un pot de peinture permet de couvrir 500 cm². Combien de carters peut-on peindre avec un pot ?</p>
+  <p class="q"><strong>d)</strong> Le technicien commande 5 pots pour peindre 12 carters. A-t-il commandé suffisamment ? Justifier par le calcul.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">a) Rayon du grand disque</span>
+    <p>\(R = D \div 2 = 42 \div 2 = 21 \text{ cm}\)</p>
+    <span class="etape">b) Aire à peindre</span>
+    <p>\(\mathcal{A}_{\text{grand}} = \pi \times 21^2 = \pi \times 441 \approx 1\,385{,}44 \text{ cm}^2\)</p>
+    <p>\(\mathcal{A}_{\text{petit}} = \pi \times 6^2 = \pi \times 36 \approx 113{,}10 \text{ cm}^2\)</p>
+    <p>\(\mathcal{A}_{\text{peindre}} = 1\,385{,}44 - 113{,}10 \approx \mathbf{1\,272{,}34 \text{ cm}^2}\)</p>
+    <span class="etape">c) Nombre de carters par pot</span>
+    <p>\(\dfrac{500}{1\,272{,}34} \approx 0{,}39\) → un pot ne suffit pas pour un carter entier.</p>
+    <p>Autrement dit, il faut environ \(\lceil 1\,272{,}34 \div 500 \rceil = 3\) pots par carter.</p>
+    <span class="etape">d) Suffisance de la commande</span>
+    <p>Pour 12 carters : \(12 \times 1\,272{,}34 \approx 15\,268 \text{ cm}^2\). Capacité de 5 pots : \(5 \times 500 = 2\,500 \text{ cm}^2\).</p>
+    <p>\(2\,500 < 15\,268\) donc <strong>non</strong>, 5 pots sont largement insuffisants. Il en faut au moins \(\lceil 15\,268 \div 500 \rceil = 31\) pots.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
+
 <hr class="sep">
 <p style="text-align:center;font-size:.82em;color:#a0aec0">Chapitre 11 — Figures planes : périmètres et aires | 2de Pro MA-MA</p>
 
@@ -409,6 +619,7 @@ function showQcm(btn,id){
   else{d.style.display='block';btn.textContent='Masquer';}
 }
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

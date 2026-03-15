@@ -11,11 +11,13 @@
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
 .methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
 .attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-
 .section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
-
 .nav-links a{color:var(--p);text-decoration:none;padding:4px 10px;border:1px solid var(--p);border-radius:5px}
-.nav-links a:hover{background:var(--p);color:#fff}</style>
+.nav-links a:hover{background:var(--p);color:#fff}
+.zone-rep label{font-size:.85em;color:#718096;font-weight:600;display:block;margin-bottom:4px}
+.zone-rep textarea{width:100%;min-height:70px;border:1px dashed #cbd5e0;border-radius:6px;padding:8px;font-size:.9em;color:#2d3748;background:#fff;resize:vertical;box-sizing:border-box;font-family:inherit}
+.zone-rep textarea:focus{outline:none;border-color:var(--p);background:#f0f7ff}
+</style>
 </head>
 <body>
 <div class="c">
@@ -37,39 +39,35 @@
 <div style="display:flex;justify-content:center;margin:18px 0">
 <svg width="460" height="110" viewBox="0 0 460 110" xmlns="http://www.w3.org/2000/svg">
   <defs><marker id="ar3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c53030"/></marker></defs>
-  <!-- batterie -->
   <line x1="20" y1="55" x2="20" y2="25" stroke="#333" stroke-width="2"/>
   <line x1="14" y1="33" x2="26" y2="33" stroke="#333" stroke-width="3"/>
   <line x1="11" y1="44" x2="29" y2="44" stroke="#333" stroke-width="1.5"/>
   <text x="32" y="43" font-size="11" fill="#6f42c1" font-weight="bold">12 V</text>
   <line x1="20" y1="25" x2="80" y2="25" stroke="#333" stroke-width="2"/>
   <line x1="20" y1="55" x2="80" y2="55" stroke="#333" stroke-width="2"/>
-  <!-- R1 -->
   <line x1="80" y1="25" x2="140" y2="25" stroke="#333" stroke-width="2"/>
   <rect x="140" y="14" width="70" height="22" rx="4" fill="#fff" stroke="#6f42c1" stroke-width="2"/>
   <text x="175" y="29" text-anchor="middle" font-size="12" fill="#6f42c1" font-weight="bold">R₁</text>
   <text x="175" y="8" text-anchor="middle" font-size="9" fill="#2f855a">U₁</text>
-  <!-- R2 -->
   <line x1="210" y1="25" x2="260" y2="25" stroke="#333" stroke-width="2"/>
   <rect x="260" y="14" width="70" height="22" rx="4" fill="#fff" stroke="#6f42c1" stroke-width="2"/>
   <text x="295" y="29" text-anchor="middle" font-size="12" fill="#6f42c1" font-weight="bold">R₂</text>
   <text x="295" y="8" text-anchor="middle" font-size="9" fill="#2f855a">U₂</text>
-  <!-- R3 -->
   <line x1="330" y1="25" x2="380" y2="25" stroke="#333" stroke-width="2"/>
   <rect x="380" y="14" width="60" height="22" rx="4" fill="#fff" stroke="#6f42c1" stroke-width="2"/>
   <text x="410" y="29" text-anchor="middle" font-size="12" fill="#6f42c1" font-weight="bold">R₃</text>
   <text x="410" y="8" text-anchor="middle" font-size="9" fill="#2f855a">U₃</text>
   <line x1="440" y1="25" x2="440" y2="55" stroke="#333" stroke-width="2"/>
-  <!-- fil bas -->
   <line x1="80" y1="55" x2="440" y2="55" stroke="#333" stroke-width="2"/>
-  <!-- courant I -->
   <line x1="90" y1="17" x2="130" y2="17" stroke="#c53030" stroke-width="1.5" marker-end="url(#ar3)"/>
   <text x="105" y="12" font-size="9" fill="#c53030">I →</text>
   <text x="230" y="75" text-anchor="middle" font-size="10" fill="#718096">Résistances en série : R_éq = R₁ + R₂ + R₃</text>
 </svg>
 </div>
 
-<!-- ===== BASE ===== -->
+<!-- ================================================================
+     EXERCICES COMMUNS — Niveau 1 (pour tous)
+     ================================================================ -->
 <h2>Base – Exercices fondamentaux</h2>
 <div class="section-intro">Maîtriser U = RI, lire une caractéristique, résistances en série.</div>
 
@@ -135,7 +133,117 @@
   </div>
 </div>
 
-<!-- ===== GUIDÉ ===== -->
+
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<h2>Exercices guidés pas à pas</h2>
+<div class="section-intro">Exercices très structurés avec formules données et calculs amorcés. Suis chaque étape.</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4-S</span>
+    <span class="exo-title">Loi d'Ohm – méthode pas à pas</span>
+  </div>
+  <div class="methode">
+    <strong>Formule à utiliser :</strong> \( U = R \times I \)<br>
+    Pour trouver R : \( R = \dfrac{U}{I} \) &nbsp;|&nbsp; Pour trouver I : \( I = \dfrac{U}{R} \)
+  </div>
+  <div class="enonce">
+    <p>Un menuisier branche un outil sur une prise de 12 V. La résistance de l'outil est \( R = 4\,\Omega \).</p>
+    <p><strong>Étape 1 :</strong> Identifier la formule à utiliser → on cherche <em>I</em>, donc : \( I = \dfrac{U}{R} \)</p>
+    <p><strong>Étape 2 :</strong> Remplacer les valeurs : \( I = \dfrac{12}{\ldots} = \ldots\,\text{A} \)</p>
+    <p><strong>Étape 3 :</strong> Écrire la réponse : L'intensité est \( I = \ldots\,\text{A} \)</p>
+    <br>
+    <p>À toi : une résistance de \( R = 22\,\Omega \) est parcourue par \( I = 0{,}5\,\text{A} \).</p>
+    <p>Étape 1 : on cherche <em>U</em>, donc : \( U = R \times I = \ldots \times \ldots = \ldots\,\text{V} \)</p>
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="I = U/R = 12/4 = ... A&#10;U = 22 × 0,5 = ... V"></textarea>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Exemple :</strong> \( I = \dfrac{12}{4} = 3\,\text{A} \)</p>
+    <p><strong>À toi :</strong> \( U = 22 \times 0{,}5 = 11\,\text{V} \)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5-S</span>
+    <span class="exo-title">Résistances en série – tableau guidé</span>
+  </div>
+  <div class="methode">
+    <strong>Série :</strong> \( R_{éq} = R_1 + R_2 \) &nbsp; puis &nbsp; \( I = \dfrac{U_{tot}}{R_{éq}} \) &nbsp; puis &nbsp; \( U_1 = R_1 \times I \)
+  </div>
+  <div class="enonce">
+    <p>Deux résistances en série dans un circuit d'atelier : \( R_1 = 15\,\Omega \), \( R_2 = 25\,\Omega \), \( U_{tot} = 12\,\text{V} \).</p>
+    <p>Complète le tableau :</p>
+    <table>
+      <tr><th>Grandeur</th><th>Formule</th><th>Résultat</th></tr>
+      <tr><td>\( R_{éq} \)</td><td>\( 15 + 25 \)</td><td>…… Ω</td></tr>
+      <tr><td>\( I \)</td><td>\( \dfrac{12}{R_{éq}} \)</td><td>…… A</td></tr>
+      <tr><td>\( U_1 \)</td><td>\( R_1 \times I \)</td><td>…… V</td></tr>
+      <tr><td>\( U_2 \)</td><td>\( R_2 \times I \)</td><td>…… V</td></tr>
+      <tr><td>Vérification</td><td>\( U_1 + U_2 \)</td><td>doit = 12 V</td></tr>
+    </table>
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="R_éq = 15 + 25 = ... Ω&#10;I = 12 / ... = ... A&#10;U1 = 15 × ... = ... V&#10;U2 = 25 × ... = ... V"></textarea>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\( R_{éq} = 15 + 25 = 40\,\Omega \)</p>
+    <p>\( I = 12/40 = 0{,}3\,\text{A} \)</p>
+    <p>\( U_1 = 15 \times 0{,}3 = 4{,}5\,\text{V} \)</p>
+    <p>\( U_2 = 25 \times 0{,}3 = 7{,}5\,\text{V} \)</p>
+    <p>Vérif : \( 4{,}5 + 7{,}5 = 12\,\text{V} \) ✓</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6-S</span>
+    <span class="exo-title">Puissance électrique – calcul guidé</span>
+  </div>
+  <div class="methode">
+    <strong>Puissance :</strong> \( P = U \times I \) (en watts, W)<br>
+    Exemple : \( U = 230\,\text{V} \), \( I = 2\,\text{A} \) → \( P = 230 \times 2 = 460\,\text{W} \)
+  </div>
+  <div class="enonce">
+    <p>Un pistolet à colle d'atelier fonctionne sous \( U = 230\,\text{V} \) et absorbe \( I = 0{,}435\,\text{A} \).</p>
+    <p><strong>1.</strong> Calculer la puissance : \( P = U \times I = 230 \times \ldots = \ldots\,\text{W} \)</p>
+    <p><strong>2.</strong> Si l'atelier branche 3 pistolets identiques en parallèle :</p>
+    <p>\( P_{total} = 3 \times P = 3 \times \ldots = \ldots\,\text{W} \)</p>
+    <p>\( I_{total} = P_{total} / U = \ldots / 230 = \ldots\,\text{A} \)</p>
+    <p><strong>3.</strong> Un disjoncteur 2 A est-il suffisant ? (\( I_{total} \) &lt; 2 A ? oui / non)</p>
+  </div>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="1. P = 230 × 0,435 = ... W&#10;2. P_total = 3 × ... = ... W | I_total = ... A&#10;3. ..."></textarea>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( P = 230 \times 0{,}435 = 100\,\text{W} \)</p>
+    <p><strong>2.</strong> \( P_{total} = 3 \times 100 = 300\,\text{W} \) ; \( I_{total} = 300/230 \approx 1{,}3\,\text{A} \)</p>
+    <p><strong>3.</strong> Oui : \( 1{,}3\,\text{A} < 2\,\text{A} \) → disjoncteur 2 A suffisant.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <h2>Guidé – Exercices intermédiaires guidés</h2>
 <div class="section-intro">Deux exercices avec étapes fléchées pour guider le raisonnement.</div>
 
@@ -156,7 +264,7 @@
   <div class="corr">
     <p><strong>1.</strong> \( R_{éq} = \dfrac{529 \times 529}{529+529} = \dfrac{529}{2} = 264{,}5\,\Omega \)</p>
     <p><strong>2.</strong> \( I_1 = I_2 = 230/529 \approx 0{,}435\,\text{A} \) ; \( I_{total} = 2 \times 0{,}435 = 0{,}87\,\text{A} \)</p>
-    <p><strong>3.</strong> Oui. En parallèle, chaque spot est directement relié aux 230 V : si \( R_1 \) est coupé (spot grillé), \( U_2 = 230\,\text{V} \) est maintenu → le spot 2 continue de fonctionner. C'est pourquoi tous les circuits d'éclairage domestique et professionnel sont montés en parallèle.</p>
+    <p><strong>3.</strong> Oui. En parallèle, chaque spot est directement relié aux 230 V : si \( R_1 \) est coupé, \( U_2 = 230\,\text{V} \) est maintenu → le spot 2 continue de fonctionner. C'est pourquoi tous les circuits d'éclairage domestique et professionnel sont montés en parallèle.</p>
   </div>
 </div>
 
@@ -183,7 +291,6 @@
   </div>
 </div>
 
-<!-- ===== APPLICATION ===== -->
 <h2>Application – Exercices intermédiaires</h2>
 <div class="section-intro">Deux exercices à résoudre en autonomie.</div>
 
@@ -226,13 +333,21 @@
   </div>
 </div>
 
-<!-- ===== AVANCÉ ===== -->
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
 <h2>Contexte professionnel – Exercices avancés</h2>
-<div class="section-intro">Exercices contextualisés en atelier de menuiserie, habitat et énergie.</div>
+<div class="section-intro">Exercices contextualisés en atelier de menuiserie, habitat et énergie. Mise en œuvre autonome.</div>
 
 <div class="exo">
   <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
+    <span class="exo-num">Exercice 4-A</span>
     <span class="exo-title">Diagnostic d'une résistance de chauffage d'atelier</span>
     <span class="diff diff-3">Avancé</span>
   </div>
@@ -253,7 +368,7 @@
 
 <div class="exo">
   <div class="exo-header">
-    <span class="exo-num">Exercice 9</span>
+    <span class="exo-num">Exercice 5-A</span>
     <span class="exo-title">Installation solaire d'un bâtiment – Analyse complète</span>
     <span class="diff diff-3">Avancé</span>
   </div>
@@ -273,7 +388,33 @@
   </div>
 </div>
 
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6-A</span>
+    <span class="exo-title">Comparaison de deux installations : série vs parallèle</span>
+    <span class="diff diff-3">Avancé</span>
+  </div>
+  <p>Un atelier de maintenance automobile dispose d'une source de 24 V et doit alimenter deux lampes de signalisation identiques, chacune ayant une résistance de \( R_{lampe} = 80\,\Omega \).</p>
+  <p><strong>Cas A – montage série.</strong> Les deux lampes sont branchées en série sur 24 V.</p>
+  <p><strong>Cas B – montage parallèle.</strong> Les deux lampes sont branchées en parallèle sur 24 V.</p>
+  <p class="q"><strong>1.</strong> Pour chaque cas, calculez \( R_{éq} \), puis le courant \( I \) (ou \( I_1, I_2 \)) et la tension aux bornes de chaque lampe.</p>
+  <p class="q"><strong>2.</strong> Dans quel montage chaque lampe est-elle plus lumineuse ? Justifier en calculant la puissance dissipée par chaque lampe dans les deux cas.</p>
+  <p class="q"><strong>3.</strong> Si une lampe grille (circuit ouvert) en montage série, que se passe-t-il pour l'autre ? Et en parallèle ?</p>
+  <p class="q"><strong>4.</strong> Conclure : quel montage choisir pour un éclairage de sécurité ? Pourquoi ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Cas A (série) :</strong> \( R_{éq} = 80+80 = 160\,\Omega \) ; \( I = 24/160 = 0{,}15\,\text{A} \) ; \( U_{lampe} = 80 \times 0{,}15 = 12\,\text{V} \) par lampe.</p>
+    <p><strong>Cas B (parallèle) :</strong> \( R_{éq} = 80/2 = 40\,\Omega \) ; \( I_{total} = 24/40 = 0{,}6\,\text{A} \) ; chaque lampe reçoit \( U = 24\,\text{V} \) et \( I_1 = I_2 = 24/80 = 0{,}3\,\text{A} \).</p>
+    <p><strong>2.</strong> Puissance en série : \( P_s = 12 \times 0{,}15 = 1{,}8\,\text{W} \) par lampe. Puissance en parallèle : \( P_p = 24 \times 0{,}3 = 7{,}2\,\text{W} \) par lampe. Le montage parallèle donne 4 fois plus de puissance → lampes plus lumineuses.</p>
+    <p><strong>3.</strong> En série, si une lampe grille → circuit ouvert → l'autre s'éteint aussi. En parallèle, si une lampe grille → l'autre reste alimentée normalement.</p>
+    <p><strong>4.</strong> Montage parallèle pour la sécurité : chaque lampe est indépendante, la tension nominale est assurée, et la défaillance d'une lampe n'éteint pas les autres.</p>
+  </div>
 </div>
+
+</div><!-- fin diff-appro -->
+
+
+</div><!-- fin .c -->
 <script>
 function toggle(btn){
   var c=btn.nextElementSibling;
@@ -283,6 +424,7 @@ function toggle(btn){
 const ctx=document.getElementById('chartUI').getContext('2d');
 new Chart(ctx,{type:'line',data:{labels:['0','0,2','0,4','0,6','0,8','1,0'],datasets:[{label:'U=10×I (10 Ω)',data:[0,2,4,6,8,10],borderColor:'#6f42c1',backgroundColor:'rgba(111,66,193,0.08)',borderWidth:2,pointRadius:5,pointBackgroundColor:'#6f42c1',tension:0}]},options:{responsive:true,plugins:{title:{display:true,text:'Caractéristique U(I) — résistance de 10 Ω',font:{size:13}},legend:{display:false}},scales:{x:{title:{display:true,text:'Intensité I (A)'}},y:{title:{display:true,text:'Tension U (V)'},min:0,max:12}}}});
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

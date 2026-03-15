@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch09 – DS – Fonctions de référence</title>
+<title>Ch10 – DS – Fonction carré et variations – 2nde MAMA</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
@@ -15,20 +15,25 @@
 .partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
 .partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
 .pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
-
 .q strong{color:var(--t)}
-
 .answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
-
-.bareme{font-style:italic;color:#718096;font-size:.85em}</style>
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.cell-blank{background:#fef9c3;text-align:center;min-width:48px}
+.formule-box{background:var(--p-bg);border:2px solid var(--p-border);border-radius:8px;padding:12px 16px;margin:10px 0;font-size:1em;text-align:center}
+.formule-box small{display:block;font-size:.78em;color:#718096;margin-top:4px}
+.guide-socle{background:#f0fff4;border:1px solid #a7f3d0;border-radius:8px;padding:12px;margin:10px 0;font-size:.92em}
+.guide-socle strong{color:#065f46}
+.fill-box{border:1px dashed #cbd5e0;border-radius:6px;min-height:30px;padding:6px 10px;margin:6px 0;background:#fff;display:inline-block;min-width:120px}
+.etape{display:block;font-weight:700;color:var(--p);margin:10px 0 4px}</style>
 </head>
 <body>
 <div class="c">
 <a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 
 <header>
-  <h1>Devoir Surveillé – Chapitre 8</h1>
-  <p class="sous-titre">Fonctions de référence &nbsp;|&nbsp; 2<sup>de</sup> Pro MA-MA</p>
+  <h1>Devoir Surveillé – Chapitre 10</h1>
+  <p class="sous-titre">Fonction carré et variations &nbsp;|&nbsp; 2<sup>de</sup> Pro MA-MA</p>
+  <p class="maj">Dernière mise à jour : 14 mars 2026</p>
 </header>
 
 <div class="dh">
@@ -38,7 +43,200 @@
   <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
 </div>
 
-<!-- ===== PARTIE A ===== -->
+<!-- ================================================================
+     DS SOCLE — très guidé, formules données, cases à remplir
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="guide-socle">
+  <strong>Rappels utiles :</strong><br>
+  &bull; \(f(x) = x^2\) : pour calculer l'image de \(a\), on calcule \(a \times a\).<br>
+  &bull; \((-a)^2 = a^2\) : le carré d'un nombre négatif est positif.<br>
+  &bull; \(f\) est <strong>décroissante</strong> sur \(]-\infty\,;\,0]\) et <strong>croissante</strong> sur \([0\,;\,+\infty[\).<br>
+  &bull; Pour trouver \(c\) tel que \(c^2 = k\) (avec \(k \geq 0\) et \(c > 0\)) : \(c = \sqrt{k}\).
+</div>
+
+<!-- PARTIE A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A – Calculs d'images</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <p class="bareme">1 pt par question. Calcul = multiplier par soi-même.</p>
+
+  <div class="q"><strong>1.</strong> Calculer \(f(4)\) pour \(f(x) = x^2\).<br>
+    \(f(4) = 4 \times \) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; \(=\) &nbsp;<span class="fill-box">&nbsp;</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Calculer \(f(-4)\) pour \(f(x) = x^2\).<br>
+    \(f(-4) = (-4) \times \) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; \(=\) &nbsp;<span class="fill-box">&nbsp;</span><br>
+    <em style="font-size:.88em;color:#718096">(Rappel : un nombre négatif au carré est positif)</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> Calculer \(f(0)\).<br>
+    \(f(0) = 0 \times 0 =\) &nbsp;<span class="fill-box">&nbsp;</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Calculer \(f(1{,}5)\).<br>
+    \(f(1{,}5) = 1{,}5 \times 1{,}5 =\) &nbsp;<span class="fill-box">&nbsp;</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> Calculer \(g(3)\) pour \(g(x) = x^2 + 5\).<br>
+    \(g(3) = 3^2 + 5 = \) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; \(+ 5 =\) &nbsp;<span class="fill-box">&nbsp;</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(f(4) = 4 \times 4 = \mathbf{16}\)</p>
+    <p><strong>2.</strong> \(f(-4) = (-4) \times (-4) = \mathbf{16}\). On remarque \(f(4) = f(-4)\) : symétrie !</p>
+    <p><strong>3.</strong> \(f(0) = 0 \times 0 = \mathbf{0}\)</p>
+    <p><strong>4.</strong> \(f(1{,}5) = 1{,}5 \times 1{,}5 = \mathbf{2{,}25}\)</p>
+    <p><strong>5.</strong> \(g(3) = 9 + 5 = \mathbf{14}\)</p>
+  </div>
+</div>
+
+<!-- PARTIE B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B – Tableau de valeurs et variations</span>
+    <span class="pts">7 points</span>
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Compléter le tableau de valeurs de \(f(x) = x^2\) (calcule \(x \times x\) pour chaque case) :</div>
+  <table>
+    <tr><th>\(x\)</th><th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th></tr>
+    <tr><td>\(f(x) = x^2\)</td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td></tr>
+  </table>
+
+  <div class="q"><strong>2. (2 pts)</strong> En regardant le tableau, répondre :<br>
+    &bull; De \(-3\) à \(0\), les valeurs de \(f(x)\) <em>diminuent / augmentent</em> (entourer). Donc \(f\) est :</div>
+  <span class="answer-line"></span>
+  <div class="q">&bull; De \(0\) à \(3\), les valeurs de \(f(x)\) <em>diminuent / augmentent</em> (entourer). Donc \(f\) est :</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> La valeur minimale de \(f(x) = x^2\) est :</div>
+  <span class="answer-line"></span>
+  <p class="bareme">Elle est atteinte pour \(x =\) &hellip;&hellip;</p>
+
+  <div class="q"><strong>4. (2 pts)</strong> On donne \(h(x) = x^2 + 2\). Compléter :<br>
+    <em>Pour obtenir \(h(x)\), on ajoute &hellip;&hellip; à \(f(x)\). Le minimum de \(h\) est donc &hellip;&hellip;, atteint en \(x =\) &hellip;&hellip;</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <table>
+      <tr><th>\(x\)</th><th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th></tr>
+      <tr><td>\(f(x)\)</td><td><strong>9</strong></td><td><strong>4</strong></td><td><strong>1</strong></td><td><strong>0</strong></td><td><strong>1</strong></td><td><strong>4</strong></td><td><strong>9</strong></td></tr>
+    </table>
+    <p><strong>2.</strong> De \(-3\) à \(0\) : les valeurs diminuent (16 → 9 → 4 → 1 → 0) → \(f\) est <strong>décroissante</strong>.<br>
+    De \(0\) à \(3\) : les valeurs augmentent (0 → 1 → 4 → 9) → \(f\) est <strong>croissante</strong>.</p>
+    <p><strong>3.</strong> Valeur minimale : \(f(0) = \mathbf{0}\), atteinte en \(x = 0\).</p>
+    <p><strong>4.</strong> On ajoute <strong>2</strong> à \(f(x)\). Minimum de \(h\) : \(\mathbf{2}\), atteint en \(x = 0\).</p>
+  </div>
+</div>
+
+<!-- PARTIE C -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C – Trouver un côté connaissant la surface</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <p class="bareme">1 pt par question. Montrer les calculs.</p>
+
+  <div class="formule-box">
+    Rappel : si \(c^2 = k\) et \(c > 0\), alors \(c = \sqrt{k}\).<br>
+    <small>Exemples : \(\sqrt{9} = 3\) &nbsp;|&nbsp; \(\sqrt{16} = 4\) &nbsp;|&nbsp; \(\sqrt{25} = 5\)</small>
+  </div>
+
+  <div class="q"><strong>1.</strong> Trouver \(c > 0\) tel que \(c^2 = 9\).<br>
+    \(c = \sqrt{9} =\) &nbsp;<span class="fill-box">&nbsp;</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Trouver \(c > 0\) tel que \(c^2 = 16\).<br>
+    \(c = \sqrt{16} =\) &nbsp;<span class="fill-box">&nbsp;</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> Trouver \(c > 0\) tel que \(c^2 = 6{,}25\).<br>
+    <em>Indice : \(2{,}5 \times 2{,}5 =\) &hellip;&hellip;</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Un menuisier fabrique un panneau carré d'<strong>exactement 25 m²</strong>. Quel est le côté \(c\) du panneau ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> Un agenceur pose un carrelage dans une pièce carrée. La surface de la pièce est <strong>12,25 m²</strong>.<br>
+    \(c^2 = 12{,}25\) donc \(c = \sqrt{12{,}25} =\) &nbsp;<span class="fill-box">&nbsp;</span> m.<br>
+    <em>Indice : \(3{,}5 \times 3{,}5 =\) &hellip;&hellip;</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(c = \sqrt{9} = \mathbf{3}\). Vérif : \(3^2 = 9\) ✔</p>
+    <p><strong>2.</strong> \(c = \sqrt{16} = \mathbf{4}\). Vérif : \(4^2 = 16\) ✔</p>
+    <p><strong>3.</strong> \(c = \sqrt{6{,}25} = \mathbf{2{,}5}\). Vérif : \(2{,}5 \times 2{,}5 = 6{,}25\) ✔</p>
+    <p><strong>4.</strong> \(c = \sqrt{25} = \mathbf{5}\) m. Le panneau mesure 5 m de côté.</p>
+    <p><strong>5.</strong> \(c = \sqrt{12{,}25} = \mathbf{3{,}5}\) m. La pièce mesure 3,5 m de côté.</p>
+  </div>
+</div>
+
+<!-- PARTIE D -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie D – Problème professionnel guidé</span>
+    <span class="pts">3 points</span>
+  </div>
+
+  <p>Un menuisier agenceur fabrique des panneaux de bois <strong>carrés</strong> de côté \(c\) mètres. Chaque panneau lui coûte \(C(c) = 30 \times c^2\) euros en matériaux.</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> Calculer le coût pour \(c = 1\) m, \(c = 2\) m, \(c = 3\) m :<br>
+    \(C(1) = 30 \times 1^2 = 30 \times\) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; \(=\) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; €<br>
+    \(C(2) = 30 \times 2^2 = 30 \times\) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; \(=\) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; €<br>
+    \(C(3) = 30 \times 3^2 = 30 \times\) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; \(=\) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; €
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> Quel est le coût d'un panneau de côté \(c = 2{,}5\) m ?<br>
+    \(C(2{,}5) = 30 \times (2{,}5)^2 = 30 \times\) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; \(=\) &nbsp;<span class="fill-box">&nbsp;</span>&nbsp; €
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Si le menuisier double le côté (passe de 1 m à 2 m), le coût est-il multiplié par 2 ? Par combien est-il multiplié ? Justifier à l'aide des calculs de la question 1.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(C(1) = 30 \times 1 = 30\,€\) &nbsp;|&nbsp; \(C(2) = 30 \times 4 = 120\,€\) &nbsp;|&nbsp; \(C(3) = 30 \times 9 = 270\,€\)</p>
+    <p><strong>2.</strong> \(C(2{,}5) = 30 \times 6{,}25 = \mathbf{187{,}5}\,€\)</p>
+    <p><strong>3.</strong> \(C(1) = 30\,€\) et \(C(2) = 120\,€\). On passe de 30 à 120 : le coût est multiplié par \(\frac{120}{30} = \mathbf{4}\), pas par 2.<br>
+    Quand on double le côté, on multiplie la surface par 4, donc le coût aussi est multiplié par <strong>4</strong>.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — le DS original (exercices du programme)
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<!-- PARTIE A -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie A – Calculs d'images</span>
@@ -47,70 +245,68 @@
 
   <p class="bareme">1 pt par question correcte.</p>
 
-  <div class="q"><strong>1.</strong> Calculer (f(-6)) pour (f(x) = x^2).</div>
+  <div class="q"><strong>1.</strong> Calculer \(f(-6)\) pour \(f(x) = x^2\).</div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>2.</strong> Calculer (g!left(dfrac{1}{5}
-ight)) pour (g(x) = dfrac{1}{x}).</div>
+  <div class="q"><strong>2.</strong> Calculer \(g(3)\) pour \(g(x) = x^2 + 4\).</div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>3.</strong> Calculer (h(49)) pour (h(x) = sqrt{x}).</div>
+  <div class="q"><strong>3.</strong> Calculer \(f(1{,}5)\) pour \(f(x) = x^2\).</div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>4.</strong> Calculer (f(1{,}5)).</div>
+  <div class="q"><strong>4.</strong> Calculer \(h(5)\) pour \(h(x) = 2x^2\).</div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>5.</strong> Calculer (g(-0{,}4)). Donner le résultat sous forme de fraction irréductible.</div>
+  <div class="q"><strong>5.</strong> Calculer \(p(0)\), \(p(-3)\), \(p(4)\) pour \(p(x) = x^2 - 1\).</div>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> (f(-6) = (-6)^2 = 36)</p>
-    <p><strong>2.</strong> (g!left(	frac{1}{5}
-ight) = dfrac{1}{	frac{1}{5}} = 5)</p>
-    <p><strong>3.</strong> (h(49) = sqrt{49} = 7)</p>
-    <p><strong>4.</strong> (f(1{,}5) = (1{,}5)^2 = 2{,}25)</p>
-    <p><strong>5.</strong> (g(-0{,}4) = g!left(-	frac{2}{5}
-ight) = dfrac{1}{-	frac{2}{5}} = -dfrac{5}{2})</p>
+    <p><strong>1.</strong> \(f(-6) = (-6)^2 = \mathbf{36}\)</p>
+    <p><strong>2.</strong> \(g(3) = 3^2 + 4 = 9 + 4 = \mathbf{13}\)</p>
+    <p><strong>3.</strong> \(f(1{,}5) = (1{,}5)^2 = \mathbf{2{,}25}\)</p>
+    <p><strong>4.</strong> \(h(5) = 2 \times 5^2 = 2 \times 25 = \mathbf{50}\)</p>
+    <p><strong>5.</strong> \(p(0) = -1\) &nbsp;|&nbsp; \(p(-3) = 9 - 1 = 8\) &nbsp;|&nbsp; \(p(4) = 16 - 1 = 15\)</p>
   </div>
 </div>
 
-<!-- ===== PARTIE B ===== -->
+<!-- PARTIE B -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie B – Tableau de valeurs et variations</span>
     <span class="pts">7 points</span>
   </div>
 
-  <div class="q"><strong>1. (2 pts)</strong> Compléter le tableau de valeurs de (f(x) = x^2) :</div>
+  <div class="q"><strong>1. (2 pts)</strong> Compléter le tableau de valeurs de \(f(x) = x^2\) :</div>
   <table>
-    <tr><th>(x)</th><th>(-3)</th><th>(-2)</th><th>(-1)</th><th>(0)</th><th>(1)</th><th>(2)</th><th>(3)</th></tr>
-    <tr><td>(f(x))</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><th>\(x\)</th><th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th></tr>
+    <tr><td>\(f(x)\)</td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td></tr>
   </table>
 
-  <div class="q"><strong>2. (1 pt)</strong> Sur quel(s) intervalle(s) la fonction (f) est-elle <em>décroissante</em> ? <em>croissante</em> ?</div>
+  <div class="q"><strong>2. (1 pt)</strong> Sur quel(s) intervalle(s) la fonction \(f\) est-elle <em>décroissante</em> ? <em>croissante</em> ?</div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>3. (2 pts)</strong> Compléter le tableau de valeurs de (h(x) = sqrt{x}) (arrondir au centième si nécessaire) :</div>
+  <div class="q"><strong>3. (2 pts)</strong> Compléter le tableau de valeurs de \(g(x) = x^2 + 3\) :</div>
   <table>
-    <tr><th>(x)</th><th>(0)</th><th>(1)</th><th>(4)</th><th>(9)</th><th>(16)</th><th>(3)</th><th>(10)</th></tr>
-    <tr><td>(h(x))</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><th>\(x\)</th><th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th></tr>
+    <tr><td>\(g(x)\)</td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td></tr>
   </table>
 
-  <div class="q"><strong>4. (2 pts)</strong> En utilisant les variations de (h), classer dans l'ordre croissant : (h(2)), (h(7)), (h(0{,}5)), (h(20)) sans calculer.</div>
+  <div class="q"><strong>4. (2 pts)</strong> Comparer les tableaux de \(f\) et \(g\). Quel est le minimum de \(g\) ? En quoi la courbe de \(g\) diffère-t-elle de celle de \(f\) ?</div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> (f(-3)=9), (f(-2)=4), (f(-1)=1), (f(0)=0), (f(1)=1), (f(2)=4), (f(3)=9)</p>
-    <p><strong>2.</strong> (f) est décroissante sur (]-infty,;,0]) et croissante sur ([0,;,+infty[).</p>
-    <p><strong>3.</strong> (h(0)=0), (h(1)=1), (h(4)=2), (h(9)=3), (h(16)=4), (h(3)approx1{,}73), (h(10)approx3{,}16)</p>
-    <p><strong>4.</strong> (h) est croissante donc l'ordre des images = ordre des (x) : (0{,}5 < 2 < 7 < 20), soit (h(0{,}5) < h(2) < h(7) < h(20)).</p>
+    <p><strong>1.</strong> \(f(-3)=9\), \(f(-2)=4\), \(f(-1)=1\), \(f(0)=0\), \(f(1)=1\), \(f(2)=4\), \(f(3)=9\)</p>
+    <p><strong>2.</strong> \(f\) est décroissante sur \(]-\infty\,;\,0]\) et croissante sur \([0\,;\,+\infty[\). Minimum = 0 en \(x = 0\).</p>
+    <p><strong>3.</strong> \(g(-3)=12\), \(g(-2)=7\), \(g(-1)=4\), \(g(0)=3\), \(g(1)=4\), \(g(2)=7\), \(g(3)=12\)</p>
+    <p><strong>4.</strong> Les valeurs de \(g\) sont toutes 3 de plus que celles de \(f\). Minimum de \(g\) = <strong>3</strong> en \(x = 0\). La courbe de \(g\) est la même parabole décalée de 3 unités vers le haut.</p>
   </div>
 </div>
 
-<!-- ===== PARTIE C ===== -->
+<!-- PARTIE C -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie C – Équations et résolution</span>
@@ -119,64 +315,227 @@ ight) = dfrac{1}{-	frac{2}{5}} = -dfrac{5}{2})</p>
 
   <p class="bareme">1 pt par équation. Montrer toutes les étapes.</p>
 
-  <div class="q"><strong>1.</strong> Résoudre (x^2 = 25).</div>
+  <div class="q"><strong>1.</strong> Résoudre \(x^2 = 25\).</div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>2.</strong> Résoudre (x^2 = 3) (solutions exactes).</div>
+  <div class="q"><strong>2.</strong> Résoudre \(x^2 = 3\) (solutions exactes).</div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>3.</strong> Résoudre (dfrac{1}{x} = -2).</div>
+  <div class="q"><strong>3.</strong> Résoudre \(x^2 = 0\).</div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>4.</strong> Résoudre (sqrt{x} = 5).</div>
+  <div class="q"><strong>4.</strong> Résoudre \(x^2 = -1\). Justifier.</div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>5.</strong> Résoudre (sqrt{x+1} = 4).</div>
+  <div class="q"><strong>5.</strong> Résoudre \(2x^2 = 18\).</div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> (x^2=25 Rightarrow x=5) ou (x=-5). (mathcal{S}={-5,;,5}).</p>
-    <p><strong>2.</strong> (x^2=3 Rightarrow x=sqrt{3}) ou (x=-sqrt{3}). (mathcal{S}={-sqrt{3},;,sqrt{3}}).</p>
-    <p><strong>3.</strong> (dfrac{1}{x}=-2 Rightarrow 1=-2x Rightarrow x=-dfrac{1}{2}). (mathcal{S}=left{-dfrac{1}{2}
-ight}).</p>
-    <p><strong>4.</strong> (sqrt{x}=5 Rightarrow x=5^2=25). (mathcal{S}={25}).</p>
-    <p><strong>5.</strong> (sqrt{x+1}=4 Rightarrow x+1=16 Rightarrow x=15). Vérification : (sqrt{16}=4). &#10003; (mathcal{S}={15}).</p>
+    <p><strong>1.</strong> \(x^2 = 25 \Rightarrow x = 5\) ou \(x = -5\). \(\mathcal{S} = \{-5\,;\,5\}\).</p>
+    <p><strong>2.</strong> \(x^2 = 3 \Rightarrow x = \sqrt{3}\) ou \(x = -\sqrt{3}\). \(\mathcal{S} = \{-\sqrt{3}\,;\,\sqrt{3}\}\).</p>
+    <p><strong>3.</strong> \(x^2 = 0 \Rightarrow x = 0\). \(\mathcal{S} = \{0\}\).</p>
+    <p><strong>4.</strong> Aucune solution : \(x^2 \geq 0\) toujours, donc \(x^2 = -1\) est impossible. \(\mathcal{S} = \emptyset\).</p>
+    <p><strong>5.</strong> \(2x^2 = 18 \Rightarrow x^2 = 9 \Rightarrow x = 3\) ou \(x = -3\). \(\mathcal{S} = \{-3\,;\,3\}\).</p>
   </div>
 </div>
 
-<!-- ===== PARTIE D ===== -->
+<!-- PARTIE D -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie D – Problème ouvert</span>
     <span class="pts">3 points</span>
   </div>
 
-  <p>Un jardinier veut aménager un carré potager. Il dispose d'une clôture de 36 mètres pour en délimiter le périmètre.</p>
+  <p>Un menuisier agenceur veut fabriquer un panneau carré. Il dispose d'une planche dont le périmètre est de 36 mètres.</p>
 
-  <div class="q"><strong>1. (1 pt)</strong> Exprimer la longueur du côté (c) du carré en fonction du périmètre (P). Calculer (c).</div>
+  <div class="q"><strong>1. (1 pt)</strong> Exprimer la longueur du côté \(c\) du carré en fonction du périmètre \(P\). Calculer \(c\).</div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>2. (1 pt)</strong> Calculer l'aire du carré.</div>
+  <div class="q"><strong>2. (1 pt)</strong> Calculer l'aire du panneau.</div>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>3. (1 pt)</strong> Si le jardinier dispose de 48 m de clôture au lieu de 36 m, l'aire est-elle multipliée par le même rapport que le périmètre ? Justifier par le calcul.</div>
+  <div class="q"><strong>3. (1 pt)</strong> Si le menuisier dispose d'une planche de périmètre 48 m au lieu de 36 m, l'aire est-elle multipliée par le même rapport que le périmètre ? Justifier par le calcul.</div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> (P = 4c), donc (c = dfrac{P}{4} = dfrac{36}{4} = 9) m.</p>
-    <p><strong>2.</strong> (A = c^2 = 9^2 = 81) m².</p>
-    <p><strong>3.</strong> Avec 48 m : (c' = dfrac{48}{4} = 12) m, (A' = 12^2 = 144) m².<br>
-    Rapport des périmètres : (dfrac{48}{36} = dfrac{4}{3}). Rapport des aires : (dfrac{144}{81} = dfrac{16}{9} = left(dfrac{4}{3}
-ight)^2).<br>
-    Non, l'aire n'est pas multipliée par le même rapport. Elle est multipliée par le <strong>carré</strong> du rapport des côtés.</p>
+    <p><strong>1.</strong> \(P = 4c\), donc \(c = \dfrac{P}{4} = \dfrac{36}{4} = 9\) m.</p>
+    <p><strong>2.</strong> \(A = c^2 = 9^2 = \mathbf{81}\) m².</p>
+    <p><strong>3.</strong> Avec 48 m : \(c' = \dfrac{48}{4} = 12\) m, \(A' = 12^2 = 144\) m².<br>
+    Rapport des périmètres : \(\dfrac{48}{36} = \dfrac{4}{3}\). Rapport des aires : \(\dfrac{144}{81} = \dfrac{16}{9} = \left(\dfrac{4}{3}\right)^2\).<br>
+    Non, l'aire est multipliée par le <strong>carré</strong> du rapport des côtés.</p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, moins guidés
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<!-- PARTIE A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A – Calculs d'images et analyse</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <p class="bareme">Justifier toutes les réponses. Rédaction soignée attendue.</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> Calculer \(f(-6)\), \(f(6)\), \(f(-6) - f(6)\). Que remarque-t-on ? Généraliser.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> Comparer \(f(a)\) et \(f(-a)\) pour un réel \(a\) quelconque. Justifier à l'aide de la définition \(f(x) = x^2\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Pour \(h(x) = 3x^2 - 5\), calculer \(h(0)\), \(h(2)\), \(h(-2)\). Quel est le minimum de \(h\) ?</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (1 pt)</strong> Expliquer sans calcul pourquoi \(f(x) = x^2\) n'admet pas de valeur négative. Quelle conclusion peut-on en tirer sur la courbe ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (1 pt)</strong> Pour \(g(x) = x^2 + k\) où \(k\) est un réel donné, quel est le minimum de \(g\) ? Pour quelle valeur de \(x\) est-il atteint ? Donner une réponse générale en fonction de \(k\).</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(f(-6) = 36\), \(f(6) = 36\), \(f(-6) - f(6) = 0\). Les deux valeurs sont égales. Généralisation : \(f(-a) = f(a)\) pour tout réel \(a\) (propriété de symétrie).</p>
+    <p><strong>2.</strong> \(f(-a) = (-a)^2 = (-a)(-a) = a^2 = f(a)\). Donc \(f(-a) = f(a)\) pour tout réel \(a\) : la fonction carré est une fonction <strong>paire</strong>.</p>
+    <p><strong>3.</strong> \(h(0) = -5\) &nbsp;|&nbsp; \(h(2) = 12 - 5 = 7\) &nbsp;|&nbsp; \(h(-2) = 7\). Minimum = \(h(0) = \mathbf{-5}\), atteint en \(x = 0\).</p>
+    <p><strong>4.</strong> \(f(x) = x^2 = x \times x\). Un nombre multiplié par lui-même est toujours \(\geq 0\) (positif ou nul). La courbe (parabole) est donc entièrement <strong>au-dessus ou sur l'axe des abscisses</strong>.</p>
+    <p><strong>5.</strong> Minimum de \(g(x) = x^2 + k\) : c'est \(\mathbf{k}\), atteint en \(x = 0\). En effet, \(x^2 \geq 0\) donc \(x^2 + k \geq k\).</p>
+  </div>
+</div>
+
+<!-- PARTIE B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B – Variations et lecture graphique</span>
+    <span class="pts">7 points</span>
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Compléter les tableaux de valeurs de \(f(x) = x^2\), \(g(x) = -x^2\) et \(h(x) = 2x^2\) pour \(x \in \{-3 ; -2 ; -1 ; 0 ; 1 ; 2 ; 3\}\). Présenter les trois tableaux côte à côte.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Pour \(g(x) = -x^2\) :<br>
+  &bull; La courbe est-elle une parabole ouverte vers le haut ou vers le bas ? Justifier.<br>
+  &bull; \(g\) admet-elle un maximum ou un minimum ? Donner la valeur.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Résoudre \(f(x) = g(x)\), c'est-à-dire \(x^2 = -x^2\). Que peut-on en déduire graphiquement ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> Sans calculer, classer dans l'ordre croissant : \(h(1)\), \(h(4)\), \(h(-2)\), \(h(0)\) pour \(h(x) = 2x^2\). Justifier en utilisant les variations de \(h\).</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">1. Tableaux :</span>
+    <table>
+      <tr><th>\(x\)</th><th>\(-3\)</th><th>\(-2\)</th><th>\(-1\)</th><th>\(0\)</th><th>\(1\)</th><th>\(2\)</th><th>\(3\)</th></tr>
+      <tr><td>\(f(x)=x^2\)</td><td>9</td><td>4</td><td>1</td><td>0</td><td>1</td><td>4</td><td>9</td></tr>
+      <tr><td>\(g(x)=-x^2\)</td><td>−9</td><td>−4</td><td>−1</td><td>0</td><td>−1</td><td>−4</td><td>−9</td></tr>
+      <tr><td>\(h(x)=2x^2\)</td><td>18</td><td>8</td><td>2</td><td>0</td><td>2</td><td>8</td><td>18</td></tr>
+    </table>
+    <p><strong>2.</strong> La courbe de \(g(x) = -x^2\) est une parabole ouverte <strong>vers le bas</strong> (coefficient de \(x^2\) négatif). \(g\) admet un <strong>maximum</strong> de 0 en \(x = 0\).</p>
+    <p><strong>3.</strong> \(x^2 = -x^2 \Rightarrow 2x^2 = 0 \Rightarrow x^2 = 0 \Rightarrow x = 0\). Graphiquement, les deux courbes se croisent <strong>uniquement en l'origine</strong> \((0\,;\,0)\).</p>
+    <p><strong>4.</strong> \(h(x) = 2x^2 \geq 0\) avec minimum en \(x = 0\). \(h\) est paire donc \(h(-2) = h(2)\). Ordre croissant des \(|x|\) : \(0 < 1 < 2 = |-2| < 4\). Donc : \(h(0) < h(1) < h(-2) < h(4)\), soit \(0 < 2 < 8 < 32\).</p>
+  </div>
+</div>
+
+<!-- PARTIE C -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C – Résolution d'équations et d'inéquations</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <p class="bareme">Rédiger soigneusement. Indiquer l'ensemble de solutions \(\mathcal{S}\).</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> Résoudre \(x^2 = 25\). Puis résoudre \(x^2 &lt; 25\) (ensemble d'intervalles).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> Résoudre \(x^2 \geq 4\). Écrire la solution sous forme de réunion d'intervalles.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Résoudre \(3x^2 - 27 = 0\). Montrer toutes les étapes.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (1 pt)</strong> Résoudre \(x^2 + 5 = 2\). Justifier l'absence éventuelle de solution.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (1 pt)</strong> Résoudre \(x^2 + 5 &gt; 2\). L'ensemble de solutions est-il surprenant ? Expliquer.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(x^2 = 25 \Rightarrow \mathcal{S} = \{-5\,;\,5\}\). \(x^2 &lt; 25 \Rightarrow \mathcal{S} = ]-5\,;\,5[\) (courbe strictement sous la droite \(y = 25\)).</p>
+    <p><strong>2.</strong> \(x^2 \geq 4 \Rightarrow \mathcal{S} = ]-\infty\,;\,-2] \cup [2\,;\,+\infty[\).</p>
+    <p><strong>3.</strong> \(3x^2 = 27 \Rightarrow x^2 = 9 \Rightarrow x = 3\) ou \(x = -3\). \(\mathcal{S} = \{-3\,;\,3\}\).</p>
+    <p><strong>4.</strong> \(x^2 = 2 - 5 = -3\). Or \(x^2 \geq 0\) toujours, donc \(x^2 = -3\) est impossible. \(\mathcal{S} = \emptyset\).</p>
+    <p><strong>5.</strong> \(x^2 + 5 &gt; 2 \Leftrightarrow x^2 &gt; -3\). Or \(x^2 \geq 0 &gt; -3\) toujours : l'inégalité est vérifiée pour <em>tout</em> réel \(x\). \(\mathcal{S} = \mathbb{R}\) (l'ensemble des réels). Ce n'est pas surprenant : on compare une quantité toujours positive à un nombre négatif.</p>
+  </div>
+</div>
+
+<!-- PARTIE D -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie D – Problème ouvert : optimisation de surface</span>
+    <span class="pts">3 points</span>
+  </div>
+
+  <p>Un agenceur doit délimiter une zone de travail rectangulaire dans un atelier. Il dispose de 20 mètres de cloison pour entourer les 4 côtés d'un rectangle de côtés \(x\) et \(y\) (en mètres).</p>
+
+  <div class="q"><strong>1. (0,5 pt)</strong> Écrire la contrainte sur le périmètre : \(2x + 2y = 20\). En déduire \(y\) en fonction de \(x\).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (0,5 pt)</strong> Exprimer l'aire \(A(x) = x \cdot y\) en fonction de \(x\) seul. Développer pour obtenir la forme \(A(x) = -x^2 + 10x\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Compléter le tableau suivant et identifier la valeur de \(x\) qui semble maximiser l'aire :</div>
+  <table>
+    <tr><th>\(x\)</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+    <tr><td>\(A(x)\)</td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td><td class="cell-blank"></td></tr>
+  </table>
+
+  <div class="q"><strong>4. (1 pt)</strong> Quelle forme géométrique donne la surface maximale ? Calculer cette aire maximale. Conclure en rédigeant une réponse complète à l'agenceur.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(2x + 2y = 20 \Rightarrow y = 10 - x\).</p>
+    <p><strong>2.</strong> \(A(x) = x(10 - x) = 10x - x^2 = -x^2 + 10x\).</p>
+    <span class="etape">3. Tableau :</span>
+    <table>
+      <tr><th>\(x\)</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+      <tr><td>\(A(x)\)</td><td>9</td><td>16</td><td>21</td><td>24</td><td><strong>25</strong></td><td>24</td><td>21</td></tr>
+    </table>
+    <p>Le maximum semble atteint pour \(x = 5\).</p>
+    <p><strong>4.</strong> Pour \(x = 5\) : \(y = 10 - 5 = 5\). La zone est un <strong>carré de 5 m de côté</strong>. Aire maximale = \(5^2 = \mathbf{25 \text{ m}^2}\).<br>
+    Réponse : L'agenceur doit tracer un carré de 5 m de côté pour obtenir la surface de travail maximale de 25 m².</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
 
 <script>
 function toggle(btn){
@@ -185,7 +544,8 @@ function toggle(btn){
   else{corr.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-</div>
+</div><!-- fin .c -->
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

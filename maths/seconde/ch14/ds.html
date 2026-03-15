@@ -15,14 +15,14 @@
 .partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
 .partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
 .pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
-
 .q strong{color:var(--t)}
-
 .answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
 .answer-area{border:1px solid #aaa;border-radius:4px;min-height:60px;margin:8px 0;display:block}
-
 .bareme{font-style:italic;color:#718096;font-size:.85em}
-.highlight{background:#fffbea;border-left:3px solid var(--o);padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:.92em}</style>
+.highlight{background:#fffbea;border-left:3px solid var(--o);padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:.92em}
+.formule-aide{background:#fffbeb;border:1px solid #f59e0b;border-radius:6px;padding:10px 14px;margin:10px 0;font-size:.92em}
+.cell-blank{background:#fef9c3;padding:2px 8px;border-radius:4px;font-weight:700;color:#92400e}
+</style>
 </head>
 <body>
 <div class="c">
@@ -40,6 +40,194 @@
   <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
 </div>
 
+<!-- ================================================================
+     DS SOCLE — très guidé, cases à remplir, formules données
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="formule-aide">
+  <strong>Formulaire :</strong><br>
+  Cube : \(V = a^3\) &nbsp;|&nbsp;
+  Pavé droit : \(V = L \times l \times h\) &nbsp;|&nbsp;
+  Cylindre : \(V = \pi r^2 h\) &nbsp;|&nbsp;
+  Cône : \(V = \dfrac{1}{3}\pi r^2 h\) &nbsp;|&nbsp;
+  Boule : \(V = \dfrac{4}{3}\pi r^3\)<br>
+  Conversions : 1 m³ = 1 000 L &nbsp;|&nbsp; 1 L = 1 000 cm³<br>
+  Agrandissement ×k : longueurs ×k, aires ×k², volumes ×k³
+</div>
+
+<!-- PARTIE A Socle -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A – Calculs de volumes guidés</span>
+    <span class="pts">8 points</span>
+  </div>
+  <p class="bareme">2 pts par question. Donner les résultats arrondis au centième.</p>
+
+  <div class="q"><strong>1.</strong> Calculer le volume d'un cylindre de rayon \(r = 4\) cm et de hauteur \(h = 15\) cm.<br><br>
+  Formule : \(V = \pi r^2 h\)<br>
+  \(\pi r^2 = \pi \times \)&hellip;&hellip;\(^2 = \pi \times \)&hellip;&hellip; = &hellip;&hellip;<br>
+  \(V = \)&hellip;&hellip; \(\times h = \)&hellip;&hellip; \(\times 15 \approx \)&hellip;&hellip; cm³
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Calculer le volume d'un cône de rayon de base \(r = 5\) cm et de hauteur \(h = 12\) cm.<br><br>
+  Formule : \(V = \dfrac{1}{3}\pi r^2 h\)<br>
+  \(\pi r^2 h = \pi \times \)&hellip;&hellip;\(^2 \times 12 = \pi \times \)&hellip;&hellip; \(\times 12 = \)&hellip;&hellip;<br>
+  \(V = \dfrac{1}{3} \times \)&hellip;&hellip; \(\approx \)&hellip;&hellip; cm³
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (Situation MAMA)</strong> Un réservoir cylindrique a un <em>diamètre</em> intérieur de 60 cm et une hauteur de 1,2 m.<br><br>
+  Attention au diamètre : \(d = 60\) cm donc \(r = d \div 2 = \)&hellip;&hellip; cm<br>
+  Attention à la hauteur : \(h = 1{,}2\) m = &hellip;&hellip; cm<br>
+  \(V = \pi \times \)&hellip;&hellip;\(^2 \times \)&hellip;&hellip; \(\approx \)&hellip;&hellip; cm³<br>
+  En litres : &hellip;&hellip; cm³ ÷ 1 000 ≈ &hellip;&hellip; L
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Un pavé droit mesure \(80\) cm \(\times\) \(60\) cm \(\times\) \(45\) cm.<br><br>
+  \(V = L \times l \times h = 80 \times 60 \times 45 = \)&hellip;&hellip; cm³<br>
+  En m³ : &hellip;&hellip; cm³ ÷ 1 000 000 = &hellip;&hellip; m³<br>
+  En litres : &hellip;&hellip; m³ × 1 000 = &hellip;&hellip; L
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\pi r^2 = \pi \times 16 = 16\pi\) ; \(V = 16\pi \times 15 = 240\pi \approx 753{,}98\) cm³.</p>
+    <p><strong>2.</strong> \(\pi r^2 h = \pi \times 25 \times 12 = 300\pi\) ; \(V = \dfrac{300\pi}{3} = 100\pi \approx 314{,}16\) cm³.</p>
+    <p><strong>3.</strong> \(r = 30\) cm, \(h = 120\) cm.<br>
+    \(V = \pi \times 900 \times 120 = 108\,000\pi \approx 339\,292\) cm³.<br>
+    En litres : \(\approx 339{,}3\) L.</p>
+    <p><strong>4.</strong> \(V = 80 \times 60 \times 45 = 216\,000\) cm³ = 0,216 m³ = 216 L.</p>
+  </div>
+</div>
+
+<!-- PARTIE B Socle -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B – Conversions de volumes</span>
+    <span class="pts">4 points</span>
+  </div>
+  <p class="bareme">1 pt par conversion.</p>
+
+  <div class="q"><strong>1.</strong> Convertir \(2{,}5\) m³ en cm³.<br>
+  \(2{,}5 \text{ m}^3 \times 1\,000\,000 = \)&hellip;&hellip; cm³</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Convertir \(340\) L en m³.<br>
+  \(340\) L = 340 dm³. Pour passer en m³, on divise par 1 000 :<br>
+  \(340 \div 1\,000 = \)&hellip;&hellip; m³</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> Convertir \(0{,}75\) m³ en litres.<br>
+  \(0{,}75 \text{ m}^3 \times 1\,000 = \)&hellip;&hellip; L</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Un tuyau transporte 18 L par minute. La cuve fait 450 dm³ = &hellip;&hellip; L.<br>
+  Durée = volume ÷ débit = &hellip;&hellip; ÷ 18 = &hellip;&hellip; minutes</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(2{,}5 \times 1\,000\,000 = 2\,500\,000\) cm³.</p>
+    <p><strong>2.</strong> \(340 \div 1\,000 = 0{,}340\) m³.</p>
+    <p><strong>3.</strong> \(0{,}75 \times 1\,000 = 750\) L.</p>
+    <p><strong>4.</strong> \(450\) dm³ \(= 450\) L. Durée \(= 450 \div 18 = 25\) min.</p>
+  </div>
+</div>
+
+<!-- PARTIE C Socle -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C – Agrandissement guidé</span>
+    <span class="pts">5 points</span>
+  </div>
+
+  <div class="q"><strong>1. (3 pts)</strong> On agrandit un cylindre selon un rapport \(k = 1{,}5\). Le cylindre initial a \(r = 4\) cm et \(h = 10\) cm.<br><br>
+  <strong>a)</strong> Calculer les nouvelles dimensions :<br>
+  \(r' = r \times k = 4 \times 1{,}5 = \)&hellip;&hellip; cm<br>
+  \(h' = h \times k = 10 \times 1{,}5 = \)&hellip;&hellip; cm<br>
+  <span class="answer-line"></span>
+  <strong>b)</strong> Le volume est multiplié par \(k^3 = 1{,}5^3 = \)&hellip;&hellip;<br>
+  Volume initial : \(V = \pi \times 4^2 \times 10 = \pi \times \)&hellip;&hellip; = &hellip;&hellip; cm³<br>
+  Volume agrandi : \(V' = V \times k^3 = \)&hellip;&hellip; \(\times \)&hellip;&hellip; \(\approx \)&hellip;&hellip; cm³
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> On réduit un cube de côté \(a = 6\) cm selon un rapport \(k = \dfrac{1}{2}\).<br><br>
+  <strong>a)</strong> L'aire est multipliée par \(k^2 = \left(\dfrac{1}{2}\right)^2 = \)&hellip;&hellip;<br>
+  <strong>b)</strong> Volume initial : \(V = 6^3 = \)&hellip;&hellip; cm³<br>
+  Nouveau côté : \(a' = 6 \times \dfrac{1}{2} = \)&hellip;&hellip; cm<br>
+  Nouveau volume : \(V' = (a')^3 = \)&hellip;&hellip;\(^3 = \)&hellip;&hellip; cm³<br>
+  Rapport : \(V' \div V = \)&hellip;&hellip; \(\div \)&hellip;&hellip; = &hellip;&hellip;
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1a.</strong> \(r' = 6\) cm ; \(h' = 15\) cm.</p>
+    <p><strong>1b.</strong> \(k^3 = 1{,}5^3 = 3{,}375\).<br>
+    \(V = 160\pi \approx 502{,}65\) cm³.<br>
+    \(V' \approx 502{,}65 \times 3{,}375 \approx 1\,696{,}46\) cm³ (ou \(V' = \pi \times 36 \times 15 = 540\pi\) ✔)</p>
+    <p><strong>2a.</strong> \(k^2 = \dfrac{1}{4}\)</p>
+    <p><strong>2b.</strong> \(V = 216\) cm³ ; \(a' = 3\) cm ; \(V' = 27\) cm³.<br>
+    Rapport : \(27 \div 216 = \dfrac{1}{8} = \left(\dfrac{1}{2}\right)^3\) ✔</p>
+  </div>
+</div>
+
+<!-- PARTIE D Socle -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie D – Problème MAMA guidé</span>
+    <span class="pts">3 points</span>
+  </div>
+
+  <p>Un apprenti coule une dalle de béton rectangulaire de <strong>5,5 m</strong> de long, <strong>3,2 m</strong> de large et <strong>15 cm</strong> d'épaisseur.</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> Convertir l'épaisseur en mètres :<br>
+  15 cm = &hellip;&hellip; m<br>
+  Calculer le volume : \(V = L \times l \times h = 5{,}5 \times 3{,}2 \times \)&hellip;&hellip; = &hellip;&hellip; m³</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> Un camion-toupie peut transporter 6 m³. Combien faut-il de toupies ?<br>
+  Nombre = &hellip;&hellip; ÷ 6 = &hellip;&hellip; toupie(s) (arrondir à l'entier supérieur)</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (1 pt)</strong> Si on réduit la dalle avec \(k = 0{,}8\), le volume est multiplié par \(k^3 = 0{,}8^3 = \)&hellip;&hellip;<br>
+  Nouveau volume = &hellip;&hellip; \(\times \)&hellip;&hellip; = &hellip;&hellip; m³</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(h = 0{,}15\) m ; \(V = 5{,}5 \times 3{,}2 \times 0{,}15 = 2{,}64\) m³.</p>
+    <p><strong>2.</strong> \(2{,}64 \div 6 = 0{,}44\) → 1 toupie.</p>
+    <p><strong>3.</strong> \(k^3 = 0{,}8^3 = 0{,}512\) ; \(V' = 2{,}64 \times 0{,}512 = 1{,}352\) m³.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — le DS original
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <div class="highlight">
   <strong>Formulaire :</strong>
   Cylindre : \(V = \pi r^2 h\) &nbsp;|&nbsp;
@@ -49,7 +237,7 @@
   Prisme : \(V = A_{\text{base}} \times h\)
 </div>
 
-<!-- ===== PARTIE A ===== -->
+<!-- PARTIE A Standard -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie A – Calculs de volumes</span>
@@ -86,7 +274,7 @@
   </div>
 </div>
 
-<!-- ===== PARTIE B ===== -->
+<!-- PARTIE B Standard -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie B – Conversions de volumes</span>
@@ -117,7 +305,7 @@
   </div>
 </div>
 
-<!-- ===== PARTIE C ===== -->
+<!-- PARTIE C Standard -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie C – Agrandissement et réduction</span>
@@ -156,7 +344,7 @@
   </div>
 </div>
 
-<!-- ===== PARTIE D ===== -->
+<!-- PARTIE D Standard -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie D – Problème MAMA</span>
@@ -185,6 +373,128 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, moins guidés
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="highlight">
+  <strong>Formulaire :</strong>
+  Cylindre : \(V = \pi r^2 h\) &nbsp;|&nbsp;
+  Cône : \(V = \dfrac{1}{3}\pi r^2 h\) &nbsp;|&nbsp;
+  Sphère : \(V = \dfrac{4}{3}\pi r^3\) &nbsp;|&nbsp;
+  Pavé : \(V = L \times \ell \times h\) &nbsp;|&nbsp;
+  Prisme : \(V = A_{\text{base}} \times h\)
+</div>
+
+<!-- PARTIE A Appro -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A – Volumes et conversions</span>
+    <span class="pts">6 points</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q"><strong>1.</strong> Un technicien en maintenance automobile dispose d'un réservoir cylindrique de diamètre 80 cm et de hauteur 1,5 m. Calculer son volume en m³ puis en litres. Combien de bidons de 20 L faut-il pour le remplir ?</div>
+  <span class="answer-area"></span>
+
+  <div class="q"><strong>2.</strong> Une pièce de bois est un prisme à base triangulaire. La base est un triangle rectangle de côtés 6 cm et 8 cm. La longueur du prisme est 45 cm. Calculer le volume de la pièce, puis déterminer sa masse si le bois a une densité de 0,7 g/cm³ (masse = volume × densité).</div>
+  <span class="answer-area"></span>
+
+  <div class="q"><strong>3.</strong> Un cube d'acier de côté 5 cm est fondu et refondu pour former une sphère (boule). En supposant que tout le métal est conservé, calculer le rayon de la sphère obtenue. (Formule : \(V_{\text{sphère}} = \dfrac{4}{3}\pi r^3\))</div>
+  <span class="answer-area"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(r = 40\) cm \(= 0{,}40\) m, \(h = 1{,}5\) m.<br>
+    \(V = \pi \times 0{,}4^2 \times 1{,}5 = 0{,}24\pi \approx 0{,}754\) m³ \(= 754\) L.<br>
+    Bidons : \(\dfrac{754}{20} = 37{,}7\) → 38 bidons.</p>
+    <p><strong>2.</strong> Aire de la base : \(A = \dfrac{1}{2} \times 6 \times 8 = 24\) cm².<br>
+    Volume : \(V = 24 \times 45 = 1\,080\) cm³.<br>
+    Masse : \(m = 1\,080 \times 0{,}7 = 756\) g.</p>
+    <p><strong>3.</strong> \(V_{\text{cube}} = 5^3 = 125\) cm³.<br>
+    \(\dfrac{4}{3}\pi r^3 = 125\) donc \(r^3 = \dfrac{125 \times 3}{4\pi} = \dfrac{375}{4\pi} \approx 29{,}84\).<br>
+    \(r = \sqrt[3]{29{,}84} \approx 3{,}10\) cm.</p>
+  </div>
+</div>
+
+<!-- PARTIE B Appro -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B – Agrandissement et réduction : analyse</span>
+    <span class="pts">7 points</span>
+  </div>
+
+  <div class="q"><strong>1. (3 pts)</strong> Un menuisier agenceur fabrique un modèle réduit d'une salle au 1/25.<br>
+  La salle réelle mesure : longueur 15 m, largeur 9 m, hauteur 3,5 m.<br>
+  a) Calculer les dimensions du modèle en cm.<br>
+  b) Calculer la surface au sol du modèle (cm²) et la surface réelle (m²). Vérifier la cohérence avec le facteur k².<br>
+  c) Un revêtement de sol coûte 65 €/m². Calculer le coût total pour la salle réelle.</div>
+  <span class="answer-area"></span>
+
+  <div class="q"><strong>2. (4 pts)</strong> Un cylindre A a pour dimensions r = 6 cm, h = 20 cm. On fabrique un cylindre B avec k = 1,5 et un cylindre C avec k = 0,5.<br>
+  a) Calculer les volumes des trois cylindres.<br>
+  b) Vérifier pour B et C que les volumes sont bien dans le rapport k³ par rapport à A.<br>
+  c) Le cylindre A est rempli d'un liquide coûtant 2 €/L. Quel est le coût si on remplit le cylindre B ? Et le cylindre C ?<br>
+  d) Pour quel facteur k le cylindre aurait-il exactement le double du volume du cylindre A ? Donner la valeur exacte de k.</div>
+  <span class="answer-area"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong><br>
+    a) Dimensions modèle : \(15 \times 100 \div 25 = 60\) cm ; \(9 \times 100 \div 25 = 36\) cm ; \(3{,}5 \times 100 \div 25 = 14\) cm.<br>
+    b) \(S_{\text{modèle}} = 60 \times 36 = 2\,160\) cm². \(S_{\text{réelle}} = 15 \times 9 = 135\) m².<br>
+    Vérification : \(135 \text{ m}^2 = 1\,350\,000 \text{ cm}^2\) ; \(S_{\text{modèle}} = 1\,350\,000 \times \left(\frac{1}{25}\right)^2 = 1\,350\,000 \div 625 = 2\,160\) cm² ✔<br>
+    c) Coût : \(135 \times 65 = \mathbf{8\,775\text{ €}}\)</p>
+    <p><strong>2.</strong><br>
+    a) \(V_A = \pi \times 36 \times 20 = 720\pi \approx 2\,262\) cm³ \(\approx 2{,}262\) L.<br>
+    \(V_B = \pi \times 81 \times 30 = 2\,430\pi \approx 7\,634\) cm³ \(\approx 7{,}634\) L.<br>
+    \(V_C = \pi \times 9 \times 10 = 90\pi \approx 283\) cm³ \(\approx 0{,}283\) L.<br>
+    b) \(V_B / V_A = 2430/720 = 3{,}375 = 1{,}5^3\) ✔ ; \(V_C / V_A = 90/720 = 1/8 = 0{,}5^3\) ✔<br>
+    c) Coût A : \(2{,}262 \times 2 \approx 4{,}52\) € ; Coût B : \(7{,}634 \times 2 \approx 15{,}27\) € ; Coût C : \(0{,}283 \times 2 \approx 0{,}57\) €.<br>
+    d) \(k^3 = 2\) donc \(k = \sqrt[3]{2} \approx 1{,}26\).</p>
+  </div>
+</div>
+
+<!-- PARTIE C Appro -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C – Problème ouvert MAMA</span>
+    <span class="pts">7 points</span>
+  </div>
+
+  <div class="q"><strong>(7 pts)</strong> Un technicien en agencement de menuiserie doit réaliser un projet d'exposition. Il dispose d'un espace rectangulaire de 8 m × 5 m × 2,5 m (longueur × largeur × hauteur).<br><br>
+  <strong>Partie 1 (2 pts)</strong> – Volumes :<br>
+  a) Calculer le volume de la salle.<br>
+  b) On installe 4 colonnes cylindriques de décoration : rayon 15 cm, hauteur 2,5 m. Quel est le volume occupé par les 4 colonnes ?<br><br>
+  <strong>Partie 2 (3 pts)</strong> – Modèle réduit au 1/50 :<br>
+  c) Calculer les dimensions du modèle en cm.<br>
+  d) La surface au sol du modèle est-elle \(\dfrac{1}{50^2} = \dfrac{1}{2\,500}\) de la surface réelle ? Vérifier par le calcul.<br>
+  e) Calculer le volume du modèle en cm³.<br><br>
+  <strong>Partie 3 (2 pts)</strong> – Coûts :<br>
+  f) Le revêtement de sol coûte 72 €/m². Calculer le coût total.<br>
+  g) Si on agrandit la salle avec un facteur k = 1,3 sur toutes les dimensions, par quel facteur le coût du revêtement sera-t-il multiplié ? Calculer le nouveau coût.</div>
+  <span class="answer-area" style="min-height:200px"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1a.</strong> \(V = 8 \times 5 \times 2{,}5 = 100\) m³.</p>
+    <p><strong>1b.</strong> Une colonne : \(V = \pi \times 0{,}15^2 \times 2{,}5 = \pi \times 0{,}0225 \times 2{,}5 = 0{,}05625\pi \approx 0{,}1767\) m³.<br>
+    4 colonnes : \(4 \times 0{,}1767 \approx 0{,}707\) m³.</p>
+    <p><strong>2c.</strong> Dimensions modèle : \(8 \times 100 \div 50 = 16\) cm ; \(5 \times 100 \div 50 = 10\) cm ; \(2{,}5 \times 100 \div 50 = 5\) cm.</p>
+    <p><strong>2d.</strong> Surface réelle : \(8 \times 5 = 40\) m² = 400 000 cm². Surface modèle : \(16 \times 10 = 160\) cm².<br>
+    \(400\,000 \times \dfrac{1}{2\,500} = 160\) cm² ✔</p>
+    <p><strong>2e.</strong> \(V_{\text{modèle}} = 16 \times 10 \times 5 = 800\) cm³.</p>
+    <p><strong>3f.</strong> Coût : \(40 \times 72 = 2\,880\) €.</p>
+    <p><strong>3g.</strong> Surface multipliée par \(k^2 = 1{,}3^2 = 1{,}69\). Nouveau coût : \(2\,880 \times 1{,}69 = 4\,867{,}20\) €.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <script>
 function toggle(btn){
   const corr=btn.nextElementSibling;
@@ -194,5 +504,6 @@ function toggle(btn){
 </script>
 </div>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

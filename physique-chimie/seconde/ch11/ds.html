@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch11 – Transferts thermiques et équilibre thermique – 2de Bac Pro</title>
+<title>DS Ch11 – Transferts thermiques – 2de Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
@@ -16,6 +16,7 @@
 .partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
 .pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
 .answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.answer-box{border:1px dashed #aaa;border-radius:6px;min-height:60px;margin:8px 0;padding:6px}
 .bareme{font-style:italic;color:#718096;font-size:.85em}
 .comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
 .comp-app{background:#dbeafe;color:#1d4ed8}
@@ -25,7 +26,12 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
-@media print{.nb,.bc{display:none}}</style>
+.ds-title{background:var(--p-bg);border:2px solid var(--p-border);border-radius:10px;padding:16px 22px;margin-bottom:20px;text-align:center}
+.ds-title h2{margin:0 0 4px;color:var(--p);font-size:1.3em}
+.ds-title p{margin:0;font-size:.9em;color:#4a5568}
+.aide{background:#fffbeb;border:1px solid #f59e0b;border-radius:6px;padding:10px 14px;margin:8px 0;font-size:.9em}
+.formule{background:#f5f0ff;border:1px solid #c4b5fd;border-radius:6px;padding:10px 14px;margin:8px 0;font-size:.95em;text-align:center}
+@media print{.nb,.bc,.diff-selector{display:none}}</style>
 </head>
 <body>
 <div class="c">
@@ -51,7 +57,154 @@
   <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ═══════ PARTIE A ═══════ -->
+
+<!-- ================================================================
+     DS NIVEAU SOCLE
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="ds-title">
+  <h2>Devoir Surveill&eacute; &ndash; Niveau Socle</h2>
+  <p>Transferts thermiques &nbsp;|&nbsp; Questions guid&eacute;es &agrave; compl&eacute;ter</p>
+</div>
+
+<!-- PARTIE A SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Les modes de transfert thermique</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Relier chaque mode de transfert &agrave; sa description :<br>
+    <table>
+      <tr>
+        <td><strong>Conduction</strong></td>
+        <td rowspan="3" style="padding:0 20px;font-size:1.5em;color:#aaa">↔</td>
+        <td>Transfert par ondes, sans support mat&eacute;riel</td>
+      </tr>
+      <tr>
+        <td><strong>Convection</strong></td>
+        <td>Transfert dans un solide par contact direct</td>
+      </tr>
+      <tr>
+        <td><strong>Rayonnement</strong></td>
+        <td>Transfert dans un fluide par mouvements de mati&egrave;re</td>
+      </tr>
+    </table>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Pour chaque situation, entourer le bon mode de transfert :<br>
+    <table>
+      <tr><th>Situation</th><th>Mode</th></tr>
+      <tr><td>La semelle d'un fer &agrave; repasser chauffe le tissu par contact.</td><td>Conduction / Convection / Rayonnement</td></tr>
+      <tr><td>L'air chaud monte au-dessus d'un radiateur.</td><td>Conduction / Convection / Rayonnement</td></tr>
+      <tr><td>On ressent la chaleur du four sans le toucher.</td><td>Conduction / Convection / Rayonnement</td></tr>
+    </table>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-app">APP</span>
+    Compl&eacute;ter la formule de l'&eacute;nergie thermique :<br>
+    <div class="formule">Q = &hellip;&hellip; × c × &hellip;&hellip;</div>
+    Pr&eacute;ciser les unit&eacute;s : Q en &hellip;&hellip;&hellip; | m en &hellip;&hellip;&hellip; | c en &hellip;&hellip;&hellip; | ΔT en &hellip;&hellip;&hellip;
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    &Agrave; quoi correspond \(\Delta T\) dans la formule \(Q = m \cdot c \cdot \Delta T\) ?<br>
+    <div class="aide">Aide : \(\Delta T = \theta_2 - \theta_1 =\) temp&eacute;rature &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</div>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Conduction ↔ Transfert dans un solide par contact direct | Convection ↔ Transfert dans un fluide par mouvements | Rayonnement ↔ Transfert par ondes sans support matériel.</p>
+    <p><strong>2.</strong> Fer à repasser → <strong>Conduction</strong> | Air chaud → <strong>Convection</strong> | Chaleur du four → <strong>Rayonnement</strong>.</p>
+    <p><strong>3.</strong> Q = <strong>m</strong> × c × <strong>ΔT</strong> | Q en J | m en kg | c en J·kg⁻¹·K⁻¹ | ΔT en K (ou °C).</p>
+    <p><strong>4.</strong> \(\Delta T\) = variation de température = température finale − température initiale.</p>
+  </div>
+</div>
+
+<!-- PARTIE B SOCLE -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Calcul guid&eacute; d'&eacute;nergie thermique</span>
+    <span class="pts">12 pts</span>
+  </div>
+
+  <p>Un agenceur chauffe un morceau de bois de ch&ecirc;ne dans l'&eacute;tuve de son atelier :<br>
+  Masse : <strong>m = 2 kg</strong> | Temp&eacute;rature initiale : <strong>θ₁ = 20 °C</strong> | Temp&eacute;rature finale : <strong>θ₂ = 80 °C</strong> | Chaleur massique du ch&ecirc;ne : <strong>c = 1 700 J·kg⁻¹·K⁻¹</strong></p>
+
+  <div class="formule">Rappel des formules : \(Q = m \cdot c \cdot \Delta T\) &nbsp;&nbsp;|&nbsp;&nbsp; \(\Delta t = \dfrac{Q}{P}\)</div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Calculer \(\Delta T\) :<br>
+    \(\Delta T = \theta_2 - \theta_1 = 80 - \) &hellip;&hellip; = &hellip;&hellip; K
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(4 pts)</span>
+    Calculer Q en joules, puis en kilojoules :<br>
+    Q = m × c × ΔT = 2 × 1 700 × &hellip;&hellip; = &hellip;&hellip;&hellip;&hellip;&hellip; J<br>
+    Q = &hellip;&hellip;&hellip;&hellip;&hellip; kJ (diviser par 1 000)
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    La r&eacute;sistance chauffante de l'&eacute;tuve a une puissance P = 2 000 W. Calculer la dur&eacute;e de chauffe :<br>
+    <div class="aide">Aide : \(\Delta t = \dfrac{Q}{P} = \dfrac{\ldots\ldots}{2\,000} = \) &hellip;&hellip; s</div>
+    &Delta;t = &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; secondes
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-com">COM</span> <span class="bareme">(2 pts)</span>
+    Pourquoi ne faut-il pas d&eacute;passer 90 °C dans l'&eacute;tuve pour le s&eacute;chage du bois ?<br>
+    Entourer la bonne r&eacute;ponse :<br>
+    &emsp;□ Le bois peut br&ucirc;ler et se fissurer.<br>
+    &emsp;□ Les fibres du bois commencent &agrave; se d&eacute;grader irr&eacute;versiblement.<br>
+    &emsp;□ La r&eacute;sistance chauffante s'arr&ecirc;te automatiquement.
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\Delta T = 80 - 20 = \mathbf{60 \text{ K}}\)</p>
+    <p><strong>2.</strong> Q = 2 × 1 700 × 60 = <strong>204 000 J</strong> = <strong>204 kJ</strong></p>
+    <p><strong>3.</strong> \(\Delta t = \dfrac{204\,000}{2\,000} = \mathbf{102 \text{ s}}\)</p>
+    <p><strong>4.</strong> Bonne réponse : <strong>Les fibres du bois commencent à se dégrader irréversiblement</strong> (hémicelluloses et lignines dégradées, risque de fissuration).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     DS NIVEAU STANDARD (original restructuré)
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<div class="ds-title">
+  <h2>Devoir Surveill&eacute; &ndash; Niveau Standard</h2>
+  <p>Transferts thermiques et &eacute;quilibre thermique &nbsp;|&nbsp; Probl&egrave;mes du programme</p>
+</div>
+
+<!-- PARTIE A STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie A &ndash; Modes de transfert et flux thermique</span>
@@ -81,20 +234,20 @@
 
   <div class="q">
     <strong>4.</strong> <span class="comp comp-com">COM</span>
-    Dans quels cas le transfert par convection est-il possible ? Donner un exemple en atelier.
+    Dans quels cas le transfert par convection est-il possible ? Donner un exemple en atelier de menuiserie.
   </div>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Conduction : transfert dans un solide par contact direct. Convection : transfert dans un fluide par mouvement de mati&egrave;re. Rayonnement : transfert par ondes &eacute;lectromagn&eacute;tiques, sans support mat&eacute;riel.</p>
-    <p><strong>2.</strong> \(\varphi = Q/t\), unit&eacute; : watt (W).</p>
-    <p><strong>3.</strong> \(Q = 360\text{ kJ} = 360\,000\text{ J}\) ; \(t = 2 \times 3600 = 7200\text{ s}\) ; \(\varphi = 360\,000 / 7200 = 50\text{ W}\).</p>
-    <p><strong>4.</strong> La convection est possible dans les fluides (liquides et gaz). Exemple : s&eacute;chage du bois en &eacute;tuve &agrave; air puls&eacute;.</p>
+    <p><strong>1.</strong> Conduction : transfert dans un solide par contact direct. Convection : transfert dans un fluide par mouvement de matière. Rayonnement : transfert par ondes électromagnétiques, sans support matériel.</p>
+    <p><strong>2.</strong> \(\varphi = Q/t\), unité : watt (W).</p>
+    <p><strong>3.</strong> \(Q = 360\text{ kJ} = 360\,000\text{ J}\) ; \(t = 2 \times 3600 = 7200\text{ s}\) ; \(\varphi = 360\,000 / 7200 = \mathbf{50\text{ W}}\).</p>
+    <p><strong>4.</strong> La convection est possible dans les fluides (liquides et gaz). Exemple : séchage du bois en étuve à air pulsé.</p>
   </div>
 </div>
 
-<!-- ═══════ PARTIE B ═══════ -->
+<!-- PARTIE B STANDARD -->
 <div class="partie">
   <div class="partie-header">
     <span class="partie-title">Partie B &ndash; &Eacute;nergie thermique et isolation</span>
@@ -129,12 +282,143 @@
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(Q\) = &eacute;nergie thermique (J) ; \(m\) = masse (kg) ; \(c\) = capacit&eacute; thermique massique (J·kg⁻¹·K⁻¹) ; \(\Delta T\) = variation de temp&eacute;rature (K ou °C).</p>
-    <p><strong>2.</strong> \(\Delta T = 65 - 20 = 45\text{ K}\) ; \(Q = 2 \times 1\,700 \times 45 = 153\,000\text{ J} = 153\text{ kJ}\).</p>
-    <p><strong>3.</strong> La r&eacute;sistance thermique quantifie la r&eacute;sistance d'un mat&eacute;riau au passage de la chaleur. Un grand \(R_{th}\) correspond &agrave; un bon isolant.</p>
-    <p><strong>4.</strong> Le bois est le meilleur isolant : sa conductivit&eacute; thermique \(\lambda\) est tr&egrave;s faible (0,12 contre 50 pour l'acier). Plus \(\lambda\) est petit, plus le mat&eacute;riau isole.</p>
+    <p><strong>1.</strong> \(Q\) = énergie thermique (J) ; \(m\) = masse (kg) ; \(c\) = capacité thermique massique (J·kg⁻¹·K⁻¹) ; \(\Delta T\) = variation de température (K ou °C).</p>
+    <p><strong>2.</strong> \(\Delta T = 65 - 20 = 45\text{ K}\) ; \(Q = 2 \times 1\,700 \times 45 = \mathbf{153\,000\text{ J} = 153\text{ kJ}}\).</p>
+    <p><strong>3.</strong> La résistance thermique quantifie la résistance d'un matériau au passage de la chaleur. Un grand \(R_{th}\) correspond à un <strong>bon isolant</strong>.</p>
+    <p><strong>4.</strong> Le bois est le meilleur isolant : sa conductivité thermique \(\lambda\) est très faible (0,12 contre 50 pour l'acier). Plus \(\lambda\) est petit, plus le matériau isole.</p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     DS NIVEAU APPROFONDISSEMENT
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="ds-title">
+  <h2>Devoir Surveill&eacute; &ndash; Niveau Approfondissement</h2>
+  <p>Transferts thermiques &nbsp;|&nbsp; Bilan &eacute;nerg&eacute;tique et isolation &ndash; type BTS</p>
+</div>
+
+<!-- PARTIE A APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Modes de transfert et flux thermique avanc&eacute;s</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts/question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Citer et d&eacute;finir les trois modes de transfert thermique. Pour chacun, donner un exemple en atelier de menuiserie ou d'agencement.
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Un agenceur mesure qu'un panneau de bois transf&egrave;re \(Q = 540\text{ kJ}\) en \(t = 3\text{ h}\). Calculer le flux thermique \(\varphi\) en watts. Exprimer ensuite \(Q\) en kWh.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    Un mur d'atelier est compos&eacute; de deux mat&eacute;riaux en s&eacute;rie : une paroi en bois (\(\lambda_1 = 0{,}12\text{ W·m}^{-1}\text{·K}^{-1}\), &eacute;paisseur 10 cm) et une paroi en laine de roche (\(\lambda_2 = 0{,}04\text{ W·m}^{-1}\text{·K}^{-1}\), &eacute;paisseur 8 cm).<br>
+    La r&eacute;sistance thermique surfacique est \(R_{th} = e / \lambda\) (e = &eacute;paisseur en m).<br>
+    Calculer \(R_{th1}\) et \(R_{th2}\) pour une surface de 1 m². En d&eacute;duire la r&eacute;sistance totale \(R_{th,total} = R_{th1} + R_{th2}\).
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-com">COM</span>
+    En utilisant \(P_{perte} = \dfrac{\Delta\theta}{R_{th,total}}\) avec \(\Delta\theta = 20\text{ K}\), calculer la puissance perdue par ce mur (1 m²). Comparer &agrave; un mur en bois seul. Conclure sur l'int&eacute;r&ecirc;t de l'isolation.
+  </div>
+  <div class="answer-box"></div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Conduction : transfert dans un solide → ex : la semelle d'un fer à souder chauffe la pièce métallique. Convection : transfert dans un fluide → ex : l'air pulsé d'une étuve fait circuler la chaleur. Rayonnement : ondes électromagnétiques → ex : on ressent la chaleur du four à vernir sans le toucher.</p>
+    <p><strong>2.</strong> \(\varphi = Q/t = 540\,000 / (3 \times 3\,600) = 540\,000 / 10\,800 = \mathbf{50\text{ W}}\).<br>
+    \(Q = 540\text{ kJ} = 540\,000 / 3\,600\,000\text{ kWh} = \mathbf{0{,}15\text{ kWh}}\).</p>
+    <p><strong>3.</strong> \(R_{th1} = 0{,}10 / 0{,}12 = 0{,}833 \text{ m}^2\text{·K·W}^{-1}\).<br>
+    \(R_{th2} = 0{,}08 / 0{,}04 = 2{,}000 \text{ m}^2\text{·K·W}^{-1}\).<br>
+    \(R_{th,total} = 0{,}833 + 2{,}000 = \mathbf{2{,}833 \text{ m}^2\text{·K·W}^{-1}}\).</p>
+    <p><strong>4.</strong> Mur composite : \(P_{perte} = 20/2{,}833 \approx 7{,}1\text{ W/m}^2\).<br>
+    Mur en bois seul : \(P_{perte} = 20/0{,}833 \approx 24\text{ W/m}^2\).<br>
+    La laine de roche divise les pertes par ~3,4. L'isolation par laine de roche est très efficace sur cet atelier.</p>
+  </div>
+</div>
+
+<!-- PARTIE B APPRO -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Bilan &eacute;nerg&eacute;tique d'une &eacute;tuve de s&eacute;chage</span>
+    <span class="pts">12 pts</span>
+  </div>
+
+  <p>Un atelier de menuiserie-agencement poss&egrave;de une &eacute;tuve de s&eacute;chage du bois. Un technicien r&eacute;alise un bilan &eacute;nerg&eacute;tique complet.</p>
+  <p><strong>Donn&eacute;es :</strong><br>
+  - Lot de planches de ch&ecirc;ne : masse \(m = 80\text{ kg}\), \(c_{bois} = 1\,700\text{ J·kg}^{-1}\text{·K}^{-1}\)<br>
+  - Temp&eacute;rature initiale \(\theta_1 = 15\text{ °C}\), temp&eacute;rature finale \(\theta_2 = 75\text{ °C}\)<br>
+  - Puissance nominale de la r&eacute;sistance chauffante : \(P_{nominale} = 4\,500\text{ W}\)<br>
+  - Rendement de l'&eacute;tuve : \(\eta = 70\%\)
+  </p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Calculer l'&eacute;nergie thermique n&eacute;cessaire pour s&eacute;cher le lot de bois (\(Q_{bois}\)) en kJ.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span> <span class="bareme">(3 pts)</span>
+    La puissance utile r&eacute;ellement apport&eacute;e au bois est \(P_{utile} = \eta \times P_{nominale}\).<br>
+    Calculer \(P_{utile}\) en watts.<br>
+    En d&eacute;duire la dur&eacute;e de chauffe \(\Delta t\) en secondes, puis en minutes.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Calculer l'&eacute;nergie totale \(Q_{totale}\) consomm&eacute;e par la r&eacute;sistance sur la dur&eacute;e calcul&eacute;e :<br>
+    \(Q_{totale} = P_{nominale} \times \Delta t\)<br>
+    Calculer l'&eacute;nergie perdue par les parois : \(Q_{pertes} = Q_{totale} - Q_{bois}\).<br>
+    Exprimer les r&eacute;sultats en kJ et en kWh.
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span> <span class="bareme">(3 pts)</span>
+    V&eacute;rifier que le rendement calcul&eacute; \(\eta_{calc} = Q_{bois}/Q_{totale}\) correspond bien &agrave; 70%.<br>
+    Si les pertes &eacute;taient r&eacute;duites de 50% gr&acirc;ce &agrave; une meilleure isolation, quel serait le nouveau rendement ?
+  </div>
+  <div class="answer-box"></div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\Delta T = 75 - 15 = 60\text{ K}\)<br>
+    \(Q_{bois} = 80 \times 1\,700 \times 60 = \mathbf{8\,160\,000\text{ J} = 8\,160\text{ kJ}}\)</p>
+    <p><strong>2.</strong> \(P_{utile} = 0{,}70 \times 4\,500 = \mathbf{3\,150\text{ W}}\)<br>
+    \(\Delta t = \dfrac{Q_{bois}}{P_{utile}} = \dfrac{8\,160\,000}{3\,150} \approx \mathbf{2\,590\text{ s}}\)<br>
+    \(\Delta t \approx 2\,590 / 60 \approx \mathbf{43\text{ min}}\)</p>
+    <p><strong>3.</strong> \(Q_{totale} = 4\,500 \times 2\,590 = 11\,655\,000\text{ J} \approx \mathbf{11\,655\text{ kJ} \approx 3{,}24\text{ kWh}}\)<br>
+    \(Q_{pertes} = 11\,655 - 8\,160 = \mathbf{3\,495\text{ kJ} \approx 0{,}97\text{ kWh}}\)</p>
+    <p><strong>4.</strong> \(\eta_{calc} = 8\,160 / 11\,655 = 0{,}70 = \mathbf{70\%}\) ✔ Cohérent.<br>
+    Avec 50% de pertes en moins : \(Q'_{pertes} = 3\,495 / 2 = 1\,747{,}5\text{ kJ}\) ; \(Q'_{totale} = 8\,160 + 1\,747{,}5 = 9\,907{,}5\text{ kJ}\)<br>
+    \(\eta' = 8\,160 / 9\,907{,}5 \approx \mathbf{82\%}\). L'isolation permet de gagner 12 points de rendement.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 
 <script>
 function toggle(btn){
@@ -143,7 +427,8 @@ function toggle(btn){
   else{corr.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-</div>
-<script src="/nav.js"></script>
+</div><!-- fin .c -->
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

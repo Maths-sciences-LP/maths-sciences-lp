@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch09 – Composition de la lumi&egrave;re – 2de Bac Pro</title>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<title>DS Ch09 – Caractéristiques d'un son – 2de Bac Pro</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
@@ -25,7 +25,8 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
-@media print{.nb,.bc{display:none}}</style>
+.aide-box{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:12px 14px;margin:12px 0;font-size:.9em}
+@media print{.nb,.bc,.tag-socle,.tag-standard,.tag-appro{display:none}}</style>
 </head>
 <body>
 <div class="c">
@@ -33,7 +34,7 @@
 
 <header>
   <h1>Devoir Surveill&eacute; &ndash; Chapitre 9</h1>
-  <p class="sous-titre">Composition de la lumi&egrave;re &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+  <p class="sous-titre">Caract&eacute;ristiques d'un son &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
 </header>
 
 <div class="dh">
@@ -51,91 +52,392 @@
   <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ===== PARTIE A ===== -->
+<!-- ================================================================
+     DS SOCLE — très guidé, formules données, étapes fléchées
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<h2 style="color:#059669;border-left:4px solid #059669;padding-left:10px">Devoir Surveill&eacute; &ndash; Niveau Socle</h2>
+<p style="background:#f0fff4;border:1px solid #a7f3d0;border-radius:6px;padding:10px 14px;font-size:.9em">
+  Les formules sont donn&eacute;es dans chaque partie. Les &eacute;tapes sont pr&eacute;par&eacute;es pour t'aider.
+</p>
+
+<!-- SOCLE Partie A -->
 <div class="partie">
   <div class="partie-header">
-    <span class="partie-title">Partie A &ndash; Spectre et synth&egrave;se</span>
-    <span class="pts">10 pts</span>
+    <span class="partie-title">Partie A &ndash; Vocabulaire du son</span>
+    <span class="pts">6 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="aide-box">
+    <strong>À retenir :</strong><br>
+    Fréquence élevée → son aigu &nbsp;|&nbsp; Fréquence basse → son grave<br>
+    Infra &lt; 20 Hz &nbsp;|&nbsp; Audible : 20 – 20 000 Hz &nbsp;|&nbsp; Ultra &gt; 20 000 Hz<br>
+    Amplitude grande → son fort &nbsp;|&nbsp; Amplitude petite → son faible
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Compléter le tableau en cochant la bonne case :
+  </div>
+  <table>
+    <thead><tr><th>Son</th><th>Fréquence</th><th>Grave / Aigu</th><th>Domaine</th></tr></thead>
+    <tbody>
+      <tr><td>Alarme atelier</td><td>1 000 Hz</td><td>……………</td><td>……………</td></tr>
+      <tr><td>Vibration moteur diesel</td><td>50 Hz</td><td>……………</td><td>……………</td></tr>
+      <tr><td>Sifflet à ultrasons</td><td>25 000 Hz</td><td>–</td><td>……………</td></tr>
+      <tr><td>Infrasons séisme</td><td>1 Hz</td><td>–</td><td>……………</td></tr>
+    </tbody>
+  </table>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Compléter les phrases avec les mots : <em>fréquence, amplitude, timbre, hauteur</em>.<br><br>
+    a) La ………………… d'un son correspond à sa hauteur (grave ou aigu).<br>
+    b) L'……………………… d'un son correspond à son intensité (fort ou faible).<br>
+    c) Le ………………… d'un son permet de distinguer deux instruments jouant la même note.
+  </div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-com">COM</span>
+    Un menuisier travaille toute la journée avec une scie circulaire produisant 100 dB. Doit-il porter des protections auditives ? Justifier en une phrase.
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Alarme (1 000 Hz) : aigu, audible. | Moteur diesel (50 Hz) : grave, audible. | Sifflet ultrasons : ultrason. | Infra séisme : infrason.</p>
+    <p><strong>2.</strong> a) fréquence. b) amplitude. c) timbre.</p>
+    <p><strong>3.</strong> Oui, car 100 dB &gt; 85 dB → EPI obligatoires selon le Code du Travail.</p>
+  </div>
+</div>
+
+<!-- SOCLE Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Calculs guidés</span>
+    <span class="pts">8 pts</span>
+  </div>
+
+  <div class="aide-box">
+    <strong>Formules données :</strong><br>
+    Distance : \( d = v \times t \) (m) avec v = 340 m/s dans l'air<br>
+    Écho (aller-retour) : \( d = \dfrac{v \times t}{2} \)<br>
+    Longueur d'onde : \( \lambda = \dfrac{v}{f} \)
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Un apprenti en atelier entend un claquement et voit la source à la même instant. 2 secondes plus tard, il entend l'écho sur le mur en face.<br>
+    Distance = \( \dfrac{v \times t}{2} = \dfrac{340 \times \ldots}{2} = \) ......... m
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Une alarme d'atelier émet un son à f = 500 Hz dans l'air (v = 340 m/s).<br>
+    \( \lambda = \dfrac{v}{f} = \dfrac{340}{\ldots} = \) ......... m
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Un compresseur produit 95 dB. Des bouchons atténuent de 25 dB. Quel niveau sonore le technicien reçoit-il ?<br>
+    Niveau reçu = 95 – 25 = ......... dB. Ce niveau est-il conforme (inférieur à 87 dB) ?
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( d = \dfrac{340 \times 2}{2} = \dfrac{680}{2} = \mathbf{340\,\text{m}} \)</p>
+    <p><strong>2.</strong> \( \lambda = \dfrac{340}{500} = \mathbf{0{,}68\,\text{m} = 68\,\text{cm}} \)</p>
+    <p><strong>3.</strong> 95 − 25 = <strong>70 dB</strong>. Conforme car 70 dB &lt; 87 dB ✓</p>
+  </div>
+</div>
+
+<!-- SOCLE Partie C -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie C &ndash; Protection auditive en atelier MAMA</span>
+    <span class="pts">6 pts</span>
+  </div>
+
+  <p>L'atelier de menuiserie utilise les machines suivantes :</p>
+  <table>
+    <thead><tr><th>Machine</th><th>Niveau sonore</th></tr></thead>
+    <tbody>
+      <tr><td>Défonceuse</td><td>105 dB</td></tr>
+      <tr><td>Ponceuse à bande</td><td>88 dB</td></tr>
+      <tr><td>Scie sur table</td><td>97 dB</td></tr>
+      <tr><td>Marteau pneumatique</td><td>115 dB</td></tr>
+    </tbody>
+  </table>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span> <span class="bareme">(2 pts)</span>
+    Pour quelles machines les EPI auditifs sont-ils obligatoires ? (seuil : 85 dB)
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(2 pts)</span>
+    Des coquilles anti-bruit offrent 30 dB d'atténuation. Calculer le niveau reçu sous la défonceuse (105 dB) :<br>
+    Niveau reçu = 105 – 30 = ......... dB. Conforme (< 87 dB) ?
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-com">COM</span> <span class="bareme">(2 pts)</span>
+    Citer deux autres mesures de prévention contre le bruit en atelier (autres que les EPI).
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Toutes les machines (88, 97, 105, 115 dB) dépassent 85 dB → EPI obligatoires pour toutes.</p>
+    <p><strong>2.</strong> 105 − 30 = <strong>75 dB</strong>. Conforme ✓ (75 &lt; 87 dB).</p>
+    <p><strong>3.</strong> Exemples : capotage acoustique des machines, organisation du planning pour limiter les durées d'exposition, rotation des postes, maintenance préventive des machines (machines en bon état = moins de vibrations), isolation phonique des locaux.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<h2 style="color:#1d4ed8;border-left:4px solid #1d4ed8;padding-left:10px">Devoir Surveill&eacute; &ndash; Niveau Standard</h2>
+
+<!-- STANDARD Partie A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Connaissances</span>
+    <span class="pts">8 pts</span>
   </div>
   <p class="bareme">2 pts par question.</p>
 
   <div class="q">
     <strong>1.</strong> <span class="comp comp-app">APP</span>
-    Quelles longueurs d'onde sont visibles par l'&oelig;il humain ?
+    Citer les trois caractéristiques d'un son et les grandeurs physiques qui leur correspondent.
   </div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>2.</strong> <span class="comp comp-app">APP</span>
-    Citer les couleurs du spectre visible en ordre de longueur d'onde croissante.
+    Donner les limites du domaine audible humain en fréquence et expliquer ce qui se passe en dehors de ces limites.
   </div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>3.</strong> <span class="comp comp-app">APP</span>
-    Citer les 3 couleurs primaires additives.
+    Écrire la relation entre longueur d'onde \( \lambda \), célérité \( v \) et fréquence \( f \). Expliquer pourquoi les ultrasons sont utiles pour le contrôle non destructif (CND) des pièces.
   </div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
-    <strong>4.</strong> <span class="comp comp-rea">REA</span>
-    Rouge + Bleu = ? (synth&egrave;se additive)
+    <strong>4.</strong> <span class="comp comp-com">COM</span>
+    La réglementation fixe une valeur d'action de 85 dB (exposition sur 8h). Expliquer ce que cela signifie et quelles obligations en découlent pour l'employeur.
   </div>
   <span class="answer-line"></span>
-
-  <div class="q">
-    <strong>5.</strong> <span class="comp comp-com">COM</span>
-    Quelle diff&eacute;rence entre lumi&egrave;re monochromatique et polychromatique ?
-  </div>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Les longueurs d'onde visibles sont comprises entre 400 nm et 700 nm environ.</p>
-    <p><strong>2.</strong> Violet, bleu, vert, jaune, orange, rouge.</p>
-    <p><strong>3.</strong> Rouge, vert, bleu (RVB).</p>
-    <p><strong>4.</strong> Magenta.</p>
-    <p><strong>5.</strong> Une lumi&egrave;re monochromatique est compos&eacute;e d'une seule longueur d'onde \((\lambda)\) ; une lumi&egrave;re polychromatique est compos&eacute;e de plusieurs longueurs d'onde.</p>
+    <p><strong>1.</strong> Hauteur ↔ fréquence (Hz). Intensité/niveau sonore ↔ amplitude / niveau en dB. Timbre ↔ forme de la courbe / richesse harmonique.</p>
+    <p><strong>2.</strong> Domaine audible : 20 Hz – 20 000 Hz. En dessous : infrasons (non audibles, ressentis par vibration). Au-dessus : ultrasons (non audibles, mais utilisés en médecine, CND, sonar).</p>
+    <p><strong>3.</strong> \( \lambda = v/f \). Plus la fréquence est élevée, plus la longueur d'onde est petite → on peut détecter des défauts très petits (de l'ordre de λ). Les ultrasons ont λ de l'ordre du mm → détection de micro-fissures.</p>
+    <p><strong>4.</strong> Si l'exposition dépasse 85 dB en moyenne sur 8h, l'employeur doit fournir des EPI auditifs adaptés, former les salariés aux risques, mettre en place un programme de réduction du bruit et surveiller médicalement l'audition des travailleurs.</p>
   </div>
 </div>
 
-<!-- ===== PARTIE B ===== -->
+<!-- STANDARD Partie B -->
 <div class="partie">
   <div class="partie-header">
-    <span class="partie-title">Partie B &ndash; Couleur des objets</span>
-    <span class="pts">10 pts</span>
+    <span class="partie-title">Partie B &ndash; Atelier MAMA – Applications</span>
+    <span class="pts">12 pts</span>
   </div>
 
+  <p><em>Un technicien de maintenance dans un atelier de menuiserie et agencement doit réaliser un contrôle acoustique et vérifier la conformité du poste de travail vis-à-vis de la réglementation bruit.</em></p>
+
   <div class="q">
-    <strong>1.</strong> <span class="comp comp-ana">ANA</span>
-    <span class="bareme">(3 pts)</span>
-    Un objet para&icirc;t bleu sous lumi&egrave;re blanche. Expliquer pourquoi.
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(4 pts)</span>
+    La toupie de l'atelier émet un son fondamental à f = 200 Hz dans l'air (v = 340 m/s).<br>
+    a) Calculer la longueur d'onde de ce son.<br>
+    b) Un opérateur se tient à 5 m de la toupie. Combien de temps met le son pour lui parvenir ?
   </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>2.</strong> <span class="comp comp-ana">ANA</span>
-    <span class="bareme">(3 pts)</span>
-    Cet objet bleu est &eacute;clair&eacute; uniquement en rouge. Quelle est sa couleur apparente ? Expliquer.
+    <span class="bareme">(4 pts)</span>
+    Le sonomètre relève les niveaux suivants (mesure sur 8h) : toupie 98 dB, scie à format 105 dB, ponceuse 90 dB.<br>
+    a) Ces niveaux dépassent-ils la valeur d'action de 85 dB ? Quelles obligations en découlent ?<br>
+    b) Des bouchons SNR = 35 dB sont fournis. Calculer le niveau reçu sous chaque machine avec ces bouchons (atténuation efficace = SNR − 7 dB). Les niveaux sont-ils conformes (&lt; 87 dB) ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(4 pts)</span>
+    Le technicien utilise une sonde à ultrasons (f = 1 MHz, v = 5 000 m/s dans le bois) pour contrôler une planche de chêne.<br>
+    a) Calculer la longueur d'onde de l'ultrason dans le bois.<br>
+    b) L'écho revient après t = 60 μs (1 μs = 10⁻⁶ s). Calculer l'épaisseur de la planche.<br>
+    c) Quel défaut recherche-t-on avec cette technique ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1a.</strong> \( \lambda = 340/200 = \mathbf{1{,}7\,\text{m}} \)</p>
+    <p><strong>1b.</strong> \( t = d/v = 5/340 \approx \mathbf{0{,}015\,\text{s} = 15\,\text{ms}} \)</p>
+    <p><strong>2a.</strong> Tous les niveaux (98, 105, 90 dB) dépassent 85 dB → EPI obligatoires pour toutes les machines, formation des opérateurs, programme de réduction du bruit.</p>
+    <p><strong>2b.</strong> Atténuation efficace = 35 − 7 = 28 dB. Toupie : 98 − 28 = 70 dB ✓ | Scie : 105 − 28 = 77 dB ✓ | Ponceuse : 90 − 28 = 62 dB ✓. Tous conformes (&lt; 87 dB).</p>
+    <p><strong>3a.</strong> \( \lambda = 5\,000 / 1\,000\,000 = 5 \times 10^{-3}\,\text{m} = \mathbf{5\,\text{mm}} \)</p>
+    <p><strong>3b.</strong> t = 60 × 10⁻⁶ s &nbsp;→&nbsp; \( e = \dfrac{v \times t}{2} = \dfrac{5\,000 \times 60 \times 10^{-6}}{2} = \dfrac{0{,}3}{2} = \mathbf{0{,}15\,\text{m} = 15\,\text{cm}} \)</p>
+    <p><strong>3c.</strong> Détection de nœuds internes, de fissures cachées, de zones de pourriture ou d'humidité excessive dans la masse du bois (contrôle non destructif).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, type BTS
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<h2 style="color:#7c3aed;border-left:4px solid #7c3aed;padding-left:10px">Devoir Surveill&eacute; &ndash; Niveau Approfondissement</h2>
+
+<!-- APPRO Partie A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Analyse et raisonnement</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Expliquer la différence entre un son pur et un son complexe. Comment ces deux types de sons apparaissent-ils sur un oscilloscope et sur un spectre de fréquences ?
   </div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
-    <strong>3.</strong> <span class="comp comp-com">COM</span>
-    <span class="bareme">(4 pts)</span>
-    Citer un exemple de synth&egrave;se additive et un exemple de synth&egrave;se soustractive dans la vie courante.
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span>
+    Un menuisier travaille 2 heures à la défonceuse (110 dB) et 6 heures à la scie sur table (95 dB). Sachant que la règle des 3 dB stipule que +3 dB = durée maximale ÷ 2 (base : 8h à 85 dB), calculer la durée maximale d'exposition sans EPI pour chacune de ces machines.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    En contrôle non destructif (CND), pourquoi utilise-t-on des ultrasons à 1–10 MHz plutôt que des sons audibles à 1 000 Hz pour détecter des microfissures de 2 mm dans une pièce en acier (v = 5 000 m/s) ? Justifier par le calcul des longueurs d'onde.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-com">COM</span>
+    Un ingénieur acousticien mesure une vibration à 300 Hz sur une raboteuse tournant à 3 000 tr/min avec une tête de coupe à 6 couteaux. Identifier l'origine de cette vibration et proposer une action corrective.
   </div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> L'objet absorbe le rouge et le vert, et r&eacute;fl&eacute;chit uniquement le bleu vers nos yeux.</p>
-    <p><strong>2.</strong> L'objet appara&icirc;t noir : il ne re&ccedil;oit que de la lumi&egrave;re rouge qu'il absorbe, et il n'y a pas de bleu &agrave; r&eacute;fl&eacute;chir.</p>
-    <p><strong>3.</strong> Synth&egrave;se additive : &eacute;cran de t&eacute;l&eacute;vision (pixels RVB). Synth&egrave;se soustractive : imprimante (encres cyan, magenta, jaune).</p>
+    <p><strong>1.</strong> Son pur = une seule fréquence → sinusoïde parfaite à l'oscilloscope, un seul pic sur le spectre. Son complexe = fondamentale + harmoniques → courbe complexe à l'oscilloscope, plusieurs pics sur le spectre (aux fréquences f₀, 2f₀, 3f₀…). Le timbre est lié à la distribution relative des harmoniques.</p>
+    <p><strong>2.</strong> Défonceuse (110 dB) : 110 − 85 = 25 dB de plus. 25/3 ≈ 8,3 doublings. Durée max = 8h / 2^8,3 ≈ 8/320 ≈ <strong>1,5 minutes</strong>. | Scie sur table (95 dB) : 95 − 85 = 10 dB. 10/3 ≈ 3,3 doublings. Durée max = 8h / 2^3,3 ≈ 8/10 ≈ <strong>48 minutes</strong>. Les deux machines nécessitent des EPI même pour des expositions courtes.</p>
+    <p><strong>3.</strong> À 1 000 Hz : \( \lambda = 5\,000/1\,000 = 5\,\text{m} \) → impossible de détecter une fissure de 2 mm (la fissure est 2 500 fois plus petite que λ). À 1 MHz : \( \lambda = 5\,000/1\,000\,000 = 5\,\text{mm} \) → fissure de 2 mm détectable. À 10 MHz : \( \lambda = 0{,}5\,\text{mm} \) → résolution encore meilleure. La taille minimale détectable est de l'ordre de λ/2.</p>
+    <p><strong>4.</strong> Vitesse : 3 000 tr/min = 50 tr/s. Fréquence de passage des couteaux = 50 × 6 = 300 Hz → coïncide exactement avec la vibration mesurée → il s'agit de la <strong>fréquence fondamentale de passage des couteaux</strong>. Si l'amplitude est normale, pas d'action nécessaire. Si amplitude excessive : vérifier l'équilibrage de la tête de coupe, l'état des couteaux (un couteau usé peut générer une impulsion plus forte), et le jeu dans les roulements.</p>
   </div>
 </div>
+
+<!-- APPRO Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Plan de prévention acoustique – Atelier MAMA</span>
+    <span class="pts">12 pts</span>
+  </div>
+
+  <p><em>Un responsable HSE (Hygiène Sécurité Environnement) doit établir un plan de prévention acoustique pour un atelier de menuiserie-agencement. L'atelier emploie 8 techniciens travaillant 8h/jour. Les mesures suivantes ont été relevées :</em></p>
+  <table>
+    <thead><tr><th>Machine / Zone</th><th>Niveau sonore mesuré</th><th>Durée d'exposition journalière</th></tr></thead>
+    <tbody>
+      <tr><td>Scie à panneaux numérique</td><td>99 dB</td><td>3h</td></tr>
+      <tr><td>Centre d'usinage CNC</td><td>94 dB</td><td>4h</td></tr>
+      <tr><td>Zone de finition (ponçage)</td><td>87 dB</td><td>1h</td></tr>
+      <tr><td>Salle de montage</td><td>75 dB</td><td>tout le reste du temps</td></tr>
+    </tbody>
+  </table>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-ana">ANA</span>
+    <span class="bareme">(3 pts)</span>
+    Pour chaque poste, indiquer si les EPI sont obligatoires. En s'appuyant sur la règle des 3 dB (base : 8h à 85 dB), calculer la durée maximale d'exposition sans EPI pour la scie à panneaux (99 dB).
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(3 pts)</span>
+    Des casques anti-bruit SNR = 28 dB sont proposés pour le centre CNC (94 dB). Calculer le niveau reçu avec ces casques (atténuation efficace = SNR − 7 dB). Ces casques sont-ils suffisants pour la scie à panneaux (99 dB) ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(3 pts)</span>
+    Le responsable HSE installe un caisson insonorisé autour de la scie à panneaux, réduisant le niveau à 85 dB. Calculer la réduction en dB apportée par le caisson. Avec cette mesure collective, des EPI sont-ils encore nécessaires ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-com">COM</span>
+    <span class="bareme">(3 pts)</span>
+    Rédiger les grandes lignes du plan de prévention acoustique en distinguant les mesures de prévention collective (à la source, sur le trajet du son) et les mesures de protection individuelle. Mentionner les obligations réglementaires de suivi médical.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Scie (99 dB), CNC (94 dB), finition (87 dB) → tous &gt; 85 dB → EPI obligatoires. Salle montage (75 dB) → pas d'EPI obligatoire.<br>
+    Scie 99 dB : 99 − 85 = 14 dB de plus. 14/3 ≈ 4,7 doublings. Durée max sans EPI = 8h / 2^4,7 ≈ 8/26 ≈ <strong>18 minutes</strong>. (bien loin des 3h d'exposition !)</p>
+    <p><strong>2.</strong> Atténuation efficace = 28 − 7 = 21 dB. CNC (94 dB) : 94 − 21 = <strong>73 dB</strong> → conforme ✓. Scie (99 dB) : 99 − 21 = <strong>78 dB</strong> → conforme ✓. Ces casques sont suffisants pour les deux machines.</p>
+    <p><strong>3.</strong> Réduction = 99 − 85 = <strong>14 dB</strong>. Avec 85 dB, on est exactement à la 2ème valeur d'action → EPI restent recommandés (mais pas obligatoires selon le dépassement de la valeur limite). Pour une protection optimale, le port des EPI reste conseillé lors des phases d'usinage intensif.</p>
+    <p><strong>4.</strong> Plan de prévention acoustique :<br>
+    <strong>Mesures collectives (prioritaires) :</strong> capotage acoustique des machines bruyantes, dalles absorbantes au plafond, cloisons phoniques entre zones, maintenance préventive (machines bien entretenues = moins bruyantes), programmation des phases bruyantes en dehors des heures de présence du personnel non concerné.<br>
+    <strong>Mesures individuelles :</strong> fourniture d'EPI certifiés EN352, formation à leur utilisation, affichage des zones à risque avec niveaux mesurés.<br>
+    <strong>Suivi médical :</strong> audiogramme annuel obligatoire pour toute exposition &gt; 85 dB, fiche d'aptitude médicale. Suivi par le médecin du travail. En cas de détérioration auditive constatée, réexamen des postes de travail.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
 
 <script>
 function toggle(btn){
@@ -145,6 +447,7 @@ function toggle(btn){
 }
 </script>
 </div>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

@@ -65,6 +65,202 @@
   <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
 </table>
 
+<!-- ════════════ SOCLE ════════════ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice unique</span>
+    <span class="exo-title">Signaux et atténuation — Démarche guidée</span>
+    <span class="pts">20 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un artisan menuisier agenceur modernise son atelier. Il installe un réseau WiFi pour superviser ses machines à commande numérique et une liaison par fibre optique pour les transferts de fichiers volumineux (plans 3D). On cherche à caractériser les signaux utilisés et à vérifier la qualité de la liaison.
+  </div>
+
+  <div class="donnees">
+    <strong>Données :</strong><br>
+    Vitesse de la lumière : \(c = 3 \times 10^8\,\text{m/s}\)<br>
+    Fréquence du WiFi : \(f = 5\,\text{GHz}\)<br>
+    Formule d'atténuation : \(A = 10 \times \log\!\left(\dfrac{P_e}{P_s}\right)\)<br>
+    Rappel : \(\log(20) \approx 1{,}30\) &nbsp;;&nbsp; \(\log(2) \approx 0{,}30\)
+  </div>
+
+  <h3>Partie A — La formule longueur d'onde / fréquence <span class="pts">(6 pts)</span></h3>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Compléter la formule qui relie la longueur d'onde, la fréquence et la célérité d'une onde :
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">
+    \(\lambda = \dfrac{\underline{\hspace{1.5cm}}}{\underline{\hspace{1.5cm}}}\)
+    <br><br>
+    \(\lambda\) est la __________________ en ____<br>
+    \(c\) est la __________________ en ____<br>
+    \(f\) est la __________________ en ____
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\lambda = \dfrac{c}{f}\)</p>
+    <p>\(\lambda\) est la longueur d'onde en m ; \(c\) est la célérité en m/s ; \(f\) est la fréquence en Hz</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Le WiFi fonctionne à \(f = 5\,\text{GHz}\). Convertir cette fréquence en Hz en complétant :
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:50px">
+    \(1\,\text{GHz} = 10^{\underline{\hspace{0.8cm}}}\,\text{Hz}\)<br>
+    Donc \(f = 5\,\text{GHz} = 5 \times 10^{\underline{\hspace{0.8cm}}}\,\text{Hz}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(1\,\text{GHz} = 10^{9}\,\text{Hz}\) &nbsp; donc \(f = 5 \times 10^{9}\,\text{Hz}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-rea">REA</span>
+    Calculer la longueur d'onde \(\lambda\) du signal WiFi en complétant le calcul ci-dessous :
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">
+    \(\lambda = \dfrac{c}{f} = \dfrac{3 \times 10^{8}}{5 \times 10^{\underline{\hspace{0.8cm}}}} = \underline{\hspace{2cm}}\,\text{m}\)
+    <br><br>
+    Conversion en centimètres : \(\lambda = \underline{\hspace{2cm}}\,\text{cm}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\lambda = \dfrac{3 \times 10^8}{5 \times 10^9} = 6 \times 10^{-2}\,\text{m} = 6\,\text{cm}\)</p>
+  </div>
+
+  <h3>Partie B — Comparaison filaire / sans fil <span class="pts">(6 pts)</span></h3>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-app">APP</span>
+    Compléter le tableau comparatif en entourant la bonne réponse dans chaque case :
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:10px;border:none;background:transparent;padding:0">
+    <table style="width:100%;border-collapse:collapse;font-size:.88em;margin:8px 0">
+      <tr style="background:var(--p);color:#fff">
+        <th style="padding:7px 10px;text-align:left">Critère</th>
+        <th style="padding:7px 10px;text-align:center">WiFi (sans fil)</th>
+        <th style="padding:7px 10px;text-align:center">Fibre optique (filaire)</th>
+      </tr>
+      <tr>
+        <td style="border:1px solid #e2e8f0;padding:7px 10px">Portée dans un atelier</td>
+        <td style="border:1px solid #e2e8f0;padding:7px 10px;text-align:center">courte (~30 m) / longue</td>
+        <td style="border:1px solid #e2e8f0;padding:7px 10px;text-align:center">courte / longue (plusieurs km)</td>
+      </tr>
+      <tr style="background:#f8fafc">
+        <td style="border:1px solid #e2e8f0;padding:7px 10px">Sensible aux perturbations EM</td>
+        <td style="border:1px solid #e2e8f0;padding:7px 10px;text-align:center">oui / non</td>
+        <td style="border:1px solid #e2e8f0;padding:7px 10px;text-align:center">oui / non</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #e2e8f0;padding:7px 10px">Débit typique</td>
+        <td style="border:1px solid #e2e8f0;padding:7px 10px;text-align:center">faible / élevé</td>
+        <td style="border:1px solid #e2e8f0;padding:7px 10px;text-align:center">faible / très élevé</td>
+      </tr>
+    </table>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>WiFi : portée <strong>courte</strong> (~30 m) ; <strong>oui</strong> sensible aux perturbations EM ; débit <strong>faible</strong> (relatif).</p>
+    <p>Fibre optique : portée <strong>longue</strong> (plusieurs km) ; <strong>non</strong> sensible aux perturbations EM ; débit <strong>très élevé</strong>.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">5.</span>
+    <span class="comp comp-val">VAL</span>
+    En vous aidant du tableau, cocher la ou les bonne(s) réponse(s) pour expliquer pourquoi on utilise la fibre optique pour relier les machines CNC au serveur de l'atelier :
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">
+    ☐ La fibre optique est moins chère que le WiFi.<br>
+    ☐ La fibre optique n'est pas perturbée par les moteurs et variateurs de l'atelier.<br>
+    ☐ La fibre optique permet un débit très élevé pour transférer les fichiers de plans 3D.<br>
+    ☐ La fibre optique fonctionne sans électricité.<br>
+    ☐ La fibre optique offre une liaison fiable sur de grandes distances.<br>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Bonnes réponses :</p>
+    <p>&#10003; La fibre optique n'est pas perturbée par les moteurs et variateurs de l'atelier.</p>
+    <p>&#10003; La fibre optique permet un débit très élevé pour transférer les fichiers de plans 3D.</p>
+    <p>&#10003; La fibre optique offre une liaison fiable sur de grandes distances.</p>
+  </div>
+
+  <h3>Partie C — Atténuation du signal <span class="pts">(8 pts)</span></h3>
+
+  <p class="q">
+    <span class="q-num">6.</span>
+    <span class="comp comp-app">APP</span>
+    Compléter la formule d'atténuation en décibels :
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">
+    \(A = \underline{\hspace{1cm}} \times \log\!\left(\dfrac{\underline{\hspace{1.5cm}}}{\underline{\hspace{1.5cm}}}\right)\)
+    <br><br>
+    \(P_e\) est la puissance en ____________ (en W ou mW)<br>
+    \(P_s\) est la puissance en ____________ (en W ou mW)<br>
+    \(A\) s'exprime en ____
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(A = 10 \times \log\!\left(\dfrac{P_e}{P_s}\right)\)</p>
+    <p>\(P_e\) : puissance en entrée ; \(P_s\) : puissance en sortie ; \(A\) en dB.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">7.</span>
+    <span class="comp comp-rea">REA</span>
+    Un câble relie un capteur de température à l'automate. La puissance en entrée est \(P_e = 10\,\text{mW}\) et la puissance en sortie est \(P_s = 0{,}5\,\text{mW}\). Calculer l'atténuation en complétant :
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:90px">
+    \(A = 10 \times \log\!\left(\dfrac{P_e}{P_s}\right) = 10 \times \log\!\left(\dfrac{\underline{\hspace{1.5cm}}}{\underline{\hspace{1.5cm}}}\right)\)
+    <br><br>
+    \(A = 10 \times \log(\underline{\hspace{1.5cm}})\)
+    <br><br>
+    \(A = 10 \times \underline{\hspace{1.5cm}} = \underline{\hspace{1.5cm}}\,\text{dB}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(A = 10 \times \log\!\left(\dfrac{10}{0{,}5}\right) = 10 \times \log(20) = 10 \times 1{,}30 = 13\,\text{dB}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">8.</span>
+    <span class="comp comp-ana">ANA</span>
+    On sait qu'une atténuation de 3 dB correspond à diviser la puissance par 2. Si \(P_e = 20\,\text{mW}\), compléter :
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">
+    \(A = 3\,\text{dB}\) signifie que \(P_s = \dfrac{P_e}{\underline{\hspace{1cm}}}\)
+    <br><br>
+    \(P_s = \dfrac{\underline{\hspace{1.5cm}}}{\underline{\hspace{1cm}}} = \underline{\hspace{1.5cm}}\,\text{mW}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(P_s = \dfrac{P_e}{2} = \dfrac{20}{2} = 10\,\text{mW}\)</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ════════════ STANDARD ════════════ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- EXERCICE 1 -->
 <div class="exo">
   <div class="exo-header">

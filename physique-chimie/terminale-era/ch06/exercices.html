@@ -120,6 +120,109 @@
   <strong>À retenir :</strong> En atelier ERA-MA, on privilégie une LED avec IRC ≥ 80, température de couleur entre 4 000 K et 5 000 K (neutre à légèrement froide pour une bonne perception des détails et fils électriques colorés), et une efficacité ≥ 100 lm/W.
 </div>
 
+<!-- SECTION SOCLE -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+<h2>Exercices – Niveau Socle</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S1</span>
+    <span class="exo-title">Le spectre visible – Compléter un tableau</span>
+  </div>
+  <p>Un menuisier agenceur installe un éclairage LED dans un showroom de cuisines. Pour choisir la bonne teinte de lumière, il doit connaître les couleurs du spectre visible.</p>
+  <p><strong>Complète le tableau ci-dessous</strong> en t'aidant du spectre visible affiché plus haut sur cette page :</p>
+  <table>
+    <tr><th>Couleur</th><th>Plage de longueur d'onde λ (nm)</th></tr>
+    <tr><td>Violet</td><td>380 à ____</td></tr>
+    <tr><td>Bleu</td><td>____ à 530</td></tr>
+    <tr><td>Vert</td><td>530 à ____</td></tr>
+    <tr><td>Jaune</td><td>____ à 640</td></tr>
+    <tr><td>Rouge</td><td>____ à 700</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Complète les cases vides du tableau à l'aide du spectre visible ci-dessus.</p>
+  <p class="q"><strong>2.</strong> Quelle est la couleur qui correspond à la plus petite longueur d'onde ?</p>
+  <p class="q"><strong>3.</strong> Une LED émet une lumière de longueur d'onde λ = 620 nm. Dans quelle couleur du spectre se situe-t-elle ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Tableau complété :</strong></p>
+    <table>
+      <tr><th>Couleur</th><th>Plage de longueur d'onde λ (nm)</th></tr>
+      <tr><td>Violet</td><td>380 à <strong>450</strong></td></tr>
+      <tr><td>Bleu</td><td><strong>450</strong> à 530</td></tr>
+      <tr><td>Vert</td><td>530 à <strong>590</strong></td></tr>
+      <tr><td>Jaune</td><td><strong>590</strong> à 640</td></tr>
+      <tr><td>Rouge</td><td><strong>640</strong> à 700</td></tr>
+    </table>
+    <p><em>Note :</em> Les frontières entre couleurs sont progressives (le spectre est continu). Les valeurs ci-dessus sont des repères approximatifs. La zone orange se situe entre le jaune et le rouge (environ 590–640 nm).</p>
+    <p><strong>2.</strong> La couleur qui correspond à la plus petite longueur d'onde est le <strong>violet</strong> (λ = 380 nm).</p>
+    <p><strong>3.</strong> λ = 620 nm se situe entre 590 nm et 640 nm : c'est dans la zone <strong>jaune-orange</strong>, à la frontière avec le rouge.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S2</span>
+    <span class="exo-title">Calcul guidé de l'éclairement E = Φ / S</span>
+  </div>
+  <p>Un technicien en agencement installe 4 luminaires LED au-dessus d'un plan de travail dans un atelier de menuiserie. Chaque luminaire émet un flux lumineux de Φ<sub>1</sub> = 2 500 lm. La surface du plan de travail est S = 20 m².</p>
+  <p><strong>Suis les étapes ci-dessous pour calculer l'éclairement :</strong></p>
+  <p class="q"><strong>Étape 1.</strong> Calcule le flux lumineux total émis par les 4 luminaires :</p>
+  <p style="margin-left:20px">Φ<sub>total</sub> = nombre de luminaires × Φ<sub>1</sub> = 4 × ____ = ____ lm</p>
+  <p class="q"><strong>Étape 2.</strong> Rappelle la formule de l'éclairement :</p>
+  <p style="margin-left:20px">E = ____ / ____</p>
+  <p class="q"><strong>Étape 3.</strong> Remplace par les valeurs et calcule :</p>
+  <p style="margin-left:20px">E = ____ / ____ = ____ lx</p>
+  <p class="q"><strong>Étape 4.</strong> La norme recommande au moins 300 lx pour un atelier de menuiserie. L'éclairement obtenu est-il suffisant ? (Réponds par oui ou non et justifie.)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1.</strong> Φ<sub>total</sub> = 4 × <strong>2 500</strong> = <strong>10 000 lm</strong></p>
+    <p><strong>Étape 2.</strong> E = <strong>Φ</strong> / <strong>S</strong></p>
+    <p><strong>Étape 3.</strong> E = <strong>10 000</strong> / <strong>20</strong> = <strong>500 lx</strong></p>
+    <p><strong>Étape 4.</strong> 500 lx &gt; 300 lx : <strong>oui</strong>, l'éclairement est suffisant. Il dépasse même la norme de 200 lx, ce qui est confortable pour des travaux de précision en menuiserie (découpe, assemblage).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S3</span>
+    <span class="exo-title">Comparer deux luminaires LED – Tableau guidé</span>
+  </div>
+  <p>Un agenceur de cuisines doit choisir entre deux luminaires LED pour éclairer un atelier de finition bois. Voici leurs caractéristiques :</p>
+  <table>
+    <tr><th>Caractéristique</th><th>Luminaire X</th><th>Luminaire Y</th></tr>
+    <tr><td>Flux lumineux Φ</td><td>2 400 lm</td><td>3 600 lm</td></tr>
+    <tr><td>Puissance P</td><td>20 W</td><td>36 W</td></tr>
+    <tr><td>Efficacité η = Φ / P</td><td>____ lm/W</td><td>____ lm/W</td></tr>
+  </table>
+  <p><strong>Complète le tableau puis réponds aux questions :</strong></p>
+  <p class="q"><strong>1.</strong> Calcule l'efficacité du luminaire X :</p>
+  <p style="margin-left:20px">η<sub>X</sub> = Φ / P = ____ / ____ = ____ lm/W</p>
+  <p class="q"><strong>2.</strong> Calcule l'efficacité du luminaire Y :</p>
+  <p style="margin-left:20px">η<sub>Y</sub> = Φ / P = ____ / ____ = ____ lm/W</p>
+  <p class="q"><strong>3.</strong> Quel luminaire a la meilleure efficacité lumineuse ?</p>
+  <p class="q"><strong>4.</strong> Pour un atelier de finition bois, on recommande une efficacité d'au moins 100 lm/W. Les deux luminaires respectent-ils ce critère ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> η<sub>X</sub> = 2 400 / 20 = <strong>120 lm/W</strong></p>
+    <p><strong>2.</strong> η<sub>Y</sub> = 3 600 / 36 = <strong>100 lm/W</strong></p>
+    <table>
+      <tr><th>Caractéristique</th><th>Luminaire X</th><th>Luminaire Y</th></tr>
+      <tr><td>Flux lumineux Φ</td><td>2 400 lm</td><td>3 600 lm</td></tr>
+      <tr><td>Puissance P</td><td>20 W</td><td>36 W</td></tr>
+      <tr><td>Efficacité η = Φ / P</td><td><strong>120 lm/W</strong></td><td><strong>100 lm/W</strong></td></tr>
+    </table>
+    <p><strong>3.</strong> Le luminaire X a la meilleure efficacité (120 lm/W &gt; 100 lm/W). Il produit plus de lumière pour chaque watt consommé.</p>
+    <p><strong>4.</strong> Le luminaire X (120 lm/W) dépasse le seuil de 100 lm/W : <strong>oui</strong>. Le luminaire Y (100 lm/W) est juste à la limite : <strong>oui, tout juste</strong>. Les deux respectent le critère, mais le luminaire X est plus performant.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- SECTION STANDARD -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- SECTION 1 : EXERCICES DE BASE -->
 <h2>Exercices de base</h2>
 
@@ -304,6 +407,14 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- SECTION APPROFONDISSEMENT -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<h2>Exercices d'approfondissement</h2>
+
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
@@ -414,6 +525,8 @@
   </div>
 </div>
 
+</div><!-- fin diff-appro -->
+
 <!-- BILAN -->
 <div class="retenir" style="margin-top:36px">
   <strong>Bilan – Ce qu'il faut maîtriser en ERA-MA</strong>
@@ -495,5 +608,6 @@ new Chart(ctx2, {
 });
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

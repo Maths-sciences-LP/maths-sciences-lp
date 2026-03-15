@@ -150,9 +150,191 @@
 
 <hr class="sep">
 
-<!-- ============================================================
-     NIVEAU 2 — RAISONNEMENT GUIDÉ
-============================================================ -->
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés, étape par étape
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="niveau-header niv2">
+  <span class="badge-niv badge-2">🔵 Niveau 2</span>
+  <h2>Raisonnement guidé — Pas à pas</h2>
+</div>
+
+<!-- EXERCICE S1 — Quartiles guidés -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <span class="mama-tag">Maintenance industrielle</span>
+  <div class="exo-titre">Quartiles et écart interquartile — méthode guidée</div>
+  <p>Voici les temps de réparation (en minutes) relevés par un technicien sur 12 interventions, <strong>déjà triés</strong> :</p>
+  <table>
+    <tr><th>Rang</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr>
+    <tr><td>Durée (min)</td><td>12</td><td>15</td><td>18</td><td>20</td><td>23</td><td>25</td><td>28</td><td>30</td><td>35</td><td>38</td><td>42</td><td>50</td></tr>
+  </table>
+
+  <div class="meth">
+    <strong>Méthode pas à pas :</strong><br>
+    <strong>Étape 1 :</strong> La série a \(n = 12\) valeurs (nombre pair).<br>
+    → Médiane = moyenne des valeurs de rang 6 et 7 : Me = \(\dfrac{25 + 28}{2}\) = ……<br><br>
+    <strong>Étape 2 :</strong> Première moitié = {12, 15, 18, 20, 23, 25} (rangs 1 à 6).<br>
+    → Q1 = moyenne des rangs 3 et 4 = \(\dfrac{18 + 20}{2}\) = ……<br><br>
+    <strong>Étape 3 :</strong> Deuxième moitié = {28, 30, 35, 38, 42, 50} (rangs 7 à 12).<br>
+    → Q3 = moyenne des rangs 3 et 4 (de cette moitié) = \(\dfrac{35 + 38}{2}\) = ……<br><br>
+    <strong>Étape 4 :</strong> IQR = Q3 − Q1 = …… − …… = ……
+  </div>
+
+  <div class="q"><strong>1.</strong> Compléter les calculs ci-dessus pour trouver Me, Q1, Q3 et l'IQR.</div>
+  <div class="q"><strong>2.</strong> Compléter : « 50 % des interventions durent entre …… min et …… min. »</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la solution</button>
+  <div class="corr">
+    <span class="etape">1. Calculs :</span>
+    <p>Me = \(\dfrac{25 + 28}{2} = \mathbf{26{,}5}\) min</p>
+    <p>Q1 = \(\dfrac{18 + 20}{2} = \mathbf{19}\) min</p>
+    <p>Q3 = \(\dfrac{35 + 38}{2} = \mathbf{36{,}5}\) min</p>
+    <p>IQR = 36,5 − 19 = <strong>17,5 min</strong></p>
+    <span class="etape">2. Interprétation :</span>
+    <p>50 % des interventions durent entre <strong>19 min et 36,5 min</strong>.</p>
+  </div>
+</div>
+
+<!-- EXERCICE S2 — Comparaison guidée -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <span class="mama-tag">Comparaison de techniciens</span>
+  <div class="exo-titre">Comparer deux séries — calculs amorcés</div>
+  <p>Deux techniciens ont réalisé chacun 8 interventions. Voici leurs durées (en minutes) :</p>
+  <table>
+    <tr><th>Technicien</th><th>Int. 1</th><th>Int. 2</th><th>Int. 3</th><th>Int. 4</th><th>Int. 5</th><th>Int. 6</th><th>Int. 7</th><th>Int. 8</th></tr>
+    <tr><td>Technicien A</td><td>45</td><td>30</td><td>60</td><td>35</td><td>40</td><td>55</td><td>50</td><td>38</td></tr>
+    <tr><td>Technicien B</td><td>25</td><td>70</td><td>20</td><td>80</td><td>30</td><td>65</td><td>28</td><td>72</td></tr>
+  </table>
+
+  <div class="meth">
+    <strong>Calculs amorcés :</strong><br>
+    <strong>Technicien A :</strong> Somme = 45 + 30 + 60 + 35 + 40 + 55 + 50 + 38 = ……<br>
+    → Moyenne = \(\dfrac{……}{8}\) = ……<br>
+    → Série triée : 30, 35, 38, 40, 45, 50, 55, 60<br>
+    → Médiane (entre rang 4 et 5) = \(\dfrac{40 + 45}{2}\) = ……<br>
+    → Étendue = 60 − 30 = ……<br><br>
+    <strong>Technicien B :</strong> Somme = 25 + 70 + 20 + 80 + 30 + 65 + 28 + 72 = ……<br>
+    → Moyenne = \(\dfrac{……}{8}\) = ……<br>
+    → Série triée : 20, 25, 28, 30, 65, 70, 72, 80<br>
+    → Étendue = 80 − 20 = ……
+  </div>
+
+  <div class="q"><strong>1.</strong> Compléter les calculs amorcés ci-dessus.</div>
+  <div class="q"><strong>2.</strong> Quel technicien a la plus petite étendue ? Qu'est-ce que cela signifie ?</div>
+  <div class="q"><strong>3.</strong> Compléter : « Le technicien …… est plus régulier car son étendue est de …… min contre …… min pour l'autre. »</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la solution</button>
+  <div class="corr">
+    <span class="etape">1. Calculs :</span>
+    <p><strong>Technicien A :</strong> Somme = 353 → Moyenne = \(\dfrac{353}{8} \approx \mathbf{44{,}1}\) min. Médiane = \(\dfrac{40+45}{2} = \mathbf{42{,}5}\) min. Étendue = <strong>30 min</strong>.</p>
+    <p><strong>Technicien B :</strong> Somme = 390 → Moyenne = \(\dfrac{390}{8} \approx \mathbf{48{,}8}\) min. Étendue = <strong>60 min</strong>.</p>
+    <span class="etape">2-3. Interprétation :</span>
+    <p>Le technicien <strong>A</strong> est plus régulier car son étendue est de <strong>30 min</strong> contre <strong>60 min</strong> pour B. Les durées de A sont bien groupées, alors que B alterne entre interventions très courtes et très longues.</p>
+  </div>
+</div>
+
+<!-- EXERCICE S3 — Moyenne pondérée guidée -->
+<div class="exo">
+  <div class="exo-num">Exercice 6</div>
+  <span class="mama-tag">Suivi qualité — Équipements</span>
+  <div class="exo-titre">Moyenne pondérée — tableau pré-rempli</div>
+  <p>Un responsable de maintenance suit le nombre de pannes par équipement sur 30 jours :</p>
+  <table>
+    <tr><th>Nombre de pannes (x<sub>i</sub>)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>Total</th></tr>
+    <tr><td>Nombre de jours (n<sub>i</sub>)</td><td>6</td><td>8</td><td>7</td><td>5</td><td>3</td><td>1</td><td><strong>30</strong></td></tr>
+    <tr><td>n<sub>i</sub> × x<sub>i</sub></td><td>0</td><td>8</td><td>14</td><td>……</td><td>……</td><td>……</td><td><strong>……</strong></td></tr>
+  </table>
+
+  <div class="meth">
+    <strong>Aide :</strong> Les trois premiers produits sont déjà calculés.<br>
+    → \(n_3 \times x_3 = 5 \times 3 = \)……<br>
+    → \(n_4 \times x_4 = 3 \times 4 = \)……<br>
+    → \(n_5 \times x_5 = 1 \times 5 = \)……<br>
+    → Total = 0 + 8 + 14 + …… + …… + …… = ……<br>
+    → Moyenne = \(\dfrac{……}{30}\) = ……
+  </div>
+
+  <div class="q"><strong>1.</strong> Compléter le tableau et les calculs amorcés.</div>
+  <div class="q"><strong>2.</strong> L'objectif est de rester sous 2 pannes/jour en moyenne. L'objectif est-il atteint ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la solution</button>
+  <div class="corr">
+    <span class="etape">1. Tableau complété :</span>
+    <p>\(5 \times 3 = 15\), \(3 \times 4 = 12\), \(1 \times 5 = 5\)</p>
+    <p>Total = 0 + 8 + 14 + 15 + 12 + 5 = <strong>54</strong></p>
+    <p>Moyenne = \(\dfrac{54}{30} = \mathbf{1{,}8}\) panne/jour.</p>
+    <span class="etape">2. Interprétation :</span>
+    <p>1,8 &lt; 2 → l'objectif est <strong>atteint</strong>.</p>
+  </div>
+</div>
+
+<div class="niveau-header niv3">
+  <span class="badge-niv badge-3">🟡 Niveau 3</span>
+  <h2>Autonomie guidée — Écart-type pas à pas</h2>
+</div>
+
+<!-- EXERCICE S4 — Écart-type guidé -->
+<div class="exo">
+  <div class="exo-num">Exercice 7</div>
+  <span class="mama-tag">Énergie — Climatisation</span>
+  <div class="exo-titre">Écart-type — tableau de calcul pré-rempli</div>
+  <p>Consommation mensuelle d'un climatiseur (en kWh) sur 6 mois :</p>
+  <div class="bam">120 &nbsp; 145 &nbsp; 132 &nbsp; 158 &nbsp; 128 &nbsp; 139</div>
+
+  <div class="meth">
+    <strong>On te donne :</strong> la moyenne est \(\bar{x} = 137\) kWh. Complète le tableau :<br><br>
+    <table>
+      <tr><th>x<sub>i</sub></th><th>x<sub>i</sub> − x̄</th><th>(x<sub>i</sub> − x̄)²</th></tr>
+      <tr><td>120</td><td>120 − 137 = <strong>−17</strong></td><td>(−17)² = <strong>289</strong></td></tr>
+      <tr><td>145</td><td>145 − 137 = ……</td><td>(……)² = ……</td></tr>
+      <tr><td>132</td><td>……</td><td>……</td></tr>
+      <tr><td>158</td><td>……</td><td>……</td></tr>
+      <tr><td>128</td><td>……</td><td>……</td></tr>
+      <tr><td>139</td><td>……</td><td>……</td></tr>
+      <tr><td><strong>Somme</strong></td><td></td><td>……</td></tr>
+    </table>
+    <br>
+    → Variance = \(\dfrac{……}{6}\) = ……<br>
+    → Écart-type = \(\sqrt{……}\) ≈ …… kWh
+  </div>
+
+  <div class="q"><strong>1.</strong> Compléter le tableau (la première ligne est faite pour toi).</div>
+  <div class="q"><strong>2.</strong> Calculer la variance puis l'écart-type.</div>
+  <div class="q"><strong>3.</strong> La consommation est-elle régulière ? (L'écart-type est-il petit ou grand par rapport à la moyenne ?)</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la solution</button>
+  <div class="corr">
+    <span class="etape">1. Tableau complété :</span>
+    <table>
+      <tr><th>x<sub>i</sub></th><th>x<sub>i</sub> − x̄</th><th>(x<sub>i</sub> − x̄)²</th></tr>
+      <tr><td>120</td><td>−17</td><td>289</td></tr>
+      <tr><td>145</td><td>+8</td><td>64</td></tr>
+      <tr><td>132</td><td>−5</td><td>25</td></tr>
+      <tr><td>158</td><td>+21</td><td>441</td></tr>
+      <tr><td>128</td><td>−9</td><td>81</td></tr>
+      <tr><td>139</td><td>+2</td><td>4</td></tr>
+      <tr><td><strong>Somme</strong></td><td><strong>0</strong></td><td><strong>904</strong></td></tr>
+    </table>
+    <span class="etape">2. Variance et écart-type :</span>
+    <p>Variance = \(\dfrac{904}{6} \approx 150{,}7\) kWh²</p>
+    <p>Écart-type = \(\sqrt{150{,}7} \approx \mathbf{12{,}3}\) kWh</p>
+    <span class="etape">3. Interprétation :</span>
+    <p>12,3 kWh représente environ 9 % de la moyenne (137 kWh). La dispersion est <strong>modérée</strong> : la consommation varie légèrement selon les mois.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <div class="niveau-header niv2">
   <span class="badge-niv badge-2">🔵 Niveau 2</span>
   <h2>Raisonnement guidé — Calcul des quartiles et interprétation</h2>
@@ -268,9 +450,6 @@
 
 <hr class="sep">
 
-<!-- ============================================================
-     NIVEAU 3 — AUTONOMIE
-============================================================ -->
 <div class="niveau-header niv3">
   <span class="badge-niv badge-3">🟡 Niveau 3</span>
   <h2>Autonomie — Mobiliser plusieurs notions sans aide</h2>
@@ -355,11 +534,16 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
 <hr class="sep">
 
-<!-- ============================================================
-     NIVEAU 4 — DÉFI MAMA
-============================================================ -->
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
 <div class="niveau-header niv4">
   <span class="badge-niv badge-4">🔴 Niveau 4</span>
   <h2>Défi MAMA — Situations complexes et raisonnement critique</h2>
@@ -471,6 +655,8 @@
   </div>
 </div>
 
+</div><!-- fin diff-appro -->
+
 <div class="nav-bottom">
   <a href="../../../maths-2nde-mama.html">← Retour au sommaire</a>
   <a href="ch03_ds.html">Devoir surveillé Ch03 →</a>
@@ -502,5 +688,6 @@ function showQcm(btn, id){
 }
 </script>
 <script src="/nav.js"></script>
+<script src="/diff.js"></script>
 </body>
 </html>

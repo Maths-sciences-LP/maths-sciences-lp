@@ -3,130 +3,388 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ch06 – Caractéristiques et transmission d'un son | Devoir</title>
+<title>DS Ch06 – Forces et &eacute;quilibre – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
-*{box-sizing:border-box;margin:0;padding:0;}
-
-header h1{font-size:1.3rem;}header .badge{background:rgba(255,255,255,.25);padding:3px 10px;border-radius:12px;font-size:.85rem;}
-nav{background:var(--pd);padding:8px 24px;display:flex;gap:16px;flex-wrap:wrap;}
-nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;padding:3px 8px;border-radius:4px;}
-nav a:hover{background:rgba(255,255,255,.2);}nav a.active{background:rgba(255,255,255,.3);font-weight:600;}
-
-.card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:20px;overflow:hidden;}
-.card-header{background:var(--p);color:#fff;padding:10px 18px;font-weight:600;font-size:1rem;}
-.card-body{padding:18px;}
-.info-bar{display:flex;gap:16px;flex-wrap:wrap;background:#f8f9fa;padding:10px 16px;border-radius:6px;margin-bottom:16px;font-size:.9rem;}
-.info-bar span{display:flex;align-items:center;gap:6px;}
-.pts{float:right;background:var(--p);color:#fff;padding:2px 8px;border-radius:10px;font-size:.8rem;}
-.answer-line{border:none;border-bottom:1px solid #999;display:block;width:100%;margin:4px 0 10px;height:24px;background:transparent;}
-
-p{margin:6px 0;}
-.footer-links{text-align:center;margin-top:32px;padding:16px;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);}
-.footer-links a{color:var(--p);text-decoration:none;margin:0 12px;font-weight:500;}</style>
-<script>MathJax={tex:{inlineMath:[['$','$']]},startup:{typeset:true}};</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-<script>function toggle(id){const el=document.getElementById(id);el.style.display=el.style.display==='block'?'none':'block';}</script>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+.ds-title{background:var(--p);color:#fff;padding:12px 20px;border-radius:8px;margin:32px 0 20px;font-size:1.1em;font-weight:700}
+@media print{.nb,.bc{display:none}}
+</style>
 </head>
 <body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
 <header>
-  <div>
-    <div class="badge">Acoustique – Chapitre 6</div>
-    <h1>Devoir surveillé – Caractéristiques et transmission d'un son</h1>
-  </div>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 6</h1>
+  <p class="sous-titre">Forces et &eacute;quilibre &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
 </header>
-<nav>
-  <a href="../../../pc-2nde-pro.html">← Accueil PC</a>
-  <a href="lecon.html">Cours</a>
-  <a href="exercices.html">Exercices</a>
-  <a href="ds.html" class="active">Devoir</a>
-</nav>
-<div class="container">
 
-  <div class="card">
-    <div class="card-header">Informations générales</div>
-    <div class="card-body">
-      <div class="info-bar">
-        <span>⏱ Durée : 1 heure</span>
-        <span>🧮 Calculatrice autorisée</span>
-        <span>📋 Total : 20 points</span>
-      </div>
-      <p><em>Toutes les réponses doivent être justifiées. Les formules utilisées doivent être écrites avant application numérique.</em></p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">Partie A – Questions de cours <span class="pts">8 pts</span></div>
-    <div class="card-body">
-      <p><strong>1.</strong> Qu'est-ce qu'un son ? Dans quel(s) milieu(x) peut-il se propager ? <em>(2 pts)</em></p>
-      <input class="answer-line" type="text" placeholder="...">
-      <input class="answer-line" type="text" placeholder="...">
-
-      <p><strong>2.</strong> Définir la fréquence d'un son. Quelle est son unité ? <em>(2 pts)</em></p>
-      <input class="answer-line" type="text" placeholder="...">
-
-      <p><strong>3.</strong> Donner les limites de l'audition humaine en fréquence. Comment appelle-t-on les sons de fréquence inférieure ? Supérieure ? <em>(2 pts)</em></p>
-      <input class="answer-line" type="text" placeholder="...">
-      <input class="answer-line" type="text" placeholder="...">
-
-      <p><strong>4.</strong> Écrire la formule reliant la longueur d'onde $lambda$, la célérité $v$ et la fréquence $f$. <em>(2 pts)</em></p>
-      <input class="answer-line" type="text" placeholder="...">
-
-      <button class="btn-corr" onclick="toggle('cA')">Voir la correction partie A</button>
-      <div class="corr" id="cA">
-        <strong>Correction :</strong>
-        <p>1. Un son est une vibration mécanique qui se propage dans un milieu matériel (solide, liquide ou gaz). Il ne se propage pas dans le vide.</p>
-        <p>2. La fréquence $f$ est le nombre de vibrations par seconde, exprimée en hertz (Hz).</p>
-        <p>3. Audition humaine : 20 Hz à 20 000 Hz. En dessous : infrasons. Au-dessus : ultrasons.</p>
-        <p>4. $lambda = dfrac{v}{f}$</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">Partie B – Problème : L'écho dans une salle <span class="pts">12 pts</span></div>
-    <div class="card-body">
-      <p>Un technicien son fait un test dans une grande salle de spectacle. Il claque dans ses mains et entend l'écho $t = 0{,}6$ s plus tard. La célérité du son dans l'air est $v = 340$ m/s.</p>
-
-      <p><strong>1.</strong> Calculer la distance totale parcourue par le son. <em>(3 pts)</em></p>
-      <input class="answer-line" type="text" placeholder="Formule utilisée :">
-      <input class="answer-line" type="text" placeholder="Application numérique :">
-      <input class="answer-line" type="text" placeholder="Résultat :">
-
-      <p><strong>2.</strong> En déduire la distance entre le technicien et le mur qui renvoie l'écho. <em>(2 pts)</em></p>
-      <input class="answer-line" type="text" placeholder="...">
-
-      <p><strong>3.</strong> Le son émis a une fréquence $f = 850$ Hz. Calculer sa longueur d'onde dans l'air. <em>(3 pts)</em></p>
-      <input class="answer-line" type="text" placeholder="Formule :">
-      <input class="answer-line" type="text" placeholder="Application numérique :">
-      <input class="answer-line" type="text" placeholder="Résultat :">
-
-      <p><strong>4.</strong> Ce son est-il grave ou aigu par rapport à une conversation normale ($f approx 500$ Hz) ? Justifier. <em>(2 pts)</em></p>
-      <input class="answer-line" type="text" placeholder="...">
-
-      <p><strong>5.</strong> Le technicien mesure un niveau sonore de 95 dB dans la salle. Est-ce dangereux pour l'ouïe si l'exposition dure plusieurs heures ? <em>(2 pts)</em></p>
-      <input class="answer-line" type="text" placeholder="...">
-      <input class="answer-line" type="text" placeholder="...">
-
-      <button class="btn-corr" onclick="toggle('cB')">Voir la correction partie B</button>
-      <div class="corr" id="cB">
-        <strong>Correction :</strong>
-        <p>1. $d = v 	imes t = 340 	imes 0{,}6 = 204$ m.</p>
-        <p>2. Le son fait l'aller et le retour, donc distance mur = $204 div 2 = 102$ m.</p>
-        <p>3. $lambda = dfrac{v}{f} = dfrac{340}{850} = 0{,}4$ m.</p>
-        <p>4. $f = 850$ Hz > 500 Hz, donc le son est plus aigu qu'une conversation normale.</p>
-        <p>5. 95 dB < 120 dB (seuil de douleur), mais une exposition prolongée à plus de 85 dB peut provoquer des troubles auditifs. Il est conseillé de porter des protections auditives.</p>
-      </div>
-    </div>
-  </div>
-
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
 </div>
-<div class="footer-links">
-  <a href="../../../pc-2nde-pro.html">← Retour au sommaire</a>
-  <a href="lecon.html">Cours</a>
-  <a href="exercices.html">Exercices</a>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP &ndash; S'Approprier</span>
+  <span class="comp comp-ana">ANA &ndash; Analyser</span>
+  <span class="comp comp-rea">REA &ndash; R&eacute;aliser</span>
+  <span class="comp comp-val">VAL &ndash; Valider</span>
+  <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
-<script src="/nav.js"></script>
+
+
+<!-- ================================================================
+     DS SOCLE
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="ds-title">&#128196; DS Socle — Forces et &eacute;quilibre</div>
+
+<!-- Partie A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Vocabulaire et formule</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Compl&eacute;ter la phrase avec les mots : <em>poids, masse, newton, kilogramme</em>.<br>
+    &ldquo;La __________ se mesure en __________ (kg). Le __________ se mesure en __________ (N).&rdquo;
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Donner la formule du poids. Pr&eacute;ciser la valeur de \(g\) sur Terre.<br>
+    \(P = \ldots \times \ldots\) &nbsp; avec &nbsp; \(g = \ldots\,\text{N/kg}\)
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-app">APP</span>
+    Un objet est en &eacute;quilibre sur une table. Cocher les forces qui s'exercent sur lui :<br>
+    &#9744; Poids vers le bas &nbsp;&nbsp;
+    &#9744; R&eacute;action de la table vers le haut &nbsp;&nbsp;
+    &#9744; Une force horizontale quelconque<br>
+    La condition d'&eacute;quilibre s'&eacute;crit : \(N = \ldots\)
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    Vrai ou Faux ? &ldquo;Si je pousses un objet avec une force de 50 N vers la droite, l'objet me pousse de 50 N vers la gauche.&rdquo;<br>
+    &#9744; Vrai &nbsp;&nbsp; &#9744; Faux &nbsp;&nbsp; C'est la &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; loi de Newton.
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> La masse se mesure en kilogramme (kg). Le poids se mesure en newton (N).</p>
+    <p><strong>2.</strong> \(P = m \times g\) avec \(g = 9{,}8\,\text{N/kg}\)</p>
+    <p><strong>3.</strong> Poids vers le bas &#10003; ; R&eacute;action vers le haut &#10003;. La condition d'&eacute;quilibre : \(N = P\).</p>
+    <p><strong>4.</strong> Vrai. C'est la 3<sup>e</sup> loi de Newton (principe des actions r&eacute;ciproques).</p>
+  </div>
+</div>
+
+<!-- Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Calculs guid&eacute;s &ndash; Panneau de bois</span>
+    <span class="pts">12 pts</span>
+  </div>
+  <div class="mama-tag">Atelier de menuiserie</div>
+  <p>Un menuisier pose un panneau de MDF de masse \(m = 30\,\text{kg}\) sur son &eacute;tabli.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer le poids du panneau. Formule &agrave; utiliser : \(P = m \times g\). <em>(3 pts)</em><br>
+    \(P = \ldots \times 9{,}8 = \ldots\,\text{N}\)
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Le panneau est en &eacute;quilibre. Que vaut la r&eacute;action \(N\) de l'&eacute;tabli sur le panneau ? <em>(2 pts)</em><br>
+    \(N = P = \ldots\,\text{N}\)
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    On pose un deuxi&egrave;me panneau de 15 kg sur le premier. Calculer la nouvelle r&eacute;action de l'&eacute;tabli. <em>(3 pts)</em><br>
+    Masse totale = \(30 + 15 = \ldots\,\text{kg}\)<br>
+    \(N = \ldots \times 9{,}8 = \ldots\,\text{N}\)
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-com">COM</span>
+    D&eacute;crire en une phrase la force que le panneau exerce sur l'&eacute;tabli (3<sup>e</sup> loi). <em>(2 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-ana">ANA</span>
+    Sur la Lune (\(g_{Lune} = 1{,}6\,\text{N/kg}\)), calculer le poids du panneau (30 kg). Est-il plus facile &agrave; soulever que sur Terre ? <em>(2 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = 30 \times 9{,}8 = 294\,\text{N}\)</p>
+    <p><strong>2.</strong> \(N = P = 294\,\text{N}\)</p>
+    <p><strong>3.</strong> Masse totale = 45 kg. \(N = 45 \times 9{,}8 = 441\,\text{N}\)</p>
+    <p><strong>4.</strong> Par la 3<sup>e</sup> loi de Newton, le panneau exerce sur l'&eacute;tabli une force de 294 N vers le bas.</p>
+    <p><strong>5.</strong> \(P_{Lune} = 30 \times 1{,}6 = 48\,\text{N}\). Oui, il est beaucoup plus facile &agrave; soulever sur la Lune (6 fois moins lourd).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     DS STANDARD
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<div class="ds-title">&#128196; DS Standard — Forces et &eacute;quilibre</div>
+
+<!-- Partie A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Notions fondamentales</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Distinguer masse et poids. Donner leurs unit&eacute;s respectives et la formule les reliant.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Identifier les forces qui s'exercent sur un livre pos&eacute; sur une table. &Eacute;crire la condition d'&eacute;quilibre.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    Un technicien de masse \(m = 75\,\text{kg}\) monte sur une plateforme de masse \(m_{pl} = 30\,\text{kg}\). Calculer la force totale exerc&eacute;e sur le sol.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    &Eacute;noncer la 3<sup>e</sup> loi de Newton (principe des actions r&eacute;ciproques). Donner un exemple concret en atelier.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Masse : quantit&eacute; de mati&egrave;re, en kg, constante. Poids : force de gravitation, en N, \(P = m \times g\). Sur Terre \(g = 9{,}8\,\text{N/kg}\).</p>
+    <p><strong>2.</strong> Poids \(\vec{P}\) (Terre, vers le bas) + R&eacute;action \(\vec{N}\) (table, vers le haut). Condition : \(N = P\).</p>
+    <p><strong>3.</strong> Masse totale = 75 + 30 = 105 kg. \(F = 105 \times 9{,}8 = 1\,029\,\text{N}\).</p>
+    <p><strong>4.</strong> Toute action d'un corps A sur un corps B est accompagn&eacute;e d'une r&eacute;action de B sur A, de m&ecirc;me valeur, m&ecirc;me direction, sens oppos&eacute;. Ex. : le marteau frappe le ciseau (A sur B) et le ciseau r&eacute;siste avec la m&ecirc;me force (B sur A).</p>
+  </div>
+</div>
+
+<!-- Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Probl&egrave;me : Levage d'un panneau par &eacute;lingue</span>
+    <span class="pts">12 pts</span>
+  </div>
+  <div class="mama-tag">Atelier &ndash; Levage / &Eacute;lingue</div>
+
+  <p>Un panneau de bois massif de masse \(m = 120\,\text{kg}\) est soulev&eacute; par une &eacute;lingue &agrave; deux brins. Chaque brin fait un angle de <strong>30°</strong> avec la verticale.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer le poids du panneau. <em>(2 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Appliquer la condition d'&eacute;quilibre vertical pour calculer la tension \(T\) dans chaque brin :<br>
+    \(2T\cos(30°) = P\) &nbsp;&rarr;&nbsp; \(T = \dfrac{P}{2\cos(30°)} = \ldots\,\text{N}\) <em>(4 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Recalculer la tension si les brins font un angle de <strong>60°</strong> avec la verticale. Comparer les deux r&eacute;sultats. <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span>
+    L'&eacute;lingue utilis&eacute;e a une charge maximale de travail (CMU) de 900 N par brin. Est-elle adapt&eacute;e dans le cas &agrave; 30° ? &Agrave; 60° ? Justifier. <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = 120 \times 9{,}8 = 1\,176\,\text{N}\)</p>
+    <p><strong>2.</strong> \(T = \dfrac{1176}{2 \times \cos(30°)} = \dfrac{1176}{2 \times 0{,}866} = \dfrac{1176}{1{,}732} \approx 679\,\text{N}\)</p>
+    <p><strong>3.</strong> \(T = \dfrac{1176}{2 \times \cos(60°)} = \dfrac{1176}{2 \times 0{,}5} = \dfrac{1176}{1} = 1\,176\,\text{N}\). &Agrave; 60°, la tension est presque double.</p>
+    <p><strong>4.</strong> &Agrave; 30° : T = 679 N &lt; 900 N &rarr; &eacute;lingue adapt&eacute;e. &Agrave; 60° : T = 1 176 N &gt; 900 N &rarr; &eacute;lingue non adapt&eacute;e, risque de rupture ! Il faut une &eacute;lingue &agrave; plus grande CMU ou r&eacute;duire l'angle.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="ds-title">&#128196; DS Approfondissement — Forces et &eacute;quilibre</div>
+
+<!-- Partie A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Analyse de forces en atelier</span>
+    <span class="pts">8 pts</span>
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    D&eacute;finir un vecteur force et ses quatre caract&eacute;ristiques. Donner un exemple en pr&eacute;cisant chaque caract&eacute;ristique. <em>(2 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span>
+    Une pi&egrave;ce de masse \(m = 80\,\text{kg}\) est suspendue par trois c&acirc;bles sym&eacute;triques. Chaque c&acirc;ble fait 20° avec la verticale. &Eacute;crire la condition d'&eacute;quilibre vertical et calculer la tension dans chaque c&acirc;ble. <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-val">VAL</span>
+    Pour la situation pr&eacute;c&eacute;dente, si chaque c&acirc;ble passe &agrave; 50° par rapport &agrave; la verticale, les tensions augmentent-elles ou diminuent-elles ? Recalculer pour v&eacute;rifier. Comment ce r&eacute;sultat guide-t-il le choix du montage en atelier ? <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Un vecteur force poss&egrave;de : point d'application (o&ugrave; s'exerce la force), direction (droite support), sens (fl&egrave;che), valeur (intensit&eacute; en N). Ex. : le poids d'un plateau, appliqu&eacute; en son centre de gravit&eacute;, direction verticale, sens vers le bas, valeur = m×g.</p>
+    <p><strong>2.</strong> &Eacute;quilibre vertical : \(3T\cos(20°) = mg = 80 \times 9{,}8 = 784\,\text{N}\)<br>
+    \(T = \dfrac{784}{3 \times \cos(20°)} = \dfrac{784}{3 \times 0{,}940} = \dfrac{784}{2{,}820} \approx 278\,\text{N}\)</p>
+    <p><strong>3.</strong> &Agrave; 50° : \(T = \dfrac{784}{3 \times \cos(50°)} = \dfrac{784}{3 \times 0{,}643} = \dfrac{784}{1{,}929} \approx 406\,\text{N}\). Les tensions augmentent (278 &rarr; 406 N, +46 %). Plus les c&acirc;bles sont inclin&eacute;s, plus la tension est grande : en atelier, on pr&eacute;f&egrave;re des c&acirc;bles proches de la verticale pour minimiser les efforts.</p>
+  </div>
+</div>
+
+<!-- Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Probl&egrave;me ouvert : &Eacute;quilibre d'un volet de machine</span>
+    <span class="pts">12 pts</span>
+  </div>
+  <div class="mama-tag">Atelier &ndash; Machine de menuiserie</div>
+
+  <p>Le volet de protection d'une raboteuse est une barre de masse \(m = 6\,\text{kg}\) et de longueur \(L = 0{,}8\,\text{m}\). Il est maintenu ouvert &agrave; <strong>60°</strong> par rapport &agrave; l'horizontale par un v&eacute;rin &agrave; gaz. La charni&egrave;re est &agrave; l'extr&eacute;mit&eacute; gauche, le v&eacute;rin est perpendiculaire au volet et se fixe &agrave; \(d_v = 0{,}6\,\text{m}\) de la charni&egrave;re.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer le poids du volet. <em>(1 pt)</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Calculer le moment du poids par rapport &agrave; la charni&egrave;re.<br>
+    Formule : \(M_P = P \times \dfrac{L}{2} \times \cos(60°)\). <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la force \(F_{v&eacute;rin}\) n&eacute;cessaire pour maintenir le volet en &eacute;quilibre.<br>
+    Relation : \(F_{v&eacute;rin} \times d_v = M_P\). <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-ana">ANA</span>
+    Recalculer \(F_{v&eacute;rin}\) pour un angle d'ouverture de <strong>30°</strong> par rapport &agrave; l'horizontale. La force du v&eacute;rin augmente-t-elle ou diminue-t-elle quand on baisse le volet ? Expliquer physiquement. <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-val">VAL</span>
+    Le v&eacute;rin du fabricant a une force maximale de 40 N. Est-il adapt&eacute; pour maintenir le volet ouvert &agrave; 30° comme &agrave; 60° ? <em>(2 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = 6 \times 9{,}8 = 58{,}8\,\text{N}\)</p>
+    <p><strong>2.</strong> \(M_P = 58{,}8 \times \dfrac{0{,}8}{2} \times \cos(60°) = 58{,}8 \times 0{,}4 \times 0{,}5 = 11{,}76\,\text{N.m}\)</p>
+    <p><strong>3.</strong> \(F_{v&eacute;rin} = \dfrac{M_P}{d_v} = \dfrac{11{,}76}{0{,}6} = 19{,}6\,\text{N}\)</p>
+    <p><strong>4.</strong> &Agrave; 30° : \(M_P = 58{,}8 \times 0{,}4 \times \cos(30°) = 58{,}8 \times 0{,}4 \times 0{,}866 = 20{,}4\,\text{N.m}\)<br>
+    \(F_{v&eacute;rin} = \dfrac{20{,}4}{0{,}6} = 34\,\text{N}\).<br>
+    La force augmente quand le volet est plus bas (angle plus petit) : la composante du poids perpendiculaire au volet est plus grande, le moment de fermeture &agrave; compenser est plus important.</p>
+    <p><strong>5.</strong> &Agrave; 60° : F = 19,6 N &lt; 40 N &rarr; adapt&eacute;. &Agrave; 30° : F = 34 N &lt; 40 N &rarr; &eacute;galement adapt&eacute;. Le v&eacute;rin de 40 N convient pour les deux positions.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

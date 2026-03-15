@@ -11,11 +11,12 @@
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
 .methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
 .attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-
 .section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
-
 .nav-links a{color:var(--p);text-decoration:none;padding:4px 10px;border:1px solid var(--p);border-radius:5px}
-.nav-links a:hover{background:var(--p);color:#fff}</style>
+.nav-links a:hover{background:var(--p);color:#fff}
+.zone-rep label{font-size:.85em;color:#718096;font-weight:600;display:block;margin-bottom:4px}
+.zone-rep textarea{width:100%;min-height:70px;border:1px dashed #cbd5e0;border-radius:6px;padding:8px;font-size:.9em;resize:vertical;box-sizing:border-box;font-family:inherit}
+</style>
 </head>
 <body>
 <div class="c">
@@ -36,7 +37,6 @@
 <!-- SVG : protocole dissolution -->
 <div style="display:flex;justify-content:center;margin:18px 0">
 <svg width="420" height="120" viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg" aria-label="Protocole de dissolution en 5 étapes">
-  <!-- étape 1 : balance -->
   <g transform="translate(0,10)">
     <rect x="5" y="55" width="60" height="5" rx="2" fill="#888"/>
     <line x1="35" y1="55" x2="35" y2="30" stroke="#888" stroke-width="2"/>
@@ -44,7 +44,6 @@
     <text x="35" y="28" text-anchor="middle" font-size="8" fill="#5b21b6">m soluté</text>
     <text x="35" y="75" text-anchor="middle" font-size="9" fill="#333" font-weight="bold">① Peser</text>
   </g>
-  <!-- étape 2 : introduire -->
   <g transform="translate(80,10)">
     <ellipse cx="35" cy="70" rx="18" ry="25" fill="none" stroke="#6f42c1" stroke-width="2"/>
     <line x1="17" y1="50" x2="53" y2="50" stroke="#6f42c1" stroke-width="2"/>
@@ -53,21 +52,18 @@
     <text x="35" y="8" text-anchor="middle" font-size="8" fill="#c53030">↓</text>
     <text x="35" y="100" text-anchor="middle" font-size="9" fill="#333" font-weight="bold">② Introduire</text>
   </g>
-  <!-- étape 3 : ajouter eau -->
   <g transform="translate(160,10)">
     <ellipse cx="35" cy="70" rx="18" ry="25" fill="#dbeafe" stroke="#6f42c1" stroke-width="2"/>
     <line x1="17" y1="50" x2="53" y2="50" stroke="#6f42c1" stroke-width="2"/>
     <text x="35" y="65" text-anchor="middle" font-size="8" fill="#1e40af">eau</text>
     <text x="35" y="100" text-anchor="middle" font-size="9" fill="#333" font-weight="bold">③ Eau distillée</text>
   </g>
-  <!-- étape 4 : agiter -->
   <g transform="translate(240,10)">
     <ellipse cx="35" cy="70" rx="18" ry="25" fill="#c7f7d4" stroke="#6f42c1" stroke-width="2"/>
     <line x1="17" y1="50" x2="53" y2="50" stroke="#6f42c1" stroke-width="2"/>
     <path d="M25,60 Q35,55 45,60" stroke="#2f855a" stroke-width="2" fill="none"/>
     <text x="35" y="100" text-anchor="middle" font-size="9" fill="#333" font-weight="bold">④ Agiter</text>
   </g>
-  <!-- étape 5 : compléter -->
   <g transform="translate(320,10)">
     <ellipse cx="35" cy="70" rx="18" ry="25" fill="#dbeafe" stroke="#6f42c1" stroke-width="2"/>
     <line x1="17" y1="50" x2="53" y2="50" stroke="#6f42c1" stroke-width="2"/>
@@ -78,15 +74,16 @@
 </svg>
 </div>
 
-<!-- ===== BASE ===== -->
-<h2>Base – Exercices fondamentaux</h2>
-<div class="section-intro">Vocabulaire solutions, calculs de concentration, protocole de dissolution.</div>
+<!-- ================================================================
+     EXERCICES COMMUNS — Tous les niveaux
+     ================================================================ -->
+<h2 style="color:var(--p);border-left:4px solid var(--p);padding-left:10px">Exercices fondamentaux – tous niveaux</h2>
+<div class="section-intro">Vocabulaire des solutions, calculs de base de concentration, protocole de dissolution.</div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
     <span class="exo-title">Vocabulaire : solvant, soluté, solution</span>
-    <span class="diff diff-1">Facile</span>
   </div>
   <div class="def"><strong>Solution :</strong> mélange homogène d'un <em>solvant</em> (le liquide en plus grande quantité) et d'un <em>soluté</em> (ce qui est dissous).<br>
   <strong>Dissolution :</strong> dispersion moléculaire du soluté. <strong>Dissociation :</strong> séparation en ions (sels, acides).</div>
@@ -113,7 +110,6 @@
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
     <span class="exo-title">Calculer la concentration massique \( C_m = m/V \)</span>
-    <span class="diff diff-1">Facile</span>
   </div>
   <div class="retenir"><strong>Concentration massique :</strong> \( C_m = \dfrac{m}{V} \) (g/L) &nbsp;|&nbsp; \( m = C_m \times V \) &nbsp;|&nbsp; \( V = \dfrac{m}{C_m} \)<br>
   Attention : 1 L = 1 000 mL = 1 000 cm³. Convertir les volumes en litres avant de calculer.</div>
@@ -132,7 +128,6 @@
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
     <span class="exo-title">Protocole de dissolution</span>
-    <span class="diff diff-1">Facile</span>
   </div>
   <div class="methode"><strong>Méthode dissolution :</strong><br>
   ① Peser la masse de soluté. ② Introduire dans la fiole jaugée. ③ Ajouter de l'eau distillée (environ 2/3). ④ Agiter pour dissoudre. ⑤ Compléter jusqu'au trait de jauge.</div>
@@ -148,23 +143,126 @@
   </div>
 </div>
 
-<!-- ===== GUIDÉ ===== -->
-<h2>Guidé – Exercices intermédiaires guidés</h2>
-<div class="section-intro">Deux exercices avec étapes fléchées.</div>
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
 
+<h2 style="color:#059669;border-left:4px solid #059669;padding-left:10px">Exercices guidés pas à pas</h2>
+<div class="section-intro">Calculs avec formules données, étapes fléchées, tableaux à compléter.</div>
+
+<!-- SOCLE EX 4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Dilution – calcul guidé étape par étape</span>
+  </div>
+  <div class="retenir">
+    <strong>Formule de dilution :</strong> \( C_1 \times V_1 = C_2 \times V_2 \)<br>
+    Pour isoler \( V_1 \) : \( V_1 = \dfrac{C_2 \times V_2}{C_1} \)<br>
+    Volume d'eau à ajouter : \( V_{eau} = V_2 - V_1 \)
+  </div>
+  <div class="methode">
+    <strong>Données :</strong> Solution mère \( C_1 = 200\,\text{g/L} \). On prépare \( V_2 = 1\,\text{L} \) à \( C_2 = 50\,\text{g/L} \).<br><br>
+    <strong>Étape 1 :</strong> J'écris la formule : \( C_1 \times V_1 = C_2 \times V_2 \)<br>
+    \( 200 \times V_1 = 50 \times 1 \)<br>
+    <strong>Étape 2 :</strong> J'isole \( V_1 \) : \( V_1 = \dfrac{50 \times 1}{200} = \) ......... L = ......... mL<br><br>
+    <strong>Étape 3 :</strong> Volume d'eau = \( V_2 - V_1 = 1 - \) ......... = ......... L = ......... mL
+  </div>
+  <p class="q"><strong>À toi :</strong> Solution mère \( C_1 = 400\,\text{g/L} \). Préparer \( V_2 = 2\,\text{L} \) à \( C_2 = 100\,\text{g/L} \).</p>
+  <p>Étape 1 : \( 400 \times V_1 = 100 \times 2 \) → \( V_1 = \dfrac{...}{...} = \) ......... L</p>
+  <p>Étape 2 : Volume d'eau = \( 2 - V_1 = \) ......... L</p>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <textarea placeholder="V1 = ... L = ... mL&#10;V_eau = ... L = ... mL"></textarea>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Exemple guidé :</strong> \( V_1 = \dfrac{50 \times 1}{200} = 0{,}25\,\text{L} = 250\,\text{mL} \) &nbsp;|&nbsp; \( V_{eau} = 1 - 0{,}25 = 0{,}75\,\text{L} = 750\,\text{mL} \)</p>
+    <p><strong>À toi :</strong> \( V_1 = \dfrac{100 \times 2}{400} = \dfrac{200}{400} = 0{,}5\,\text{L} \) &nbsp;|&nbsp; \( V_{eau} = 2 - 0{,}5 = 1{,}5\,\text{L} \)</p>
+  </div>
+</div>
+
+<!-- SOCLE EX 5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">pH des produits d'atelier – tableau à compléter</span>
+  </div>
+  <div class="retenir">
+    <strong>Échelle de pH :</strong><br>
+    pH &lt; 7 → solution <strong>acide</strong> (vinaigre, acide oxalique…)<br>
+    pH = 7 → solution <strong>neutre</strong> (eau distillée)<br>
+    pH &gt; 7 → solution <strong>basique</strong> (dégraissant alcalin, soude…)
+  </div>
+  <p>Compléter le tableau. La colonne "acide/neutre/basique" et la colonne "dangereux pour la peau ?" sont à renseigner.</p>
+  <table>
+    <thead>
+      <tr><th>Produit</th><th>pH</th><th>Acide / Neutre / Basique</th><th>Dangereux pour la peau ?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Eau distillée</td><td>7</td><td>……………</td><td>Non</td></tr>
+      <tr><td>Décapant bois (acide oxalique)</td><td>2</td><td>……………</td><td>……………</td></tr>
+      <tr><td>Dégraissant alcalin</td><td>11</td><td>……………</td><td>……………</td></tr>
+      <tr><td>Produit de nettoyage neutre</td><td>7</td><td>……………</td><td>Non</td></tr>
+      <tr><td>Vinaigre blanc</td><td>3</td><td>……………</td><td>Légèrement</td></tr>
+    </tbody>
+  </table>
+  <p class="q"><strong>Question :</strong> Pour les produits dangereux (pH &lt; 4 ou pH &gt; 10), quels EPI porter ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Eau distillée : <strong>neutre</strong>. | Décapant (pH 2) : <strong>acide</strong> – dangereux. | Dégraissant (pH 11) : <strong>basique</strong> – dangereux. | Produit neutre (pH 7) : <strong>neutre</strong>. | Vinaigre (pH 3) : <strong>acide</strong>.</p>
+    <p><strong>EPI :</strong> Pour pH &lt; 4 ou pH &gt; 10 → gants nitrile, lunettes de protection, tablier.</p>
+  </div>
+</div>
+
+<!-- SOCLE EX 6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Préparer une solution de traitement du bois – guidé</span>
+  </div>
+  <p>Un menuisier prépare une solution de lasure à base aqueuse concentrée \( C_1 = 200\,\text{g/L} \), diluée à 50 % pour l'application finale (volume final \( V_2 = 2\,\text{L} \)).</p>
+  <div class="methode">
+    <strong>Étape 1 :</strong> Calculer le volume de lasure concentrée.<br>
+    Dilution à 50 % → \( V_1 = 50\% \times V_2 = 0{,}5 \times 2 = \) ......... L<br><br>
+    <strong>Étape 2 :</strong> Volume d'eau = \( V_2 - V_1 = 2 - \) ......... = ......... L<br><br>
+    <strong>Étape 3 :</strong> Concentration finale = \( C_m = \dfrac{m_{lasure}}{V_2} = \dfrac{C_1 \times V_1}{V_2} = \dfrac{200 \times \ldots}{2} = \) ......... g/L
+  </div>
+  <div class="zone-rep">
+    <label>Mes réponses :</label>
+    <textarea placeholder="V_lasure = ... L&#10;V_eau = ... L&#10;Cm finale = ... g/L"></textarea>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> \( V_1 = 0{,}5 \times 2 = 1\,\text{L} \)</p>
+    <p><strong>Étape 2 :</strong> \( V_{eau} = 2 - 1 = 1\,\text{L} \)</p>
+    <p><strong>Étape 3 :</strong> \( C_m = \dfrac{200 \times 1}{2} = 100\,\text{g/L} \)</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<h2 style="color:#1d4ed8;border-left:4px solid #1d4ed8;padding-left:10px">Exercices intermédiaires</h2>
+<div class="section-intro">Dilution, pH, sécurité en atelier – rédaction attendue.</div>
+
+<!-- STANDARD EX 4 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
     <span class="exo-title">Dilution \( C_1 V_1 = C_2 V_2 \)</span>
-    <span class="diff diff-2">Intermédiaire</span>
   </div>
   <div class="prop"><strong>Loi de dilution :</strong> \( C_1 \times V_1 = C_2 \times V_2 \)<br>
   \( C_1 \) = concentration mère, \( V_1 \) = volume prélevé, \( C_2 \) = concentration finale, \( V_2 \) = volume total final.</div>
   <div class="chart-wrap"><canvas id="chartDil"></canvas></div>
   <p>Solution mère : \( C_1 = 200\,\text{g/L} \). On veut préparer \( V_2 = 1\,\text{L} \) à \( C_2 = 50\,\text{g/L} \).</p>
-  <div class="methode"><strong>Étape 1 :</strong> Écrire \( C_1 V_1 = C_2 V_2 \).<br>
-  <strong>Étape 2 :</strong> Isoler \( V_1 \).<br>
-  <strong>Étape 3 :</strong> Calculer le volume d'eau à ajouter \( V_{eau} = V_2 - V_1 \).</div>
   <p class="q"><strong>1.</strong> Calculez \( V_1 \), le volume de solution mère à prélever.</p>
   <p class="q"><strong>2.</strong> Calculez \( V_{eau} \), le volume d'eau distillée à ajouter.</p>
   <p class="q"><strong>3.</strong> Vérifiez : calculez la quantité de soluté dans la solution mère prélevée et dans la solution finale.</p>
@@ -176,37 +274,30 @@
   </div>
 </div>
 
+<!-- STANDARD EX 5 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
     <span class="exo-title">Produit de traitement du bois – Dilution pratique</span>
-    <span class="diff diff-2">Intermédiaire</span>
   </div>
   <div class="def"><strong>Lasure concentrée :</strong> une lasure en phase aqueuse concentrée a \( C_{pur} \approx 200\,\text{g/L} \). Elle doit être diluée à 50 % pour une application en couche de finition.</div>
   <p>On veut préparer 5 L de lasure prête à l'emploi diluée à 50 % (moitié lasure concentrée, moitié eau).</p>
-  <div class="methode"><strong>Étape 1 :</strong> Calculer le volume de lasure concentrée (\( V_1 = 50\% \times V_2 \)).<br>
-  <strong>Étape 2 :</strong> Calculer \( C_m \) finale en g/L.<br>
-  <strong>Étape 3 :</strong> Vérifier avec \( C_1 V_1 = C_2 V_2 \).</div>
   <p class="q"><strong>1.</strong> Calculez le volume de lasure concentrée et d'eau à utiliser pour obtenir 5 L de mélange.</p>
   <p class="q"><strong>2.</strong> Calculez la concentration massique \( C_m \) du mélange final.</p>
   <p class="q"><strong>3.</strong> Calculez la masse totale de résine dans le mélange prêt à l'emploi.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \( V_{lasure} = 0{,}5 \times 5 = 2{,}5\,\text{L} \) ; \( V_{eau} = 2{,}5\,\text{L} \)</p>
-    <p><strong>2.</strong> \( C_m = \dfrac{m_{lasure}}{V_{total}} = \dfrac{200 \times 2{,}5}{5} = \dfrac{500}{5} = 100\,\text{g/L} \)</p>
+    <p><strong>2.</strong> \( C_m = \dfrac{200 \times 2{,}5}{5} = \dfrac{500}{5} = 100\,\text{g/L} \)</p>
     <p><strong>3.</strong> \( m = C_m \times V = 100 \times 5 = 500\,\text{g} = 0{,}5\,\text{kg} \)</p>
   </div>
 </div>
 
-<!-- ===== APPLICATION ===== -->
-<h2>Application – Exercices intermédiaires</h2>
-<div class="section-intro">Deux exercices autonomes.</div>
-
+<!-- STANDARD EX 6 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
     <span class="exo-title">Décapant chimique pour bois – Acide oxalique</span>
-    <span class="diff diff-2">Intermédiaire</span>
   </div>
   <div class="attention"><strong>Danger :</strong> L'acide oxalique H₂C₂O₄ est un acide irritant et corrosif. EPI obligatoires : lunettes, gants nitrile, tablier.</div>
   <p>Un décapant pour éliminer les tannins du bois contient de l'acide oxalique à \( C_m = 50\,\text{g/L} \). Volume total de la solution préparée : \( V = 1{,}5\,\text{L} \).</p>
@@ -221,11 +312,11 @@
   </div>
 </div>
 
+<!-- STANDARD EX 7 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
     <span class="exo-title">pH des produits d'atelier</span>
-    <span class="diff diff-2">Intermédiaire</span>
   </div>
   <div class="def"><strong>Échelle de pH :</strong> de 0 à 14. pH &lt; 7 : acide. pH = 7 : neutre. pH &gt; 7 : basique (alcalin).<br>
   Plus le pH s'éloigne de 7, plus le produit est agressif.</div>
@@ -250,15 +341,22 @@
   </div>
 </div>
 
-<!-- ===== AVANCÉ ===== -->
-<h2>Contexte professionnel – Exercices avancés</h2>
-<div class="section-intro"><span class="mama-tag">Atelier</span> Exercices contextualisés dans les métiers de la menuiserie et de l'agencement.</div>
+</div><!-- fin diff-standard -->
 
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<h2 style="color:#7c3aed;border-left:4px solid #7c3aed;padding-left:10px">Contexte professionnel – Problèmes avancés</h2>
+<div class="section-intro">Exercices multi-étapes, mise en équation autonome, vocabulaire BTS.</div>
+
+<!-- APPRO EX 4 -->
 <div class="exo">
   <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
+    <span class="exo-num">Exercice 4</span>
     <span class="exo-title">Bain de dégraissage en atelier – Dosage et reconstitution</span>
-    <span class="diff diff-3">Avancé</span>
   </div>
   <div class="mama-tag">Atelier</div>
   <p>Un atelier dispose d'une cuve de dégraissage de \( V = 200\,\text{L} \). La concentration optimale de dégraissant est \( C_{opt} = 30\,\text{g/L} \).</p>
@@ -275,11 +373,11 @@
   </div>
 </div>
 
+<!-- APPRO EX 5 -->
 <div class="exo">
   <div class="exo-header">
-    <span class="exo-num">Exercice 9</span>
+    <span class="exo-num">Exercice 5</span>
     <span class="exo-title">Bain de traitement du bois – Analyse complète</span>
-    <span class="diff diff-3">Avancé</span>
   </div>
   <div class="mama-tag">Atelier</div>
   <p>Une entreprise de menuiserie dispose d'un bac d'imprégnation de capacité totale \( V_{tot} = 8\,\text{L} \). Lors d'un contrôle, le technicien mesure la concentration en sel de cuivre (produit fongicide) à \( C_m = 40\,\text{g/L} \) (insuffisant, elle doit être à 56,5 g/L selon la fiche technique).</p>
@@ -296,6 +394,37 @@
   </div>
 </div>
 
+<!-- APPRO EX 6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Comparaison de deux solutions d'imprégnation – choix du fournisseur</span>
+  </div>
+  <div class="mama-tag">Gestion / Atelier</div>
+  <p>Un responsable d'atelier compare deux produits fongicides pour l'imprégnation du bois :</p>
+  <table>
+    <thead><tr><th>Produit</th><th>Concentration</th><th>Volume bidon</th><th>Prix bidon</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FongiBois Pro</strong></td><td>800 g/L</td><td>5 L</td><td>42 €</td></tr>
+      <tr><td><strong>TraitBois Classic</strong></td><td>500 g/L</td><td>5 L</td><td>28 €</td></tr>
+    </tbody>
+  </table>
+  <p>Le bac d'imprégnation a une capacité de 50 L et doit être préparé à \( C_m = 80\,\text{g/L} \) de matière active.</p>
+  <p class="q"><strong>1.</strong> Calculez la masse totale de matière active nécessaire pour préparer le bac.</p>
+  <p class="q"><strong>2.</strong> Calculez le volume de chaque produit à prélever pour préparer le bac à 80 g/L en utilisant \( C_1 V_1 = C_2 V_2 \).</p>
+  <p class="q"><strong>3.</strong> Pour chaque produit, calculez le coût de la quantité nécessaire (coût par litre de produit concentré).</p>
+  <p class="q"><strong>4.</strong> Quel produit est le plus économique pour préparer ce bac ? Calculez l'économie réalisée.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( m_{active} = C_m \times V_{bac} = 80 \times 50 = 4\,000\,\text{g} \)</p>
+    <p><strong>2.</strong> FongiBois : \( V_1 = \dfrac{80 \times 50}{800} = 5\,\text{L} \) &nbsp;|&nbsp; TraitBois : \( V_1 = \dfrac{80 \times 50}{500} = 8\,\text{L} \)</p>
+    <p><strong>3.</strong> FongiBois : 42€/5L = 8,40€/L → 5 L × 8,40 = <strong>42 €</strong>. TraitBois : 28€/5L = 5,60€/L → 8 L × 5,60 = <strong>44,80 €</strong>.</p>
+    <p><strong>4.</strong> FongiBois Pro est plus économique. Économie : 44,80 − 42 = <strong>2,80 €</strong> par bain (sur un usage intensif hebdomadaire, cela représente environ 145 € d'économie par an).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 </div>
 <script>
 function toggle(btn){
@@ -309,6 +438,7 @@ const vols=[0.5,1,1.5,2,2.5,3,4,5];
 const cms=vols.map(v=>+(50/v).toFixed(1));
 new Chart(ctx,{type:'line',data:{labels:vols.map(v=>v+' L'),datasets:[{label:'Cm (g/L) en fonction du volume final (masse soluté = 50 g)',data:cms,borderColor:'#6f42c1',backgroundColor:'rgba(111,66,193,0.08)',borderWidth:2,pointRadius:4,tension:0.3}]},options:{responsive:true,plugins:{title:{display:true,text:'Dilution : Cm diminue quand V augmente (m = 50 g fixe)',font:{size:13}},legend:{display:false}},scales:{x:{title:{display:true,text:'Volume final (L)'}},y:{title:{display:true,text:'Concentration massique (g/L)'},min:0}}}});
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

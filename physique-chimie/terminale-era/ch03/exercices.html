@@ -83,6 +83,126 @@
 </svg>
 </div>
 
+<!-- ===== SOCLE ===== -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+<h2>Exercices guidés pas à pas</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S1</span>
+    <span class="exo-title">Conversion °C → Kelvin – pas à pas</span>
+  </div>
+
+  <div class="methode">
+    <strong>Rappel :</strong> Pour convertir une température de degrés Celsius en Kelvin, on utilise la formule :
+    \( T(\text{K}) = T(°\text{C}) + 273 \)
+  </div>
+
+  <p><strong>Compléter les conversions suivantes :</strong></p>
+
+  <p class="q"><strong>a)</strong> Température du corps humain : \( T = 37\ °\text{C} \)
+    <br>→ \( T(\text{K}) = 37 + \underline{\quad\quad} = \underline{\quad\quad}\ \text{K} \)</p>
+
+  <p class="q"><strong>b)</strong> Température d'une pièce chauffée : \( T = 20\ °\text{C} \)
+    <br>→ \( T(\text{K}) = \underline{\quad\quad} + 273 = \underline{\quad\quad}\ \text{K} \)</p>
+
+  <p class="q"><strong>c)</strong> Température extérieure en hiver : \( T = -5\ °\text{C} \)
+    <br>→ \( T(\text{K}) = -5 + \underline{\quad\quad} = \underline{\quad\quad}\ \text{K} \)</p>
+
+  <p class="q"><strong>d)</strong> Eau bouillante : \( T = 100\ °\text{C} \)
+    <br>→ \( T(\text{K}) = \underline{\quad\quad} + \underline{\quad\quad} = \underline{\quad\quad}\ \text{K} \)</p>
+
+  <p class="q"><strong>e)</strong> Un mur industriel chauffé à 60 °C :
+    <br>→ \( T(\text{K}) = \underline{\quad\quad}\ \text{K} \)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \( T = 37 + 273 = 310\ \text{K} \)</p>
+    <p><strong>b)</strong> \( T = 20 + 273 = 293\ \text{K} \)</p>
+    <p><strong>c)</strong> \( T = -5 + 273 = 268\ \text{K} \)</p>
+    <p><strong>d)</strong> \( T = 100 + 273 = 373\ \text{K} \)</p>
+    <p><strong>e)</strong> \( T = 60 + 273 = 333\ \text{K} \)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S2</span>
+    <span class="exo-title">Loi de Stefan-Boltzmann – calcul guidé</span>
+  </div>
+
+  <div class="methode">
+    <strong>Rappel :</strong> La puissance rayonnée par un corps est :
+    \( P = \varepsilon \cdot \sigma \cdot S \cdot T^4 \)
+    <br>avec \(\sigma = 5{,}67 \times 10^{-8}\ \text{W·m}^{-2}\text{·K}^{-4}\), \(S\) en m², \(T\) en Kelvin, \(\varepsilon\) sans unité.
+  </div>
+
+  <p><strong>Données :</strong> Corps humain à 37 °C, surface \(S = 1{,}8\ \text{m}^2\), émissivité \(\varepsilon = 0{,}98\).</p>
+
+  <p><strong>Compléter les étapes du calcul :</strong></p>
+
+  <p class="q"><strong>Étape 1 – Conversion en Kelvin :</strong>
+    <br>\( T = 37 + 273 = \underline{\quad\quad}\ \text{K} \)</p>
+
+  <p class="q"><strong>Étape 2 – Calcul de \(T^4\) :</strong>
+    <br>\( T^4 = (310)^4 = 310 \times 310 \times 310 \times 310 \)
+    <br>À la calculatrice : \( T^4 = \underline{\quad\quad\quad\quad\quad} \)
+    <br><em>(Aide : le résultat est de l'ordre de \(9 \times 10^9\))</em></p>
+
+  <p class="q"><strong>Étape 3 – Application de la formule :</strong>
+    <br>\( P = \varepsilon \times \sigma \times S \times T^4 \)
+    <br>\( P = 0{,}98 \times 5{,}67 \times 10^{-8} \times 1{,}8 \times \underline{\quad\quad\quad} \)
+    <br>\( P = \underline{\quad\quad\quad}\ \text{W} \)</p>
+
+  <p class="q"><strong>Étape 4 – Interprétation :</strong>
+    <br>Le corps humain rayonne environ \(\underline{\quad\quad}\) W. Ce rayonnement se situe dans le domaine de l'<strong>\(\underline{\quad\quad\quad\quad\quad}\)</strong> (visible / infrarouge / ultraviolet).</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> \( T = 37 + 273 = 310\ \text{K} \)</p>
+    <p><strong>Étape 2 :</strong> \( T^4 = (310)^4 = 9{,}235 \times 10^9 \)</p>
+    <p><strong>Étape 3 :</strong>
+      \( P = 0{,}98 \times 5{,}67 \times 10^{-8} \times 1{,}8 \times 9{,}235 \times 10^9 \approx 924\ \text{W} \)
+    </p>
+    <p><strong>Étape 4 :</strong> Le corps humain rayonne environ <strong>924 W</strong>. Ce rayonnement se situe dans le domaine de l'<strong>infrarouge</strong> (car T &lt; 1000 °C).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S3</span>
+    <span class="exo-title">Effet de serre – texte à compléter</span>
+  </div>
+
+  <p><strong>Compléter le texte ci-dessous avec les mots proposés :</strong></p>
+  <p><em>Mots à placer :</em> infrarouge — CO₂ — vapeur d'eau — CH₄ — visible — Kelvin — réchauffement — 288 K — 6000 K — atmosphère</p>
+
+  <p class="q"><strong>a)</strong> Le Soleil, dont la température de surface est d'environ \(\underline{\quad\quad\quad}\), émet principalement un rayonnement \(\underline{\quad\quad\quad}\) qui traverse l'\(\underline{\quad\quad\quad\quad\quad}\) terrestre.</p>
+
+  <p class="q"><strong>b)</strong> La Terre, dont la température moyenne est d'environ \(\underline{\quad\quad\quad}\), réémet de l'énergie sous forme de rayonnement \(\underline{\quad\quad\quad\quad}\).</p>
+
+  <p class="q"><strong>c)</strong> Les trois principaux gaz à effet de serre sont : le dioxyde de carbone (\(\underline{\quad\quad}\)), la \(\underline{\quad\quad\quad\quad\quad}\) (H₂O) et le méthane (\(\underline{\quad\quad}\)).</p>
+
+  <p class="q"><strong>d)</strong> Ces gaz absorbent le rayonnement \(\underline{\quad\quad\quad\quad}\) émis par la Terre, ce qui provoque un \(\underline{\quad\quad\quad\quad\quad\quad}\) de l'atmosphère.</p>
+
+  <p class="q"><strong>e)</strong> Pour effectuer un calcul avec la loi de Stefan-Boltzmann, la température doit toujours être exprimée en \(\underline{\quad\quad\quad}\).</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> Le Soleil, dont la température de surface est d'environ <strong>6000 K</strong>, émet principalement un rayonnement <strong>visible</strong> qui traverse l'<strong>atmosphère</strong> terrestre.</p>
+    <p><strong>b)</strong> La Terre, dont la température moyenne est d'environ <strong>288 K</strong>, réémet de l'énergie sous forme de rayonnement <strong>infrarouge</strong>.</p>
+    <p><strong>c)</strong> Les trois principaux gaz à effet de serre sont : le dioxyde de carbone (<strong>CO₂</strong>), la <strong>vapeur d'eau</strong> (H₂O) et le méthane (<strong>CH₄</strong>).</p>
+    <p><strong>d)</strong> Ces gaz absorbent le rayonnement <strong>infrarouge</strong> émis par la Terre, ce qui provoque un <strong>réchauffement</strong> de l'atmosphère.</p>
+    <p><strong>e)</strong> Pour effectuer un calcul avec la loi de Stefan-Boltzmann, la température doit toujours être exprimée en <strong>Kelvin</strong>.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ===== STANDARD ===== -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
 <!-- EXERCICES DE BASE -->
 <h2>Exercices de base</h2>
 
@@ -308,6 +428,13 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ===== APPROFONDISSEMENT ===== -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+<h2>Exercices d'approfondissement</h2>
+
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
@@ -452,6 +579,8 @@
   </div>
 </div>
 
+</div><!-- fin diff-appro -->
+
 <!-- GRAPHIQUE ÉMISSIVITÉ -->
 <h2>Comparaison des émissivités de matériaux courants</h2>
 
@@ -514,5 +643,6 @@
 </div>
 <script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

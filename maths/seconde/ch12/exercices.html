@@ -178,6 +178,118 @@
   </div>
 </div>
 
+<!-- ================================================================
+     NIVEAU SOCLE — exercices très guidés, étape par étape
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="niveau-header niv2">
+  <span class="badge-niv badge-2">Niveau 2</span>
+  <h2>Appliquer le théorème — méthode guidée pas à pas</h2>
+</div>
+
+<!-- EX S1 -->
+<div class="exo">
+  <div class="exo-num">Exercice 4</div>
+  <div class="exo-titre">Calculer l'hypoténuse — méthode en 3 étapes</div>
+  <div class="meth">
+    <strong>Méthode à retenir :</strong><br>
+    Dans un triangle rectangle en A, l'hypoténuse est BC (le plus grand côté).<br>
+    Formule : <strong>\(BC^2 = AB^2 + AC^2\)</strong>, puis \(BC = \sqrt{BC^2}\).
+  </div>
+  <p><strong>Exemple guidé :</strong> Triangle rectangle en A, \(AB = 6\) cm, \(AC = 8\) cm.</p>
+  <p>Étape 1 — Écrire la formule : \(BC^2 = AB^2 + AC^2\)</p>
+  <p>Étape 2 — Calculer : \(BC^2 = 6^2 + 8^2 = 36 + 64 = \ldots\ldots\)</p>
+  <p>Étape 3 — Extraire la racine : \(BC = \sqrt{\ldots\ldots} = \ldots\ldots\) cm</p>
+  <br>
+  <p><strong>À toi :</strong> Triangle rectangle en A, \(AB = 9\) cm, \(AC = 12\) cm. Calcule BC.</p>
+  <p>Étape 1 : \(BC^2 = AB^2 + AC^2 = 9^2 + 12^2 = \ldots\ldots + \ldots\ldots = \ldots\ldots\)</p>
+  <p>Étape 2 : \(BC = \sqrt{\ldots\ldots} = \ldots\ldots\) cm</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Exemple :</strong> \(BC^2 = 36 + 64 = 100\), donc \(BC = \sqrt{100} = \mathbf{10}\) cm.</p>
+    <p><strong>À toi :</strong> \(BC^2 = 9^2 + 12^2 = 81 + 144 = 225\), donc \(BC = \sqrt{225} = \mathbf{15}\) cm.</p>
+    <p>Le triplet (9, 12, 15) est le triplet (3, 4, 5) multiplié par 3.</p>
+  </div>
+</div>
+
+<!-- EX S2 -->
+<div class="exo">
+  <div class="exo-num">Exercice 5</div>
+  <div class="exo-titre">Calculer un côté de l'angle droit — tableau à compléter</div>
+  <p>Dans un triangle rectangle en A, l'hypoténuse est BC. Complète le tableau en utilisant la formule \(AC^2 = BC^2 - AB^2\).</p>
+  <table>
+    <tr><th>BC (hypoténuse)</th><th>AB</th><th>\(BC^2\)</th><th>\(AB^2\)</th><th>\(AC^2 = BC^2 - AB^2\)</th><th>AC</th></tr>
+    <tr><td>13 cm</td><td>5 cm</td><td>\(13^2 = \ldots\)</td><td>\(5^2 = \ldots\)</td><td>\(\ldots - \ldots = \ldots\)</td><td>\(\ldots\) cm</td></tr>
+    <tr><td>10 cm</td><td>6 cm</td><td>\(\ldots\)</td><td>\(\ldots\)</td><td>\(\ldots\)</td><td>\(\ldots\) cm</td></tr>
+    <tr><td>17 cm</td><td>8 cm</td><td>\(\ldots\)</td><td>\(\ldots\)</td><td>\(\ldots\)</td><td>\(\ldots\) cm</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>BC</th><th>AB</th><th>\(BC^2\)</th><th>\(AB^2\)</th><th>\(AC^2\)</th><th>AC</th></tr>
+      <tr><td>13 cm</td><td>5 cm</td><td>169</td><td>25</td><td>144</td><td><strong>12 cm</strong></td></tr>
+      <tr><td>10 cm</td><td>6 cm</td><td>100</td><td>36</td><td>64</td><td><strong>8 cm</strong></td></tr>
+      <tr><td>17 cm</td><td>8 cm</td><td>289</td><td>64</td><td>225</td><td><strong>15 cm</strong></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- EX S3 -->
+<div class="exo">
+  <div class="exo-num">Exercice 6</div>
+  <div class="exo-titre">Réciproque — Ce triangle est-il rectangle ? — très guidé</div>
+  <div class="meth">
+    <strong>Méthode — Réciproque de Pythagore :</strong><br>
+    1. Identifier le plus grand côté (= l'hypoténuse si le triangle est rectangle).<br>
+    2. Calculer séparément le carré du grand côté et la somme des carrés des deux autres.<br>
+    3. Si les deux résultats sont égaux → triangle rectangle. Sinon → pas rectangle.
+  </div>
+  <p><strong>Un menuisier agenceur mesure une pièce de bois triangulaire :</strong> côtés 3 cm, 4 cm et 5 cm.</p>
+  <p>Étape 1 — Le plus grand côté est : \(\ldots\ldots\) cm</p>
+  <p>Étape 2 — Grand côté au carré : \(\ldots\ldots^2 = \ldots\ldots\)</p>
+  <p>Étape 3 — Somme des carrés des deux autres : \(\ldots\ldots^2 + \ldots\ldots^2 = \ldots\ldots + \ldots\ldots = \ldots\ldots\)</p>
+  <p>Étape 4 — Conclusion : \(\ldots\ldots = \ldots\ldots\) ? (oui/non). Le triangle est-il rectangle ? ……</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Étape 1 — Le plus grand côté est <strong>5 cm</strong>.</p>
+    <p>Étape 2 — \(5^2 = 25\).</p>
+    <p>Étape 3 — \(3^2 + 4^2 = 9 + 16 = 25\).</p>
+    <p>Étape 4 — \(25 = 25\) ✓ → Le triangle <strong>est bien rectangle</strong>. C'est le triplet 3-4-5 classique !</p>
+  </div>
+</div>
+
+<!-- EX S4 -->
+<div class="exo">
+  <div class="exo-num">Exercice 7</div>
+  <div class="exo-titre">Application au chantier — panneau rectangulaire — guidé</div>
+  <p><span style="display:inline-block;background:#fef3c7;color:#92400e;border-radius:4px;font-size:.78em;font-weight:700;text-transform:uppercase;padding:2px 8px;margin-bottom:8px">Atelier MAMA — Menuiserie-Agencement</span></p>
+  <p>Un menuisier coupe un panneau rectangulaire de <strong>60 cm × 80 cm</strong>. Il veut vérifier l'équerrage en mesurant la diagonale.</p>
+  <p><strong>1.</strong> Quelle formule utilise-t-on pour calculer la diagonale \(d\) d'un rectangle de côtés \(a\) et \(b\) ?</p>
+  <p style="margin-left:20px">Formule : \(d^2 = \ldots\ldots^2 + \ldots\ldots^2\)</p>
+  <p><strong>2.</strong> Calcule \(d^2\) :</p>
+  <p style="margin-left:20px">\(d^2 = 60^2 + 80^2 = \ldots\ldots + \ldots\ldots = \ldots\ldots\)</p>
+  <p><strong>3.</strong> Calcule \(d\) :</p>
+  <p style="margin-left:20px">\(d = \sqrt{\ldots\ldots} = \ldots\ldots\) cm</p>
+  <p><strong>4.</strong> Le panneau mesure 60 cm × 80 cm. La diagonale mesurée par le menuisier est <strong>102 cm</strong>. Le panneau est-il d'équerre ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Formule : \(d^2 = a^2 + b^2\)</p>
+    <p><strong>2.</strong> \(d^2 = 60^2 + 80^2 = 3\,600 + 6\,400 = 10\,000\)</p>
+    <p><strong>3.</strong> \(d = \sqrt{10\,000} = \mathbf{100}\) cm</p>
+    <p><strong>4.</strong> Diagonale théorique = 100 cm ≠ 102 cm mesurée. Le panneau <strong>n'est pas d'équerre</strong> (écart de 2 cm).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     NIVEAU STANDARD — exercices du programme
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <!-- ================= NIVEAU 2 ================= -->
 <div class="niveau-header niv2">
   <span class="badge-niv badge-2">Niveau 2</span>
@@ -323,6 +435,14 @@
   </div>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     NIVEAU APPROFONDISSEMENT — problèmes ouverts, moins guidés
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
 <!-- ================= NIVEAU 4 MAMA ================= -->
 <div class="niveau-header niv4">
   <span class="badge-niv badge-4">Niveau 4</span>
@@ -384,6 +504,33 @@
   </div>
 </div>
 
+<!-- EX 11 -->
+<div class="exo">
+  <div class="exo-num">Exercice 11 ⭐</div>
+  <span class="mama-tag">Agencement intérieur</span>
+  <div class="exo-titre">Implantation d'une cloison — angle droit sur chantier</div>
+  <p>Un agenceur doit poser une cloison perpendiculaire à un mur existant de longueur 7,50 m. Il veut vérifier l'angle droit en utilisant la méthode des 3-4-5 avec les dimensions de la pièce.</p>
+  <p class="q"><strong>a)</strong> Il choisit une unité de 1,50 m. Calculer les trois longueurs correspondantes pour la méthode 3-4-5 et vérifier qu'elles forment un triangle rectangle.</p>
+  <p class="q"><strong>b)</strong> Une deuxième cloison doit relier deux points A et B de la pièce. A est situé à 2,40 m d'un coin et B à 3,20 m sur le mur perpendiculaire. Calculer la longueur AB.</p>
+  <p class="q"><strong>c)</strong> Un technicien mesure AB = 4,05 m. Y a-t-il une erreur ? Expliquer et calculer l'écart.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">a) Méthode 3-4-5 avec unité 1,50 m</span>
+    <p>Longueurs : \(3 \times 1{,}50 = 4{,}50\) m ; \(4 \times 1{,}50 = 6{,}00\) m ; \(5 \times 1{,}50 = 7{,}50\) m.</p>
+    <p>Vérification : \(7{,}50^2 = 56{,}25\) et \(4{,}50^2 + 6{,}00^2 = 20{,}25 + 36{,}00 = 56{,}25\) ✓</p>
+    <span class="etape">b) Longueur AB</span>
+    <p>Le triangle formé par le coin, A et B est rectangle (angle du coin = 90°).</p>
+    <p>\(AB^2 = 2{,}40^2 + 3{,}20^2 = 5{,}76 + 10{,}24 = 16{,}00\)</p>
+    <p>\(AB = \sqrt{16} = \mathbf{4{,}00 \text{ m}}\)</p>
+    <span class="etape">c) Analyse de l'écart</span>
+    <p>AB théorique = 4,00 m ≠ 4,05 m mesuré. Il y a bien une erreur.</p>
+    <p>Écart : \(4{,}05 - 4{,}00 = \mathbf{0{,}05 \text{ m} = 5 \text{ cm}}\).</p>
+    <p>Cela peut indiquer que les murs ne sont pas parfaitement perpendiculaires (angle droit non respecté) ou une erreur de mesure.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 <hr class="sep">
 <p style="text-align:center;font-size:.82em;color:#a0aec0">Chapitre 12 — Théorème de Pythagore et réciproque | 2de Pro MA-MA</p>
 
@@ -402,5 +549,6 @@ function showQcm(btn,id){
 }
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

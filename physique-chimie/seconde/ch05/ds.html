@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch05 – Mouvement, trajectoire et acidit&eacute; – 2de Bac Pro</title>
+<title>DS Ch05 – Mouvement et trajectoire – 2de Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
@@ -25,7 +25,9 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
-@media print{.nb,.bc{display:none}}</style>
+.ds-title{background:var(--p);color:#fff;padding:12px 20px;border-radius:8px;margin:32px 0 20px;font-size:1.1em;font-weight:700}
+@media print{.nb,.bc{display:none}}
+</style>
 </head>
 <body>
 <div class="c">
@@ -33,7 +35,7 @@
 
 <header>
   <h1>Devoir Surveill&eacute; &ndash; Chapitre 5</h1>
-  <p class="sous-titre">Mouvement, trajectoire et acidit&eacute; &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+  <p class="sous-titre">Mouvement et trajectoire &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
 </header>
 
 <div class="dh">
@@ -51,89 +53,314 @@
   <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ════════ PARTIE A ════════ -->
+
+<!-- ================================================================
+     DS SOCLE
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="ds-title">&#128196; DS Socle — Mouvement et trajectoire</div>
+
+<!-- Partie A -->
 <div class="partie">
   <div class="partie-header">
-    <span class="partie-title">Partie A &ndash; Lire et interpr&eacute;ter un pH</span>
-    <span class="pts">10 pts</span>
+    <span class="partie-title">Partie A &ndash; Vocabulaire et notions de base</span>
+    <span class="pts">8 pts</span>
   </div>
   <p class="bareme">2 pts par question.</p>
 
   <div class="q">
     <strong>1.</strong> <span class="comp comp-app">APP</span>
-    Citer deux m&eacute;thodes de mesure du pH.
+    Compl&eacute;ter la phrase avec les mots : <em>position, r&eacute;f&eacute;rentiel, trajectoire</em>.<br>
+    &ldquo;Le __________ est l'objet ou le lieu par rapport auquel on d&eacute;crit le mouvement. La __________ est l'ensemble des __________ successives d'un objet.&rdquo;
   </div>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>2.</strong> <span class="comp comp-app">APP</span>
-    Donner la nature (acide / neutre / basique) : pH = 2, pH = 7, pH = 11.
+    Relier chaque situation &agrave; son type de trajectoire :<br>
+    <table>
+      <tr><th>Situation</th><th>Trajectoire</th></tr>
+      <tr><td>Un piston de moteur</td><td>&#9744; Circulaire &nbsp; &#9744; Rectiligne &nbsp; &#9744; Courbe</td></tr>
+      <tr><td>Un point sur le bord d'une roue (/ centre)</td><td>&#9744; Circulaire &nbsp; &#9744; Rectiligne &nbsp; &#9744; Courbe</td></tr>
+      <tr><td>Une voiture sur autoroute</td><td>&#9744; Circulaire &nbsp; &#9744; Rectiligne &nbsp; &#9744; Courbe</td></tr>
+    </table>
+  </div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-app">APP</span>
+    Cocher la bonne r&eacute;ponse. Un mouvement <strong>uniforme</strong> est un mouvement o&ugrave; :<br>
+    &#9744; La vitesse augmente &nbsp;&nbsp;
+    &#9744; La vitesse est constante &nbsp;&nbsp;
+    &#9744; La vitesse diminue
   </div>
   <span class="answer-line"></span>
 
   <div class="q">
-    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
-    Le jus de citron a pH = 2, l'eau de mer pH = 8. Lequel est plus acide ?
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    Donner la formule de la vitesse moyenne. Pr&eacute;ciser les unit&eacute;s de chaque grandeur.<br>
+    \(v_{moy} = \dfrac{\ldots}{\ldots}\)
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> r&eacute;f&eacute;rentiel &ndash; trajectoire &ndash; positions</p>
+    <p><strong>2.</strong> Piston : rectiligne. Bord de roue : circulaire. Autoroute : rectiligne.</p>
+    <p><strong>3.</strong> La vitesse est constante.</p>
+    <p><strong>4.</strong> \(v_{moy} = \dfrac{d}{t}\) avec \(d\) en m\ts (ou km), \(t\) en s (ou h), \(v\) en m/s (ou km/h).</p>
+  </div>
+</div>
+
+<!-- Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Calculs guid&eacute;s &ndash; Chariot d'atelier</span>
+    <span class="pts">12 pts</span>
+  </div>
+  <div class="mama-tag">Atelier de menuiserie</div>
+  <p>Un apprenti pousse un chariot de panneaux sur \(d = 24\,\text{m}\) &agrave; une vitesse \(v = 0{,}8\,\text{m/s}\).</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la dur&eacute;e du trajet. Formule &agrave; utiliser : \(t = \dfrac{d}{v}\). <em>(4 pts)</em><br>
+    \(t = \dfrac{\ldots}{\ldots} = \ldots\,\text{s}\)
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Convertir la vitesse en km/h. Formule : \(v\,(\text{km/h}) = v\,(\text{m/s}) \times 3{,}6\). <em>(3 pts)</em><br>
+    \(v = \ldots \times 3{,}6 = \ldots\,\text{km/h}\)
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Le chariot effectue 10 allers-retours (20 trajets) dans la journ&eacute;e. Calculer le temps total en secondes. <em>(3 pts)</em><br>
+    Temps total = \(20 \times \ldots = \ldots\,\text{s}\)
   </div>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>4.</strong> <span class="comp comp-ana">ANA</span>
-    Un indicateur vire au bleu dans une solution. Que peut-on dire du pH ?
-  </div>
-  <span class="answer-line"></span>
-
-  <div class="q">
-    <strong>5.</strong> <span class="comp comp-com">COM</span>
-    Quelle pr&eacute;caution prendre avec une solution de pH = 1 ?
+    Le mouvement du chariot est-il uniforme ? Justifier en une phrase. <em>(2 pts)</em>
   </div>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Papier pH, pH-m&egrave;tre, indicateurs color&eacute;s</p>
-    <p><strong>2.</strong> pH = 2 : acide fort ; pH = 7 : neutre ; pH = 11 : basique fort</p>
-    <p><strong>3.</strong> Jus de citron (pH = 2 &lt; 8)</p>
-    <p><strong>4.</strong> pH &gt; 7 (BBT bleu) &rarr; basique</p>
-    <p><strong>5.</strong> Lunettes, gants, sous la hotte (corrosif)</p>
+    <p><strong>1.</strong> \(t = \dfrac{24}{0{,}8} = 30\,\text{s}\)</p>
+    <p><strong>2.</strong> \(v = 0{,}8 \times 3{,}6 = 2{,}88\,\text{km/h}\)</p>
+    <p><strong>3.</strong> Temps total = \(20 \times 30 = 600\,\text{s}\) = 10 min.</p>
+    <p><strong>4.</strong> Oui, le mouvement est uniforme car la vitesse est constante (0,8 m/s tout au long du trajet).</p>
   </div>
 </div>
 
-<!-- ════════ PARTIE B ════════ -->
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     DS STANDARD (original)
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<div class="ds-title">&#128196; DS Standard — Mouvement et trajectoire</div>
+
+<!-- Partie A -->
 <div class="partie">
   <div class="partie-header">
-    <span class="partie-title">Partie B &ndash; Exp&eacute;rience de dilution et pH</span>
-    <span class="pts">10 pts</span>
+    <span class="partie-title">Partie A &ndash; Notions fondamentales</span>
+    <span class="pts">8 pts</span>
   </div>
-
-  <p>Solution de vinaigre pH = 3. On dilue au 10<sup>&egrave;me</sup>.</p>
+  <p class="bareme">2 pts par question.</p>
 
   <div class="q">
-    <strong>1.</strong> <span class="comp comp-com">COM</span>
-    D&eacute;crire le protocole de dilution (fiole 100 mL, solution m&egrave;re 10 mL). <span class="bareme">(4 pts)</span>
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    D&eacute;finir le r&eacute;f&eacute;rentiel. Donner un exemple tir&eacute; d'une situation de travail en atelier.
   </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    D&eacute;crire la trajectoire d'un piston de moteur. Justifier.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    Sur une chronophotographie (intervalle \(\Delta t = 0{,}1\,\text{s}\)), les &eacute;carts entre positions successives valent : 4 cm, 4 cm, 4 cm, 4 cm. Quel type de mouvement cela repr&eacute;sente-t-il ? Calculer la vitesse.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    &Eacute;crire la formule de la vitesse moyenne et donner les unit&eacute;s. Comment convertit-on les m/s en km/h ?
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le r&eacute;f&eacute;rentiel est l'objet ou le lieu par rapport auquel on d&eacute;crit le mouvement. Ex. : le sol de l'atelier est le r&eacute;f&eacute;rentiel quand on &eacute;tudie le mouvement d'un chariot.</p>
+    <p><strong>2.</strong> Trajectoire rectiligne (va-et-vient en ligne droite verticale ou horizontale selon le moteur).</p>
+    <p><strong>3.</strong> &Eacute;carts &eacute;gaux &rarr; mouvement rectiligne uniforme. \(v = \dfrac{4\,\text{cm}}{0{,}1\,\text{s}} = 40\,\text{cm/s} = 0{,}40\,\text{m/s}\)</p>
+    <p><strong>4.</strong> \(v_{moy} = \dfrac{d}{t}\) (\(d\) en m, \(t\) en s, \(v\) en m/s). Conversion : \(v\,(\text{km/h}) = v\,(\text{m/s}) \times 3{,}6\).</p>
+  </div>
+</div>
+
+<!-- Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Probl&egrave;me : D&eacute;placement en atelier</span>
+    <span class="pts">12 pts</span>
+  </div>
+  <div class="mama-tag">Atelier de menuiserie – Agencement</div>
+
+  <p>Un technicien menuisier pousse un chariot charg&eacute; de panneaux de MDF depuis le stock jusqu'&agrave; la scie. La distance est de \(d = 18\,\text{m}\). La vitesse est \(v = 0{,}9\,\text{m/s}\). Temps de pr&eacute;paration avant chaque trajet : 5 s.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la dur&eacute;e du d&eacute;placement, puis la dur&eacute;e totale d'un trajet (d&eacute;placement + pr&eacute;paration). <em>(4 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Convertir \(v = 0{,}9\,\text{m/s}\) en km/h. <em>(2 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Le technicien effectue 8 allers-retours (16 trajets) dans la journ&eacute;e. Calculer le temps total en secondes et en minutes. <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-ana">ANA</span>
+    Le mouvement du chariot est-il uniforme ? D&eacute;celer&eacute; ? Justifier. <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(t_{d&eacute;p} = \dfrac{18}{0{,}9} = 20\,\text{s}\). Dur&eacute;e totale = 20 + 5 = 25 s.</p>
+    <p><strong>2.</strong> \(v = 0{,}9 \times 3{,}6 = 3{,}24\,\text{km/h}\)</p>
+    <p><strong>3.</strong> Temps total = \(16 \times 25 = 400\,\text{s} \approx 6{,}7\,\text{min}\).</p>
+    <p><strong>4.</strong> Uniforme : vitesse constante &agrave; 0,9 m/s pendant le d&eacute;placement. En r&eacute;alit&eacute; le chariot acc&eacute;l&egrave;re au d&eacute;marrage et d&eacute;c&eacute;l&egrave;re &agrave; l'arriv&eacute;e, mais on consid&egrave;re la vitesse moyenne constante sur le trajet.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="ds-title">&#128196; DS Approfondissement — Mouvement et trajectoire</div>
+
+<!-- Partie A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Analyse critique d'une chronophotographie</span>
+    <span class="pts">8 pts</span>
+  </div>
+
+  <p>Des photos d'une balle sont prises &agrave; \(\Delta t = 0{,}05\,\text{s}\). Les positions mesur&eacute;es sont :</p>
+  <table>
+    <tr><th>Position</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td>Abscisse (cm)</td><td>0</td><td>2</td><td>6</td><td>12</td><td>20</td></tr>
+  </table>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer les distances entre positions successives et les vitesses correspondantes. Pr&eacute;senter les r&eacute;sultats dans un tableau. <em>(4 pts)</em>
+  </div>
+  <span class="answer-line"></span>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>2.</strong> <span class="comp comp-ana">ANA</span>
-    Le pH augmente ou diminue apr&egrave;s dilution ? Vers quelle valeur tend-il ? <span class="bareme">(3 pts)</span>
+    Quel type de mouvement observe-t-on ? L'acc&eacute;l&eacute;ration est-elle constante ? Calculer les diff&eacute;rences de vitesse successives pour justifier. <em>(4 pts)</em>
   </div>
   <span class="answer-line"></span>
-
-  <div class="q">
-    <strong>3.</strong> <span class="comp comp-val">VAL</span>
-    La solution reste-t-elle acide ? Justifier. <span class="bareme">(3 pts)</span>
-  </div>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Pr&eacute;lever 10 mL de solution m&egrave;re &rarr; verser dans fiole 100 mL &rarr; compl&eacute;ter avec eau distill&eacute;e jusqu'au trait de jauge &rarr; homog&eacute;n&eacute;iser.</p>
-    <p><strong>2.</strong> pH augmente &rarr; se rapproche de 7.</p>
-    <p><strong>3.</strong> Oui, acide. Diluer ne change pas la nature acide, seulement l'intensit&eacute;.</p>
+    <p><strong>1.</strong> Distances : 2, 4, 6, 8 cm. Vitesses : 2/0,05 = 40 cm/s ; 4/0,05 = 80 cm/s ; 6/0,05 = 120 cm/s ; 8/0,05 = 160 cm/s.</p>
+    <p><strong>2.</strong> Mouvement rectiligne uniform&eacute;ment acc&eacute;l&eacute;r&eacute;. Diff&eacute;rences : 40, 40, 40 cm/s &rarr; acc&eacute;l&eacute;ration constante = 40 cm/s par intervalle = 40 / 0,05 = 800 cm/s² = 8 m/s².</p>
   </div>
 </div>
+
+<!-- Partie B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Probl&egrave;me ouvert : Optimisation logistique d'atelier</span>
+    <span class="pts">12 pts</span>
+  </div>
+  <div class="mama-tag">Logistique – Atelier de menuiserie</div>
+
+  <p>Un responsable d'atelier analyse les d&eacute;placements de son technicien. Deux postes sont concern&eacute;s :</p>
+  <table>
+    <tr><th>Trajet</th><th>Distance</th><th>Vitesse</th><th>Nb/jour</th></tr>
+    <tr><td>Stock &rarr; Scie</td><td>18 m</td><td>0,9 m/s</td><td>16 trajets</td></tr>
+    <tr><td>Scie &rarr; Presse</td><td>12 m</td><td>0,6 m/s</td><td>24 trajets</td></tr>
+  </table>
+  <p>Une r&eacute;organisation de l'atelier permettrait de r&eacute;duire ces distances de <strong>30 %</strong> chacune.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la dur&eacute;e de chaque type de trajet (en secondes). <em>(2 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Calculer le temps total quotidien consacr&eacute; &agrave; ces d&eacute;placements (en minutes). <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    Apr&egrave;s r&eacute;organisation (distances r&eacute;duites de 30 %), calculer le nouveau temps total quotidien. Quelle est l'&eacute;conomie de temps (en minutes) ? <em>(4 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span>
+    Sur 220 jours de travail par an, calculer l'&eacute;conomie de temps annuelle (en heures). Commenter ce r&eacute;sultat du point de vue de la productivit&eacute;. <em>(3 pts)</em>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Stock&rarr;Scie : \(t_1 = 18/0{,}9 = 20\,\text{s}\). Scie&rarr;Presse : \(t_2 = 12/0{,}6 = 20\,\text{s}\).</p>
+    <p><strong>2.</strong> Total = \(16 \times 20 + 24 \times 20 = 320 + 480 = 800\,\text{s} \approx 13{,}3\,\text{min}\).</p>
+    <p><strong>3.</strong> Nouvelles distances : 18 × 0,7 = 12,6 m et 12 × 0,7 = 8,4 m.<br>
+    Nouveaux temps : \(t_1' = 12{,}6/0{,}9 = 14\,\text{s}\) ; \(t_2' = 8{,}4/0{,}6 = 14\,\text{s}\).<br>
+    Total nouveau = \(16 \times 14 + 24 \times 14 = 224 + 336 = 560\,\text{s} \approx 9{,}3\,\text{min}\).<br>
+    &Eacute;conomie : \(13{,}3 - 9{,}3 = 4{,}0\,\text{min/jour}\).</p>
+    <p><strong>4.</strong> &Eacute;conomie annuelle = \(4 \times 220 = 880\,\text{min} \approx 14{,}7\,\text{h}\). En r&eacute;duisant les distances de 30 %, on r&eacute;cup&egrave;re pr&egrave;s de 15 h de travail productif par an, soit l'&eacute;quivalent de presque 2 jours ouvrables.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
 
 <script>
 function toggle(btn){
@@ -143,6 +370,7 @@ function toggle(btn){
 }
 </script>
 </div>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>
