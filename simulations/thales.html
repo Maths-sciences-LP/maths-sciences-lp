@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Theoreme de Thales – Simulation</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f4f9;color:#2d3748;line-height:1.6;padding:20px}
+
+header{background:linear-gradient(135deg,#1565c0,#1976d2);color:#fff;padding:28px 20px 22px;border-radius:10px 10px 0 0;text-align:center;position:relative}
+header h1{font-size:1.6em;margin-bottom:4px}
+header .sous-titre{opacity:.85;font-size:.92em}
+.btn-back{position:absolute;left:15px;top:15px;background:rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:5px 12px;border-radius:5px;font-size:.85em;transition:background .2s}
+.btn-back:hover{background:rgba(255,255,255,.35)}
+
+.container{max-width:860px;margin:0 auto;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden}
+.body-content{padding:24px}
+
+/* Canvas */
+.canvas-wrap{background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;margin:16px 0;text-align:center;overflow-x:auto;position:relative}
+canvas{display:block;margin:0 auto;max-width:100%;cursor:grab}
+canvas:active{cursor:grabbing}
+.drag-hint{position:absolute;bottom:8px;right:12px;font-size:.78em;color:#94a3b8;background:rgba(255,255,255,.85);padding:2px 8px;border-radius:4px}
+
+/* Slider */
+.slider-section{margin:16px 0}
+.slider-group{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px}
+.slider-group label{font-weight:600;font-size:.88em;display:block;margin-bottom:6px;color:#475569}
+.slider-group input[type=range]{width:100%;accent-color:#1976d2}
+.val-badge{display:inline-block;background:#1976d2;color:#fff;border-radius:5px;padding:2px 10px;font-size:.85em;font-weight:700;min-width:40px;text-align:center;margin-left:6px}
+
+/* Ratios */
+.ratios-box{background:#e3f2fd;border:2px solid #1976d2;border-radius:10px;padding:18px 24px;margin:16px 0;text-align:center}
+.ratios-title{font-weight:700;color:#1565c0;margin-bottom:10px;font-size:1.05em}
+.ratios-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;align-items:center;font-size:1.1em;margin:8px 0}
+.ratio-item{background:#fff;border:1px solid #93c5fd;border-radius:8px;padding:8px 16px;text-align:center;min-width:100px}
+.ratio-label{font-size:.78em;color:#64748b;margin-bottom:2px}
+.ratio-val{font-weight:700;color:#1565c0;font-size:1.1em}
+.ratio-eq{font-size:1.4em;color:#1976d2;font-weight:700}
+.scale-box{background:#d1fae5;border:2px solid #16a34a;border-radius:10px;padding:12px 20px;text-align:center;margin:12px 0;font-size:1.15em;font-weight:700;color:#065f46}
+
+/* Segments table */
+.seg-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9em}
+.seg-table th,.seg-table td{border:1px solid #e2e8f0;padding:7px 10px;text-align:center}
+.seg-table th{background:#1976d2;color:#fff;font-weight:600}
+.seg-table .grand{background:#e3f2fd}
+.seg-table .petit{background:#fef3c7}
+
+/* Application */
+.app-section{background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:16px;margin:18px 0}
+.app-section h3{color:#166534;font-size:1em;margin-bottom:10px}
+.app-inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0}
+.app-input{text-align:center}
+.app-input label{display:block;font-weight:600;font-size:.82em;color:#475569;margin-bottom:4px}
+.app-input input[type=number],.app-input select{width:90px;padding:6px;border:2px solid #bbf7d0;border-radius:6px;text-align:center;font-size:.95em;outline:none}
+.app-input input:focus{border-color:#16a34a}
+.app-btn{display:block;margin:10px auto;background:#16a34a;color:#fff;border:none;padding:8px 24px;border-radius:8px;font-size:.95em;font-weight:600;cursor:pointer;transition:background .2s}
+.app-btn:hover{background:#15803d}
+.app-result{text-align:center;padding:10px;border-radius:8px;margin:10px 0;font-weight:600;background:#d1fae5;border:1px solid #16a34a;color:#065f46;display:none}
+.app-result.visible{display:block}
+
+/* Context */
+.context-pro{background:#f5f0ff;border-left:4px solid #7b1fa2;border-radius:0 8px 8px 0;padding:12px 16px;margin:18px 0;font-size:.9em;color:#581c87}
+.context-pro strong{color:#7b1fa2}
+
+@media(max-width:600px){
+  .app-inputs{grid-template-columns:1fr}
+  .ratios-row{flex-direction:column;gap:8px}
+  header h1{font-size:1.25em}
+  .body-content{padding:16px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">&larr; Retour</a>
+    <h1>Theoreme de Thales</h1>
+    <p class="sous-titre">2nde Bac Pro &middot; Ch13</p>
+  </header>
+
+  <div class="body-content">
+
+    <!-- Canvas -->
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="600" height="420"></canvas>
+      <div class="drag-hint">Deplacez les sommets A, B, C</div>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider-section">
+      <div class="slider-group">
+        <label>Position de D sur [AB] (k) <span class="val-badge" id="valK">0.50</span></label>
+        <input type="range" id="sliderK" min="0.1" max="0.9" step="0.01" value="0.5" oninput="update()">
+      </div>
+    </div>
+
+    <!-- Scale factor -->
+    <div class="scale-box" id="scaleBox">Facteur de reduction k = 0.50</div>
+
+    <!-- Ratios -->
+    <div class="ratios-box">
+      <div class="ratios-title">Rapports egaux (Theoreme de Thales)</div>
+      <div id="formulaThales" style="margin-bottom:10px">\(\dfrac{AD}{AB} = \dfrac{AE}{AC} = \dfrac{DE}{BC} = k\)</div>
+      <div class="ratios-row">
+        <div class="ratio-item">
+          <div class="ratio-label">AD / AB</div>
+          <div class="ratio-val" id="r1">0.50</div>
+        </div>
+        <div class="ratio-eq">=</div>
+        <div class="ratio-item">
+          <div class="ratio-label">AE / AC</div>
+          <div class="ratio-val" id="r2">0.50</div>
+        </div>
+        <div class="ratio-eq">=</div>
+        <div class="ratio-item">
+          <div class="ratio-label">DE / BC</div>
+          <div class="ratio-val" id="r3">0.50</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segments table -->
+    <table class="seg-table">
+      <thead><tr><th>Segment</th><th>AD</th><th>DB</th><th>AB</th><th>AE</th><th>EC</th><th>AC</th><th>DE</th><th>BC</th></tr></thead>
+      <tbody><tr>
+        <td><strong>Longueur</strong></td>
+        <td class="petit" id="sAD">-</td>
+        <td class="petit" id="sDB">-</td>
+        <td class="grand" id="sAB">-</td>
+        <td class="petit" id="sAE">-</td>
+        <td class="petit" id="sEC">-</td>
+        <td class="grand" id="sAC">-</td>
+        <td class="petit" id="sDE">-</td>
+        <td class="grand" id="sBC">-</td>
+      </tr></tbody>
+    </table>
+
+    <!-- Context -->
+    <div class="context-pro">
+      <strong>Contexte professionnel :</strong> Lecture de plan a l'echelle 1/50.
+      Un menuisier agenceur utilise le theoreme de Thales pour convertir les mesures d'un plan a l'echelle en dimensions reelles.
+    </div>
+
+    <!-- Application -->
+    <div class="app-section">
+      <h3>Application : calcul de dimension reelle a partir d'un plan</h3>
+      <div class="app-inputs">
+        <div class="app-input">
+          <label>Mesure sur le plan (cm)</label>
+          <input type="number" id="appMes" value="5" min="0.1" step="0.1">
+        </div>
+        <div class="app-input">
+          <label>Echelle</label>
+          <select id="appScale">
+            <option value="10">1/10</option>
+            <option value="20">1/20</option>
+            <option value="50" selected>1/50</option>
+            <option value="100">1/100</option>
+            <option value="200">1/200</option>
+          </select>
+        </div>
+        <div class="app-input">
+          <label>&nbsp;</label>
+          <button class="app-btn" onclick="calcApp()">Calculer</button>
+        </div>
+      </div>
+      <div class="app-result" id="appResult"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const W = 600, H = 420;
+
+// Triangle vertices (draggable)
+let A = { x: 120, y: 80 };
+let B = { x: 80, y: 360 };
+let C = { x: 520, y: 340 };
+
+let dragging = null;
+const DRAG_RADIUS = 18;
+
+function dist(p1, p2) {
+  return Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
+}
+
+function fmt(n) {
+  return (Math.round(n * 100) / 100).toFixed(2);
+}
+
+function lerp(p1, p2, t) {
+  return { x: p1.x + (p2.x - p1.x) * t, y: p1.y + (p2.y - p1.y) * t };
+}
+
+function update() {
+  const k = parseFloat(document.getElementById('sliderK').value);
+  document.getElementById('valK').textContent = k.toFixed(2);
+  document.getElementById('scaleBox').textContent = 'Facteur de reduction k = ' + k.toFixed(2);
+
+  // Points D and E
+  const D = lerp(A, B, k);
+  const E = lerp(A, C, k);
+
+  // Lengths (in pixel units, divide by a scale for display)
+  const AB = dist(A, B);
+  const AC = dist(A, C);
+  const BC = dist(B, C);
+  const AD = dist(A, D);
+  const DB = dist(D, B);
+  const AE = dist(A, E);
+  const EC = dist(E, C);
+  const DE = dist(D, E);
+
+  // Normalize to make BC approx some nice unit
+  const scale = 10 / BC; // BC = 10 units
+  const sAB = AB * scale, sAC = AC * scale, sBC = BC * scale;
+  const sAD = AD * scale, sDB = DB * scale, sAE = AE * scale, sEC = EC * scale, sDE = DE * scale;
+
+  // Update table
+  document.getElementById('sAD').textContent = fmt(sAD);
+  document.getElementById('sDB').textContent = fmt(sDB);
+  document.getElementById('sAB').textContent = fmt(sAB);
+  document.getElementById('sAE').textContent = fmt(sAE);
+  document.getElementById('sEC').textContent = fmt(sEC);
+  document.getElementById('sAC').textContent = fmt(sAC);
+  document.getElementById('sDE').textContent = fmt(sDE);
+  document.getElementById('sBC').textContent = fmt(sBC);
+
+  // Ratios
+  const r1 = sAD / sAB, r2 = sAE / sAC, r3 = sDE / sBC;
+  document.getElementById('r1').textContent = r1.toFixed(4);
+  document.getElementById('r2').textContent = r2.toFixed(4);
+  document.getElementById('r3').textContent = r3.toFixed(4);
+
+  draw(D, E, k);
+}
+
+function draw(D, E, k) {
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#fafbfc';
+  ctx.fillRect(0, 0, W, H);
+
+  // Triangle ABC (filled)
+  ctx.beginPath();
+  ctx.moveTo(A.x, A.y);
+  ctx.lineTo(B.x, B.y);
+  ctx.lineTo(C.x, C.y);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(30,64,175,0.05)';
+  ctx.fill();
+
+  // Triangle ABC (stroke)
+  ctx.strokeStyle = '#1e3a8a';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(A.x, A.y);
+  ctx.lineTo(B.x, B.y);
+  ctx.lineTo(C.x, C.y);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Line DE (red, thicker)
+  ctx.strokeStyle = '#dc2626';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(D.x, D.y);
+  ctx.lineTo(E.x, E.y);
+  ctx.stroke();
+
+  // Parallel marks (// marks on DE and BC)
+  drawParallelMarks(D, E, '#dc2626');
+  drawParallelMarks(B, C, '#1e3a8a');
+
+  // Dashed lines AD and AE highlighting
+  ctx.setLineDash([6, 4]);
+  ctx.strokeStyle = '#ef6c00';
+  ctx.lineWidth = 1.5;
+  // Mark AD
+  ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(D.x, D.y); ctx.stroke();
+  // Mark AE
+  ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(E.x, E.y); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Points
+  drawVertex(A, 'A', '#1565c0', -14, -10);
+  drawVertex(B, 'B', '#1565c0', -14, 18);
+  drawVertex(C, 'C', '#1565c0', 8, 18);
+  drawVertex(D, 'D', '#dc2626', -20, 6);
+  drawVertex(E, 'E', '#dc2626', 8, 6);
+
+  // Segment length labels on sides
+  const AB = dist(A, B), AC = dist(A, C), BC = dist(B, C);
+  const sc = 10 / BC;
+
+  // Label AB
+  labelSide(A, B, fmt(AB * sc), '#475569', 'left');
+  // Label AC
+  labelSide(A, C, fmt(AC * sc), '#475569', 'right');
+  // Label BC
+  labelSide(B, C, fmt(BC * sc), '#475569', 'below');
+  // Label DE
+  labelSide(D, E, fmt(dist(D, E) * sc), '#dc2626', 'above');
+}
+
+function drawParallelMarks(p1, p2, color) {
+  const mx = (p1.x + p2.x) / 2;
+  const my = (p1.y + p2.y) / 2;
+  const dx = p2.x - p1.x, dy = p2.y - p1.y;
+  const len = Math.sqrt(dx * dx + dy * dy);
+  if (len < 1) return;
+  const nx = -dy / len, ny = dx / len; // normal
+  const tx = dx / len, ty = dy / len; // tangent
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  const gap = 4;
+  for (let i = -1; i <= 1; i += 2) {
+    const cx = mx + i * gap * tx;
+    const cy = my + i * gap * ty;
+    ctx.beginPath();
+    ctx.moveTo(cx - 5 * nx + 3 * tx, cy - 5 * ny + 3 * ty);
+    ctx.lineTo(cx + 5 * nx - 3 * tx, cy + 5 * ny - 3 * ty);
+    ctx.stroke();
+  }
+}
+
+function drawVertex(p, label, color, offX, offY) {
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.font = 'bold 15px Segoe UI, system-ui, sans-serif';
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+  ctx.fillText(label, p.x + offX, p.y + offY);
+}
+
+function labelSide(p1, p2, text, color, pos) {
+  const mx = (p1.x + p2.x) / 2;
+  const my = (p1.y + p2.y) / 2;
+  const dx = p2.x - p1.x, dy = p2.y - p1.y;
+  const len = Math.sqrt(dx * dx + dy * dy);
+  if (len < 1) return;
+  const nx = -dy / len, ny = dx / len;
+
+  let ox = 0, oy = 0;
+  if (pos === 'left') { ox = -14 * Math.abs(nx) - 8; oy = -14 * ny; }
+  else if (pos === 'right') { ox = 14 * Math.abs(nx) + 8; oy = 14 * ny; }
+  else if (pos === 'below') { oy = 18; }
+  else if (pos === 'above') { oy = -12; }
+
+  ctx.font = '11px Segoe UI, system-ui, sans-serif';
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+  ctx.fillText(text, mx + ox, my + oy);
+}
+
+// Dragging
+canvas.addEventListener('mousedown', function(e) {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = W / rect.width;
+  const mx = (e.clientX - rect.left) * scaleX;
+  const my = (e.clientY - rect.top) * scaleX;
+
+  const pts = [{ ref: 'A', p: A }, { ref: 'B', p: B }, { ref: 'C', p: C }];
+  for (const pt of pts) {
+    if (Math.sqrt((mx - pt.p.x) ** 2 + (my - pt.p.y) ** 2) < DRAG_RADIUS) {
+      dragging = pt.ref;
+      return;
+    }
+  }
+});
+
+canvas.addEventListener('mousemove', function(e) {
+  if (!dragging) return;
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = W / rect.width;
+  const mx = Math.max(20, Math.min(W - 20, (e.clientX - rect.left) * scaleX));
+  const my = Math.max(20, Math.min(H - 20, (e.clientY - rect.top) * scaleX));
+
+  if (dragging === 'A') { A.x = mx; A.y = my; }
+  else if (dragging === 'B') { B.x = mx; B.y = my; }
+  else if (dragging === 'C') { C.x = mx; C.y = my; }
+  update();
+});
+
+canvas.addEventListener('mouseup', function() { dragging = null; });
+canvas.addEventListener('mouseleave', function() { dragging = null; });
+
+// Touch support
+canvas.addEventListener('touchstart', function(e) {
+  e.preventDefault();
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = W / rect.width;
+  const touch = e.touches[0];
+  const mx = (touch.clientX - rect.left) * scaleX;
+  const my = (touch.clientY - rect.top) * scaleX;
+
+  const pts = [{ ref: 'A', p: A }, { ref: 'B', p: B }, { ref: 'C', p: C }];
+  for (const pt of pts) {
+    if (Math.sqrt((mx - pt.p.x) ** 2 + (my - pt.p.y) ** 2) < DRAG_RADIUS * 1.5) {
+      dragging = pt.ref;
+      return;
+    }
+  }
+}, { passive: false });
+
+canvas.addEventListener('touchmove', function(e) {
+  e.preventDefault();
+  if (!dragging) return;
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = W / rect.width;
+  const touch = e.touches[0];
+  const mx = Math.max(20, Math.min(W - 20, (touch.clientX - rect.left) * scaleX));
+  const my = Math.max(20, Math.min(H - 20, (touch.clientY - rect.top) * scaleX));
+
+  if (dragging === 'A') { A.x = mx; A.y = my; }
+  else if (dragging === 'B') { B.x = mx; B.y = my; }
+  else if (dragging === 'C') { C.x = mx; C.y = my; }
+  update();
+}, { passive: false });
+
+canvas.addEventListener('touchend', function() { dragging = null; });
+
+// Application calculation
+function calcApp() {
+  const mes = parseFloat(document.getElementById('appMes').value) || 0;
+  const scale = parseInt(document.getElementById('appScale').value);
+  const real = mes * scale;
+  const result = document.getElementById('appResult');
+  result.innerHTML = mes + ' cm sur le plan &times; ' + scale + ' = <strong>' + real + ' cm</strong> soit <strong>' + (real / 100).toFixed(2) + ' m</strong> en dimension reelle';
+  result.classList.add('visible');
+}
+
+// Init MathJax
+window.addEventListener('load', function() {
+  if (window.MathJax && MathJax.typeset) {
+    MathJax.typeset();
+  }
+});
+
+update();
+</script>
+</body>
+</html>

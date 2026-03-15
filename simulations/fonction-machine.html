@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>La Machine à Fonctions</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f4f9;color:#333;padding:20px;min-height:100vh}
+.container{max-width:860px;margin:0 auto}
+header{background:linear-gradient(135deg,#1976d2,#1565c0);color:#fff;padding:25px 20px 20px;border-radius:10px 10px 0 0;position:relative;text-align:center}
+header h1{font-size:1.6em;margin-bottom:4px}
+header p{opacity:.85;font-size:.95em}
+.btn-back{position:absolute;left:15px;top:15px;background:rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:5px 12px;border-radius:5px;font-size:.85em;transition:background .2s}
+.btn-back:hover{background:rgba(255,255,255,.35)}
+.card{background:#fff;border-radius:0 0 10px 10px;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:25px;margin-bottom:20px}
+.section-title{font-size:1.1em;font-weight:700;color:#1976d2;margin:20px 0 10px;padding-bottom:6px;border-bottom:2px solid #e3f2fd}
+.control-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.control-row label{font-weight:600;min-width:100px}
+select,input[type=number]{padding:8px 12px;border:2px solid #ccc;border-radius:6px;font-size:1em;font-family:inherit}
+select:focus,input[type=number]:focus{border-color:#1976d2;outline:none}
+select{min-width:180px}
+button{background:#1976d2;color:#fff;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-size:1em;font-weight:600;transition:all .2s}
+button:hover{background:#1565c0}
+button.secondary{background:#757575}
+button.secondary:hover{background:#616161}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{border:1px solid #e0e0e0;padding:8px 12px;text-align:center;font-size:.95em}
+th{background:#e3f2fd;color:#1976d2;font-weight:600}
+.chart-container{position:relative;width:100%;margin:15px auto}
+.machine-area{position:relative;margin:15px auto;width:100%;max-width:600px}
+canvas#machineCanvas{display:block;width:100%;border-radius:8px;background:#fafafa;border:1px solid #e0e0e0}
+.result-display{text-align:center;margin:10px 0;font-size:1.3em;min-height:40px}
+.result-display .fx{background:#e3f2fd;padding:6px 20px;border-radius:8px;display:inline-block;font-weight:700;color:#1976d2}
+.check-box{background:#f5f5f5;border-radius:8px;padding:15px;margin-top:10px}
+.check-box input[type=number]{width:80px;text-align:center}
+.result{margin-top:10px;padding:10px 15px;border-radius:6px;font-weight:600}
+.result.ok{background:#e8f5e9;color:#2e7d32}
+.result.info{background:#e3f2fd;color:#1565c0}
+.formula-display{background:linear-gradient(135deg,#e3f2fd,#bbdefb);padding:15px;border-radius:8px;text-align:center;font-size:1.2em;font-weight:700;color:#1565c0;margin:10px 0}
+.custom-inputs{display:none;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.custom-inputs.show{display:flex}
+.custom-inputs label{font-size:.9em}
+.custom-inputs input{width:60px;text-align:center}
+@media(max-width:600px){
+  .grid2{grid-template-columns:1fr}
+  .control-row{flex-direction:column;align-items:flex-start}
+  header h1{font-size:1.3em}
+  select{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <a href="../simulations.html" class="btn-back">← Retour</a>
+  <h1>La Machine a Fonctions</h1>
+  <p>2nde Bac Pro · Ch07 · f(x) = ?</p>
+</header>
+<div class="card">
+
+<div class="section-title">Choisir la fonction</div>
+<div class="control-row">
+  <label>f(x) =</label>
+  <select id="func-select" onchange="onFuncChange()">
+    <option value="2x+3">2x + 3</option>
+    <option value="x2">x²</option>
+    <option value="3x-1">3x − 1</option>
+    <option value="-x+5">−x + 5</option>
+    <option value="custom">Personnalisée : ax + b</option>
+  </select>
+</div>
+<div class="custom-inputs" id="custom-inputs">
+  <label>a =</label><input type="number" id="custom-a" value="2" step="0.5" onchange="updateAll()">
+  <label>b =</label><input type="number" id="custom-b" value="3" step="0.5" onchange="updateAll()">
+  <span style="color:#888;font-size:.85em">→ f(x) = ax + b</span>
+</div>
+
+<div class="formula-display" id="formula-display">f(x) = 2x + 3</div>
+
+<div class="section-title">Calculer f(x)</div>
+<div class="control-row">
+  <label>x =</label>
+  <input type="number" id="input-x" value="4" step="0.5" style="width:80px">
+  <button onclick="calculate()">Calculer f(x)</button>
+  <button class="secondary" onclick="clearTable()">Effacer le tableau</button>
+</div>
+
+<!-- Machine visualization -->
+<div class="machine-area">
+  <canvas id="machineCanvas" width="600" height="180"></canvas>
+</div>
+<div class="result-display" id="result-display"></div>
+
+<div class="grid2">
+  <div>
+    <div class="section-title">Tableau de valeurs</div>
+    <table id="value-table">
+      <thead><tr><th>x</th><th>f(x)</th></tr></thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+  <div>
+    <div class="section-title">Représentation graphique</div>
+    <div class="chart-container">
+      <canvas id="chartFunc"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">Rechercher un antécédent</div>
+<div class="check-box">
+  <p style="margin-bottom:10px">Pour quelle valeur de x a-t-on f(x) = <strong>y</strong> ?</p>
+  <div class="control-row">
+    <label>f(x) =</label>
+    <input type="number" id="ante-y" value="7" step="0.5" style="width:80px">
+    <button onclick="findAntecedent()">Chercher x</button>
+  </div>
+  <div class="result info" id="ante-result" style="display:none"></div>
+</div>
+
+</div>
+</div>
+
+<script>
+const funcs={
+  '2x+3':{f:x=>2*x+3,label:'f(x) = 2x + 3',display:'2x + 3',inverse:y=>(y-3)/2,invLabel:'x = (y − 3) / 2'},
+  'x2':{f:x=>x*x,label:'f(x) = x²',display:'x²',inverse:null,invLabel:null},
+  '3x-1':{f:x=>3*x-1,label:'f(x) = 3x − 1',display:'3x − 1',inverse:y=>(y+1)/3,invLabel:'x = (y + 1) / 3'},
+  '-x+5':{f:x=>-x+5,label:'f(x) = −x + 5',display:'−x + 5',inverse:y=>5-y,invLabel:'x = 5 − y'},
+};
+
+let tableData=[];
+let chartFunc=null;
+let animId=null;
+
+function getFunc(){
+  const sel=document.getElementById('func-select').value;
+  if(sel==='custom'){
+    const a=parseFloat(document.getElementById('custom-a').value)||0;
+    const b=parseFloat(document.getElementById('custom-b').value)||0;
+    const sign=b>=0?' + ':' − ';
+    const bAbs=Math.abs(b);
+    const label='f(x) = '+a+'x'+(b!==0?sign+bAbs:'');
+    return{f:x=>a*x+b,label,display:a+'x'+(b!==0?sign+bAbs:''),inverse:a!==0?(y=>(y-b)/a):null,invLabel:a!==0?'x = (y − '+b+') / '+a:null};
+  }
+  return funcs[sel];
+}
+
+function onFuncChange(){
+  const sel=document.getElementById('func-select').value;
+  document.getElementById('custom-inputs').classList.toggle('show',sel==='custom');
+  updateAll();
+}
+
+function updateAll(){
+  const fn=getFunc();
+  document.getElementById('formula-display').textContent=fn.label;
+  drawMachine(null,null);
+  document.getElementById('result-display').innerHTML='';
+  updateChart();
+}
+
+/* ── Machine drawing ── */
+function drawMachine(inputX,outputY){
+  const c=document.getElementById('machineCanvas');
+  const ctx=c.getContext('2d');
+  const W=600,H=180;
+  c.width=W;c.height=H;
+  ctx.clearRect(0,0,W,H);
+
+  // input arrow
+  ctx.fillStyle='#e3f2fd';ctx.strokeStyle='#1976d2';ctx.lineWidth=2;
+  // left pipe
+  ctx.fillStyle='#bbdefb';
+  ctx.fillRect(30,70,120,40);
+  ctx.strokeRect(30,70,120,40);
+  // arrow head into machine
+  ctx.fillStyle='#1976d2';
+  ctx.beginPath();ctx.moveTo(140,60);ctx.lineTo(160,90);ctx.lineTo(140,120);ctx.closePath();ctx.fill();
+
+  // machine body
+  const mx=160,my=25,mw=250,mh=130;
+  ctx.fillStyle='#1976d2';
+  roundRect(ctx,mx,my,mw,mh,15,true);
+  ctx.fillStyle='#fff';ctx.font='bold 18px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  const fn=getFunc();
+  ctx.fillText(fn.display,mx+mw/2,my+mh/2-12);
+  // gears
+  drawGear(ctx,mx+40,my+mh-30,14);
+  drawGear(ctx,mx+mw-40,my+30,12);
+  ctx.fillStyle='rgba(255,255,255,.6)';ctx.font='12px sans-serif';
+  ctx.fillText('MACHINE',mx+mw/2,my+mh/2+18);
+
+  // right arrow out
+  ctx.fillStyle='#1976d2';
+  ctx.beginPath();ctx.moveTo(410,60);ctx.lineTo(430,90);ctx.lineTo(410,120);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#c8e6c9';ctx.strokeStyle='#2e7d32';ctx.lineWidth=2;
+  ctx.fillRect(430,70,120,40);ctx.strokeRect(430,70,120,40);
+
+  // input value
+  if(inputX!==null){
+    ctx.fillStyle='#1565c0';ctx.font='bold 20px sans-serif';ctx.textAlign='center';
+    ctx.fillText('x = '+inputX,90,95);
+  }else{
+    ctx.fillStyle='#90caf9';ctx.font='16px sans-serif';ctx.textAlign='center';
+    ctx.fillText('x → ',90,95);
+  }
+  // output value
+  if(outputY!==null){
+    ctx.fillStyle='#2e7d32';ctx.font='bold 20px sans-serif';ctx.textAlign='center';
+    ctx.fillText(outputY,490,95);
+  }else{
+    ctx.fillStyle='#a5d6a7';ctx.font='16px sans-serif';ctx.textAlign='center';
+    ctx.fillText('→ f(x)',490,95);
+  }
+}
+
+function roundRect(ctx,x,y,w,h,r,fill){
+  ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();
+  if(fill)ctx.fill();ctx.stroke();
+}
+
+function drawGear(ctx,cx,cy,r){
+  ctx.save();ctx.strokeStyle='rgba(255,255,255,.4)';ctx.lineWidth=1.5;
+  const teeth=8;
+  ctx.beginPath();
+  for(let i=0;i<teeth;i++){
+    const a=i/teeth*Math.PI*2;
+    const a2=(i+0.5)/teeth*Math.PI*2;
+    ctx.lineTo(cx+Math.cos(a)*(r+4),cy+Math.sin(a)*(r+4));
+    ctx.lineTo(cx+Math.cos((a+a2)/2)*r,cy+Math.sin((a+a2)/2)*r);
+  }
+  ctx.closePath();ctx.stroke();
+  ctx.beginPath();ctx.arc(cx,cy,r*0.4,0,Math.PI*2);ctx.stroke();
+  ctx.restore();
+}
+
+/* ── Calculate ── */
+async function calculate(){
+  const x=parseFloat(document.getElementById('input-x').value);
+  if(isNaN(x))return;
+  const fn=getFunc();
+
+  // animate
+  drawMachine(x,null);
+  await sleep(300);
+  const y=fn.f(x);
+  const yStr=Number.isInteger(y)?y.toString():y.toFixed(2);
+  drawMachine(x,yStr);
+
+  document.getElementById('result-display').innerHTML='<span class="fx">f('+x+') = '+yStr+'</span>';
+
+  // add to table (avoid duplicates)
+  if(!tableData.find(d=>d.x===x)){
+    tableData.push({x,y});
+    tableData.sort((a,b)=>a.x-b.x);
+    if(tableData.length>10)tableData.shift();
+    renderTable();
+    updateChart();
+  }
+}
+
+function renderTable(){
+  const tbody=document.getElementById('table-body');
+  tbody.innerHTML='';
+  tableData.forEach(d=>{
+    const yStr=Number.isInteger(d.y)?d.y:d.y.toFixed(2);
+    tbody.innerHTML+='<tr><td>'+d.x+'</td><td>'+yStr+'</td></tr>';
+  });
+}
+
+function clearTable(){
+  tableData=[];
+  document.getElementById('table-body').innerHTML='';
+  document.getElementById('result-display').innerHTML='';
+  drawMachine(null,null);
+  updateChart();
+}
+
+/* ── Chart ── */
+function updateChart(){
+  const fn=getFunc();
+  // continuous curve
+  const xMin=tableData.length?Math.min(-5,Math.min(...tableData.map(d=>d.x))-2):-5;
+  const xMax=tableData.length?Math.max(5,Math.max(...tableData.map(d=>d.x))+2):5;
+  const curvePts=[];
+  for(let x=xMin;x<=xMax;x+=0.2){curvePts.push({x,y:fn.f(x)});}
+
+  const datasets=[
+    {label:fn.label,data:curvePts,showLine:true,borderColor:'#1976d2',backgroundColor:'rgba(25,118,210,.05)',fill:false,pointRadius:0,borderWidth:2,tension:0.1,order:2},
+  ];
+  if(tableData.length){
+    datasets.push({label:'Points calculés',data:tableData.map(d=>({x:d.x,y:d.y})),showLine:false,borderColor:'#e65100',backgroundColor:'#e65100',pointRadius:6,pointStyle:'circle',order:1});
+  }
+
+  if(chartFunc)chartFunc.destroy();
+  chartFunc=new Chart(document.getElementById('chartFunc'),{
+    type:'scatter',
+    data:{datasets},
+    options:{
+      responsive:true,
+      plugins:{legend:{position:'top',labels:{font:{size:11}}}},
+      scales:{
+        x:{title:{display:true,text:'x'},grid:{color:'#eee'}},
+        y:{title:{display:true,text:'f(x)'},grid:{color:'#eee'}}
+      }
+    }
+  });
+}
+
+/* ── Antecedent ── */
+function findAntecedent(){
+  const yTarget=parseFloat(document.getElementById('ante-y').value);
+  const el=document.getElementById('ante-result');
+  el.style.display='block';
+  if(isNaN(yTarget)){el.className='result info';el.textContent='Entrez une valeur valide.';return;}
+
+  const fn=getFunc();
+  const sel=document.getElementById('func-select').value;
+
+  if(sel==='x2'){
+    // quadratic
+    if(yTarget<0){
+      el.className='result info';el.innerHTML='Aucun antécédent : x² est toujours positif, donc f(x) = '+yTarget+' n\'a pas de solution.';
+    }else if(yTarget===0){
+      el.className='result ok';el.innerHTML='f(x) = 0 → <strong>x = 0</strong>';
+      highlightAntecedent(0,yTarget);
+    }else{
+      const x1=Math.sqrt(yTarget);
+      const x2=-Math.sqrt(yTarget);
+      el.className='result ok';
+      el.innerHTML='f(x) = '+yTarget+' → x² = '+yTarget+'<br><strong>x = '+x1.toFixed(3)+' ou x = '+x2.toFixed(3)+'</strong> (deux antécédents)';
+      highlightAntecedent(x1,yTarget);
+    }
+    return;
+  }
+
+  // linear: use inverse
+  if(fn.inverse){
+    const xSol=fn.inverse(yTarget);
+    const xStr=Number.isInteger(xSol)?xSol:xSol.toFixed(3);
+    el.className='result ok';
+    el.innerHTML='f(x) = '+yTarget+' → '+fn.invLabel.replace('y',yTarget)+'<br><strong>x = '+xStr+'</strong>';
+    highlightAntecedent(xSol,yTarget);
+  }else{
+    el.className='result info';el.textContent='Calcul inverse non disponible pour cette fonction.';
+  }
+}
+
+function highlightAntecedent(xSol,yTarget){
+  // add horizontal and vertical guide lines to chart
+  const fn=getFunc();
+  const xMin=Math.min(-5,xSol-3);
+  const xMax=Math.max(5,xSol+3);
+  const curvePts=[];
+  for(let x=xMin;x<=xMax;x+=0.2)curvePts.push({x,y:fn.f(x)});
+
+  const datasets=[
+    {label:fn.label,data:curvePts,showLine:true,borderColor:'#1976d2',backgroundColor:'rgba(25,118,210,.05)',fill:false,pointRadius:0,borderWidth:2,tension:0.1,order:3},
+  ];
+  if(tableData.length){
+    datasets.push({label:'Points calculés',data:tableData.map(d=>({x:d.x,y:d.y})),showLine:false,borderColor:'#e65100',backgroundColor:'#e65100',pointRadius:6,order:2});
+  }
+  // horizontal line at y=yTarget
+  datasets.push({label:'y = '+yTarget,data:[{x:xMin,y:yTarget},{x:xSol,y:yTarget}],showLine:true,borderColor:'#2e7d32',borderWidth:2,borderDash:[6,3],pointRadius:0,fill:false,order:1});
+  // vertical line down
+  datasets.push({label:'x = '+xSol.toFixed(2),data:[{x:xSol,y:yTarget},{x:xSol,y:0}],showLine:true,borderColor:'#e65100',borderWidth:2,borderDash:[6,3],pointRadius:0,fill:false,order:1});
+  // intersection point
+  datasets.push({label:'Antécédent',data:[{x:xSol,y:yTarget}],showLine:false,borderColor:'#d32f2f',backgroundColor:'#d32f2f',pointRadius:8,pointStyle:'crossRot',order:0});
+
+  if(chartFunc)chartFunc.destroy();
+  chartFunc=new Chart(document.getElementById('chartFunc'),{
+    type:'scatter',
+    data:{datasets},
+    options:{
+      responsive:true,
+      plugins:{legend:{position:'top',labels:{font:{size:10}}}},
+      scales:{
+        x:{title:{display:true,text:'x'},grid:{color:'#eee'}},
+        y:{title:{display:true,text:'f(x)'},grid:{color:'#eee'}}
+      }
+    }
+  });
+}
+
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+
+// init
+drawMachine(null,null);
+updateChart();
+</script>
+</body>
+</html>
