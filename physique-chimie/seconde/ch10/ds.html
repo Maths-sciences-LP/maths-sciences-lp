@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch10 – &Eacute;clairement et photocomposants – 2de Bac Pro</title>
+<title>DS Ch10 – Température et capteurs thermiques – 2de Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
@@ -16,6 +16,7 @@
 .partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
 .pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
 .answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.answer-box{border:1px dashed #aaa;border-radius:6px;min-height:60px;margin:8px 0;padding:6px}
 .bareme{font-style:italic;color:#718096;font-size:.85em}
 .comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
 .comp-app{background:#dbeafe;color:#1d4ed8}
@@ -25,7 +26,11 @@
 .comp-com{background:#cffafe;color:#0e7490}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
-@media print{.nb,.bc{display:none}}</style>
+.ds-title{background:var(--p-bg);border:2px solid var(--p-border);border-radius:10px;padding:16px 22px;margin-bottom:20px;text-align:center}
+.ds-title h2{margin:0 0 4px;color:var(--p);font-size:1.3em}
+.ds-title p{margin:0;font-size:.9em;color:#4a5568}
+.aide{background:#fffbeb;border:1px solid #f59e0b;border-radius:6px;padding:10px 14px;margin:8px 0;font-size:.9em}
+@media print{.nb,.bc,.diff-selector{display:none}}</style>
 </head>
 <body>
 <div class="c">
@@ -33,7 +38,7 @@
 
 <header>
   <h1>Devoir Surveill&eacute; &ndash; Chapitre 10</h1>
-  <p class="sous-titre">&Eacute;clairement et photocomposants &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+  <p class="sous-titre">Temp&eacute;rature et capteurs thermiques &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
 </header>
 
 <div class="dh">
@@ -51,92 +56,382 @@
   <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
 
-<!-- ===== PARTIE A ===== -->
+
+<!-- ================================================================
+     DS NIVEAU SOCLE
+     ================================================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<div class="ds-title">
+  <h2>Devoir Surveill&eacute; &ndash; Niveau Socle</h2>
+  <p>Temp&eacute;rature et capteurs thermiques &nbsp;|&nbsp; Questions guid&eacute;es &agrave; compl&eacute;ter</p>
+</div>
+
+<!-- PARTIE A -->
 <div class="partie">
   <div class="partie-header">
-    <span class="partie-title">Partie A &ndash; &Eacute;clairement et flux</span>
+    <span class="partie-title">Partie A &ndash; Conversions de temp&eacute;rature</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Compl&eacute;ter la formule de conversion :<br>
+    <strong>T (K) = T (°C) + &hellip;&hellip;&hellip;</strong>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Un menuisier r&egrave;gle son &eacute;tuve &agrave; <strong>T = 80 °C</strong>.<br>
+    Calculer la temp&eacute;rature en Kelvin :<br>
+    <div class="aide">Aide : T(K) = 80 + &hellip;&hellip; = &hellip;&hellip; K</div>
+    T(K) = &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Un four de vernissage atteint <strong>T = 623 K</strong>. Convertir en °C :<br>
+    <div class="aide">Aide : T(°C) = T(K) − 273 = 623 − 273 = &hellip;&hellip; °C</div>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    Relier chaque valeur &agrave; sa description : (tracer les fl&egrave;ches)<br>
+    <table>
+      <tr><td>0 K</td><td></td><td>Temp&eacute;rature ambiante normale</td></tr>
+      <tr><td>293 K</td><td></td><td>Z&eacute;ro absolu (−273 °C)</td></tr>
+      <tr><td>373 K</td><td></td><td>Temp&eacute;rature d'&eacute;bullition de l'eau</td></tr>
+    </table>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> T (K) = T (°C) + <strong>273</strong></p>
+    <p><strong>2.</strong> T(K) = 80 + 273 = <strong>353 K</strong></p>
+    <p><strong>3.</strong> T(°C) = 623 − 273 = <strong>350 °C</strong></p>
+    <p><strong>4.</strong> 0 K ↔ Zéro absolu | 293 K ↔ Température ambiante | 373 K ↔ Ébullition de l'eau</p>
+  </div>
+</div>
+
+<!-- PARTIE B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; CTN : caract&eacute;ristique et lecture</span>
+    <span class="pts">12 pts</span>
+  </div>
+
+  <p>Voici le tableau de la CTN d'une sonde d'&eacute;tuve de s&eacute;chage :</p>
+  <table>
+    <tr><th>T (°C)</th><th>20</th><th>40</th><th>60</th><th>80</th><th>100</th></tr>
+    <tr><th>R (k&Omega;)</th><td>10</td><td>6</td><td>3,5</td><td>2</td><td>0,8</td></tr>
+  </table>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span> <span class="bareme">(3 pts)</span>
+    Que signifie le sigle <strong>CTN</strong> ? Compl&eacute;ter :<br>
+    C = &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;<br>
+    T = &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;<br>
+    N = &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;<br>
+    <div class="aide">Aide : Quand T augmente, la r&eacute;sistance R &hellip;&hellip;&hellip;&hellip; (augmente / diminue)</div>
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span> <span class="bareme">(3 pts)</span>
+    Lire dans le tableau : &agrave; T = 60 °C, R = &hellip;&hellip; k&Omega;<br>
+    &agrave; T = 80 °C, R = &hellip;&hellip; k&Omega;<br>
+    Est-ce que R diminue bien quand T augmente ? &hellip;&hellip; (oui / non)
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span> <span class="bareme">(3 pts)</span>
+    Le r&eacute;gulateur de l'&eacute;tuve compare R &agrave; une valeur seuil de 5 k&Omega;.<br>
+    D'apr&egrave;s le tableau, &agrave; quelle temp&eacute;rature R = 5 k&Omega; environ ?<br>
+    <div class="aide">Aide : R = 6 k&Omega; &agrave; 40 °C et R = 3,5 k&Omega; &agrave; 60 °C. 5 k&Omega; se situe entre ces deux valeurs.</div>
+    T ≈ &hellip;&hellip;&hellip;&hellip; °C
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-com">COM</span> <span class="bareme">(3 pts)</span>
+    Un technicien mesure R = 10 k&Omega; sur la sonde d'&eacute;tuve.<br>
+    D'apr&egrave;s le tableau, &agrave; quelle temp&eacute;rature cela correspond ? &hellip;&hellip;&hellip; °C<br>
+    Le chauffage doit-il &ecirc;tre ON ou OFF pour atteindre 80 °C ? &hellip;&hellip;&hellip;<br>
+    Justifier en une phrase : &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;
+  </div>
+  <div class="answer-box"></div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> CTN = <strong>Coefficient de Température Négatif</strong>. Quand T augmente, R <strong>diminue</strong>.</p>
+    <p><strong>2.</strong> À 60 °C, R = <strong>3,5 kΩ</strong> ; à 80 °C, R = <strong>2 kΩ</strong>. Oui, R diminue bien quand T augmente.</p>
+    <p><strong>3.</strong> R = 5 kΩ se situe entre 40 °C (R = 6) et 60 °C (R = 3,5) → T ≈ <strong>47–50 °C</strong> environ.</p>
+    <p><strong>4.</strong> R = 10 kΩ → T = <strong>20 °C</strong>. Le chauffage doit être <strong>ON</strong> car la température réelle (20 °C) est très inférieure à la consigne (80 °C).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ================================================================
+     DS NIVEAU STANDARD (original, restructuré)
+     ================================================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<div class="ds-title">
+  <h2>Devoir Surveill&eacute; &ndash; Niveau Standard</h2>
+  <p>Temp&eacute;rature et capteurs thermiques &nbsp;|&nbsp; Probl&egrave;mes de programme</p>
+</div>
+
+<!-- PARTIE A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; &Eacute;clairement, flux et capteurs</span>
     <span class="pts">10 pts</span>
   </div>
   <p class="bareme">2 pts par question.</p>
 
   <div class="q">
     <strong>1.</strong> <span class="comp comp-app">APP</span>
-    Donner la formule reliant l'&eacute;clairement \(E\), le flux lumineux \(\Phi\) et la surface \(S\).
-  </div>
-  <span class="answer-line"></span>
-
-  <div class="q">
-    <strong>2.</strong> <span class="comp comp-rea">REA</span>
-    Calculer l'&eacute;clairement re&ccedil;u si \(\Phi = 600\;\text{lm}\) sur \(S = 3\;\text{m}^2\).
-  </div>
-  <span class="answer-line"></span>
-
-  <div class="q">
-    <strong>3.</strong> <span class="comp comp-rea">REA</span>
-    Calculer \(S\) si \(\Phi = 1\,500\;\text{lm}\) et \(E = 250\;\text{lx}\).
-  </div>
-  <span class="answer-line"></span>
-
-  <div class="q">
-    <strong>4.</strong> <span class="comp comp-app">APP</span>
-    Quelle est l'unit&eacute; du flux lumineux ? De l'&eacute;clairement ?
-  </div>
-  <span class="answer-line"></span>
-
-  <div class="q">
-    <strong>5.</strong> <span class="comp comp-com">COM</span>
-    Citer un avantage des LED par rapport aux ampoules &agrave; incandescence.
-  </div>
-  <span class="answer-line"></span>
-
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> \(E = \dfrac{\Phi}{S}\)</p>
-    <p><strong>2.</strong> \(E = \dfrac{600}{3} = 200\;\text{lx}\)</p>
-    <p><strong>3.</strong> \(S = \dfrac{\Phi}{E} = \dfrac{1\,500}{250} = 6\;\text{m}^2\)</p>
-    <p><strong>4.</strong> Le flux lumineux s'exprime en lumen (lm) ; l'&eacute;clairement s'exprime en lux (lx).</p>
-    <p><strong>5.</strong> Meilleur rendement &eacute;nerg&eacute;tique, dur&eacute;e de vie plus longue, consommation &eacute;lectrique r&eacute;duite.</p>
-  </div>
-</div>
-
-<!-- ===== PARTIE B ===== -->
-<div class="partie">
-  <div class="partie-header">
-    <span class="partie-title">Partie B &ndash; Photocomposants</span>
-    <span class="pts">10 pts</span>
-  </div>
-
-  <div class="q">
-    <strong>1.</strong> <span class="comp comp-com">COM</span>
-    <span class="bareme">(3 pts)</span>
-    D&eacute;crire le principe de fonctionnement d'une photor&eacute;sistance.
+    Qu'est-ce qu'une CTN ? D&eacute;crire son comportement &eacute;lectrique quand la temp&eacute;rature augmente.
   </div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <div class="q">
     <strong>2.</strong> <span class="comp comp-app">APP</span>
-    <span class="bareme">(3 pts)</span>
-    Citer un exemple d'application pratique d'une photor&eacute;sistance.
+    Donner la formule de conversion entre Celsius et Kelvin. Convertir T = 87 °C en Kelvin.
   </div>
   <span class="answer-line"></span>
 
   <div class="q">
-    <strong>3.</strong> <span class="comp comp-ana">ANA</span> <span class="comp comp-rea">REA</span>
-    <span class="bareme">(4 pts)</span>
-    Comparer : ampoule A (800 lm, 75 W) et LED B (800 lm, 9 W). Ont-elles le m&ecirc;me flux lumineux ? Calculer l'&eacute;conomie d'&eacute;nergie en %.
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    La CTN d'une sonde d'&eacute;tuve de s&eacute;chage a les valeurs : R(20 °C) = 10 k&Omega; et R(87 °C) = 2,5 k&Omega;.<br>
+    Calculer \( \Delta R = R(20°\text{C}) - R(87°\text{C}) \).
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    Citer un avantage de la CTN par rapport au thermomètre &agrave; liquide pour une sonde d'&eacute;tuve automatis&eacute;e.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-com">COM</span>
+    Pour quelle application faut-il utiliser un thermocouple plut&ocirc;t qu'une CTN ? Justifier.
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> CTN = Coefficient de Température Négatif. Quand T augmente, la résistance R <strong>diminue</strong>. C'est l'inverse d'une résistance métallique classique.</p>
+    <p><strong>2.</strong> \( T(\text{K}) = T(°\text{C}) + 273 \). T = 87 + 273 = <strong>360 K</strong>.</p>
+    <p><strong>3.</strong> \( \Delta R = 10 - 2{,}5 = \mathbf{7{,}5 \text{ k}\Omega} \). R a diminué de 7,5 kΩ → comportement CTN confirmé.</p>
+    <p><strong>4.</strong> La CTN fournit un <strong>signal électrique</strong> (tension/résistance) intégrable dans un circuit de régulation automatique, contrairement au thermomètre à liquide qui ne fournit qu'une lecture visuelle.</p>
+    <p><strong>5.</strong> Pour le four de vernissage (200–900 °C) : seul le <strong>thermocouple</strong> supporte les très hautes températures. La CTN est limitée à ~200 °C maximum.</p>
+  </div>
+</div>
+
+<!-- PARTIE B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Analyse d'un syst&egrave;me de r&eacute;gulation</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <p>Un thermostat d'atelier de menuiserie utilise une CTN. Voici son tableau de caract&eacute;ristiques :</p>
+  <table>
+    <tr><th>T (°C)</th><th>10</th><th>15</th><th>21</th><th>25</th><th>30</th></tr>
+    <tr><th>R (k&Omega;)</th><td>12</td><td>8</td><td>5</td><td>3,5</td><td>2,5</td></tr>
+  </table>
+  <p>La consigne du thermostat est r&eacute;gl&eacute;e &agrave; <strong>21 °C</strong> (R_consigne = 5 k&Omega;).</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-com">COM</span>
+    <span class="bareme">(3 pts)</span>
+    D&eacute;crire le comportement de la CTN : que se passe-t-il &agrave; R quand T augmente de 10 °C &agrave; 30 °C ? Commenter le sens de variation.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span>
+    <span class="bareme">(3 pts)</span>
+    Le r&eacute;gulateur lit R_mesur&eacute;e = 10 k&Omega;. D'apr&egrave;s le tableau, quelle est la temp&eacute;rature r&eacute;elle dans l'atelier ? La temp&eacute;rature r&eacute;elle est-elle sup&eacute;rieure ou inf&eacute;rieure &agrave; la consigne ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(2 pts)</span>
+    Le syst&egrave;me de chauffage doit-il se mettre en marche (ON) ou rester &agrave; l'arr&ecirc;t (OFF) ? Justifier.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span>
+    <span class="bareme">(2 pts)</span>
+    Si R_mesur&eacute;e = 2,5 k&Omega;, quelle temp&eacute;rature est mesur&eacute;e ? Que fait le r&eacute;gulateur ? Justifier.
   </div>
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Une photor&eacute;sistance (LDR) est un composant semi-conducteur dont la r&eacute;sistance diminue lorsque l'&eacute;clairement augmente. Plus elle re&ccedil;oit de lumi&egrave;re, plus elle laisse passer le courant.</p>
-    <p><strong>2.</strong> Allumage automatique des lampadaires, capteur de luminosit&eacute; de smartphone, alarme anti-effraction.</p>
-    <p><strong>3.</strong> Oui, m&ecirc;me flux lumineux (800 lm).
-    <br>&Eacute;conomie : \(\dfrac{75 - 9}{75} \times 100 = 88\;\%\) d'&eacute;nergie &eacute;conomis&eacute;e avec la LED.</p>
+    <p><strong>1.</strong> R passe de 12 kΩ (10 °C) à 2,5 kΩ (30 °C) : R <strong>diminue</strong> quand T augmente. C'est le comportement attendu d'une CTN (Coefficient de Température Négatif).</p>
+    <p><strong>2.</strong> R = 10 kΩ est supérieure à 12 kΩ (valeur à 10 °C) → T réelle &lt; 10 °C, environ <strong>7–8 °C</strong>. T_réelle &lt; T_consigne (21 °C).</p>
+    <p><strong>3.</strong> Le chauffage doit se mettre <strong>ON</strong> : la température est trop basse par rapport à la consigne. Le régulateur active l'aérotherme ou la résistance chauffante.</p>
+    <p><strong>4.</strong> R = 2,5 kΩ → T = <strong>30 °C</strong> &gt; 21 °C → le régulateur coupe le chauffage (<strong>OFF</strong>) car l'atelier est trop chaud.</p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+
+<!-- ================================================================
+     DS NIVEAU APPROFONDISSEMENT
+     ================================================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<div class="ds-title">
+  <h2>Devoir Surveill&eacute; &ndash; Niveau Approfondissement</h2>
+  <p>Temp&eacute;rature et capteurs thermiques &nbsp;|&nbsp; Probl&egrave;mes de diagnostic &ndash; type BTS</p>
+</div>
+
+<!-- PARTIE A -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Analyse compl&egrave;te d'un syst&egrave;me CTN</span>
+    <span class="pts">10 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <p>Un syst&egrave;me de r&eacute;gulation de s&eacute;chage du bois utilise une CTN avec le tableau suivant :</p>
+  <table>
+    <tr><th>T (°C)</th><th>20</th><th>50</th><th>70</th><th>87</th><th>100</th></tr>
+    <tr><th>R (k&Omega;)</th><td>10</td><td>4</td><td>3</td><td>2,5</td><td>0,8</td></tr>
+  </table>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Convertir T = 87 °C et T = 100 °C en Kelvin. Calculer la diff&eacute;rence de temp&eacute;rature \(\Delta T\) entre ces deux valeurs en K et en °C.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span>
+    Entre T = 87 °C et T = 100 °C, calculer la variation de r&eacute;sistance \(\Delta R\). Calculer le rapport \(\Delta R / \Delta T\) en k&Omega;/°C. Commenter : la CTN est-elle plus sensible aux basses ou aux hautes temp&eacute;ratures ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Le r&eacute;gulateur fixe le seuil de d&eacute;clenchement de la ventilation &agrave; R_seuil = 3 k&Omega;. D'apr&egrave;s le tableau, &agrave; quelle temp&eacute;rature correspond ce seuil ? La ventilation est-elle active si T = 50 °C ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span>
+    Un technicien mesure R = 1,2 k&Omega; &agrave; la sonde. D'apr&egrave;s le tableau (interpolation lin&eacute;aire entre 87 °C et 100 °C), estimer la temp&eacute;rature correspondante. L'&eacute;tuve est-elle en situation normale (plage 70–90 °C) ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-com">COM</span>
+    Comparer les trois types de capteurs (thermom&egrave;tre &agrave; liquide, CTN, thermocouple) sur les crit&egrave;res : plage de mesure, signal &eacute;lectrique, robustesse. Conclure sur le choix pour une &eacute;tuve industrielle automatis&eacute;e.
+  </div>
+  <div class="answer-box"></div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> 87 °C → 360 K ; 100 °C → 373 K. \(\Delta T = 373 - 360 = 13 \text{ K} = 13 °\text{C}\).</p>
+    <p><strong>2.</strong> \(\Delta R = R(87) - R(100) = 2{,}5 - 0{,}8 = 1{,}7 \text{ k}\Omega\).<br>
+    \(\Delta R / \Delta T = 1{,}7 / 13 \approx 0{,}13 \text{ k}\Omega/°\text{C}\).<br>
+    Entre 20 °C et 50 °C : \(\Delta R = 10 - 4 = 6 \text{ k}\Omega\) pour 30 °C → 0,20 kΩ/°C. La CTN est donc <strong>plus sensible aux basses températures</strong>.</p>
+    <p><strong>3.</strong> R = 3 kΩ correspond à T = <strong>70 °C</strong> d'après le tableau. À 50 °C, R = 4 kΩ &gt; 3 kΩ → ventilation <strong>non active</strong> (température pas encore atteinte).</p>
+    <p><strong>4.</strong> Interpolation entre 87 °C (R = 2,5 kΩ) et 100 °C (R = 0,8 kΩ) :<br>
+    \(T = 87 + (2{,}5 - 1{,}2) \times \dfrac{100-87}{2{,}5-0{,}8} = 87 + 1{,}3 \times \dfrac{13}{1{,}7} \approx 87 + 9{,}9 \approx \mathbf{97 °C}\)<br>
+    T ≈ 97 °C est en dehors de la plage 70–90 °C → situation <strong>anormale</strong>, légère surchauffe.</p>
+    <p><strong>5.</strong> Thermomètre à liquide : plage 0–100 °C, pas de signal électrique, fragile → inadapté à l'automatisation.<br>
+    CTN : plage 0–200 °C, signal résistif intégrable, peu coûteuse → <strong>meilleur choix pour étuve 0–150 °C automatisée</strong>.<br>
+    Thermocouple : plage −200 à +2000 °C, signal mV, robuste → adapté aux très hautes températures (four de vernissage) mais coûteux.</p>
+  </div>
+</div>
+
+<!-- PARTIE B -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Diagnostic d'une panne de capteur</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <p>Un responsable d'atelier de menuiserie signale que l'&eacute;tuve chauffe en permanence sans s'arr&ecirc;ter, m&ecirc;me lorsque la consigne est atteinte. Le technicien suspecte la sonde CTN.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    <span class="bareme">(2 pts)</span>
+    Rappeler ce que signifie R → ∞ pour le r&eacute;gulateur qui surveille la CTN. Quel &eacute;tat de temp&eacute;rature cela simule-t-il ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span>
+    <span class="bareme">(3 pts)</span>
+    D&eacute;crire les deux d&eacute;fauts possibles (circuit ouvert / court-circuit) et leur effet sur le chauffage. Conclure lequel correspond aux sympt&ocirc;mes observ&eacute;s.
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(3 pts)</span>
+    D&eacute;crire la proc&eacute;dure de diagnostic &agrave; l'ohmmètre (s&eacute;curit&eacute;, mesure, interpr&eacute;tation) en 4 &eacute;tapes num&eacute;rot&eacute;es.
+  </div>
+  <div class="answer-box"></div>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span>
+    <span class="bareme">(2 pts)</span>
+    Apr&egrave;s remplacement de la CTN, le technicien mesure R = 3 k&Omega; alors que T_r&eacute;elle = 68 °C (mesur&eacute;e par thermom&egrave;tre &eacute;talonn&eacute;). En utilisant le tableau de la partie A, v&eacute;rifier si la nouvelle CTN est correctement calibr&eacute;e. L'&eacute;cart est-il acceptable (&lt; ±2 °C) ?
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> R → ∞ : la résistance est très grande. D'après la courbe CTN, R grande = T très basse → le régulateur croit que l'étuve est <strong>très froide</strong> → il maintient le chauffage ON en permanence.</p>
+    <p><strong>2.</strong> Circuit ouvert (fil coupé/débranché) : R → ∞ → T simulée très froide → chauffage ON permanent → surchauffe.<br>
+    Court-circuit (fils qui se touchent) : R = 0 Ω → T simulée très chaude → chauffage OFF permanent → étuve ne chauffe pas.<br>
+    Symptôme "chauffage toujours ON" → <strong>circuit ouvert</strong> le plus probable.</p>
+    <p><strong>3.</strong> Procédure :<br>
+    1. Couper l'alimentation du régulateur (sécurité électrique).<br>
+    2. Débrancher le connecteur de la sonde CTN.<br>
+    3. Mesurer R à l'ohmmètre sur les bornes de la CTN (étuve à température ambiante).<br>
+    4. Comparer R_mesurée à la valeur attendue dans le tableau à T_ambiante : si R → ∞, circuit ouvert confirmé ; si R = 0, court-circuit confirmé.</p>
+    <p><strong>4.</strong> D'après le tableau, R = 3 kΩ → T = 70 °C. T_réelle = 68 °C. Écart = 70 − 68 = <strong>2 °C</strong>. L'écart est à la limite du seuil acceptable (≤ 2 °C) → CTN acceptable mais à surveiller. Un recalibrage ou un remplacement peut être envisagé si l'application est critique.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 
 <script>
 function toggle(btn){
@@ -145,7 +440,8 @@ function toggle(btn){
   else{corr.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-</div>
-<script src="/nav.js"></script>
+</div><!-- fin .c -->
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>
