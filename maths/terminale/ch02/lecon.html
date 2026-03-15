@@ -17,7 +17,6 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 
 .legende-arbre{font-size:.82em;color:#718096;text-align:center;margin-top:6px;font-style:italic}
 .chemin-highlight{background:#fffbeb;border:1.5px solid var(--o);border-radius:6px;padding:10px 14px;margin:8px 0}</style>
-  <link rel="stylesheet" href="/nav.css">
 </head>
 <body>
 <div class="c">
@@ -35,7 +34,7 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
     <li>Représenter une situation aléatoire par un <strong>arbre de probabilités pondéré</strong></li>
     <li>Exploiter un arbre de probabilités pour <strong>calculer des probabilités</strong></li>
     <li>Utiliser la <strong>formule des probabilités totales</strong></li>
-    <li>Calculer une <strong>probabilité conditionnelle</strong> \(P(A|B)\)</li>
+    <li>Calculer une <strong>probabilité conditionnelle</strong> \(P_B(A)\)</li>
     <li>Reconnaître l'<strong>indépendance</strong> de deux événements et appliquer \(P(A \cap B) = P(A) \times P(B)\)</li>
   </ul>
 </div>
@@ -199,7 +198,7 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 <h3>Arbre à deux niveaux — Avec le tableau croisé</h3>
 
 <p>On ajoute maintenant une deuxième information : pour chaque atelier, on sait si le chauffe-eau est défectueux (D) ou conforme (C).</p>
-<p>D'après le tableau : parmi les appareils de A, 6 sur 120 sont défectueux, donc \(P(D|A) = \frac{6}{120} = 0{,}05\). Parmi les appareils de B, 10 sur 80 sont défectueux, donc \(P(D|B) = \frac{10}{80} = 0{,}125\).</p>
+<p>D'après le tableau : parmi les appareils de A, 6 sur 120 sont défectueux, donc \(P_A(D) = \frac{6}{120} = 0{,}05\). Parmi les appareils de B, 10 sur 80 sont défectueux, donc \(P_B(D) = \frac{10}{80} = 0{,}125\).</p>
 
 <div class="svg-wrap">
 <svg viewBox="0 0 720 320" width="700" height="320" font-family="'Segoe UI',sans-serif" font-size="13">
@@ -261,30 +260,30 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 
 <div class="def">
   <span class="label label-def">Définition — Probabilité conditionnelle</span><br>
-  La <strong>probabilité de A sachant B</strong>, notée \(P(A|B)\), est la probabilité que l'événement \(A\) se réalise, <em>sachant que</em> l'événement \(B\) s'est déjà réalisé.
-  \[\boxed{P(A|B) = \frac{P(A \cap B)}{P(B)}} \quad \text{avec } P(B) > 0\]
+  La <strong>probabilité de A sachant B</strong>, notée \(P_B(A)\), est la probabilité que l'événement \(A\) se réalise, <em>sachant que</em> l'événement \(B\) s'est déjà réalisé.
+  \[\boxed{P_B(A) = \frac{P(A \cap B)}{P(B)}} \quad \text{avec } P(B) > 0\]
   On dit aussi : « probabilité de A <em>conditionnellement à</em> B ».
 </div>
 
 <div class="ex">
   <span class="label label-ex">Exemple — D'après le tableau croisé</span>
   <p>On prend un chauffe-eau au hasard. On sait qu'il vient de l'atelier A. Quelle est la probabilité qu'il soit défectueux ?</p>
-  <p>On cherche \(P(D|A)\) = probabilité d'être défectueux, sachant qu'il vient de A.</p>
+  <p>On cherche \(P_A(D)\) = probabilité d'être défectueux, sachant qu'il vient de A.</p>
   <p>On a : \(P(A \cap D) = \dfrac{6}{200} = 0{,}03\) &nbsp;et&nbsp; \(P(A) = \dfrac{120}{200} = 0{,}60\)</p>
-  <p>\(P(D|A) = \dfrac{P(A \cap D)}{P(A)} = \dfrac{0{,}03}{0{,}60} = \mathbf{0{,}05}\)</p>
+  <p>\(P_A(D) = \dfrac{P(A \cap D)}{P(A)} = \dfrac{0{,}03}{0{,}60} = \mathbf{0{,}05}\)</p>
   <p><em>Interprétation : parmi les appareils de l'atelier A, 5 % sont défectueux. On retrouve bien \(\frac{6}{120} = 0{,}05\).</em></p>
 </div>
 
 <div class="prop">
   <span class="label label-prop">Formule des probabilités composées</span><br>
   On déduit de la définition la formule suivante, très utile pour l'arbre :
-  \[\boxed{P(A \cap B) = P(B) \times P(A|B)}\]
+  \[\boxed{P(A \cap B) = P(B) \times P_B(A)}\]
   <em>La probabilité d'un chemin = produit des probabilités des branches.</em>
 </div>
 
 <div class="att">
   <span class="label label-att">Attention</span><br>
-  \(P(A|B)\) est différent de \(P(B|A)\). La probabilité de A sachant B n'est pas la même que la probabilité de B sachant A.
+  \(P_B(A)\) est différent de \(P_A(B)\). La probabilité de A sachant B n'est pas la même que la probabilité de B sachant A.
   <br><em>Exemple : la probabilité d'être malade sachant qu'on a de la fièvre ≠ probabilité d'avoir de la fièvre sachant qu'on est malade.</em>
 </div>
 
@@ -304,7 +303,7 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 
   <p><strong>1. Probabilité que l'appareil vienne de A et soit défectueux :</strong></p>
   <div class="chemin-highlight">
-    Chemin A → D : \(P(A \cap D) = P(A) \times P(D|A) = 0{,}60 \times 0{,}05 = \mathbf{0{,}030}\)
+    Chemin A → D : \(P(A \cap D) = P(A) \times P_A(D) = 0{,}60 \times 0{,}05 = \mathbf{0{,}030}\)
   </div>
 
   <p><strong>2. Probabilité que l'appareil soit défectueux (quelle que soit son origine) :</strong></p>
@@ -328,13 +327,13 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 <div class="prop">
   <span class="label label-prop">Formule des probabilités totales</span><br>
   Si \(B\) et \(\bar{B}\) sont deux événements contraires (ils couvrent tous les cas possibles) :
-  \[\boxed{P(A) = P(B) \times P(A|B) + P(\bar{B}) \times P(A|\bar{B})}\]
+  \[\boxed{P(A) = P(B) \times P_B(A) + P(\bar{B}) \times P_{\bar{B}}(A)}\]
   <p>On peut aussi écrire : \(P(A) = P(A \cap B) + P(A \cap \bar{B})\)</p>
   <p><em>Sur l'arbre : on identifie tous les chemins qui aboutissent à A, on calcule chaque produit, puis on additionne.</em></p>
 </div>
 
 <div class="formule-box">
-  \(P(A) = P(B) \times P(A|B) + P(\bar{B}) \times P(A|\bar{B})\)
+  \(P(A) = P(B) \times P_B(A) + P(\bar{B}) \times P_{\bar{B}}(A)\)
   <small>Multiplier sur chaque chemin → Additionner tous les chemins qui arrivent à A</small>
 </div>
 
@@ -395,7 +394,7 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 
 <div class="ex">
   <span class="label label-ex">Application de la formule des probabilités totales</span>
-  <p>\(P(D) = P(F1) \times P(D|F1) + P(F2) \times P(D|F2)\)</p>
+  <p>\(P(D) = P(F1) \times P_{F1}(D) + P(F2) \times P_{F2}(D)\)</p>
   <p>\(= 0{,}70 \times 0{,}04 + 0{,}30 \times 0{,}10\)</p>
   <p>\(= 0{,}028 + 0{,}030 = \mathbf{0{,}058}\)</p>
   <p><em>5,8 % des panneaux sont défectueux, tous fournisseurs confondus.</em></p>
@@ -451,7 +450,7 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <span class="label label-def">Définition — Événements indépendants</span><br>
   Deux événements \(A\) et \(B\) sont <strong>indépendants</strong> si et seulement si :
   \[\boxed{P(A \cap B) = P(A) \times P(B)}\]
-  Conséquence : si \(A\) et \(B\) sont indépendants, alors \(P(A|B) = P(A)\) — la connaissance de B ne change rien pour A.
+  Conséquence : si \(A\) et \(B\) sont indépendants, alors \(P_B(A) = P(A)\) — la connaissance de B ne change rien pour A.
 </div>
 
 <div class="ex">
@@ -464,7 +463,7 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <p>Comme les pannes sont indépendantes :</p>
   <p>\(P(\text{PAC} \cap \text{BAL}) = P(\text{PAC}) \times P(\text{BAL}) = 0{,}05 \times 0{,}03 = \mathbf{0{,}0015}\)</p>
   <p>Il y a 0,15 % de chances que les deux appareils tombent en panne en même temps.</p>
-  <p>Probabilité qu'aucun n'est en panne :</p>
+  <p>Probabilité qu'aucun ne soit en panne :</p>
   <p>\(P(\overline{\text{PAC}} \cap \overline{\text{BAL}}) = (1 - 0{,}05) \times (1 - 0{,}03) = 0{,}95 \times 0{,}97 = \mathbf{0{,}9215}\)</p>
 </div>
 
@@ -491,7 +490,7 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <h3>Contrôle d'installations électriques — <span class="ticcer-badge">ICCER</span></h3>
   <p>Un électricien effectue des contrôles de conformité sur des tableaux électriques dans des logements neufs. On sait que :</p>
   <ul>
-    <li>65 % des logements ont été câblés par l'équipe A, 35 % par l'équipe B.</li>
+    <li>60 % des logements ont été câblés par l'équipe A, 40 % par l'équipe B.</li>
     <li>Parmi les logements de l'équipe A, 3 % ont un tableau non conforme.</li>
     <li>Parmi les logements de l'équipe B, 8 % ont un tableau non conforme.</li>
   </ul>
@@ -512,20 +511,20 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <tbody>
     <tr>
       <th>Équipe A</th>
-      <td>19,5</td>
-      <td>630,5</td>
-      <td class="total">650</td>
+      <td>18</td>
+      <td>582</td>
+      <td class="total">600</td>
     </tr>
     <tr>
       <th>Équipe B</th>
-      <td>28</td>
-      <td>322</td>
-      <td class="total">350</td>
+      <td>32</td>
+      <td>368</td>
+      <td class="total">400</td>
     </tr>
     <tr>
       <th class="total">Total</th>
-      <td class="total">47,5</td>
-      <td class="total">952,5</td>
+      <td class="total">50</td>
+      <td class="total">950</td>
       <td class="total">1 000</td>
     </tr>
   </tbody>
@@ -539,36 +538,36 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <!-- Branche A -->
   <line x1="69" y1="129" x2="230" y2="68" stroke="#0969da" stroke-width="2"/>
   <text x="143" y="82" fill="#0969da" font-weight="bold" text-anchor="middle">Équipe A</text>
-  <text x="143" y="98" fill="#0969da" text-anchor="middle">0,65</text>
+  <text x="143" y="98" fill="#0969da" text-anchor="middle">0,60</text>
   <circle cx="238" cy="66" r="9" fill="#0969da"/>
   <!-- Branche B -->
   <line x1="69" y1="141" x2="230" y2="204" stroke="#7c3aed" stroke-width="2"/>
   <text x="143" y="195" fill="#7c3aed" font-weight="bold" text-anchor="middle">Équipe B</text>
-  <text x="143" y="212" fill="#7c3aed" text-anchor="middle">0,35</text>
+  <text x="143" y="212" fill="#7c3aed" text-anchor="middle">0,40</text>
   <circle cx="238" cy="205" r="9" fill="#7c3aed"/>
   <!-- A → NC -->
   <line x1="247" y1="60" x2="410" y2="28" stroke="#c53030" stroke-width="2"/>
   <text x="326" y="32" fill="#c53030" text-anchor="middle">NC  0,03</text>
   <circle cx="418" cy="26" r="7" fill="#c53030"/>
   <text x="432" y="20" fill="#2d3748" font-size="12">A ∩ NC</text>
-  <text x="432" y="36" fill="#c53030" font-size="11" font-weight="bold">0,65 × 0,03 = 0,0195</text>
+  <text x="432" y="36" fill="#c53030" font-size="11" font-weight="bold">0,60 × 0,03 = 0,018</text>
   <!-- A → C -->
   <line x1="247" y1="71" x2="410" y2="106" stroke="#2f855a" stroke-width="2"/>
   <text x="326" y="99" fill="#2f855a" text-anchor="middle">C  0,97</text>
   <circle cx="418" cy="108" r="7" fill="#2f855a"/>
-  <text x="432" y="104" fill="#718096" font-size="11">0,65 × 0,97 = 0,6305</text>
+  <text x="432" y="104" fill="#718096" font-size="11">0,60 × 0,97 = 0,582</text>
   <!-- B → NC -->
   <line x1="247" y1="199" x2="410" y2="165" stroke="#c53030" stroke-width="2"/>
   <text x="326" y="172" fill="#c53030" text-anchor="middle">NC  0,08</text>
   <circle cx="418" cy="163" r="7" fill="#c53030"/>
   <text x="432" y="157" fill="#2d3748" font-size="12">B ∩ NC</text>
-  <text x="432" y="173" fill="#c53030" font-size="11" font-weight="bold">0,35 × 0,08 = 0,0280</text>
+  <text x="432" y="173" fill="#c53030" font-size="11" font-weight="bold">0,40 × 0,08 = 0,032</text>
   <!-- B → C -->
   <line x1="247" y1="210" x2="410" y2="244" stroke="#2f855a" stroke-width="2"/>
   <text x="326" y="242" fill="#2f855a" text-anchor="middle">C  0,92</text>
   <circle cx="418" cy="246" r="7" fill="#2f855a"/>
-  <text x="432" y="241" fill="#718096" font-size="11">0,35 × 0,92 = 0,3220</text>
-  <text x="350" y="268" text-anchor="middle" fill="#2f855a" font-size="11">Vérif. : 0,0195 + 0,6305 + 0,0280 + 0,3220 = 1,000 ✓</text>
+  <text x="432" y="241" fill="#718096" font-size="11">0,40 × 0,92 = 0,368</text>
+  <text x="350" y="268" text-anchor="middle" fill="#2f855a" font-size="11">Vérif. : 0,018 + 0,582 + 0,032 + 0,368 = 1,000 ✓</text>
 </svg>
 </div>
 
@@ -578,17 +577,17 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <span class="label label-ex">Questions et réponses</span>
 
   <p><strong>1. Probabilité qu'un logement ait un tableau non conforme :</strong></p>
-  <p>\(P(\text{NC}) = P(A) \times P(\text{NC}|A) + P(B) \times P(\text{NC}|B)\)</p>
-  <p>\(= 0{,}65 \times 0{,}03 + 0{,}35 \times 0{,}08 = 0{,}0195 + 0{,}0280 = \mathbf{0{,}0475}\)</p>
-  <p><em>Environ 4,75 % des logements ont un tableau non conforme.</em></p>
+  <p>\(P(\text{NC}) = P(A) \times P_A(\text{NC}) + P(B) \times P_B(\text{NC})\)</p>
+  <p>\(= 0{,}60 \times 0{,}03 + 0{,}40 \times 0{,}08 = 0{,}018 + 0{,}032 = \mathbf{0{,}050}\)</p>
+  <p><em>5 % des logements ont un tableau non conforme.</em></p>
 
   <p><strong>2. Probabilité que le logement soit conforme :</strong></p>
-  <p>\(P(C) = 1 - P(\text{NC}) = 1 - 0{,}0475 = \mathbf{0{,}9525}\)</p>
+  <p>\(P(C) = 1 - P(\text{NC}) = 1 - 0{,}050 = \mathbf{0{,}950}\)</p>
 
   <p><strong>3. Probabilité que le logement ait un tableau NC <em>et</em> provienne de l'équipe A :</strong></p>
-  <p>\(P(A \cap \text{NC}) = 0{,}65 \times 0{,}03 = \mathbf{0{,}0195}\)</p>
+  <p>\(P(A \cap \text{NC}) = 0{,}60 \times 0{,}03 = \mathbf{0{,}018}\)</p>
 
-  <p><strong>4. Interprétation :</strong> Si on contrôle 1 000 logements, on s'attend à trouver environ \(0{,}0475 \times 1000 = 47{,}5\), soit environ <strong>48 tableaux non conformes</strong>. Parmi ceux-ci, \(0{,}0195 \times 1000 = 19{,}5\) viendraient de l'équipe A et \(0{,}0280 \times 1000 = 28\) de l'équipe B.</p>
+  <p><strong>4. Interprétation :</strong> Si on contrôle 1 000 logements, on s'attend à trouver environ \(0{,}050 \times 1000 = \mathbf{50}\) <strong>tableaux non conformes</strong>. Parmi ceux-ci, \(0{,}018 \times 1000 = 18\) viendraient de l'équipe A et \(0{,}032 \times 1000 = 32\) de l'équipe B.</p>
 </div>
 
 <!-- ==================== À RETENIR ==================== -->
@@ -598,9 +597,9 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <strong>Formules et règles essentielles</strong>
   <ul>
     <li><strong>Événement contraire :</strong> \(P(\bar{A}) = 1 - P(A)\)</li>
-    <li><strong>Probabilité conditionnelle :</strong> \(P(A|B) = \dfrac{P(A \cap B)}{P(B)}\)</li>
-    <li><strong>Probabilités composées (arbre) :</strong> \(P(A \cap B) = P(B) \times P(A|B)\)</li>
-    <li><strong>Formule des probabilités totales :</strong> \(P(A) = P(B) \times P(A|B) + P(\bar{B}) \times P(A|\bar{B})\)</li>
+    <li><strong>Probabilité conditionnelle :</strong> \(P_B(A) = \dfrac{P(A \cap B)}{P(B)}\)</li>
+    <li><strong>Probabilités composées (arbre) :</strong> \(P(A \cap B) = P(B) \times P_B(A)\)</li>
+    <li><strong>Formule des probabilités totales :</strong> \(P(A) = P(B) \times P_B(A) + P(\bar{B}) \times P_{\bar{B}}(A)\)</li>
     <li><strong>Indépendance :</strong> \(P(A \cap B) = P(A) \times P(B)\)</li>
     <li><strong>Sur l'arbre :</strong> on <em>multiplie</em> le long d'un chemin, on <em>additionne</em> les chemins qui arrivent au même événement.</li>
   </ul>
@@ -609,7 +608,7 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 <div class="att">
   <span class="label label-att">Erreurs fréquentes à éviter</span>
   <ul>
-    <li>Confondre \(P(A|B)\) et \(P(B|A)\) : ce sont deux probabilités différentes.</li>
+    <li>Confondre \(P_B(A)\) et \(P_A(B)\) : ce sont deux probabilités différentes.</li>
     <li>Oublier que la somme des probabilités sur chaque nœud doit être égale à 1.</li>
     <li>Additionner là où il faudrait multiplier (ou l'inverse).</li>
     <li>Confondre événements <em>incompatibles</em> et événements <em>indépendants</em>.</li>
@@ -635,12 +634,12 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   </table>
   <p>On prend un panneau au hasard.</p>
   <p>1. Calculer \(P(F1)\), \(P(D)\) et \(P(F1 \cap D)\).</p>
-  <p>2. Calculer \(P(D|F1)\) et interpréter.</p>
+  <p>2. Calculer \(P_{F1}(D)\) et interpréter.</p>
   <p>3. Construire un arbre de probabilités à deux niveaux.</p>
   <details>
     <summary>Voir la correction</summary>
     <p><strong>1.</strong> \(P(F1) = \frac{300}{500} = 0{,}60\) &nbsp;;&nbsp; \(P(D) = \frac{40}{500} = 0{,}08\) &nbsp;;&nbsp; \(P(F1 \cap D) = \frac{15}{500} = 0{,}03\)</p>
-    <p><strong>2.</strong> \(P(D|F1) = \frac{P(F1 \cap D)}{P(F1)} = \frac{0{,}03}{0{,}60} = \mathbf{0{,}05}\) → parmi les panneaux de F1, 5 % sont défectueux.</p>
+    <p><strong>2.</strong> \(P_{F1}(D) = \frac{P(F1 \cap D)}{P(F1)} = \frac{0{,}03}{0{,}60} = \mathbf{0{,}05}\) → parmi les panneaux de F1, 5 % sont défectueux.</p>
     <p><strong>3.</strong> Arbre : branche F1 (0,60) → D (0,05) / C (0,95) ; branche F2 (0,40) → D (0,125) / C (0,875)</p>
     <p>Vérification : \(0{,}60 \times 0{,}05 + 0{,}40 \times 0{,}125 = 0{,}03 + 0{,}05 = 0{,}08 = P(D)\) ✓</p>
   </details>
@@ -667,8 +666,8 @@ td.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <p>On prend un panneau défectueux au hasard. Quelle est la probabilité qu'il provienne du fournisseur F2 ?</p>
   <details>
     <summary>Voir la correction</summary>
-    <p>On cherche \(P(F2|D)\).</p>
-    <p>\(P(F2|D) = \dfrac{P(F2 \cap D)}{P(D)} = \dfrac{0{,}05}{0{,}08} = \mathbf{0{,}625}\)</p>
+    <p>On cherche \(P_D(F2)\).</p>
+    <p>\(P_D(F2) = \dfrac{P(F2 \cap D)}{P(D)} = \dfrac{0{,}05}{0{,}08} = \mathbf{0{,}625}\)</p>
     <p>Parmi les panneaux défectueux, 62,5 % viennent du fournisseur F2.</p>
   </details>
 </div>
@@ -876,6 +875,6 @@ function dessinerArbre(pF1, pF2, pD1, pD2, pF1D, pF1C, pF2D, pF2C) {
 
 majArbre();
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
 </body>
 </html>

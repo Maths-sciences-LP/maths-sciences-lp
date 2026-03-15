@@ -60,7 +60,7 @@
     <h3>Probabilit&eacute; conditionnelle</h3>
     <p>Probabilit&eacute; de \(A\) <em>sachant que</em> \(B\) est r&eacute;alis&eacute; :</p>
     <div class="fiche-formula">
-      \(P(A|B) = \dfrac{P(A \cap B)}{P(B)}\)
+      \(P_B(A) = \dfrac{P(A \cap B)}{P(B)}\)
     </div>
     <p>Se lit sur l'arbre : c'est la probabilit&eacute; inscrite sur la branche qui part du n&oelig;ud \(B\) vers \(A\).</p>
   </div>
@@ -75,7 +75,7 @@
       <li>Somme de toutes les feuilles = <strong>1</strong>.</li>
     </ol>
     <div class="fiche-formula">
-      \(P(A \cap B) = P(B) \times P(A|B)\)
+      \(P(A \cap B) = P(B) \times P_B(A)\)
     </div>
   </div>
 
@@ -84,7 +84,7 @@
     <h3>Probabilit&eacute;s totales</h3>
     <p>Si \(B\) et \(\bar{B}\) couvrent tous les cas :</p>
     <div class="fiche-formula">
-      \(P(A) = P(B) \times P(A|B) + P(\bar{B}) \times P(A|\bar{B})\)
+      \(P(A) = P(B) \times P_B(A) + P(\bar{B}) \times P_{\bar{B}}(A)\)
     </div>
     <p>Sur l'arbre : rep&eacute;rer <strong>tous</strong> les chemins qui arrivent &agrave; \(A\), multiplier sur chaque chemin, puis additionner.</p>
   </div>
@@ -96,7 +96,7 @@
     <div class="fiche-formula">
       \(P(A \cap B) = P(A) \times P(B)\)
     </div>
-    <p>Cons&eacute;quence : \(P(A|B) = P(A)\).<br>
+    <p>Cons&eacute;quence : \(P_B(A) = P(A)\).<br>
     Conna&icirc;tre \(B\) ne change rien pour \(A\).</p>
   </div>
 
@@ -114,7 +114,7 @@
 
 <!-- Pièges -->
 <div class="piege">
-  <strong>Pi&egrave;ge 1 :</strong> Confondre \(P(A|B)\) et \(P(B|A)\). Ce sont deux probabilit&eacute;s diff&eacute;rentes ! V&eacute;rifier dans quel sens on conditionne.
+  <strong>Pi&egrave;ge 1 :</strong> Confondre \(P_B(A)\) et \(P_A(B)\). Ce sont deux probabilit&eacute;s diff&eacute;rentes ! V&eacute;rifier dans quel sens on conditionne.
 </div>
 <div class="piege">
   <strong>Pi&egrave;ge 2 :</strong> Additionner l&agrave; o&ugrave; il faut multiplier. Sur un chemin de l'arbre, on <strong>multiplie</strong>. Entre chemins diff&eacute;rents, on <strong>additionne</strong>.
@@ -140,7 +140,7 @@
       <li>Construire l'arbre pond&eacute;r&eacute; (v&eacute;rifier que chaque n&oelig;ud somme &agrave; 1).</li>
       <li>Multiplier le long de chaque chemin pour obtenir les probabilit&eacute;s des feuilles.</li>
       <li>Pour un &eacute;v&eacute;nement global : additionner les chemins correspondants (probabilit&eacute;s totales).</li>
-      <li>Pour une conditionnelle : utiliser \(P(A|B) = \dfrac{P(A \cap B)}{P(B)}\).</li>
+      <li>Pour une conditionnelle : utiliser \(P_B(A) = \dfrac{P(A \cap B)}{P(B)}\).</li>
       <li>V&eacute;rifier : la somme de toutes les feuilles = 1.</li>
     </ol>
   </div>

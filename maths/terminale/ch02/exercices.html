@@ -15,7 +15,6 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 .info{background:#fffbeb;border-left:4px solid var(--o);padding:10px 14px;border-radius:0 6px 6px 0;margin:10px 0;font-size:.91em}
 
 .chemin{background:#fffbeb;border:1.5px solid var(--o);border-radius:6px;padding:8px 12px;margin:6px 0;font-size:.92em}</style>
-  <link rel="stylesheet" href="/nav.css">
 </head>
 <body>
 <div class="c">
@@ -345,19 +344,19 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
     </tbody>
   </table>
   <div class="consigne">
-    <strong>1.</strong> On prend un interrupteur de l&#8217;usine U1. Quelle est la probabilit&#233; qu&#8217;il soit d&#233;fectueux&#160;? Calculer \(P(\text{D}|\text{U1})\).<br>
-    <strong>2.</strong> On prend un interrupteur de l&#8217;usine U2. Quelle est la probabilit&#233; qu&#8217;il soit d&#233;fectueux&#160;? Calculer \(P(\text{D}|\text{U2})\).<br>
+    <strong>1.</strong> On prend un interrupteur de l&#8217;usine U1. Quelle est la probabilit&#233; qu&#8217;il soit d&#233;fectueux&#160;? Calculer \(P_{\text{U1}}(\text{D})\).<br>
+    <strong>2.</strong> On prend un interrupteur de l&#8217;usine U2. Quelle est la probabilit&#233; qu&#8217;il soit d&#233;fectueux&#160;? Calculer \(P_{\text{U2}}(\text{D})\).<br>
     <strong>3.</strong> Quelle usine produit le plus de pi&#232;ces d&#233;fectueuses <em>proportionnellement</em>&#160;? Justifier avec les calculs.
   </div>
-  <div class="info">Rappel&#160;: \(P(A|B) = \dfrac{P(A \cap B)}{P(B)}\) ou plus directement depuis le tableau&#160;: \(P(\text{D}|\text{U1}) = \dfrac{\text{nb de pi&#232;ces U1 d&#233;fectueuses}}{\text{nb total de pi&#232;ces U1}}\)</div>
+  <div class="info">Rappel&#160;: \(P_B(A) = \dfrac{P(A \cap B)}{P(B)}\) ou plus directement depuis le tableau&#160;: \(P_{\text{U1}}(\text{D}) = \dfrac{\text{nb de pi&#232;ces U1 d&#233;fectueuses}}{\text{nb total de pi&#232;ces U1}}\)</div>
   <div class="reponse-box" style="min-height:80px">R&#233;ponses : &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;</div>
   <details>
     <summary>Voir la correction</summary>
     <div class="corr">
       <p><strong>1.</strong> Parmi les 120 interrupteurs de U1, 6 sont d&#233;fectueux&#160;:<br>
-      \(P(\text{D}|\text{U1}) = \dfrac{6}{120} =\) <span class="reponse">\(0{,}05\)</span> &#8594; 5&#160;% de d&#233;fectueux chez U1.</p>
+      \(P_{\text{U1}}(\text{D}) = \dfrac{6}{120} =\) <span class="reponse">\(0{,}05\)</span> &#8594; 5&#160;% de d&#233;fectueux chez U1.</p>
       <p><strong>2.</strong> Parmi les 80 interrupteurs de U2, 10 sont d&#233;fectueux&#160;:<br>
-      \(P(\text{D}|\text{U2}) = \dfrac{10}{80} =\) <span class="reponse">\(0{,}125\)</span> &#8594; 12,5&#160;% de d&#233;fectueux chez U2.</p>
+      \(P_{\text{U2}}(\text{D}) = \dfrac{10}{80} =\) <span class="reponse">\(0{,}125\)</span> &#8594; 12,5&#160;% de d&#233;fectueux chez U2.</p>
       <p><strong>3.</strong> <span class="reponse">L&#8217;usine U2 produit proportionnellement plus de pi&#232;ces d&#233;fectueuses</span>&#160;: son taux de d&#233;faut (12,5&#160;%) est 2,5 fois plus &#233;lev&#233; que celui de U1 (5&#160;%). Malgr&#233; un effectif plus faible, c&#8217;est U2 qui pose le probl&#232;me de qualit&#233;.</p>
     </div>
   </details>
@@ -532,7 +531,7 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
         <li>\(P(\text{L1} \cap \text{D}) = 0{,}60 \times 0{,}03 =\) <span class="reponse">\(0{,}018\)</span></li>
         <li>\(P(\text{L2} \cap \text{D}) = 0{,}40 \times 0{,}08 =\) <span class="reponse">\(0{,}032\)</span></li>
       </ul>
-      <p><strong>3.</strong> \(P(\text{D}) = P(\text{L1}) \times P(\text{D}|\text{L1}) + P(\text{L2}) \times P(\text{D}|\text{L2}) = 0{,}018 + 0{,}032 =\) <span class="reponse">\(0{,}050\)</span></p>
+      <p><strong>3.</strong> \(P(\text{D}) = P(\text{L1}) \times P_{\text{L1}}(\text{D}) + P(\text{L2}) \times P_{\text{L2}}(\text{D}) = 0{,}018 + 0{,}032 =\) <span class="reponse">\(0{,}050\)</span></p>
       <p>5&#160;% des meubles produits sont d&#233;fectueux.</p>
       <p><strong>4.</strong> \(P(\bar{D}) = 1 - 0{,}050 =\) <span class="reponse">\(0{,}950\)</span><br>
       95&#160;% des meubles sont conformes. Sur 1&#160;000 meubles, on s&#8217;attend &#224; environ <strong>50 meubles d&#233;fectueux</strong>.</p>
@@ -546,16 +545,16 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <p>Dans une centrale de traitement d&#8217;air, on contr&#244;le les filtres. Les filtres peuvent &#234;tre de type G4 ou F7. On sait que&#160;:</p>
   <ul>
     <li>70&#160;% des filtres sont de type G4, 30&#160;% sont de type F7.</li>
-    <li>Parmi les G4, 5&#160;% sont encrasss (E). Parmi les F7, 12&#160;% sont encrasss.</li>
+    <li>Parmi les G4, 5&#160;% sont encrassés (E). Parmi les F7, 12&#160;% sont encrassés.</li>
   </ul>
   <div class="consigne">
     <strong>1.</strong> Calculer \(P(\text{G4} \cap \text{E})\) et \(P(\text{F7} \cap \text{E})\).<br>
-    <strong>2.</strong> Calculer \(P(\text{E})\) (probabilit&#233; qu&#8217;un filtre pris au hasard soit encrasss).<br>
-    <strong>3.</strong> On sait qu&#8217;un filtre est encrasss. Calculer la probabilit&#233; qu&#8217;il soit de type F7&#160;: \(P(\text{F7}|\text{E})\).<br>
+    <strong>2.</strong> Calculer \(P(\text{E})\) (probabilit&#233; qu&#8217;un filtre pris au hasard soit encrassés).<br>
+    <strong>3.</strong> On sait qu&#8217;un filtre est encrassés. Calculer la probabilit&#233; qu&#8217;il soit de type F7&#160;: \(P_{\text{E}}(\text{F7})\).<br>
     <strong>4.</strong> Interpr&#233;ter ce r&#233;sultat pour le technicien.
   </div>
   <div class="formule">
-    Rappel&#160;: \(P(A|B) = \dfrac{P(A \cap B)}{P(B)}\)
+    Rappel&#160;: \(P_B(A) = \dfrac{P(A \cap B)}{P(B)}\)
   </div>
   <div class="reponse-box" style="min-height:100px">R&#233;ponses : &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;</div>
   <details>
@@ -566,9 +565,9 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
         <li>\(P(\text{G4} \cap \text{E}) = 0{,}70 \times 0{,}05 =\) <span class="reponse">\(0{,}035\)</span></li>
         <li>\(P(\text{F7} \cap \text{E}) = 0{,}30 \times 0{,}12 =\) <span class="reponse">\(0{,}036\)</span></li>
       </ul>
-      <p><strong>2.</strong> \(P(\text{E}) = 0{,}035 + 0{,}036 =\) <span class="reponse">\(0{,}071\)</span> &#8212; 7,1&#160;% des filtres sont encrasss.</p>
-      <p><strong>3.</strong> \(P(\text{F7}|\text{E}) = \dfrac{P(\text{F7} \cap \text{E})}{P(\text{E})} = \dfrac{0{,}036}{0{,}071} \approx\) <span class="reponse">\(0{,}507\)</span></p>
-      <p><strong>4.</strong> Interpr&#233;tation&#160;: <span class="reponse">parmi les filtres encrasss, environ 50,7&#160;% sont de type F7</span>, alors qu&#8217;ils ne repr&#233;sentent que 30&#160;% de l&#8217;ensemble. Les filtres F7 s&#8217;encrassent proportionnellement bien plus vite. Le technicien doit <strong>surveiller plus fr&#233;quemment les filtres F7</strong>.</p>
+      <p><strong>2.</strong> \(P(\text{E}) = 0{,}035 + 0{,}036 =\) <span class="reponse">\(0{,}071\)</span> &#8212; 7,1&#160;% des filtres sont encrassés.</p>
+      <p><strong>3.</strong> \(P_{\text{E}}(\text{F7}) = \dfrac{P(\text{F7} \cap \text{E})}{P(\text{E})} = \dfrac{0{,}036}{0{,}071} \approx\) <span class="reponse">\(0{,}507\)</span></p>
+      <p><strong>4.</strong> Interpr&#233;tation&#160;: <span class="reponse">parmi les filtres encrassés, environ 50,7&#160;% sont de type F7</span>, alors qu&#8217;ils ne repr&#233;sentent que 30&#160;% de l&#8217;ensemble. Les filtres F7 s&#8217;encrassent proportionnellement bien plus vite. Le technicien doit <strong>surveiller plus fr&#233;quemment les filtres F7</strong>.</p>
     </div>
   </details>
 </div>
@@ -635,7 +634,7 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <div class="consigne">
     <strong>1.</strong> Construire et compl&#233;ter un tableau crois&#233; r&#233;sumant ces donn&#233;es.<br>
     <strong>2.</strong> On prend un appareil au hasard. Calculer \(P(\text{G1})\), \(P(\text{D})\) et \(P(\text{G1} \cap \text{D})\).<br>
-    <strong>3.</strong> Calculer \(P(\text{D}|\text{G1})\) et \(P(\text{D}|\text{G2})\). Quel grossiste est le moins fiable&#160;?<br>
+    <strong>3.</strong> Calculer \(P_{\text{G1}}(\text{D})\) et \(P_{\text{G2}}(\text{D})\). Quel grossiste est le moins fiable&#160;?<br>
     <strong>4.</strong> Construire l&#8217;arbre de probabilit&#233;s &#224; deux niveaux (grossiste puis qualit&#233;).<br>
     <strong>5.</strong> V&#233;rifier la valeur de \(P(\text{D})\) &#224; l&#8217;aide de la formule des probabilit&#233;s totales.<br>
     <strong>6.</strong> L&#8217;installateur d&#233;cide de ne plus travailler avec un grossiste dont le taux de d&#233;faut d&#233;passe 8&#160;%. Que doit-il faire&#160;?
@@ -661,8 +660,8 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
       </ul>
       <p><strong>3.</strong></p>
       <ul>
-        <li>\(P(\text{D}|\text{G1}) = \frac{12}{300} =\) <span class="reponse">\(0{,}04\)</span> &#8594; 4&#160;% de d&#233;fauts chez G1</li>
-        <li>\(P(\text{D}|\text{G2}) = \frac{20}{200} =\) <span class="reponse">\(0{,}10\)</span> &#8594; 10&#160;% de d&#233;fauts chez G2</li>
+        <li>\(P_{\text{G1}}(\text{D}) = \frac{12}{300} =\) <span class="reponse">\(0{,}04\)</span> &#8594; 4&#160;% de d&#233;fauts chez G1</li>
+        <li>\(P_{\text{G2}}(\text{D}) = \frac{20}{200} =\) <span class="reponse">\(0{,}10\)</span> &#8594; 10&#160;% de d&#233;fauts chez G2</li>
       </ul>
       <p><span class="reponse">G2 est le moins fiable</span>&#160;: son taux de d&#233;faut (10&#160;%) est 2,5 fois plus &#233;lev&#233; que celui de G1 (4&#160;%).</p>
       <p><strong>4. Arbre&#160;:</strong></p>
@@ -697,7 +696,7 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
       </svg>
       </div>
       <p><strong>5.</strong> \(P(\text{D}) = 0{,}60 \times 0{,}04 + 0{,}40 \times 0{,}10 = 0{,}024 + 0{,}040 =\) <span class="reponse">\(0{,}064\)</span> &#10003; (m&#234;me valeur qu&#8217;en question&#160;2).</p>
-      <p><strong>6.</strong> \(P(\text{D}|\text{G1}) = 4\% &lt; 8\%\) &#8594; G1 acceptable. \(P(\text{D}|\text{G2}) = 10\% &gt; 8\%\) &#8594; <span class="reponse">G2 d&#233;passe le seuil. L&#8217;installateur doit cesser de travailler avec G2</span> ou exiger une am&#233;lioration de sa part.</p>
+      <p><strong>6.</strong> \(P_{\text{G1}}(\text{D}) = 4\% &lt; 8\%\) &#8594; G1 acceptable. \(P_{\text{G2}}(\text{D}) = 10\% &gt; 8\%\) &#8594; <span class="reponse">G2 d&#233;passe le seuil. L&#8217;installateur doit cesser de travailler avec G2</span> ou exiger une am&#233;lioration de sa part.</p>
     </div>
   </details>
 </div>
@@ -717,8 +716,8 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   <div class="consigne">
     <strong>1.</strong> Construire l&#8217;arbre de probabilit&#233;s complet.<br>
     <strong>2.</strong> Calculer \(P(\text{D})\) &#224; l&#8217;aide de la formule des probabilit&#233;s totales.<br>
-    <strong>3.</strong> On sait qu&#8217;un panneau est d&#233;fectueux. Calculer \(P(\text{F1}|\text{D})\).<br>
-    <strong>4.</strong> Calculer \(P(\text{F2}|\text{D})\). V&#233;rifier que \(P(\text{F1}|\text{D}) + P(\text{F2}|\text{D}) = 1\).<br>
+    <strong>3.</strong> On sait qu&#8217;un panneau est d&#233;fectueux. Calculer \(P_{\text{D}}(\text{F1})\).<br>
+    <strong>4.</strong> Calculer \(P_{\text{D}}(\text{F2})\). V&#233;rifier que \(P_{\text{D}}(\text{F1}) + P_{\text{D}}(\text{F2}) = 1\).<br>
     <strong>5.</strong> Sur une commande de 1&#160;000 panneaux, combien peut-on s&#8217;attendre &#224; trouver de panneaux d&#233;fectueux&#160;? Combien viendraient de F2&#160;?
   </div>
   <div class="reponse-box" style="min-height:160px">Arbre et r&#233;ponses : &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;</div>
@@ -735,8 +734,8 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
         <tr><td colspan="2" style="text-align:right">Total</td><td class="total">1,000 &#10003;</td></tr>
       </table>
       <p>\(P(\text{D}) = 0{,}033 + 0{,}045 =\) <span class="reponse">\(0{,}078\)</span> &#8212; 7,8&#160;% des panneaux ont un d&#233;faut de film.</p>
-      <p><strong>3.</strong> \(P(\text{F1}|\text{D}) = \dfrac{P(\text{F1} \cap \text{D})}{P(\text{D})} = \dfrac{0{,}033}{0{,}078} \approx\) <span class="reponse">\(0{,}423\)</span></p>
-      <p><strong>4.</strong> \(P(\text{F2}|\text{D}) = \dfrac{0{,}045}{0{,}078} \approx\) <span class="reponse">\(0{,}577\)</span><br>
+      <p><strong>3.</strong> \(P_{\text{D}}(\text{F1}) = \dfrac{P(\text{F1} \cap \text{D})}{P(\text{D})} = \dfrac{0{,}033}{0{,}078} \approx\) <span class="reponse">\(0{,}423\)</span></p>
+      <p><strong>4.</strong> \(P_{\text{D}}(\text{F2}) = \dfrac{0{,}045}{0{,}078} \approx\) <span class="reponse">\(0{,}577\)</span><br>
       V&#233;rification&#160;: \(0{,}423 + 0{,}577 = 1{,}000\) &#10003;</p>
       <p><strong>5.</strong></p>
       <ul>
@@ -802,7 +801,7 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 </div>
 
 </div><!-- fin .c -->
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
 <script src="../../../diff.js"></script>
 </body>
 </html>
