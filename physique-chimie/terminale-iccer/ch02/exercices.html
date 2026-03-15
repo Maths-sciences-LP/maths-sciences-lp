@@ -7,11 +7,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
-.methode strong{color:#d97706}
-.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-.attention strong{color:#be123c}</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
 </head>
 <body><div class="c">
 <a href="../../../pc-term-iccer.html" class="nb">← Retour au sommaire</a>
@@ -41,18 +37,151 @@
   </ul>
 </div>
 
-<div class="attention">
-  <strong>Attention !</strong> \(U_{\text{eff}}\) (ou \(U_{\text{rms}}\)) est la valeur efficace mesurée au multimètre. \(U_{\max}\) est la valeur de crête (amplitude). Le pont de Graëtz donne une tension moyenne DC deux fois plus élevée que le redresseur mono-alternance, avec une ondulation deux fois plus rapide (plus facile à filtrer).
+<div class="att">
+  <span class="label-att">Attention</span>
+  \(U_{\text{eff}}\) (ou \(U_{\text{rms}}\)) est la valeur efficace mesurée au multimètre. \(U_{\max}\) est la valeur de crête (amplitude). Le pont de Graëtz donne une tension moyenne DC deux fois plus élevée que le redresseur mono-alternance, avec une ondulation deux fois plus rapide (plus facile à filtrer).
 </div>
 
-<!-- ===== EXERCICES DE BASE ===== -->
+<!-- ============================================================ -->
+<!--                      NIVEAU SOCLE                            -->
+<!-- ============================================================ -->
+
 <h2>Exercices de base</h2>
 
-<div class="exo">
+<!-- ===== SOCLE — Exercice 1 ===== -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Courant alternatif du secteur – compléter les calculs</span>
+  </div>
+  <p>Le réseau électrique en France fournit une tension alternative de valeur efficace \(U_{\text{eff}} = 230\ \text{V}\) à la fréquence \(f = 50\ \text{Hz}\).</p>
+  <p><strong>Formules utiles :</strong></p>
+  <ul>
+    <li>\(U_{\max} = U_{\text{eff}} \times \sqrt{2}\)</li>
+    <li>\(T = \dfrac{1}{f}\)</li>
+  </ul>
+
+  <p class="q"><strong>1.</strong> Compléter le calcul de la valeur maximale :</p>
+  <p>\(U_{\max} = U_{\text{eff}} \times \sqrt{2} = \boxed{\phantom{230}} \times 1{,}414 = \boxed{\phantom{325}}\ \text{V}\)</p>
+
+  <p class="q"><strong>2.</strong> Compléter le calcul de la période :</p>
+  <p>\(T = \dfrac{1}{f} = \dfrac{1}{\boxed{\phantom{50}}} = \boxed{\phantom{0{,}02}}\ \text{s} = \boxed{\phantom{20}}\ \text{ms}\)</p>
+
+  <p class="q"><strong>3.</strong> Cocher la bonne réponse. La courbe \(u(t)\) sur une période :</p>
+  <p>☐ Monte de 0 à +325 V puis reste constante<br>
+  ☐ Monte de 0 à +325 V, redescend à 0, descend à −325 V, puis revient à 0<br>
+  ☐ Reste constante à 230 V</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(U_{\max} = 230 \times 1{,}414 \approx \mathbf{325\ V}\)</p>
+    <p><strong>2.</strong> \(T = \dfrac{1}{50} = \mathbf{0{,}02\ s = 20\ ms}\)</p>
+    <p><strong>3.</strong> La bonne réponse est la deuxième : la courbe est une sinusoïde qui monte à +325 V, redescend à 0, descend à −325 V, puis revient à 0. Elle se répète toutes les 20 ms.</p>
+  </div>
+</div>
+
+<!-- ===== SOCLE — Exercice 2 ===== -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Redresseur mono-alternance – calculs guidés</span>
+  </div>
+  <p>Un redresseur mono-alternance (une seule diode) est alimenté par une tension alternative \(U_{\text{eff}} = 24\ \text{V}\).</p>
+  <p><strong>Formules utiles :</strong></p>
+  <ul>
+    <li>\(U_{\max} = U_{\text{eff}} \times \sqrt{2}\)</li>
+    <li>Mono-alternance : \(U_{\text{moy}} \approx 0{,}45 \times U_{\text{eff}}\)</li>
+  </ul>
+
+  <p class="q"><strong>1.</strong> Compléter le calcul de \(U_{\max}\) :</p>
+  <p>\(U_{\max} = \boxed{\phantom{24}} \times 1{,}414 = \boxed{\phantom{33{,}9}}\ \text{V}\)</p>
+
+  <p class="q"><strong>2.</strong> Compléter le calcul de \(U_{\text{moy}}\) en sortie :</p>
+  <p>\(U_{\text{moy}} = 0{,}45 \times \boxed{\phantom{24}} = \boxed{\phantom{10{,}8}}\ \text{V}\)</p>
+
+  <p class="q"><strong>3.</strong> Cocher la bonne description du signal en sortie :</p>
+  <p>☐ Le signal reste sinusoïdal<br>
+  ☐ Seules les alternances positives passent, les négatives sont bloquées<br>
+  ☐ Le signal est constant</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(U_{\max} = 24 \times 1{,}414 \approx \mathbf{33{,}9\ V}\)</p>
+    <p><strong>2.</strong> \(U_{\text{moy}} = 0{,}45 \times 24 = \mathbf{10{,}8\ V}\)</p>
+    <p><strong>3.</strong> La bonne réponse est la deuxième : seules les alternances positives passent, les négatives sont bloquées par la diode. Le signal est pulsé.</p>
+  </div>
+</div>
+
+<!-- ===== SOCLE — Exercice 3 ===== -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Pont de Graëtz – comparer les montages</span>
+  </div>
+  <p>Un pont de Graëtz (4 diodes) est alimenté par \(U_{\text{eff}} = 24\ \text{V}\).</p>
+
+  <p class="q"><strong>1.</strong> Compléter le calcul de \(U_{\text{moy}}\) en sortie du pont de Graëtz :</p>
+  <p>\(U_{\text{moy}} = 0{,}9 \times \boxed{\phantom{24}} = \boxed{\phantom{21{,}6}}\ \text{V}\)</p>
+
+  <p class="q"><strong>2.</strong> Compléter le tableau comparatif :</p>
+  <table>
+    <tr><th>Montage</th><th>Formule de \(U_{\text{moy}}\)</th><th>Résultat</th></tr>
+    <tr><td>Mono-alternance</td><td>\(0{,}45 \times U_{\text{eff}}\)</td><td>\(\boxed{\phantom{10{,}8}}\ \text{V}\)</td></tr>
+    <tr><td>Pont de Graëtz</td><td>\(0{,}9 \times U_{\text{eff}}\)</td><td>\(\boxed{\phantom{21{,}6}}\ \text{V}\)</td></tr>
+  </table>
+
+  <p class="q"><strong>3.</strong> Quel montage donne la tension continue la plus élevée ?</p>
+  <p>☐ Mono-alternance &nbsp;&nbsp; ☐ Pont de Graëtz</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(U_{\text{moy}} = 0{,}9 \times 24 = \mathbf{21{,}6\ V}\)</p>
+    <p><strong>2.</strong> Mono-alternance : 10,8 V. Pont de Graëtz : 21,6 V.</p>
+    <p><strong>3.</strong> Le <strong>pont de Graëtz</strong> donne la tension continue la plus élevée (deux fois plus que le mono-alternance), car il utilise les deux alternances.</p>
+  </div>
+</div>
+
+<!-- ===== SOCLE — Exercice 4 ===== -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Identifier les convertisseurs – QCM</span>
+  </div>
+  <p>Pour chaque situation, indiquer le type de convertisseur utilisé (redresseur, onduleur ou variateur de fréquence).</p>
+
+  <p class="q"><strong>1.</strong> Un panneau solaire produit du courant continu. On veut l'injecter dans le réseau 230 V / 50 Hz.</p>
+  <p>☐ Redresseur &nbsp;&nbsp; ☐ Onduleur &nbsp;&nbsp; ☐ Variateur de fréquence</p>
+
+  <p class="q"><strong>2.</strong> On veut alimenter un circuit électronique en 5 V continu à partir du secteur 230 V alternatif.</p>
+  <p>☐ Redresseur &nbsp;&nbsp; ☐ Onduleur &nbsp;&nbsp; ☐ Variateur de fréquence</p>
+
+  <p class="q"><strong>3.</strong> On veut faire varier la vitesse d'un moteur de ventilateur alimenté en courant alternatif.</p>
+  <p>☐ Redresseur &nbsp;&nbsp; ☐ Onduleur &nbsp;&nbsp; ☐ Variateur de fréquence</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <strong>Onduleur</strong> : il convertit le DC des panneaux en AC compatible avec le réseau.</p>
+    <p><strong>2.</strong> <strong>Redresseur</strong> (+ transformateur abaisseur) : il convertit le AC du secteur en DC pour l'électronique.</p>
+    <p><strong>3.</strong> <strong>Variateur de fréquence</strong> : il modifie la fréquence de l'alimentation AC pour faire varier la vitesse du moteur.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                      NIVEAU STANDARD                         -->
+<!-- ============================================================ -->
+
+<h2>Exercices guidés</h2>
+
+<!-- ===== STANDARD — Exercice 5 ===== -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
     <span class="exo-title">Courant alternatif 230 V – valeur maximale et période</span>
-    <span class="diff diff-1">Niveau 1</span>
   </div>
   <p>Le réseau électrique monophasé en France fournit une tension alternative de valeur efficace \(U_{\text{eff}} = 230\ \text{V}\) à la fréquence \(f = 50\ \text{Hz}\).</p>
   <p class="q"><strong>1.</strong> Rappeler la formule reliant \(U_{\max}\) et \(U_{\text{eff}}\).</p>
@@ -68,57 +197,17 @@
   </div>
 </div>
 
-<div class="exo">
+<!-- ===== STANDARD — Exercice 6 ===== -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Redresseur mono-alternance – tension de sortie</span>
-    <span class="diff diff-1">Niveau 1</span>
-  </div>
-  <p>Un redresseur mono-alternance (une seule diode) est alimenté par une tension alternative \(U_{\text{eff}} = 24\ \text{V}\).</p>
-  <p class="q"><strong>1.</strong> Rappeler la formule de \(U_{\max}\) en fonction de \(U_{\text{eff}}\).</p>
-  <p class="q"><strong>2.</strong> Calculer la valeur maximale \(U_{\max}\) de la tension en entrée.</p>
-  <p class="q"><strong>3.</strong> Rappeler la formule de \(U_{\text{moy}}\) en sortie d'un redresseur mono-alternance.</p>
-  <p class="q"><strong>4.</strong> Calculer \(U_{\text{moy}}\) en sortie.</p>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> \(U_{\max} = U_{\text{eff}} \times \sqrt{2}\)</p>
-    <p><strong>2.</strong> \(U_{\max} = 24 \times \sqrt{2} \approx 24 \times 1{,}414 \approx \mathbf{33{,}9\ V}\)</p>
-    <p><strong>3.</strong> \(U_{\text{moy}} \approx 0{,}45 \times U_{\text{eff}}\)</p>
-    <p><strong>4.</strong> \(U_{\text{moy}} \approx 0{,}45 \times 24 = \mathbf{10{,}8\ V}\)</p>
-    <p>La tension de sortie est pulsée : seules les alternances positives (ou négatives) passent, l'autre demi-période est bloquée par la diode.</p>
-  </div>
-</div>
-
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 3</span>
-    <span class="exo-title">Pont de Graëtz – tension de sortie</span>
-    <span class="diff diff-1">Niveau 1</span>
-  </div>
-  <p>Un pont de Graëtz (pont de 4 diodes, redressement double alternance) est alimenté par la même tension alternative \(U_{\text{eff}} = 24\ \text{V}\).</p>
-  <p class="q"><strong>1.</strong> Rappeler la formule de \(U_{\text{moy}}\) en sortie d'un pont de Graëtz.</p>
-  <p class="q"><strong>2.</strong> Calculer \(U_{\text{moy}}\) en sortie.</p>
-  <p class="q"><strong>3.</strong> Comparer avec le résultat de l'exercice 2. Quel montage donne la tension continue la plus élevée ?</p>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> \(U_{\text{moy}} \approx 0{,}9 \times U_{\text{eff}}\)</p>
-    <p><strong>2.</strong> \(U_{\text{moy}} \approx 0{,}9 \times 24 = \mathbf{21{,}6\ V}\)</p>
-    <p><strong>3.</strong> Le pont de Graëtz donne \(21{,}6\ \text{V}\) contre \(10{,}8\ \text{V}\) pour le mono-alternance : la tension moyenne est <strong>deux fois plus élevée</strong>. Le pont de Graëtz utilise les deux alternances (positive et négative), d'où une meilleure efficacité.</p>
-  </div>
-</div>
-
-<!-- ===== EXERCICES GUIDÉS ===== -->
-<h2>Exercices guidés</h2>
-
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 4</span>
+    <span class="exo-num">Exercice 6</span>
     <span class="exo-title">Comparaison mono-alternance et pont de Graëtz pour 12 V</span>
-    <span class="diff diff-2">Niveau 2</span>
   </div>
   <p>On alimente deux montages redresseurs différents avec \(U_{\text{eff}} = 12\ \text{V}\), \(f = 50\ \text{Hz}\).</p>
-  <div class="methode">
-    <strong>Méthode :</strong> Pour chaque montage, calculer \(U_{\max}\) puis \(U_{\text{moy}}\) avec les formules du cours. Comparer les ondulations : le pont de Graëtz a une fréquence d'ondulation de \(2f = 100\ \text{Hz}\) (plus facile à filtrer), contre \(f = 50\ \text{Hz}\) pour le mono-alternance.
+  <div class="meth">
+    <span class="label-meth">Méthode</span>
+    Pour chaque montage, calculer \(U_{\max}\) puis \(U_{\text{moy}}\) avec les formules du cours. Comparer les ondulations : le pont de Graëtz a une fréquence d'ondulation de \(2f = 100\ \text{Hz}\) (plus facile à filtrer), contre \(f = 50\ \text{Hz}\) pour le mono-alternance.
   </div>
   <p class="q"><strong>1.</strong> Calculer \(U_{\max}\) commun aux deux montages.</p>
   <p class="q"><strong>2.</strong> Calculer \(U_{\text{moy}}\) du redresseur mono-alternance.</p>
@@ -133,16 +222,14 @@
   </div>
 </div>
 
-<div class="exo">
+<!-- ===== STANDARD — Exercice 7 ===== -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 5</span>
+    <span class="exo-num">Exercice 7</span>
     <span class="exo-title">Transformateur abaisseur alimentant un pont de Graëtz</span>
-    <span class="diff diff-2">Niveau 2</span>
   </div>
   <p>Un transformateur abaisseur convertit la tension du secteur (230 V, 50 Hz) en 12 V efficace. Sa sortie alimente un pont de Graëtz.</p>
-  <div class="methode">
-    <strong>Méthode :</strong> Le transformateur fournit 12 V eff en AC. Appliquer les formules du pont de Graëtz pour obtenir la tension DC en sortie. La période est celle du secteur d'entrée.
-  </div>
   <p class="q"><strong>1.</strong> Calculer la tension maximale \(U_{\max}\) en sortie du transformateur.</p>
   <p class="q"><strong>2.</strong> Calculer la tension moyenne \(U_{\text{moy}}\) DC en sortie du pont de Graëtz.</p>
   <p class="q"><strong>3.</strong> Calculer la période \(T\) du courant alternatif côté secondaire du transformateur.</p>
@@ -156,14 +243,12 @@
   </div>
 </div>
 
-<!-- ===== EXERCICES D'APPLICATION ===== -->
-<h2>Exercices d'application</h2>
-
-<div class="exo">
+<!-- ===== STANDARD — Exercice 8 ===== -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 6</span>
+    <span class="exo-num">Exercice 8</span>
     <span class="exo-title">Variateur de fréquence – vitesse de rotation d'un moteur</span>
-    <span class="diff diff-2">Niveau 2</span>
   </div>
   <p>Un moteur triphasé possède \(p = 2\) paires de pôles. À \(f = 50\ \text{Hz}\), il tourne à \(n = 1\,440\ \text{tr/min}\) (en tenant compte du glissement). La formule théorique de la vitesse de synchronisme est \(n_s = \dfrac{60 \times f}{p}\).</p>
   <p class="q"><strong>1.</strong> Calculer la vitesse de synchronisme \(n_s\) théorique à \(f = 50\ \text{Hz}\).</p>
@@ -180,11 +265,14 @@
   </div>
 </div>
 
-<div class="exo">
+<h2>Exercices d'application</h2>
+
+<!-- ===== STANDARD — Exercice 9 ===== -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 7</span>
+    <span class="exo-num">Exercice 9</span>
     <span class="exo-title">Filtrage par condensateur – constante de temps</span>
-    <span class="diff diff-3">Niveau 3</span>
   </div>
   <p>Un condensateur \(C = 1\,000\ \mu\text{F}\) est connecté en sortie d'un pont de Graëtz alimentant une résistance de charge \(R = 100\ \Omega\) (\(f = 50\ \text{Hz}\)).</p>
   <p class="q"><strong>1.</strong> Rappeler le rôle d'un condensateur de filtrage placé en sortie d'un redresseur.</p>
@@ -200,14 +288,12 @@
   </div>
 </div>
 
-<!-- ===== EXERCICES CONTEXTUALISÉS ICCER ===== -->
-<h2>Exercices contextualisés ICCER</h2>
-
-<div class="exo">
+<!-- ===== STANDARD — Exercice 10 ===== -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
+    <span class="exo-num">Exercice 10</span>
     <span class="exo-title">Variateur de fréquence sur une pompe de chauffage – économie d'énergie</span>
-    <span class="diff diff-2">Niveau 2</span>
   </div>
   <p>Un technicien en installations thermiques installe un variateur de fréquence sur la pompe de circulation d'un réseau de chauffage. La pompe tourne à \(n_0 = 1\,450\ \text{tr/min}\) à \(f_0 = 50\ \text{Hz}\). Pour réduire le débit de 30 %, il faut abaisser la vitesse de rotation de 30 % (loi de similarité des pompes : le débit est proportionnel à la vitesse).</p>
   <p class="q"><strong>1.</strong> Calculer la nouvelle vitesse de rotation souhaitée \(n_1\) (en tr/min).</p>
@@ -223,25 +309,197 @@
   </div>
 </div>
 
-<div class="exo">
+<!-- ============================================================ -->
+<!--                  NIVEAU APPROFONDISSEMENT                    -->
+<!-- ============================================================ -->
+
+<h2>Exercices contextualisés ICCER</h2>
+
+<!-- ===== SOCLE — Exercice 11 (contextualisé guidé) ===== -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">Chargeur de batterie – rapport de transformation et tension DC</span>
-    <span class="diff diff-3">Niveau 3</span>
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Alimentation d'une chaudière – identifier les éléments</span>
   </div>
-  <p>Un installateur de systèmes d'énergie renouvelable met en place un chargeur de batterie 24 V DC. Le schéma est le suivant : réseau 230 V AC → transformateur abaisseur → pont de Graëtz → tension DC de 24 V. On cherche les caractéristiques du transformateur.</p>
-  <p class="q"><strong>1.</strong> Le pont de Graëtz donne \(U_{\text{moy}} \approx 0{,}9 \times U_{\text{eff,2}}\). Pour obtenir \(U_{\text{moy}} = 24\ \text{V DC}\), calculer la tension efficace nécessaire en sortie du transformateur \(U_{\text{eff,2}}\).</p>
-  <p class="q"><strong>2.</strong> Calculer le rapport de transformation \(k = N_2 / N_1\) (avec \(U_1 = 230\ \text{V}\) et \(U_2 = U_{\text{eff,2}}\) calculée à la question 1).</p>
-  <p class="q"><strong>3.</strong> Calculer la tension maximale \(U_{\max,2}\) en sortie du transformateur.</p>
-  <p class="q"><strong>4.</strong> Un condensateur de filtrage est ajouté en sortie du pont de Graëtz. Quelle tension peut-on espérer avec un bon filtrage (proche de \(U_{\max,2}\) ou de \(U_{\text{moy}}\)) ? Justifier.</p>
+  <p>Un technicien chauffagiste intervient sur une chaudière à gaz. La carte électronique de commande fonctionne en courant continu 12 V. Elle est alimentée par le secteur 230 V / 50 Hz grâce à un bloc d'alimentation comportant :</p>
+  <ul>
+    <li>un transformateur abaisseur (230 V → 15 V)</li>
+    <li>un pont de Graëtz (4 diodes)</li>
+    <li>un condensateur de filtrage</li>
+  </ul>
+
+  <p class="q"><strong>1.</strong> Compléter le tableau en indiquant le rôle de chaque élément :</p>
+  <table>
+    <tr><th>Élément</th><th>Rôle</th></tr>
+    <tr><td>Transformateur</td><td>\(\boxed{\phantom{\text{Abaisser la tension de 230 V à 15 V}}}\)</td></tr>
+    <tr><td>Pont de Graëtz</td><td>\(\boxed{\phantom{\text{Redresser le courant alternatif en courant pulsé}}}\)</td></tr>
+    <tr><td>Condensateur</td><td>\(\boxed{\phantom{\text{Lisser la tension pour obtenir du courant continu}}}\)</td></tr>
+  </table>
+
+  <p class="q"><strong>2.</strong> Compléter : en entrée du bloc d'alimentation, le courant est \(\boxed{\phantom{\text{alternatif}}}\). En sortie, le courant est \(\boxed{\phantom{\text{continu}}}\).</p>
+
+  <p class="q"><strong>3.</strong> Calculer \(U_{\text{moy}}\) en sortie du pont de Graëtz :</p>
+  <p>\(U_{\text{moy}} = 0{,}9 \times \boxed{\phantom{15}} = \boxed{\phantom{13{,}5}}\ \text{V}\)</p>
+
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(U_{\text{moy}} = 0{,}9 \times U_{\text{eff,2}}\) donc \(U_{\text{eff,2}} = \dfrac{U_{\text{moy}}}{0{,}9} = \dfrac{24}{0{,}9} \approx \mathbf{26{,}7\ V}\)</p>
-    <p>On choisira un transformateur de rapport 230 V / 26,7 V (ou valeur normalisée proche, par exemple 230 V / 24 V pour obtenir environ 21,6 V, ou 230 V / 30 V pour 27 V).</p>
-    <p><strong>2.</strong> \(k = \dfrac{N_2}{N_1} = \dfrac{U_2}{U_1} = \dfrac{26{,}7}{230} \approx \mathbf{0{,}116}\)</p>
-    <p>C'est un transformateur fortement abaisseur (rapport \(\approx 1/8{,}6\)).</p>
-    <p><strong>3.</strong> \(U_{\max,2} = U_{\text{eff,2}} \times \sqrt{2} = 26{,}7 \times 1{,}414 \approx \mathbf{37{,}7\ V}\)</p>
-    <p><strong>4.</strong> Avec un bon filtrage (condensateur de grande capacité, \(\tau \gg T_{\text{ond}}\)), la tension DC en sortie tend vers <strong>\(U_{\max,2}\)</strong> (la tension de crête), car le condensateur maintient la tension proche du sommet des bosses. Sans filtrage, on obtient \(U_{\text{moy}} \approx 0{,}9 \times U_{\text{eff}}\). Un chargeur de batterie bien conçu utilise un régulateur de tension supplémentaire pour obtenir une tension parfaitement stable.</p>
+    <p><strong>1.</strong></p>
+    <ul>
+      <li><strong>Transformateur</strong> : abaisser la tension alternative de 230 V à 15 V.</li>
+      <li><strong>Pont de Graëtz</strong> : redresser le courant alternatif en courant pulsé positif (redressement double alternance).</li>
+      <li><strong>Condensateur</strong> : lisser la tension pulsée pour obtenir une tension quasi continue.</li>
+    </ul>
+    <p><strong>2.</strong> En entrée : courant <strong>alternatif</strong>. En sortie : courant <strong>continu</strong>.</p>
+    <p><strong>3.</strong> \(U_{\text{moy}} = 0{,}9 \times 15 = \mathbf{13{,}5\ V}\)</p>
+  </div>
+</div>
+
+<!-- ===== STANDARD — Exercice 12 ===== -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Onduleur d'une installation solaire en toiture</span>
+  </div>
+  <p>Un installateur de pompes à chaleur pose également des panneaux solaires photovoltaïques sur le toit d'un pavillon. Les panneaux délivrent une tension continue de 360 V DC. Un onduleur est raccordé pour injecter l'énergie sur le réseau EDF (230 V / 50 Hz).</p>
+  <p class="q"><strong>1.</strong> Quel est le rôle d'un onduleur ?</p>
+  <p class="q"><strong>2.</strong> Quelle est la nature du courant en entrée de l'onduleur ? En sortie ?</p>
+  <p class="q"><strong>3.</strong> Quelle doit être la fréquence du signal en sortie de l'onduleur pour être compatible avec le réseau EDF ?</p>
+  <p class="q"><strong>4.</strong> Calculer la valeur maximale \(U_{\max}\) du signal sinusoïdal produit en sortie.</p>
+  <p class="q"><strong>5.</strong> Expliquer pourquoi l'onduleur doit être synchronisé avec le réseau EDF.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Un onduleur <strong>convertit un courant continu (DC) en courant alternatif (AC)</strong>.</p>
+    <p><strong>2.</strong> En entrée : courant continu (DC) fourni par les panneaux. En sortie : courant alternatif sinusoïdal (AC).</p>
+    <p><strong>3.</strong> La fréquence en sortie doit être \(f = \mathbf{50\ Hz}\), identique à celle du réseau EDF.</p>
+    <p><strong>4.</strong> \(U_{\max} = U_{\text{eff}} \times \sqrt{2} = 230 \times 1{,}414 \approx \mathbf{325\ V}\)</p>
+    <p><strong>5.</strong> L'onduleur doit être synchronisé (même fréquence, même phase) pour éviter des courants de court-circuit ou des perturbations sur le réseau. Si les signaux ne sont pas en phase, les tensions s'opposent et provoquent des dysfonctionnements dangereux.</p>
+  </div>
+</div>
+
+<!-- ===== APPRO — Exercice 13 ===== -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Chargeur de batterie – rapport de transformation et tension DC</span>
+  </div>
+  <p>Un technicien en énergies renouvelables met en place un chargeur de batterie 24 V DC pour une installation solaire autonome. Le schéma est : réseau 230 V AC → transformateur abaisseur → pont de Graëtz → tension DC de 24 V.</p>
+  <p class="q"><strong>1.</strong> Le pont de Graëtz donne \(U_{\text{moy}} \approx 0{,}9 \times U_{\text{eff,2}}\). Pour obtenir \(U_{\text{moy}} = 24\ \text{V DC}\), calculer la tension efficace nécessaire en sortie du transformateur \(U_{\text{eff,2}}\).</p>
+  <p class="q"><strong>2.</strong> Calculer le rapport de transformation \(k = U_2 / U_1\) (avec \(U_1 = 230\ \text{V}\)).</p>
+  <p class="q"><strong>3.</strong> Calculer la tension maximale \(U_{\max,2}\) en sortie du transformateur.</p>
+  <p class="q"><strong>4.</strong> Un condensateur de filtrage est ajouté. Avec un bon filtrage, la tension de sortie tend-elle vers \(U_{\max,2}\) ou vers \(U_{\text{moy}}\) ? Justifier.</p>
+  <p class="q"><strong>5.</strong> En déduire pourquoi un régulateur de tension est nécessaire en pratique pour obtenir exactement 24 V.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(U_{\text{eff,2}} = \dfrac{U_{\text{moy}}}{0{,}9} = \dfrac{24}{0{,}9} \approx \mathbf{26{,}7\ V}\)</p>
+    <p><strong>2.</strong> \(k = \dfrac{U_2}{U_1} = \dfrac{26{,}7}{230} \approx \mathbf{0{,}116}\) (transformateur fortement abaisseur, rapport \(\approx 1/8{,}6\)).</p>
+    <p><strong>3.</strong> \(U_{\max,2} = 26{,}7 \times \sqrt{2} \approx 26{,}7 \times 1{,}414 \approx \mathbf{37{,}7\ V}\)</p>
+    <p><strong>4.</strong> Avec un bon filtrage (\(\tau \gg T_{\text{ond}}\)), la tension de sortie tend vers \(\mathbf{U_{\max,2}}\) (la tension de crête), car le condensateur maintient la tension proche du sommet des bosses. Sans filtrage, on obtient \(U_{\text{moy}} \approx 0{,}9 \times U_{\text{eff}}\).</p>
+    <p><strong>5.</strong> Avec filtrage, la tension est proche de 37,7 V, bien supérieure aux 24 V souhaités. Un <strong>régulateur de tension</strong> est donc indispensable pour abaisser et stabiliser la tension à exactement 24 V, quelles que soient les variations de charge ou de réseau.</p>
+  </div>
+</div>
+
+<!-- ===== APPRO — Exercice 14 ===== -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 14</span>
+    <span class="exo-title">Onduleur de pompe à chaleur – dimensionnement et rendement</span>
+  </div>
+  <p>Un installateur de pompes à chaleur (PAC) raccorde un onduleur au compresseur de la PAC. L'onduleur permet de faire varier la vitesse du compresseur (technologie Inverter). Le compresseur est un moteur asynchrone triphasé à \(p = 1\) paire de pôles. L'onduleur fait varier la fréquence de 20 Hz à 80 Hz.</p>
+
+  <p class="q"><strong>1.</strong> Calculer la vitesse de synchronisme \(n_s\) du compresseur pour \(f = 20\ \text{Hz}\), \(f = 50\ \text{Hz}\) et \(f = 80\ \text{Hz}\).</p>
+  <p class="q"><strong>2.</strong> Le glissement est de 4 %. Calculer la vitesse réelle \(n\) du compresseur pour chacune des trois fréquences. On rappelle : \(n = n_s \times (1 - g)\) avec \(g = 0{,}04\).</p>
+  <p class="q"><strong>3.</strong> La puissance frigorifique de la PAC est proportionnelle à la vitesse du compresseur. Si la PAC produit 8 kW à 50 Hz, calculer la puissance frigorifique à 20 Hz et à 80 Hz.</p>
+  <p class="q"><strong>4.</strong> Expliquer l'intérêt de la technologie Inverter par rapport à un compresseur à vitesse fixe (tout ou rien) en termes de confort et d'économie d'énergie.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(n_s = \dfrac{60 \times f}{p}\) avec \(p = 1\) :</p>
+    <ul>
+      <li>\(f = 20\ \text{Hz}\) : \(n_s = \dfrac{60 \times 20}{1} = \mathbf{1\,200\ tr/min}\)</li>
+      <li>\(f = 50\ \text{Hz}\) : \(n_s = \dfrac{60 \times 50}{1} = \mathbf{3\,000\ tr/min}\)</li>
+      <li>\(f = 80\ \text{Hz}\) : \(n_s = \dfrac{60 \times 80}{1} = \mathbf{4\,800\ tr/min}\)</li>
+    </ul>
+    <p><strong>2.</strong> \(n = n_s \times (1 - 0{,}04) = n_s \times 0{,}96\) :</p>
+    <ul>
+      <li>\(f = 20\ \text{Hz}\) : \(n = 1\,200 \times 0{,}96 = \mathbf{1\,152\ tr/min}\)</li>
+      <li>\(f = 50\ \text{Hz}\) : \(n = 3\,000 \times 0{,}96 = \mathbf{2\,880\ tr/min}\)</li>
+      <li>\(f = 80\ \text{Hz}\) : \(n = 4\,800 \times 0{,}96 = \mathbf{4\,608\ tr/min}\)</li>
+    </ul>
+    <p><strong>3.</strong> Puissance proportionnelle à la vitesse :</p>
+    <ul>
+      <li>\(f = 20\ \text{Hz}\) : \(P = 8 \times \dfrac{20}{50} = 8 \times 0{,}4 = \mathbf{3{,}2\ kW}\)</li>
+      <li>\(f = 80\ \text{Hz}\) : \(P = 8 \times \dfrac{80}{50} = 8 \times 1{,}6 = \mathbf{12{,}8\ kW}\)</li>
+    </ul>
+    <p><strong>4.</strong> La technologie Inverter permet d'adapter en continu la puissance de la PAC aux besoins réels du bâtiment :</p>
+    <ul>
+      <li><strong>Confort</strong> : la température est maintenue stable sans cycles marche/arrêt brutaux.</li>
+      <li><strong>Économie</strong> : à charge partielle (mi-saison), le compresseur tourne à basse vitesse et consomme beaucoup moins qu'un compresseur tout ou rien qui alterne pleine puissance et arrêt.</li>
+      <li><strong>Usure réduite</strong> : moins de démarrages = moins de contraintes mécaniques et électriques.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== APPRO — Exercice 15 ===== -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 15</span>
+    <span class="exo-title">Dimensionnement d'un condensateur de filtrage – ondulation résiduelle</span>
+  </div>
+  <p>Un technicien CVC conçoit l'alimentation DC d'un automate de régulation. L'automate consomme un courant \(I = 0{,}8\ \text{A}\) sous 24 V DC. L'alimentation utilise un pont de Graëtz alimenté par un transformateur 230 V / 30 V, suivi d'un condensateur de filtrage de capacité \(C\). La fréquence du secteur est \(f = 50\ \text{Hz}\).</p>
+  <p>On rappelle la formule de l'ondulation résiduelle : \(\Delta U = \dfrac{I}{2 f C}\)</p>
+
+  <p class="q"><strong>1.</strong> Calculer \(U_{\max}\) en sortie du transformateur.</p>
+  <p class="q"><strong>2.</strong> Calculer \(U_{\text{moy}}\) en sortie du pont de Graëtz (sans filtrage).</p>
+  <p class="q"><strong>3.</strong> On souhaite une ondulation résiduelle \(\Delta U \leq 1\ \text{V}\). Déterminer la capacité minimale \(C_{\min}\) du condensateur (en farads puis en microfarads).</p>
+  <p class="q"><strong>4.</strong> On choisit \(C = 10\,000\ \mu\text{F}\). Calculer l'ondulation résiduelle effective et le taux d'ondulation \(\tau = \dfrac{\Delta U}{U_{\max}}\) en pourcentage.</p>
+  <p class="q"><strong>5.</strong> L'automate nécessite exactement 24 V. La tension filtrée est-elle directement utilisable ? Proposer une solution.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(U_{\max} = 30 \times \sqrt{2} \approx \mathbf{42{,}4\ V}\)</p>
+    <p><strong>2.</strong> \(U_{\text{moy}} = 0{,}9 \times 30 = \mathbf{27\ V}\)</p>
+    <p><strong>3.</strong> \(\Delta U = \dfrac{I}{2fC}\) donc \(C \geq \dfrac{I}{2f \times \Delta U} = \dfrac{0{,}8}{2 \times 50 \times 1} = \dfrac{0{,}8}{100} = 0{,}008\ \text{F}\)</p>
+    <p>\(C_{\min} = 0{,}008\ \text{F} = \mathbf{8\,000\ \mu F}\)</p>
+    <p><strong>4.</strong> Avec \(C = 10\,000\ \mu\text{F} = 0{,}01\ \text{F}\) :</p>
+    <p>\(\Delta U = \dfrac{0{,}8}{2 \times 50 \times 0{,}01} = \dfrac{0{,}8}{1} = \mathbf{0{,}8\ V}\)</p>
+    <p>\(\tau = \dfrac{0{,}8}{42{,}4} \approx 0{,}019 = \mathbf{1{,}9\,\%}\) (filtrage satisfaisant).</p>
+    <p><strong>5.</strong> La tension filtrée oscille autour de 42 V (proche de \(U_{\max}\)), bien au-dessus des 24 V nécessaires. Il faut ajouter un <strong>régulateur de tension</strong> (par exemple un régulateur linéaire LM7824 ou un convertisseur DC-DC) pour obtenir une tension stable de 24 V.</p>
+  </div>
+</div>
+
+<!-- ===== APPRO — Exercice 16 ===== -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Variateur de fréquence sur ventilateur de CTA – loi des ventilateurs</span>
+  </div>
+  <p>Un technicien CVC installe un variateur de fréquence sur le ventilateur d'une centrale de traitement d'air (CTA). Le ventilateur est entraîné par un moteur asynchrone triphasé à \(p = 2\) paires de pôles. À \(f_0 = 50\ \text{Hz}\), le ventilateur tourne à \(n_0 = 1\,440\ \text{tr/min}\) et fournit un débit d'air \(Q_0 = 5\,000\ \text{m}^3\text{/h}\), avec une puissance absorbée \(P_0 = 3\ \text{kW}\).</p>
+  <p>On rappelle les lois de similarité des ventilateurs :</p>
+  <ul>
+    <li>Débit : \(Q \propto n\) (proportionnel à la vitesse)</li>
+    <li>Pression : \(\Delta p \propto n^2\)</li>
+    <li>Puissance : \(P \propto n^3\)</li>
+  </ul>
+
+  <p class="q"><strong>1.</strong> Le technicien règle le variateur à \(f_1 = 35\ \text{Hz}\). Calculer la nouvelle vitesse de synchronisme \(n_{s1}\) puis estimer la vitesse réelle \(n_1\) (glissement de 4 %).</p>
+  <p class="q"><strong>2.</strong> Calculer le nouveau débit \(Q_1\) et la nouvelle puissance absorbée \(P_1\).</p>
+  <p class="q"><strong>3.</strong> Calculer l'économie d'énergie en pourcentage par rapport au fonctionnement à 50 Hz.</p>
+  <p class="q"><strong>4.</strong> Le bâtiment n'a besoin que de 3 500 m\(^3\)/h en mi-saison. À quelle fréquence le technicien doit-il régler le variateur ? (Déterminer d'abord le rapport de vitesse nécessaire.)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(n_{s1} = \dfrac{60 \times 35}{2} = \mathbf{1\,050\ tr/min}\)</p>
+    <p>\(n_1 = 1\,050 \times (1 - 0{,}04) = 1\,050 \times 0{,}96 = \mathbf{1\,008\ tr/min}\)</p>
+    <p><strong>2.</strong> Rapport de vitesse : \(\dfrac{n_1}{n_0} = \dfrac{1\,008}{1\,440} = 0{,}70\)</p>
+    <p>\(Q_1 = Q_0 \times \dfrac{n_1}{n_0} = 5\,000 \times 0{,}70 = \mathbf{3\,500\ m^3/h}\)</p>
+    <p>\(P_1 = P_0 \times \left(\dfrac{n_1}{n_0}\right)^3 = 3 \times 0{,}70^3 = 3 \times 0{,}343 = \mathbf{1{,}03\ kW}\)</p>
+    <p><strong>3.</strong> Économie : \(\dfrac{P_0 - P_1}{P_0} = \dfrac{3 - 1{,}03}{3} = \dfrac{1{,}97}{3} \approx 0{,}657 = \mathbf{65{,}7\,\%}\)</p>
+    <p>Réduire la vitesse de 30 % permet d'économiser environ deux tiers de la puissance absorbée.</p>
+    <p><strong>4.</strong> Débit souhaité : \(Q_1 = 3\,500\ \text{m}^3\text{/h}\). On a \(\dfrac{Q_1}{Q_0} = \dfrac{3\,500}{5\,000} = 0{,}70\).</p>
+    <p>Comme \(Q \propto n \propto f\), il faut \(f_1 = f_0 \times 0{,}70 = 50 \times 0{,}70 = \mathbf{35\ Hz}\).</p>
   </div>
 </div>
 
@@ -260,5 +518,6 @@
 </div>
 <script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
 <script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

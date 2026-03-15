@@ -135,8 +135,173 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
   </details>
 </div>
 
+<!-- ========== SOCLE ========== -->
+<div class="diff-socle">
+<div class="section-titre">
+  <span class="tag-socle">Socle</span>
+  <span class="niveau n1">Exercices guidés — Pas à pas</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- EX S1 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S1</span>Identifier parties réelle et imaginaire — Guidé</div>
+
+  <div class="meth">
+    <span class="label label-meth">Méthode</span><br>
+    Un nombre complexe s'écrit \(z = a + bi\) où :<br>
+    &bull; \(a\) est la <strong>partie réelle</strong> → \(\text{Re}(z) = a\)<br>
+    &bull; \(b\) est la <strong>partie imaginaire</strong> → \(\text{Im}(z) = b\) (le coefficient devant \(i\), <strong>sans</strong> le \(i\))
+  </div>
+
+  <p><strong>Exemple guidé :</strong> \(z = 7 - 3i\)<br>
+  On identifie : \(a = \boxed{7}\) et \(b = \boxed{-3}\). Donc \(\text{Re}(z) = 7\) et \(\text{Im}(z) = -3\).</p>
+
+  <p><strong>À toi :</strong> Compléter le tableau ci-dessous.</p>
+  <table>
+    <tr><th>Nombre complexe \(z\)</th><th>\(\text{Re}(z) = \boxed{\phantom{00}}\)</th><th>\(\text{Im}(z) = \boxed{\phantom{00}}\)</th><th>Nature</th></tr>
+    <tr><td>\(z_1 = 4 + 5i\)</td><td>\(\boxed{\phantom{00}}\)</td><td>\(\boxed{\phantom{00}}\)</td><td>
+      <label><input type="radio" name="s1a"> Réel</label>
+      <label><input type="radio" name="s1a"> Imaginaire pur</label>
+      <label><input type="radio" name="s1a"> Complexe</label>
+    </td></tr>
+    <tr><td>\(z_2 = -3i\)</td><td>\(\boxed{\phantom{00}}\)</td><td>\(\boxed{\phantom{00}}\)</td><td>
+      <label><input type="radio" name="s1b"> Réel</label>
+      <label><input type="radio" name="s1b"> Imaginaire pur</label>
+      <label><input type="radio" name="s1b"> Complexe</label>
+    </td></tr>
+    <tr><td>\(z_3 = 9\)</td><td>\(\boxed{\phantom{00}}\)</td><td>\(\boxed{\phantom{00}}\)</td><td>
+      <label><input type="radio" name="s1c"> Réel</label>
+      <label><input type="radio" name="s1c"> Imaginaire pur</label>
+      <label><input type="radio" name="s1c"> Complexe</label>
+    </td></tr>
+    <tr><td>\(z_4 = -2 + 6i\)</td><td>\(\boxed{\phantom{00}}\)</td><td>\(\boxed{\phantom{00}}\)</td><td>
+      <label><input type="radio" name="s1d"> Réel</label>
+      <label><input type="radio" name="s1d"> Imaginaire pur</label>
+      <label><input type="radio" name="s1d"> Complexe</label>
+    </td></tr>
+  </table>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <table>
+        <tr><th>Nombre complexe</th><th>\(\text{Re}(z)\)</th><th>\(\text{Im}(z)\)</th><th>Nature</th></tr>
+        <tr><td>\(z_1 = 4 + 5i\)</td><td><span class="reponse">\(4\)</span></td><td><span class="reponse">\(5\)</span></td><td>Complexe</td></tr>
+        <tr><td>\(z_2 = -3i\)</td><td><span class="reponse">\(0\)</span></td><td><span class="reponse">\(-3\)</span></td><td>Imaginaire pur</td></tr>
+        <tr><td>\(z_3 = 9\)</td><td><span class="reponse">\(9\)</span></td><td><span class="reponse">\(0\)</span></td><td>Réel</td></tr>
+        <tr><td>\(z_4 = -2 + 6i\)</td><td><span class="reponse">\(-2\)</span></td><td><span class="reponse">\(6\)</span></td><td>Complexe</td></tr>
+      </table>
+      <p>Astuce : si \(b = 0\), le nombre est réel. Si \(a = 0\) et \(b \neq 0\), c'est un imaginaire pur.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX S2 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S2</span>Calculer avec les complexes — Pas à pas</div>
+
+  <div class="meth">
+    <span class="label label-meth">Méthode — Addition</span><br>
+    Pour additionner \(z_1 = a + bi\) et \(z_2 = c + di\) :<br>
+    \(z_1 + z_2 = (a + c) + (b + d)i\)<br>
+    → On additionne les parties réelles entre elles, et les parties imaginaires entre elles.
+  </div>
+
+  <p><strong>a) Addition guidée :</strong> \(z_1 = 5 + 3i\) et \(z_2 = 2 - i\).</p>
+  <p>Parties réelles : \(5 + 2 = \boxed{\phantom{00}}\)<br>
+  Parties imaginaires : \(3 + (-1) = \boxed{\phantom{00}}\)<br>
+  Donc \(z_1 + z_2 = \boxed{\phantom{000}} + \boxed{\phantom{000}}i\)</p>
+
+  <div class="meth">
+    <span class="label label-meth">Méthode — Multiplication</span><br>
+    Pour multiplier : on développe comme \((a + bi)(c + di)\) et on remplace \(i^2 = -1\).<br>
+    \((a + bi)(c + di) = ac + adi + bci + bdi^2 = (ac - bd) + (ad + bc)i\)
+  </div>
+
+  <p><strong>b) Multiplication guidée :</strong> \((3 + 2i)(1 + i)\).</p>
+  <p>Étape 1 — On développe :<br>
+  \(3 \times 1 = \boxed{\phantom{00}}\) &emsp; \(3 \times i = \boxed{\phantom{00}}\) &emsp; \(2i \times 1 = \boxed{\phantom{00}}\) &emsp; \(2i \times i = \boxed{\phantom{00}}\)</p>
+  <p>Étape 2 — On rassemble : \(\boxed{\phantom{00}} + \boxed{\phantom{00}} + \boxed{\phantom{00}} + \boxed{\phantom{00}}\)</p>
+  <p>Étape 3 — On remplace \(i^2 = -1\) : \(2i^2 = 2 \times (-1) = \boxed{\phantom{00}}\)</p>
+  <p>Résultat : \((3 + 2i)(1 + i) = \boxed{\phantom{000}} + \boxed{\phantom{000}}i\)</p>
+
+  <p><strong>c) À toi :</strong> Calculer \((4 + i)(2 - 3i)\).</p>
+  <p>Développement : \(\boxed{\phantom{00}} + \boxed{\phantom{00}} + \boxed{\phantom{00}} + \boxed{\phantom{00}}\)<br>
+  Remplacement de \(i^2\) : ………<br>
+  Résultat : \(\boxed{\phantom{000}} + \boxed{\phantom{000}}i\)</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> Parties réelles : \(5 + 2 = 7\). Parties imaginaires : \(3 + (-1) = 2\).<br>
+      <span class="reponse">\(z_1 + z_2 = 7 + 2i\)</span></p>
+
+      <p><strong>b)</strong> Développement : \(3 + 3i + 2i + 2i^2 = 3 + 5i + 2(-1) = 3 + 5i - 2\).<br>
+      <span class="reponse">\((3 + 2i)(1 + i) = 1 + 5i\)</span></p>
+
+      <p><strong>c)</strong> \((4 + i)(2 - 3i) = 8 - 12i + 2i - 3i^2 = 8 - 10i - 3(-1) = 8 - 10i + 3\).<br>
+      <span class="reponse">\((4 + i)(2 - 3i) = 11 - 10i\)</span></p>
+    </div>
+  </details>
+</div>
+
+<!-- EX S3 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S3</span>Placer des complexes dans le plan — Guidé</div>
+
+  <div class="meth">
+    <span class="label label-meth">Méthode</span><br>
+    Pour placer \(z = a + bi\) dans le plan complexe :<br>
+    &bull; L'axe horizontal (→) correspond à la <strong>partie réelle</strong> \(a\).<br>
+    &bull; L'axe vertical (↑) correspond à la <strong>partie imaginaire</strong> \(b\).<br>
+    &bull; Le point se place aux coordonnées \((a\,;\,b)\).
+  </div>
+
+  <p><strong>Exemple guidé :</strong> Placer \(z = 3 + 2i\).<br>
+  Partie réelle = \(3\) → on avance de 3 vers la droite.<br>
+  Partie imaginaire = \(2\) → on monte de 2. Le point est en \((3\,;\,2)\).</p>
+
+  <p><strong>À toi :</strong> Compléter le tableau, puis placer les points sur le plan.</p>
+  <table>
+    <tr><th>Complexe \(z\)</th><th>Partie réelle \(a = \boxed{\phantom{0}}\)</th><th>Partie imaginaire \(b = \boxed{\phantom{0}}\)</th><th>Point \((a\,;\,b)\)</th></tr>
+    <tr><td>\(z_1 = 2 + 4i\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\((\boxed{\phantom{0}}\,;\,\boxed{\phantom{0}})\)</td></tr>
+    <tr><td>\(z_2 = -3 + i\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\((\boxed{\phantom{0}}\,;\,\boxed{\phantom{0}})\)</td></tr>
+    <tr><td>\(z_3 = 5\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\((\boxed{\phantom{0}}\,;\,\boxed{\phantom{0}})\)</td></tr>
+    <tr><td>\(z_4 = -2i\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\((\boxed{\phantom{0}}\,;\,\boxed{\phantom{0}})\)</td></tr>
+  </table>
+
+  <div style="text-align:center;margin:12px 0">
+    <canvas id="canSocle3" width="500" height="440"></canvas>
+    <p style="font-size:.85em;color:#64748b">Plan complexe — place les 4 points</p>
+  </div>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <table>
+        <tr><th>Complexe</th><th>\(a\)</th><th>\(b\)</th><th>Point</th></tr>
+        <tr><td>\(z_1 = 2 + 4i\)</td><td><span class="reponse">\(2\)</span></td><td><span class="reponse">\(4\)</span></td><td><span class="reponse">\((2\,;\,4)\)</span></td></tr>
+        <tr><td>\(z_2 = -3 + i\)</td><td><span class="reponse">\(-3\)</span></td><td><span class="reponse">\(1\)</span></td><td><span class="reponse">\((-3\,;\,1)\)</span></td></tr>
+        <tr><td>\(z_3 = 5\)</td><td><span class="reponse">\(5\)</span></td><td><span class="reponse">\(0\)</span></td><td><span class="reponse">\((5\,;\,0)\)</span> — sur l'axe réel</td></tr>
+        <tr><td>\(z_4 = -2i\)</td><td><span class="reponse">\(0\)</span></td><td><span class="reponse">\(-2\)</span></td><td><span class="reponse">\((0\,;\,-2)\)</span> — sur l'axe imaginaire</td></tr>
+      </table>
+      <div style="text-align:center;margin:12px 0">
+        <canvas id="canCorrSocle3" width="500" height="440"></canvas>
+        <p style="font-size:.85em;color:#64748b">Correction — plan complexe</p>
+      </div>
+    </div>
+  </details>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ========== STANDARD ========== -->
+<div class="diff-standard">
+
 <!-- NIVEAU 2 -->
 <div class="section-titre">
+  <span class="tag-standard">Standard</span>
   <span class="niveau n2">Niveau 2 — Application directe</span>
   <div class="section-ligne"></div>
 </div>
@@ -343,8 +508,14 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
   </details>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ========== APPROFONDISSEMENT ========== -->
+<div class="diff-appro">
+
 <!-- NIVEAU 4 -->
 <div class="section-titre">
+  <span class="tag-appro">Approfondissement</span>
   <span class="niveau n4">Niveau 4 — Problèmes contextualisés</span>
   <div class="section-ligne"></div>
 </div>
@@ -508,6 +679,8 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
   </details>
 </div>
 
+</div><!-- fin diff-appro -->
+
 <div class="nav-footer">
   <a href="lecon.html">📖 Cours Ch10</a>
   <a href="ds.html">📝 Devoir Ch10</a>
@@ -644,6 +817,17 @@ drawComplexPlane('canCorr6',-5,6,-4,6,[
   ctx.setLineDash([]);
 })();
 
+/* === Ex S3 — plan vide socle === */
+drawComplexPlane('canSocle3',-4,6,-3,5,[],{hint:'Place les 4 points ici'});
+
+/* === Ex S3 — correction socle === */
+drawComplexPlane('canCorrSocle3',-4,6,-3,5,[
+  {x:2,y:4,label:'z₁ = 2+4i',color:BLEU},
+  {x:-3,y:1,label:'z₂ = -3+i',color:VERT},
+  {x:5,y:0,label:'z₃ = 5',color:ORANGE},
+  {x:0,y:-2,label:'z₄ = -2i',color:ROUGE}
+]);
+
 /* === Ex 12 — plan pièce vide === */
 drawComplexPlane('canPlan12',-0.5,6,-0.5,6.5,[],{hint:'Placez les 4 prises A, B, C, D'});
 
@@ -683,5 +867,6 @@ drawComplexPlane('canPlan12',-0.5,6,-0.5,6.5,[],{hint:'Placez les 4 prises A, B,
 })();
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

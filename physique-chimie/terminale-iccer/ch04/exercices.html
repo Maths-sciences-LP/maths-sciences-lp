@@ -30,81 +30,148 @@
   </ul>
 </div>
 
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                        EXERCICES SOCLE                        -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
 <h2>Exercices de base</h2>
 
-<div class="exo">
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Loi de Wien — longueur d'onde pic d'un corps à 300 K</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="exo-title">Conversions de température — pas à pas</span>
   </div>
-  <p>On considère un corps noir à la température T = 300 K (environ 27 °C, température ambiante).</p>
-  <p class="q"><strong>1.</strong> Rappeler la formule de la loi de Wien permettant de calculer la longueur d'onde d'émission maximale \(\lambda_{max}\).</p>
-  <p class="q"><strong>2.</strong> Calculer \(\lambda_{max}\) pour T = 300 K. Exprimer le résultat en mètres, puis en micromètres (µm).</p>
-  <p class="q"><strong>3.</strong> Dans quel domaine spectral se situe cette longueur d'onde : ultraviolet, visible ou infrarouge ? Justifier.</p>
+  <p>Compléter les conversions suivantes en utilisant la relation \(T\text{ (K)} = \theta\text{ (°C)} + 273\).</p>
+  <table class="styled-table" style="max-width:420px">
+    <thead><tr><th>Température en °C</th><th>Température en K</th></tr></thead>
+    <tbody>
+      <tr><td>20 °C (température ambiante)</td><td>\(\boxed{\phantom{293}}\) K</td></tr>
+      <tr><td>60 °C (radiateur)</td><td>\(\boxed{\phantom{333}}\) K</td></tr>
+      <tr><td>−18 °C (congélateur)</td><td>\(\boxed{\phantom{255}}\) K</td></tr>
+      <tr><td>100 °C (eau bouillante)</td><td>\(\boxed{\phantom{373}}\) K</td></tr>
+    </tbody>
+  </table>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Loi de Wien : \(\lambda_{max} = \dfrac{b}{T}\) avec b = 2,898 × 10⁻³ m·K</p>
-    <p><strong>2.</strong> \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{300} = \mathbf{9{,}66 \times 10^{-6}\text{ m}} = \mathbf{9{,}66\text{ µm}}\)</p>
-    <p><strong>3.</strong> Le rayonnement visible correspond à des longueurs d'onde entre 0,4 µm et 0,7 µm. La valeur trouvée (9,66 µm) est bien supérieure à 0,7 µm : ce rayonnement se situe dans le domaine <strong>infrarouge</strong>. Un objet à température ambiante rayonne donc en infrarouge, invisible à l'œil nu mais détectable par des caméras thermiques (utilisées en diagnostic énergétique des bâtiments).</p>
+    <p>20 + 273 = <strong>293 K</strong></p>
+    <p>60 + 273 = <strong>333 K</strong></p>
+    <p>−18 + 273 = <strong>255 K</strong></p>
+    <p>100 + 273 = <strong>373 K</strong></p>
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Loi de Stefan-Boltzmann — puissance rayonnée</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="exo-title">Loi de Wien — QCM et calcul guidé</span>
   </div>
-  <p>Une surface noire (ε = 1) de surface S = 1 m² est portée à la température T = 500 K.</p>
-  <p class="q"><strong>1.</strong> Rappeler la formule de Stefan-Boltzmann.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée P par cette surface.</p>
-  <p class="q"><strong>3.</strong> Comparer cette valeur à la puissance rayonnée par la même surface à T = 300 K (calculer puis comparer). Que peut-on conclure sur l'influence de la température ?</p>
+  <p>On considère un corps à la température T = 300 K.</p>
+  <p class="q"><strong>1.</strong> La loi de Wien permet de calculer :</p>
+  <ul style="list-style:none">
+    <li>☐ a) La puissance rayonnée par un corps</li>
+    <li>☐ b) La longueur d'onde du maximum d'émission</li>
+    <li>☐ c) La température du corps</li>
+  </ul>
+  <p class="q"><strong>2.</strong> Compléter le calcul :</p>
+  <p>\(\lambda_{max} = \dfrac{b}{T} = \dfrac{2{,}898 \times 10^{-3}}{\boxed{\phantom{300}}} = \boxed{\phantom{9{,}66 \times 10^{-6}}}\text{ m}\)</p>
+  <p class="q"><strong>3.</strong> Convertir en micromètres : \(\lambda_{max} = \boxed{\phantom{9{,}66}}\text{ µm}\)</p>
+  <p class="q"><strong>4.</strong> Ce rayonnement est dans le domaine :</p>
+  <ul style="list-style:none">
+    <li>☐ a) Ultraviolet (λ &lt; 0,4 µm)</li>
+    <li>☐ b) Visible (0,4 à 0,7 µm)</li>
+    <li>☐ c) Infrarouge (λ &gt; 0,7 µm)</li>
+  </ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P = \varepsilon \cdot \sigma \cdot T^4 \cdot S\) avec σ = 5,67 × 10⁻⁸ W/m²/K⁴</p>
-    <p><strong>2.</strong> À T = 500 K :<br>
-    \(T^4 = 500^4 = 6{,}25 \times 10^{10}\text{ K}^4\)<br>
-    \(P = 1 \times 5{,}67 \times 10^{-8} \times 6{,}25 \times 10^{10} \times 1 = \mathbf{3\,544\text{ W}}\)</p>
-    <p><strong>3.</strong> À T = 300 K :<br>
-    \(T^4 = 300^4 = 8{,}1 \times 10^{9}\text{ K}^4\)<br>
-    \(P = 5{,}67 \times 10^{-8} \times 8{,}1 \times 10^{9} \times 1 = \mathbf{459\text{ W}}\)<br>
-    Rapport : \(\dfrac{3\,544}{459} \approx 7{,}7\). La puissance rayonnée à 500 K est presque 8 fois plus grande qu'à 300 K, alors que la température n'a augmenté que d'un facteur \(\dfrac{500}{300} \approx 1{,}67\). C'est la conséquence de la loi en T⁴ : la puissance rayonnée est <strong>très sensible</strong> à la température.</p>
+    <p><strong>1.</strong> Réponse <strong>b)</strong> — La loi de Wien donne la longueur d'onde du maximum d'émission.</p>
+    <p><strong>2.</strong> \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{300} = \mathbf{9{,}66 \times 10^{-6}\text{ m}}\)</p>
+    <p><strong>3.</strong> \(\lambda_{max} = \mathbf{9{,}66\text{ µm}}\)</p>
+    <p><strong>4.</strong> Réponse <strong>c)</strong> — 9,66 µm &gt; 0,7 µm : c'est un rayonnement <strong>infrarouge</strong>. Un corps à température ambiante rayonne dans l'infrarouge, invisible à l'œil nu mais détectable par une caméra thermique.</p>
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
-    <span class="exo-title">Albédo de la Terre</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="exo-title">Loi de Stefan-Boltzmann — calcul guidé étape par étape</span>
   </div>
-  <p>La constante solaire (puissance solaire reçue par unité de surface perpendiculaire aux rayons solaires) est \(P_{solaire} = 1\,361\text{ W/m}^2\). L'albédo moyen de la Terre est α = 0,30.</p>
-  <p class="q"><strong>1.</strong> Rappeler la définition de l'albédo.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance réfléchie par la Terre par m².</p>
-  <p class="q"><strong>3.</strong> Calculer la puissance absorbée par la Terre par m².</p>
-  <p class="q"><strong>4.</strong> Que représente physiquement l'albédo dans le bilan énergétique de la Terre ?</p>
+  <p>Un radiateur en acier peint (ε = 0,92) a une surface S = 1,5 m² et une température de surface T = 333 K (60 °C).</p>
+  <p class="q"><strong>Étape 1 :</strong> Calculer \(T^4\).</p>
+  <p>\(T^4 = 333^4 = 333 \times 333 \times 333 \times 333 = \boxed{\phantom{1{,}230 \times 10^{10}}}\text{ K}^4\)</p>
+  <p class="q"><strong>Étape 2 :</strong> Appliquer la formule \(P = \varepsilon \cdot \sigma \cdot T^4 \cdot S\).</p>
+  <p>\(P = \boxed{\phantom{0{,}92}} \times 5{,}67 \times 10^{-8} \times \boxed{\phantom{1{,}230 \times 10^{10}}} \times \boxed{\phantom{1{,}5}}\)</p>
+  <p class="q"><strong>Étape 3 :</strong> Calculer le résultat.</p>
+  <p>\(P = \boxed{\phantom{963}}\text{ W}\)</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> L'albédo est le rapport entre la puissance rayonnante réfléchie et la puissance rayonnante reçue : \(\alpha = \dfrac{P_{réfléchie}}{P_{reçue}}\). C'est une grandeur sans unité, comprise entre 0 (corps qui absorbe tout) et 1 (corps qui réfléchit tout).</p>
-    <p><strong>2.</strong> \(P_{réfléchie} = \alpha \times P_{solaire} = 0{,}30 \times 1\,361 = \mathbf{408{,}3\text{ W/m}^2}\)</p>
-    <p><strong>3.</strong> \(P_{absorbée} = (1-\alpha) \times P_{solaire} = 0{,}70 \times 1\,361 = \mathbf{952{,}7\text{ W/m}^2}\)</p>
-    <p><strong>4.</strong> L'albédo représente la fraction du rayonnement solaire que la Terre renvoie dans l'espace. Plus l'albédo est élevé, moins la Terre absorbe d'énergie solaire. La neige et les nuages ont un albédo élevé (0,8 à 0,9), les océans et les forêts un albédo faible (0,1 à 0,2). La fonte des glaces polaires réduit l'albédo global de la Terre, amplifiant le réchauffement climatique.</p>
+    <p><strong>Étape 1 :</strong> \(T^4 = 333^4 = \mathbf{1{,}230 \times 10^{10}\text{ K}^4}\)</p>
+    <p><strong>Étape 2 :</strong> \(P = 0{,}92 \times 5{,}67 \times 10^{-8} \times 1{,}230 \times 10^{10} \times 1{,}5\)</p>
+    <p><strong>Étape 3 :</strong> \(P = 0{,}92 \times 5{,}67 \times 10^{-8} \times 1{,}845 \times 10^{10} = 0{,}92 \times 1\,046 \approx \mathbf{963\text{ W}}\)</p>
+    <p>Le radiateur émet environ 963 W par rayonnement infrarouge.</p>
   </div>
 </div>
 
-<h2>Exercices guidés</h2>
-
-<div class="exo">
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Albédo — calcul guidé</span>
+  </div>
+  <p>La puissance solaire reçue par la Terre est \(P_{reçue} = 1\,361\text{ W/m}^2\). L'albédo moyen de la Terre est α = 0,30.</p>
+  <p class="q"><strong>1.</strong> L'albédo représente :</p>
+  <ul style="list-style:none">
+    <li>☐ a) La fraction du rayonnement absorbée par la Terre</li>
+    <li>☐ b) La fraction du rayonnement réfléchie par la Terre</li>
+    <li>☐ c) La puissance totale émise par la Terre</li>
+  </ul>
+  <p class="q"><strong>2.</strong> Compléter :</p>
+  <p>\(P_{réfléchie} = \alpha \times P_{reçue} = \boxed{\phantom{0{,}30}} \times 1\,361 = \boxed{\phantom{408{,}3}}\text{ W/m}^2\)</p>
+  <p class="q"><strong>3.</strong> Compléter :</p>
+  <p>\(P_{absorbée} = (1 - \alpha) \times P_{reçue} = (1 - \boxed{\phantom{0{,}30}}) \times 1\,361 = \boxed{\phantom{952{,}7}}\text{ W/m}^2\)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Réponse <strong>b)</strong> — L'albédo est la fraction du rayonnement réfléchie.</p>
+    <p><strong>2.</strong> \(P_{réfléchie} = 0{,}30 \times 1\,361 = \mathbf{408{,}3\text{ W/m}^2}\)</p>
+    <p><strong>3.</strong> \(P_{absorbée} = 0{,}70 \times 1\,361 = \mathbf{952{,}7\text{ W/m}^2}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Effet de serre — texte à compléter</span>
+  </div>
+  <p>Compléter le texte avec les mots suivants : <em>infrarouge, visible, absorbe, température, gaz à effet de serre, atmosphère</em>.</p>
+  <p>Le Soleil émet un rayonnement principalement dans le domaine \(\boxed{\phantom{\text{visible}}}\). Ce rayonnement traverse l'\(\boxed{\phantom{\text{atmosphère}}}\) et réchauffe la surface de la Terre.</p>
+  <p>La Terre, réchauffée, réémet un rayonnement dans le domaine \(\boxed{\phantom{\text{infrarouge}}}\).</p>
+  <p>L'atmosphère contient des \(\boxed{\phantom{\text{gaz à effet de serre}}}\) (vapeur d'eau, CO₂) qui absorbent ce rayonnement infrarouge et le renvoient en partie vers la surface.</p>
+  <p>Ce phénomène augmente la \(\boxed{\phantom{\text{température}}}\) moyenne de la Terre de −18 °C à +15 °C.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le Soleil émet un rayonnement principalement dans le domaine <strong>visible</strong>. Ce rayonnement traverse l'<strong>atmosphère</strong> et réchauffe la surface de la Terre.</p>
+    <p>La Terre, réchauffée, réémet un rayonnement dans le domaine <strong>infrarouge</strong>.</p>
+    <p>L'atmosphère contient des <strong>gaz à effet de serre</strong> (vapeur d'eau, CO₂) qui absorbent ce rayonnement infrarouge et le renvoient en partie vers la surface.</p>
+    <p>Ce phénomène augmente la <strong>température</strong> moyenne de la Terre de −18 °C à +15 °C.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                      EXERCICES STANDARD                       -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<h2>Exercices d'application</h2>
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
     <span class="exo-title">Comparaison Soleil / Terre — domaines spectraux et effet de serre</span>
-    <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>On compare le rayonnement du Soleil (T_Soleil = 6 000 K) et celui de la Terre (T_Terre = 255 K, température d'équilibre radiative sans atmosphère).</p>
-  <div class="methode">
-    <strong>Méthode :</strong> appliquer la loi de Wien à chaque corps, identifier les domaines spectraux correspondants, puis relier les résultats au mécanisme de l'effet de serre.
-  </div>
+  <p>On compare le rayonnement du Soleil (T = 6 000 K) et celui de la Terre (T = 255 K, température d'équilibre sans atmosphère).</p>
   <p class="q"><strong>1.</strong> Calculer \(\lambda_{max}\) pour le Soleil (T = 6 000 K). Exprimer en µm et identifier le domaine spectral.</p>
   <p class="q"><strong>2.</strong> Calculer \(\lambda_{max}\) pour la Terre (T = 255 K). Exprimer en µm et identifier le domaine spectral.</p>
   <p class="q"><strong>3.</strong> Les gaz à effet de serre (vapeur d'eau, CO₂) sont transparents au rayonnement solaire mais absorbent le rayonnement infrarouge terrestre. Expliquer le mécanisme de l'effet de serre naturel à partir des résultats précédents.</p>
@@ -113,154 +180,235 @@
   <div class="corr">
     <p><strong>1.</strong> Soleil (T = 6 000 K) :<br>
     \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{6\,000} \approx 4{,}83 \times 10^{-7}\text{ m} = \mathbf{0{,}48\text{ µm}}\)<br>
-    Domaine : <strong>visible</strong> (lumière jaune-verte, exactement dans la plage 0,4–0,7 µm). Le Soleil rayonne principalement dans le visible.</p>
+    Domaine : <strong>visible</strong> (lumière jaune-verte).</p>
     <p><strong>2.</strong> Terre (T = 255 K) :<br>
     \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{255} \approx 1{,}14 \times 10^{-5}\text{ m} = \mathbf{11{,}4\text{ µm}}\)<br>
-    Domaine : <strong>infrarouge thermique</strong> (grande longueur d'onde, bien au-delà du visible).</p>
-    <p><strong>3.</strong> Mécanisme de l'effet de serre naturel :<br>
-    – Le rayonnement solaire (visible, λ ≈ 0,5 µm) traverse l'atmosphère sans être absorbé : il atteint la surface terrestre qui se réchauffe.<br>
-    – La Terre, chauffée, réémet un rayonnement infrarouge (λ ≈ 11 µm).<br>
-    – Les gaz à effet de serre absorbent ce rayonnement infrarouge et le renvoient en partie vers la surface, augmentant sa température au-delà de 255 K (la température réelle moyenne est +15 °C, soit 288 K).<br>
-    L'effet de serre naturel est donc indispensable à la vie sur Terre.</p>
-    <p><strong>4.</strong> L'augmentation de CO₂ renforce l'absorption du rayonnement infrarouge terrestre. Plus de rayonnement est renvoyé vers la surface, ce qui augmente la température moyenne de la Terre au-delà de l'équilibre naturel. C'est le réchauffement climatique d'origine anthropique.</p>
+    Domaine : <strong>infrarouge thermique</strong>.</p>
+    <p><strong>3.</strong> Le rayonnement solaire (visible, λ ≈ 0,5 µm) traverse l'atmosphère sans être absorbé et atteint la surface terrestre qui se réchauffe. La Terre réémet un rayonnement infrarouge (λ ≈ 11 µm). Les gaz à effet de serre absorbent ce rayonnement infrarouge et le renvoient en partie vers la surface, augmentant sa température au-delà de 255 K (température réelle moyenne : +15 °C, soit 288 K).</p>
+    <p><strong>4.</strong> L'augmentation de CO₂ renforce l'absorption du rayonnement infrarouge terrestre. Plus de rayonnement est renvoyé vers la surface, ce qui augmente la température moyenne au-delà de l'équilibre naturel. C'est le réchauffement climatique d'origine anthropique.</p>
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 5</span>
-    <span class="exo-title">Panneau solaire thermique — bilan radiatif de l'absorbeur</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Puissance rayonnée — influence de la température</span>
   </div>
-  <p>Un panneau solaire thermique dispose d'un absorbeur de surface S = 2 m². L'absorbeur est à la température T = 350 K et son émissivité est ε = 0,95. La puissance solaire incidente sur le panneau est \(P_{inc} = 800\text{ W/m}^2\).</p>
-  <div class="methode">
-    <strong>Méthode :</strong> calculer séparément la puissance reçue (solaire) et la puissance perdue (rayonnement thermique de l'absorbeur), puis établir le bilan.
-  </div>
-  <p class="q"><strong>1.</strong> Calculer la puissance solaire totale reçue par l'absorbeur.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée par l'absorbeur (loi de Stefan-Boltzmann).</p>
-  <p class="q"><strong>3.</strong> Calculer la puissance nette disponible pour chauffer le fluide caloporteur (P reçue − P rayonnée).</p>
-  <p class="q"><strong>4.</strong> Calculer le rendement radiatif : \(\eta_{rad} = \dfrac{P_{nette}}{P_{reçue}}\). Commenter.</p>
+  <p>Une surface noire (ε = 1) de surface S = 1 m² est successivement portée à différentes températures.</p>
+  <p class="q"><strong>1.</strong> Rappeler la formule de Stefan-Boltzmann.</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée P pour T = 300 K et pour T = 500 K.</p>
+  <p class="q"><strong>3.</strong> Calculer le rapport \(\dfrac{P_{500}}{P_{300}}\). Comparer avec le rapport \(\dfrac{500}{300}\). Que peut-on conclure sur l'influence de la température ?</p>
+  <p class="q"><strong>4.</strong> Un technicien chauffagiste mesure une température de surface de 70 °C sur un tuyau de chauffage non isolé (ε = 0,90, diamètre 28 mm, longueur 5 m). Calculer la surface latérale du tuyau puis la puissance perdue par rayonnement. Conclure sur l'intérêt de l'isolation.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P_{reçue} = P_{inc} \times S = 800 \times 2 = \mathbf{1\,600\text{ W}}\)</p>
-    <p><strong>2.</strong> \(T^4 = 350^4 = 1{,}5006 \times 10^{10}\text{ K}^4\)<br>
-    \(P_{ray} = \varepsilon \cdot \sigma \cdot T^4 \cdot S = 0{,}95 \times 5{,}67 \times 10^{-8} \times 1{,}5006 \times 10^{10} \times 2\)<br>
-    \(P_{ray} = 0{,}95 \times 5{,}67 \times 10^{-8} \times 3{,}0012 \times 10^{10} = 0{,}95 \times 1\,702 \approx \mathbf{1\,617\text{ W}}\)</p>
-    <p><strong>3.</strong> \(P_{nette} = P_{reçue} - P_{ray} = 1\,600 - 1\,617 \approx \mathbf{-17\text{ W}}\)<br>
-    Le bilan est légèrement négatif ! Cela signifie qu'à cette température (350 K), l'absorbeur perd plus d'énergie par rayonnement qu'il n'en reçoit du soleil. Pour être efficace, il faut soit réduire l'émissivité de l'absorbeur (revêtement sélectif), soit limiter les pertes par convection avec un vitrage.</p>
-    <p><strong>4.</strong> \(\eta_{rad} = \dfrac{-17}{1\,600} \approx -1\text{ \%}\)<br>
-    Ce résultat illustre l'importance des <strong>revêtements sélectifs</strong> sur les capteurs solaires thermiques : ils maximisent l'absorption dans le visible (α élevé) tout en minimisant l'émission infrarouge (ε faible). Dans la pratique, ε ≈ 0,05 à 0,10 pour un capteur à haut rendement.</p>
+    <p><strong>1.</strong> \(P = \varepsilon \cdot \sigma \cdot T^4 \cdot S\) avec σ = 5,67 × 10⁻⁸ W/m²/K⁴</p>
+    <p><strong>2.</strong> À T = 300 K : \(P = 1 \times 5{,}67 \times 10^{-8} \times 300^4 \times 1 = 5{,}67 \times 10^{-8} \times 8{,}1 \times 10^{9} = \mathbf{459\text{ W}}\)<br>
+    À T = 500 K : \(P = 5{,}67 \times 10^{-8} \times 500^4 \times 1 = 5{,}67 \times 10^{-8} \times 6{,}25 \times 10^{10} = \mathbf{3\,544\text{ W}}\)</p>
+    <p><strong>3.</strong> \(\dfrac{P_{500}}{P_{300}} = \dfrac{3\,544}{459} \approx 7{,}7\) alors que \(\dfrac{500}{300} \approx 1{,}67\). La puissance rayonnée est presque 8 fois plus grande quand la température augmente d'un facteur 1,67. C'est la conséquence de la loi en T⁴ : la puissance rayonnée est <strong>très sensible</strong> à la température.</p>
+    <p><strong>4.</strong> T = 70 + 273 = 343 K. Surface latérale : \(S = \pi \times d \times L = \pi \times 0{,}028 \times 5 = 0{,}440\text{ m}^2\)<br>
+    \(P = 0{,}90 \times 5{,}67 \times 10^{-8} \times 343^4 \times 0{,}440\)<br>
+    \(343^4 = 1{,}384 \times 10^{10}\)<br>
+    \(P = 0{,}90 \times 5{,}67 \times 10^{-8} \times 1{,}384 \times 10^{10} \times 0{,}440 = 0{,}90 \times 345 \approx \mathbf{311\text{ W}}\)<br>
+    Un tuyau non isolé de 5 m perd plus de 300 W par rayonnement seul. L'isolation (coquille) réduit ces pertes en abaissant la température de surface extérieure et en diminuant l'émissivité.</p>
   </div>
 </div>
 
-<h2>Exercices d'application</h2>
-
-<div class="exo">
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 6</span>
+    <span class="exo-num">Exercice 8</span>
     <span class="exo-title">Température d'équilibre de la Terre</span>
-    <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>On veut calculer la température d'équilibre de la Terre en supposant qu'elle se comporte comme un corps noir (ε = 1) et en ne tenant compte que du bilan solaire-terrestre (sans effet de serre).</p>
-  <p>Données : constante solaire \(E_0 = 1\,361\text{ W/m}^2\), albédo α = 0,30, rayon terrestre R (simplifié, il se simplifie dans le calcul).</p>
-  <p class="q"><strong>1.</strong> La Terre intercepte le rayonnement solaire sur sa section droite (disque de surface πR²). La puissance solaire totale interceptée est \(P_{inter} = E_0 \times \pi R^2\). Calculer la puissance moyenne reçue par m² de surface terrestre (surface totale = 4πR²).</p>
+  <p>On veut calculer la température d'équilibre de la Terre en supposant qu'elle se comporte comme un corps noir (ε = 1) sans effet de serre.</p>
+  <p>Données : constante solaire \(E_0 = 1\,361\text{ W/m}^2\), albédo α = 0,30.</p>
+  <p class="q"><strong>1.</strong> La Terre intercepte le rayonnement solaire sur sa section droite (disque de surface πR²). Calculer la puissance moyenne reçue par m² de surface terrestre (surface totale = 4πR²).</p>
   <p class="q"><strong>2.</strong> Avec α = 0,30, calculer la puissance moyenne absorbée par m².</p>
   <p class="q"><strong>3.</strong> À l'équilibre, la Terre réémet toute cette puissance en infrarouge. En égalisant \(P_{absorbée} = \sigma \cdot T^4\), calculer la température d'équilibre T.</p>
   <p class="q"><strong>4.</strong> Comparer à la température réelle moyenne (+15 °C = 288 K). Expliquer l'écart.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P_{moy} = \dfrac{E_0 \times \pi R^2}{4\pi R^2} = \dfrac{E_0}{4} = \dfrac{1\,361}{4} = \mathbf{340{,}25\text{ W/m}^2}\)<br>
-    (Le R se simplifie, ce résultat est indépendant du rayon de la Terre.)</p>
+    <p><strong>1.</strong> \(P_{moy} = \dfrac{E_0 \times \pi R^2}{4\pi R^2} = \dfrac{E_0}{4} = \dfrac{1\,361}{4} = \mathbf{340{,}25\text{ W/m}^2}\)</p>
     <p><strong>2.</strong> \(P_{absorbée} = (1-\alpha) \times P_{moy} = 0{,}70 \times 340{,}25 = \mathbf{238{,}2\text{ W/m}^2}\)</p>
-    <p><strong>3.</strong> À l'équilibre : \(P_{absorbée} = \sigma \cdot T^4\)<br>
-    \(T^4 = \dfrac{P_{absorbée}}{\sigma} = \dfrac{238{,}2}{5{,}67 \times 10^{-8}} = 4{,}202 \times 10^{9}\text{ K}^4\)<br>
+    <p><strong>3.</strong> \(T^4 = \dfrac{P_{absorbée}}{\sigma} = \dfrac{238{,}2}{5{,}67 \times 10^{-8}} = 4{,}202 \times 10^{9}\text{ K}^4\)<br>
     \(T = (4{,}202 \times 10^{9})^{1/4} = \mathbf{254{,}5\text{ K}} \approx -18{,}5\text{ °C}\)</p>
-    <p><strong>4.</strong> La température calculée sans atmosphère est d'environ −18,5 °C, alors que la température réelle moyenne est +15 °C. L'écart est de +33,5 °C. Cet écart est dû à <strong>l'effet de serre naturel</strong> de l'atmosphère terrestre (vapeur d'eau, CO₂, méthane...) qui retient une partie du rayonnement infrarouge terrestre et réchauffe la surface au-delà de la valeur d'équilibre radiative.</p>
+    <p><strong>4.</strong> La température calculée (−18,5 °C) est très inférieure à la température réelle (+15 °C). L'écart de +33,5 °C est dû à l'<strong>effet de serre naturel</strong> de l'atmosphère (vapeur d'eau, CO₂, méthane) qui retient une partie du rayonnement infrarouge terrestre.</p>
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Effet de serre dans une serre vitrée — longueurs d'onde</span>
-    <span class="diff diff-3">Niveau 3</span>
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Panneau solaire thermique — bilan radiatif de l'absorbeur</span>
   </div>
-  <p>Un simple vitrage laisse passer environ 80 % du rayonnement solaire (courtes longueurs d'onde) mais est pratiquement opaque au rayonnement thermique infrarouge (longues longueurs d'onde). On veut expliquer l'effet de serre dans une serre vitrée.</p>
-  <p class="q"><strong>1.</strong> Calculer la longueur d'onde pic du rayonnement solaire (T_Soleil = 5 778 K). En déduire le domaine spectral.</p>
-  <p class="q"><strong>2.</strong> Calculer la longueur d'onde pic du rayonnement émis par un vitrage à T = 293 K (20 °C). En déduire le domaine spectral.</p>
-  <p class="q"><strong>3.</strong> Expliquer, en utilisant les résultats des questions 1 et 2, pourquoi la température s'élève à l'intérieur d'une serre vitrée (effet de serre local).</p>
-  <p class="q"><strong>4.</strong> Faire l'analogie avec l'effet de serre atmosphérique : quel rôle joue l'atmosphère vis-à-vis du vitrage ?</p>
+  <p>Un installateur en énergies renouvelables pose des panneaux solaires thermiques sur le toit d'un gymnase. L'absorbeur a une surface S = 2 m², une température T = 350 K et une émissivité ε = 0,95. La puissance solaire incidente est \(P_{inc} = 800\text{ W/m}^2\).</p>
+  <p class="q"><strong>1.</strong> Calculer la puissance solaire totale reçue par l'absorbeur.</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée par l'absorbeur (loi de Stefan-Boltzmann).</p>
+  <p class="q"><strong>3.</strong> Calculer la puissance nette disponible pour chauffer le fluide caloporteur.</p>
+  <p class="q"><strong>4.</strong> Calculer le rendement radiatif \(\eta = \dfrac{P_{nette}}{P_{reçue}}\). Commenter et proposer une solution technique.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(\lambda_{max,Soleil} = \dfrac{2{,}898 \times 10^{-3}}{5\,778} \approx 5{,}02 \times 10^{-7}\text{ m} = \mathbf{0{,}50\text{ µm}}\)<br>
-    Domaine : <strong>visible</strong> (lumière verte-jaune). Le vitrage est transparent pour ce rayonnement : il le laisse entrer dans la serre.</p>
-    <p><strong>2.</strong> \(\lambda_{max,vitrage} = \dfrac{2{,}898 \times 10^{-3}}{293} \approx 9{,}89 \times 10^{-6}\text{ m} = \mathbf{9{,}89\text{ µm}}\)<br>
-    Domaine : <strong>infrarouge thermique</strong>. Le vitrage est opaque à ces longueurs d'onde.</p>
-    <p><strong>3.</strong> Mécanisme de l'effet de serre dans la serre vitrée :<br>
-    – Le rayonnement solaire (visible, 0,5 µm) traverse le vitrage et est absorbé par le sol et les plantes à l'intérieur, qui se réchauffent.<br>
-    – Le sol chaud (T ≈ 300 K) réémet un rayonnement infrarouge (λ ≈ 10 µm).<br>
-    – Ce rayonnement infrarouge <strong>ne peut pas traverser le vitrage</strong> (le verre est opaque à ces longueurs d'onde).<br>
-    – L'énergie est piégée à l'intérieur : la température monte jusqu'à ce qu'un nouvel équilibre s'établisse à une température plus élevée qu'à l'extérieur.</p>
-    <p><strong>4.</strong> Dans l'effet de serre atmosphérique, l'atmosphère (chargée en CO₂, vapeur d'eau) joue le même rôle que le vitrage : elle est transparente au rayonnement solaire visible mais absorbe le rayonnement infrarouge terrestre. L'énergie est retenue dans le système Terre-atmosphère, élevant la température de surface. L'analogie avec la serre vitrée est à l'origine du nom « effet de serre ».</p>
+    <p><strong>1.</strong> \(P_{reçue} = 800 \times 2 = \mathbf{1\,600\text{ W}}\)</p>
+    <p><strong>2.</strong> \(T^4 = 350^4 = 1{,}5006 \times 10^{10}\)<br>
+    \(P_{ray} = 0{,}95 \times 5{,}67 \times 10^{-8} \times 1{,}5006 \times 10^{10} \times 2 \approx \mathbf{1\,617\text{ W}}\)</p>
+    <p><strong>3.</strong> \(P_{nette} = 1\,600 - 1\,617 = \mathbf{-17\text{ W}}\). Le bilan est négatif : l'absorbeur perd plus qu'il ne reçoit.</p>
+    <p><strong>4.</strong> \(\eta = \dfrac{-17}{1\,600} \approx -1\,\%\). Pour améliorer le rendement, on utilise un <strong>revêtement sélectif</strong> (ε ≈ 0,05 à 0,10) qui maximise l'absorption dans le visible tout en minimisant l'émission infrarouge.</p>
   </div>
 </div>
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Effet de serre dans une serre vitrée</span>
+  </div>
+  <p>Un simple vitrage laisse passer environ 80 % du rayonnement solaire mais est pratiquement opaque au rayonnement infrarouge.</p>
+  <p class="q"><strong>1.</strong> Calculer la longueur d'onde pic du rayonnement solaire (T = 5 778 K). En déduire le domaine spectral.</p>
+  <p class="q"><strong>2.</strong> Calculer la longueur d'onde pic du rayonnement émis par le sol d'une serre à T = 293 K. En déduire le domaine spectral.</p>
+  <p class="q"><strong>3.</strong> Expliquer pourquoi la température s'élève à l'intérieur d'une serre vitrée.</p>
+  <p class="q"><strong>4.</strong> Faire l'analogie avec l'effet de serre atmosphérique.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{5\,778} \approx 5{,}02 \times 10^{-7}\text{ m} = \mathbf{0{,}50\text{ µm}}\) → domaine <strong>visible</strong>.</p>
+    <p><strong>2.</strong> \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{293} \approx 9{,}89 \times 10^{-6}\text{ m} = \mathbf{9{,}89\text{ µm}}\) → domaine <strong>infrarouge</strong>.</p>
+    <p><strong>3.</strong> Le rayonnement solaire (visible) traverse le vitrage et chauffe le sol. Le sol chaud réémet en infrarouge, mais le vitrage est opaque à l'infrarouge : l'énergie est piégée, la température monte.</p>
+    <p><strong>4.</strong> L'atmosphère (CO₂, H₂O) joue le rôle du vitrage : transparente au visible, elle absorbe l'infrarouge terrestre et le renvoie vers la surface. C'est l'origine du nom « effet de serre ».</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                  EXERCICES APPROFONDISSEMENT                  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
 
 <h2>Exercices contextualisés ICCER</h2>
 
-<div class="exo">
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
-    <span class="exo-title">Installation de capteurs solaires thermiques — bilan énergétique</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Installation de capteurs solaires thermiques — optimisation du rendement</span>
   </div>
-  <p>Un technicien en énergies renouvelables installe des panneaux solaires thermiques sur un toit. La surface totale de captation est S = 6 m². Chaque mètre carré reçoit une puissance solaire de \(P_{solaire} = 700\text{ W/m}^2\). Les capteurs ont une émissivité ε = 0,95 et fonctionnent à une température T = 360 K.</p>
+  <p>Un technicien en énergies renouvelables installe des panneaux solaires thermiques sur un toit. La surface totale de captation est S = 6 m². Chaque mètre carré reçoit \(P_{solaire} = 700\text{ W/m}^2\). Les capteurs fonctionnent à T = 360 K.</p>
   <p class="q"><strong>1.</strong> Calculer la puissance solaire totale reçue par les capteurs.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée par les capteurs vers l'extérieur (loi de Stefan-Boltzmann).</p>
-  <p class="q"><strong>3.</strong> Calculer la puissance nette disponible pour le transfert au fluide caloporteur (\(P_{nette} = P_{reçue} - P_{rayonnée}\)).</p>
-  <p class="q"><strong>4.</strong> Le technicien propose de remplacer les capteurs par des modèles à faible émissivité (ε = 0,10, revêtement sélectif). Calculer la nouvelle puissance rayonnée et la nouvelle puissance nette. Quelle est la part de gain ?</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée par les capteurs avec ε = 0,95 (peinture noire classique).</p>
+  <p class="q"><strong>3.</strong> Calculer la puissance nette et le rendement radiatif. Conclure.</p>
+  <p class="q"><strong>4.</strong> Le technicien propose des capteurs à revêtement sélectif (ε = 0,10). Calculer la nouvelle puissance rayonnée, la nouvelle puissance nette et le gain relatif par rapport à la situation initiale.</p>
+  <p class="q"><strong>5.</strong> En supposant que le fluide caloporteur circule à un débit de 0,05 kg/s et que toute la puissance nette est transmise au fluide (capacité thermique c = 4 180 J/(kg·K)), calculer l'élévation de température du fluide entre l'entrée et la sortie du capteur dans le cas du revêtement sélectif. Commenter.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P_{reçue} = P_{solaire} \times S = 700 \times 6 = \mathbf{4\,200\text{ W}}\)</p>
-    <p><strong>2.</strong> \(T = 360\text{ K}\)<br>
-    \(T^4 = 360^4 = 1{,}6796 \times 10^{10}\text{ K}^4\)<br>
-    \(P_{ray} = \varepsilon \cdot \sigma \cdot T^4 \cdot S = 0{,}95 \times 5{,}67 \times 10^{-8} \times 1{,}6796 \times 10^{10} \times 6\)<br>
-    \(P_{ray} = 0{,}95 \times 5{,}67 \times 10^{-8} \times 10{,}078 \times 10^{10} = 0{,}95 \times 5\,714 \approx \mathbf{5\,428\text{ W}}\)</p>
-    <p><strong>3.</strong> \(P_{nette} = 4\,200 - 5\,428 = \mathbf{-1\,228\text{ W}}\)<br>
-    Le bilan est négatif : les capteurs perdent plus d'énergie par rayonnement qu'ils n'en reçoivent du soleil à cette température ! En pratique, d'autres pertes (convection, conduction) s'ajoutent encore. Cela illustre pourquoi les capteurs solaires thermiques haute performance utilisent impérativement des revêtements sélectifs.</p>
-    <p><strong>4.</strong> Avec ε = 0,10 :<br>
-    \(P_{ray,sel} = 0{,}10 \times 5\,714 \approx \mathbf{571\text{ W}}\) (au lieu de 5 428 W)<br>
-    \(P_{nette,sel} = 4\,200 - 571 = \mathbf{3\,629\text{ W}}\)<br>
-    Gain : \(3\,629 - (-1\,228) = 4\,857\text{ W}\), soit une amélioration considérable. Le revêtement sélectif est la technologie clé des capteurs solaires thermiques modernes.</p>
+    <p><strong>1.</strong> \(P_{reçue} = 700 \times 6 = \mathbf{4\,200\text{ W}}\)</p>
+    <p><strong>2.</strong> \(T^4 = 360^4 = 1{,}680 \times 10^{10}\)<br>
+    \(P_{ray} = 0{,}95 \times 5{,}67 \times 10^{-8} \times 1{,}680 \times 10^{10} \times 6 = 0{,}95 \times 5\,714 \approx \mathbf{5\,428\text{ W}}\)</p>
+    <p><strong>3.</strong> \(P_{nette} = 4\,200 - 5\,428 = \mathbf{-1\,228\text{ W}}\). Rendement : \(\eta = \dfrac{-1\,228}{4\,200} \approx -29\,\%\). Le bilan est très négatif : le capteur perd beaucoup plus qu'il ne reçoit.</p>
+    <p><strong>4.</strong> Avec ε = 0,10 : \(P_{ray} = 0{,}10 \times 5\,714 \approx \mathbf{571\text{ W}}\)<br>
+    \(P_{nette} = 4\,200 - 571 = \mathbf{3\,629\text{ W}}\)<br>
+    Gain : passage de −1 228 W à +3 629 W, soit un gain de 4 857 W. Le revêtement sélectif est la technologie clé.</p>
+    <p><strong>5.</strong> \(P = \dot{m} \cdot c \cdot \Delta T\) donc \(\Delta T = \dfrac{P}{\dot{m} \cdot c} = \dfrac{3\,629}{0{,}05 \times 4\,180} = \dfrac{3\,629}{209} \approx \mathbf{17{,}4\text{ °C}}\)<br>
+    Le fluide s'échauffe d'environ 17 °C entre l'entrée et la sortie. C'est un échauffement significatif qui permet de produire de l'eau chaude sanitaire efficacement.</p>
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 9</span>
+    <span class="exo-num">Exercice 12</span>
     <span class="exo-title">Isolation d'une toiture — rayonnement et écran réfléchissant</span>
-    <span class="diff diff-3">Niveau 3</span>
   </div>
-  <p>Un installateur thermique étudie les pertes par rayonnement d'une toiture. La surface intérieure de la toiture a une température T₁ = 15 °C et une émissivité ε = 0,85. La surface totale est S = 80 m².</p>
-  <p class="q"><strong>1.</strong> Convertir T₁ = 15 °C en kelvins.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée par la surface intérieure de la toiture.</p>
-  <p class="q"><strong>3.</strong> La surface extérieure est à T₂ = −5 °C avec ε = 0,85. Calculer la puissance rayonnée vers l'extérieur.</p>
-  <p class="q"><strong>4.</strong> Expliquer l'intérêt d'un écran réfléchissant (pare-vapeur aluminisé, ε ≈ 0,05) placé côté intérieur. Calculer la nouvelle puissance rayonnée depuis la surface intérieure avec ε = 0,05 et conclure.</p>
+  <p>Un technicien CVC étudie les pertes par rayonnement d'une toiture de surface S = 80 m². La surface intérieure est à T₁ = 15 °C avec une émissivité ε = 0,85.</p>
+  <p class="q"><strong>1.</strong> Convertir T₁ en kelvins et calculer la puissance rayonnée par la surface intérieure.</p>
+  <p class="q"><strong>2.</strong> La surface extérieure est à T₂ = −5 °C avec ε = 0,85. Calculer la puissance rayonnée vers l'extérieur.</p>
+  <p class="q"><strong>3.</strong> Calculer le bilan net des échanges par rayonnement à travers la toiture.</p>
+  <p class="q"><strong>4.</strong> Un écran réfléchissant (pare-vapeur aluminisé, ε = 0,05) est placé côté intérieur. Calculer la nouvelle puissance rayonnée depuis la surface intérieure et le pourcentage de réduction.</p>
+  <p class="q"><strong>5.</strong> Estimer le coût annuel des pertes par rayonnement avec et sans écran, sachant que le prix de l'énergie est 0,12 €/kWh et que la saison de chauffe dure 5 mois (3 650 heures). Conclure sur la rentabilité de l'écran (coût d'installation : environ 800 €).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(T_1 = 15 + 273 = \mathbf{288\text{ K}}\)</p>
-    <p><strong>2.</strong> \(T_1^4 = 288^4 = 6{,}879 \times 10^{9}\text{ K}^4\)<br>
-    \(P_1 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 6{,}879 \times 10^{9} \times 80\)<br>
-    \(P_1 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 5{,}503 \times 10^{11}\)<br>
+    <p><strong>1.</strong> \(T_1 = 15 + 273 = 288\text{ K}\)<br>
+    \(P_1 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 288^4 \times 80\)<br>
+    \(288^4 = 6{,}879 \times 10^{9}\)<br>
     \(P_1 = 0{,}85 \times 31\,202 \approx \mathbf{26\,522\text{ W}} \approx 26{,}5\text{ kW}\)</p>
-    <p><strong>3.</strong> \(T_2 = -5 + 273 = 268\text{ K}\)<br>
-    \(T_2^4 = 268^4 = 5{,}153 \times 10^{9}\text{ K}^4\)<br>
-    \(P_2 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 5{,}153 \times 10^{9} \times 80\)<br>
-    \(P_2 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 4{,}122 \times 10^{11} = 0{,}85 \times 23\,372 \approx \mathbf{19\,866\text{ W}} \approx 19{,}9\text{ kW}\)</p>
-    <p><strong>4.</strong> Avec ε = 0,05 (écran réfléchissant) :<br>
-    \(P_{1,ecran} = 0{,}05 \times 5{,}67 \times 10^{-8} \times 6{,}879 \times 10^{9} \times 80 = 0{,}05 \times 31\,202 \approx \mathbf{1\,560\text{ W}}\)<br>
-    Sans écran : P₁ ≈ 26 522 W ; avec écran : P₁ ≈ 1 560 W.<br>
-    <strong>Réduction des pertes par rayonnement de 94 %.</strong><br>
-    L'écran réfléchissant (feuille d'aluminium, émissivité ε ≈ 0,05) réfléchit la quasi-totalité du rayonnement infrarouge émis par la surface intérieure chaude, au lieu de le laisser être absorbé par les matériaux de toiture et rayonné vers l'extérieur. C'est un complément efficace et peu coûteux aux isolants thermiques classiques (laine de roche, polystyrène...) qui agissent, eux, principalement sur la conduction thermique.</p>
+    <p><strong>2.</strong> \(T_2 = 268\text{ K}\), \(268^4 = 5{,}153 \times 10^{9}\)<br>
+    \(P_2 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 5{,}153 \times 10^{9} \times 80 \approx \mathbf{19\,866\text{ W}} \approx 19{,}9\text{ kW}\)</p>
+    <p><strong>3.</strong> Bilan net : \(P_{net} = P_1 - P_2 = 26\,522 - 19\,866 = \mathbf{6\,656\text{ W}} \approx 6{,}7\text{ kW}\) perdus par rayonnement.</p>
+    <p><strong>4.</strong> Avec ε = 0,05 : \(P_{1,écran} = 0{,}05 \times 31\,202 \approx \mathbf{1\,560\text{ W}}\)<br>
+    Réduction : \(\dfrac{26\,522 - 1\,560}{26\,522} \times 100 \approx \mathbf{94\,\%}\) de réduction des pertes par rayonnement côté intérieur.</p>
+    <p><strong>5.</strong> Sans écran : \(E = 6{,}656 \times 3\,650 = 24\,294\text{ kWh}\) → coût ≈ 24 294 × 0,12 = <strong>2 915 €/an</strong>.<br>
+    Avec écran (bilan net réduit) : \(P_{net,écran} = 1\,560 - 19\,866\) est négatif, ce qui signifie que côté intérieur les pertes radiatives deviennent négligeables. En simplifiant, les pertes nettes passent à environ \(1\,560 - 19\,866 \times \frac{0{,}05}{0{,}85} \approx 391\text{ W}\), soit environ 1 427 kWh/an → coût ≈ <strong>171 €/an</strong>.<br>
+    Économie annuelle ≈ 2 744 €. L'écran est rentabilisé en moins d'un an. C'est un investissement très rentable en complément de l'isolation thermique classique.</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Bilan thermique d'un bâtiment — déperditions par les parois</span>
+  </div>
+  <p>Un technicien CVC réalise le bilan thermique d'un local industriel. Le bâtiment possède les parois suivantes exposées à l'extérieur :</p>
+  <table class="styled-table">
+    <thead><tr><th>Paroi</th><th>Surface (m²)</th><th>T surface int. (°C)</th><th>Émissivité ε</th></tr></thead>
+    <tbody>
+      <tr><td>Mur béton</td><td>120</td><td>18</td><td>0,93</td></tr>
+      <tr><td>Toiture tôle</td><td>200</td><td>16</td><td>0,28</td></tr>
+      <tr><td>Vitrage</td><td>30</td><td>12</td><td>0,92</td></tr>
+    </tbody>
+  </table>
+  <p class="q"><strong>1.</strong> Calculer la puissance rayonnée par chaque paroi (côté intérieur).</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance totale rayonnée par l'ensemble des parois intérieures.</p>
+  <p class="q"><strong>3.</strong> Quelle paroi contribue le plus aux pertes par rayonnement ? Quelle paroi contribue le moins par m² ? Expliquer.</p>
+  <p class="q"><strong>4.</strong> Proposer et chiffrer une solution pour réduire les pertes radiatives de la toiture (par exemple, ajout d'un film réfléchissant ε = 0,05 sous la tôle).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <p>Mur béton : T = 291 K, \(291^4 = 7{,}164 \times 10^{9}\)<br>
+    \(P_{mur} = 0{,}93 \times 5{,}67 \times 10^{-8} \times 7{,}164 \times 10^{9} \times 120 = 0{,}93 \times 48\,724 \approx \mathbf{45\,313\text{ W}}\)</p>
+    <p>Toiture tôle : T = 289 K, \(289^4 = 6{,}975 \times 10^{9}\)<br>
+    \(P_{toit} = 0{,}28 \times 5{,}67 \times 10^{-8} \times 6{,}975 \times 10^{9} \times 200 = 0{,}28 \times 79\,097 \approx \mathbf{22\,147\text{ W}}\)</p>
+    <p>Vitrage : T = 285 K, \(285^4 = 6{,}600 \times 10^{9}\)<br>
+    \(P_{vitre} = 0{,}92 \times 5{,}67 \times 10^{-8} \times 6{,}600 \times 10^{9} \times 30 = 0{,}92 \times 11\,228 \approx \mathbf{10\,330\text{ W}}\)</p>
+    <p><strong>2.</strong> \(P_{total} = 45\,313 + 22\,147 + 10\,330 = \mathbf{77\,790\text{ W}} \approx 77{,}8\text{ kW}\)</p>
+    <p><strong>3.</strong> Le mur béton contribue le plus (45,3 kW, soit 58 % du total) car il combine grande surface et forte émissivité. La toiture tôle a la plus faible contribution par m² grâce à son émissivité basse (0,28) : \(P/S = 22\,147/200 = 111\text{ W/m}^2\) contre 378 W/m² pour le mur et 344 W/m² pour le vitrage.</p>
+    <p><strong>4.</strong> Film réfléchissant sous la toiture (ε = 0,05) :<br>
+    \(P_{toit,new} = 0{,}05 \times 5{,}67 \times 10^{-8} \times 6{,}975 \times 10^{9} \times 200 = 0{,}05 \times 79\,097 \approx \mathbf{3\,955\text{ W}}\)<br>
+    Réduction : 22 147 − 3 955 = 18 192 W, soit 82 % de réduction des pertes radiatives de la toiture.</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 14</span>
+    <span class="exo-title">Impact climatique des fluides frigorigènes — problème ouvert</span>
+  </div>
+  <p>Un installateur de pompes à chaleur doit choisir un fluide frigorigène pour une installation neuve. Voici les données disponibles :</p>
+  <table class="styled-table">
+    <thead><tr><th>Fluide</th><th>PRG (100 ans)</th><th>Charge typique PAC</th><th>Taux de fuite annuel</th></tr></thead>
+    <tbody>
+      <tr><td>R-410A</td><td>2 088</td><td>4,2 kg</td><td>5 %</td></tr>
+      <tr><td>R-32</td><td>675</td><td>3,0 kg</td><td>3 %</td></tr>
+      <tr><td>R-290 (propane)</td><td>3</td><td>1,5 kg</td><td>1 %</td></tr>
+    </tbody>
+  </table>
+  <p>Rappel : équivalent CO₂ = masse × PRG. Le seuil réglementaire F-Gas pour le contrôle d'étanchéité annuel est 5 tonnes éq. CO₂.</p>
+  <p class="q"><strong>1.</strong> Calculer l'équivalent CO₂ de la charge initiale pour chaque fluide. Lequel dépasse le seuil F-Gas ?</p>
+  <p class="q"><strong>2.</strong> Calculer la masse de fluide perdue par fuite chaque année pour chaque fluide, et l'équivalent CO₂ annuel correspondant.</p>
+  <p class="q"><strong>3.</strong> Sur une durée de vie de 15 ans, calculer l'impact climatique total (charge initiale + fuites cumulées) pour chaque fluide en tonnes éq. CO₂.</p>
+  <p class="q"><strong>4.</strong> Rédiger un avis argumenté pour le client en comparant les trois solutions (impact environnemental, contraintes réglementaires, coût de maintenance).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong><br>
+    R-410A : 4,2 × 2 088 = <strong>8 770 kg éq. CO₂</strong> = 8,77 t → dépasse le seuil de 5 t<br>
+    R-32 : 3,0 × 675 = <strong>2 025 kg éq. CO₂</strong> = 2,03 t → sous le seuil<br>
+    R-290 : 1,5 × 3 = <strong>4,5 kg éq. CO₂</strong> → négligeable</p>
+    <p><strong>2.</strong> Fuites annuelles :<br>
+    R-410A : 4,2 × 0,05 = 0,21 kg/an → 0,21 × 2 088 = <strong>438 kg éq. CO₂/an</strong><br>
+    R-32 : 3,0 × 0,03 = 0,09 kg/an → 0,09 × 675 = <strong>60,8 kg éq. CO₂/an</strong><br>
+    R-290 : 1,5 × 0,01 = 0,015 kg/an → 0,015 × 3 = <strong>0,045 kg éq. CO₂/an</strong></p>
+    <p><strong>3.</strong> Impact sur 15 ans :<br>
+    R-410A : 8 770 + 15 × 438 = 8 770 + 6 570 = <strong>15 340 kg</strong> ≈ <strong>15,3 t éq. CO₂</strong><br>
+    R-32 : 2 025 + 15 × 60,8 = 2 025 + 912 = <strong>2 937 kg</strong> ≈ <strong>2,9 t éq. CO₂</strong><br>
+    R-290 : 4,5 + 15 × 0,045 = 4,5 + 0,68 = <strong>5,2 kg</strong> ≈ <strong>0,005 t éq. CO₂</strong></p>
+    <p><strong>4.</strong> Le R-290 (propane) a un impact climatique quasi nul (0,005 t contre 15,3 t pour le R-410A). Le R-32 constitue un bon compromis (5 fois moins impactant que le R-410A, pas soumis au contrôle F-Gas). Le R-410A est à éviter pour les nouvelles installations. Le R-290, bien que très performant sur le plan environnemental, nécessite des précautions liées à son inflammabilité. La recommandation est d'orienter le client vers le R-32 ou le R-290 selon la configuration de l'installation.</p>
   </div>
 </div>
 
@@ -269,14 +417,15 @@
   <ul>
     <li>Tout corps émet un rayonnement thermique. Sa puissance est donnée par la <strong>loi de Stefan-Boltzmann</strong> : \(P = \varepsilon \cdot \sigma \cdot T^4 \cdot S\). La puissance varie comme T⁴ : très sensible à la température.</li>
     <li>La <strong>loi de Wien</strong> \(\lambda_{max} = b/T\) indique la longueur d'onde du maximum d'émission. Plus le corps est chaud, plus le rayonnement est à courte longueur d'onde (vers le visible). Un corps froid rayonne dans l'infrarouge.</li>
-    <li>L'<strong>effet de serre</strong> repose sur la différence de domaine spectral entre le rayonnement solaire (visible, courtes λ, que l'atmosphère laisse passer) et le rayonnement terrestre (infrarouge, grandes λ, que les gaz à effet de serre absorbent).</li>
-    <li>Pour les <strong>capteurs solaires thermiques</strong>, le revêtement sélectif (ε faible) réduit drastiquement les pertes par rayonnement infrarouge tout en maintenant une forte absorptivité dans le visible.</li>
-    <li>Un <strong>écran réfléchissant</strong> (feuille aluminisée, ε ≈ 0,05) réduit fortement les échanges par rayonnement dans une paroi : complément utile à l'isolation thermique.</li>
+    <li>L'<strong>effet de serre</strong> repose sur la différence de domaine spectral entre le rayonnement solaire (visible) et le rayonnement terrestre (infrarouge) que les gaz à effet de serre absorbent.</li>
+    <li>Pour les <strong>capteurs solaires thermiques</strong>, le revêtement sélectif (ε faible) réduit drastiquement les pertes par rayonnement infrarouge.</li>
+    <li>Un <strong>écran réfléchissant</strong> (feuille aluminisée, ε ≈ 0,05) réduit fortement les échanges par rayonnement dans une paroi.</li>
   </ul>
 </div>
 
 </div>
 <script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
 <script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

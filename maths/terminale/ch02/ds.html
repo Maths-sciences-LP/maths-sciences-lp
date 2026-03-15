@@ -36,6 +36,109 @@
   <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
 </div>
 
+<!-- ================================================================
+     DS SOCLE — très guidé, mêmes compétences
+     ================================================================ -->
+<div class="diff-socle">
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Tableau croisé (guidé)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un technicien chauffagiste contrôle <strong>100 vannes thermostatiques</strong> provenant de deux fournisseurs (F1 et F2). Voici les résultats :</p>
+  <ul>
+    <li>F1 a livré <strong>60 vannes</strong>, dont <strong>3 sont défectueuses</strong>.</li>
+    <li>F2 a livré <strong>40 vannes</strong>, dont <strong>6 sont défectueuses</strong>.</li>
+  </ul>
+
+  <div class="q"><strong>1. (2 pts)</strong> Compléter le tableau croisé. On a fléché l'ordre de remplissage :</div>
+  <table>
+    <thead><tr><th></th><th>Défectueuse (D)</th><th>Conforme (C)</th><th class="total">Total</th></tr></thead>
+    <tbody>
+      <tr><th>F1</th><td>3 ✓</td><td class="vide">← 60 − 3 = ?</td><td class="total">60</td></tr>
+      <tr><th>F2</th><td>6 ✓</td><td class="vide">← 40 − 6 = ?</td><td class="total">40</td></tr>
+      <tr><th class="total">Total</th><td class="vide">← 3 + 6 = ?</td><td class="vide">?</td><td class="total">100</td></tr>
+    </tbody>
+  </table>
+
+  <div class="q"><strong>2. (2 pts)</strong> On tire une vanne au hasard. Calculer \(P(\text{D})\) (vanne défectueuse). Compléter :</div>
+  <p style="font-size:.93em">\(P(\text{D}) = \dfrac{\boxed{\phantom{9}}}{\boxed{\phantom{100}}} = \boxed{\phantom{0,09}}\)</p>
+
+  <div class="q"><strong>3. (2 pts)</strong> Calculer \(P(\text{F1})\) et \(P(\text{F1} \cap \text{D})\) :</div>
+  <p style="font-size:.93em">\(P(\text{F1}) = \dfrac{\phantom{60}}{\phantom{100}} = \) ……… &nbsp;&nbsp;&nbsp; \(P(\text{F1} \cap \text{D}) = \dfrac{\phantom{3}}{\phantom{100}} = \) ………</p>
+
+  <div class="q"><strong>4. (2 pts)</strong> Sachant que la vanne vient de F1, quelle est la probabilité qu'elle soit défectueuse ?</div>
+  <p class="consigne" style="font-size:.9em"><strong>Rappel :</strong> \(P_{\text{F1}}(\text{D}) = \dfrac{P(\text{F1} \cap \text{D})}{P(\text{F1})}\)</p>
+  <p style="font-size:.93em">\(P_{\text{F1}}(\text{D}) = \dfrac{\boxed{\phantom{0,03}}}{\boxed{\phantom{0,60}}} = \boxed{\phantom{0,05}}\)</p>
+
+  <div class="q"><strong>5. (2 pts)</strong> Quel fournisseur a le plus fort taux de défaut ? Justifier par un calcul.</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> F1 : 3 | 57 | 60. F2 : 6 | 34 | 40. Total : 9 | 91 | 100.</p>
+    <p><strong>2.</strong> \(P(\text{D}) = 9/100 = 0{,}09\) soit 9 %.</p>
+    <p><strong>3.</strong> \(P(\text{F1}) = 60/100 = 0{,}60\) ; \(P(\text{F1} \cap \text{D}) = 3/100 = 0{,}03\).</p>
+    <p><strong>4.</strong> \(P_{\text{F1}}(\text{D}) = 0{,}03/0{,}60 = 0{,}05\) soit 5 %.</p>
+    <p><strong>5.</strong> \(P_{\text{F2}}(\text{D}) = 6/40 = 0{,}15\) soit 15 %. <strong>F2 a un taux de défaut 3 fois plus élevé</strong> (15 % contre 5 %).</p>
+  </div>
+</div>
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Arbre de probabilités (guidé)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un magasin de bricolage vend des ampoules LED. On sait que :</p>
+  <ul>
+    <li>\(70\,\%\) des clients achètent la marque A, le reste achète la marque B ;</li>
+    <li>parmi la marque A, \(95\,\%\) durent plus de 3 ans ;</li>
+    <li>parmi la marque B, \(80\,\%\) durent plus de 3 ans.</li>
+  </ul>
+  <p>On note \(L\) : « l'ampoule dure plus de 3 ans ».</p>
+
+  <div class="q"><strong>1. (2 pts)</strong> Compléter les probabilités sur l'arbre :</div>
+  <div class="chemin" style="font-size:.93em">
+    ├── Marque A (\(\boxed{\phantom{0,7}}\))<br>
+    │ &nbsp;&nbsp;&nbsp;├── L (\(\boxed{\phantom{0,95}}\))<br>
+    │ &nbsp;&nbsp;&nbsp;└── \(\overline{L}\) (\(\boxed{\phantom{0,05}}\))<br>
+    └── Marque B (\(\boxed{\phantom{0,3}}\))<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;├── L (\(\boxed{\phantom{0,80}}\))<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;└── \(\overline{L}\) (\(\boxed{\phantom{0,20}}\))
+  </div>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer \(P(\text{A} \cap L)\) en multipliant le long du chemin :</div>
+  <p style="font-size:.93em">\(P(\text{A} \cap L) = P(\text{A}) \times P_{\text{A}}(L) = \boxed{\phantom{0,7}} \times \boxed{\phantom{0,95}} = \boxed{\phantom{0,665}}\)</p>
+
+  <div class="q"><strong>3. (2 pts)</strong> Calculer \(P(\text{B} \cap L)\) de la même façon :</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> Calculer \(P(L)\) (probabilité totale) :</div>
+  <p style="font-size:.93em">\(P(L) = P(\text{A} \cap L) + P(\text{B} \cap L) = \) ……… + ……… = ………</p>
+
+  <div class="q"><strong>5. (2 pts)</strong> Le magasin garantit les ampoules 3 ans. Sur 1 000 ampoules vendues, combien seront retournées en moyenne ?</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> A : 0,7 ; L sachant A : 0,95 ; \(\overline{L}\) sachant A : 0,05. B : 0,3 ; L sachant B : 0,80 ; \(\overline{L}\) sachant B : 0,20.</p>
+    <p><strong>2.</strong> \(P(\text{A} \cap L) = 0{,}7 \times 0{,}95 = 0{,}665\).</p>
+    <p><strong>3.</strong> \(P(\text{B} \cap L) = 0{,}3 \times 0{,}80 = 0{,}240\).</p>
+    <p><strong>4.</strong> \(P(L) = 0{,}665 + 0{,}240 = 0{,}905\) soit 90,5 %.</p>
+    <p><strong>5.</strong> \(P(\overline{L}) = 1 - 0{,}905 = 0{,}095\). Sur 1 000 : \(1000 \times 0{,}095 = \mathbf{95}\) ampoules retournées en moyenne.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — le DS existant
+     ================================================================ -->
+<div class="diff-standard">
+
 <!-- ===== EXERCICE 1 ===== -->
 <div class="partie">
   <div class="partie-header">
@@ -153,7 +256,99 @@ function toggle(btn){
   else{corr.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
+
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, type BTS
+     ================================================================ -->
+<div class="diff-appro">
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Fiabilité d'un système de chauffage</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un système de chauffage comporte deux composants indépendants : une chaudière (C) et un thermostat (T). On sait que :</p>
+  <ul>
+    <li>La chaudière tombe en panne dans l'année avec une probabilité de \(0{,}08\).</li>
+    <li>Le thermostat tombe en panne dans l'année avec une probabilité de \(0{,}12\).</li>
+  </ul>
+
+  <div class="q"><strong>1. (2 pts)</strong> Les pannes étant indépendantes, calculer la probabilité que les deux composants tombent en panne la même année.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer la probabilité qu'aucun des deux ne tombe en panne.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (3 pts)</strong> En déduire la probabilité qu'au moins un composant tombe en panne. Construire l'arbre pondéré correspondant.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (3 pts)</strong> Un contrat de maintenance coûte 200 € par an. Une réparation coûte 1 500 € en moyenne. À l'aide du calcul de probabilité, le contrat est-il rentable pour le client ? Justifier par le calcul de l'espérance du coût sans contrat.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(C \cap T) = P(C) \times P(T) = 0{,}08 \times 0{,}12 = 0{,}0096\).</p>
+    <p><strong>2.</strong> \(P(\overline{C} \cap \overline{T}) = (1-0{,}08)(1-0{,}12) = 0{,}92 \times 0{,}88 = 0{,}8096\).</p>
+    <p><strong>3.</strong> \(P(\text{au moins 1 panne}) = 1 - P(\overline{C} \cap \overline{T}) = 1 - 0{,}8096 = 0{,}1904\) soit environ 19 %.</p>
+    <p><strong>4.</strong> Espérance du coût sans contrat : \(E = 0{,}1904 \times 1500 \approx 285{,}60\) €. Comme \(285{,}60 > 200\), le contrat de maintenance est <strong>rentable</strong> en moyenne.</p>
+  </div>
+</div>
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Diagnostic et probabilités conditionnelles</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un bureau de contrôle vérifie les installations électriques de logements neufs. Les installations sont réalisées par deux entreprises :</p>
+  <ul>
+    <li>L'entreprise A réalise \(65\,\%\) des installations, dont \(92\,\%\) conformes.</li>
+    <li>L'entreprise B réalise le reste, dont \(78\,\%\) conformes.</li>
+  </ul>
+
+  <div class="q"><strong>1. (2 pts)</strong> Construire l'arbre pondéré complet.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer la probabilité qu'une installation choisie au hasard soit conforme (formule des probabilités totales).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (3 pts)</strong> Une installation est déclarée non conforme. Quelle est la probabilité qu'elle ait été réalisée par l'entreprise B ? (Utiliser la formule de Bayes ou le tableau.)</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (3 pts)</strong> Le bureau de contrôle souhaite que le taux global de conformité atteigne 90 %. Si l'entreprise A maintient son taux à 92 %, quel taux minimum l'entreprise B doit-elle atteindre ? Poser et résoudre l'équation.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> A (0,65) → C (0,92) / NC (0,08). B (0,35) → C (0,78) / NC (0,22).</p>
+    <p><strong>2.</strong> \(P(C) = 0{,}65 \times 0{,}92 + 0{,}35 \times 0{,}78 = 0{,}598 + 0{,}273 = 0{,}871\) soit 87,1 %.</p>
+    <p><strong>3.</strong> \(P(\text{NC}) = 1 - 0{,}871 = 0{,}129\). \(P(\text{B} \cap \text{NC}) = 0{,}35 \times 0{,}22 = 0{,}077\).<br>
+    \(P_{\text{NC}}(\text{B}) = \dfrac{P(\text{B} \cap \text{NC})}{P(\text{NC})} = \dfrac{0{,}077}{0{,}129} \approx 0{,}597\) soit environ 60 %.</p>
+    <p><strong>4.</strong> Soit \(p\) le taux de conformité de B. On veut : \(0{,}65 \times 0{,}92 + 0{,}35 \times p \geq 0{,}90\).<br>
+    \(0{,}598 + 0{,}35p \geq 0{,}90\) → \(0{,}35p \geq 0{,}302\) → \(p \geq 0{,}863\). B doit atteindre au moins <strong>86,3 %</strong> de conformité.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 </div>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

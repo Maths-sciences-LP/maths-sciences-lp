@@ -119,6 +119,176 @@
   </details>
 </div>
 
+<!-- ================================================================
+     SOCLE — EXERCICES TRÈS GUIDÉS
+     ================================================================ -->
+<div class="diff-socle">
+
+<div class="section-titre">
+  <span class="tag-socle">Socle</span>
+  <span class="niveau n1">Exercices guidés — Pas à pas</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- SOCLE S1 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S1</span>Calculer des primitives — méthode guidée</div>
+
+  <div class="meth">
+    <strong>Méthode :</strong> pour trouver une primitive, on utilise le tableau des primitives usuelles.<br>
+    <table>
+      <tr><th>\(f(x)\)</th><th>Primitive \(F(x)\)</th></tr>
+      <tr><td>\(k\) (constante)</td><td>\(kx\)</td></tr>
+      <tr><td>\(x\)</td><td>\(\dfrac{x^2}{2}\)</td></tr>
+      <tr><td>\(x^2\)</td><td>\(\dfrac{x^3}{3}\)</td></tr>
+      <tr><td>\(x^3\)</td><td>\(\dfrac{x^4}{4}\)</td></tr>
+      <tr><td>\(x^n\)</td><td>\(\dfrac{x^{n+1}}{n+1}\)</td></tr>
+    </table>
+    <strong>Règle :</strong> la primitive de \(k \times f(x)\) est \(k \times F(x)\).
+  </div>
+
+  <p>Compléter les primitives suivantes à l'aide du tableau ci-dessus :</p>
+
+  <div class="consigne"><strong>a)</strong> \(f(x) = 5\)</div>
+  <p style="font-size:.93em">
+    La primitive d'une constante \(k\) est \(kx\). Ici \(k = 5\), donc :<br>
+    \(F(x) = 5 \times \boxed{\phantom{x}} = \boxed{\phantom{5x}}\)
+  </p>
+
+  <div class="consigne"><strong>b)</strong> \(f(x) = x^2\)</div>
+  <p style="font-size:.93em">
+    On utilise la formule : primitive de \(x^n\) → \(\dfrac{x^{n+1}}{n+1}\). Ici \(n = \boxed{\phantom{2}}\), donc :<br>
+    \(F(x) = \dfrac{x^{\boxed{\phantom{3}}}}{{\boxed{\phantom{3}}}} = \boxed{\phantom{\dfrac{x^3}{3}}}\)
+  </p>
+
+  <div class="consigne"><strong>c)</strong> \(f(x) = 6x\)</div>
+  <p style="font-size:.93em">
+    On sait que la primitive de \(x\) est \(\dfrac{x^2}{2}\). Avec le coefficient 6 :<br>
+    \(F(x) = 6 \times \dfrac{x^{\boxed{\phantom{2}}}}{{\boxed{\phantom{2}}}} = \boxed{\phantom{3x^2}}\)
+  </p>
+
+  <div class="consigne"><strong>d)</strong> \(f(x) = 3x^2 + 2x - 1\)</div>
+  <p style="font-size:.93em">
+    On fait la primitive de chaque terme séparément :<br>
+    Primitive de \(3x^2\) → \(3 \times \dfrac{x^3}{3} = \boxed{\phantom{x^3}}\)<br>
+    Primitive de \(2x\) → \(2 \times \dfrac{x^2}{2} = \boxed{\phantom{x^2}}\)<br>
+    Primitive de \(-1\) → \(\boxed{\phantom{-x}}\)<br>
+    Donc \(F(x) = \boxed{\phantom{x^3 + x^2 - x}}\)
+  </p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> <span class="reponse">\(F(x) = 5x\)</span></p>
+      <p><strong>b)</strong> \(n = 2\), donc \(F(x) = \dfrac{x^3}{3}\). <span class="reponse">\(F(x) = \dfrac{x^3}{3}\)</span></p>
+      <p><strong>c)</strong> \(F(x) = 6 \times \dfrac{x^2}{2} =\) <span class="reponse">\(F(x) = 3x^2\)</span></p>
+      <p><strong>d)</strong> Terme par terme : \(x^3 + x^2 + (-x)\). <span class="reponse">\(F(x) = x^3 + x^2 - x\)</span></p>
+    </div>
+  </details>
+</div>
+
+<!-- SOCLE S2 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S2</span>Calculer une intégrale définie — pas à pas</div>
+
+  <div class="meth">
+    <strong>Méthode pour calculer \(\displaystyle\int_a^b f(x)\,dx\) :</strong><br>
+    <strong>Étape 1 :</strong> Trouver une primitive \(F(x)\) de \(f(x)\).<br>
+    <strong>Étape 2 :</strong> Calculer \(F(b)\) (remplacer \(x\) par \(b\)).<br>
+    <strong>Étape 3 :</strong> Calculer \(F(a)\) (remplacer \(x\) par \(a\)).<br>
+    <strong>Étape 4 :</strong> Faire la soustraction \(F(b) - F(a)\).
+  </div>
+
+  <div class="consigne"><strong>a)</strong> Calculer \(\displaystyle\int_1^3 4x\,dx\)</div>
+  <p style="font-size:.93em">
+    <strong>Étape 1 :</strong> Primitive de \(4x\) → \(F(x) = 4 \times \dfrac{x^2}{2} = \boxed{\phantom{2x^2}}\)<br>
+    <strong>Étape 2 :</strong> \(F(3) = 2 \times \boxed{\phantom{3}}^2 = 2 \times \boxed{\phantom{9}} = \boxed{\phantom{18}}\)<br>
+    <strong>Étape 3 :</strong> \(F(1) = 2 \times 1^2 = \boxed{\phantom{2}}\)<br>
+    <strong>Étape 4 :</strong> \(\displaystyle\int_1^3 4x\,dx = F(3) - F(1) = \boxed{\phantom{18}} - \boxed{\phantom{2}} = \boxed{\phantom{16}}\)
+  </p>
+
+  <div class="consigne"><strong>b)</strong> Calculer \(\displaystyle\int_0^2 3x^2\,dx\)</div>
+  <p style="font-size:.93em">
+    <strong>Étape 1 :</strong> Primitive de \(3x^2\) → \(F(x) = 3 \times \dfrac{x^3}{3} = \boxed{\phantom{x^3}}\)<br>
+    <strong>Étape 2 :</strong> \(F(2) = \boxed{\phantom{2}}^3 = \boxed{\phantom{8}}\)<br>
+    <strong>Étape 3 :</strong> \(F(0) = 0^3 = \boxed{\phantom{0}}\)<br>
+    <strong>Étape 4 :</strong> \(\displaystyle\int_0^2 3x^2\,dx = \boxed{\phantom{8}} - \boxed{\phantom{0}} = \boxed{\phantom{8}}\)
+  </p>
+
+  <div class="consigne"><strong>c)</strong> Calculer \(\displaystyle\int_1^4 (2x + 3)\,dx\)</div>
+  <p style="font-size:.93em">
+    <strong>Étape 1 :</strong> Primitive de \(2x\) → \(x^2\). Primitive de \(3\) → \(3x\). Donc \(F(x) = \boxed{\phantom{x^2 + 3x}}\)<br>
+    <strong>Étape 2 :</strong> \(F(4) = 4^2 + 3 \times 4 = \boxed{\phantom{16}} + \boxed{\phantom{12}} = \boxed{\phantom{28}}\)<br>
+    <strong>Étape 3 :</strong> \(F(1) = 1^2 + 3 \times 1 = \boxed{\phantom{4}}\)<br>
+    <strong>Étape 4 :</strong> \(\displaystyle\int_1^4 (2x + 3)\,dx = \boxed{\phantom{28}} - \boxed{\phantom{4}} = \boxed{\phantom{24}}\)
+  </p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> \(F(x) = 2x^2\). \(\displaystyle\int_1^3 4x\,dx = [2x^2]_1^3 = 18 - 2 =\) <span class="reponse">\(16\)</span></p>
+      <p><strong>b)</strong> \(F(x) = x^3\). \(\displaystyle\int_0^2 3x^2\,dx = [x^3]_0^2 = 8 - 0 =\) <span class="reponse">\(8\)</span></p>
+      <p><strong>c)</strong> \(F(x) = x^2 + 3x\). \(\displaystyle\int_1^4 (2x + 3)\,dx = [x^2 + 3x]_1^4 = 28 - 4 =\) <span class="reponse">\(24\)</span></p>
+    </div>
+  </details>
+</div>
+
+<!-- SOCLE S3 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S3</span>Interpréter une intégrale comme une aire — lecture guidée</div>
+
+  <div class="meth">
+    <strong>Règle :</strong> si \(f(x) \geq 0\) sur \([a\,;b]\), alors l'aire sous la courbe est égale à l'intégrale :<br>
+    \(\mathcal{A} = \displaystyle\int_a^b f(x)\,dx\) (en unités d'aire)
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier agenceur découpe un panneau décoratif dont le bord supérieur suit la courbe \(f(x) = -x^2 + 4\) (en cm), pour \(x\) allant de \(0\) à \(2\). Le bord inférieur est au niveau \(y = 0\).
+  </div>
+
+  <div class="consigne"><strong>1.</strong> La fonction \(f\) est-elle positive sur \([0\,;2]\) ?</div>
+  <p style="font-size:.93em">
+    Calculer : \(f(0) = -0^2 + 4 = \boxed{\phantom{4}}\) et \(f(2) = -2^2 + 4 = \boxed{\phantom{0}}\).<br>
+    Pour \(x \in [0\,;2]\), \(x^2 \leq 4\) donc \(-x^2 + 4 \geq 0\). Réponse : \(f\) est ☐ positive ☐ négative sur \([0\,;2]\).
+  </p>
+
+  <div class="consigne"><strong>2.</strong> Trouver une primitive \(F(x)\) de \(f(x) = -x^2 + 4\).</div>
+  <p style="font-size:.93em">
+    Primitive de \(-x^2\) → \(-\dfrac{x^3}{3}\). Primitive de \(4\) → \(4x\).<br>
+    Donc \(F(x) = \boxed{\phantom{-\dfrac{x^3}{3} + 4x}}\)
+  </p>
+
+  <div class="consigne"><strong>3.</strong> Calculer \(\displaystyle\int_0^2 (-x^2 + 4)\,dx\).</div>
+  <p style="font-size:.93em">
+    \(F(2) = -\dfrac{\boxed{\phantom{8}}}{3} + 4 \times \boxed{\phantom{2}} = -\dfrac{8}{3} + \boxed{\phantom{8}} = \dfrac{-8 + 24}{3} = \boxed{\phantom{\dfrac{16}{3}}}\)<br>
+    \(F(0) = \boxed{\phantom{0}}\)<br>
+    \(\displaystyle\int_0^2 (-x^2 + 4)\,dx = \boxed{\phantom{\dfrac{16}{3}}} - 0 = \boxed{\phantom{\dfrac{16}{3}}}\)
+  </p>
+
+  <div class="consigne"><strong>4.</strong> En déduire l'aire du panneau en cm².</div>
+  <p style="font-size:.93em">
+    Comme \(f \geq 0\) sur \([0\,;2]\), l'aire est : \(\mathcal{A} = \displaystyle\int_0^2 f(x)\,dx = \boxed{\phantom{\dfrac{16}{3} \approx 5{,}33}}\) cm²
+  </p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(f(0) = 4 > 0\) et \(f(2) = 0\). Pour tout \(x \in [0\,;2]\), \(x^2 \leq 4\) donc \(f(x) \geq 0\). <span class="reponse">\(f\) est positive</span> sur \([0\,;2]\).</p>
+      <p><strong>2.</strong> <span class="reponse">\(F(x) = -\dfrac{x^3}{3} + 4x\)</span></p>
+      <p><strong>3.</strong> \(F(2) = -\dfrac{8}{3} + 8 = \dfrac{16}{3}\), \(F(0) = 0\).<br>
+      \(\displaystyle\int_0^2 (-x^2 + 4)\,dx = \dfrac{16}{3} - 0 =\) <span class="reponse">\(\dfrac{16}{3}\)</span></p>
+      <p><strong>4.</strong> \(\mathcal{A} = \dfrac{16}{3} \approx\) <span class="reponse">\(5{,}33\) cm²</span>. Le panneau a une surface d'environ 5,33 cm².</p>
+    </div>
+  </details>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     STANDARD — EXERCICES DU PROGRAMME (Niveaux 2 et 3)
+     ================================================================ -->
+<div class="diff-standard">
+
 <!-- NIVEAU 2 -->
 <div class="section-titre">
   <span class="niveau n2">Niveau 2 — Application directe</span>
@@ -278,8 +448,16 @@
   </details>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     APPROFONDISSEMENT — PROBLÈMES OUVERTS / TYPE BTS
+     ================================================================ -->
+<div class="diff-appro">
+
 <!-- NIVEAU 4 -->
 <div class="section-titre">
+  <span class="tag-appro">Approfondissement</span>
   <span class="niveau n4">Niveau 4 — Problèmes contextualisés</span>
   <div class="section-ligne"></div>
 </div>
@@ -370,6 +548,8 @@
     </div>
   </details>
 </div>
+
+</div><!-- fin diff-appro -->
 
 <div class="nav-footer">
   <a href="lecon.html">📖 Cours Ch08</a>
@@ -462,5 +642,6 @@ function courbe(f,x0,x1,n){const r=[];const s=(x1-x0)/(n-1);for(let i=0;i<n;i++)
 })();
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

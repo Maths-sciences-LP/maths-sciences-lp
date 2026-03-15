@@ -35,6 +35,125 @@
   <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
 </div>
 
+<!-- ═══════════════════════ SOCLE ═══════════════════════ -->
+<div class="diff-socle">
+<div class="section-titre">
+  <span class="tag-socle">Socle</span>
+  <span class="niveau n1">DS guid&eacute; &mdash; Pas &agrave; pas</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- ===== SOCLE EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Hauteur d'un poteau (guid&eacute;)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien doit calculer la hauteur d'un poteau. Depuis un point \(A\) situ&eacute; &agrave; \(12\) m du pied \(B\) du poteau, il vise le sommet \(C\) avec un angle d'&eacute;l&eacute;vation de \(40°\).
+  </div>
+
+  <div style="text-align:center;margin:16px 0">
+    <svg width="280" height="180" viewBox="0 0 280 180">
+      <polygon points="30,150 230,150 230,30" fill="none" stroke="#0969da" stroke-width="2"/>
+      <rect x="220" y="140" width="10" height="10" fill="none" stroke="#0969da" stroke-width="1.5"/>
+      <text x="15" y="165" font-size="14" fill="#1a202c" font-weight="600">A</text>
+      <text x="235" y="165" font-size="14" fill="#1a202c" font-weight="600">B</text>
+      <text x="235" y="25" font-size="14" fill="#1a202c" font-weight="600">C</text>
+      <text x="120" y="170" font-size="12" fill="#4a5568">12 m</text>
+      <text x="238" y="95" font-size="12" fill="#4a5568">h = ?</text>
+      <path d="M 60,150 A 30,30 0 0,0 52,132" fill="none" stroke="#e53e3e" stroke-width="1.5"/>
+      <text x="63" y="137" font-size="11" fill="#e53e3e">40&deg;</text>
+    </svg>
+  </div>
+
+  <div class="meth">
+    <span class="label-meth">M&eacute;thode SOH-CAH-TOA</span>
+    <p>\(\tan(\alpha) = \dfrac{\text{oppos&eacute;}}{\text{adjacent}}\) &emsp; \(\sin(\alpha) = \dfrac{\text{oppos&eacute;}}{\text{hypot&eacute;nuse}}\) &emsp; \(\cos(\alpha) = \dfrac{\text{adjacent}}{\text{hypot&eacute;nuse}}\)</p>
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Par rapport &agrave; l'angle de \(40°\), identifier :<br>
+    &bull; le c&ocirc;t&eacute; oppos&eacute; = \(\boxed{\phantom{BC = h}}\)<br>
+    &bull; le c&ocirc;t&eacute; adjacent = \(\boxed{\phantom{AB = 12}}\)</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Quelle formule trigonom&eacute;trique relie l'oppos&eacute; et l'adjacent ?<br>
+    R&eacute;ponse : \(\boxed{\phantom{\tan}}\)</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (3 pts)</strong> Poser l'&eacute;quation et calculer \(h\).<br>
+    \(\tan(40°) = \dfrac{h}{\boxed{\phantom{12}}}\) &nbsp;donc&nbsp; \(h = \boxed{\phantom{12}} \times \tan(40°) = \boxed{\phantom{12}} \times \boxed{\phantom{0{,}839}} = \boxed{\phantom{10{,}07}}\) m</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (3 pts)</strong> Calculer la distance \(AC\) (du point d'observation au sommet du poteau).<br>
+    On conna&icirc;t l'adjacent (\(12\) m) et on cherche l'hypot&eacute;nuse → formule : \(\boxed{\phantom{\cos}}\)<br>
+    \(\cos(40°) = \dfrac{12}{AC}\) &nbsp;donc&nbsp; \(AC = \dfrac{12}{\cos(40°)} = \dfrac{12}{\boxed{\phantom{0{,}766}}} = \boxed{\phantom{15{,}66}}\) m</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Oppos&eacute; = \(BC = h\), Adjacent = \(AB = 12\) m.</p>
+    <p><strong>2.</strong> Formule \(\tan\) (TOA : oppos&eacute; / adjacent).</p>
+    <p><strong>3.</strong> \(h = 12 \times \tan(40°) = 12 \times 0{,}839 \approx 10{,}07\) m.</p>
+    <p><strong>4.</strong> \(AC = \dfrac{12}{\cos(40°)} = \dfrac{12}{0{,}766} \approx 15{,}66\) m.</p>
+  </div>
+</div>
+
+<!-- ===== SOCLE EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Pente d'un tuyau (guid&eacute;)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien chauffagiste installe un tuyau d'&eacute;vacuation qui relie un point \(D\) au sol &agrave; un point \(E\) situ&eacute; &agrave; \(0{,}90\) m de hauteur. La longueur du tuyau (hypot&eacute;nuse) est de \(3{,}20\) m.
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Faire un sch&eacute;ma du triangle rectangle. Identifier l'hypot&eacute;nuse (\(DE = 3{,}20\) m) et le c&ocirc;t&eacute; oppos&eacute; (hauteur = \(0{,}90\) m).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (3 pts)</strong> Calculer l'angle de pente \(\alpha\) du tuyau.<br>
+    On conna&icirc;t l'oppos&eacute; et l'hypot&eacute;nuse → formule : \(\boxed{\phantom{\sin}}\)<br>
+    \(\sin(\alpha) = \dfrac{0{,}90}{3{,}20} = \boxed{\phantom{0{,}2813}}\)<br>
+    \(\alpha = \arcsin(\boxed{\phantom{0{,}2813}}) = \boxed{\phantom{16{,}3°}}\)</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> Calculer la distance horizontale au sol \(DF\).<br>
+    \(\cos(\alpha) = \dfrac{DF}{DE}\) &nbsp;donc&nbsp; \(DF = 3{,}20 \times \cos(\boxed{\phantom{16{,}3°}}) = 3{,}20 \times \boxed{\phantom{0{,}960}} = \boxed{\phantom{3{,}07}}\) m</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (3 pts)</strong> V&eacute;rifier le r&eacute;sultat avec le th&eacute;or&egrave;me de Pythagore.<br>
+    \(DF^2 + EF^2 = \boxed{\phantom{3{,}07}}^2 + \boxed{\phantom{0{,}90}}^2 = \boxed{\phantom{9{,}42}} + \boxed{\phantom{0{,}81}} = \boxed{\phantom{10{,}23}}\)<br>
+    \(DE^2 = 3{,}20^2 = \boxed{\phantom{10{,}24}}\) → coh&eacute;rent ✓</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Triangle rectangle avec hyp. \(DE = 3{,}20\) m, oppos&eacute; (hauteur) = \(0{,}90\) m.</p>
+    <p><strong>2.</strong> \(\sin(\alpha) = \dfrac{0{,}90}{3{,}20} = 0{,}2813\). \(\alpha = \arcsin(0{,}2813) \approx 16{,}3°\).</p>
+    <p><strong>3.</strong> \(DF = 3{,}20 \times \cos(16{,}3°) = 3{,}20 \times 0{,}960 \approx 3{,}07\) m.</p>
+    <p><strong>4.</strong> \(3{,}07^2 + 0{,}90^2 = 9{,}42 + 0{,}81 = 10{,}23 \approx 3{,}20^2 = 10{,}24\) ✓</p>
+  </div>
+</div>
+
+<div class="total-bar" style="background:#16a34a;color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px">TOTAL SOCLE : 20 points</div>
+</div><!-- fin diff-socle -->
+
+<!-- ═══════════════════════ STANDARD ═══════════════════════ -->
+<div class="diff-standard">
+<div class="section-titre">
+  <span class="tag-standard">Standard</span>
+  <span class="niveau n2">DS standard</span>
+  <div class="section-ligne"></div>
+</div>
+
 <!-- ===== EXERCICE 1 ===== -->
 <div class="partie">
   <div class="partie-header">
@@ -147,6 +266,112 @@
 </div>
 
 <div class="total-bar" style="background:var(--p);color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px">TOTAL : 20 points</div>
+</div><!-- fin diff-standard -->
+
+<!-- ═══════════════════════ APPRO ═══════════════════════ -->
+<div class="diff-appro">
+<div class="section-titre">
+  <span class="tag-appro">Approfondissement</span>
+  <span class="niveau n4">DS approfondissement &mdash; Type BTS</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- ===== APPRO EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; &Eacute;tude compl&egrave;te d'une charpente</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier agenceur con&ccedil;oit la charpente d'un atelier. Le b&acirc;timent a une largeur de \(10\) m. Le toit est &agrave; deux pans sym&eacute;triques avec une hauteur au fa&icirc;tage de \(3{,}50\) m au-dessus des murs. Un poteau interm&eacute;diaire est plac&eacute; &agrave; \(3\) m du mur gauche.
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Calculer l'angle de pente \(\alpha\) du toit par rapport &agrave; l'horizontale.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer la longueur d'un arbal&eacute;trier (du mur au fa&icirc;tage).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (3 pts)</strong> Le poteau interm&eacute;diaire est vertical, plac&eacute; &agrave; \(3\) m du mur gauche. En utilisant le th&eacute;or&egrave;me de Thal&egrave;s ou la trigonom&eacute;trie, calculer la hauteur de ce poteau (depuis le mur jusqu'au pan de toit).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (3 pts)</strong> Calculer la surface totale de toiture &agrave; couvrir, sachant que le b&acirc;timent fait \(15\) m de long. En d&eacute;duire le nombre de paquets de tuiles n&eacute;cessaires si un paquet couvre \(3{,}5\) m&sup2;.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Demi-largeur = \(5\) m, hauteur = \(3{,}50\) m.<br>
+    \(\tan(\alpha) = \dfrac{3{,}50}{5} = 0{,}70\), donc \(\alpha = \arctan(0{,}70) \approx 35{,}0°\).</p>
+    <p><strong>2.</strong> Arbal&eacute;trier \(= \dfrac{5}{\cos(35°)} = \dfrac{5}{0{,}8192} \approx 6{,}10\) m.<br>
+    V&eacute;rification : \(\sqrt{5^2 + 3{,}5^2} = \sqrt{25 + 12{,}25} = \sqrt{37{,}25} \approx 6{,}10\) m ✓</p>
+    <p><strong>3.</strong> &Agrave; \(3\) m du mur, la hauteur sous le pan = \(\tan(\alpha) \times 3 = 0{,}70 \times 3 = 2{,}10\) m. Autrement par Thal&egrave;s : \(\dfrac{h}{3{,}50} = \dfrac{3}{5}\), donc \(h = \dfrac{3 \times 3{,}50}{5} = 2{,}10\) m.</p>
+    <p><strong>4.</strong> Surface d'un pan = arbal&eacute;trier &times; longueur = \(6{,}10 \times 15 = 91{,}5\) m&sup2;.<br>
+    Surface totale = \(2 \times 91{,}5 = 183\) m&sup2;.<br>
+    Nombre de paquets = \(\dfrac{183}{3{,}5} \approx 52{,}3\) → il faut <strong>53 paquets</strong>.</p>
+  </div>
+</div>
+
+<!-- ===== APPRO EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Mod&eacute;lisation sinuso&iuml;dale d'un ph&eacute;nom&egrave;ne p&eacute;riodique</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien chauffagiste &eacute;tudie la temp&eacute;rature ext&eacute;rieure sur une journ&eacute;e. La temp&eacute;rature (en &deg;C) est mod&eacute;lis&eacute;e par la fonction :
+    \[T(t) = 5 \sin\!\left(\dfrac{\pi}{12}(t - 9)\right) + 15\]
+    o&ugrave; \(t\) est le temps en heures (\(t = 0\) correspond &agrave; minuit).
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> D&eacute;terminer l'amplitude, la p&eacute;riode, le d&eacute;phasage et la valeur moyenne de cette fonction sinuso&iuml;dale. Interpr&eacute;ter chaque param&egrave;tre.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer la temp&eacute;rature &agrave; \(t = 9\) h, \(t = 15\) h et \(t = 21\) h.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> &Agrave; quelle heure la temp&eacute;rature maximale est-elle atteinte ? Quelle est cette temp&eacute;rature ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> Le chauffage s'enclenche quand \(T(t) < 12\) &deg;C. R&eacute;soudre l'in&eacute;quation \(T(t) < 12\). D&eacute;terminer la plage horaire durant laquelle le chauffage fonctionne.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> Le technicien veut calculer l'&eacute;nergie consomm&eacute;e. La puissance de chauffage est proportionnelle &agrave; l'&eacute;cart de temp&eacute;rature : \(P = k(20 - T(t))\) avec \(k = 150\) W/&deg;C. Calculer la puissance &agrave; \(t = 3\) h.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Amplitude = \(5\) &deg;C (variation max autour de la moyenne). P&eacute;riode = \(\dfrac{2\pi}{\pi/12} = 24\) h (cycle d'une journ&eacute;e). D&eacute;phasage = \(9\) h (le maximum est d&eacute;cal&eacute; &agrave; 15 h). Valeur moyenne = \(15\) &deg;C.</p>
+    <p><strong>2.</strong><br>
+    \(T(9) = 5\sin(0) + 15 = 15\) &deg;C.<br>
+    \(T(15) = 5\sin\!\left(\dfrac{\pi}{12} \times 6\right) + 15 = 5\sin\!\left(\dfrac{\pi}{2}\right) + 15 = 5 + 15 = 20\) &deg;C.<br>
+    \(T(21) = 5\sin\!\left(\dfrac{\pi}{12} \times 12\right) + 15 = 5\sin(\pi) + 15 = 15\) &deg;C.</p>
+    <p><strong>3.</strong> Le max de \(\sin\) est \(1\), atteint quand \(\dfrac{\pi}{12}(t-9) = \dfrac{\pi}{2}\), soit \(t - 9 = 6\), donc \(t = 15\) h. Temp&eacute;rature maximale = \(5 + 15 = 20\) &deg;C.</p>
+    <p><strong>4.</strong> \(T(t) < 12\) ⟺ \(5\sin\!\left(\dfrac{\pi}{12}(t-9)\right) + 15 < 12\) ⟺ \(\sin\!\left(\dfrac{\pi}{12}(t-9)\right) < -0{,}6\).<br>
+    \(\arcsin(-0{,}6) \approx -0{,}6435\) rad. Les solutions : \(\dfrac{\pi}{12}(t-9) \in ]\pi + 0{,}6435\;;\; 2\pi - 0{,}6435[\).<br>
+    Soit \(t \in ]0{,}54\;;\; 5{,}54[\) h, environ de <strong>0 h 30 &agrave; 5 h 30</strong>.</p>
+    <p><strong>5.</strong> \(T(3) = 5\sin\!\left(\dfrac{\pi}{12}(3-9)\right) + 15 = 5\sin\!\left(-\dfrac{\pi}{2}\right) + 15 = -5 + 15 = 10\) &deg;C.<br>
+    \(P = 150 \times (20 - 10) = 150 \times 10 = 1\,500\) W = \(1{,}5\) kW.</p>
+  </div>
+</div>
+
+<div class="total-bar" style="background:#7c3aed;color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px">TOTAL APPROFONDISSEMENT : 20 points</div>
+</div><!-- fin diff-appro -->
 
 </div>
 
@@ -158,5 +383,6 @@ function toggle(btn){
 }
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

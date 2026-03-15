@@ -6,7 +6,7 @@
   <title>Ch02 – Obtenir un courant continu à partir d'un courant alternatif et inversement – DS</title>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" href="../../../styles.css">
-<link rel="stylesheet" href="../../../print.css" media="print">
+  <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
 .info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
     .info-ds div{flex:1;min-width:150px}
@@ -30,6 +30,133 @@
     <div><strong>Calculatrice</strong>Autorisée</div>
   </div>
 
+  <!-- ================= NIVEAU SOCLE ================= -->
+  <div class="diff-socle">
+  <span class="tag-socle">Socle</span>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Alimentation d'une vanne motorisée</span>
+      <span class="pts">8 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien chauffagiste installe une vanne motorisée sur un réseau de chauffage. La vanne fonctionne en courant continu 24 V. Elle est alimentée par le secteur 230 V / 50 Hz grâce à un bloc d'alimentation comprenant : un transformateur (230 V → 28 V), un pont de Graëtz (4 diodes) et un condensateur de filtrage.
+    </p>
+    <p><strong>Formules utiles :</strong></p>
+    <ul>
+      <li>\(U_{\max} = U_{\text{eff}} \times \sqrt{2} \approx U_{\text{eff}} \times 1{,}414\)</li>
+      <li>Pont de Graëtz : \(U_{\text{moy}} \approx 0{,}9 \times U_{\text{eff}}\)</li>
+      <li>\(T = \dfrac{1}{f}\)</li>
+    </ul>
+
+    <div class="q"><strong>1.</strong> Compléter le tableau en indiquant le rôle de chaque élément : <span class="q-pts">(3 pts)</span></div>
+    <table>
+      <tr><th>Élément</th><th>Rôle (compléter)</th></tr>
+      <tr><td>Transformateur</td><td>\(\boxed{\phantom{\text{Abaisser la tension de 230 V à 28 V}}}\)</td></tr>
+      <tr><td>Pont de Graëtz</td><td>\(\boxed{\phantom{\text{Redresser le courant AC en courant pulsé positif}}}\)</td></tr>
+      <tr><td>Condensateur</td><td>\(\boxed{\phantom{\text{Lisser la tension pour obtenir du courant continu}}}\)</td></tr>
+    </table>
+
+    <div class="q"><strong>2.</strong> Compléter le calcul de la tension maximale en sortie du transformateur : <span class="q-pts">(1,5 pt)</span><br>
+      \(U_{\max} = U_{\text{eff}} \times \sqrt{2} = \boxed{\phantom{28}} \times 1{,}414 = \boxed{\phantom{39{,}6}}\ \text{V}\)</div>
+
+    <div class="q"><strong>3.</strong> Compléter le calcul de la tension moyenne en sortie du pont de Graëtz : <span class="q-pts">(1,5 pt)</span><br>
+      \(U_{\text{moy}} = 0{,}9 \times \boxed{\phantom{28}} = \boxed{\phantom{25{,}2}}\ \text{V}\)</div>
+
+    <div class="q"><strong>4.</strong> Cocher la bonne description du signal en sortie du pont de Graëtz (sans filtrage) : <span class="q-pts">(1 pt)</span><br>
+      ☐ Une tension constante de 28 V<br>
+      ☐ Une succession d'arches sinusoïdales positives (bosses)<br>
+      ☐ Une sinusoïde identique à l'entrée</div>
+
+    <div class="q"><strong>5.</strong> Le condensateur lisse la tension. La tension filtrée est-elle plus proche de : <span class="q-pts">(1 pt)</span><br>
+      ☐ \(U_{\text{moy}}\) &nbsp;&nbsp; ☐ \(U_{\max}\)</div>
+
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong></p>
+      <ul>
+        <li><strong>Transformateur</strong> : abaisser la tension alternative de 230 V à 28 V.</li>
+        <li><strong>Pont de Graëtz</strong> : redresser le courant alternatif en courant pulsé positif (les alternances négatives sont retournées).</li>
+        <li><strong>Condensateur</strong> : lisser la tension pulsée pour obtenir une tension quasi continue.</li>
+      </ul>
+      <p><strong>2.</strong> \(U_{\max} = 28 \times 1{,}414 \approx \mathbf{39{,}6\ V}\)</p>
+      <p><strong>3.</strong> \(U_{\text{moy}} = 0{,}9 \times 28 = \mathbf{25{,}2\ V}\)</p>
+      <p><strong>4.</strong> La bonne réponse est : <strong>une succession d'arches sinusoïdales positives</strong>. Chaque arche a une amplitude de 39,6 V.</p>
+      <p><strong>5.</strong> La tension filtrée est plus proche de \(\mathbf{U_{\max}}\) : le condensateur se charge au sommet de chaque arche et se décharge lentement entre deux arches.</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Identifier les convertisseurs</span>
+      <span class="pts">5 points</span>
+    </div>
+    <p class="enonce">
+      Voici quatre situations professionnelles. Pour chacune, indiquer le type de convertisseur utilisé (redresseur, onduleur ou variateur de fréquence) et la conversion réalisée (AC → DC, DC → AC ou AC → DC → AC).
+    </p>
+
+    <div class="q"><strong>1.</strong> Un chargeur de téléphone portable branché sur une prise 230 V. <span class="q-pts">(1 pt)</span><br>
+      Convertisseur : \(\boxed{\phantom{\text{redresseur}}}\) — Conversion : \(\boxed{\phantom{\text{AC → DC}}}\)</div>
+
+    <div class="q"><strong>2.</strong> Des panneaux solaires raccordés au réseau EDF. <span class="q-pts">(1 pt)</span><br>
+      Convertisseur : \(\boxed{\phantom{\text{onduleur}}}\) — Conversion : \(\boxed{\phantom{\text{DC → AC}}}\)</div>
+
+    <div class="q"><strong>3.</strong> Un compresseur de pompe à chaleur Inverter dont la vitesse varie. <span class="q-pts">(1 pt)</span><br>
+      Convertisseur : \(\boxed{\phantom{\text{variateur de fréquence}}}\) — Conversion : \(\boxed{\phantom{\text{AC → DC → AC}}}\)</div>
+
+    <div class="q"><strong>4.</strong> Compléter les phrases : <span class="q-pts">(2 pts)</span><br>
+      — Le redresseur utilise des composants appelés \(\boxed{\phantom{\text{diodes}}}\).<br>
+      — L'onduleur utilise des composants de type \(\boxed{\phantom{\text{transistors (IGBT)}}}\).<br>
+      — Le variateur de fréquence est constitué d'un \(\boxed{\phantom{\text{redresseur}}}\) suivi d'un \(\boxed{\phantom{\text{onduleur}}}\).</div>
+
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> <strong>Redresseur</strong> (+ transformateur) — conversion <strong>AC → DC</strong>.</p>
+      <p><strong>2.</strong> <strong>Onduleur</strong> — conversion <strong>DC → AC</strong>.</p>
+      <p><strong>3.</strong> <strong>Variateur de fréquence</strong> — conversion <strong>AC → DC → AC</strong>.</p>
+      <p><strong>4.</strong> Le redresseur utilise des <strong>diodes</strong>. L'onduleur utilise des <strong>transistors (IGBT)</strong>. Le variateur de fréquence est constitué d'un <strong>redresseur</strong> suivi d'un <strong>onduleur</strong>.</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Vitesse d'un moteur de ventilateur</span>
+      <span class="pts">7 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien CVC installe un variateur de fréquence sur un ventilateur. Le moteur a \(p = 2\) paires de pôles.<br>
+      Formule : \(n_s = \dfrac{60 \times f}{p}\) (tr/min)
+    </p>
+
+    <div class="q"><strong>1.</strong> Compléter le calcul de la vitesse de synchronisme à \(f = 50\ \text{Hz}\) : <span class="q-pts">(2 pts)</span><br>
+      \(n_s = \dfrac{60 \times \boxed{\phantom{50}}}{\boxed{\phantom{2}}} = \dfrac{\boxed{\phantom{3\,000}}}{\boxed{\phantom{2}}} = \boxed{\phantom{1\,500}}\ \text{tr/min}\)</div>
+
+    <div class="q"><strong>2.</strong> Compléter le calcul pour \(f = 35\ \text{Hz}\) : <span class="q-pts">(2 pts)</span><br>
+      \(n_s = \dfrac{60 \times \boxed{\phantom{35}}}{\boxed{\phantom{2}}} = \boxed{\phantom{1\,050}}\ \text{tr/min}\)</div>
+
+    <div class="q"><strong>3.</strong> La vitesse a-t-elle augmenté ou diminué quand la fréquence passe de 50 Hz à 35 Hz ? <span class="q-pts">(1 pt)</span></div>
+
+    <div class="q"><strong>4.</strong> Donner un avantage du variateur de fréquence pour un ventilateur de chauffage. <span class="q-pts">(2 pts)</span></div>
+
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(n_s = \dfrac{60 \times 50}{2} = \dfrac{3\,000}{2} = \mathbf{1\,500\ tr/min}\)</p>
+      <p><strong>2.</strong> \(n_s = \dfrac{60 \times 35}{2} = \dfrac{2\,100}{2} = \mathbf{1\,050\ tr/min}\)</p>
+      <p><strong>3.</strong> La vitesse a <strong>diminué</strong> (de 1 500 à 1 050 tr/min) : quand la fréquence diminue, la vitesse diminue proportionnellement.</p>
+      <p><strong>4.</strong> Le variateur de fréquence permet d'adapter le débit d'air aux besoins réels (chauffage partiel en mi-saison). Cela génère de fortes <strong>économies d'énergie</strong> car la puissance varie comme le cube de la vitesse : une petite réduction de vitesse entraîne une forte baisse de consommation.</p>
+    </div>
+  </div>
+
+  <div class="total-bar">TOTAL : 20 points</div>
+  </div><!-- fin diff-socle -->
+
+  <!-- ================= NIVEAU STANDARD ================= -->
+  <div class="diff-standard">
+  <span class="tag-standard">Standard</span>
+
   <div class="exo">
     <div class="exo-header">
       <span class="exo-num">Exercice 1</span>
@@ -37,58 +164,53 @@
       <span class="pts">8 points</span>
     </div>
     <p class="enonce">
-      Un technicien chauffagiste installe un moteur à courant continu qui entraîne une vanne de régulation motorisée. Ce moteur est alimenté par le secteur 230 V / 50 Hz via un bloc d'alimentation. Le bloc d'alimentation comprend successivement : un transformateur, un pont de Graetz, et un condensateur de filtrage.<br>
-      Le transformateur abaisse la tension de 230 V à une tension secondaire de valeur efficace U<sub>2</sub> = 24 V.
+      Un technicien chauffagiste installe un moteur à courant continu qui entraîne une vanne de régulation motorisée. Ce moteur est alimenté par le secteur 230 V / 50 Hz via un bloc d'alimentation. Le bloc d'alimentation comprend successivement : un transformateur, un pont de Graëtz, et un condensateur de filtrage.<br>
+      Le transformateur abaisse la tension de 230 V à une tension secondaire de valeur efficace \(U_2 = 24\ \text{V}\).
     </p>
-    <div class="q"><strong>1.</strong> Donner le rôle de chacun des trois éléments du bloc d'alimentation (transformateur, pont de Graetz, condensateur). <span class="q-pts">(3 pts)</span></div>
+    <div class="q"><strong>1.</strong> Donner le rôle de chacun des trois éléments du bloc d'alimentation (transformateur, pont de Graëtz, condensateur). <span class="q-pts">(3 pts)</span></div>
     <div class="q"><strong>2.</strong> Calculer la valeur maximale (amplitude) \(\hat{U}_2\) de la tension en sortie du transformateur. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>3.</strong> Après le pont de Graetz (redressement double alternance, sans filtrage), calculer la tension moyenne \(U_{moy}\). On rappelle que \(U_{moy} = \dfrac{2\hat{U}}{\pi}\). <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>4.</strong> Dessiner l'allure de la tension en sortie du pont de Graetz (sans filtrage) sur deux périodes. Indiquer \(\hat{U}_2\) et T sur le graphique. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>3.</strong> Après le pont de Graëtz (redressement double alternance, sans filtrage), calculer la tension moyenne \(U_{\text{moy}}\). On rappelle que \(U_{\text{moy}} = \dfrac{2\hat{U}}{\pi}\). <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>4.</strong> Dessiner l'allure de la tension en sortie du pont de Graëtz (sans filtrage) sur deux périodes. Indiquer \(\hat{U}_2\) et \(T\) sur le graphique. <span class="q-pts">(1 pt)</span></div>
     <div class="q"><strong>5.</strong> Quel est l'effet du condensateur de filtrage sur cette tension ? Dessiner l'allure de la tension filtrée sur le même graphique. <span class="q-pts">(1 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
       <p><strong>1.</strong></p>
       <ul>
-        <li><strong>Transformateur</strong> : il abaisse (ou élève) la tension alternative du secteur à la valeur souhaitée (ici de 230 V à 24 V).</li>
-        <li><strong>Pont de Graetz</strong> (pont de diodes) : il redresse le courant alternatif en courant pulsé positif (redressement double alternance). Les alternances négatives sont « retournées ».</li>
-        <li><strong>Condensateur de filtrage</strong> : il lisse la tension redressée pour obtenir une tension quasi continue, en se chargeant lors des maxima et en se déchargeant entre deux maxima.</li>
+        <li><strong>Transformateur</strong> : il abaisse la tension alternative du secteur à la valeur souhaitée (ici de 230 V à 24 V).</li>
+        <li><strong>Pont de Graëtz</strong> (pont de diodes) : il redresse le courant alternatif en courant pulsé positif (redressement double alternance). Les alternances négatives sont retournées.</li>
+        <li><strong>Condensateur de filtrage</strong> : il lisse la tension redressée pour obtenir une tension quasi continue.</li>
       </ul>
-      <p><strong>2.</strong> \(\hat{U}_2 = U_2 \times \sqrt{2} = 24 \times \sqrt{2} = 24 \times 1{,}414 \approx \mathbf{33{,}9\text{ V}}\)</p>
-      <p><strong>3.</strong> \(U_{moy} = \dfrac{2\hat{U}_2}{\pi} = \dfrac{2 \times 33{,}9}{3{,}14} = \dfrac{67{,}8}{3{,}14} \approx \mathbf{21{,}6\text{ V}}\)</p>
-      <p><strong>4.</strong> Le signal en sortie du pont de Graetz est une succession d'arches sinusoïdales positives. Chaque arche a une amplitude de \(\hat{U}_2 = 33{,}9\text{ V}\) et la période des arches est T/2 = 10 ms (car les alternances négatives sont redressées).</p>
-      <p><strong>5.</strong> Le condensateur de filtrage <strong>lisse</strong> la tension : il se charge au sommet de chaque arche et se décharge lentement entre deux arches. La tension obtenue est quasi continue, oscillant légèrement autour de \(\hat{U}_2\) avec une <strong>ondulation résiduelle</strong> (ripple) d'autant plus faible que la capacité du condensateur est grande.</p>
+      <p><strong>2.</strong> \(\hat{U}_2 = U_2 \times \sqrt{2} = 24 \times 1{,}414 \approx \mathbf{33{,}9\ V}\)</p>
+      <p><strong>3.</strong> \(U_{\text{moy}} = \dfrac{2\hat{U}_2}{\pi} = \dfrac{2 \times 33{,}9}{3{,}14} = \dfrac{67{,}8}{3{,}14} \approx \mathbf{21{,}6\ V}\)</p>
+      <p><strong>4.</strong> Le signal en sortie du pont de Graëtz est une succession d'arches sinusoïdales positives. Chaque arche a une amplitude de \(\hat{U}_2 = 33{,}9\ \text{V}\) et la période des arches est \(T/2 = 10\ \text{ms}\) (car les alternances négatives sont redressées).</p>
+      <p><strong>5.</strong> Le condensateur de filtrage lisse la tension : il se charge au sommet de chaque arche et se décharge lentement entre deux arches. La tension obtenue est quasi continue, oscillant légèrement autour de \(\hat{U}_2\) avec une ondulation résiduelle d'autant plus faible que la capacité du condensateur est grande.</p>
     </div>
   </div>
 
   <div class="exo">
     <div class="exo-header">
       <span class="exo-num">Exercice 2</span>
-      <span class="exo-title">Commande d'une vanne motorisée</span>
+      <span class="exo-title">Commande d'une vanne motorisée – ondulation résiduelle</span>
       <span class="pts">7 points</span>
     </div>
     <p class="enonce">
-      Une vanne motorisée trois voies est alimentée par un bloc d'alimentation similaire à celui de l'exercice 1. Le moteur de la vanne consomme un courant I = 0,5 A sous une tension continue de 24 V. Le condensateur de filtrage a une capacité C = 4 700 µF. La fréquence du secteur est f = 50 Hz.<br>
+      Une vanne motorisée trois voies est alimentée par un bloc d'alimentation similaire à celui de l'exercice 1. Le moteur de la vanne consomme un courant \(I = 0{,}5\ \text{A}\) sous une tension continue de 24 V. Le condensateur de filtrage a une capacité \(C = 4\,700\ \mu\text{F}\). La fréquence du secteur est \(f = 50\ \text{Hz}\).<br>
       On rappelle que l'ondulation résiduelle vaut : \(\Delta U = \dfrac{I}{2fC}\)
     </p>
-    <div class="q"><strong>1.</strong> Convertir la capacité C en farads. <span class="q-pts">(0,5 pt)</span></div>
-    <div class="q"><strong>2.</strong> Calculer l'ondulation résiduelle ΔU en sortie du condensateur. <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>3.</strong> Calculer le taux d'ondulation \(\tau = \dfrac{\Delta U}{\hat{U}_2}\) en pourcentage. Le filtrage est-il satisfaisant si on exige τ &lt; 5 % ? <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>4.</strong> Pour réduire l'ondulation de moitié, quelle nouvelle capacité C' faudrait-il installer ? <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>1.</strong> Convertir la capacité \(C\) en farads. <span class="q-pts">(0,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer l'ondulation résiduelle \(\Delta U\) en sortie du condensateur. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> Calculer le taux d'ondulation \(\tau = \dfrac{\Delta U}{\hat{U}_2}\) en pourcentage. Le filtrage est-il satisfaisant si on exige \(\tau < 5\,\%\) ? <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>4.</strong> Pour réduire l'ondulation de moitié, quelle nouvelle capacité \(C'\) faudrait-il installer ? <span class="q-pts">(1,5 pt)</span></div>
     <div class="q"><strong>5.</strong> Citer un avantage et un inconvénient d'augmenter la capacité du condensateur. <span class="q-pts">(1 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> \(C = 4\,700\text{ µF} = 4\,700 \times 10^{-6}\text{ F} = \mathbf{4{,}7 \times 10^{-3}\text{ F}}\)</p>
-      <p><strong>2.</strong> On utilise f' = 2f = 100 Hz (fréquence de l'ondulation après redressement double alternance) :<br>
-        \(\Delta U = \dfrac{I}{2fC} = \dfrac{0{,}5}{2 \times 50 \times 4{,}7 \times 10^{-3}} = \dfrac{0{,}5}{0{,}47} \approx \mathbf{1{,}06\text{ V}}\)</p>
-      <p><strong>3.</strong> Avec \(\hat{U}_2 = 33{,}9\text{ V}\) (cf. exercice 1) :<br>
-        \(\tau = \dfrac{\Delta U}{\hat{U}_2} = \dfrac{1{,}06}{33{,}9} \approx 0{,}031 = \mathbf{3{,}1\,\%}\)<br>
-        3,1 % &lt; 5 % → <strong>le filtrage est satisfaisant</strong>.</p>
-      <p><strong>4.</strong> Pour diviser ΔU par 2, il faut multiplier C par 2 :<br>
-        \(C' = 2 \times C = 2 \times 4\,700 = \mathbf{9\,400\text{ µF}}\)<br>
-        On choisirait un condensateur standard de 10 000 µF.</p>
-      <p><strong>5.</strong><br>
-        – <strong>Avantage</strong> : meilleur lissage de la tension (ondulation plus faible), donc tension plus stable.<br>
-        – <strong>Inconvénient</strong> : coût plus élevé, encombrement plus important, et courant d'appel à la mise sous tension plus élevé.</p>
+      <p><strong>1.</strong> \(C = 4\,700\ \mu\text{F} = 4\,700 \times 10^{-6}\ \text{F} = \mathbf{4{,}7 \times 10^{-3}\ F}\)</p>
+      <p><strong>2.</strong> \(\Delta U = \dfrac{I}{2fC} = \dfrac{0{,}5}{2 \times 50 \times 4{,}7 \times 10^{-3}} = \dfrac{0{,}5}{0{,}47} \approx \mathbf{1{,}06\ V}\)</p>
+      <p><strong>3.</strong> Avec \(\hat{U}_2 = 33{,}9\ \text{V}\) (cf. exercice 1) :<br>
+        \(\tau = \dfrac{1{,}06}{33{,}9} \approx 0{,}031 = \mathbf{3{,}1\,\%}\)<br>
+        3,1 % < 5 % : le filtrage est satisfaisant.</p>
+      <p><strong>4.</strong> Pour diviser \(\Delta U\) par 2, il faut multiplier \(C\) par 2 : \(C' = 2 \times 4\,700 = \mathbf{9\,400\ \mu F}\). On choisirait un condensateur standard de 10 000 \(\mu\)F.</p>
+      <p><strong>5.</strong> Avantage : meilleur lissage (ondulation plus faible). Inconvénient : coût et encombrement plus importants, courant d'appel à la mise sous tension plus élevé.</p>
     </div>
   </div>
 
@@ -104,21 +226,119 @@
     <div class="q"><strong>1.</strong> Quel est le rôle d'un onduleur ? <span class="q-pts">(1 pt)</span></div>
     <div class="q"><strong>2.</strong> Quelle est la nature du courant en entrée de l'onduleur ? En sortie ? <span class="q-pts">(1 pt)</span></div>
     <div class="q"><strong>3.</strong> Quelle doit être la fréquence du signal en sortie de l'onduleur pour être compatible avec le réseau EDF ? <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>4.</strong> Quelle doit être la valeur efficace de la tension en sortie de l'onduleur ? En déduire la valeur maximale \(\hat{U}\) du signal sinusoïdal produit. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> Quelle doit être la valeur efficace de la tension en sortie ? En déduire la valeur maximale \(\hat{U}\) du signal sinusoïdal produit. <span class="q-pts">(1 pt)</span></div>
     <div class="q"><strong>5.</strong> Expliquer pourquoi l'onduleur doit être synchronisé avec le réseau EDF pour l'injection. <span class="q-pts">(1 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> Un onduleur <strong>convertit un courant continu (DC) en courant alternatif (AC)</strong>. C'est l'opération inverse du redressement.</p>
-      <p><strong>2.</strong> En entrée : <strong>courant continu</strong> (DC) fourni par les panneaux solaires.<br>
-        En sortie : <strong>courant alternatif sinusoïdal</strong> (AC) compatible avec le réseau.</p>
-      <p><strong>3.</strong> La fréquence en sortie doit être \(f = \mathbf{50\text{ Hz}}\), identique à celle du réseau EDF français.</p>
-      <p><strong>4.</strong> La tension efficace en sortie doit être \(U = \mathbf{230\text{ V}}\).<br>
-        \(\hat{U} = U \times \sqrt{2} = 230 \times 1{,}414 \approx \mathbf{325{,}3\text{ V}}\)</p>
-      <p><strong>5.</strong> L'onduleur doit être <strong>synchronisé</strong> avec le réseau EDF (même fréquence, même phase) pour éviter des <strong>courants de court-circuit</strong> ou des perturbations sur le réseau. Si les signaux ne sont pas en phase, les tensions s'opposent et provoquent des dysfonctionnements dangereux.</p>
+      <p><strong>1.</strong> Un onduleur convertit un courant continu (DC) en courant alternatif (AC).</p>
+      <p><strong>2.</strong> En entrée : courant continu (DC). En sortie : courant alternatif sinusoïdal (AC).</p>
+      <p><strong>3.</strong> La fréquence en sortie doit être \(f = \mathbf{50\ Hz}\), identique à celle du réseau EDF.</p>
+      <p><strong>4.</strong> La tension efficace doit être 230 V. \(\hat{U} = 230 \times \sqrt{2} \approx \mathbf{325\ V}\).</p>
+      <p><strong>5.</strong> L'onduleur doit être synchronisé (même fréquence, même phase) pour éviter des courants de court-circuit ou des perturbations sur le réseau.</p>
     </div>
   </div>
 
   <div class="total-bar">TOTAL : 20 points</div>
+  </div><!-- fin diff-standard -->
+
+  <!-- ================= NIVEAU APPROFONDISSEMENT ================= -->
+  <div class="diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Alimentation DC d'un automate de régulation</span>
+      <span class="pts">8 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien en énergies renouvelables conçoit l'alimentation DC d'un automate de régulation pour une installation solaire thermique. L'automate fonctionne sous 24 V DC et consomme un courant \(I = 0{,}6\ \text{A}\). L'alimentation est constituée d'un transformateur (230 V / 30 V), d'un pont de Graëtz et d'un condensateur de filtrage \(C = 4\,700\ \mu\text{F}\).<br>
+      On rappelle : \(\Delta U = \dfrac{I}{2fC}\) et \(U_{\text{moy}} \approx 0{,}9 \times U_{\text{eff}}\).
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la tension maximale \(U_{\max}\) et la tension moyenne \(U_{\text{moy}}\) en sortie du pont de Graëtz. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>2.</strong> Calculer l'ondulation résiduelle \(\Delta U\) avec le condensateur de 4 700 \(\mu\)F. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> Calculer le taux d'ondulation \(\tau = \dfrac{\Delta U}{U_{\max}}\). Le filtrage est-il satisfaisant (critère : \(\tau < 5\,\%\)) ? <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>4.</strong> La tension filtrée est proche de \(U_{\max}\). Est-elle directement utilisable pour alimenter l'automate en 24 V ? Justifier et proposer une solution technique. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>5.</strong> L'automate nécessite une ondulation maximale de 0,5 V. Calculer la capacité minimale du condensateur nécessaire. <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(U_{\max} = 30 \times \sqrt{2} \approx \mathbf{42{,}4\ V}\)</p>
+      <p>\(U_{\text{moy}} = 0{,}9 \times 30 = \mathbf{27\ V}\)</p>
+      <p><strong>2.</strong> \(C = 4\,700 \times 10^{-6} = 4{,}7 \times 10^{-3}\ \text{F}\)</p>
+      <p>\(\Delta U = \dfrac{0{,}6}{2 \times 50 \times 4{,}7 \times 10^{-3}} = \dfrac{0{,}6}{0{,}47} \approx \mathbf{1{,}28\ V}\)</p>
+      <p><strong>3.</strong> \(\tau = \dfrac{1{,}28}{42{,}4} \approx 0{,}030 = \mathbf{3{,}0\,\%}\). Oui, \(3{,}0\,\% < 5\,\%\) : le filtrage est satisfaisant.</p>
+      <p><strong>4.</strong> La tension filtrée est proche de 42,4 V, bien supérieure aux 24 V nécessaires. Elle n'est pas directement utilisable. Il faut ajouter un <strong>régulateur de tension</strong> (par exemple un régulateur linéaire LM7824 ou un convertisseur DC-DC step-down) pour obtenir une tension stable de 24 V.</p>
+      <p><strong>5.</strong> \(C \geq \dfrac{I}{2f \times \Delta U_{\max}} = \dfrac{0{,}6}{2 \times 50 \times 0{,}5} = \dfrac{0{,}6}{50} = 0{,}012\ \text{F} = \mathbf{12\,000\ \mu F}\)</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Variateur de fréquence sur pompe à chaleur Inverter</span>
+      <span class="pts">7 points</span>
+    </div>
+    <p class="enonce">
+      Un installateur de pompes à chaleur raccorde un compresseur Inverter. Le moteur du compresseur est un moteur asynchrone triphasé à \(p = 1\) paire de pôles. Le variateur de fréquence fait varier la fréquence de 25 Hz à 75 Hz. Le glissement du moteur est \(g = 3\,\%\).<br>
+      À \(f_0 = 50\ \text{Hz}\), la puissance frigorifique est \(P_{\text{frigo}} = 10\ \text{kW}\) et la puissance électrique absorbée est \(P_{\text{élec}} = 2{,}5\ \text{kW}\).<br>
+      On admet que la puissance frigorifique est proportionnelle à la vitesse du compresseur.
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la vitesse de synchronisme \(n_s\) et la vitesse réelle \(n\) du compresseur à 50 Hz. On rappelle : \(n = n_s \times (1 - g)\). <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer \(n_s\) et \(n\) pour \(f = 25\ \text{Hz}\) et \(f = 75\ \text{Hz}\). <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> Calculer la puissance frigorifique à 25 Hz et à 75 Hz. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>4.</strong> Le COP (coefficient de performance) de la PAC est défini par \(\text{COP} = \dfrac{P_{\text{frigo}}}{P_{\text{élec}}}\). Calculer le COP à 50 Hz. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>5.</strong> Expliquer en quoi la technologie Inverter améliore le confort et réduit la facture énergétique par rapport à un système tout ou rien. <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(n_s = \dfrac{60 \times 50}{1} = 3\,000\ \text{tr/min}\)</p>
+      <p>\(n = 3\,000 \times (1 - 0{,}03) = 3\,000 \times 0{,}97 = \mathbf{2\,910\ tr/min}\)</p>
+      <p><strong>2.</strong></p>
+      <ul>
+        <li>\(f = 25\ \text{Hz}\) : \(n_s = \dfrac{60 \times 25}{1} = 1\,500\ \text{tr/min}\) ; \(n = 1\,500 \times 0{,}97 = \mathbf{1\,455\ tr/min}\)</li>
+        <li>\(f = 75\ \text{Hz}\) : \(n_s = \dfrac{60 \times 75}{1} = 4\,500\ \text{tr/min}\) ; \(n = 4\,500 \times 0{,}97 = \mathbf{4\,365\ tr/min}\)</li>
+      </ul>
+      <p><strong>3.</strong> \(P_{\text{frigo}} \propto n\), donc :</p>
+      <ul>
+        <li>\(f = 25\ \text{Hz}\) : \(P = 10 \times \dfrac{1\,455}{2\,910} = 10 \times 0{,}5 = \mathbf{5\ kW}\)</li>
+        <li>\(f = 75\ \text{Hz}\) : \(P = 10 \times \dfrac{4\,365}{2\,910} = 10 \times 1{,}5 = \mathbf{15\ kW}\)</li>
+      </ul>
+      <p><strong>4.</strong> \(\text{COP} = \dfrac{P_{\text{frigo}}}{P_{\text{élec}}} = \dfrac{10}{2{,}5} = \mathbf{4}\). Pour 1 kW consommé, la PAC produit 4 kW de chaleur/froid.</p>
+      <p><strong>5.</strong> La technologie Inverter permet d'adapter la puissance de la PAC aux besoins réels du bâtiment :</p>
+      <ul>
+        <li><strong>Confort</strong> : la température reste stable sans à-coups de température liés aux cycles marche/arrêt.</li>
+        <li><strong>Économie</strong> : à charge partielle, le compresseur tourne plus lentement et consomme beaucoup moins. Les démarrages répétés (surconsommation) sont évités.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Installation photovoltaïque – onduleur et injection réseau</span>
+      <span class="pts">5 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien en énergies renouvelables installe 12 panneaux solaires photovoltaïques sur le toit d'un bâtiment. Chaque panneau délivre une tension en circuit ouvert \(U_{\text{co}} = 40\ \text{V DC}\) et un courant nominal \(I_n = 9\ \text{A}\). Les panneaux sont connectés en série. Un onduleur de rendement \(\eta = 96\,\%\) est utilisé pour injecter l'énergie sur le réseau 230 V / 50 Hz.
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la tension DC totale délivrée par les 12 panneaux en série. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer la puissance DC maximale produite par l'installation (\(P_{\text{DC}} = U_{\text{totale}} \times I_n\)). <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>3.</strong> Calculer la puissance AC injectée sur le réseau en tenant compte du rendement de l'onduleur (\(P_{\text{AC}} = \eta \times P_{\text{DC}}\)). <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> Calculer le courant injecté sur le réseau (\(I_{\text{AC}} = \dfrac{P_{\text{AC}}}{U_{\text{réseau}}}\)) et la valeur maximale de la tension sinusoïdale produite. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>5.</strong> L'onduleur doit satisfaire la norme DIN VDE 0126 (découplage en cas de panne réseau). Expliquer pourquoi un onduleur doit se déconnecter automatiquement si le réseau tombe en panne. <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> En série : \(U_{\text{totale}} = 12 \times 40 = \mathbf{480\ V DC}\)</p>
+      <p><strong>2.</strong> \(P_{\text{DC}} = 480 \times 9 = \mathbf{4\,320\ W = 4{,}32\ kW}\)</p>
+      <p><strong>3.</strong> \(P_{\text{AC}} = 0{,}96 \times 4\,320 = \mathbf{4\,147\ W \approx 4{,}15\ kW}\)</p>
+      <p><strong>4.</strong> \(I_{\text{AC}} = \dfrac{4\,147}{230} \approx \mathbf{18{,}0\ A}\)</p>
+      <p>\(U_{\max} = 230 \times \sqrt{2} \approx \mathbf{325\ V}\)</p>
+      <p><strong>5.</strong> Si le réseau tombe en panne, l'onduleur doit se déconnecter (fonction anti-îlotage) pour protéger les techniciens intervenant sur le réseau. Sans cette protection, les panneaux continueraient à injecter du courant dans les câbles supposés hors tension, ce qui présente un <strong>danger mortel</strong> pour les intervenants.</p>
+    </div>
+  </div>
+
+  <div class="total-bar">TOTAL : 20 points</div>
+  </div><!-- fin diff-appro -->
+
 </div>
 <script>
 function toggle(btn){
@@ -127,6 +347,7 @@ function toggle(btn){
   else{c.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

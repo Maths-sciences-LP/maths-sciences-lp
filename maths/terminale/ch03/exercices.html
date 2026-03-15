@@ -159,6 +159,124 @@
 </div>
 
 <!-- ================================================================
+     SOCLE — EXERCICES TRÈS GUIDÉS
+     ================================================================ -->
+<div class="diff-socle">
+
+<div class="section-titre">
+  <span class="tag-socle">Socle</span>
+  <span class="niveau n1">Exercices guidés — Pas à pas</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- SOCLE S1 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S1</span>Reconnaître une suite géométrique — méthode guidée</div>
+  <div class="meth">
+    <strong>Méthode :</strong> Une suite est <strong>géométrique</strong> si on passe d'un terme au suivant en <strong>multipliant toujours par le même nombre</strong> \(q\) (la raison).<br>
+    Pour vérifier : calculer \(\dfrac{u_{n+1}}{u_n}\) pour plusieurs termes. Si le rapport est constant, la suite est géométrique.
+  </div>
+
+  <p>Voici trois suites. Pour chacune, dire si elle est géométrique et, si oui, donner la raison \(q\).</p>
+
+  <div class="consigne"><strong>a)</strong> \(u_0 = 5\), \(u_1 = 10\), \(u_2 = 20\), \(u_3 = 40\). Compléter :</div>
+  <p style="font-size:.93em">\(\dfrac{u_1}{u_0} = \dfrac{10}{5} = \boxed{\phantom{2}}\) &nbsp;; &nbsp;\(\dfrac{u_2}{u_1} = \dfrac{20}{10} = \boxed{\phantom{2}}\) &nbsp;; &nbsp;\(\dfrac{u_3}{u_2} = \dfrac{40}{20} = \boxed{\phantom{2}}\)</p>
+  <div class="reponse-box">Les rapports sont-ils tous égaux ? ☐ Oui → géométrique, \(q = \) ……… &nbsp; ☐ Non</div>
+
+  <div class="consigne"><strong>b)</strong> \(v_0 = 100\), \(v_1 = 80\), \(v_2 = 64\), \(v_3 = 51{,}2\)</div>
+  <div class="reponse-box">\(\dfrac{v_1}{v_0} = \) ……… &nbsp;; &nbsp;\(\dfrac{v_2}{v_1} = \) ……… &nbsp;; &nbsp;\(\dfrac{v_3}{v_2} = \) ……… → géométrique ? ………</div>
+
+  <div class="consigne"><strong>c)</strong> \(w_0 = 3\), \(w_1 = 6\), \(w_2 = 12\), \(w_3 = 20\)</div>
+  <div class="reponse-box">\(\dfrac{w_1}{w_0} = \) ……… &nbsp;; &nbsp;\(\dfrac{w_2}{w_1} = \) ……… &nbsp;; &nbsp;\(\dfrac{w_3}{w_2} = \) ……… → géométrique ? ………</div>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> \(10/5 = 2\), \(20/10 = 2\), \(40/20 = 2\). Rapports tous égaux → <span class="reponse">géométrique, \(q = 2\)</span></p>
+      <p><strong>b)</strong> \(80/100 = 0{,}8\), \(64/80 = 0{,}8\), \(51{,}2/64 = 0{,}8\). → <span class="reponse">géométrique, \(q = 0{,}8\)</span></p>
+      <p><strong>c)</strong> \(6/3 = 2\), \(12/6 = 2\), \(20/12 \approx 1{,}67\). Rapports <em>pas</em> tous égaux → <span class="reponse">pas géométrique</span></p>
+    </div>
+  </details>
+</div>
+
+<!-- SOCLE S2 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S2</span>Calculer des termes avec la formule — pas à pas</div>
+  <div class="meth">
+    <strong>Formule :</strong> \(u_n = u_0 \times q^n\)<br>
+    On connaît \(u_0\) (le premier terme) et \(q\) (la raison). On remplace \(n\) par le rang voulu.
+  </div>
+
+  <p>Soit \((u_n)\) une suite géométrique de premier terme \(u_0 = 1\,000\) et de raison \(q = 0{,}9\).</p>
+
+  <div class="consigne"><strong>1.</strong> Calculer \(u_1\) avec la relation de récurrence \(u_1 = q \times u_0\) :</div>
+  <p style="font-size:.93em">\(u_1 = \boxed{\phantom{0,9}} \times \boxed{\phantom{1000}} = \boxed{\phantom{900}}\)</p>
+
+  <div class="consigne"><strong>2.</strong> Calculer \(u_2 = q \times u_1\) :</div>
+  <div class="reponse-box">\(u_2 = 0{,}9 \times \) ……… \(=\) ………</div>
+
+  <div class="consigne"><strong>3.</strong> Calculer \(u_5\) directement avec la formule \(u_n = u_0 \times q^n\) :</div>
+  <p style="font-size:.93em">\(u_5 = 1\,000 \times (0{,}9)^{\boxed{\phantom{5}}} = 1\,000 \times \boxed{\phantom{0,59049}} = \boxed{\phantom{590,49}}\)</p>
+
+  <div class="consigne"><strong>4.</strong> Cette suite est-elle croissante ou décroissante ? Justifier avec \(q\).</div>
+  <div class="reponse-box">Comme \(q = 0{,}9\) qui est ……… que 1, les termes ……… → suite ………</div>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(u_1 = 0{,}9 \times 1\,000 = \)<span class="reponse">\(900\)</span></p>
+      <p><strong>2.</strong> \(u_2 = 0{,}9 \times 900 = \)<span class="reponse">\(810\)</span></p>
+      <p><strong>3.</strong> \(u_5 = 1\,000 \times 0{,}9^5 = 1\,000 \times 0{,}59049 = \)<span class="reponse">\(590{,}49\)</span></p>
+      <p><strong>4.</strong> \(q = 0{,}9 < 1\) et \(u_0 > 0\), donc les termes <span class="reponse">diminuent</span> → suite <span class="reponse">décroissante</span>.</p>
+      <div class="att">Règle : si \(0 < q < 1\) et \(u_0 > 0\), la suite décroît. Si \(q > 1\) et \(u_0 > 0\), la suite croît.</div>
+    </div>
+  </details>
+</div>
+
+<!-- SOCLE S3 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S3</span>Problème guidé — dépréciation d'un outil <span class="erama-badge">ERA-MA</span></div>
+  <div class="situation">
+    <strong>Situation :</strong> Un menuisier achète une ponceuse à bande à <strong>800 €</strong>. Chaque année, sa valeur baisse de <strong>20 %</strong>.
+  </div>
+
+  <div class="consigne"><strong>1.</strong> Baisser de 20 %, c'est multiplier par :</div>
+  <p style="margin-left:1em">☐ 0,20 &nbsp;&nbsp; ☐ 0,80 &nbsp;&nbsp; ☐ 1,20</p>
+  <div class="reponse-box">Donc \(q = \) ………</div>
+
+  <div class="consigne"><strong>2.</strong> Compléter le tableau (multiplier par \(q\) chaque année) :</div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><th>Valeur \(u_n\) (€)</th><td>800</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+
+  <div class="consigne"><strong>3.</strong> La ponceuse est mise au rebut quand sa valeur descend sous 200 €. À partir de quelle année ?</div>
+  <div class="reponse-box">D'après le tableau : année \(n = \) ………</div>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> Baisser de 20 % = garder 80 % = multiplier par <span class="reponse">\(q = 0{,}80\)</span></p>
+      <p><strong>2.</strong></p>
+      <table>
+        <tr><th>Année</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+        <tr><th>Valeur (€)</th><td>800</td><td class="hl">640</td><td class="hl">512</td><td class="hl">409,60</td><td class="hl">327,68</td></tr>
+      </table>
+      <p>Vérification : \(u_4 = 800 \times 0{,}8^4 = 800 \times 0{,}4096 = 327{,}68\) ✓</p>
+      <p><strong>3.</strong> Il faut continuer : \(u_5 = 327{,}68 \times 0{,}8 = 262{,}14\), \(u_6 = 262{,}14 \times 0{,}8 = 209{,}72\), \(u_7 = 209{,}72 \times 0{,}8 = 167{,}77 < 200\).<br>
+      Mise au rebut à partir de l'<span class="reponse">année 7</span>.</p>
+    </div>
+  </details>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     STANDARD — EXERCICES DU PROGRAMME (Niveaux 2 à 3)
+     ================================================================ -->
+<div class="diff-standard">
+
+<!-- ================================================================
      NIVEAU 2 — APPLICATION DIRECTE
      ================================================================ -->
 <div class="section-titre">
@@ -171,7 +289,7 @@
   <div class="exo-titre"><span class="num">4</span>Calculer un terme de rang \(n\) <span class="ticcer-badge">ICCER</span></div>
 
   <div class="situation">
-    <strong>Situation professionnelle :</strong> Un installateur ICCER acquiert une pompe &agrave; chaleur air/eau pour 8&thinsp;500&nbsp;&euro;. Sa valeur se d&eacute;pr&eacute;cie de <strong>12&nbsp;%</strong> chaque ann&eacute;e.
+    <strong>Situation professionnelle :</strong> Un installateur thermique acquiert une pompe &agrave; chaleur air/eau pour 8&thinsp;500&nbsp;&euro;. Sa valeur se d&eacute;pr&eacute;cie de <strong>12&nbsp;%</strong> chaque ann&eacute;e.
   </div>
 
   <p>On mod&eacute;lise la valeur de la PAC par une suite g&eacute;om&eacute;trique \((u_n)\) o&ugrave; \(n\) est le nombre d&rsquo;ann&eacute;es &eacute;coul&eacute;es depuis l&rsquo;achat.</p>
@@ -407,6 +525,13 @@
   </details>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     APPROFONDISSEMENT — PROBLÈMES OUVERTS
+     ================================================================ -->
+<div class="diff-appro">
+
 <!-- ================================================================
      NIVEAU 4 — PROBLÈMES CONTEXTUALISÉS
      ================================================================ -->
@@ -557,6 +682,8 @@
   </details>
 </div>
 
+</div><!-- fin diff-appro -->
+
 <!-- NAV FOOTER -->
 <div class="nav-footer">
   <a href="lecon.html">&#128214; Cours Ch03</a>
@@ -674,5 +801,6 @@
 })();
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

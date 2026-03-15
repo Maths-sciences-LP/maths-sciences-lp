@@ -341,7 +341,7 @@
 <body>
 
   <!-- ── Navigation ── -->
-  <nav>
+  <nav aria-label="Navigation principale">
     <ul>
       <li><a href="index.html" class="active">Accueil</a></li>
       <li><a href="#disciplines">Mathématiques</a></li>
@@ -546,7 +546,7 @@
   </main>
 
   <!-- ── Météo bandeau ── -->
-  <div class="meteo-banner" id="meteo-banner">
+  <div class="meteo-banner" id="meteo-banner" role="complementary" aria-label="Prévisions météo">
     <div class="meteo-banner-inner" id="meteo-container">
       <span class="meteo-banner-loading">Chargement météo...</span>
     </div>
@@ -607,12 +607,8 @@
         });
     })();
 
-    // Date dynamique chapitres en cours
-    (function() {
-      var MOIS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
-      var d = new Date();
-      document.getElementById('encours-date').textContent = 'Mis à jour le ' + d.getDate() + ' ' + MOIS[d.getMonth()] + ' ' + d.getFullYear();
-    })();
+    // Date chapitres en cours — mettre à jour manuellement quand les chapitres changent
+    document.getElementById('encours-date').textContent = 'Mars 2026';
   </script>
   <script src="nav.js"></script>
 

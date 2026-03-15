@@ -29,15 +29,135 @@
   </ul>
 </div>
 
+<!-- ════════════════════════════════════════════════════════ -->
+<!--                    NIVEAU SOCLE                         -->
+<!-- ════════════════════════════════════════════════════════ -->
+
 <h2>Exercices de base</h2>
 
-<div class="exo">
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Puissance électrique d'un moteur monophasé — calcul guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un moteur monophasé alimente la pompe de circulation d'un plancher chauffant. Il est raccordé au réseau 230 V. Le courant absorbé est \(I = 4\) A et le facteur de puissance est \(\cos\varphi = 0{,}9\).</p>
+
+  <p class="q"><strong>1.</strong> Compléter la formule de la puissance électrique absorbée en monophasé :</p>
+  <p style="text-align:center;font-size:1.1em">\(P_{elec} = \boxed{\phantom{U}} \times \boxed{\phantom{I}} \times \boxed{\phantom{\cos\varphi}}\)</p>
+
+  <p class="q"><strong>2.</strong> Remplacer chaque grandeur par sa valeur et calculer :</p>
+  <p style="text-align:center">\(P_{elec} = \boxed{\phantom{230}} \times \boxed{\phantom{4}} \times \boxed{\phantom{0,9}} = \boxed{\phantom{828}} \text{ W}\)</p>
+
+  <p class="q"><strong>3.</strong> Convertir en kilowatts. Rappel : 1 kW = 1 000 W.</p>
+  <p style="text-align:center">\(P_{elec} = \dfrac{\boxed{\phantom{828}}}{1\,000} = \boxed{\phantom{0,828}} \text{ kW}\)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{elec} = U \times I \times \cos\varphi\)</p>
+    <p><strong>2.</strong> \(P_{elec} = 230 \times 4 \times 0{,}9 = \mathbf{828\text{ W}}\)</p>
+    <p><strong>3.</strong> \(P_{elec} = \dfrac{828}{1\,000} = \mathbf{0{,}828\text{ kW}}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Puissance mécanique et pertes — QCM et calcul guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un moteur triphasé 400 V consomme une puissance électrique \(P_{elec} = 3\text{ kW}\). Son rendement est \(\eta = 0{,}88\).</p>
+
+  <p class="q"><strong>1.</strong> QCM — Que signifie un rendement \(\eta = 0{,}88\) ?</p>
+  <ul style="list-style:none;padding-left:1em">
+    <li>a) Le moteur consomme 88 % de plus que prévu</li>
+    <li>b) Le moteur transforme 88 % de l'énergie électrique en énergie mécanique</li>
+    <li>c) Le moteur perd 88 % de l'énergie en chaleur</li>
+  </ul>
+
+  <p class="q"><strong>2.</strong> Compléter le calcul de la puissance mécanique utile :</p>
+  <p style="text-align:center">\(P_{mec} = P_{elec} \times \eta = \boxed{\phantom{3\,000}} \times \boxed{\phantom{0,88}} = \boxed{\phantom{2\,640}} \text{ W}\)</p>
+
+  <p class="q"><strong>3.</strong> Compléter le calcul des pertes :</p>
+  <p style="text-align:center">\(P_{pertes} = P_{elec} - P_{mec} = \boxed{\phantom{3\,000}} - \boxed{\phantom{2\,640}} = \boxed{\phantom{360}} \text{ W}\)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Réponse <strong>b)</strong> : le moteur transforme 88 % de l'énergie électrique en énergie mécanique. Les 12 % restants sont dissipés sous forme de chaleur (effet Joule, frottements).</p>
+    <p><strong>2.</strong> \(P_{mec} = 3\,000 \times 0{,}88 = \mathbf{2\,640\text{ W}}\)</p>
+    <p><strong>3.</strong> \(P_{pertes} = 3\,000 - 2\,640 = \mathbf{360\text{ W}}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Vitesse angulaire — calcul pas à pas</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un moteur de ventilateur tourne à \(n = 1\,450\) tr/min.</p>
+
+  <p class="q"><strong>1.</strong> Compléter la formule de la vitesse angulaire :</p>
+  <p style="text-align:center">\(\omega = \dfrac{2\pi \times \boxed{\phantom{n}}}{60}\)</p>
+
+  <p class="q"><strong>2.</strong> Remplacer n par sa valeur et calculer étape par étape :</p>
+  <p style="text-align:center">
+    Numérateur : \(2 \times 3{,}14 \times 1\,450 = \boxed{\phantom{9\,106}}\)<br><br>
+    Division : \(\omega = \dfrac{\boxed{\phantom{9\,106}}}{60} = \boxed{\phantom{151,8}} \text{ rad/s}\)
+  </p>
+
+  <p class="q"><strong>3.</strong> QCM — Que mesure la vitesse angulaire \(\omega\) ?</p>
+  <ul style="list-style:none;padding-left:1em">
+    <li>a) La vitesse en km/h du moteur</li>
+    <li>b) L'angle parcouru par l'arbre du moteur par seconde</li>
+    <li>c) Le nombre de tours par minute</li>
+  </ul>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\omega = \dfrac{2\pi \times n}{60}\)</p>
+    <p><strong>2.</strong> Numérateur : \(2 \times 3{,}14 \times 1\,450 = 9\,106\)<br>
+    \(\omega = \dfrac{9\,106}{60} \approx \mathbf{151{,}8\text{ rad/s}}\)</p>
+    <p><strong>3.</strong> Réponse <strong>b)</strong> : \(\omega\) mesure l'angle parcouru par l'arbre du moteur par unité de temps, en radians par seconde.</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Énergie consommée par un sèche-linge</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Le moteur d'un sèche-linge domestique a une puissance électrique absorbée \(P_{elec} = 2\,400\) W. Un cycle de séchage dure 1 h 30 min.</p>
+
+  <p class="q"><strong>1.</strong> Convertir la durée en heures :</p>
+  <p style="text-align:center">\(t = 1\text{ h } 30\text{ min} = 1 + \dfrac{30}{60} = \boxed{\phantom{1,5}} \text{ h}\)</p>
+
+  <p class="q"><strong>2.</strong> Compléter le calcul de l'énergie consommée :</p>
+  <p style="text-align:center">\(W = P_{elec} \times t = \boxed{\phantom{2\,400}} \times \boxed{\phantom{1,5}} = \boxed{\phantom{3\,600}} \text{ Wh}\)</p>
+
+  <p class="q"><strong>3.</strong> Convertir en kWh :</p>
+  <p style="text-align:center">\(W = \dfrac{\boxed{\phantom{3\,600}}}{1\,000} = \boxed{\phantom{3,6}} \text{ kWh}\)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(t = 1 + \dfrac{30}{60} = \mathbf{1{,}5\text{ h}}\)</p>
+    <p><strong>2.</strong> \(W = 2\,400 \times 1{,}5 = \mathbf{3\,600\text{ Wh}}\)</p>
+    <p><strong>3.</strong> \(W = \dfrac{3\,600}{1\,000} = \mathbf{3{,}6\text{ kWh}}\)</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!--                   NIVEAU STANDARD                       -->
+<!-- ════════════════════════════════════════════════════════ -->
+
+<div class="exo diff-standard">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
     <span class="exo-title">Puissance électrique d'un moteur monophasé</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="tag-standard">Standard</span>
   </div>
-  <p>Un moteur monophasé alimente la pompe de circulation d'un plancher chauffant. Il est raccordé au réseau 230 V. Le courant absorbé est I = 4 A et le facteur de puissance est cos φ = 0,9.</p>
+  <p>Un moteur monophasé alimente la pompe de circulation d'un plancher chauffant. Il est raccordé au réseau 230 V. Le courant absorbé est \(I = 4\) A et le facteur de puissance est \(\cos\varphi = 0{,}9\).</p>
   <p class="q"><strong>1.</strong> Rappeler la formule de la puissance électrique absorbée en monophasé.</p>
   <p class="q"><strong>2.</strong> Calculer la puissance électrique absorbée \(P_{elec}\).</p>
   <p class="q"><strong>3.</strong> Exprimer ce résultat en watts et en kilowatts.</p>
@@ -49,13 +169,13 @@
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
     <span class="exo-title">Puissance mécanique d'un moteur triphasé</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="tag-standard">Standard</span>
   </div>
-  <p>Un moteur triphasé 400 V consomme une puissance électrique \(P_{elec} = 3\text{ kW}\). Son rendement est η = 0,88.</p>
+  <p>Un moteur triphasé 400 V consomme une puissance électrique \(P_{elec} = 3\text{ kW}\). Son rendement est \(\eta = 0{,}88\).</p>
   <p class="q"><strong>1.</strong> Rappeler la relation entre puissance mécanique, puissance électrique et rendement.</p>
   <p class="q"><strong>2.</strong> Calculer la puissance mécanique utile \(P_{mec}\) fournie sur l'arbre.</p>
   <p class="q"><strong>3.</strong> Calculer les pertes dans le moteur.</p>
@@ -68,40 +188,71 @@
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
     <span class="exo-title">Vitesse angulaire d'un moteur</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="tag-standard">Standard</span>
   </div>
-  <p>Un moteur de ventilateur tourne à n = 1 450 tr/min.</p>
-  <p class="q"><strong>1.</strong> Rappeler la formule permettant de calculer la vitesse angulaire ω en rad/s à partir de n en tr/min.</p>
-  <p class="q"><strong>2.</strong> Calculer ω pour n = 1 450 tr/min. Donner le résultat arrondi à 0,1 rad/s.</p>
-  <p class="q"><strong>3.</strong> Quelle est la signification physique de ω ?</p>
+  <p>Un moteur de ventilateur tourne à \(n = 1\,450\) tr/min.</p>
+  <p class="q"><strong>1.</strong> Rappeler la formule permettant de calculer la vitesse angulaire \(\omega\) en rad/s à partir de n en tr/min.</p>
+  <p class="q"><strong>2.</strong> Calculer \(\omega\) pour \(n = 1\,450\) tr/min. Donner le résultat arrondi à 0,1 rad/s.</p>
+  <p class="q"><strong>3.</strong> Quelle est la signification physique de \(\omega\) ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(\omega = \dfrac{2\pi n}{60}\)</p>
     <p><strong>2.</strong> \(\omega = \dfrac{2\pi \times 1\,450}{60} = \dfrac{2 \times 3{,}1416 \times 1\,450}{60} = \dfrac{9\,110{,}6}{60} \approx \mathbf{151{,}8\text{ rad/s}}\)</p>
-    <p><strong>3.</strong> La vitesse angulaire ω représente l'angle parcouru par l'arbre du moteur par unité de temps, exprimé en radians par seconde. Elle est directement liée au couple et à la puissance mécanique transmise.</p>
+    <p><strong>3.</strong> La vitesse angulaire \(\omega\) représente l'angle parcouru par l'arbre du moteur par unité de temps, exprimé en radians par seconde. Elle est directement liée au couple et à la puissance mécanique transmise.</p>
   </div>
 </div>
 
 <h2>Exercices guidés</h2>
 
-<div class="exo">
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Bilan d'un moteur triphasé — étape par étape</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un moteur triphasé 400 V entraîne un compresseur de climatisation. Il fournit une puissance mécanique \(P_{mec} = 2{,}2\text{ kW}\). Son rendement est \(\eta = 0{,}85\) et son facteur de puissance \(\cos\varphi = 0{,}80\).</p>
+
+  <p class="q"><strong>Étape 1 :</strong> Calculer la puissance électrique absorbée.</p>
+  <p>On sait que \(P_{mec} = P_{elec} \times \eta\), donc :</p>
+  <p style="text-align:center">\(P_{elec} = \dfrac{P_{mec}}{\eta} = \dfrac{\boxed{\phantom{2\,200}}}{\boxed{\phantom{0,85}}} = \boxed{\phantom{2\,588}} \text{ W}\)</p>
+
+  <p class="q"><strong>Étape 2 :</strong> Calculer le courant de ligne I.</p>
+  <p>En triphasé : \(P_{elec} = \sqrt{3} \times U \times I \times \cos\varphi\), donc :</p>
+  <p style="text-align:center">\(I = \dfrac{P_{elec}}{\sqrt{3} \times U \times \cos\varphi} = \dfrac{\boxed{\phantom{2\,588}}}{1{,}732 \times \boxed{\phantom{400}} \times \boxed{\phantom{0,80}}} = \boxed{\phantom{4,67}} \text{ A}\)</p>
+
+  <p class="q"><strong>Étape 3 :</strong> Calculer l'énergie consommée en 8 heures.</p>
+  <p style="text-align:center">\(W = P_{elec} \times t = \boxed{\phantom{2,59}} \text{ kW} \times \boxed{\phantom{8}} \text{ h} = \boxed{\phantom{20,7}} \text{ kWh}\)</p>
+
+  <p class="q"><strong>Étape 4 :</strong> Calculer le coût à 0,18 EUR/kWh.</p>
+  <p style="text-align:center">\(\text{Coût} = \boxed{\phantom{20,7}} \times 0{,}18 = \boxed{\phantom{3,73}} \text{ EUR}\)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> \(P_{elec} = \dfrac{2\,200}{0{,}85} \approx \mathbf{2\,588\text{ W}} \approx 2{,}59\text{ kW}\)</p>
+    <p><strong>Étape 2 :</strong> \(I = \dfrac{2\,588}{1{,}732 \times 400 \times 0{,}80} = \dfrac{2\,588}{553{,}6} \approx \mathbf{4{,}67\text{ A}}\)</p>
+    <p><strong>Étape 3 :</strong> \(W = 2{,}59 \times 8 = \mathbf{20{,}7\text{ kWh}}\)</p>
+    <p><strong>Étape 4 :</strong> \(\text{Coût} = 20{,}7 \times 0{,}18 = \mathbf{3{,}73\text{ EUR}}\) pour une journée de 8 h.</p>
+  </div>
+</div>
+
+<div class="exo diff-standard">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
     <span class="exo-title">Bilan complet d'un moteur triphasé — énergie consommée</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="tag-standard">Standard</span>
   </div>
-  <p>Un moteur triphasé 400 V entraîne un compresseur de climatisation. Il fournit une puissance mécanique \(P_{mec} = 2{,}2\text{ kW}\). Son rendement est η = 0,85 et son facteur de puissance cos φ = 0,80.</p>
-  <div class="methode">
+  <p>Un moteur triphasé 400 V entraîne un compresseur de climatisation. Il fournit une puissance mécanique \(P_{mec} = 2{,}2\text{ kW}\). Son rendement est \(\eta = 0{,}85\) et son facteur de puissance \(\cos\varphi = 0{,}80\).</p>
+  <div class="meth">
     <strong>Méthode :</strong> partir de la puissance mécanique connue, remonter vers la puissance électrique via le rendement, puis calculer le courant de ligne et enfin l'énergie consommée sur une durée donnée.
   </div>
-  <p class="q"><strong>1.</strong> Calculer la puissance électrique absorbée \(P_{elec}\) à partir de \(P_{mec}\) et η.</p>
+  <p class="q"><strong>1.</strong> Calculer la puissance électrique absorbée \(P_{elec}\) à partir de \(P_{mec}\) et \(\eta\).</p>
   <p class="q"><strong>2.</strong> En déduire le courant de ligne I à partir de \(P_{elec} = \sqrt{3} \cdot U \cdot I \cdot \cos\varphi\).</p>
   <p class="q"><strong>3.</strong> Calculer l'énergie électrique consommée en 8 heures de fonctionnement, en kWh.</p>
-  <p class="q"><strong>4.</strong> À 0,18 €/kWh, calculer le coût énergétique de cette journée de travail.</p>
+  <p class="q"><strong>4.</strong> À 0,18 EUR/kWh, calculer le coût énergétique de cette journée de travail.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong> \(P_{mec} = P_{elec} \times \eta\), donc :<br>
@@ -109,22 +260,71 @@
     <p><strong>2.</strong> \(P_{elec} = \sqrt{3} \cdot U \cdot I \cdot \cos\varphi\), donc :<br>
     \(I = \dfrac{P_{elec}}{\sqrt{3} \cdot U \cdot \cos\varphi} = \dfrac{2\,588}{1{,}732 \times 400 \times 0{,}80} = \dfrac{2\,588}{553{,}6} \approx \mathbf{4{,}67\text{ A}}\)</p>
     <p><strong>3.</strong> \(W = P_{elec} \times t = 2{,}59 \times 8 = \mathbf{20{,}7\text{ kWh}}\)</p>
-    <p><strong>4.</strong> \(\text{Coût} = 20{,}7 \times 0{,}18 = \mathbf{3{,}73\text{ €}}\) pour une journée de 8h.</p>
+    <p><strong>4.</strong> \(\text{Coût} = 20{,}7 \times 0{,}18 = \mathbf{3{,}73\text{ EUR}}\) pour une journée de 8 h.</p>
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Comparaison de deux moteurs — tableau guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un technicien CVC doit choisir un moteur monophasé 230 V pour entraîner un circulateur. Les deux moteurs fournissent la même puissance mécanique \(P_{mec} = 3\text{ kW}\) :</p>
+  <ul>
+    <li><strong>Moteur A :</strong> \(\eta = 0{,}80\), \(\cos\varphi = 0{,}75\)</li>
+    <li><strong>Moteur B :</strong> \(\eta = 0{,}88\), \(\cos\varphi = 0{,}88\)</li>
+  </ul>
+
+  <p class="q"><strong>1.</strong> Compléter le tableau suivant :</p>
+  <table style="width:100%;border-collapse:collapse;margin:10px 0">
+    <tr style="background:var(--p-bg)">
+      <th style="border:1px solid #ccc;padding:8px">Grandeur</th>
+      <th style="border:1px solid #ccc;padding:8px">Formule</th>
+      <th style="border:1px solid #ccc;padding:8px">Moteur A</th>
+      <th style="border:1px solid #ccc;padding:8px">Moteur B</th>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc;padding:8px">\(P_{elec}\)</td>
+      <td style="border:1px solid #ccc;padding:8px">\(\dfrac{P_{mec}}{\eta}\)</td>
+      <td style="border:1px solid #ccc;padding:8px">\(\dfrac{3\,000}{0{,}80} = \boxed{\phantom{3\,750}}\) W</td>
+      <td style="border:1px solid #ccc;padding:8px">\(\dfrac{3\,000}{0{,}88} = \boxed{\phantom{3\,409}}\) W</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc;padding:8px">\(I\)</td>
+      <td style="border:1px solid #ccc;padding:8px">\(\dfrac{P_{elec}}{U \times \cos\varphi}\)</td>
+      <td style="border:1px solid #ccc;padding:8px">\(\dfrac{3\,750}{230 \times 0{,}75} = \boxed{\phantom{21,7}}\) A</td>
+      <td style="border:1px solid #ccc;padding:8px">\(\dfrac{3\,409}{230 \times 0{,}88} = \boxed{\phantom{16,8}}\) A</td>
+    </tr>
+  </table>
+
+  <p class="q"><strong>2.</strong> QCM — Quel moteur le technicien doit-il choisir ?</p>
+  <ul style="list-style:none;padding-left:1em">
+    <li>a) Moteur A car il consomme plus de courant</li>
+    <li>b) Moteur B car il a un meilleur rendement et un meilleur facteur de puissance</li>
+    <li>c) Les deux moteurs sont équivalents</li>
+  </ul>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Moteur A : \(P_{elec} = 3\,750\) W, \(I = 21{,}7\) A<br>
+    Moteur B : \(P_{elec} = 3\,409\) W, \(I = 16{,}8\) A</p>
+    <p><strong>2.</strong> Réponse <strong>b)</strong> : le moteur B est le meilleur choix. Il consomme moins d'énergie et absorbe moins de courant, ce qui permet d'utiliser des conducteurs de section plus petite.</p>
+  </div>
+</div>
+
+<div class="exo diff-standard">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
     <span class="exo-title">Comparaison de deux moteurs — courant et facteur de puissance</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="tag-standard">Standard</span>
   </div>
-  <p>Un technicien doit choisir un moteur monophasé 230 V pour entraîner un circulateur. Il compare deux modèles capables de fournir la même puissance mécanique \(P_{mec} = 3\text{ kW}\) :</p>
+  <p>Un technicien CVC doit choisir un moteur monophasé 230 V pour entraîner un circulateur. Il compare deux modèles capables de fournir la même puissance mécanique \(P_{mec} = 3\text{ kW}\) :</p>
   <ul>
-    <li><strong>Moteur A :</strong> η = 0,80, cos φ = 0,75</li>
-    <li><strong>Moteur B :</strong> η = 0,88, cos φ = 0,88</li>
+    <li><strong>Moteur A :</strong> \(\eta = 0{,}80\), \(\cos\varphi = 0{,}75\)</li>
+    <li><strong>Moteur B :</strong> \(\eta = 0{,}88\), \(\cos\varphi = 0{,}88\)</li>
   </ul>
-  <div class="methode">
+  <div class="meth">
     <strong>Méthode :</strong> pour chaque moteur, calculer d'abord \(P_{elec}\) via le rendement, puis le courant I via la formule monophasée. Comparer et conclure.
   </div>
   <p class="q"><strong>1.</strong> Calculer la puissance électrique absorbée par chaque moteur.</p>
@@ -146,19 +346,51 @@
 
 <h2>Exercices d'application</h2>
 
-<div class="exo">
+<div class="exo diff-socle">
   <div class="exo-header">
-    <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Exploitation complète d'une plaque signalétique</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Lecture de plaque signalétique — pas à pas</span>
+    <span class="tag-socle">Socle</span>
   </div>
   <p>Un technicien relève la plaque signalétique d'un moteur asynchrone triphasé :</p>
   <p style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:6px;padding:10px 14px;font-family:monospace;font-size:.92em">
-    U = 400 V | f = 50 Hz | I<sub>n</sub> = 8,5 A | cos φ = 0,82 | n = 1 450 tr/min | η = 0,87
+    U = 400 V | f = 50 Hz | I<sub>n</sub> = 8,5 A | cos &phi; = 0,82 | n = 1 450 tr/min | &eta; = 0,87
+  </p>
+
+  <p class="q"><strong>1.</strong> Compléter le calcul de la puissance électrique absorbée :</p>
+  <p style="text-align:center">\(P_{elec} = \sqrt{3} \times U \times I_n \times \cos\varphi = 1{,}732 \times \boxed{\phantom{400}} \times \boxed{\phantom{8,5}} \times \boxed{\phantom{0,82}} = \boxed{\phantom{4\,830}} \text{ W}\)</p>
+
+  <p class="q"><strong>2.</strong> Compléter le calcul de la puissance mécanique :</p>
+  <p style="text-align:center">\(P_{mec} = P_{elec} \times \eta = \boxed{\phantom{4\,830}} \times \boxed{\phantom{0,87}} = \boxed{\phantom{4\,202}} \text{ W}\)</p>
+
+  <p class="q"><strong>3.</strong> Compléter le calcul de la vitesse angulaire :</p>
+  <p style="text-align:center">\(\omega = \dfrac{2\pi \times \boxed{\phantom{1\,450}}}{60} = \boxed{\phantom{151,8}} \text{ rad/s}\)</p>
+
+  <p class="q"><strong>4.</strong> Compléter le calcul du couple moteur :</p>
+  <p style="text-align:center">\(C = \dfrac{P_{mec}}{\omega} = \dfrac{\boxed{\phantom{4\,202}}}{\boxed{\phantom{151,8}}} = \boxed{\phantom{27,7}} \text{ N·m}\)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{elec} = 1{,}732 \times 400 \times 8{,}5 \times 0{,}82 \approx \mathbf{4\,830\text{ W}}\)</p>
+    <p><strong>2.</strong> \(P_{mec} = 4\,830 \times 0{,}87 \approx \mathbf{4\,202\text{ W}}\)</p>
+    <p><strong>3.</strong> \(\omega = \dfrac{2\pi \times 1\,450}{60} \approx \mathbf{151{,}8\text{ rad/s}}\)</p>
+    <p><strong>4.</strong> \(C = \dfrac{4\,202}{151{,}8} \approx \mathbf{27{,}7\text{ N·m}}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Exploitation complète d'une plaque signalétique</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Un technicien relève la plaque signalétique d'un moteur asynchrone triphasé :</p>
+  <p style="background:#f1f5f9;border:1px solid #cbd5e1;border-radius:6px;padding:10px 14px;font-family:monospace;font-size:.92em">
+    U = 400 V | f = 50 Hz | I<sub>n</sub> = 8,5 A | cos &phi; = 0,82 | n = 1 450 tr/min | &eta; = 0,87
   </p>
   <p class="q"><strong>1.</strong> Calculer la puissance électrique absorbée \(P_{elec}\).</p>
   <p class="q"><strong>2.</strong> Calculer la puissance mécanique utile \(P_{mec}\).</p>
-  <p class="q"><strong>3.</strong> Calculer la vitesse angulaire ω en rad/s.</p>
+  <p class="q"><strong>3.</strong> Calculer la vitesse angulaire \(\omega\) en rad/s.</p>
   <p class="q"><strong>4.</strong> Calculer le couple moteur \(C = \dfrac{P_{mec}}{\omega}\) en N·m.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
@@ -171,39 +403,13 @@
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Variateur de fréquence — vitesse et couple</span>
-    <span class="diff diff-3">Niveau 3</span>
-  </div>
-  <p>Un moteur de pompe tourne à n₁ = 1 450 tr/min à la fréquence f₁ = 50 Hz. Il fournit une puissance mécanique \(P_{mec} = 2\text{ kW}\). On installe un variateur de fréquence qui fait passer la fréquence à f₂ = 70 Hz.</p>
-  <p class="q"><strong>1.</strong> Expliquer le principe du variateur de fréquence et pourquoi il permet de modifier la vitesse de rotation d'un moteur asynchrone.</p>
-  <p class="q"><strong>2.</strong> La vitesse de rotation est proportionnelle à la fréquence. Calculer la nouvelle vitesse \(n_2\).</p>
-  <p class="q"><strong>3.</strong> Calculer la vitesse angulaire ω₁ à 50 Hz et ω₂ à 70 Hz.</p>
-  <p class="q"><strong>4.</strong> Si la puissance mécanique reste constante à \(P_{mec} = 2\text{ kW}\), calculer le couple à 50 Hz et le couple à 70 Hz. Comment évolue le couple quand la vitesse augmente ?</p>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> La vitesse d'un moteur asynchrone dépend de la fréquence du réseau : \(n_s = \dfrac{60 \times f}{p}\). Un variateur de fréquence est un convertisseur électronique qui transforme le courant alternatif du réseau (50 Hz fixe) en un courant alternatif dont la fréquence est réglable. En modifiant f, on modifie n<sub>s</sub> et donc la vitesse du moteur. C'est la solution standard pour le réglage de vitesse dans les installations CVC.</p>
-    <p><strong>2.</strong> La vitesse est proportionnelle à la fréquence :<br>
-    \(\dfrac{n_2}{n_1} = \dfrac{f_2}{f_1}\), donc \(n_2 = n_1 \times \dfrac{f_2}{f_1} = 1\,450 \times \dfrac{70}{50} = 1\,450 \times 1{,}4 = \mathbf{2\,030\text{ tr/min}}\)</p>
-    <p><strong>3.</strong> \(\omega_1 = \dfrac{2\pi \times 1\,450}{60} \approx \mathbf{151{,}8\text{ rad/s}}\)<br>
-    \(\omega_2 = \dfrac{2\pi \times 2\,030}{60} \approx \mathbf{212{,}6\text{ rad/s}}\)</p>
-    <p><strong>4.</strong> \(C_1 = \dfrac{P_{mec}}{\omega_1} = \dfrac{2\,000}{151{,}8} \approx \mathbf{13{,}2\text{ N·m}}\)<br>
-    \(C_2 = \dfrac{P_{mec}}{\omega_2} = \dfrac{2\,000}{212{,}6} \approx \mathbf{9{,}4\text{ N·m}}\)<br>
-    Quand la vitesse augmente à puissance constante, le couple <strong>diminue</strong>. La relation \(P = C \times \omega\) montre que couple et vitesse angulaire sont inverséement proportionnels à puissance constante.</p>
-  </div>
-</div>
-
-<h2>Exercices contextualisés ICCER</h2>
-
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
     <span class="exo-title">Pompe de circulation — choix du disjoncteur</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="tag-standard">Standard</span>
   </div>
-  <p>Un technicien CVC installe une pompe de circulation pour un circuit de chauffage collectif. La pompe est entraînée par un moteur triphasé 400 V dont les caractéristiques sont : \(P_{mec} = 750\text{ W}\), η = 0,82, cos φ = 0,78.</p>
+  <p>Un technicien CVC installe une pompe de circulation pour un circuit de chauffage collectif. La pompe est entraînée par un moteur triphasé 400 V dont les caractéristiques sont : \(P_{mec} = 750\text{ W}\), \(\eta = 0{,}82\), \(\cos\varphi = 0{,}78\).</p>
   <p class="q"><strong>1.</strong> Calculer la puissance électrique absorbée \(P_{elec}\) par le moteur.</p>
   <p class="q"><strong>2.</strong> Calculer le courant de ligne I.</p>
   <p class="q"><strong>3.</strong> Le technicien doit choisir un disjoncteur de protection parmi les calibres disponibles : 1 A, 2 A, 4 A, 6 A. Quel calibre choisir ? Justifier (le calibre doit être immédiatement supérieur au courant nominal).</p>
@@ -212,38 +418,249 @@
     <p><strong>1.</strong> \(P_{elec} = \dfrac{P_{mec}}{\eta} = \dfrac{750}{0{,}82} \approx \mathbf{915\text{ W}}\)</p>
     <p><strong>2.</strong> \(I = \dfrac{P_{elec}}{\sqrt{3} \times U \times \cos\varphi} = \dfrac{915}{1{,}732 \times 400 \times 0{,}78} = \dfrac{915}{540{,}4} \approx \mathbf{1{,}69\text{ A}}\)</p>
     <p><strong>3.</strong> Le courant nominal est d'environ 1,69 A. Le disjoncteur doit avoir un calibre <strong>immédiatement supérieur</strong> au courant nominal pour assurer la protection sans déclencher en fonctionnement normal.<br>
-    Parmi les calibres proposés : 1 A (trop faible, déclenchement assuré), 2 A (supérieur à 1,69 A), 4 A et 6 A (trop élevés, protection insuffisante).<br>
-    Le technicien choisira le disjoncteur <strong>2 A</strong>. Il protège correctement le moteur tout en laissant fonctionner l'installation normalement.</p>
+    Parmi les calibres proposés : 1 A (trop faible), 2 A (supérieur à 1,69 A), 4 A et 6 A (trop élevés).<br>
+    Le technicien choisira le disjoncteur <strong>2 A</strong>.</p>
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Variateur de fréquence — vitesse et couple</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Un moteur de pompe tourne à \(n_1 = 1\,450\) tr/min à la fréquence \(f_1 = 50\) Hz. Il fournit une puissance mécanique \(P_{mec} = 2\text{ kW}\). On installe un variateur de fréquence qui fait passer la fréquence à \(f_2 = 70\) Hz.</p>
+  <p class="q"><strong>1.</strong> Expliquer le principe du variateur de fréquence et pourquoi il permet de modifier la vitesse de rotation d'un moteur asynchrone.</p>
+  <p class="q"><strong>2.</strong> La vitesse de rotation est proportionnelle à la fréquence. Calculer la nouvelle vitesse \(n_2\).</p>
+  <p class="q"><strong>3.</strong> Calculer la vitesse angulaire \(\omega_1\) à 50 Hz et \(\omega_2\) à 70 Hz.</p>
+  <p class="q"><strong>4.</strong> Si la puissance mécanique reste constante à \(P_{mec} = 2\text{ kW}\), calculer le couple à 50 Hz et le couple à 70 Hz. Comment évolue le couple quand la vitesse augmente ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> La vitesse d'un moteur asynchrone dépend de la fréquence du réseau : \(n_s = \dfrac{60 \times f}{p}\). Un variateur de fréquence transforme le courant alternatif du réseau (50 Hz fixe) en un courant alternatif dont la fréquence est réglable. En modifiant f, on modifie \(n_s\) et donc la vitesse du moteur.</p>
+    <p><strong>2.</strong> \(\dfrac{n_2}{n_1} = \dfrac{f_2}{f_1}\), donc \(n_2 = 1\,450 \times \dfrac{70}{50} = 1\,450 \times 1{,}4 = \mathbf{2\,030\text{ tr/min}}\)</p>
+    <p><strong>3.</strong> \(\omega_1 = \dfrac{2\pi \times 1\,450}{60} \approx \mathbf{151{,}8\text{ rad/s}}\)<br>
+    \(\omega_2 = \dfrac{2\pi \times 2\,030}{60} \approx \mathbf{212{,}6\text{ rad/s}}\)</p>
+    <p><strong>4.</strong> \(C_1 = \dfrac{2\,000}{151{,}8} \approx \mathbf{13{,}2\text{ N·m}}\)<br>
+    \(C_2 = \dfrac{2\,000}{212{,}6} \approx \mathbf{9{,}4\text{ N·m}}\)<br>
+    Quand la vitesse augmente à puissance constante, le couple <strong>diminue</strong>. La relation \(P = C \times \omega\) montre que couple et vitesse angulaire sont inversement proportionnels à puissance constante.</p>
+  </div>
+</div>
+
+<h2>Exercices contextualisés ICCER</h2>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Moteur d'un ventilateur de VMC — lecture guidée</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un technicien climatisation vérifie le moteur d'un ventilateur de VMC double flux. Les données sont : alimentation monophasée 230 V, \(I = 2{,}5\) A, \(\cos\varphi = 0{,}85\), \(\eta = 0{,}80\).</p>
+
+  <p class="q"><strong>1.</strong> Compléter la chaîne énergétique du moteur :</p>
+  <p style="text-align:center;font-size:0.95em">
+    Énergie \(\boxed{\phantom{\text{électrique}}}\) \(\longrightarrow\) <strong>Moteur</strong> \(\longrightarrow\) Énergie \(\boxed{\phantom{\text{mécanique}}}\) + \(\boxed{\phantom{\text{thermique (pertes)}}}\)
+  </p>
+
+  <p class="q"><strong>2.</strong> Calculer \(P_{elec}\) :</p>
+  <p style="text-align:center">\(P_{elec} = 230 \times \boxed{\phantom{2,5}} \times \boxed{\phantom{0,85}} = \boxed{\phantom{489}} \text{ W}\)</p>
+
+  <p class="q"><strong>3.</strong> Calculer \(P_{mec}\) :</p>
+  <p style="text-align:center">\(P_{mec} = \boxed{\phantom{489}} \times \boxed{\phantom{0,80}} = \boxed{\phantom{391}} \text{ W}\)</p>
+
+  <p class="q"><strong>4.</strong> Calculer les pertes :</p>
+  <p style="text-align:center">\(P_{pertes} = \boxed{\phantom{489}} - \boxed{\phantom{391}} = \boxed{\phantom{98}} \text{ W}\)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Énergie <strong>électrique</strong> -> Moteur -> Énergie <strong>mécanique</strong> + Énergie <strong>thermique (pertes)</strong></p>
+    <p><strong>2.</strong> \(P_{elec} = 230 \times 2{,}5 \times 0{,}85 \approx \mathbf{489\text{ W}}\)</p>
+    <p><strong>3.</strong> \(P_{mec} = 489 \times 0{,}80 \approx \mathbf{391\text{ W}}\)</p>
+    <p><strong>4.</strong> \(P_{pertes} = 489 - 391 = \mathbf{98\text{ W}}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-standard">
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
     <span class="exo-title">Vérification du moteur de compresseur d'une pompe à chaleur</span>
-    <span class="diff diff-3">Niveau 3</span>
+    <span class="tag-standard">Standard</span>
   </div>
-  <p>Un installateur de pompes à chaleur vérifie le moteur du compresseur d'une PAC air/eau. Les données relevées sont : alimentation triphasée 400 V, vitesse n = 2 900 tr/min, puissance mécanique \(P_{mec} = 4\text{ kW}\), rendement η = 0,90, facteur de puissance cos φ = 0,85.</p>
-  <p class="q"><strong>1.</strong> Calculer la vitesse angulaire ω en rad/s.</p>
+  <p>Un installateur de pompes à chaleur vérifie le moteur du compresseur d'une PAC air/eau. Les données relevées sont : alimentation triphasée 400 V, vitesse \(n = 2\,900\) tr/min, puissance mécanique \(P_{mec} = 4\text{ kW}\), rendement \(\eta = 0{,}90\), facteur de puissance \(\cos\varphi = 0{,}85\).</p>
+  <p class="q"><strong>1.</strong> Calculer la vitesse angulaire \(\omega\) en rad/s.</p>
   <p class="q"><strong>2.</strong> Calculer le couple moteur C.</p>
   <p class="q"><strong>3.</strong> Calculer la puissance électrique absorbée \(P_{elec}\).</p>
   <p class="q"><strong>4.</strong> Calculer le courant de ligne I.</p>
   <p class="q"><strong>5.</strong> L'installateur mesure un courant de 8,5 A sur site. Le moteur fonctionne-t-il normalement ? Quelle pourrait être la cause d'un courant plus élevé que prévu ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(\omega = \dfrac{2\pi \times 2\,900}{60} = \dfrac{2 \times 3{,}1416 \times 2\,900}{60} \approx \mathbf{303{,}7\text{ rad/s}}\)</p>
+    <p><strong>1.</strong> \(\omega = \dfrac{2\pi \times 2\,900}{60} \approx \mathbf{303{,}7\text{ rad/s}}\)</p>
     <p><strong>2.</strong> \(C = \dfrac{P_{mec}}{\omega} = \dfrac{4\,000}{303{,}7} \approx \mathbf{13{,}2\text{ N·m}}\)</p>
     <p><strong>3.</strong> \(P_{elec} = \dfrac{P_{mec}}{\eta} = \dfrac{4\,000}{0{,}90} \approx \mathbf{4\,444\text{ W}}\)</p>
     <p><strong>4.</strong> \(I = \dfrac{P_{elec}}{\sqrt{3} \times U \times \cos\varphi} = \dfrac{4\,444}{1{,}732 \times 400 \times 0{,}85} = \dfrac{4\,444}{588{,}9} \approx \mathbf{7{,}5\text{ A}}\)</p>
-    <p><strong>5.</strong> Le courant calculé est d'environ 7,5 A. L'installateur mesure 8,5 A, soit environ 13 % de plus. Ce dépassement est significatif et mérite investigation.<br>
-    Causes possibles : le compresseur est en surcharge mécanique (problème de fluide frigorigène — trop de charge ou manque de charge), le condenseur ou l'évaporateur est encrassé, la température extérieure est très basse ce qui augmente la pression de condensation et donc la charge sur le compresseur. L'installateur doit vérifier les pressions du circuit frigorifique.</p>
+    <p><strong>5.</strong> Le courant calculé est d'environ 7,5 A. L'installateur mesure 8,5 A, soit environ 13 % de plus. Ce dépassement est significatif.<br>
+    Causes possibles : surcharge mécanique du compresseur (problème de fluide frigorigène), condenseur ou évaporateur encrassé, température extérieure très basse augmentant la pression de condensation. L'installateur doit vérifier les pressions du circuit frigorifique.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!--               NIVEAU APPROFONDISSEMENT                  -->
+<!-- ════════════════════════════════════════════════════════ -->
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Dimensionnement complet d'un moteur de ventilation</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>Un bureau d'études CVC doit dimensionner le moteur d'un ventilateur centrifuge pour une centrale de traitement d'air (CTA) desservant un bâtiment tertiaire de 2 000 m<sup>2</sup>.</p>
+  <p><strong>Cahier des charges :</strong></p>
+  <ul>
+    <li>Puissance mécanique nécessaire sur l'arbre du ventilateur : \(P_{mec} = 7{,}5\) kW</li>
+    <li>Vitesse de rotation souhaitée : \(n = 1\,450\) tr/min</li>
+    <li>Alimentation triphasée 400 V / 50 Hz</li>
+    <li>Le moteur retenu a un rendement \(\eta = 0{,}91\) et un facteur de puissance \(\cos\varphi = 0{,}86\)</li>
+    <li>Fonctionnement : 12 h/jour, 250 jours/an</li>
+    <li>Prix du kWh : 0,2276 EUR</li>
+  </ul>
+  <p class="q"><strong>1.</strong> Calculer la puissance électrique absorbée par le moteur.</p>
+  <p class="q"><strong>2.</strong> Calculer le courant de ligne I. Le câble d'alimentation supporte 25 A : est-il suffisant ?</p>
+  <p class="q"><strong>3.</strong> Calculer la vitesse angulaire et le couple moteur.</p>
+  <p class="q"><strong>4.</strong> Calculer l'énergie annuelle consommée en kWh et le coût annuel.</p>
+  <p class="q"><strong>5.</strong> Un moteur IE4 (haut rendement) de même puissance a un rendement \(\eta' = 0{,}95\). Calculer l'économie annuelle en euros par rapport au moteur initial. Au prix d'achat supérieur de 800 EUR, en combien d'années le surcoût est-il amorti ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{elec} = \dfrac{P_{mec}}{\eta} = \dfrac{7\,500}{0{,}91} \approx \mathbf{8\,242\text{ W}} \approx 8{,}24\text{ kW}\)</p>
+    <p><strong>2.</strong> \(I = \dfrac{P_{elec}}{\sqrt{3} \times U \times \cos\varphi} = \dfrac{8\,242}{1{,}732 \times 400 \times 0{,}86} = \dfrac{8\,242}{595{,}8} \approx \mathbf{13{,}8\text{ A}}\)<br>
+    Le câble de 25 A est largement suffisant (13,8 A &lt; 25 A).</p>
+    <p><strong>3.</strong> \(\omega = \dfrac{2\pi \times 1\,450}{60} \approx 151{,}8\text{ rad/s}\)<br>
+    \(C = \dfrac{7\,500}{151{,}8} \approx \mathbf{49{,}4\text{ N·m}}\)</p>
+    <p><strong>4.</strong> Durée annuelle : \(12 \times 250 = 3\,000\) h/an<br>
+    \(W = 8{,}24 \times 3\,000 = \mathbf{24\,720\text{ kWh/an}}\)<br>
+    Coût : \(24\,720 \times 0{,}2276 = \mathbf{5\,626\text{ EUR/an}}\)</p>
+    <p><strong>5.</strong> Avec le moteur IE4 : \(P'_{elec} = \dfrac{7\,500}{0{,}95} \approx 7\,895\text{ W}\)<br>
+    \(W' = 7{,}895 \times 3\,000 = 23\,685\text{ kWh/an}\)<br>
+    Coût' = \(23\,685 \times 0{,}2276 = 5\,391\) EUR/an<br>
+    Économie annuelle : \(5\,626 - 5\,391 = \mathbf{235\text{ EUR/an}}\)<br>
+    Amortissement : \(\dfrac{800}{235} \approx \mathbf{3{,}4\text{ ans}}\). Le surcoût est amorti en moins de 4 ans, ce qui justifie le choix du moteur IE4.</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Rendement global d'une chaîne moteur + pompe + réseau</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>Un installateur thermique étudie la chaîne énergétique complète d'un système de chauffage collectif comprenant :</p>
+  <ul>
+    <li>Un moteur asynchrone triphasé 400 V : \(P_{elec} = 4\,200\) W, \(\eta_m = 0{,}87\)</li>
+    <li>Une pompe de circulation : \(\eta_p = 0{,}72\)</li>
+    <li>Un réseau hydraulique dont le rendement de distribution est \(\eta_r = 0{,}90\)</li>
+  </ul>
+  <p class="q"><strong>1.</strong> Établir la chaîne de conversion d'énergie en identifiant chaque étape et les pertes associées.</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance utile transmise au fluide caloporteur dans le réseau.</p>
+  <p class="q"><strong>3.</strong> Calculer le rendement global \(\eta_g\) de l'installation. Vérifier que \(\eta_g = \eta_m \times \eta_p \times \eta_r\).</p>
+  <p class="q"><strong>4.</strong> Le technicien envisage de remplacer la pompe par un modèle à haut rendement (\(\eta_p' = 0{,}85\)). Calculer le nouveau rendement global et le gain relatif en pourcentage.</p>
+  <p class="q"><strong>5.</strong> Pour un fonctionnement de 5 000 h/an à 0,2276 EUR/kWh, calculer l'économie annuelle réalisée grâce au remplacement de la pompe.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Chaîne de conversion :<br>
+    Énergie électrique (4 200 W) -> Moteur (\(\eta_m = 0{,}87\)) -> Énergie mécanique -> Pompe (\(\eta_p = 0{,}72\)) -> Énergie hydraulique -> Réseau (\(\eta_r = 0{,}90\)) -> Énergie utile au fluide<br>
+    À chaque étape, une partie de l'énergie est dissipée en chaleur (pertes Joule, frottements, pertes de charge).</p>
+    <p><strong>2.</strong> \(P_{mec} = 4\,200 \times 0{,}87 = 3\,654\text{ W}\)<br>
+    \(P_{hydr} = 3\,654 \times 0{,}72 = 2\,631\text{ W}\)<br>
+    \(P_{utile} = 2\,631 \times 0{,}90 = \mathbf{2\,368\text{ W}}\)</p>
+    <p><strong>3.</strong> \(\eta_g = \dfrac{P_{utile}}{P_{elec}} = \dfrac{2\,368}{4\,200} \approx \mathbf{0{,}564}\)<br>
+    Vérification : \(0{,}87 \times 0{,}72 \times 0{,}90 = 0{,}5638 \approx 0{,}564\) .</p>
+    <p><strong>4.</strong> Nouveau rendement : \(\eta'_g = 0{,}87 \times 0{,}85 \times 0{,}90 = \mathbf{0{,}665}\)<br>
+    Gain relatif : \(\dfrac{0{,}665 - 0{,}564}{0{,}564} \approx 17{,}9\,\%\)</p>
+    <p><strong>5.</strong> Avec l'ancienne pompe, pour fournir la même puissance utile \(P_{utile} = 2\,368\) W :<br>
+    \(P_{elec} = \dfrac{2\,368}{0{,}564} = 4\,199\text{ W}\)<br>
+    Avec la nouvelle pompe : \(P'_{elec} = \dfrac{2\,368}{0{,}665} = 3\,561\text{ W}\)<br>
+    Économie de puissance : \(4\,199 - 3\,561 = 638\text{ W} = 0{,}638\text{ kW}\)<br>
+    Économie annuelle : \(0{,}638 \times 5\,000 \times 0{,}2276 = \mathbf{726\text{ EUR/an}}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Variateur de fréquence et loi cubique — étude technico-économique</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>Un technicien chauffagiste propose d'équiper le ventilateur d'extraction d'une chaufferie collective d'un variateur de fréquence. Le ventilateur est entraîné par un moteur triphasé 400 V dont les caractéristiques sont :</p>
+  <ul>
+    <li>Puissance mécanique nominale : \(P_{mec} = 5{,}5\) kW</li>
+    <li>\(\eta = 0{,}87\), \(\cos\varphi = 0{,}82\), \(n = 1\,440\) tr/min</li>
+  </ul>
+  <p>Avec le variateur, la vitesse sera adaptée aux besoins réels :</p>
+  <table style="width:100%;border-collapse:collapse;margin:10px 0">
+    <tr style="background:var(--p-bg)">
+      <th style="border:1px solid #ccc;padding:8px">Régime</th>
+      <th style="border:1px solid #ccc;padding:8px">% vitesse</th>
+      <th style="border:1px solid #ccc;padding:8px">% du temps annuel</th>
+    </tr>
+    <tr><td style="border:1px solid #ccc;padding:8px">Pleine charge</td><td style="border:1px solid #ccc;padding:8px">100 %</td><td style="border:1px solid #ccc;padding:8px">15 %</td></tr>
+    <tr><td style="border:1px solid #ccc;padding:8px">Charge intermédiaire</td><td style="border:1px solid #ccc;padding:8px">75 %</td><td style="border:1px solid #ccc;padding:8px">45 %</td></tr>
+    <tr><td style="border:1px solid #ccc;padding:8px">Charge réduite</td><td style="border:1px solid #ccc;padding:8px">50 %</td><td style="border:1px solid #ccc;padding:8px">40 %</td></tr>
+  </table>
+  <p>Durée annuelle : 7 000 h. Prix du kWh : 0,2276 EUR. Coût du variateur installé : 2 500 EUR.</p>
+  <p>On rappelle la <strong>loi cubique</strong> pour les ventilateurs : \(P = P_{nom} \times \left(\dfrac{n'}{n}\right)^3\)</p>
+  <p class="q"><strong>1.</strong> Calculer la puissance électrique absorbée à pleine charge.</p>
+  <p class="q"><strong>2.</strong> En appliquant la loi cubique, calculer la puissance mécanique à 75 % et à 50 % de la vitesse nominale. En déduire les puissances électriques correspondantes.</p>
+  <p class="q"><strong>3.</strong> Calculer l'énergie annuelle consommée sans variateur (100 % du temps à pleine charge).</p>
+  <p class="q"><strong>4.</strong> Calculer l'énergie annuelle consommée avec variateur en tenant compte de la répartition du temps.</p>
+  <p class="q"><strong>5.</strong> Calculer l'économie annuelle en euros et le temps de retour sur investissement du variateur.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{elec,100\%} = \dfrac{P_{mec}}{\eta} = \dfrac{5\,500}{0{,}87} \approx \mathbf{6\,322\text{ W}}\)</p>
+    <p><strong>2.</strong> À 75 % : \(P_{mec,75\%} = 5\,500 \times 0{,}75^3 = 5\,500 \times 0{,}4219 = 2\,320\text{ W}\)<br>
+    \(P_{elec,75\%} = \dfrac{2\,320}{0{,}87} \approx 2\,667\text{ W}\)<br>
+    À 50 % : \(P_{mec,50\%} = 5\,500 \times 0{,}50^3 = 5\,500 \times 0{,}125 = 687{,}5\text{ W}\)<br>
+    \(P_{elec,50\%} = \dfrac{687{,}5}{0{,}87} \approx 790\text{ W}\)</p>
+    <p><strong>3.</strong> Sans variateur : \(W_1 = 6{,}322 \times 7\,000 = \mathbf{44\,254\text{ kWh/an}}\)</p>
+    <p><strong>4.</strong> Avec variateur :<br>
+    100 % : \(6{,}322 \times 0{,}15 \times 7\,000 = 6\,638\text{ kWh}\)<br>
+    75 % : \(2{,}667 \times 0{,}45 \times 7\,000 = 8\,401\text{ kWh}\)<br>
+    50 % : \(0{,}790 \times 0{,}40 \times 7\,000 = 2\,212\text{ kWh}\)<br>
+    Total : \(W_2 = 6\,638 + 8\,401 + 2\,212 = \mathbf{17\,251\text{ kWh/an}}\)</p>
+    <p><strong>5.</strong> Économie en énergie : \(44\,254 - 17\,251 = 27\,003\text{ kWh}\)<br>
+    Économie en euros : \(27\,003 \times 0{,}2276 = \mathbf{6\,146\text{ EUR/an}}\)<br>
+    Temps de retour : \(\dfrac{2\,500}{6\,146} \approx \mathbf{0{,}41\text{ an}} \approx 5\text{ mois}\)<br>
+    L'investissement est très vite rentabilisé. La loi cubique montre qu'une réduction même modeste de la vitesse engendre une forte réduction de la consommation.</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Moteur de tapis roulant sportif — approche type BTS</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>Une salle de sport dispose d'un tapis roulant entraîné par un moteur monophasé 230 V. La plaque signalétique indique : \(P_{mec} = 2{,}5\) kW, \(\eta = 0{,}82\), \(\cos\varphi = 0{,}90\). La vitesse maximale du tapis est de 20 km/h, obtenue à \(n = 3\,000\) tr/min.</p>
+  <p class="q"><strong>1.</strong> Calculer la puissance électrique absorbée, le courant et le couple moteur à vitesse maximale.</p>
+  <p class="q"><strong>2.</strong> Un sportif de 80 kg court à 12 km/h, ce qui nécessite une puissance mécanique de 1,5 kW. Calculer la nouvelle vitesse de rotation (proportionnelle à la vitesse du tapis), la vitesse angulaire et le couple correspondant.</p>
+  <p class="q"><strong>3.</strong> Comparer les couples aux deux régimes. Expliquer physiquement pourquoi le couple est plus élevé à 12 km/h qu'à 20 km/h pour une puissance inférieure.</p>
+  <p class="q"><strong>4.</strong> La salle possède 15 tapis identiques, utilisés en moyenne 10 h/jour pendant 300 jours/an avec une puissance moyenne absorbée de 2 kW par tapis. Calculer le coût annuel d'électricité à 0,2276 EUR/kWh.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{elec} = \dfrac{2\,500}{0{,}82} \approx 3\,049\text{ W}\)<br>
+    \(I = \dfrac{3\,049}{230 \times 0{,}90} = \dfrac{3\,049}{207} \approx \mathbf{14{,}7\text{ A}}\)<br>
+    \(\omega = \dfrac{2\pi \times 3\,000}{60} \approx 314{,}2\text{ rad/s}\)<br>
+    \(C = \dfrac{2\,500}{314{,}2} \approx \mathbf{8{,}0\text{ N·m}}\)</p>
+    <p><strong>2.</strong> Nouvelle vitesse : \(n' = 3\,000 \times \dfrac{12}{20} = 1\,800\text{ tr/min}\)<br>
+    \(\omega' = \dfrac{2\pi \times 1\,800}{60} \approx 188{,}5\text{ rad/s}\)<br>
+    \(C' = \dfrac{1\,500}{188{,}5} \approx \mathbf{8{,}0\text{ N·m}}\)</p>
+    <p><strong>3.</strong> Les deux couples sont quasiment identiques (8,0 N·m). Cela s'explique : la puissance et la vitesse ont toutes deux été réduites dans le même rapport (\(\times 0{,}6\)), donc leur rapport \(C = P/\omega\) reste constant. Si la charge mécanique (poids du coureur, résistance) avait été différente, le couple aurait varié.</p>
+    <p><strong>4.</strong> Énergie annuelle : \(15 \times 2 \times 10 \times 300 = 90\,000\text{ kWh}\)<br>
+    Coût : \(90\,000 \times 0{,}2276 = \mathbf{20\,484\text{ EUR/an}}\)</p>
   </div>
 </div>
 
 <div class="retenir">
   <strong>À retenir</strong>
   <ul>
-    <li>La <strong>puissance mécanique utile</strong> est toujours inférieure à la puissance électrique absorbée : \(P_{mec} = P_{elec} \times \eta\) avec η &lt; 1.</li>
+    <li>La <strong>puissance mécanique utile</strong> est toujours inférieure à la puissance électrique absorbée : \(P_{mec} = P_{elec} \times \eta\) avec \(\eta < 1\).</li>
     <li>En <strong>triphasé</strong> : \(P_{elec} = \sqrt{3} \cdot U \cdot I \cdot \cos\varphi\) — pour trouver I, diviser \(P_{elec}\) par \(\sqrt{3} \cdot U \cdot \cos\varphi\).</li>
     <li>Le <strong>couple moteur</strong> se calcule : \(C = \dfrac{P_{mec}}{\omega}\) — à puissance constante, si la vitesse augmente, le couple diminue.</li>
     <li>Un <strong>variateur de fréquence</strong> modifie la fréquence d'alimentation, ce qui modifie la vitesse de synchronisme et donc la vitesse de rotation du moteur.</li>
@@ -254,5 +671,6 @@
 </div>
 <script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
 <script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

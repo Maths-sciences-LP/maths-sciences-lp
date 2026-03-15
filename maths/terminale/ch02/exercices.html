@@ -49,7 +49,7 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 <!-- EX 1 -->
 <div class="exo">
   <div class="exo-titre"><span class="num">1</span>Lecture d&#8217;un tableau crois&#233; <span class="ticcer-badge">ICCER</span></div>
-  <p>Un technicien ICCER contr&#244;le <strong>200 interrupteurs bipolaires</strong> issus de deux usines (U1 et U2). Le tableau suivant r&#233;sume les r&#233;sultats :</p>
+  <p>Un technicien chauffagiste contr&#244;le <strong>200 interrupteurs bipolaires</strong> issus de deux usines (U1 et U2). Le tableau suivant r&#233;sume les r&#233;sultats :</p>
   <table>
     <thead>
       <tr><th></th><th>D&#233;fectueux (D)</th><th>Conforme (C)</th><th class="total">Total</th></tr>
@@ -179,6 +179,150 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
     </div>
   </details>
 </div>
+
+<!-- ================================================================
+     SOCLE — EXERCICES TRÈS GUIDÉS
+     ================================================================ -->
+<div class="diff-socle">
+
+<div class="section-titre">
+  <span class="tag-socle">Socle</span>
+  <span class="niveau n1">Exercices guidés — Pas à pas</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- SOCLE S1 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S1</span>Calculer des probabilités simples — méthode guidée</div>
+  <div class="meth">
+    <strong>Méthode :</strong> La probabilité d'un événement A, c'est :<br>
+    \(P(A) = \dfrac{\text{nombre de cas favorables}}{\text{nombre total de cas}}\)
+  </div>
+
+  <p>Dans un stock de <strong>100 raccords</strong> de plomberie, il y a <strong>60 raccords en cuivre</strong> et <strong>40 raccords en PER</strong>. On tire un raccord au hasard.</p>
+
+  <div class="consigne"><strong>1.</strong> Calculer \(P(\text{cuivre})\). Compléter :</div>
+  <p style="font-size:.93em">\(P(\text{cuivre}) = \dfrac{\boxed{\phantom{60}}}{\boxed{\phantom{100}}} = \boxed{\phantom{0,60}}\)</p>
+
+  <div class="consigne"><strong>2.</strong> Calculer \(P(\text{PER})\) de la même façon :</div>
+  <div class="reponse-box">\(P(\text{PER}) = \dfrac{\phantom{40}}{\phantom{100}} = \) ………</div>
+
+  <div class="consigne"><strong>3.</strong> Vérifier que \(P(\text{cuivre}) + P(\text{PER}) = 1\). Pourquoi ?</div>
+  <div class="reponse-box"></div>
+
+  <div class="consigne"><strong>4.</strong> Parmi les 60 raccords en cuivre, 3 sont défectueux. Calculer la probabilité qu'un raccord pris au hasard soit <em>en cuivre ET défectueux</em> :</div>
+  <p style="font-size:.93em">\(P(\text{cuivre et défectueux}) = \dfrac{\boxed{\phantom{3}}}{\boxed{\phantom{100}}} = \boxed{\phantom{0,03}}\)</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(P(\text{cuivre}) = \dfrac{60}{100} = \)<span class="reponse">\(0{,}60\)</span> soit 60 %</p>
+      <p><strong>2.</strong> \(P(\text{PER}) = \dfrac{40}{100} = \)<span class="reponse">\(0{,}40\)</span> soit 40 %</p>
+      <p><strong>3.</strong> \(0{,}60 + 0{,}40 = 1\). La somme vaut 1 car <span class="reponse">ce sont les deux seules possibilités</span> (événements contraires).</p>
+      <p><strong>4.</strong> \(P(\text{cuivre et défectueux}) = \dfrac{3}{100} = \)<span class="reponse">\(0{,}03\)</span> soit 3 %</p>
+    </div>
+  </details>
+</div>
+
+<!-- SOCLE S2 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S2</span>Compléter un tableau croisé — pas à pas</div>
+
+  <div class="meth">
+    <strong>Méthode :</strong> Dans un tableau croisé, chaque ligne et chaque colonne se termine par un <strong>total</strong>.<br>
+    Règle : <em>Total d'une ligne = somme des cases de cette ligne.</em>
+  </div>
+
+  <p>Un menuisier contrôle <strong>80 panneaux</strong> (chêne ou mélaminé, conforme ou abîmé). On sait que :</p>
+  <ul>
+    <li>Il y a <strong>50 panneaux de chêne</strong> et <strong>30 de mélaminé</strong>.</li>
+    <li>Parmi les panneaux de chêne, <strong>5 sont abîmés</strong>.</li>
+    <li>Au total, <strong>8 panneaux sont abîmés</strong>.</li>
+  </ul>
+
+  <div class="consigne"><strong>1.</strong> Compléter le tableau case par case. Commencer par les cases fléchées :</div>
+  <table>
+    <thead><tr><th></th><th>Abîmé (A)</th><th>Conforme (C)</th><th class="total">Total</th></tr></thead>
+    <tbody>
+      <tr><th>Chêne</th><td>5 ✓</td><td class="vide">← 50 − 5 = ?</td><td class="total">50</td></tr>
+      <tr><th>Mélaminé</th><td class="vide">← 8 − 5 = ?</td><td class="vide">?</td><td class="total">30</td></tr>
+      <tr><th class="total">Total</th><td class="total">8</td><td class="vide">← 80 − 8 = ?</td><td class="total">80</td></tr>
+    </tbody>
+  </table>
+
+  <div class="consigne"><strong>2.</strong> On tire un panneau au hasard. Calculer \(P(\text{Abîmé})\) :</div>
+  <p style="font-size:.93em">\(P(\text{A}) = \dfrac{\boxed{\phantom{8}}}{\boxed{\phantom{80}}} = \boxed{\phantom{0,10}}\)</p>
+
+  <div class="consigne"><strong>3.</strong> Calculer \(P(\text{Chêne et Conforme})\) :</div>
+  <div class="reponse-box">\(P(\text{Chêne} \cap \text{C}) = \dfrac{\phantom{45}}{\phantom{80}} = \) ………</div>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> Tableau complété :</p>
+      <table>
+        <thead><tr><th></th><th>Abîmé</th><th>Conforme</th><th class="total">Total</th></tr></thead>
+        <tbody>
+          <tr><th>Chêne</th><td>5</td><td class="hl">45</td><td class="total">50</td></tr>
+          <tr><th>Mélaminé</th><td class="hl">3</td><td class="hl">27</td><td class="total">30</td></tr>
+          <tr><th class="total">Total</th><td class="total">8</td><td class="total hl">72</td><td class="total">80</td></tr>
+        </tbody>
+      </table>
+      <p><strong>2.</strong> \(P(\text{A}) = \dfrac{8}{80} = \)<span class="reponse">\(0{,}10\)</span> soit 10 %</p>
+      <p><strong>3.</strong> \(P(\text{Chêne} \cap \text{C}) = \dfrac{45}{80} = \)<span class="reponse">\(0{,}5625\)</span></p>
+    </div>
+  </details>
+</div>
+
+<!-- SOCLE S3 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S3</span>Lire un arbre de probabilités — questions guidées</div>
+
+  <p>Une entreprise de chauffage achète des vannes chez deux fournisseurs. Voici l'arbre :</p>
+  <div class="chemin">
+    <strong>Arbre :</strong><br>
+    ├── Fournisseur F1 (0,7)<br>
+    │ &nbsp;&nbsp;&nbsp;├── Conforme (0,95)<br>
+    │ &nbsp;&nbsp;&nbsp;└── Défectueuse (0,05)<br>
+    └── Fournisseur F2 (0,3)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;├── Conforme (0,90)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;└── Défectueuse (0,10)
+  </div>
+
+  <div class="consigne"><strong>1.</strong> Quelle proportion des vannes vient du fournisseur F1 ?</div>
+  <div class="reponse-box">\(P(\text{F1}) = \) ……… (lire la 1ère branche)</div>
+
+  <div class="consigne"><strong>2.</strong> Parmi les vannes de F1, quel pourcentage est défectueux ?</div>
+  <div class="reponse-box">\(P_{\text{F1}}(\text{D}) = \) ……… (lire la sous-branche « Défectueuse »)</div>
+
+  <div class="consigne"><strong>3.</strong> Calculer \(P(\text{F1} \cap \text{D})\) = probabilité d'avoir une vanne de F1 <em>et</em> défectueuse. Compléter :</div>
+  <p style="font-size:.93em">\(P(\text{F1} \cap \text{D}) = P(\text{F1}) \times P_{\text{F1}}(\text{D}) = \boxed{\phantom{0,7}} \times \boxed{\phantom{0,05}} = \boxed{\phantom{0,035}}\)</p>
+
+  <div class="consigne"><strong>4.</strong> Calculer de même \(P(\text{F2} \cap \text{D})\) :</div>
+  <div class="reponse-box">\(P(\text{F2} \cap \text{D}) = \) ……… \(\times\) ……… \(=\) ………</div>
+
+  <div class="consigne"><strong>5.</strong> En déduire \(P(\text{D})\) = probabilité totale qu'une vanne soit défectueuse :</div>
+  <p style="font-size:.93em">\(P(\text{D}) = P(\text{F1} \cap \text{D}) + P(\text{F2} \cap \text{D}) = \boxed{\phantom{0,035}} + \boxed{\phantom{0,030}} = \boxed{\phantom{0,065}}\)</p>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> <span class="reponse">\(P(\text{F1}) = 0{,}7\)</span> — 70 % des vannes viennent de F1.</p>
+      <p><strong>2.</strong> <span class="reponse">\(P_{\text{F1}}(\text{D}) = 0{,}05\)</span> — 5 % des vannes F1 sont défectueuses.</p>
+      <p><strong>3.</strong> \(P(\text{F1} \cap \text{D}) = 0{,}7 \times 0{,}05 = \)<span class="reponse">\(0{,}035\)</span></p>
+      <p><strong>4.</strong> \(P(\text{F2} \cap \text{D}) = 0{,}3 \times 0{,}10 = \)<span class="reponse">\(0{,}030\)</span></p>
+      <p><strong>5.</strong> \(P(\text{D}) = 0{,}035 + 0{,}030 = \)<span class="reponse">\(0{,}065\)</span> soit 6,5 %.</p>
+      <div class="att">C'est la <strong>formule des probabilités totales</strong> : on additionne les chemins qui mènent à D.</div>
+    </div>
+  </details>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     STANDARD — EXERCICES DU PROGRAMME (Niveaux 2 à 3)
+     ================================================================ -->
+<div class="diff-standard">
 
 <!-- ============================================================ -->
 <!--                    NIVEAU 2                                  -->
@@ -461,6 +605,13 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   </details>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     APPROFONDISSEMENT — PROBLÈMES OUVERTS
+     ================================================================ -->
+<div class="diff-appro">
+
 <!-- ============================================================ -->
 <!--                    NIVEAU 4                                  -->
 <!-- ============================================================ -->
@@ -601,7 +752,7 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 <div class="exo">
   <div class="exo-titre"><span class="num">12</span>Panne d&#8217;un syst&#232;me de chauffage &#8212; Probl&#232;me complet <span class="ticcer-badge">ICCER</span></div>
   <div class="situation">
-    <strong>Contexte professionnel&#160;:</strong> Un technicien ICCER assure la maintenance pr&#233;ventive d&#8217;une installation de chauffage comprenant trois &#233;quipements&#160;: une chaudière (Ch), une pompe de circulation (Po) et un vase d&#8217;expansion (Va). Ces trois appareils fonctionnent de fa&#231;on <strong>ind&#233;pendante</strong>.
+    <strong>Contexte professionnel&#160;:</strong> Un technicien chauffagiste assure la maintenance pr&#233;ventive d&#8217;une installation de chauffage comprenant trois &#233;quipements&#160;: une chaudière (Ch), une pompe de circulation (Po) et un vase d&#8217;expansion (Va). Ces trois appareils fonctionnent de fa&#231;on <strong>ind&#233;pendante</strong>.
     <br>D&#8217;apr&#232;s les donn&#233;es constructeur, les probabilit&#233;s annuelles de panne sont&#160;:
     <ul>
       <li>Chaudi&#232;re&#160;: \(P(\text{Ch}) = 0{,}05\)</li>
@@ -642,6 +793,8 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 <!-- ============================================================ -->
 <!--                    NAVIGATION                                -->
 <!-- ============================================================ -->
+</div><!-- fin diff-appro -->
+
 <div class="nav-footer">
   <a href="lecon.html">&#128214; Cours Ch02</a>
   <a href="ds.html">&#128221; Devoir Ch02</a>
@@ -650,5 +803,6 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
 
 </div><!-- fin .c -->
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

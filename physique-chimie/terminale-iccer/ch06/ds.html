@@ -6,22 +6,20 @@
   <title>Ch06 – Décrire un fluide en mouvement – DS</title>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" href="../../../styles.css">
-<link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
+  <link rel="stylesheet" href="../../../print.css" media="print">
+  <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+    .info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
     .info-ds div{flex:1;min-width:150px}
     .info-ds strong{display:block;color:var(--p);margin-bottom:2px}
-
     .pts{font-size:.8em;background:#ede9fe;color:#5b21b6;padding:2px 8px;border-radius:4px;font-weight:600}
-
     .q-pts{color:#718096;font-size:.85em;font-style:italic}
     .enonce{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin:10px 0;font-size:.93em}
-
-    .total-bar{background:#6f42c1;color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px}</style>
+    .total-bar{background:#6f42c1;color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px}
+  </style>
 </head>
 <body>
 <div class="c">
-  <a href="../../../pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+  <a href="../../../pc-term-iccer.html" class="nb">← Retour au sommaire</a>
   <header>
     <h1>Chapitre 6 – Devoir Surveillé</h1>
     <p class="sous-titre">Décrire un fluide en mouvement &nbsp;|&nbsp; Terminale Bac Pro ICCER</p>
@@ -33,95 +31,309 @@
     <div><strong>Calculatrice</strong>Autorisée</div>
   </div>
 
-  <div class="exo">
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--                          DS SOCLE                              -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- ── Exercice 1 — Socle ── -->
+  <div class="exo diff-socle">
+    <span class="tag-socle">Socle</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">QCM – Fluides en mouvement</span>
+      <span class="pts">5 points</span>
+    </div>
+    <p>Pour chaque question, entourer la bonne réponse. <span class="q-pts">(1 pt par question)</span></p>
+
+    <p class="q"><strong>1.</strong> La formule du débit volumique est :</p>
+    <p>&emsp; a) \(Q_v = \rho \times v\) &emsp; b) \(Q_v = v \times S\) &emsp; c) \(Q_v = m \times v\)</p>
+
+    <p class="q"><strong>2.</strong> L'unité du débit massique dans le système international est :</p>
+    <p>&emsp; a) L/s &emsp; b) m³/s &emsp; c) kg/s</p>
+
+    <p class="q"><strong>3.</strong> Si la section d'un tuyau diminue et que le débit est conservé, la vitesse du fluide :</p>
+    <p>&emsp; a) diminue &emsp; b) reste constante &emsp; c) augmente</p>
+
+    <p class="q"><strong>4.</strong> Pour convertir 720 L/h en L/s, on divise par :</p>
+    <p>&emsp; a) 60 &emsp; b) 3 600 &emsp; c) 1 000</p>
+
+    <p class="q"><strong>5.</strong> La section d'un tuyau circulaire se calcule avec :</p>
+    <p>&emsp; a) \(S = 2\pi r\) &emsp; b) \(S = \pi r^2\) &emsp; c) \(S = \pi D\)</p>
+
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> b) \(Q_v = v \times S\)</p>
+      <p><strong>2.</strong> c) kg/s</p>
+      <p><strong>3.</strong> c) augmente (conservation du débit : \(v_1 S_1 = v_2 S_2\))</p>
+      <p><strong>4.</strong> b) 3 600 (car 1 h = 3 600 s)</p>
+      <p><strong>5.</strong> b) \(S = \pi r^2\)</p>
+    </div>
+  </div>
+
+  <!-- ── Exercice 2 — Socle ── -->
+  <div class="exo diff-socle">
+    <span class="tag-socle">Socle</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Circuit de chauffage — calculs guidés</span>
+      <span class="pts">8 points</span>
+    </div>
+    <p class="enonce">
+      Un plombier chauffagiste installe un circuit de chauffage. La conduite a un diamètre \(D = 20\ \text{mm} = 0{,}020\ \text{m}\). L'eau (\(\rho = 1\,000\ \text{kg/m}^3\)) circule avec un débit volumique \(Q_v = 360\ \text{L/h}\).
+    </p>
+
+    <div class="q"><strong>1.</strong> Convertir le débit volumique en m³/s. Compléter : <span class="q-pts">(1 pt)</span></div>
+    <p>\(Q_v = \dfrac{360}{1\,000} \div \boxed{\phantom{3\,600}} = \boxed{\phantom{1{,}0 \times 10^{-4}}}\ \text{m}^3/\text{s}\)</p>
+
+    <div class="q"><strong>2.</strong> Calculer le rayon puis la section du tuyau. Compléter : <span class="q-pts">(1,5 pt)</span></div>
+    <p>\(r = \dfrac{D}{2} = \dfrac{0{,}020}{2} = \boxed{\phantom{0{,}010}}\ \text{m}\)</p>
+    <p>\(S = \pi \times r^2 = \pi \times (\boxed{\phantom{0{,}010}})^2 \approx \boxed{\phantom{3{,}14 \times 10^{-4}}}\ \text{m}^2\)</p>
+
+    <div class="q"><strong>3.</strong> Calculer la vitesse de l'eau. Compléter : <span class="q-pts">(1,5 pt)</span></div>
+    <p>\(v = \dfrac{Q_v}{S} = \dfrac{\boxed{\phantom{1{,}0 \times 10^{-4}}}}{\boxed{\phantom{3{,}14 \times 10^{-4}}}} \approx \boxed{\phantom{0{,}318}}\ \text{m/s}\)</p>
+
+    <div class="q"><strong>4.</strong> Calculer le débit massique. Compléter : <span class="q-pts">(1 pt)</span></div>
+    <p>\(Q_m = \rho \times Q_v = \boxed{\phantom{1\,000}} \times \boxed{\phantom{1{,}0 \times 10^{-4}}} = \boxed{\phantom{0{,}1}}\ \text{kg/s}\)</p>
+
+    <div class="q"><strong>5.</strong> L'écart de température est \(\Delta T = 10\ \text{°C}\) et \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\). Calculer la puissance thermique. Compléter : <span class="q-pts">(2 pts)</span></div>
+    <p>\(P_{\text{th}} = Q_m \times c \times \Delta T = \boxed{\phantom{0{,}1}} \times \boxed{\phantom{4\,186}} \times \boxed{\phantom{10}} \approx \boxed{\phantom{4\,186}}\ \text{W}\)</p>
+
+    <div class="q"><strong>6.</strong> Cette puissance est-elle suffisante pour chauffer une pièce de 20 m² (besoin estimé : 2 000 W) ? <span class="q-pts">(1 pt)</span></div>
+
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(Q_v = 0{,}360 \div 3\,600 = \mathbf{1{,}0 \times 10^{-4}\ \text{m}^3/\text{s}}\)</p>
+      <p><strong>2.</strong> \(r = 0{,}010\ \text{m}\), \(S = \pi \times (0{,}010)^2 \approx \mathbf{3{,}14 \times 10^{-4}\ \text{m}^2}\)</p>
+      <p><strong>3.</strong> \(v = \dfrac{1{,}0 \times 10^{-4}}{3{,}14 \times 10^{-4}} \approx \mathbf{0{,}318\ \text{m/s}}\)</p>
+      <p><strong>4.</strong> \(Q_m = 1\,000 \times 1{,}0 \times 10^{-4} = \mathbf{0{,}1\ \text{kg/s}}\)</p>
+      <p><strong>5.</strong> \(P_{\text{th}} = 0{,}1 \times 4\,186 \times 10 = \mathbf{4\,186\ \text{W} \approx 4{,}2\ \text{kW}}\)</p>
+      <p><strong>6.</strong> Oui, \(4\,186\ \text{W} > 2\,000\ \text{W}\) : la puissance est <strong>largement suffisante</strong> pour chauffer la pièce.</p>
+    </div>
+  </div>
+
+  <!-- ── Exercice 3 — Socle ── -->
+  <div class="exo diff-socle">
+    <span class="tag-socle">Socle</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Conservation du débit — rétrécissement</span>
+      <span class="pts">7 points</span>
+    </div>
+    <p class="enonce">
+      Une conduite de diamètre \(D_1 = 40\ \text{mm}\) se rétrécit en une conduite de diamètre \(D_2 = 20\ \text{mm}\). L'eau circule à \(v_1 = 0{,}5\ \text{m/s}\) dans la grosse conduite.
+    </p>
+
+    <div class="q"><strong>1.</strong> Calculer la section \(S_1\). Compléter : <span class="q-pts">(1,5 pt)</span></div>
+    <p>\(S_1 = \pi \times \left(\dfrac{0{,}040}{2}\right)^2 = \pi \times (\boxed{\phantom{0{,}020}})^2 \approx \boxed{\phantom{1{,}257 \times 10^{-3}}}\ \text{m}^2\)</p>
+
+    <div class="q"><strong>2.</strong> Calculer la section \(S_2\). Compléter : <span class="q-pts">(1,5 pt)</span></div>
+    <p>\(S_2 = \pi \times \left(\dfrac{0{,}020}{2}\right)^2 = \pi \times (\boxed{\phantom{0{,}010}})^2 \approx \boxed{\phantom{3{,}14 \times 10^{-4}}}\ \text{m}^2\)</p>
+
+    <div class="q"><strong>3.</strong> Écrire l'équation de continuité. <span class="q-pts">(1 pt)</span></div>
+
+    <div class="q"><strong>4.</strong> Calculer la vitesse \(v_2\). Compléter : <span class="q-pts">(2 pts)</span></div>
+    <p>\(v_2 = \dfrac{v_1 \times S_1}{S_2} = \dfrac{\boxed{\phantom{0{,}5}} \times \boxed{\phantom{1{,}257 \times 10^{-3}}}}{\boxed{\phantom{3{,}14 \times 10^{-4}}}} \approx \boxed{\phantom{2{,}0}}\ \text{m/s}\)</p>
+
+    <div class="q"><strong>5.</strong> Compléter : « Le diamètre est divisé par \(\boxed{\phantom{2}}\), la section est divisée par \(\boxed{\phantom{4}}\), la vitesse est multipliée par \(\boxed{\phantom{4}}\). » <span class="q-pts">(1 pt)</span></div>
+
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(S_1 = \pi \times (0{,}020)^2 \approx \mathbf{1{,}257 \times 10^{-3}\ \text{m}^2}\)</p>
+      <p><strong>2.</strong> \(S_2 = \pi \times (0{,}010)^2 \approx \mathbf{3{,}14 \times 10^{-4}\ \text{m}^2}\)</p>
+      <p><strong>3.</strong> \(v_1 \times S_1 = v_2 \times S_2\)</p>
+      <p><strong>4.</strong> \(v_2 = \dfrac{0{,}5 \times 1{,}257 \times 10^{-3}}{3{,}14 \times 10^{-4}} = \mathbf{2{,}0\ \text{m/s}}\)</p>
+      <p><strong>5.</strong> Le diamètre est divisé par 2, la section est divisée par 4, la vitesse est multipliée par 4.</p>
+    </div>
+  </div>
+
+  <div class="total-bar diff-socle">TOTAL SOCLE : 20 points</div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--                        DS STANDARD                            -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- ── Exercice 1 — Standard ── -->
+  <div class="exo diff-standard">
+    <span class="tag-standard">Standard</span>
     <div class="exo-header">
       <span class="exo-num">Exercice 1</span>
       <span class="exo-title">Station de pompage agricole</span>
       <span class="pts">8 points</span>
     </div>
     <p class="enonce">
-      Une station de pompage irrigue des terres agricoles. La conduite principale (Ø D<sub>1</sub> = 60 mm) se divise ensuite en deux conduites secondaires (Ø D<sub>2</sub> = 40 mm chacune). La pompe délivre un débit Q<sub>v</sub> = 18 m³/h d’eau (ρ = 1 000 kg/m³).<br>
-      g = 9,81 m/s².
+      Une station de pompage irrigue des terres agricoles. La conduite principale (diamètre \(D_1 = 60\ \text{mm}\)) se divise en deux conduites secondaires (diamètre \(D_2 = 40\ \text{mm}\) chacune). La pompe délivre un débit \(Q_v = 18\ \text{m}^3/\text{h}\) d'eau (\(\rho = 1\,000\ \text{kg/m}^3\)).
     </p>
-    <div class="q"><strong>1.</strong> Convertir Q<sub>v</sub> en m³/s. <span class="q-pts">(0,5 pt)</span></div>
-    <div class="q"><strong>2.</strong> Calculer la section S<sub>1</sub> de la conduite principale. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>3.</strong> Calculer la vitesse v<sub>1</sub> dans la conduite principale. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>4.</strong> Calculer la section S<sub>2</sub> d’une conduite secondaire. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>5.</strong> Quel est le débit dans chaque conduite secondaire (par symétrie) ? <span class="q-pts">(0,5 pt)</span></div>
-    <div class="q"><strong>6.</strong> Calculer la vitesse v<sub>2</sub> dans chaque conduite secondaire. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>7.</strong> Calculer le débit massique total Q<sub>m</sub>. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>8.</strong> Pourquoi est-il important que la vitesse ne soit pas trop élevée dans les conduites ? <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>1.</strong> Convertir \(Q_v\) en m³/s. <span class="q-pts">(0,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer la section \(S_1\) de la conduite principale. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>3.</strong> Calculer la vitesse \(v_1\) dans la conduite principale. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>4.</strong> Calculer la section \(S_2\) d'une conduite secondaire. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>5.</strong> Quel est le débit dans chaque conduite secondaire (par symétrie) ? <span class="q-pts">(0,5 pt)</span></div>
+    <div class="q"><strong>6.</strong> Calculer la vitesse \(v_2\) dans chaque conduite secondaire. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>7.</strong> Calculer le débit massique total \(Q_m\). <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>8.</strong> Pourquoi est-il important que la vitesse ne soit pas trop élevée dans les conduites ? <span class="q-pts">(1 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> Q<sub>v</sub> = 18 / 3 600 = <strong>5 × 10<sup>−3</sup> m³/s</strong></p>
-      <p><strong>2.</strong> D<sub>1</sub> = 60 mm = 0,06 m, R<sub>1</sub> = 0,03 m<br>
-      \(S_1 = \pi \times (0{,}03)^2 = \pi \times 9 \times 10^{-4} \approx \mathbf{2{,}83 \times 10^{-3}\text{ m}^2}\)</p>
-      <p><strong>3.</strong> \(v_1 = \dfrac{Q_v}{S_1} = \dfrac{5 \times 10^{-3}}{2{,}83 \times 10^{-3}} \approx \mathbf{1{,}77\text{ m/s}}\)</p>
-      <p><strong>4.</strong> D<sub>2</sub> = 40 mm = 0,04 m, R<sub>2</sub> = 0,02 m<br>
-      \(S_2 = \pi \times (0{,}02)^2 \approx \mathbf{1{,}257 \times 10^{-3}\text{ m}^2}\)</p>
-      <p><strong>5.</strong> Q<sub>v2</sub> = Q<sub>v</sub> / 2 = 5 × 10<sup>−3</sup> / 2 = <strong>2,5 × 10<sup>−3</sup> m³/s</strong></p>
-      <p><strong>6.</strong> \(v_2 = \dfrac{Q_{v2}}{S_2} = \dfrac{2{,}5 \times 10^{-3}}{1{,}257 \times 10^{-3}} \approx \mathbf{1{,}99\text{ m/s}}\)</p>
-      <p><strong>7.</strong> Q<sub>m</sub> = ρ × Q<sub>v</sub> = 1 000 × 5 × 10<sup>−3</sup> = <strong>5 kg/s</strong></p>
-      <p><strong>8.</strong> Une vitesse trop élevée engendre des <strong>pertes de charge importantes</strong> (frottements), des <strong>bruits et vibrations</strong>, une usure prématurée des conduites, et peut provoquer des coups de bélier.</p>
+      <p><strong>1.</strong> \(Q_v = 18 / 3\,600 = \mathbf{5 \times 10^{-3}\ \text{m}^3/\text{s}}\)</p>
+      <p><strong>2.</strong> \(S_1 = \pi \times (0{,}030)^2 \approx \mathbf{2{,}83 \times 10^{-3}\ \text{m}^2}\)</p>
+      <p><strong>3.</strong> \(v_1 = \dfrac{5 \times 10^{-3}}{2{,}83 \times 10^{-3}} \approx \mathbf{1{,}77\ \text{m/s}}\)</p>
+      <p><strong>4.</strong> \(S_2 = \pi \times (0{,}020)^2 \approx \mathbf{1{,}257 \times 10^{-3}\ \text{m}^2}\)</p>
+      <p><strong>5.</strong> \(Q_{v2} = Q_v / 2 = \mathbf{2{,}5 \times 10^{-3}\ \text{m}^3/\text{s}}\)</p>
+      <p><strong>6.</strong> \(v_2 = \dfrac{2{,}5 \times 10^{-3}}{1{,}257 \times 10^{-3}} \approx \mathbf{1{,}99\ \text{m/s}}\)</p>
+      <p><strong>7.</strong> \(Q_m = \rho \times Q_v = 1\,000 \times 5 \times 10^{-3} = \mathbf{5\ \text{kg/s}}\)</p>
+      <p><strong>8.</strong> Une vitesse trop élevée engendre des <strong>pertes de charge importantes</strong>, des <strong>bruits et vibrations</strong>, une usure prématurée et peut provoquer des coups de bélier.</p>
     </div>
   </div>
 
-  <div class="exo">
+  <!-- ── Exercice 2 — Standard ── -->
+  <div class="exo diff-standard">
+    <span class="tag-standard">Standard</span>
     <div class="exo-header">
       <span class="exo-num">Exercice 2</span>
       <span class="exo-title">Installation de climatisation – Bernoulli</span>
       <span class="pts">7 points</span>
     </div>
     <p class="enonce">
-      Un technicien climaticien vérifie une installation de climatisation. L’eau glacée (ρ = 1 000 kg/m³) circule horizontalement (même altitude). En A (grosse conduite) : v<sub>A</sub> = 1 m/s, P<sub>A</sub> = 180 000 Pa. En B (zone rétrécie, venturi) : v<sub>B</sub> = 5 m/s.
+      Un technicien climaticien vérifie une installation. L'eau glacée (\(\rho = 1\,000\ \text{kg/m}^3\)) circule horizontalement. En A (grosse conduite) : \(v_A = 1\ \text{m/s}\), \(P_A = 180\,000\ \text{Pa}\). En B (zone rétrécie) : \(v_B = 5\ \text{m/s}\).
     </p>
-    <div class="q"><strong>1.</strong> Écrire l’équation de Bernoulli simplifiée entre A et B (même altitude, fluide parfait). <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>2.</strong> Calculer P<sub>B</sub>. <span class="q-pts">(2,5 pts)</span></div>
-    <div class="q"><strong>3.</strong> Comparer P<sub>A</sub> et P<sub>B</sub>. Que remarque-t-on ? Quel phénomène illustre ce résultat ? <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>4.</strong> Dans la réalité, la pression P<sub>B</sub> mesurée est légèrement inférieure à la valeur calculée. Pourquoi ? <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>5.</strong> Calculer le débit volumique si la section en A est S<sub>A</sub> = 15 cm². <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>1.</strong> Écrire l'équation de Bernoulli simplifiée entre A et B (même altitude, fluide parfait). <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer \(P_B\). <span class="q-pts">(2,5 pts)</span></div>
+    <div class="q"><strong>3.</strong> Comparer \(P_A\) et \(P_B\). Quel phénomène illustre ce résultat ? <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> Dans la réalité, la pression \(P_B\) mesurée est légèrement inférieure à la valeur calculée. Pourquoi ? <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>5.</strong> Calculer le débit volumique si la section en A est \(S_A = 15\ \text{cm}^2\). <span class="q-pts">(1 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> \(P_A + \frac{1}{2}\rho v_A^2 = P_B + \frac{1}{2}\rho v_B^2\)</p>
-      <p><strong>2.</strong> \[ P_B = P_A + \frac{1}{2}\rho(v_A^2 - v_B^2) \]
-      \[ P_B = 180\,000 + \frac{1}{2} \times 1\,000 \times (1^2 - 5^2) \]
-      \[ P_B = 180\,000 + 500 \times (1 - 25) = 180\,000 - 12\,000 = \mathbf{168\,000\text{ Pa}} \]</p>
-      <p><strong>3.</strong> P<sub>B</sub> = 168 000 Pa &lt; P<sub>A</sub> = 180 000 Pa.<br>
-      La pression <strong>diminue</strong> quand la vitesse augmente. C’est l’<strong>effet Venturi</strong>.</p>
-      <p><strong>4.</strong> Dans la réalité, le fluide est réel (viscosité), donc des <strong>pertes de charge</strong> viennent s’ajouter, ce qui réduit encore la pression mesurée.</p>
-      <p><strong>5.</strong> Q<sub>v</sub> = S<sub>A</sub> × v<sub>A</sub> = 15 × 10<sup>−4</sup> × 1 = <strong>1,5 × 10<sup>−3</sup> m³/s = 5,4 m³/h</strong></p>
+      <p><strong>1.</strong> \(P_A + \dfrac{1}{2}\rho v_A^2 = P_B + \dfrac{1}{2}\rho v_B^2\)</p>
+      <p><strong>2.</strong> \(P_B = P_A + \dfrac{1}{2}\rho(v_A^2 - v_B^2) = 180\,000 + 500 \times (1 - 25) = 180\,000 - 12\,000 = \mathbf{168\,000\ \text{Pa}}\)</p>
+      <p><strong>3.</strong> \(P_B < P_A\) : la pression <strong>diminue</strong> quand la vitesse augmente. C'est l'<strong>effet Venturi</strong>.</p>
+      <p><strong>4.</strong> Le fluide réel a une viscosité, donc des <strong>pertes de charge</strong> viennent réduire encore la pression mesurée.</p>
+      <p><strong>5.</strong> \(Q_v = S_A \times v_A = 15 \times 10^{-4} \times 1 = \mathbf{1{,}5 \times 10^{-3}\ \text{m}^3/\text{s} = 5{,}4\ \text{m}^3/\text{h}}\)</p>
     </div>
   </div>
 
-  <div class="exo">
+  <!-- ── Exercice 3 — Standard ── -->
+  <div class="exo diff-standard">
+    <span class="tag-standard">Standard</span>
     <div class="exo-header">
       <span class="exo-num">Exercice 3</span>
-      <span class="exo-title">Régime d’écoulement et type</span>
+      <span class="exo-title">Puissance thermique d'un circuit de chauffage</span>
       <span class="pts">5 points</span>
     </div>
     <p class="enonce">
-      Un bureau d’études analyse deux circuits hydrauliques :<br>
-      <strong>Circuit A</strong> : eau (ρ = 1 000 kg/m³, η = 1 × 10<sup>−3</sup> Pa·s), D = 20 mm, v = 0,5 m/s.<br>
-      <strong>Circuit B</strong> : eau même caractéristiques, D = 50 mm, v = 4 m/s.
+      Un installateur thermique dimensionne un circuit de chauffage. Le débit volumique est \(Q_v = 500\ \text{L/h}\). L'eau entre à \(T_1 = 60\ \text{°C}\) et ressort à \(T_2 = 45\ \text{°C}\).<br>
+      Données : \(\rho = 1\,000\ \text{kg/m}^3\), \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\).
     </p>
-    <div class="q"><strong>1.</strong> Rappeler la formule du nombre de Reynolds et son utilité. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>2.</strong> Calculer Re pour le circuit A et déterminer le régime. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>3.</strong> Calculer Re pour le circuit B et déterminer le régime. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>4.</strong> Lequel des deux circuits présente les pertes de charge les plus importantes ? Justifier. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>1.</strong> Convertir \(Q_v\) en m³/s. <span class="q-pts">(0,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer le débit massique \(Q_m\). <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>3.</strong> Calculer l'écart de température \(\Delta T\). <span class="q-pts">(0,5 pt)</span></div>
+    <div class="q"><strong>4.</strong> Calculer la puissance thermique transportée \(P_{\text{th}}\) en W puis en kW. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>5.</strong> Cette puissance peut-elle chauffer un appartement de 60 m² (besoin estimé : 60 W/m²) ? Justifier. <span class="q-pts">(1 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> \(Re = \dfrac{\rho \times v \times D}{\eta}\). Le nombre de Reynolds permet de déterminer le <strong>régime d’écoulement</strong> : laminaire (Re &lt; 2 000), transitoire ou turbulent (Re &gt; 4 000).</p>
-      <p><strong>2.</strong> Circuit A : D = 0,02 m<br>
-      \(Re_A = \dfrac{1\,000 \times 0{,}5 \times 0{,}02}{10^{-3}} = \dfrac{10}{10^{-3}} = \mathbf{10\,000}\)<br>
-      Re<sub>A</sub> = 10 000 &gt; 4 000 → <strong>écoulement turbulent</strong>.</p>
-      <p><strong>3.</strong> Circuit B : D = 0,05 m<br>
-      \(Re_B = \dfrac{1\,000 \times 4 \times 0{,}05}{10^{-3}} = \dfrac{200}{10^{-3}} = \mathbf{200\,000}\)<br>
-      Re<sub>B</sub> = 200 000 &gt; 4 000 → <strong>écoulement turbulent</strong> (fortement).</p>
-      <p><strong>4.</strong> Le <strong>circuit B</strong> présente les pertes de charge les plus importantes : son nombre de Reynolds est beaucoup plus élevé (200 000 vs 10 000). L’écoulement est plus turbulent, avec davantage de mélanges et de frottements.</p>
+      <p><strong>1.</strong> \(Q_v = \dfrac{500 \times 10^{-3}}{3\,600} \approx \mathbf{1{,}39 \times 10^{-4}\ \text{m}^3/\text{s}}\)</p>
+      <p><strong>2.</strong> \(Q_m = 1\,000 \times 1{,}39 \times 10^{-4} = \mathbf{0{,}139\ \text{kg/s}}\)</p>
+      <p><strong>3.</strong> \(\Delta T = 60 - 45 = \mathbf{15\ \text{°C}}\)</p>
+      <p><strong>4.</strong> \(P_{\text{th}} = 0{,}139 \times 4\,186 \times 15 \approx \mathbf{8\,728\ \text{W} \approx 8{,}73\ \text{kW}}\)</p>
+      <p><strong>5.</strong> Besoin = \(60 \times 60 = 3\,600\ \text{W}\). \(P_{\text{th}} = 8\,728\ \text{W} > 3\,600\ \text{W}\) : oui, la puissance est <strong>largement suffisante</strong>.</p>
     </div>
   </div>
 
-  <div class="total-bar">TOTAL : 20 points</div>
+  <div class="total-bar diff-standard">TOTAL STANDARD : 20 points</div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!--                     DS APPROFONDISSEMENT                      -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- ── Exercice 1 — Approfondissement ── -->
+  <div class="exo diff-appro">
+    <span class="tag-appro">Approfondissement</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Réseau hydraulique ramifié</span>
+      <span class="pts">8 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien CVC dimensionne le réseau hydraulique d'un immeuble. La conduite principale (\(D_1 = 50\ \text{mm}\)) se divise en trois branches : deux branches identiques (\(D_2 = 25\ \text{mm}\)) et une branche plus grosse (\(D_3 = 32\ \text{mm}\)). La pompe délivre \(Q_v = 2\,500\ \text{L/h}\) d'eau (\(\rho = 1\,000\ \text{kg/m}^3\)). Les deux petites branches desservent chacune 20 % du débit total, la grosse branche dessert le reste.
+    </p>
+    <div class="q"><strong>1.</strong> Convertir \(Q_v\) en m³/s et calculer la vitesse \(v_1\) dans la conduite principale. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>2.</strong> Déterminer le débit volumique dans chaque branche (en m³/s et en L/h). <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>3.</strong> Calculer la vitesse dans chaque type de branche. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>4.</strong> La vitesse maximale recommandée est 1,5 m/s. Toutes les branches sont-elles conformes ? Si non, proposer un diamètre adapté. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>5.</strong> Vérifier que la somme des débits des branches est bien égale au débit total (conservation). <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(Q_v = \dfrac{2\,500 \times 10^{-3}}{3\,600} \approx 6{,}94 \times 10^{-4}\ \text{m}^3/\text{s}\)</p>
+      <p>\(S_1 = \pi \times (0{,}025)^2 \approx 1{,}963 \times 10^{-3}\ \text{m}^2\)</p>
+      <p>\(v_1 = \dfrac{6{,}94 \times 10^{-4}}{1{,}963 \times 10^{-3}} \approx \mathbf{0{,}354\ \text{m/s}}\)</p>
+      <p><strong>2.</strong> Petite branche : \(Q_{v2} = 0{,}20 \times 6{,}94 \times 10^{-4} = \mathbf{1{,}39 \times 10^{-4}\ \text{m}^3/\text{s} \approx 500\ \text{L/h}}\)</p>
+      <p>Grosse branche : \(Q_{v3} = 0{,}60 \times 6{,}94 \times 10^{-4} = \mathbf{4{,}17 \times 10^{-4}\ \text{m}^3/\text{s} \approx 1\,500\ \text{L/h}}\)</p>
+      <p><strong>3.</strong> Petite branche : \(S_2 = \pi \times (0{,}0125)^2 \approx 4{,}91 \times 10^{-4}\ \text{m}^2\), \(v_2 = \dfrac{1{,}39 \times 10^{-4}}{4{,}91 \times 10^{-4}} \approx \mathbf{0{,}283\ \text{m/s}}\)</p>
+      <p>Grosse branche : \(S_3 = \pi \times (0{,}016)^2 \approx 8{,}04 \times 10^{-4}\ \text{m}^2\), \(v_3 = \dfrac{4{,}17 \times 10^{-4}}{8{,}04 \times 10^{-4}} \approx \mathbf{0{,}519\ \text{m/s}}\)</p>
+      <p><strong>4.</strong> Toutes les vitesses sont inférieures à 1,5 m/s : <strong>toutes les branches sont conformes</strong>.</p>
+      <p><strong>5.</strong> \(2 \times Q_{v2} + Q_{v3} = 2 \times 1{,}39 \times 10^{-4} + 4{,}17 \times 10^{-4} = 6{,}95 \times 10^{-4} \approx Q_v\). La conservation du débit est vérifiée.</p>
+    </div>
+  </div>
+
+  <!-- ── Exercice 2 — Approfondissement ── -->
+  <div class="exo diff-appro">
+    <span class="tag-appro">Approfondissement</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Bernoulli et débitmètre venturi</span>
+      <span class="pts">7 points</span>
+    </div>
+    <p class="enonce">
+      Un débitmètre à venturi est installé sur un circuit d'eau glacée (\(\rho = 1\,000\ \text{kg/m}^3\)). La conduite a une section \(S_1 = 50\ \text{cm}^2\) et le col du venturi a une section \(S_2 = 10\ \text{cm}^2\). Un manomètre différentiel mesure \(\Delta P = P_1 - P_2 = 24\,000\ \text{Pa}\).
+    </p>
+    <div class="q"><strong>1.</strong> Exprimer \(v_2\) en fonction de \(v_1\) à l'aide de l'équation de continuité. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>2.</strong> Écrire l'équation de Bernoulli (même altitude) et montrer que \(\Delta P = \dfrac{1}{2}\rho v_1^2 \left[\left(\dfrac{S_1}{S_2}\right)^2 - 1\right]\). <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> En déduire \(v_1\) puis \(v_2\). <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>4.</strong> Calculer le débit volumique en m³/h. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>5.</strong> Expliquer pourquoi ce type de débitmètre ne nécessite aucune pièce mobile. <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> Continuité : \(v_1 S_1 = v_2 S_2\) donc \(v_2 = v_1 \times \dfrac{S_1}{S_2} = v_1 \times \dfrac{50}{10} = 5\,v_1\)</p>
+      <p><strong>2.</strong> Bernoulli : \(P_1 + \dfrac{1}{2}\rho v_1^2 = P_2 + \dfrac{1}{2}\rho v_2^2\)</p>
+      <p>\(\Delta P = P_1 - P_2 = \dfrac{1}{2}\rho (v_2^2 - v_1^2) = \dfrac{1}{2}\rho (25\,v_1^2 - v_1^2) = \dfrac{1}{2}\rho v_1^2 \times 24 = \dfrac{1}{2}\rho v_1^2 \left[\left(\dfrac{S_1}{S_2}\right)^2 - 1\right]\)</p>
+      <p><strong>3.</strong> \(v_1^2 = \dfrac{2 \times \Delta P}{\rho \times \left[\left(\dfrac{S_1}{S_2}\right)^2 - 1\right]} = \dfrac{2 \times 24\,000}{1\,000 \times 24} = 2\)</p>
+      <p>\(v_1 = \sqrt{2} \approx \mathbf{1{,}41\ \text{m/s}}\), \(v_2 = 5 \times 1{,}41 \approx \mathbf{7{,}07\ \text{m/s}}\)</p>
+      <p><strong>4.</strong> \(Q_v = v_1 \times S_1 = 1{,}41 \times 50 \times 10^{-4} = 7{,}07 \times 10^{-3}\ \text{m}^3/\text{s}\)</p>
+      <p>\(Q_v = 7{,}07 \times 10^{-3} \times 3\,600 \approx \mathbf{25{,}5\ \text{m}^3/\text{h}}\)</p>
+      <p><strong>5.</strong> Le débitmètre venturi mesure une <strong>différence de pression</strong> entre deux sections connues. Le débit se déduit directement par le calcul (Bernoulli + continuité). Aucune pièce mobile n'est nécessaire, ce qui le rend robuste, sans usure et sans entretien.</p>
+    </div>
+  </div>
+
+  <!-- ── Exercice 3 — Approfondissement ── -->
+  <div class="exo diff-appro">
+    <span class="tag-appro">Approfondissement</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Comparaison de deux régimes de chauffage</span>
+      <span class="pts">5 points</span>
+    </div>
+    <p class="enonce">
+      Un bureau d'études compare deux configurations pour délivrer \(P_{\text{th}} = 8\ \text{kW}\) :<br>
+      <strong>Config. A (haute température) :</strong> \(\Delta T = 20\ \text{°C}\), tube \(D = 20\ \text{mm}\).<br>
+      <strong>Config. B (basse température) :</strong> \(\Delta T = 5\ \text{°C}\), tube \(D = 25\ \text{mm}\).<br>
+      Données : \(\rho = 1\,000\ \text{kg/m}^3\), \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\).
+    </p>
+    <div class="q"><strong>1.</strong> Pour chaque configuration, calculer \(Q_m\), \(Q_v\) (en L/h) et la vitesse dans le tube. <span class="q-pts">(3 pts)</span></div>
+    <div class="q"><strong>2.</strong> Les deux configurations respectent-elles la limite \(v < 1{,}5\ \text{m/s}\) ? <span class="q-pts">(0,5 pt)</span></div>
+    <div class="q"><strong>3.</strong> Rédiger un paragraphe comparatif analysant avantages et inconvénients de chaque configuration (confort, pertes, dimensionnement pompe, type d'émetteur). <span class="q-pts">(1,5 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong></p>
+      <p>Config. A : \(Q_m = \dfrac{8\,000}{4\,186 \times 20} \approx 0{,}0956\ \text{kg/s}\), \(Q_v \approx 344\ \text{L/h}\)</p>
+      <p>\(S_A = \pi \times (0{,}010)^2 \approx 3{,}14 \times 10^{-4}\ \text{m}^2\), \(v_A = \dfrac{9{,}56 \times 10^{-5}}{3{,}14 \times 10^{-4}} \approx \mathbf{0{,}30\ \text{m/s}}\)</p>
+      <p>Config. B : \(Q_m = \dfrac{8\,000}{4\,186 \times 5} \approx 0{,}382\ \text{kg/s}\), \(Q_v \approx 1\,376\ \text{L/h}\)</p>
+      <p>\(S_B = \pi \times (0{,}0125)^2 \approx 4{,}91 \times 10^{-4}\ \text{m}^2\), \(v_B = \dfrac{3{,}82 \times 10^{-4}}{4{,}91 \times 10^{-4}} \approx \mathbf{0{,}78\ \text{m/s}}\)</p>
+      <p><strong>2.</strong> Les deux vitesses sont inférieures à 1,5 m/s : <strong>les deux sont conformes</strong>.</p>
+      <p><strong>3.</strong> La <strong>config. A</strong> (haute température) nécessite un débit 4 fois plus faible, donc une pompe moins puissante et des pertes de charge réduites. En revanche, les pertes thermiques dans les conduites sont plus importantes (eau plus chaude), et le confort est moindre (risque de points chauds).</p>
+      <p>La <strong>config. B</strong> (basse température) offre un meilleur confort thermique (température homogène, compatible plancher chauffant) et des pertes thermiques réduites. Mais elle nécessite un débit 4 fois plus élevé, un tube plus gros et une pompe plus puissante. C'est la solution recommandée en construction neuve pour les systèmes basse consommation.</p>
+    </div>
+  </div>
+
+  <div class="total-bar diff-appro">TOTAL APPROFONDISSEMENT : 20 points</div>
+
 </div>
 <script>
 function toggle(btn){
@@ -130,6 +342,7 @@ function toggle(btn){
   else{c.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

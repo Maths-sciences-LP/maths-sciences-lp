@@ -6,9 +6,9 @@
   <title>Ch04 – Utiliser le rayonnement thermique et comprendre l'effet de serre – DS</title>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" href="../../../styles.css">
-<link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
+  <link rel="stylesheet" href="../../../print.css" media="print">
+  <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+    .info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
     .info-ds div{flex:1;min-width:150px}
     .info-ds strong{display:block;color:var(--p);margin-bottom:2px}
     .pts{font-size:.8em;background:#ede9fe;color:#5b21b6;padding:2px 8px;border-radius:4px;font-weight:600}
@@ -30,7 +30,113 @@
     <div><strong>Calculatrice</strong>Autorisée</div>
   </div>
 
-  <div class="exo">
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--                         DS SOCLE                          -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <div class="exo diff-socle">
+    <span class="tag-socle">Socle</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Rayonnement d'un radiateur — calculs guidés</span>
+      <span class="pts">8 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien chauffagiste vérifie les performances d'un radiateur en acier peint dans un appartement. La température de surface du radiateur est de 60 °C. Le radiateur a une surface d'émission S = 1,8 m².<br>
+      Données :
+      <ul>
+        <li>Constante de Wien : b = 2,898 × 10⁻³ m·K</li>
+        <li>Constante de Stefan-Boltzmann : σ = 5,67 × 10⁻⁸ W·m⁻²·K⁻⁴</li>
+        <li>Émissivité de l'acier peint : ε = 0,92</li>
+        <li>T(K) = T(°C) + 273</li>
+      </ul>
+    </p>
+    <div class="q"><strong>1.</strong> Convertir la température du radiateur en kelvins. Compléter : <span class="q-pts">(1 pt)</span><br>
+    \(T = 60 + \boxed{\phantom{273}} = \boxed{\phantom{333}}\text{ K}\)</div>
+    <div class="q"><strong>2.</strong> Appliquer la loi de Wien. Compléter le calcul : <span class="q-pts">(2 pts)</span><br>
+    \(\lambda_{max} = \dfrac{b}{T} = \dfrac{2{,}898 \times 10^{-3}}{\boxed{\phantom{333}}} = \boxed{\phantom{8{,}70 \times 10^{-6}}}\text{ m} = \boxed{\phantom{8{,}70}}\text{ µm}\)</div>
+    <div class="q"><strong>3.</strong> Ce rayonnement se situe dans le domaine : <span class="q-pts">(1 pt)</span><br>
+    ☐ ultraviolet (λ &lt; 0,4 µm) &emsp; ☐ visible (0,4 à 0,7 µm) &emsp; ☐ infrarouge (λ &gt; 0,7 µm)</div>
+    <div class="q"><strong>4.</strong> Appliquer la loi de Stefan-Boltzmann. Compléter : <span class="q-pts">(3 pts)</span><br>
+    \(T^4 = 333^4 = \boxed{\phantom{1{,}230 \times 10^{10}}}\text{ K}^4\)<br>
+    \(P = \varepsilon \times \sigma \times S \times T^4 = \boxed{\phantom{0{,}92}} \times 5{,}67 \times 10^{-8} \times \boxed{\phantom{1{,}8}} \times \boxed{\phantom{1{,}230 \times 10^{10}}}\)<br>
+    \(P = \boxed{\phantom{1\,154}}\text{ W}\)</div>
+    <div class="q"><strong>5.</strong> La puissance nominale du radiateur est 1 200 W. Pourquoi peint-on les radiateurs plutôt que de les laisser en acier brut (ε ≈ 0,25) ? <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> T = 60 + 273 = <strong>333 K</strong></p>
+      <p><strong>2.</strong> \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{333} = \mathbf{8{,}70 \times 10^{-6}\text{ m} = 8{,}70\text{ µm}}\)</p>
+      <p><strong>3.</strong> 8,70 µm &gt; 0,7 µm → <strong>infrarouge</strong>. Le radiateur émet un rayonnement invisible mais on ressent sa chaleur.</p>
+      <p><strong>4.</strong> \(T^4 = 1{,}230 \times 10^{10}\)<br>
+      \(P = 0{,}92 \times 5{,}67 \times 10^{-8} \times 1{,}8 \times 1{,}230 \times 10^{10} \approx \mathbf{1\,154\text{ W}}\)</p>
+      <p><strong>5.</strong> La peinture augmente l'émissivité (de 0,25 à 0,92). Un radiateur peint émet <strong>beaucoup plus de rayonnement infrarouge</strong>, ce qui améliore le transfert de chaleur.</p>
+    </div>
+  </div>
+
+  <div class="exo diff-socle">
+    <span class="tag-socle">Socle</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Effet de serre — QCM et texte à compléter</span>
+      <span class="pts">6 points</span>
+    </div>
+    <p class="enonce">
+      On étudie le mécanisme de l'effet de serre et son rôle dans le bilan énergétique de la Terre.
+    </p>
+    <div class="q"><strong>1.</strong> Le Soleil émet principalement dans le domaine : <span class="q-pts">(1 pt)</span><br>
+    ☐ infrarouge &emsp; ☐ visible &emsp; ☐ ultraviolet</div>
+    <div class="q"><strong>2.</strong> La Terre, réchauffée, réémet dans le domaine : <span class="q-pts">(1 pt)</span><br>
+    ☐ infrarouge &emsp; ☐ visible &emsp; ☐ ultraviolet</div>
+    <div class="q"><strong>3.</strong> Compléter le texte avec les mots : <em>infrarouge, gaz à effet de serre, +15 °C, −18 °C</em>. <span class="q-pts">(2 pts)</span><br>
+    Les \(\boxed{\phantom{\text{gaz à effet de serre}}}\) (CO₂, vapeur d'eau) absorbent le rayonnement \(\boxed{\phantom{\text{infrarouge}}}\) émis par la Terre et le renvoient en partie vers la surface. Sans ce phénomène, la température serait de \(\boxed{\phantom{-18\text{ °C}}}\) au lieu de \(\boxed{\phantom{+15\text{ °C}}}\).</div>
+    <div class="q"><strong>4.</strong> Citer deux gaz à effet de serre naturels et un gaz à effet de serre d'origine industrielle. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>5.</strong> L'augmentation du CO₂ dans l'atmosphère provoque : <span class="q-pts">(0,5 pt)</span><br>
+    ☐ un refroidissement de la Terre &emsp; ☐ un réchauffement de la Terre &emsp; ☐ aucun effet</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> <strong>Visible</strong>.</p>
+      <p><strong>2.</strong> <strong>Infrarouge</strong>.</p>
+      <p><strong>3.</strong> Les <strong>gaz à effet de serre</strong> absorbent le rayonnement <strong>infrarouge</strong> émis par la Terre. Sans ce phénomène, la température serait de <strong>−18 °C</strong> au lieu de <strong>+15 °C</strong>.</p>
+      <p><strong>4.</strong> Naturels : <strong>vapeur d'eau (H₂O)</strong>, <strong>dioxyde de carbone (CO₂)</strong>. Industriel : <strong>HFC (hydrofluorocarbures)</strong> comme le R-410A, ou le SF₆.</p>
+      <p><strong>5.</strong> Un <strong>réchauffement</strong> de la Terre.</p>
+    </div>
+  </div>
+
+  <div class="exo diff-socle">
+    <span class="tag-socle">Socle</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Albédo — calcul guidé</span>
+      <span class="pts">6 points</span>
+    </div>
+    <p class="enonce">
+      La puissance solaire reçue par la Terre est \(P_{reçue} = 1\,361\text{ W/m}^2\). L'albédo moyen est α = 0,30.
+    </p>
+    <div class="q"><strong>1.</strong> Compléter la définition : l'albédo est la fraction du rayonnement \(\boxed{\phantom{\text{réfléchie}}}\) par la Terre. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer la puissance réfléchie : <span class="q-pts">(1,5 pt)</span><br>
+    \(P_{réfléchie} = \alpha \times P_{reçue} = \boxed{\phantom{0{,}30}} \times 1\,361 = \boxed{\phantom{408{,}3}}\text{ W/m}^2\)</div>
+    <div class="q"><strong>3.</strong> Calculer la puissance absorbée : <span class="q-pts">(1,5 pt)</span><br>
+    \(P_{absorbée} = (1 - \alpha) \times P_{reçue} = \boxed{\phantom{0{,}70}} \times 1\,361 = \boxed{\phantom{952{,}7}}\text{ W/m}^2\)</div>
+    <div class="q"><strong>4.</strong> La neige a un albédo de 0,85 et l'océan de 0,06. Laquelle absorbe le plus de rayonnement solaire ? <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>5.</strong> Si les glaces polaires fondent, l'albédo de la Terre augmente-t-il ou diminue-t-il ? Quel est l'effet sur le réchauffement ? <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> L'albédo est la fraction du rayonnement <strong>réfléchie</strong> par la Terre.</p>
+      <p><strong>2.</strong> \(P_{réfléchie} = 0{,}30 \times 1\,361 = \mathbf{408{,}3\text{ W/m}^2}\)</p>
+      <p><strong>3.</strong> \(P_{absorbée} = 0{,}70 \times 1\,361 = \mathbf{952{,}7\text{ W/m}^2}\)</p>
+      <p><strong>4.</strong> L'<strong>océan</strong> absorbe le plus car son albédo est faible (0,06) : il ne réfléchit que 6 % du rayonnement et en absorbe 94 %. La neige réfléchit 85 % et n'en absorbe que 15 %.</p>
+      <p><strong>5.</strong> Si les glaces fondent, la surface blanche (albédo élevé) est remplacée par de l'océan sombre (albédo faible). L'albédo global <strong>diminue</strong>, la Terre absorbe davantage de rayonnement solaire, ce qui <strong>amplifie le réchauffement</strong> (rétroaction positive).</p>
+    </div>
+  </div>
+
+  <div class="total-bar diff-socle">TOTAL : 20 points</div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--                       DS STANDARD                         -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <div class="exo diff-standard">
+    <span class="tag-standard">Standard</span>
     <div class="exo-header">
       <span class="exo-num">Exercice 1</span>
       <span class="exo-title">Radiateur de chauffage central</span>
@@ -55,93 +161,188 @@
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
       <p><strong>1.</strong> \(T = 60 + 273 = \mathbf{333\text{ K}}\)</p>
-      <p><strong>2.</strong> \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{T} = \dfrac{2{,}898 \times 10^{-3}}{333} \approx \mathbf{8{,}70 \times 10^{-6}\text{ m} = 8{,}70\text{ µm}}\)</p>
-      <p><strong>3.</strong> λ<sub>max</sub> = 8,70 µm. Le domaine visible s'étend de 0,38 à 0,78 µm et l'infrarouge de 0,78 µm à 1 mm.<br>
-        Comme 8,70 µm &gt; 0,78 µm → le rayonnement se situe dans le domaine <strong>infrarouge</strong>. C'est pourquoi on ne « voit » pas le radiateur briller, mais on ressent sa chaleur.</p>
+      <p><strong>2.</strong> \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{333} \approx \mathbf{8{,}70 \times 10^{-6}\text{ m} = 8{,}70\text{ µm}}\)</p>
+      <p><strong>3.</strong> 8,70 µm &gt; 0,78 µm → domaine <strong>infrarouge</strong>. On ne « voit » pas le radiateur briller, mais on ressent sa chaleur.</p>
       <p><strong>4.</strong> \(P = \varepsilon \times \sigma \times A \times T^4 = 0{,}92 \times 5{,}67 \times 10^{-8} \times 1{,}8 \times 333^4\)<br>
-        \(333^4 = 333^2 \times 333^2 = 110\,889 \times 110\,889 = 1{,}2296 \times 10^{10}\)<br>
-        \(P = 0{,}92 \times 5{,}67 \times 10^{-8} \times 1{,}8 \times 1{,}2296 \times 10^{10}\)<br>
-        \(P = 0{,}92 \times 5{,}67 \times 1{,}8 \times 122{,}96\)<br>
-        \(P \approx 0{,}92 \times 1\,254{,}6 \approx \mathbf{1\,154\text{ W}}\)</p>
-      <p><strong>5.</strong> Pourcentage rayonnement = \(\dfrac{1\,154}{1\,200} \times 100 \approx \mathbf{96\,\%}\)<br>
-        <em>Remarque : ce calcul donne la puissance brute rayonnée. En réalité, le radiateur reçoit aussi du rayonnement des murs environnants (à ~20 °C), donc le bilan net est inférieur. Environ 50 à 70 % de la chaleur est transmise par rayonnement et le reste par convection.</em></p>
-      <p><strong>6.</strong> La peinture augmente l'émissivité de la surface (ε passe de 0,25 à 0,92). Un radiateur peint émet <strong>beaucoup plus de rayonnement infrarouge</strong> qu'un radiateur en acier brut, ce qui améliore considérablement le transfert de chaleur par rayonnement.</p>
+        \(333^4 = 1{,}230 \times 10^{10}\)<br>
+        \(P = 0{,}92 \times 5{,}67 \times 10^{-8} \times 1{,}8 \times 1{,}230 \times 10^{10} \approx \mathbf{1\,154\text{ W}}\)</p>
+      <p><strong>5.</strong> \(\dfrac{1\,154}{1\,200} \times 100 \approx \mathbf{96\,\%}\)<br>
+        <em>En réalité, le bilan net est inférieur car le radiateur reçoit aussi du rayonnement des murs (~20 °C). Environ 50 à 70 % de la chaleur est transmise par rayonnement.</em></p>
+      <p><strong>6.</strong> La peinture augmente l'émissivité (de 0,25 à 0,92). Un radiateur peint émet <strong>beaucoup plus de rayonnement infrarouge</strong>, améliorant le transfert de chaleur.</p>
     </div>
   </div>
 
-  <div class="exo">
+  <div class="exo diff-standard">
+    <span class="tag-standard">Standard</span>
     <div class="exo-header">
       <span class="exo-num">Exercice 2</span>
       <span class="exo-title">Thermogramme d'un bâtiment</span>
       <span class="pts">7 points</span>
     </div>
     <p class="enonce">
-      Un technicien en efficacité énergétique réalise un diagnostic thermique d'un immeuble collectif à l'aide d'une caméra thermique. Le thermogramme révèle les températures de surface suivantes :<br>
+      Un technicien en efficacité énergétique réalise un diagnostic thermique d'un immeuble à l'aide d'une caméra thermique. Le thermogramme révèle :<br>
       <ul>
         <li>Mur courant (bien isolé) : T<sub>1</sub> = 8 °C</li>
         <li>Zone de pont thermique (linteau béton) : T<sub>2</sub> = 14 °C</li>
         <li>Fenêtre simple vitrage : T<sub>3</sub> = 18 °C</li>
       </ul>
-      La température intérieure est T<sub>int</sub> = 20 °C et la température extérieure est T<sub>ext</sub> = 5 °C.<br>
-      On rappelle que pour un rayonnement incident sur une surface : α + ρ + τ = 1 (absorption + réflexion + transmission).
+      Température intérieure T<sub>int</sub> = 20 °C, extérieure T<sub>ext</sub> = 5 °C.<br>
+      Rappel : α + ρ + τ = 1 (absorption + réflexion + transmission).
     </p>
     <div class="q"><strong>1.</strong> Expliquer le principe de fonctionnement d'une caméra thermique. Quel type de rayonnement détecte-t-elle ? <span class="q-pts">(1,5 pt)</span></div>
     <div class="q"><strong>2.</strong> Parmi les trois zones, laquelle présente les plus grandes déperditions thermiques ? Justifier. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>3.</strong> Un mur opaque a un coefficient de transmission τ = 0. Si son coefficient de réflexion est ρ = 0,15, calculer son coefficient d'absorption α. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>4.</strong> Une vitre a les coefficients suivants : α = 0,10 ; ρ = 0,08. Calculer son coefficient de transmission τ. Que signifie cette valeur ? <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>5.</strong> Proposer deux solutions pour réduire les déperditions thermiques observées sur ce bâtiment. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>3.</strong> Un mur opaque a τ = 0 et ρ = 0,15. Calculer son coefficient d'absorption α. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> Une vitre a α = 0,10 et ρ = 0,08. Calculer son coefficient de transmission τ. Que signifie cette valeur ? <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>5.</strong> Proposer deux solutions pour réduire les déperditions thermiques observées. <span class="q-pts">(1,5 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> Une caméra thermique détecte le <strong>rayonnement infrarouge</strong> émis par les surfaces. Elle convertit l'intensité de ce rayonnement en une image colorée (thermogramme) où chaque couleur correspond à une température. Plus une surface est chaude, plus elle émet de rayonnement infrarouge.</p>
-      <p><strong>2.</strong> La <strong>fenêtre simple vitrage</strong> (T<sub>3</sub> = 18 °C) présente les plus grandes déperditions. Sa température de surface extérieure est la plus élevée, ce qui signifie que la chaleur intérieure traverse facilement cette paroi. L'écart entre T<sub>int</sub> et T<sub>3</sub> n'est que de 2 °C, montrant une très faible résistance thermique.</p>
-      <p><strong>3.</strong> \(\alpha + \rho + \tau = 1\) avec τ = 0 (mur opaque) :<br>
-        \(\alpha = 1 - \rho - \tau = 1 - 0{,}15 - 0 = \mathbf{0{,}85}\)<br>
-        Le mur absorbe 85 % du rayonnement incident.</p>
-      <p><strong>4.</strong> \(\tau = 1 - \alpha - \rho = 1 - 0{,}10 - 0{,}08 = \mathbf{0{,}82}\)<br>
-        La vitre transmet 82 % du rayonnement incident : elle est très <strong>transparente</strong> au rayonnement (ce qui est normal pour une vitre dans le domaine visible).</p>
-      <p><strong>5.</strong> Solutions :<br>
-        – <strong>Remplacer le simple vitrage par du double ou triple vitrage</strong> pour réduire les déperditions par les fenêtres.<br>
-        – <strong>Traiter les ponts thermiques</strong> (isolation par l'extérieur, rupteurs de ponts thermiques) au niveau des linteaux béton.<br>
-        – Renforcer l'isolation des murs par l'extérieur (ITE) ou par l'intérieur (ITI).</p>
+      <p><strong>1.</strong> Une caméra thermique détecte le <strong>rayonnement infrarouge</strong> émis par les surfaces et le convertit en image colorée (thermogramme). Plus une surface est chaude, plus elle émet d'infrarouge.</p>
+      <p><strong>2.</strong> La <strong>fenêtre simple vitrage</strong> (T<sub>3</sub> = 18 °C) présente les plus grandes déperditions : sa température extérieure est la plus élevée, l'écart avec T<sub>int</sub> n'est que de 2 °C, montrant une très faible résistance thermique.</p>
+      <p><strong>3.</strong> \(\alpha = 1 - \rho - \tau = 1 - 0{,}15 - 0 = \mathbf{0{,}85}\). Le mur absorbe 85 % du rayonnement incident.</p>
+      <p><strong>4.</strong> \(\tau = 1 - 0{,}10 - 0{,}08 = \mathbf{0{,}82}\). La vitre transmet 82 % du rayonnement : elle est très transparente.</p>
+      <p><strong>5.</strong> Remplacer le simple vitrage par du double/triple vitrage. Traiter les ponts thermiques (isolation par l'extérieur, rupteurs).</p>
     </div>
   </div>
 
-  <div class="exo">
+  <div class="exo diff-standard">
+    <span class="tag-standard">Standard</span>
     <div class="exo-header">
       <span class="exo-num">Exercice 3</span>
       <span class="exo-title">Gaz à effet de serre et réglementation F-Gas</span>
       <span class="pts">6 points</span>
     </div>
     <p class="enonce">
-      Un installateur thermique travaille sur une pompe à chaleur contenant du fluide frigorigène R-410A. Il doit respecter la réglementation européenne F-Gas.<br>
+      Un installateur thermique travaille sur une pompe à chaleur contenant du fluide frigorigène R-410A.<br>
       Données :
       <ul>
-        <li>PRG (Potentiel de Réchauffement Global) du R-410A : 2 088</li>
-        <li>PRG du R-32 : 675</li>
-        <li>PRG du R-290 (propane) : 3</li>
-        <li>PRG du CO₂ : 1 (référence)</li>
+        <li>PRG du R-410A : 2 088 ; PRG du R-32 : 675 ; PRG du CO₂ : 1 (référence)</li>
         <li>Charge de la PAC : 4,2 kg de R-410A</li>
       </ul>
     </p>
     <div class="q"><strong>1.</strong> Expliquer en deux ou trois phrases le mécanisme de l'effet de serre naturel. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>2.</strong> Citer deux gaz à effet de serre naturels et deux gaz à effet de serre d'origine industrielle. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>3.</strong> Calculer l'équivalent CO₂ de la charge de R-410A de la PAC. On rappelle : équivalent CO₂ = masse × PRG. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>4.</strong> La réglementation F-Gas impose des contrôles d'étanchéité annuels pour les équipements contenant plus de 5 tonnes équivalent CO₂. Cette PAC est-elle soumise à cette obligation ? <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>5.</strong> Le fabricant propose de remplacer le R-410A par du R-32. Calculer le nouvel équivalent CO₂ pour la même charge. Quel est l'avantage environnemental ? <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Citer deux gaz à effet de serre naturels et deux d'origine industrielle. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>3.</strong> Calculer l'équivalent CO₂ de la charge de R-410A (éq. CO₂ = masse × PRG). <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> Le seuil F-Gas pour le contrôle d'étanchéité annuel est 5 t éq. CO₂. Cette PAC y est-elle soumise ? <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>5.</strong> Calculer le nouvel équivalent CO₂ si on remplace le R-410A par du R-32 (même charge). Quel est l'avantage ? <span class="q-pts">(1,5 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> Le Soleil émet un rayonnement principalement dans le <strong>visible</strong>, qui traverse l'atmosphère et chauffe la surface terrestre. La Terre, réchauffée, réémet un rayonnement <strong>infrarouge</strong>. Les gaz à effet de serre présents dans l'atmosphère <strong>absorbent une partie de ce rayonnement infrarouge</strong> et le réémettent vers la Terre, ce qui maintient une température moyenne de +15 °C au lieu de −18 °C sans atmosphère.</p>
-      <p><strong>2.</strong><br>
-        Gaz naturels : <strong>vapeur d'eau (H₂O)</strong>, <strong>dioxyde de carbone (CO₂)</strong><br>
-        Gaz industriels : <strong>HFC (hydrofluorocarbures)</strong> comme le R-410A, <strong>SF₆ (hexafluorure de soufre)</strong></p>
-      <p><strong>3.</strong> Équivalent CO₂ = masse × PRG = 4,2 × 2 088 = <strong>8 769,6 kg éq. CO₂</strong> ≈ <strong>8,77 tonnes éq. CO₂</strong></p>
-      <p><strong>4.</strong> 8,77 t éq. CO₂ &gt; 5 t éq. CO₂ → <strong>oui, cette PAC est soumise à l'obligation de contrôle d'étanchéité annuel</strong>.</p>
-      <p><strong>5.</strong> Avec le R-32 : équivalent CO₂ = 4,2 × 675 = <strong>2 835 kg éq. CO₂</strong> ≈ 2,84 t éq. CO₂<br>
-        Avantage : l'équivalent CO₂ est divisé par plus de 3 (8 770 / 2 835 ≈ 3,1). De plus, avec 2,84 t &lt; 5 t, l'installation ne serait plus soumise au contrôle d'étanchéité annuel obligatoire. Le R-32 est un fluide à <strong>impact environnemental beaucoup plus faible</strong>.</p>
+      <p><strong>1.</strong> Le Soleil émet dans le visible, qui traverse l'atmosphère et chauffe la Terre. La Terre réémet en infrarouge. Les gaz à effet de serre absorbent ce rayonnement infrarouge et le renvoient vers la surface, maintenant la température à +15 °C au lieu de −18 °C.</p>
+      <p><strong>2.</strong> Naturels : vapeur d'eau, CO₂. Industriels : HFC (R-410A), SF₆.</p>
+      <p><strong>3.</strong> 4,2 × 2 088 = <strong>8 770 kg éq. CO₂</strong> ≈ 8,77 t.</p>
+      <p><strong>4.</strong> 8,77 t &gt; 5 t → <strong>oui</strong>, soumise au contrôle annuel.</p>
+      <p><strong>5.</strong> 4,2 × 675 = <strong>2 835 kg éq. CO₂</strong> ≈ 2,84 t. L'impact est divisé par 3 et l'installation passe sous le seuil F-Gas.</p>
     </div>
   </div>
 
-  <div class="total-bar">TOTAL : 20 points</div>
+  <div class="total-bar diff-standard">TOTAL : 20 points</div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--                   DS APPROFONDISSEMENT                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <div class="exo diff-appro">
+    <span class="tag-appro">Approfondissement</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Diagnostic thermique d'un local — bilan radiatif complet</span>
+      <span class="pts">8 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien CVC réalise le bilan thermique d'un local technique. Le mur principal (béton, ε = 0,93) a une surface S = 25 m² et une température intérieure de surface T<sub>int</sub> = 19 °C. La température extérieure est T<sub>ext</sub> = 2 °C.<br>
+      Données : σ = 5,67 × 10⁻⁸ W·m⁻²·K⁻⁴ ; b = 2,898 × 10⁻³ m·K.
+    </p>
+    <div class="q"><strong>1.</strong> Convertir T<sub>int</sub> et T<sub>ext</sub> en kelvins. <span class="q-pts">(0,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer la puissance rayonnée par la surface intérieure du mur. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>3.</strong> Calculer la longueur d'onde du maximum d'émission du mur intérieur. Identifier le domaine spectral. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>4.</strong> Un écran réfléchissant (ε = 0,05) est posé sur la face intérieure du mur. Calculer la nouvelle puissance rayonnée et le pourcentage de réduction. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>5.</strong> Le prix de l'énergie est 0,15 €/kWh et la saison de chauffe dure 4 000 heures. Estimer l'économie annuelle réalisée grâce à l'écran réfléchissant sur ce mur seul. L'écran coûte 120 €. En combien de temps est-il rentabilisé ? <span class="q-pts">(2,5 pts)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(T_{int} = 19 + 273 = 292\text{ K}\) ; \(T_{ext} = 2 + 273 = 275\text{ K}\)</p>
+      <p><strong>2.</strong> \(292^4 = 7{,}272 \times 10^{9}\)<br>
+      \(P_{int} = 0{,}93 \times 5{,}67 \times 10^{-8} \times 7{,}272 \times 10^{9} \times 25 = 0{,}93 \times 10\,313 \approx \mathbf{9\,591\text{ W}}\)</p>
+      <p><strong>3.</strong> \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{292} = 9{,}92 \times 10^{-6}\text{ m} = \mathbf{9{,}92\text{ µm}}\) → <strong>infrarouge</strong>.</p>
+      <p><strong>4.</strong> \(P_{écran} = 0{,}05 \times 10\,313 \approx \mathbf{516\text{ W}}\)<br>
+      Réduction : \(\dfrac{9\,591 - 516}{9\,591} \times 100 \approx \mathbf{94{,}6\,\%}\)</p>
+      <p><strong>5.</strong> Différence de puissance : 9 591 − 516 = 9 075 W = 9,075 kW<br>
+      Énergie économisée : 9,075 × 4 000 = 36 300 kWh/an<br>
+      Économie : 36 300 × 0,15 = <strong>5 445 €/an</strong><br>
+      Rentabilité : 120 / 5 445 ≈ <strong>8 jours</strong>. L'investissement est extrêmement rentable.<br>
+      <em>Note : ce calcul surestime l'économie car il ne tient pas compte du rayonnement reçu des autres surfaces. En pratique, l'économie réelle est inférieure mais l'écran reste très rentable.</em></p>
+    </div>
+  </div>
+
+  <div class="exo diff-appro">
+    <span class="tag-appro">Approfondissement</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Capteur solaire thermique — optimisation et rendement</span>
+      <span class="pts">6 points</span>
+    </div>
+    <p class="enonce">
+      Un installateur en énergies renouvelables dimensionne un chauffe-eau solaire individuel (CESI). Le capteur plan a une surface utile S = 4 m², reçoit un ensoleillement moyen de 650 W/m² et fonctionne à T = 345 K.<br>
+      Données : σ = 5,67 × 10⁻⁸ W·m⁻²·K⁻⁴. Deux types de revêtement sont envisagés : peinture noire (ε = 0,95) et revêtement sélectif (ε = 0,08).
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la puissance solaire totale reçue. <span class="q-pts">(0,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Pour chaque revêtement, calculer la puissance rayonnée par le capteur et la puissance nette disponible. <span class="q-pts">(2,5 pts)</span></div>
+    <div class="q"><strong>3.</strong> Le fluide caloporteur (eau glycolée, c = 3 800 J/(kg·K)) circule à 0,04 kg/s. Calculer l'élévation de température du fluide pour le revêtement sélectif. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>4.</strong> Le ballon de stockage contient 200 L d'eau à 15 °C. En supposant un rendement global de 45 %, combien de temps faut-il pour atteindre 55 °C ? On donne c<sub>eau</sub> = 4 180 J/(kg·K). <span class="q-pts">(1,5 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(P_{reçue} = 650 \times 4 = \mathbf{2\,600\text{ W}}\)</p>
+      <p><strong>2.</strong> \(T^4 = 345^4 = 1{,}417 \times 10^{10}\)<br>
+      Peinture noire : \(P_{ray} = 0{,}95 \times 5{,}67 \times 10^{-8} \times 1{,}417 \times 10^{10} \times 4 = 0{,}95 \times 3\,214 \approx 3\,053\text{ W}\)<br>
+      \(P_{nette} = 2\,600 - 3\,053 = \mathbf{-453\text{ W}}\) (bilan négatif)<br>
+      Revêtement sélectif : \(P_{ray} = 0{,}08 \times 3\,214 \approx 257\text{ W}\)<br>
+      \(P_{nette} = 2\,600 - 257 = \mathbf{2\,343\text{ W}}\)</p>
+      <p><strong>3.</strong> \(\Delta T = \dfrac{P_{nette}}{\dot{m} \cdot c} = \dfrac{2\,343}{0{,}04 \times 3\,800} = \dfrac{2\,343}{152} \approx \mathbf{15{,}4\text{ °C}}\)</p>
+      <p><strong>4.</strong> Énergie nécessaire : \(Q = m \cdot c \cdot \Delta T = 200 \times 4\,180 \times (55 - 15) = 200 \times 4\,180 \times 40 = 33\,440\,000\text{ J}\)<br>
+      Puissance utile : \(P_{utile} = 0{,}45 \times 2\,600 = 1\,170\text{ W}\)<br>
+      Temps : \(t = \dfrac{Q}{P_{utile}} = \dfrac{33\,440\,000}{1\,170} \approx 28\,581\text{ s} \approx \mathbf{7{,}9\text{ h}}\)<br>
+      Il faut environ 8 heures d'ensoleillement pour chauffer le ballon, ce qui correspond à une journée d'été ensoleillée.</p>
+    </div>
+  </div>
+
+  <div class="exo diff-appro">
+    <span class="tag-appro">Approfondissement</span>
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Fluides frigorigènes et impact climatique — analyse comparative</span>
+      <span class="pts">6 points</span>
+    </div>
+    <p class="enonce">
+      Un installateur de pompes à chaleur compare trois fluides pour une PAC résidentielle.<br>
+      <table class="styled-table" style="margin:8px 0">
+        <thead><tr><th>Fluide</th><th>PRG (100 ans)</th><th>Charge (kg)</th><th>Fuite annuelle (%)</th></tr></thead>
+        <tbody>
+          <tr><td>R-410A</td><td>2 088</td><td>4,2</td><td>5 %</td></tr>
+          <tr><td>R-32</td><td>675</td><td>3,0</td><td>3 %</td></tr>
+          <tr><td>R-290 (propane)</td><td>3</td><td>1,5</td><td>1 %</td></tr>
+        </tbody>
+      </table>
+      Rappel : éq. CO₂ = masse × PRG. Seuil F-Gas : 5 t éq. CO₂.
+    </p>
+    <div class="q"><strong>1.</strong> Calculer l'équivalent CO₂ de la charge initiale pour chaque fluide. Lequel dépasse le seuil F-Gas ? <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer la masse de fluide perdue par fuite chaque année et l'équivalent CO₂ annuel pour chaque fluide. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>3.</strong> Sur 15 ans, calculer l'impact climatique total (charge + fuites cumulées) en tonnes éq. CO₂ pour chaque fluide. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>4.</strong> Rédiger un avis argumenté pour le client comparant les trois solutions (impact environnemental, contraintes réglementaires, sécurité). <span class="q-pts">(1,5 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> R-410A : 4,2 × 2 088 = <strong>8 770 kg</strong> = 8,77 t → dépasse le seuil<br>
+      R-32 : 3,0 × 675 = <strong>2 025 kg</strong> = 2,03 t<br>
+      R-290 : 1,5 × 3 = <strong>4,5 kg</strong> ≈ 0,005 t</p>
+      <p><strong>2.</strong> R-410A : 4,2 × 0,05 = 0,21 kg/an → 0,21 × 2 088 = <strong>438 kg éq. CO₂/an</strong><br>
+      R-32 : 3,0 × 0,03 = 0,09 kg/an → 0,09 × 675 = <strong>60,8 kg éq. CO₂/an</strong><br>
+      R-290 : 1,5 × 0,01 = 0,015 kg/an → 0,015 × 3 = <strong>0,045 kg éq. CO₂/an</strong></p>
+      <p><strong>3.</strong> R-410A : 8 770 + 15 × 438 = <strong>15 340 kg ≈ 15,3 t</strong><br>
+      R-32 : 2 025 + 15 × 60,8 = <strong>2 937 kg ≈ 2,9 t</strong><br>
+      R-290 : 4,5 + 15 × 0,045 = <strong>5,2 kg ≈ 0,005 t</strong></p>
+      <p><strong>4.</strong> Le R-290 a un impact quasi nul (0,005 t vs 15,3 t pour le R-410A) mais nécessite des précautions liées à son inflammabilité. Le R-32 est un bon compromis (5 fois moins impactant, sous le seuil F-Gas). Le R-410A est à proscrire pour les installations neuves. Recommandation : R-32 pour les installations standard, R-290 si la configuration le permet.</p>
+    </div>
+  </div>
+
+  <div class="total-bar diff-appro">TOTAL : 20 points</div>
+
 </div>
 <script>
 function toggle(btn){
@@ -150,6 +351,7 @@ function toggle(btn){
   else{c.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

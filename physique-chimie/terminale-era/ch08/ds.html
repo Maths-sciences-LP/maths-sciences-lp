@@ -60,6 +60,234 @@
   <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
+<!-- Données communes à tous les niveaux -->
+<div class="donnees">
+  <strong>Rappels et données :</strong><br>
+  Niveau sonore : \(L = 10 \cdot \log\!\left(\dfrac{I}{I_0}\right)\) avec \(I_0 = 10^{-12}\,\text{W/m}^2\) (seuil d'audition).<br>
+  Addition de niveaux sonores de \(n\) sources identiques : \(L_{total} = L + 10 \cdot \log(n)\).<br>
+  Affaiblissement acoustique d'une paroi : \(L_2 = L_1 - R\) où \(R\) est l'indice d'affaiblissement (en dB).<br>
+  Rappels : \(\log(10^8) = 8\) ; \(\log(2) \approx 0{,}30\) ; \(\log(4) \approx 0{,}60\) ; \(10^{8{,}5} \approx 3{,}16 \times 10^8\).
+</div>
+
+<!-- ============================================ -->
+<!-- BLOC SOCLE — DS très guidé, 20 pts           -->
+<!-- ============================================ -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<table class="bareme-table">
+  <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
+  <tr><td>Exercice 1 — Bruit d'une ponceuse dans un atelier</td><td>Q1 à Q5</td><td>APP, REA, VAL</td><td>10 pts</td></tr>
+  <tr><td>Exercice 2 — Isolation d'un bureau de réception</td><td>Q1 à Q5</td><td>APP, REA, ANA, COM</td><td>10 pts</td></tr>
+  <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
+</table>
+
+<!-- EXERCICE S1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Bruit d'une ponceuse dans un atelier de menuiserie</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un menuisier agenceur utilise une ponceuse à bande qui produit une intensité sonore \(I = 10^{-4}\,\text{W/m}^2\) à 1 m. Le seuil de danger est fixé à <strong>85 dB</strong> (Code du travail).
+  </div>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    La formule du niveau sonore est \(L = 10 \cdot \log\!\left(\dfrac{I}{I_0}\right)\). Relier chaque grandeur à sa définition en complétant le tableau.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">
+    <table>
+      <tr><th>Grandeur</th><th>Nom</th><th>Unité</th></tr>
+      <tr><td>\(L\)</td><td>Niveau ........................</td><td>................</td></tr>
+      <tr><td>\(I\)</td><td>Intensité ........................</td><td>................</td></tr>
+      <tr><td>\(I_0\)</td><td>Seuil d'........................</td><td>................</td></tr>
+    </table>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L\) = niveau sonore, en dB (décibels).<br>\(I\) = intensité sonore, en W/m².<br>\(I_0\) = seuil d'audition = \(10^{-12}\) W/m².</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Compléter le calcul du rapport \(\dfrac{I}{I_0}\) :
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">
+    \(\dfrac{I}{I_0} = \dfrac{10^{-4}}{10^{-12}} = 10^{-4 - (\ldots)} = 10^{\ldots}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\dfrac{I}{I_0} = \dfrac{10^{-4}}{10^{-12}} = 10^{-4-(-12)} = 10^{8}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-rea">REA</span>
+    Compléter le calcul du niveau sonore \(L\) :
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">
+    \(L = 10 \times \log(10^{\ldots}) = 10 \times \ldots = \ldots\) dB
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L = 10 \times \log(10^{8}) = 10 \times 8 = 80\,\text{dB}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-val">VAL</span>
+    Comparer le niveau sonore obtenu au seuil de danger. Entourer la bonne réponse.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:50px">
+    Le niveau sonore \(L = \ldots\) dB est &nbsp; <strong>SUPÉRIEUR / INFÉRIEUR</strong> &nbsp; au seuil de danger de 85 dB.<br>
+    Le port de protections auditives est &nbsp; <strong>OBLIGATOIRE / PAS OBLIGATOIRE</strong>.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L = 80\,\text{dB}\) est <strong>INFÉRIEUR</strong> à 85 dB. Le port de protections auditives n'est <strong>PAS OBLIGATOIRE</strong> (mais recommandé en exposition prolongée).</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">5.</span>
+    <span class="comp comp-app">APP</span>
+    Le menuisier fait fonctionner deux ponceuses identiques en même temps. Compléter le calcul du niveau total. (Rappel : pour 2 sources identiques, \(L_{total} = L + 10 \times \log(2)\) et \(\log(2) \approx 0{,}30\))
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">
+    \(L_{total} = 80 + 10 \times \ldots = 80 + \ldots = \ldots\) dB<br>
+    Ce nouveau niveau dépasse-t-il 85 dB ? &nbsp; <strong>OUI / NON</strong>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_{total} = 80 + 10 \times 0{,}30 = 80 + 3 = 83\,\text{dB}\)</p>
+    <p>83 dB &lt; 85 dB → <strong>NON</strong>, le seuil n'est pas dépassé, mais on s'en approche.</p>
+  </div>
+</div>
+
+<!-- EXERCICE S2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Isolation d'un bureau de réception clients</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un artisan menuisier souhaite isoler son bureau de réception des clients, situé à côté de l'atelier. Le niveau sonore dans l'atelier est \(L_1 = 90\,\text{dB}\). Le seuil réglementaire pour un bureau est de 65 dB. Trois types de cloisons sont disponibles :
+  </div>
+
+  <table>
+    <tr><th>Cloison</th><th>R (dB)</th><th>Coût (€/m²)</th></tr>
+    <tr><td>Plaque de plâtre simple</td><td>28</td><td>15</td></tr>
+    <tr><td>Double paroi laine de roche</td><td>42</td><td>65</td></tr>
+    <tr><td>Béton 15 cm</td><td>52</td><td>80</td></tr>
+  </table>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Que signifie \(R\) dans la formule \(L_2 = L_1 - R\) ? Cocher la bonne réponse.
+    <span class="pts-q">1 pt</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">
+    ☐ \(R\) est le niveau sonore de la source.<br>
+    ☐ \(R\) est l'indice d'affaiblissement acoustique de la cloison (en dB).<br>
+    ☐ \(R\) est la masse de la cloison.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(R\) est <strong>l'indice d'affaiblissement acoustique de la cloison</strong> (en dB). Plus \(R\) est grand, mieux la cloison isole du bruit.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Calculer le niveau sonore \(L_2\) dans le bureau pour chaque cloison. Compléter le tableau.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:100px">
+    <table>
+      <tr><th>Cloison</th><th>R (dB)</th><th>Calcul \(L_2 = 90 - R\)</th><th>\(L_2\) (dB)</th></tr>
+      <tr><td>Plaque de plâtre simple</td><td>28</td><td>\(90 - 28 = \ldots\)</td><td>........</td></tr>
+      <tr><td>Double paroi laine de roche</td><td>42</td><td>\(90 - \ldots = \ldots\)</td><td>........</td></tr>
+      <tr><td>Béton 15 cm</td><td>52</td><td>\(90 - \ldots = \ldots\)</td><td>........</td></tr>
+    </table>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Plaque de plâtre : \(L_2 = 90 - 28 = 62\,\text{dB}\)</p>
+    <p>Double paroi : \(L_2 = 90 - 42 = 48\,\text{dB}\)</p>
+    <p>Béton : \(L_2 = 90 - 52 = 38\,\text{dB}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-ana">ANA</span>
+    Pour chaque cloison, indiquer si l'objectif \(L_2 \leq 65\,\text{dB}\) est atteint. Entourer OUI ou NON.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">
+    Plaque de plâtre (\(L_2 = \ldots\) dB) : &nbsp; <strong>OUI / NON</strong><br>
+    Double paroi (\(L_2 = \ldots\) dB) : &nbsp; <strong>OUI / NON</strong><br>
+    Béton (\(L_2 = \ldots\) dB) : &nbsp; <strong>OUI / NON</strong>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Plaque de plâtre : 62 dB ≤ 65 dB → <strong>OUI</strong> (juste conforme).</p>
+    <p>Double paroi : 48 dB ≤ 65 dB → <strong>OUI</strong> (large marge).</p>
+    <p>Béton : 38 dB ≤ 65 dB → <strong>OUI</strong> (très large marge).</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-ana">ANA</span>
+    Quel indice \(R\) minimal faut-il pour atteindre exactement 65 dB dans le bureau ? Compléter le calcul.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:50px">
+    \(R_{min} = L_1 - L_{objectif} = \ldots - \ldots = \ldots\) dB
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(R_{min} = 90 - 65 = 25\,\text{dB}\). Toutes les cloisons du tableau ont \(R \geq 25\) dB, donc toutes conviennent.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">5.</span>
+    <span class="comp comp-com">COM</span>
+    Quelle cloison conseillez-vous à l'artisan menuisier ? Cocher et justifier en une phrase.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:70px">
+    ☐ Plaque de plâtre simple (R = 28 dB, 15 €/m²)<br>
+    ☐ Double paroi laine de roche (R = 42 dB, 65 €/m²)<br>
+    ☐ Béton 15 cm (R = 52 dB, 80 €/m²)<br><br>
+    Justification : ............................................................................................................................
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La <strong>double paroi laine de roche</strong> est le meilleur choix : bonne isolation (R = 42 dB, soit \(L_2 = 48\) dB dans le bureau), coût modéré (65 €/m²), et plus légère que le béton donc plus facile à installer en rénovation.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+
+<!-- ============================================ -->
+<!-- BLOC STANDARD — DS existant, 20 pts          -->
+<!-- ============================================ -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
 <table class="bareme-table">
   <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
   <tr><td>Exercice 1 — Niveau sonore d'une cabine de soudage</td><td>Q1 à Q4</td><td>APP, REA, ANA, VAL</td><td>10 pts</td></tr>
@@ -76,13 +304,7 @@
   </div>
 
   <div class="intro-box">
-    <strong>Contexte :</strong> Un atelier de soudage robotisé est équipé de deux robots de soudage MIG qui fonctionnent simultanément. Chaque robot génère un niveau sonore de \(L_1 = L_2 = 85\,\text{dB}\) mesuré à 1 m. La réglementation française (Code du travail) fixe le seuil d'exposition quotidienne à <strong>87 dB(A)</strong> au poste de travail. Le technicien ERA-MA doit vérifier la conformité réglementaire et proposer des solutions si nécessaire.
-  </div>
-
-  <div class="donnees">
-    <strong>Données :</strong> Niveau sonore : \(L = 10 \cdot \log\!\left(\dfrac{I}{I_0}\right)\) avec \(I_0 = 10^{-12}\,\text{W/m}^2\) (seuil d'audition).<br>
-    Addition de niveaux sonores de sources incohérentes : \(L_{total} = 10 \cdot \log\!\left(10^{L_1/10} + 10^{L_2/10}\right)\).<br>
-    Rappels : \(\log(10^8) = 8\) ; \(\log(2) \approx 0{,}30\) ; \(10^{8{,}5} = 10^8 \times \sqrt{10} \approx 3{,}16 \times 10^8\).
+    <strong>Contexte :</strong> Un atelier de soudage robotisé est équipé de deux robots de soudage MIG qui fonctionnent simultanément. Chaque robot génère un niveau sonore de \(L_1 = L_2 = 85\,\text{dB}\) mesuré à 1 m. La réglementation française (Code du travail) fixe le seuil d'exposition quotidienne à <strong>87 dB(A)</strong> au poste de travail. Le technicien doit vérifier la conformité réglementaire et proposer des solutions si nécessaire.
   </div>
 
   <p class="q">
@@ -91,7 +313,7 @@
     Rappeler la formule du niveau sonore \(L\) en décibels : \(L = 10 \cdot \log\!\left(\dfrac{I}{I_0}\right)\). Définir chaque grandeur (\(L\), \(I\), \(I_0\)) en précisant son unité. Indiquer la valeur de \(I_0\) (seuil conventionnel d'audition).
     <span class="pts-q">2 pts</span>
   </p>
-  <div class="rep-zone" style="min-height:75px">…</div>
+  <div class="rep-zone" style="min-height:75px">...</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>\(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\) &nbsp; avec \(L\) en dB, \(I\) intensité sonore en W/m², \(I_0 = 10^{-12}\,\text{W/m}^2\) (seuil d'audibilité)</p>
@@ -103,7 +325,7 @@
     Un bruit de fond dans l'atelier a une intensité sonore \(I = 10^{-4}\,\text{W/m}^2\). Calculer le niveau sonore correspondant \(L\) en dB. Montrer le calcul détaillé.
     <span class="pts-q">2 pts</span>
   </p>
-  <div class="rep-zone" style="min-height:80px">…</div>
+  <div class="rep-zone" style="min-height:80px">...</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>\(L = 10 \times \log\!\left(\dfrac{10^{-4}}{10^{-12}}\right) = 10 \times \log(10^8) = 10 \times 8 = 80\,\text{dB}\)</p>
@@ -117,7 +339,7 @@
     En remplaçant \(L_1 = L_2 = 85\,\text{dB}\), montrer que : \(L_{total} = 10 \cdot \log\!\left(2 \times 10^{8{,}5}\right)\), puis calculer \(L_{total}\). (Rappel : \(\log(2 \times 10^{8{,}5}) = \log(2) + 8{,}5\))
     <span class="pts-q">2 pts</span>
   </p>
-  <div class="rep-zone" style="min-height:90px">…</div>
+  <div class="rep-zone" style="min-height:90px">...</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>Pour deux sources identiques (\(L_1 = L_2 = 85\,\text{dB}\)) :</p>
@@ -132,7 +354,7 @@
     b) Si la cabine n'est pas conforme, proposer <strong>deux mesures</strong> de prévention ou de réduction du bruit pour le poste de travail (solutions techniques ou organisationnelles).
     <span class="pts-q">4 pts</span>
   </p>
-  <div class="rep-zone" style="min-height:100px">…</div>
+  <div class="rep-zone" style="min-height:100px">...</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>\(L_{total} = 88\,\text{dB} &gt; 87\,\text{dB}\) (seuil réglementaire)</p>
@@ -151,10 +373,6 @@
 
   <div class="intro-box">
     <strong>Contexte :</strong> Pour réduire le niveau sonore dans les zones de travail adjacentes à la cellule de soudage robotisé, l'entreprise envisage d'installer une cloison isolante autour de la cellule. Le niveau sonore à l'intérieur de la cellule est \(L_1 = 95\,\text{dB}\). L'objectif est d'obtenir un niveau sonore \(L_2 \leq 80\,\text{dB}\) à l'extérieur de la cloison. Le tableau suivant présente les caractéristiques de quatre cloisons possibles.
-  </div>
-
-  <div class="donnees">
-    <strong>Donnée :</strong> Relation entre le niveau sonore avant et après une cloison : \(L_2 = L_1 - R\), où \(R\) est l'indice d'affaiblissement acoustique de la cloison (en dB).
   </div>
 
   <table>
@@ -196,7 +414,7 @@
     Rappeler la relation \(L_2 = L_1 - R\). Définir chaque grandeur. Que représente un indice d'affaiblissement acoustique \(R\) élevé pour une cloison ?
     <span class="pts-q">2 pts</span>
   </p>
-  <div class="rep-zone" style="min-height:70px">…</div>
+  <div class="rep-zone" style="min-height:70px">...</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>\(L_2 = L_1 - R\) &nbsp; avec \(L_1\) niveau incident (dB), \(R\) indice d'affaiblissement de la cloison (dB), \(L_2\) niveau transmis (dB)</p>
@@ -209,7 +427,7 @@
     Pour le niveau source \(L_1 = 95\,\text{dB}\) et une cloison dont \(R = 30\,\text{dB}\), calculer le niveau sonore \(L_2\) obtenu à l'extérieur de la cloison. Cette cloison serait-elle suffisante pour atteindre l'objectif de \(L_2 \leq 80\,\text{dB}\) ?
     <span class="pts-q">2 pts</span>
   </p>
-  <div class="rep-zone" style="min-height:75px">…</div>
+  <div class="rep-zone" style="min-height:75px">...</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>\(L_2 = L_1 - R = 95 - 30 = 65\,\text{dB}\)</p>
@@ -233,29 +451,229 @@
   </div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Plaque de plâtre simple : R=32 dB → \(L_2 = 95-32 = 63\,\text{dB}\) ✓ conforme</p>
-    <p>Béton 15 cm : R=48 dB → \(L_2 = 95-48 = 47\,\text{dB}\) ✓ très efficace</p>
-    <p>Double paroi laine de roche : R=55 dB → \(L_2 = 95-55 = 40\,\text{dB}\) ✓ la plus efficace</p>
-    <p>Verre feuilleté 10 mm : R=34 dB → \(L_2 = 95-34 = 61\,\text{dB}\) ✓ conforme</p>
+    <p>Plaque de plâtre simple : R=32 dB → \(L_2 = 95-32 = 63\,\text{dB}\) conforme</p>
+    <p>Béton 15 cm : R=48 dB → \(L_2 = 95-48 = 47\,\text{dB}\) très efficace</p>
+    <p>Double paroi laine de roche : R=55 dB → \(L_2 = 95-55 = 40\,\text{dB}\) la plus efficace</p>
+    <p>Verre feuilleté 10 mm : R=34 dB → \(L_2 = 95-34 = 61\,\text{dB}\) conforme</p>
     <p>Toutes les cloisons permettent d'atteindre l'objectif \(L_2 \leq 80\,\text{dB}\).</p>
   </div>
 
   <p class="q">
     <span class="q-num">4.</span>
     <span class="comp comp-com">COM</span>
-    Parmi les cloisons conformes à l'objectif acoustique (question 3), justifier le choix de la solution la plus adaptée en tenant compte des critères suivants : efficacité acoustique, masse surfacique (contrainte structurelle), coût et facilité de mise en œuvre. Présenter votre conclusion clairement.
+    Parmi les cloisons conformes à l'objectif acoustique (question 3), justifier le choix de la solution la plus adaptée en tenant compte des critères suivants : efficacité acoustique, masse surfacique (contrainte structurelle), coût et facilité de mise en oeuvre. Présenter votre conclusion clairement.
     <span class="pts-q">3 pts</span>
   </p>
-  <div class="rep-zone" style="min-height:100px">…</div>
+  <div class="rep-zone" style="min-height:100px">...</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>Double paroi laine de roche</strong> (R=55 dB, 25 kg/m², 65 €/m²) :</p>
-    <p>— Meilleur affaiblissement acoustique (55 dB) → grande marge de sécurité</p>
-    <p>— Masse surfacique faible (25 kg/m²) → facile à installer, pas de renforcement de structure nécessaire</p>
-    <p>— Coût modéré (65 €/m²) inférieur au béton (80 €/m²) et au verre (120 €/m²)</p>
+    <p>-- Meilleur affaiblissement acoustique (55 dB) → grande marge de sécurité</p>
+    <p>-- Masse surfacique faible (25 kg/m²) → facile à installer, pas de renforcement de structure nécessaire</p>
+    <p>-- Coût modéré (65 €/m²) inférieur au béton (80 €/m²) et au verre (120 €/m²)</p>
     <p><strong>Conclusion :</strong> la double paroi laine de roche offre le meilleur compromis efficacité/masse/coût.</p>
   </div>
 </div>
+
+</div><!-- fin diff-standard -->
+
+
+<!-- ============================================ -->
+<!-- BLOC APPROFONDISSEMENT — DS ouvert, 20 pts   -->
+<!-- ============================================ -->
+<div class="diff-appro">
+<span class="tag-appro">Approfondissement</span>
+
+<table class="bareme-table">
+  <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
+  <tr><td>Exercice 1 — Nuisances sonores dans un atelier d'agencement</td><td>Q1 à Q5</td><td>APP, REA, ANA, VAL</td><td>10 pts</td></tr>
+  <tr><td>Exercice 2 — Conception acoustique d'un showroom</td><td>Q1 à Q5</td><td>APP, REA, ANA, VAL, COM</td><td>10 pts</td></tr>
+  <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
+</table>
+
+<!-- EXERCICE A1 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Nuisances sonores dans un atelier d'agencement</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un fabricant de mobilier exploite un atelier équipé de quatre machines identiques (scie à panneaux, toupie, dégauchisseuse, raboteuse) qui fonctionnent simultanément pendant 6 heures par jour. Un sonomètre indique que chaque machine produit un niveau sonore de \(L = 82\,\text{dB}\) à 2 m. Le Code du travail fixe la valeur limite d'exposition quotidienne (8 h) à \(L_{ex,8h} = 85\,\text{dB(A)}\) et la valeur déclenchant l'action à 80 dB(A).
+  </div>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-rea">REA</span>
+    Calculer le niveau sonore total \(L_{total}\) produit par les quatre machines identiques fonctionnant simultanément. Détailler le calcul.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_{total} = L + 10 \cdot \log(n) = 82 + 10 \times \log(4) = 82 + 10 \times 0{,}60 = 82 + 6 = 88\,\text{dB}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-ana">ANA</span>
+    L'exposition quotidienne effective est de 6 h sur 8 h. Le niveau d'exposition journalier se calcule par :
+    \[L_{ex,8h} = L_{total} + 10 \cdot \log\!\left(\dfrac{t}{8}\right)\]
+    où \(t\) est la durée d'exposition en heures. Calculer \(L_{ex,8h}\).
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:80px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_{ex,8h} = 88 + 10 \times \log\!\left(\dfrac{6}{8}\right) = 88 + 10 \times \log(0{,}75) = 88 + 10 \times (-0{,}125) = 88 - 1{,}25 \approx 86{,}8\,\text{dB}\)</p>
+    <p>Le niveau d'exposition journalier est d'environ 86,8 dB(A), ce qui dépasse la valeur limite de 85 dB(A).</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-ana">ANA</span>
+    Déterminer la durée maximale d'exposition quotidienne \(t_{max}\) pour que \(L_{ex,8h}\) ne dépasse pas 85 dB(A), les 4 machines fonctionnant ensemble. Isoler \(t\) dans la formule.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:90px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>On veut \(L_{ex,8h} = 85\) dB :</p>
+    <p>\(85 = 88 + 10 \cdot \log\!\left(\dfrac{t}{8}\right)\)</p>
+    <p>\(10 \cdot \log\!\left(\dfrac{t}{8}\right) = -3\)</p>
+    <p>\(\log\!\left(\dfrac{t}{8}\right) = -0{,}3\)</p>
+    <p>\(\dfrac{t}{8} = 10^{-0{,}3} \approx 0{,}50\)</p>
+    <p>\(t_{max} = 8 \times 0{,}50 = 4{,}0\) h</p>
+    <p>L'exposition ne doit pas dépasser <strong>4 heures</strong> par jour avec les 4 machines simultanées.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-val">VAL</span>
+    Un installateur d'agencement propose de placer des capots acoustiques sur deux des quatre machines, réduisant leur niveau individuel de 82 dB à 72 dB. Calculer le nouveau \(L_{total}\) en additionnant les intensités des quatre sources (2 machines à 82 dB + 2 machines à 72 dB).
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:100px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_{total} = 10 \cdot \log\!\left(2 \times 10^{82/10} + 2 \times 10^{72/10}\right)\)</p>
+    <p>\(= 10 \cdot \log\!\left(2 \times 10^{8{,}2} + 2 \times 10^{7{,}2}\right)\)</p>
+    <p>\(= 10 \cdot \log\!\left(2 \times 1{,}585 \times 10^8 + 2 \times 1{,}585 \times 10^7\right)\)</p>
+    <p>\(= 10 \cdot \log\!\left(3{,}17 \times 10^8 + 3{,}17 \times 10^7\right)\)</p>
+    <p>\(= 10 \cdot \log\!\left(3{,}17 \times 10^8 + 0{,}317 \times 10^8\right)\)</p>
+    <p>\(= 10 \cdot \log\!\left(3{,}487 \times 10^8\right) = 10 \times (0{,}542 + 8) = 85{,}4\,\text{dB}\)</p>
+    <p>Le niveau total passe de 88 dB à environ 85,4 dB, soit une réduction de 2,6 dB. Le niveau se rapproche de la limite de 85 dB.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">5.</span>
+    <span class="comp comp-val">VAL</span>
+    En combinant les capots acoustiques (question 4) et une rotation des postes limitant l'exposition à 6 h, calculer le nouveau \(L_{ex,8h}\). La situation est-elle alors conforme ? Rédiger une conclusion argumentée.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:90px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_{ex,8h} = 85{,}4 + 10 \times \log\!\left(\dfrac{6}{8}\right) = 85{,}4 - 1{,}25 \approx 84{,}2\,\text{dB}\)</p>
+    <p>84,2 dB &lt; 85 dB → <strong>La situation est conforme.</strong></p>
+    <p>La combinaison des capots acoustiques sur 2 machines et de la rotation des postes (6 h d'exposition au lieu de 8 h) permet de respecter la valeur limite de 85 dB(A). Toutefois, la marge reste faible (0,8 dB). Il serait prudent d'encoffrer les 4 machines ou de compléter par des EPI pour garantir le respect de la réglementation dans la durée.</p>
+  </div>
+</div>
+
+<!-- EXERCICE A2 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Conception acoustique d'un showroom d'agencement</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="intro-box">
+    <strong>Contexte :</strong> Un technicien d'agencement doit concevoir la séparation entre un atelier de fabrication de mobilier (\(L_1 = 95\,\text{dB}\)) et un showroom de présentation aux clients. Le cahier des charges impose \(L_2 \leq 55\,\text{dB}\) dans le showroom (confort d'écoute pour les échanges commerciaux). La paroi séparative a une surface totale de \(S = 20\,\text{m}^2\). Le client demande qu'une baie vitrée de \(4\,\text{m}^2\) soit intégrée pour voir l'atelier depuis le showroom.
+  </div>
+
+  <div class="donnees">
+    <strong>Données complémentaires :</strong><br>
+    Affaiblissement composé d'une paroi mixte : \(R_{global} = -10 \cdot \log\!\left(\dfrac{S_1 \cdot 10^{-R_1/10} + S_2 \cdot 10^{-R_2/10}}{S_1 + S_2}\right)\)<br>
+    Cloison opaque proposée : double paroi placo + laine de roche, \(R_1 = 48\,\text{dB}\), surface \(S_1 = 16\,\text{m}^2\).<br>
+    Baie vitrée : verre acoustique feuilleté, \(R_2 = 38\,\text{dB}\), surface \(S_2 = 4\,\text{m}^2\).
+  </div>
+
+  <p class="q">
+    <span class="q-num">1.</span>
+    <span class="comp comp-app">APP</span>
+    Calculer l'indice d'affaiblissement minimal \(R_{min}\) nécessaire pour la paroi séparative afin de respecter le cahier des charges.
+    <span class="pts-q">1 pt</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(R_{min} = L_1 - L_{2,max} = 95 - 55 = 40\,\text{dB}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">2.</span>
+    <span class="comp comp-rea">REA</span>
+    Si la paroi était entièrement constituée de la cloison opaque (\(R_1 = 48\,\text{dB}\)), le cahier des charges serait-il respecté ? Calculer \(L_2\) et conclure.
+    <span class="pts-q">1 pt</span>
+  </p>
+  <div class="rep-zone" style="min-height:60px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_2 = 95 - 48 = 47\,\text{dB} \leq 55\,\text{dB}\) → Conforme avec une marge de 8 dB.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">3.</span>
+    <span class="comp comp-ana">ANA</span>
+    Calculer l'indice d'affaiblissement global \(R_{global}\) de la paroi mixte (16 m² de cloison opaque + 4 m² de baie vitrée) en utilisant la formule de l'affaiblissement composé.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:120px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(10^{-R_1/10} = 10^{-48/10} = 10^{-4{,}8} \approx 1{,}585 \times 10^{-5}\)</p>
+    <p>\(10^{-R_2/10} = 10^{-38/10} = 10^{-3{,}8} \approx 1{,}585 \times 10^{-4}\)</p>
+    <p>Numérateur : \(S_1 \times 10^{-R_1/10} + S_2 \times 10^{-R_2/10} = 16 \times 1{,}585 \times 10^{-5} + 4 \times 1{,}585 \times 10^{-4}\)</p>
+    <p>\(= 2{,}536 \times 10^{-4} + 6{,}340 \times 10^{-4} = 8{,}876 \times 10^{-4}\)</p>
+    <p>Dénominateur : \(S_1 + S_2 = 20\)</p>
+    <p>\(R_{global} = -10 \cdot \log\!\left(\dfrac{8{,}876 \times 10^{-4}}{20}\right) = -10 \cdot \log(4{,}438 \times 10^{-5})\)</p>
+    <p>\(= -10 \times (-4{,}353) = 43{,}5\,\text{dB}\)</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">4.</span>
+    <span class="comp comp-val">VAL</span>
+    Calculer le niveau sonore \(L_2\) dans le showroom avec la paroi mixte. Le cahier des charges est-il respecté ? Comparer avec le résultat de la question 2 et commenter l'impact de la baie vitrée sur l'isolation globale.
+    <span class="pts-q">3 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:100px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(L_2 = L_1 - R_{global} = 95 - 43{,}5 = 51{,}5\,\text{dB}\)</p>
+    <p>51,5 dB ≤ 55 dB → Le cahier des charges est <strong>respecté</strong>.</p>
+    <p>Comparaison : sans baie vitrée, \(L_2 = 47\) dB. Avec la baie vitrée (20 % de la surface), \(L_2\) passe à 51,5 dB, soit une dégradation de 4,5 dB. La baie vitrée, bien que ne représentant que 20 % de la surface, réduit l'affaiblissement global de 48 à 43,5 dB. C'est le principe du "maillon faible" en acoustique : l'élément le moins isolant dégrade l'ensemble de la performance.</p>
+  </div>
+
+  <p class="q">
+    <span class="q-num">5.</span>
+    <span class="comp comp-com">COM</span>
+    Le client souhaite finalement agrandir la baie vitrée à 8 m² (paroi opaque réduite à 12 m²). Sans refaire le calcul complet, expliquer qualitativement si le cahier des charges sera toujours respecté. Proposer une solution technique si le cahier des charges risque de ne plus être atteint.
+    <span class="pts-q">2 pts</span>
+  </p>
+  <div class="rep-zone" style="min-height:100px">...</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>En doublant la surface vitrée (de 4 à 8 m²), la part de l'élément le plus faible (\(R_2 = 38\) dB) augmente fortement. Le \(R_{global}\) va encore baisser, se rapprochant de \(R_2 = 38\) dB. On aurait alors \(L_2 \approx 95 - 40 \approx 55\,\text{dB}\), ce qui serait tout juste limite.</p>
+    <p><strong>Solutions possibles :</strong></p>
+    <p>-- Utiliser un vitrage acoustique de meilleure performance (triple feuilleté, \(R \geq 42\) dB).</p>
+    <p>-- Augmenter l'isolation de la partie opaque (ajout d'une doublure acoustique, \(R_1 \geq 52\) dB).</p>
+    <p>-- Ajouter un traitement absorbant dans le showroom (panneaux acoustiques au plafond) pour réduire la réverbération et améliorer le confort perçu, même si cela ne modifie pas \(R\).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
 
 </div>
 <script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>

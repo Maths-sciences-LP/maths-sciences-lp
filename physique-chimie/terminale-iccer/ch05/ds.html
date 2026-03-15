@@ -6,119 +6,328 @@
   <title>Ch05 – Caractériser la pression dans un fluide immobile – DS</title>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" href="../../../styles.css">
-<link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
+  <link rel="stylesheet" href="../../../print.css" media="print">
+  <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+    .info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
     .info-ds div{flex:1;min-width:150px}
     .info-ds strong{display:block;color:var(--p);margin-bottom:2px}
-
     .pts{font-size:.8em;background:#ede9fe;color:#5b21b6;padding:2px 8px;border-radius:4px;font-weight:600}
-
     .q-pts{color:#718096;font-size:.85em;font-style:italic}
     .enonce{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin:10px 0;font-size:.93em}
-
-    .plaque{background:#1e3a5f;color:#fff;border-radius:8px;display:inline-block;padding:10px 24px;font-family:'Courier New',monospace;font-size:.93em;margin:10px 0;line-height:1.9}
-    .plaque strong{color:#ffd700}
     .total-bar{background:#6f42c1;color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px}</style>
 </head>
 <body>
 <div class="c">
-  <a href="../../../pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+  <a href="../../../pc-term-iccer.html" class="nb">← Retour au sommaire</a>
   <header>
     <h1>Chapitre 5 – Devoir Surveillé</h1>
     <p class="sous-titre">Caractériser la pression dans un fluide immobile &nbsp;|&nbsp; Terminale Bac Pro ICCER</p>
   </header>
   <div class="info-ds">
     <div><strong>Durée</strong>55 minutes</div>
-    <div><strong>Barme</strong>20 points</div>
+    <div><strong>Barème</strong>20 points</div>
     <div><strong>Documents</strong>Non autorisés (sauf fiche de formules fournie)</div>
     <div><strong>Calculatrice</strong>Autorisée</div>
   </div>
 
-  <div class="exo">
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--              DS — NIVEAU SOCLE                     -->
+  <!-- ═══════════════════════════════════════════════════ -->
+
+  <!-- ───── Socle – Exercice 1 ───── -->
+  <div class="exo diff-socle">
     <div class="exo-header">
       <span class="exo-num">Exercice 1</span>
-      <span class="exo-title">Les freins hydrauliques d’un véhicule industriel</span>
+      <span class="exo-title">Vérification de la pression d'un circuit de chauffage</span>
       <span class="pts">8 points</span>
+      <span class="tag-socle">Socle</span>
     </div>
     <p class="enonce">
-      Un technicien de maintenance intervient sur les freins hydrauliques d’un camion-benne.<br>
-      Données :
+      Un plombier chauffagiste vérifie la pression d'un circuit de chauffage dans un immeuble. Il lit le manomètre en bas de l'installation.<br>
+      Données :
       <ul>
-        <li>Surface du piston maître (pédale) : S<sub>1</sub> = 6,28 cm²</li>
-        <li>Surface de chaque piston récepteur (mâchoire) : S<sub>2</sub> = 78,5 cm²</li>
-        <li>Force exercée par le conducteur sur la pédale : F<sub>1</sub> = 350 N</li>
-        <li>g = 9,81 m/s²</li>
+        <li>Force exercée par l'eau sur le capteur de pression : \(F = 500\ \text{N}\)</li>
+        <li>Surface du capteur : \(S = 0{,}01\ \text{m}^2\)</li>
+        <li>Hauteur du circuit : \(h = 6\ \text{m}\)</li>
+        <li>\(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\) &emsp; \(g = 9{,}81\ \text{m/s}^2\)</li>
       </ul>
     </p>
-    <div class="q"><strong>1.</strong> Rappeler le principe de Pascal. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>2.</strong> Convertir S<sub>1</sub> et S<sub>2</sub> en m². <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>3.</strong> Calculer la pression dans le circuit hydraulique. <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>4.</strong> Calculer la force F<sub>2</sub> exercée par un piston récepteur. <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>5.</strong> Le frein comprend 4 pistons récepteurs (2 par roue arrière). Calculer la force totale de freinage. <span class="q-pts">(1 pt)</span></div>
-    <div class="q"><strong>6.</strong> Quel est le rapport de multiplication de la force ? Commenter. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>1.</strong> Compléter : « La formule de la pression est \(P = \dfrac{\boxed{\phantom{F}}}{\boxed{\phantom{S}}}\) » <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>2.</strong> Remplacer par les valeurs et calculer :
+    <br>\(P = \dfrac{\boxed{\phantom{500}}}{\boxed{\phantom{0{,}01}}} = \boxed{\phantom{50\,000}}\ \text{Pa}\) <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> Convertir en bar : \(P = \dfrac{50\,000}{\boxed{\phantom{10^5}}} = \boxed{\phantom{0{,}5}}\ \text{bar}\) <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> Calculer la différence de pression entre le bas et le haut :
+    <br>\(\Delta P = \rho \times g \times h = \boxed{\phantom{1\,000}} \times \boxed{\phantom{9{,}81}} \times \boxed{\phantom{6}} = \boxed{\phantom{58\,860}}\ \text{Pa}\) <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>5.</strong> Convertir \(\Delta P\) en bar : \(\Delta P \approx \boxed{\phantom{0{,}589}}\ \text{bar}\) <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>6.</strong> La pression en bas est \(P_{\text{bas}} = 1{,}8\ \text{bar}\). Calculer la pression en haut :
+    <br>\(P_{\text{haut}} = P_{\text{bas}} - \Delta P = 1{,}8 - \boxed{\phantom{0{,}589}} = \boxed{\phantom{1{,}211}}\ \text{bar}\)
+    <br>La pression minimale est 0,5 bar. Le circuit est-il conforme ? \(\boxed{\phantom{\text{oui / non}}}\) <span class="q-pts">(1 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> Toute variation de pression appliquée en un point d’un fluide incompressible au repos se transmet <strong>intégralement et instantanément</strong> en tout point de ce fluide.</p>
-      <p><strong>2.</strong> S<sub>1</sub> = 6,28 × 10<sup>−4</sup> m² &nbsp;|&nbsp; S<sub>2</sub> = 78,5 × 10<sup>−4</sup> m² = 7,85 × 10<sup>−3</sup> m²</p>
-      <p><strong>3.</strong> \(P = \dfrac{F_1}{S_1} = \dfrac{350}{6{,}28 \times 10^{-4}} \approx \mathbf{557\,325\text{ Pa}} \approx 5{,}57\text{ bar}\)</p>
-      <p><strong>4.</strong> \(F_2 = P \times S_2 = 557\,325 \times 7{,}85 \times 10^{-3} \approx \mathbf{4\,375\text{ N}}\)</p>
-      <p><strong>5.</strong> F<sub>totale</sub> = 4 × 4 375 = <strong>17 500 N</strong></p>
-      <p><strong>6.</strong> Rapport = 4 × F<sub>2</sub> / F<sub>1</sub> = 17 500 / 350 = <strong>50</strong>.<br>Le système hydraulique multiplie la force par 50 : une force de pédale de 350 N produit 17 500 N de freinage. C’est l’intérêt du système hydraulique.</p>
+      <p><strong>1.</strong> \(P = \dfrac{F}{S}\)</p>
+      <p><strong>2.</strong> \(P = \dfrac{500}{0{,}01} = \mathbf{50\,000\ \text{Pa}}\)</p>
+      <p><strong>3.</strong> \(P = \dfrac{50\,000}{10^5} = \mathbf{0{,}5\ \text{bar}}\)</p>
+      <p><strong>4.</strong> \(\Delta P = 1\,000 \times 9{,}81 \times 6 = \mathbf{58\,860\ \text{Pa}}\)</p>
+      <p><strong>5.</strong> \(\Delta P = \dfrac{58\,860}{10^5} \approx \mathbf{0{,}589\ \text{bar}}\)</p>
+      <p><strong>6.</strong> \(P_{\text{haut}} = 1{,}8 - 0{,}589 = \mathbf{1{,}211\ \text{bar}}\). Comme \(1{,}211 > 0{,}5\), le circuit est <strong>conforme</strong>.</p>
     </div>
   </div>
 
-  <div class="exo">
+  <!-- ───── Socle – Exercice 2 ───── -->
+  <div class="exo diff-socle">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Pression dans une piscine</span>
+      <span class="pts">7 points</span>
+      <span class="tag-socle">Socle</span>
+    </div>
+    <p class="enonce">
+      Un nageur plonge dans une piscine d'une profondeur de 4 m.<br>
+      Données : \(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\), \(g = 9{,}81\ \text{m/s}^2\), \(P_{\text{atm}} = 101\,325\ \text{Pa}\).
+    </p>
+    <div class="q"><strong>1.</strong> Compléter la formule de la statique des fluides :
+    <br>\(P = \boxed{\phantom{P_{\text{atm}}}} + \boxed{\phantom{\rho}} \times g \times \boxed{\phantom{h}}\) <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer la pression au fond, étape par étape :
+    <br>a) \(\rho \times g \times h = 1\,000 \times 9{,}81 \times 4 = \boxed{\phantom{39\,240}}\ \text{Pa}\)
+    <br>b) \(P = 101\,325 + \boxed{\phantom{39\,240}} = \boxed{\phantom{140\,565}}\ \text{Pa}\) <span class="q-pts">(2,5 pts)</span></div>
+    <div class="q"><strong>3.</strong> Convertir en bar : \(P \approx \boxed{\phantom{1{,}41}}\ \text{bar}\) <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> La pression relative est \(P_{\text{rel}} = P - P_{\text{atm}} = \boxed{\phantom{39\,240}}\ \text{Pa} \approx \boxed{\phantom{0{,}39}}\ \text{bar}\) <span class="q-pts">(2 pts)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(P = P_{\text{atm}} + \rho \times g \times h\)</p>
+      <p><strong>2.</strong> a) \(1\,000 \times 9{,}81 \times 4 = \mathbf{39\,240\ \text{Pa}}\)
+      <br>b) \(P = 101\,325 + 39\,240 = \mathbf{140\,565\ \text{Pa}}\)</p>
+      <p><strong>3.</strong> \(P = \dfrac{140\,565}{10^5} \approx \mathbf{1{,}41\ \text{bar}}\)</p>
+      <p><strong>4.</strong> \(P_{\text{rel}} = 140\,565 - 101\,325 = \mathbf{39\,240\ \text{Pa}} \approx \mathbf{0{,}39\ \text{bar}}\)</p>
+    </div>
+  </div>
+
+  <!-- ───── Socle – Exercice 3 ───── -->
+  <div class="exo diff-socle">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">QCM — Pression et unités</span>
+      <span class="pts">5 points</span>
+      <span class="tag-socle">Socle</span>
+    </div>
+    <p>Pour chaque question, entourer la bonne réponse. <em>(1 pt par question)</em></p>
+    <div class="q"><strong>1.</strong> 1 bar est égal à :
+    <br>a) 1 000 Pa &emsp; b) 10 000 Pa &emsp; c) 100 000 Pa</div>
+    <div class="q"><strong>2.</strong> Dans un fluide au repos, la pression :
+    <br>a) diminue avec la profondeur &emsp; b) augmente avec la profondeur &emsp; c) reste constante</div>
+    <div class="q"><strong>3.</strong> La pression atmosphérique vaut environ :
+    <br>a) 0,1 bar &emsp; b) 1 bar &emsp; c) 10 bar</div>
+    <div class="q"><strong>4.</strong> Un manomètre mesure :
+    <br>a) la pression absolue &emsp; b) la pression relative &emsp; c) la température</div>
+    <div class="q"><strong>5.</strong> Si on double le volume d'un gaz à température constante, sa pression :
+    <br>a) double &emsp; b) est divisée par 2 &emsp; c) reste la même</div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> c) 100 000 Pa</p>
+      <p><strong>2.</strong> b) augmente avec la profondeur</p>
+      <p><strong>3.</strong> b) 1 bar</p>
+      <p><strong>4.</strong> b) la pression relative</p>
+      <p><strong>5.</strong> b) est divisée par 2 (loi de Boyle-Mariotte)</p>
+    </div>
+  </div>
+
+  <div class="total-bar diff-socle">TOTAL : 20 points</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--              DS — NIVEAU STANDARD                  -->
+  <!-- ═══════════════════════════════════════════════════ -->
+
+  <!-- ───── Standard – Exercice 1 ───── -->
+  <div class="exo diff-standard">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Les freins hydrauliques d'un véhicule industriel</span>
+      <span class="pts">8 points</span>
+      <span class="tag-standard">Standard</span>
+    </div>
+    <p class="enonce">
+      Un technicien de maintenance intervient sur les freins hydrauliques d'un camion-benne.<br>
+      Données :
+      <ul>
+        <li>Surface du piston maître (pédale) : \(S_1 = 6{,}28\ \text{cm}^2\)</li>
+        <li>Surface de chaque piston récepteur (mâchoire) : \(S_2 = 78{,}5\ \text{cm}^2\)</li>
+        <li>Force exercée par le conducteur sur la pédale : \(F_1 = 350\ \text{N}\)</li>
+        <li>\(g = 9{,}81\ \text{m/s}^2\)</li>
+      </ul>
+    </p>
+    <div class="q"><strong>1.</strong> Rappeler le principe de Pascal. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>2.</strong> Convertir \(S_1\) et \(S_2\) en m². <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>3.</strong> Calculer la pression dans le circuit hydraulique. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>4.</strong> Calculer la force \(F_2\) exercée par un piston récepteur. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>5.</strong> Le frein comprend 4 pistons récepteurs. Calculer la force totale de freinage. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>6.</strong> Quel est le rapport de multiplication de la force ? Commenter. <span class="q-pts">(1 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> Toute variation de pression appliquée en un point d'un fluide incompressible au repos se transmet <strong>intégralement et instantanément</strong> en tout point de ce fluide.</p>
+      <p><strong>2.</strong> \(S_1 = 6{,}28 \times 10^{-4}\ \text{m}^2\) &emsp; \(S_2 = 78{,}5 \times 10^{-4} = 7{,}85 \times 10^{-3}\ \text{m}^2\)</p>
+      <p><strong>3.</strong> \(P = \dfrac{F_1}{S_1} = \dfrac{350}{6{,}28 \times 10^{-4}} \approx \mathbf{557\,325\ \text{Pa}} \approx 5{,}57\ \text{bar}\)</p>
+      <p><strong>4.</strong> \(F_2 = P \times S_2 = 557\,325 \times 7{,}85 \times 10^{-3} \approx \mathbf{4\,375\ \text{N}}\)</p>
+      <p><strong>5.</strong> \(F_{\text{totale}} = 4 \times 4\,375 = \mathbf{17\,500\ \text{N}}\)</p>
+      <p><strong>6.</strong> Rapport = \(\dfrac{17\,500}{350} = \mathbf{50}\). Le système multiplie la force par 50.</p>
+    </div>
+  </div>
+
+  <!-- ───── Standard – Exercice 2 ───── -->
+  <div class="exo diff-standard">
     <div class="exo-header">
       <span class="exo-num">Exercice 2</span>
       <span class="exo-title">Tour de réfrigération industrielle</span>
       <span class="pts">7 points</span>
+      <span class="tag-standard">Standard</span>
     </div>
     <p class="enonce">
-      Une tour de réfrigération contient de l’eau (ρ = 1 000 kg/m³). Le technicien doit vérifier les pressions à différentes hauteurs. La surface libre est à h<sub>A</sub> = 8 m par rapport au sol. Le capteur de pression est installé au sol (h<sub>B</sub> = 0 m). La pression atmosphérique est P<sub>atm</sub> = 101 325 Pa. g = 9,81 m/s².
+      Une tour de réfrigération contient de l'eau (\(\rho = 1\,000\ \text{kg/m}^3\)). La surface libre est à \(h_A = 8\ \text{m}\) par rapport au sol. Le capteur de pression est au sol (\(h_B = 0\ \text{m}\)). \(P_{\text{atm}} = 101\,325\ \text{Pa}\), \(g = 9{,}81\ \text{m/s}^2\).
     </p>
     <div class="q"><strong>1.</strong> Rappeler la loi fondamentale de la statique des fluides. Préciser les symboles et unités. <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>2.</strong> Calculer la différence de hauteur h entre la surface libre et le capteur. <span class="q-pts">(0,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer la différence de hauteur entre la surface et le capteur. <span class="q-pts">(0,5 pt)</span></div>
     <div class="q"><strong>3.</strong> Calculer la pression absolue au niveau du capteur. <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>4.</strong> En déduire la pression relative (manométrique) au niveau du capteur, en Pa et en bar. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>5.</strong> Si le capteur déclenche une alarme au-delà de 1,2 bar relatif, l’alarme se déclenchera-t-elle ? Justifier. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> En déduire la pression relative au niveau du capteur, en Pa et en bar. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>5.</strong> Si le capteur déclenche une alarme au-delà de 1,2 bar relatif, l'alarme se déclenchera-t-elle ? <span class="q-pts">(1 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> \(P_B - P_A = \rho \times g \times h\)<br>
-        P en pascals (Pa) &nbsp;|&nbsp; ρ en kg/m³ &nbsp;|&nbsp; g en m/s² &nbsp;|&nbsp; h en mètres (m)</p>
-      <p><strong>2.</strong> h = h<sub>A</sub> − h<sub>B</sub> = 8 − 0 = <strong>8 m</strong></p>
-      <p><strong>3.</strong> \(P_B = P_A + \rho g h = 101\,325 + 1\,000 \times 9{,}81 \times 8\)
-         \(= 101\,325 + 78\,480 = \mathbf{179\,805\text{ Pa}}\)</p>
-      <p><strong>4.</strong> P<sub>rel</sub> = P<sub>abs</sub> − P<sub>atm</sub> = 179 805 − 101 325 = <strong>78 480 Pa</strong><br>
-      En bar : 78 480 ÷ 100 000 = <strong>0,785 bar</strong></p>
-      <p><strong>5.</strong> P<sub>rel</sub> = 0,785 bar &lt; 1,2 bar → <strong>l’alarme ne se déclenchera pas</strong>.</p>
+      <p><strong>1.</strong> \(P_B = P_A + \rho \times g \times h\) avec P en Pa, \(\rho\) en kg/m³, g en m/s², h en m.</p>
+      <p><strong>2.</strong> \(h = 8 - 0 = \mathbf{8\ \text{m}}\)</p>
+      <p><strong>3.</strong> \(P_B = 101\,325 + 1\,000 \times 9{,}81 \times 8 = 101\,325 + 78\,480 = \mathbf{179\,805\ \text{Pa}}\)</p>
+      <p><strong>4.</strong> \(P_{\text{rel}} = 179\,805 - 101\,325 = \mathbf{78\,480\ \text{Pa}} = \mathbf{0{,}785\ \text{bar}}\)</p>
+      <p><strong>5.</strong> \(0{,}785 < 1{,}2\) : <strong>l'alarme ne se déclenchera pas</strong>.</p>
     </div>
   </div>
 
-  <div class="exo">
+  <!-- ───── Standard – Exercice 3 ───── -->
+  <div class="exo diff-standard">
     <div class="exo-header">
       <span class="exo-num">Exercice 3</span>
       <span class="exo-title">Intervention en milieu subaquatique</span>
       <span class="pts">5 points</span>
+      <span class="tag-standard">Standard</span>
     </div>
     <p class="enonce">
-      Un plongeur professionnel intervient sur une canalisation sous-marine. Il plonge à une profondeur de 15 m dans l’eau de mer (ρ = 1 025 kg/m³). Il emporte avec lui un outil en acier massif (masse volumique ρ<sub>acier</sub> = 7 800 kg/m³, volume V = 1 L = 10<sup>−3</sup> m³). g = 9,81 m/s². P<sub>atm</sub> = 101 325 Pa.
+      Un plongeur professionnel intervient sur une canalisation sous-marine à 15 m de profondeur dans l'eau de mer (\(\rho = 1\,025\ \text{kg/m}^3\)). Il emporte un outil en acier (\(\rho_{\text{acier}} = 7\,800\ \text{kg/m}^3\), \(V = 10^{-3}\ \text{m}^3\)). \(g = 9{,}81\ \text{m/s}^2\), \(P_{\text{atm}} = 101\,325\ \text{Pa}\).
     </p>
-    <div class="q"><strong>1.</strong> Calculer la pression absolue à 15 m de profondeur. <span class="q-pts">(2 pts)</span></div>
-    <div class="q"><strong>2.</strong> Calculer la poussée d’Archimède exercée sur l’outil. <span class="q-pts">(1,5 pt)</span></div>
-    <div class="q"><strong>3.</strong> Calculer le poids apparent de l’outil dans l’eau (P<sub>apparent</sub> = Poids − Π). <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>1.</strong> Calculer la pression absolue à 15 m de profondeur. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>2.</strong> Calculer la poussée d'Archimède sur l'outil. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>3.</strong> Calculer le poids apparent de l'outil dans l'eau. <span class="q-pts">(1,5 pt)</span></div>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
-      <p><strong>1.</strong> \(P = P_{atm} + \rho g h = 101\,325 + 1\,025 \times 9{,}81 \times 15\)
-         \(= 101\,325 + 150\,731 = \mathbf{252\,056\text{ Pa}} \approx 2{,}52\text{ bar}\)</p>
-      <p><strong>2.</strong> \(\Pi = \rho_{mer} \times g \times V = 1\,025 \times 9{,}81 \times 10^{-3} = \mathbf{10{,}056\text{ N}}\)</p>
-      <p><strong>3.</strong> Poids de l’outil = ρ<sub>acier</sub> × g × V = 7 800 × 9,81 × 10<sup>−3</sup> = 76,52 N<br>
-      P<sub>apparent</sub> = 76,52 − 10,056 = <strong>66,46 N</strong><br>
-      L’outil semble plus léger dans l’eau grâce à la poussée d’Archimède.</p>
+      <p><strong>1.</strong> \(P = 101\,325 + 1\,025 \times 9{,}81 \times 15 = 101\,325 + 150\,731 = \mathbf{252\,056\ \text{Pa}} \approx 2{,}52\ \text{bar}\)</p>
+      <p><strong>2.</strong> \(\Pi = \rho_{\text{mer}} \times g \times V = 1\,025 \times 9{,}81 \times 10^{-3} = \mathbf{10{,}06\ \text{N}}\)</p>
+      <p><strong>3.</strong> Poids = \(7\,800 \times 9{,}81 \times 10^{-3} = 76{,}52\ \text{N}\)
+      <br>\(P_{\text{app}} = 76{,}52 - 10{,}06 = \mathbf{66{,}46\ \text{N}}\)</p>
     </div>
   </div>
 
-  <div class="total-bar">TOTAL : 20 points</div>
+  <div class="total-bar diff-standard">TOTAL : 20 points</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--              DS — NIVEAU APPROFONDISSEMENT         -->
+  <!-- ═══════════════════════════════════════════════════ -->
+
+  <!-- ───── Appro – Exercice 1 ───── -->
+  <div class="exo diff-appro">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Vérification hydraulique d'un circuit de chauffage sur trois niveaux</span>
+      <span class="pts">8 points</span>
+      <span class="tag-appro">Approfondissement</span>
+    </div>
+    <p class="enonce">
+      Un technicien chauffagiste met en service un circuit de chauffage dans un bâtiment de trois étages. Le manomètre est situé au sous-sol (altitude de référence \(z = 0\)).<br>
+      Données :
+      <ul>
+        <li>Radiateur RDC : \(z_1 = 3\ \text{m}\)</li>
+        <li>Radiateur 1er étage : \(z_2 = 6\ \text{m}\)</li>
+        <li>Purgeur au point haut : \(z_3 = 9\ \text{m}\)</li>
+        <li>\(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\), \(g = 9{,}81\ \text{m/s}^2\)</li>
+        <li>Pression minimale au purgeur : \(P_{\text{min}} = 0{,}3\ \text{bar}\)</li>
+        <li>Pression de tarage de la soupape de sécurité : \(P_{\text{soupape}} = 3\ \text{bar}\)</li>
+      </ul>
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la pression minimale au sous-sol pour que la pression au purgeur soit supérieure à \(P_{\text{min}}\). <span class="q-pts">(2,5 pts)</span></div>
+    <div class="q"><strong>2.</strong> Le manomètre indique \(P_0 = 2{,}2\ \text{bar}\). Calculer la pression à chaque niveau (\(z_1\), \(z_2\), \(z_3\)). <span class="q-pts">(2,5 pts)</span></div>
+    <div class="q"><strong>3.</strong> Vérifier que la condition \(P_{\text{purgeur}} \geq P_{\text{min}}\) est respectée. Calculer la marge disponible. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>4.</strong> Quelle est la plage de pression admissible au sous-sol ? Exprimer sous forme d'encadrement. <span class="q-pts">(2 pts)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(P_{0,\text{min}} = P_{\text{min}} + \rho g z_3 = 0{,}3 \times 10^5 + 1\,000 \times 9{,}81 \times 9\)
+      <br>\(= 30\,000 + 88\,290 = 118\,290\ \text{Pa} \approx \mathbf{1{,}18\ \text{bar}}\)</p>
+      <p><strong>2.</strong> Avec \(P_0 = 2{,}2\ \text{bar}\) :
+      <br>RDC : \(P_1 = 2{,}2 - \dfrac{1\,000 \times 9{,}81 \times 3}{10^5} = 2{,}2 - 0{,}294 = \mathbf{1{,}906\ \text{bar}}\)
+      <br>1er : \(P_2 = 2{,}2 - \dfrac{1\,000 \times 9{,}81 \times 6}{10^5} = 2{,}2 - 0{,}589 = \mathbf{1{,}611\ \text{bar}}\)
+      <br>Purgeur : \(P_3 = 2{,}2 - \dfrac{1\,000 \times 9{,}81 \times 9}{10^5} = 2{,}2 - 0{,}883 = \mathbf{1{,}317\ \text{bar}}\)</p>
+      <p><strong>3.</strong> \(1{,}317 > 0{,}3\) : condition respectée. Marge = \(1{,}317 - 0{,}3 = \mathbf{1{,}017\ \text{bar}}\).</p>
+      <p><strong>4.</strong> Borne inférieure : \(P_{0,\text{min}} \approx 1{,}18\ \text{bar}\). Borne supérieure : \(P_{\text{soupape}} = 3\ \text{bar}\).
+      <br>Encadrement : \(\mathbf{1{,}18\ \text{bar} \leq P_0 \leq 3\ \text{bar}}\)</p>
+    </div>
+  </div>
+
+  <!-- ───── Appro – Exercice 2 ───── -->
+  <div class="exo diff-appro">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Dimensionnement du vase d'expansion d'une pompe à chaleur</span>
+      <span class="pts">7 points</span>
+      <span class="tag-appro">Approfondissement</span>
+    </div>
+    <p class="enonce">
+      Un installateur de pompe à chaleur dimensionne le vase d'expansion du circuit hydraulique.<br>
+      Données :
+      <ul>
+        <li>Volume d'eau du circuit : \(V_{\text{eau}} = 120\ \text{L}\)</li>
+        <li>Température de remplissage : \(T_1 = 10\ \text{°C}\)</li>
+        <li>Température de fonctionnement : \(T_2 = 55\ \text{°C}\)</li>
+        <li>Coefficient de dilatation moyen : \(\beta = 4{,}0 \times 10^{-4}\ \text{K}^{-1}\)</li>
+        <li>Pression de gonflage du vase : \(P_1 = 1{,}0\ \text{bar}\)</li>
+        <li>Pression de tarage de la soupape : \(P_2 = 3\ \text{bar}\)</li>
+      </ul>
+    </p>
+    <div class="q"><strong>1.</strong> Calculer \(\Delta T\) et l'augmentation de volume \(\Delta V = V_{\text{eau}} \times \beta \times \Delta T\). <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> En appliquant Boyle-Mariotte au gaz du vase, montrer que \(V_{\text{vase}} = \Delta V \times \dfrac{P_2}{P_2 - P_1}\). <span class="q-pts">(2,5 pts)</span></div>
+    <div class="q"><strong>3.</strong> Calculer \(V_{\text{vase}}\). <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>4.</strong> En majorant de 20 %, quel volume commercial choisir parmi : 5 L, 8 L, 12 L, 18 L ? <span class="q-pts">(1,5 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(\Delta T = 55 - 10 = 45\ \text{K}\)
+      <br>\(\Delta V = 120 \times 4{,}0 \times 10^{-4} \times 45 = \mathbf{2{,}16\ \text{L}}\)</p>
+      <p><strong>2.</strong> Le gaz passe de \((V_{\text{vase}},\ P_1)\) à \((V_{\text{vase}} - \Delta V,\ P_2)\).
+      <br>\(P_1 V_{\text{vase}} = P_2 (V_{\text{vase}} - \Delta V)\)
+      <br>\(V_{\text{vase}}(P_2 - P_1) = P_2 \Delta V\)
+      <br>\(V_{\text{vase}} = \Delta V \times \dfrac{P_2}{P_2 - P_1}\)</p>
+      <p><strong>3.</strong> \(V_{\text{vase}} = 2{,}16 \times \dfrac{3}{3 - 1} = 2{,}16 \times 1{,}5 = \mathbf{3{,}24\ \text{L}}\)</p>
+      <p><strong>4.</strong> Avec majoration : \(3{,}24 \times 1{,}2 = 3{,}89\ \text{L}\). On choisit <strong>5 L</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ───── Appro – Exercice 3 ───── -->
+  <div class="exo diff-appro">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 3</span>
+      <span class="exo-title">Autonomie d'un plongeur — loi de Boyle-Mariotte</span>
+      <span class="pts">5 points</span>
+      <span class="tag-appro">Approfondissement</span>
+    </div>
+    <p class="enonce">
+      Un plongeur professionnel inspecte une canalisation sous-marine à 25 m de profondeur. Sa bouteille de 15 L est gonflée à 200 bar. Il consomme 22 L/min à la pression ambiante.<br>
+      Données : \(\rho_{\text{mer}} = 1\,025\ \text{kg/m}^3\), \(g = 9{,}81\ \text{m/s}^2\), \(P_{\text{atm}} = 1{,}013\ \text{bar}\). Réserve de sécurité : 50 bar.
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la pression absolue à 25 m en bar. <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer le volume d'air utilisable (pression utilisable = 200 − 50 = 150 bar) ramené à la pression ambiante à 25 m. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> En déduire l'autonomie en minutes. Commenter vis-à-vis des règles de sécurité en plongée professionnelle. <span class="q-pts">(1,5 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(P = P_{\text{atm}} + \rho g h = 1{,}013 + \dfrac{1\,025 \times 9{,}81 \times 25}{10^5} = 1{,}013 + 2{,}514 = \mathbf{3{,}53\ \text{bar}}\)</p>
+      <p><strong>2.</strong> \(V_{\text{disp}} = \dfrac{P_{\text{util}} \times V_b}{P_{\text{fond}}} = \dfrac{150 \times 15}{3{,}53} \approx \mathbf{637\ \text{L}}\)</p>
+      <p><strong>3.</strong> Autonomie = \(\dfrac{637}{22} \approx \mathbf{29\ \text{min}}\).
+      <br>En plongée professionnelle, on prévoit un tiers de la bouteille pour la descente, un tiers pour le travail et un tiers pour la remontée. L'autonomie utile réelle est donc d'environ 10 min de travail effectif au fond.</p>
+    </div>
+  </div>
+
+  <div class="total-bar diff-appro">TOTAL : 20 points</div>
+
 </div>
 <script>
 function toggle(btn){
@@ -127,6 +336,7 @@ function toggle(btn){
   else{c.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

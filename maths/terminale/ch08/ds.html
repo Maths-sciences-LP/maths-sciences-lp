@@ -35,6 +35,107 @@
   <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
 </div>
 
+<!-- ================================================================
+     DS SOCLE — très guidé, mêmes compétences
+     ================================================================ -->
+<div class="diff-socle">
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Primitives et int&eacute;grale d&eacute;finie (guid&eacute;)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="q"><strong>1. (4 pts)</strong> Compl&eacute;ter le tableau des primitives suivant :</div>
+
+  <div class="meth">
+    <strong>Rappel :</strong> la primitive de \(x^n\) est \(\dfrac{x^{n+1}}{n+1}\). La primitive d'une constante \(k\) est \(kx\).
+  </div>
+
+  <table>
+    <tr><th>\(f(x)\)</th><th>Primitive \(F(x)\)</th></tr>
+    <tr><td>\(4\)</td><td>&hellip;&hellip;&hellip;&hellip;</td></tr>
+    <tr><td>\(x\)</td><td>&hellip;&hellip;&hellip;&hellip;</td></tr>
+    <tr><td>\(3x^2\)</td><td>&hellip;&hellip;&hellip;&hellip;</td></tr>
+    <tr><td>\(6x + 2\)</td><td>&hellip;&hellip;&hellip;&hellip;</td></tr>
+  </table>
+
+  <div class="q"><strong>2. (3 pts)</strong> Calculer \(\displaystyle\int_1^3 (6x + 2)\,dx\) en suivant les &eacute;tapes :</div>
+  <p style="font-size:.93em">
+    <strong>&Eacute;tape 1 :</strong> La primitive de \(6x + 2\) est \(F(x) = \) &hellip;&hellip;&hellip;&hellip;<br>
+    <strong>&Eacute;tape 2 :</strong> \(F(3) = \) &hellip;&hellip;&hellip;&hellip;<br>
+    <strong>&Eacute;tape 3 :</strong> \(F(1) = \) &hellip;&hellip;&hellip;&hellip;<br>
+    <strong>&Eacute;tape 4 :</strong> \(\displaystyle\int_1^3 (6x + 2)\,dx = F(3) - F(1) = \) &hellip;&hellip;&hellip;&hellip;
+  </p>
+
+  <div class="q"><strong>3. (3 pts)</strong> Calculer \(\displaystyle\int_0^2 3x^2\,dx\) en d&eacute;taillant les 4 &eacute;tapes.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Primitives : \(4 \to 4x\) ; \(x \to \dfrac{x^2}{2}\) ; \(3x^2 \to x^3\) ; \(6x + 2 \to 3x^2 + 2x\).</p>
+    <p><strong>2.</strong> \(F(x) = 3x^2 + 2x\). \(F(3) = 27 + 6 = 33\). \(F(1) = 3 + 2 = 5\).<br>
+    \(\displaystyle\int_1^3 (6x + 2)\,dx = 33 - 5 = 28\).</p>
+    <p><strong>3.</strong> Primitive de \(3x^2\) : \(F(x) = x^3\). \(F(2) = 8\), \(F(0) = 0\).<br>
+    \(\displaystyle\int_0^2 3x^2\,dx = 8 - 0 = 8\).</p>
+  </div>
+</div>
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Aire et consommation d'&eacute;nergie (guid&eacute;)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien chauffagiste mesure la puissance &eacute;lectrique \(P(t)\) (en kW) d'un radiateur &eacute;lectrique pendant 4 heures. Le mod&egrave;le est : \(P(t) = -t^2 + 4t + 1\) pour \(t \in [0\,;\,4]\).
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Calculer \(P(0)\) et \(P(2)\). Interpr&eacute;ter.</div>
+  <p style="font-size:.93em">
+    \(P(0) = -(0)^2 + 4 \times 0 + 1 = \) &hellip;&hellip;<br>
+    \(P(2) = -(2)^2 + 4 \times 2 + 1 = \) &hellip;&hellip;
+  </p>
+
+  <div class="q"><strong>2. (2 pts)</strong> La fonction \(P(t)\) est-elle positive sur \([0\,;\,4]\) ? V&eacute;rifier en calculant aussi \(P(4)\).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (3 pts)</strong> L'&eacute;nergie consomm&eacute;e est \(E = \displaystyle\int_0^4 P(t)\,dt\). Calculer cette &eacute;nergie en compl&eacute;tant :</div>
+  <p style="font-size:.93em">
+    Primitive de \(P(t) = -t^2 + 4t + 1\) :<br>
+    \(F(t) = -\dfrac{t^3}{\boxed{\phantom{3}}} + \dfrac{4t^2}{\boxed{\phantom{2}}} + t = -\dfrac{t^3}{3} + 2t^2 + t\)<br>
+    \(F(4) = -\dfrac{64}{3} + 32 + 4 = -\dfrac{64}{3} + 36 = \dfrac{-64 + 108}{3} = \dfrac{44}{3}\)<br>
+    \(F(0) = 0\)<br>
+    \(E = F(4) - F(0) = \) &hellip;&hellip; kWh
+  </p>
+
+  <div class="q"><strong>4. (3 pts)</strong> Calculer la puissance moyenne sur \([0\,;\,4]\). Le prix du kWh est 0,20 &euro;. Calculer le co&ucirc;t.</div>
+  <p style="font-size:.93em">
+    Puissance moyenne : \(\mu = \dfrac{E}{b - a} = \dfrac{\boxed{\phantom{\frac{44}{3}}}}{4 - 0} = \) &hellip;&hellip; kW<br>
+    Co&ucirc;t : \(E \times 0{,}20 = \) &hellip;&hellip; &euro;
+  </p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(0) = 1\) kW (puissance au d&eacute;marrage). \(P(2) = -4 + 8 + 1 = 5\) kW (puissance maximale &agrave; mi-parcours).</p>
+    <p><strong>2.</strong> \(P(4) = -16 + 16 + 1 = 1\) kW. On v&eacute;rifie que \(P(t) > 0\) sur \([0\,;\,4]\) (la parabole ne descend pas sous z&eacute;ro sur cet intervalle).</p>
+    <p><strong>3.</strong> \(F(t) = -\dfrac{t^3}{3} + 2t^2 + t\). \(F(4) = \dfrac{44}{3} \approx 14{,}67\). \(F(0) = 0\). \(E = \dfrac{44}{3} \approx 14{,}67\) kWh.</p>
+    <p><strong>4.</strong> \(\mu = \dfrac{44/3}{4} = \dfrac{44}{12} = \dfrac{11}{3} \approx 3{,}67\) kW. Co&ucirc;t : \(\dfrac{44}{3} \times 0{,}20 \approx 2{,}93\) &euro;.</p>
+  </div>
+</div>
+
+<div class="total-bar" style="background:var(--p);color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px">TOTAL : 20 points</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — le DS existant
+     ================================================================ -->
+<div class="diff-standard">
+
 <!-- ===== EXERCICE 1 ===== -->
 <div class="partie">
   <div class="partie-header">
@@ -149,7 +250,94 @@
 
 <div class="total-bar" style="background:var(--p);color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px">TOTAL : 20 points</div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, type BTS
+     ================================================================ -->
+<div class="diff-appro">
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Volume d'un r&eacute;servoir par int&eacute;gration</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un bureau d'&eacute;tudes con&ccedil;oit un r&eacute;servoir d'eau chaude dont la section transversale varie le long de sa longueur \(x\) (en dm), pour \(x \in [0\,;\,6]\). L'aire de la section &agrave; la position \(x\) est mod&eacute;lis&eacute;e par \(S(x) = -\dfrac{1}{3}x^2 + 2x + 3\) (en dm&sup2;).
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Calculer \(S(0)\), \(S(3)\) et \(S(6)\). Interpr&eacute;ter l'&eacute;volution de la section.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (3 pts)</strong> Le volume du r&eacute;servoir est donn&eacute; par \(\displaystyle V = \int_0^6 S(x)\,dx\). Calculer ce volume en dm&sup3;.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> Convertir ce volume en litres. Le r&eacute;servoir est-il adapt&eacute; pour une installation domestique n&eacute;cessitant au minimum 30 litres ?</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (3 pts)</strong> On souhaite conna&icirc;tre le d&eacute;bit moyen \(Q_m\) (en dm&sup3;/dm) de la section le long du r&eacute;servoir. Calculer la section moyenne \(\mu_S\) de \(S\) sur \([0\,;\,6]\). En d&eacute;duire si la conception est homog&egrave;ne (section moyenne proche de la section m&eacute;diane).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(S(0) = 3\) dm&sup2;, \(S(3) = -3 + 6 + 3 = 6\) dm&sup2;, \(S(6) = -12 + 12 + 3 = 3\) dm&sup2;. La section augmente jusqu'au milieu puis revient &agrave; sa valeur initiale : le r&eacute;servoir est plus large au centre.</p>
+    <p><strong>2.</strong> Primitive : \(F(x) = -\dfrac{x^3}{9} + x^2 + 3x\).<br>
+    \(V = F(6) - F(0) = \left(-\dfrac{216}{9} + 36 + 18\right) - 0 = -24 + 36 + 18 = 30\) dm&sup3;.</p>
+    <p><strong>3.</strong> \(V = 30\) dm&sup3; \(= 30\) litres. Le r&eacute;servoir atteint juste le minimum requis ; il est limit&eacute; pour une installation domestique.</p>
+    <p><strong>4.</strong> \(\mu_S = \dfrac{V}{6} = \dfrac{30}{6} = 5\) dm&sup2;. La section m&eacute;diane est \(S(3) = 6\) dm&sup2;. L'&eacute;cart est mod&eacute;r&eacute; (\(5\) vs \(6\)) : la conception est relativement homog&egrave;ne avec un l&eacute;ger renflement central.</p>
+  </div>
 </div>
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Optimisation d'un co&ucirc;t &eacute;nerg&eacute;tique</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un gestionnaire de b&acirc;timent analyse la consommation &eacute;lectrique d'un syst&egrave;me de climatisation. La puissance (en kW) sur une p&eacute;riode de 10 heures est mod&eacute;lis&eacute;e par \(P(t) = 0{,}1t^2 - t + 4\) pour \(t \in [0\,;\,10]\). Le tarif heures pleines (de \(t = 0\) &agrave; \(t = 6\)) est de 0,22 &euro;/kWh et le tarif heures creuses (de \(t = 6\) &agrave; \(t = 10\)) est de 0,15 &euro;/kWh.
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> V&eacute;rifier que \(P(t) > 0\) pour tout \(t \in [0\,;\,10]\). On pourra &eacute;tudier le discriminant de \(P(t) = 0\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (3 pts)</strong> Calculer l'&eacute;nergie consomm&eacute;e en heures pleines : \(\displaystyle E_1 = \int_0^6 P(t)\,dt\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (3 pts)</strong> Calculer l'&eacute;nergie consomm&eacute;e en heures creuses : \(\displaystyle E_2 = \int_6^{10} P(t)\,dt\). Utiliser la relation de Chasles : \(E_2 = \displaystyle\int_0^{10} P(t)\,dt - E_1\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> Calculer le co&ucirc;t total de fonctionnement sur les 10 heures. Quel pourcentage du co&ucirc;t est d&ucirc; aux heures pleines ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Discriminant de \(0{,}1t^2 - t + 4 = 0\) : \(\Delta = 1 - 4 \times 0{,}1 \times 4 = 1 - 1{,}6 = -0{,}6 < 0\). Pas de racine r&eacute;elle, et \(P(0) = 4 > 0\), donc \(P(t) > 0\) sur \(\mathbb{R}\).</p>
+    <p><strong>2.</strong> Primitive : \(F(t) = \dfrac{0{,}1t^3}{3} - \dfrac{t^2}{2} + 4t\).<br>
+    \(E_1 = F(6) - F(0) = \dfrac{0{,}1 \times 216}{3} - 18 + 24 = 7{,}2 - 18 + 24 = 13{,}2\) kWh.</p>
+    <p><strong>3.</strong> \(\displaystyle\int_0^{10} P(t)\,dt = F(10) - F(0) = \dfrac{100}{3} - 50 + 40 = 33{,}33 - 50 + 40 = 23{,}33\) kWh.<br>
+    \(E_2 = 23{,}33 - 13{,}2 = 10{,}13\) kWh.</p>
+    <p><strong>4.</strong> Co&ucirc;t HP : \(13{,}2 \times 0{,}22 = 2{,}90\) &euro;. Co&ucirc;t HC : \(10{,}13 \times 0{,}15 = 1{,}52\) &euro;.<br>
+    Co&ucirc;t total : \(2{,}90 + 1{,}52 = 4{,}42\) &euro;.<br>
+    Part des HP : \(\dfrac{2{,}90}{4{,}42} \approx 65{,}6\) %. Les heures pleines repr&eacute;sentent environ les deux tiers du co&ucirc;t.</p>
+  </div>
+</div>
+
+<div class="total-bar" style="background:var(--p);color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:700;font-size:1.1em;margin-top:24px">TOTAL : 20 points</div>
+
+</div><!-- fin diff-appro -->
 
 <script>
 function toggle(btn){
@@ -159,5 +347,6 @@ function toggle(btn){
 }
 </script>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

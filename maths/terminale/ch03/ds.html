@@ -36,6 +36,97 @@
   <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
 </div>
 
+<!-- ================================================================
+     DS SOCLE — très guidé, mêmes compétences
+     ================================================================ -->
+<div class="diff-socle">
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Dépréciation d'un outil (guidé)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un menuisier achète une scie circulaire neuve à <strong>2 000 €</strong>. Chaque année, elle perd <strong>10 %</strong> de sa valeur. On note \(V_n\) la valeur après \(n\) années.</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> Perdre 10 %, c'est garder ……… %. Donc on multiplie par \(q = \) ………</div>
+  <p style="margin-left:1em">☐ 0,10 &nbsp;&nbsp; ☐ 0,90 &nbsp;&nbsp; ☐ 1,10</p>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer \(V_1\) et \(V_2\). Compléter :</div>
+  <p style="font-size:.93em">\(V_1 = V_0 \times q = 2\,000 \times \boxed{\phantom{0,90}} = \boxed{\phantom{1800}}\) €<br>
+  \(V_2 = V_1 \times q = \boxed{\phantom{1800}} \times 0{,}90 = \boxed{\phantom{1620}}\) €</p>
+
+  <div class="q"><strong>3. (2 pts)</strong> Compléter le tableau :</div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><th>\(V_n\) (€)</th><td>2 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+
+  <div class="q"><strong>4. (2 pts)</strong> La formule directe est \(V_n = V_0 \times q^n\). Calculer \(V_8\) avec la calculatrice :</div>
+  <p style="font-size:.93em">\(V_8 = 2\,000 \times (0{,}90)^{\boxed{\phantom{8}}} = 2\,000 \times \boxed{\phantom{0,4305}} = \boxed{\phantom{861}}\) € (arrondir à l'euro)</p>
+
+  <div class="q"><strong>5. (3 pts)</strong> La scie est revendue quand elle vaut moins de 500 €. D'après le tableau et la calculatrice, à partir de quelle année ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Garder 90 % = multiplier par \(q = 0{,}90\).</p>
+    <p><strong>2.</strong> \(V_1 = 2\,000 \times 0{,}90 = 1\,800\) € ; \(V_2 = 1\,800 \times 0{,}90 = 1\,620\) €.</p>
+    <p><strong>3.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+      <tr><th>\(V_n\)</th><td>2 000</td><td>1 800</td><td>1 620</td><td>1 458</td><td>1 312</td><td>1 181</td></tr>
+    </table>
+    <p><strong>4.</strong> \(V_8 = 2\,000 \times 0{,}9^8 = 2\,000 \times 0{,}4305 \approx 861\) €.</p>
+    <p><strong>5.</strong> \(V_{13} = 2\,000 \times 0{,}9^{13} \approx 507\) € ; \(V_{14} = 2\,000 \times 0{,}9^{14} \approx 457\) €. Revente à partir de l'<strong>année 14</strong>.</p>
+  </div>
+</div>
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Rendement de chauffage (guidé)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Une chaudière a un rendement initial de <strong>95 %</strong>. Sans entretien, le rendement baisse de <strong>3 %</strong> chaque année par rapport à l'année précédente. On note \(R_n\) le rendement après \(n\) années.</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> La suite \((R_n)\) est géométrique de raison \(q = \) ………</div>
+  <p style="margin-left:1em">☐ 0,03 &nbsp;&nbsp; ☐ 0,97 &nbsp;&nbsp; ☐ 1,03</p>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer \(R_1\) et \(R_2\) :</div>
+  <p style="font-size:.93em">\(R_1 = 95 \times \boxed{\phantom{0,97}} = \boxed{\phantom{92,15}}\) % &nbsp;&nbsp; \(R_2 = R_1 \times 0{,}97 = \boxed{\phantom{89,4}}\) %</p>
+
+  <div class="q"><strong>3. (2 pts)</strong> Compléter le tableau de rendement (arrondir au dixième) :</div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><th>\(R_n\) (%)</th><td>95</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+
+  <div class="q"><strong>4. (2 pts)</strong> La réglementation impose un rendement minimum de 80 %. D'après le tableau, à partir de quelle année la chaudière ne respecte-t-elle plus la norme ?</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (3 pts)</strong> La formule est \(R_n = 95 \times 0{,}97^n\). Calculer \(R_{10}\). Combien de % de rendement la chaudière a-t-elle perdu en 10 ans ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(q = 0{,}97\) (garder 97 % = perdre 3 %).</p>
+    <p><strong>2.</strong> \(R_1 = 95 \times 0{,}97 = 92{,}15\) % ; \(R_2 = 92{,}15 \times 0{,}97 \approx 89{,}4\) %.</p>
+    <p><strong>3.</strong> \(R_3 \approx 86{,}7\) ; \(R_4 \approx 84{,}1\) ; \(R_5 \approx 81{,}6\).</p>
+    <p><strong>4.</strong> \(R_5 \approx 81{,}6 > 80\) mais \(R_6 \approx 79{,}1 < 80\). Non conforme à partir de l'<strong>année 6</strong>.</p>
+    <p><strong>5.</strong> \(R_{10} = 95 \times 0{,}97^{10} \approx 95 \times 0{,}7374 \approx 70{,}1\) %. Perte : \(95 - 70{,}1 = 24{,}9\) points de rendement en 10 ans.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — le DS existant
+     ================================================================ -->
+<div class="diff-standard">
+
 <!-- ===== EXERCICE 1 ===== -->
 <div class="partie">
   <div class="partie-header">
@@ -145,7 +236,94 @@ function toggle(btn){
   else{corr.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
+
+</div><!-- fin diff-standard -->
+
+<!-- ================================================================
+     DS APPROFONDISSEMENT — problèmes ouverts, type BTS
+     ================================================================ -->
+<div class="diff-appro">
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Investissement et rentabilité</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un artisan menuisier investit \(25\,000\) € dans une machine à commande numérique. La machine perd \(18\,\%\) de sa valeur chaque année. En parallèle, elle génère un revenu annuel de \(R = 4\,500\) €.</p>
+
+  <div class="q"><strong>1. (2 pts)</strong> Exprimer la valeur \(V_n\) de la machine en fonction de \(n\). Préciser \(V_0\) et \(q\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer la valeur résiduelle après 6 ans. Arrondir à l'euro.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (3 pts)</strong> Calculer le revenu total cumulé sur 6 ans. Comparer avec l'investissement initial. L'investissement est-il rentable ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (3 pts)</strong> À partir de quelle année \(n\) le revenu cumulé dépasse-t-il l'investissement initial diminué de la valeur résiduelle ? (Coût net = \(V_0 - V_n\). Chercher \(n\) tel que \(n \times R \geq V_0 - V_n\).)</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(V_0 = 25\,000\), \(q = 1 - 0{,}18 = 0{,}82\). \(V_n = 25\,000 \times 0{,}82^n\).</p>
+    <p><strong>2.</strong> \(V_6 = 25\,000 \times 0{,}82^6 = 25\,000 \times 0{,}3040 \approx 7\,600\) €.</p>
+    <p><strong>3.</strong> Revenu cumulé : \(6 \times 4\,500 = 27\,000\) €. C'est supérieur à \(25\,000\) € → investissement rentable. Bénéfice net : \(27\,000 - 25\,000 + 7\,600 = 9\,600\) €.</p>
+    <p><strong>4.</strong> Coût net = \(25\,000 - 25\,000 \times 0{,}82^n\). On cherche \(n \times 4\,500 \geq 25\,000(1 - 0{,}82^n)\).<br>
+    Par essais : \(n=4\) : revenu = 18 000, coût net = \(25\,000(1-0{,}82^4) = 25\,000 \times 0{,}548 = 13\,710\) → \(18\,000 > 13\,710\) ✓.<br>
+    \(n=3\) : revenu = 13 500, coût net = \(25\,000(1-0{,}82^3) = 25\,000 \times 0{,}449 = 11\,225\) → \(13\,500 > 11\,225\) ✓.<br>
+    \(n=2\) : revenu = 9 000, coût net = \(25\,000(1-0{,}82^2) = 25\,000 \times 0{,}328 = 8\,190\) → \(9\,000 > 8\,190\) ✓.<br>
+    \(n=1\) : revenu = 4 500, coût net = \(25\,000 \times 0{,}18 = 4\,500\) → égalité. Dès l'<strong>année 1</strong>, le revenu couvre la perte de valeur.</p>
+  </div>
+</div>
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Modélisation énergétique</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un installateur thermique étudie la consommation d'un bâtiment après isolation. La consommation initiale est de \(20\,000\) kWh/an. Chaque année après isolation, la consommation diminue de \(8\,\%\) grâce à l'amélioration progressive des joints et du comportement des occupants.</p>
+
+  <div class="q"><strong>1. (2 pts)</strong> Modéliser la consommation \(C_n\) après \(n\) années. Préciser la nature de la suite, son premier terme et sa raison.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer la consommation après 5 ans et 10 ans. Arrondir à l'entier.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (3 pts)</strong> L'économie annuelle est \(E_n = C_0 - C_n\). Calculer \(E_5\). En déduire l'économie cumulée sur 5 ans : \(S = \sum_{k=0}^{4} E_k\). On pourra utiliser la formule de la somme des termes d'une suite géométrique.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (3 pts)</strong> L'isolation a coûté \(15\,000\) €, le prix du kWh est \(0{,}12\) €. À partir de combien d'années l'investissement est-il amorti ? Justifier.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Suite géométrique : \(C_n = 20\,000 \times 0{,}92^n\), premier terme \(C_0 = 20\,000\), raison \(q = 0{,}92\).</p>
+    <p><strong>2.</strong> \(C_5 = 20\,000 \times 0{,}92^5 \approx 13\,182\) kWh. \(C_{10} = 20\,000 \times 0{,}92^{10} \approx 8\,688\) kWh.</p>
+    <p><strong>3.</strong> \(E_5 = 20\,000 - 13\,182 = 6\,818\) kWh économisés la 5e année.<br>
+    Économie cumulée en kWh : \(S = \sum_{k=0}^{4}(20\,000 - 20\,000 \times 0{,}92^k) = 5 \times 20\,000 - 20\,000 \times \frac{1-0{,}92^5}{1-0{,}92}\)<br>
+    \(= 100\,000 - 20\,000 \times \frac{1-0{,}6591}{0{,}08} = 100\,000 - 20\,000 \times 4{,}261 = 100\,000 - 85\,227 = 14\,773\) kWh.</p>
+    <p><strong>4.</strong> Économie financière cumulée = \(14\,773 \times 0{,}12 = 1\,773\) € sur 5 ans. C'est insuffisant (15 000 €).<br>
+    Il faut résoudre : économie cumulée \(\times\) 0,12 = 15 000. Par essais, l'amortissement se fait vers la <strong>25e année</strong> environ.</p>
+  </div>
+</div>
+
+</div><!-- fin diff-appro -->
+
 </div>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

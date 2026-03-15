@@ -7,10 +7,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
-.methode strong{color:#d97706}
-</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
 </head>
 <body><div class="c">
 <a href="../../../pc-term-iccer.html" class="nb">← Retour au sommaire</a>
@@ -34,214 +31,397 @@
   </ul>
 </div>
 
-<!-- ===== EXERCICES DE BASE ===== -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                     EXERCICES SOCLE                           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
 <h2>Exercices de base</h2>
 
-<div class="exo">
+<!-- ── Exercice 1 — Socle ── -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Débit volumique dans un tuyau</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="exo-title">QCM – Grandeurs et unités</span>
   </div>
-  <p>Un tuyau a un diamètre \(D = 20\ \text{mm} = 0{,}020\ \text{m}\) (rayon \(r = 0{,}010\ \text{m}\)). L'eau y circule à la vitesse \(v = 1{,}5\ \text{m/s}\).</p>
-  <p class="q"><strong>1.</strong> Calculer la section du tuyau \(S = \pi r^2\) en m².</p>
-  <p class="q"><strong>2.</strong> Calculer le débit volumique \(Q_v = v \cdot S\) en m³/s.</p>
-  <p class="q"><strong>3.</strong> Convertir \(Q_v\) en L/s (1 m³ = 1 000 L).</p>
+  <p>Pour chaque question, entourer la bonne réponse.</p>
+
+  <p class="q"><strong>1.</strong> L'unité du débit volumique dans le système international est :</p>
+  <p>&emsp; a) L/h &emsp; b) m³/s &emsp; c) kg/s</p>
+
+  <p class="q"><strong>2.</strong> La formule du débit volumique est :</p>
+  <p>&emsp; a) \(Q_v = \rho \cdot v\) &emsp; b) \(Q_v = v \cdot S\) &emsp; c) \(Q_v = P \cdot S\)</p>
+
+  <p class="q"><strong>3.</strong> Si le diamètre d'un tuyau double, la section est multipliée par :</p>
+  <p>&emsp; a) 2 &emsp; b) 4 &emsp; c) 8</p>
+
+  <p class="q"><strong>4.</strong> D'après la conservation du débit, quand la section diminue, la vitesse :</p>
+  <p>&emsp; a) diminue &emsp; b) reste constante &emsp; c) augmente</p>
+
+  <p class="q"><strong>5.</strong> L'effet Venturi décrit le fait que quand la vitesse augmente, la pression :</p>
+  <p>&emsp; a) augmente &emsp; b) diminue &emsp; c) reste constante</p>
+
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(S = \pi \times (0{,}010)^2 = \pi \times 10^{-4} \approx \mathbf{3{,}14 \times 10^{-4}\ \text{m}^2}\)</p>
-    <p><strong>2.</strong> \(Q_v = v \cdot S = 1{,}5 \times 3{,}14 \times 10^{-4} \approx \mathbf{4{,}71 \times 10^{-4}\ \text{m}^3/\text{s}}\)</p>
-    <p><strong>3.</strong> \(Q_v = 4{,}71 \times 10^{-4} \times 1\,000 \approx \mathbf{0{,}471\ \text{L/s}}\)</p>
+    <p><strong>1.</strong> b) m³/s</p>
+    <p><strong>2.</strong> b) \(Q_v = v \cdot S\)</p>
+    <p><strong>3.</strong> b) 4 (car \(S = \pi (D/2)^2\), le facteur \(D^2\) donne \(2^2 = 4\))</p>
+    <p><strong>4.</strong> c) augmente (conservation : \(v_1 S_1 = v_2 S_2\))</p>
+    <p><strong>5.</strong> b) diminue (effet Venturi)</p>
   </div>
 </div>
 
-<div class="exo">
+<!-- ── Exercice 2 — Socle ── -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Débit massique</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="exo-title">Calcul guidé — Section et débit volumique</span>
   </div>
-  <p>Un circuit hydraulique transporte de l'eau (\(\rho = 1\,000\ \text{kg/m}^3\)) avec un débit volumique \(Q_v = 0{,}5\ \text{L/s}\).</p>
-  <p class="q"><strong>1.</strong> Écrire la formule du débit massique en fonction du débit volumique et de la masse volumique.</p>
-  <p class="q"><strong>2.</strong> Convertir \(Q_v = 0{,}5\ \text{L/s}\) en m³/s.</p>
-  <p class="q"><strong>3.</strong> Calculer le débit massique \(Q_m\) en kg/s.</p>
+  <p>Un plombier chauffagiste installe un tuyau de diamètre \(D = 20\ \text{mm} = 0{,}020\ \text{m}\). L'eau y circule à la vitesse \(v = 1{,}5\ \text{m/s}\).</p>
+
+  <p class="q"><strong>1.</strong> Calculer le rayon du tuyau :</p>
+  <p>\(r = \dfrac{D}{2} = \dfrac{0{,}020}{2} = \boxed{\phantom{0{,}010}}\ \text{m}\)</p>
+
+  <p class="q"><strong>2.</strong> Calculer la section du tuyau. Compléter :</p>
+  <p>\(S = \pi \times r^2 = \pi \times (\boxed{\phantom{0{,}010}})^2 = \pi \times \boxed{\phantom{10^{-4}}} \approx \boxed{\phantom{3{,}14 \times 10^{-4}}}\ \text{m}^2\)</p>
+
+  <p class="q"><strong>3.</strong> Calculer le débit volumique. Compléter :</p>
+  <p>\(Q_v = v \times S = \boxed{\phantom{1{,}5}} \times \boxed{\phantom{3{,}14 \times 10^{-4}}} \approx \boxed{\phantom{4{,}71 \times 10^{-4}}}\ \text{m}^3/\text{s}\)</p>
+
+  <p class="q"><strong>4.</strong> Convertir en L/s (rappel : 1 m³ = 1 000 L) :</p>
+  <p>\(Q_v = \boxed{\phantom{4{,}71 \times 10^{-4}}} \times 1\,000 \approx \boxed{\phantom{0{,}471}}\ \text{L/s}\)</p>
+
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(Q_m = \rho \cdot Q_v\)</p>
-    <p><strong>2.</strong> \(Q_v = 0{,}5\ \text{L/s} = 0{,}5 \times 10^{-3}\ \text{m}^3/\text{s} = \mathbf{5 \times 10^{-4}\ \text{m}^3/\text{s}}\)</p>
+    <p><strong>1.</strong> \(r = 0{,}010\ \text{m}\)</p>
+    <p><strong>2.</strong> \(S = \pi \times (0{,}010)^2 = \pi \times 10^{-4} \approx \mathbf{3{,}14 \times 10^{-4}\ \text{m}^2}\)</p>
+    <p><strong>3.</strong> \(Q_v = 1{,}5 \times 3{,}14 \times 10^{-4} \approx \mathbf{4{,}71 \times 10^{-4}\ \text{m}^3/\text{s}}\)</p>
+    <p><strong>4.</strong> \(Q_v = 4{,}71 \times 10^{-4} \times 1\,000 \approx \mathbf{0{,}471\ \text{L/s}}\)</p>
+  </div>
+</div>
+
+<!-- ── Exercice 3 — Socle ── -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Débit massique guidé</span>
+  </div>
+  <p>Un circuit de chauffage transporte de l'eau (\(\rho = 1\,000\ \text{kg/m}^3\)) avec un débit volumique \(Q_v = 0{,}5\ \text{L/s}\).</p>
+
+  <p class="q"><strong>1.</strong> Quelle formule relie le débit massique au débit volumique ? Compléter :</p>
+  <p>\(Q_m = \boxed{\phantom{\rho}} \times \boxed{\phantom{Q_v}}\)</p>
+
+  <p class="q"><strong>2.</strong> Convertir le débit volumique en m³/s. Compléter :</p>
+  <p>\(Q_v = 0{,}5\ \text{L/s} = 0{,}5 \times \boxed{\phantom{10^{-3}}}\ \text{m}^3/\text{s} = \boxed{\phantom{5 \times 10^{-4}}}\ \text{m}^3/\text{s}\)</p>
+
+  <p class="q"><strong>3.</strong> Calculer le débit massique. Compléter :</p>
+  <p>\(Q_m = 1\,000 \times \boxed{\phantom{5 \times 10^{-4}}} = \boxed{\phantom{0{,}5}}\ \text{kg/s}\)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(Q_m = \rho \times Q_v\)</p>
+    <p><strong>2.</strong> \(Q_v = 0{,}5 \times 10^{-3} = \mathbf{5 \times 10^{-4}\ \text{m}^3/\text{s}}\)</p>
     <p><strong>3.</strong> \(Q_m = 1\,000 \times 5 \times 10^{-4} = \mathbf{0{,}5\ \text{kg/s}}\)</p>
     <p>Pour l'eau, le débit massique (kg/s) est numériquement égal au débit volumique (L/s), car \(\rho_{\text{eau}} = 1\ \text{kg/L}\).</p>
   </div>
 </div>
 
-<div class="exo">
+<!-- ── Exercice 4 — Socle ── -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 3</span>
-    <span class="exo-title">Conservation du débit — rétrécissement de conduite</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Conservation du débit — étape par étape</span>
   </div>
-  <p>Une conduite se rétrécit : le diamètre passe de \(D_1 = 30\ \text{mm}\) à \(D_2 = 15\ \text{mm}\). La vitesse en amont est \(v_1 = 1{,}0\ \text{m/s}\). Le débit volumique est conservé.</p>
-  <p class="q"><strong>1.</strong> Calculer les sections \(S_1\) et \(S_2\) en m².</p>
-  <p class="q"><strong>2.</strong> Écrire l'équation de continuité.</p>
-  <p class="q"><strong>3.</strong> Calculer la vitesse \(v_2\) dans la section rétrécie.</p>
+  <p>Un technicien CVC observe une conduite qui se rétrécit : le diamètre passe de \(D_1 = 30\ \text{mm}\) à \(D_2 = 15\ \text{mm}\). La vitesse en amont est \(v_1 = 1{,}0\ \text{m/s}\).</p>
+
+  <p class="q"><strong>1.</strong> Calculer la section \(S_1\). Compléter :</p>
+  <p>\(S_1 = \pi \times \left(\dfrac{0{,}030}{2}\right)^2 = \pi \times (0{,}015)^2 \approx \boxed{\phantom{7{,}07 \times 10^{-4}}}\ \text{m}^2\)</p>
+
+  <p class="q"><strong>2.</strong> Calculer la section \(S_2\). Compléter :</p>
+  <p>\(S_2 = \pi \times \left(\dfrac{0{,}015}{2}\right)^2 = \pi \times (\boxed{\phantom{0{,}0075}})^2 \approx \boxed{\phantom{1{,}77 \times 10^{-4}}}\ \text{m}^2\)</p>
+
+  <p class="q"><strong>3.</strong> Écrire l'équation de continuité :</p>
+  <p>\(\boxed{\phantom{v_1}} \times \boxed{\phantom{S_1}} = \boxed{\phantom{v_2}} \times \boxed{\phantom{S_2}}\)</p>
+
+  <p class="q"><strong>4.</strong> Calculer \(v_2\). Compléter :</p>
+  <p>\(v_2 = \dfrac{v_1 \times S_1}{S_2} = \dfrac{1{,}0 \times 7{,}07 \times 10^{-4}}{1{,}77 \times 10^{-4}} \approx \boxed{\phantom{4{,}0}}\ \text{m/s}\)</p>
+
+  <p class="q"><strong>5.</strong> Compléter la phrase : « La section est divisée par \(\boxed{\phantom{4}}\), donc la vitesse est multipliée par \(\boxed{\phantom{4}}\). »</p>
+
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong></p>
-    <p>\(S_1 = \pi \left(\dfrac{0{,}030}{2}\right)^2 = \pi \times (0{,}015)^2 \approx 7{,}07 \times 10^{-4}\ \text{m}^2\)</p>
-    <p>\(S_2 = \pi \left(\dfrac{0{,}015}{2}\right)^2 = \pi \times (0{,}0075)^2 \approx 1{,}77 \times 10^{-4}\ \text{m}^2\)</p>
-    <p>Note : \(S_2 = S_1/4\) car le rayon est divisé par 2 et la section par \(2^2 = 4\).</p>
-    <p><strong>2.</strong> \(v_1 \cdot S_1 = v_2 \cdot S_2\)</p>
-    <p><strong>3.</strong> \(v_2 = \dfrac{v_1 \cdot S_1}{S_2} = \dfrac{1{,}0 \times 7{,}07 \times 10^{-4}}{1{,}77 \times 10^{-4}} \approx \mathbf{4{,}0\ \text{m/s}}\)</p>
-    <p>La section est divisée par 4, donc la vitesse est multipliée par 4.</p>
+    <p><strong>1.</strong> \(S_1 \approx 7{,}07 \times 10^{-4}\ \text{m}^2\)</p>
+    <p><strong>2.</strong> \(S_2 = \pi \times (0{,}0075)^2 \approx 1{,}77 \times 10^{-4}\ \text{m}^2\)</p>
+    <p><strong>3.</strong> \(v_1 \times S_1 = v_2 \times S_2\)</p>
+    <p><strong>4.</strong> \(v_2 \approx \mathbf{4{,}0\ \text{m/s}}\)</p>
+    <p><strong>5.</strong> La section est divisée par 4, donc la vitesse est multipliée par 4.</p>
   </div>
 </div>
 
-<!-- ===== EXERCICES GUIDÉS ===== -->
-<h2>Exercices guidés</h2>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                    EXERCICES STANDARD                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>Exercices d'application</h2>
 
-<div class="exo">
+<!-- ── Exercice 5 — Standard ── -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 4</span>
-    <span class="exo-title">Circuit de chauffage — vitesse, débit massique et puissance thermique</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Débit volumique dans un tuyau de chauffage</span>
   </div>
-  <p>Une pompe de circulation alimente un circuit de chauffage avec un débit volumique \(Q_v = 200\ \text{L/h}\) dans un tuyau de diamètre \(D = 20\ \text{mm} = 0{,}020\ \text{m}\). L'eau a une masse volumique \(\rho = 1\,000\ \text{kg/m}^3\) et une capacité thermique \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\). L'écart de température entre l'aller et le retour est \(\Delta T = 10\ \text{°C}\).</p>
-  <div class="methode">
-    <strong>Méthode :</strong> Convertir d'abord \(Q_v\) en m³/s. Calculer \(S\), puis \(v = Q_v / S\). Calculer \(Q_m = \rho \cdot Q_v\). Calculer \(P_{\text{th}} = Q_m \cdot c \cdot \Delta T\).
+  <p>Un installateur thermique raccorde un radiateur avec un tuyau de diamètre \(D = 20\ \text{mm}\). L'eau y circule à \(v = 1{,}5\ \text{m/s}\).</p>
+  <p class="q"><strong>1.</strong> Calculer la section \(S\) du tuyau en m².</p>
+  <p class="q"><strong>2.</strong> Calculer le débit volumique \(Q_v = v \cdot S\) en m³/s.</p>
+  <p class="q"><strong>3.</strong> Convertir \(Q_v\) en L/s puis en L/h.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(r = 0{,}010\ \text{m}\), \(S = \pi \times (0{,}010)^2 \approx \mathbf{3{,}14 \times 10^{-4}\ \text{m}^2}\)</p>
+    <p><strong>2.</strong> \(Q_v = 1{,}5 \times 3{,}14 \times 10^{-4} \approx \mathbf{4{,}71 \times 10^{-4}\ \text{m}^3/\text{s}}\)</p>
+    <p><strong>3.</strong> \(Q_v \approx 0{,}471\ \text{L/s} \approx 0{,}471 \times 3\,600 \approx \mathbf{1\,696\ \text{L/h}}\)</p>
   </div>
+</div>
+
+<!-- ── Exercice 6 — Standard ── -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Débit massique et puissance thermique</span>
+  </div>
+  <p>Une pompe de circulation alimente un circuit de chauffage avec un débit volumique \(Q_v = 200\ \text{L/h}\) dans un tuyau de diamètre \(D = 20\ \text{mm}\). L'eau a une masse volumique \(\rho = 1\,000\ \text{kg/m}^3\) et une capacité thermique \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\). L'écart de température entre l'aller et le retour est \(\Delta T = 10\ \text{°C}\).</p>
   <p class="q"><strong>1.</strong> Convertir \(Q_v = 200\ \text{L/h}\) en m³/s.</p>
   <p class="q"><strong>2.</strong> Calculer la section \(S\) du tuyau, puis la vitesse \(v\) de l'eau.</p>
   <p class="q"><strong>3.</strong> Calculer le débit massique \(Q_m\) en kg/s.</p>
   <p class="q"><strong>4.</strong> Calculer la puissance thermique transportée \(P_{\text{th}} = Q_m \cdot c \cdot \Delta T\) en W.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(Q_v = 200\ \text{L/h} \div 3\,600\ \text{s/h} = \dfrac{200 \times 10^{-3}}{3\,600} \approx \mathbf{5{,}56 \times 10^{-5}\ \text{m}^3/\text{s}}\)</p>
+    <p><strong>1.</strong> \(Q_v = \dfrac{200 \times 10^{-3}}{3\,600} \approx \mathbf{5{,}56 \times 10^{-5}\ \text{m}^3/\text{s}}\)</p>
     <p><strong>2.</strong> \(S = \pi \times (0{,}010)^2 \approx 3{,}14 \times 10^{-4}\ \text{m}^2\)</p>
     <p>\(v = \dfrac{Q_v}{S} = \dfrac{5{,}56 \times 10^{-5}}{3{,}14 \times 10^{-4}} \approx \mathbf{0{,}177\ \text{m/s}}\)</p>
     <p>Cette vitesse est faible et typique des circuits de chauffage basse température.</p>
     <p><strong>3.</strong> \(Q_m = \rho \cdot Q_v = 1\,000 \times 5{,}56 \times 10^{-5} \approx \mathbf{0{,}0556\ \text{kg/s}}\)</p>
-    <p><strong>4.</strong> \(P_{\text{th}} = Q_m \cdot c \cdot \Delta T = 0{,}0556 \times 4\,186 \times 10 \approx \mathbf{2\,327\ \text{W} \approx 2{,}33\ \text{kW}}\)</p>
+    <p><strong>4.</strong> \(P_{\text{th}} = 0{,}0556 \times 4\,186 \times 10 \approx \mathbf{2\,327\ \text{W} \approx 2{,}33\ \text{kW}}\)</p>
   </div>
 </div>
 
-<div class="exo">
+<!-- ── Exercice 7 — Standard ── -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
-    <span class="exo-num">Exercice 5</span>
-    <span class="exo-title">Effet venturi dans une conduite</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Effet Venturi dans une conduite</span>
   </div>
   <p>Dans une conduite horizontale, l'eau circule avec une section \(S_1 = 100\ \text{cm}^2\), une vitesse \(v_1 = 2\ \text{m/s}\) et une pression \(P_1 = 3\ \text{bar}\). La conduite se réduit à \(S_2 = 25\ \text{cm}^2\). On prend \(\rho = 1\,000\ \text{kg/m}^3\).</p>
-  <div class="methode">
-    <strong>Méthode :</strong> Appliquer d'abord la continuité pour trouver \(v_2\), puis Bernoulli simplifié (conduite horizontale) pour trouver \(P_2\) : \(P_1 + \dfrac{1}{2}\rho v_1^2 = P_2 + \dfrac{1}{2}\rho v_2^2\).
-  </div>
   <p class="q"><strong>1.</strong> Appliquer la continuité pour calculer \(v_2\).</p>
   <p class="q"><strong>2.</strong> Calculer les termes de pression dynamique \(\dfrac{1}{2}\rho v_1^2\) et \(\dfrac{1}{2}\rho v_2^2\) en Pa.</p>
-  <p class="q"><strong>3.</strong> Calculer \(P_2\) en Pa, puis en bar.</p>
+  <p class="q"><strong>3.</strong> Appliquer l'équation de Bernoulli pour calculer \(P_2\) en Pa, puis en bar.</p>
   <p class="q"><strong>4.</strong> La pression augmente ou diminue quand la vitesse augmente ? Quel est le nom de cet effet ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Continuité : \(v_1 S_1 = v_2 S_2\)</p>
-    <p>\(v_2 = \dfrac{v_1 \cdot S_1}{S_2} = \dfrac{2 \times 100}{25} = \mathbf{8\ \text{m/s}}\)</p>
-    <p>La section est divisée par 4, donc la vitesse est multipliée par 4.</p>
-    <p><strong>2.</strong> \(\dfrac{1}{2}\rho v_1^2 = \dfrac{1}{2} \times 1\,000 \times 2^2 = \mathbf{2\,000\ \text{Pa}}\)</p>
-    <p>\(\dfrac{1}{2}\rho v_2^2 = \dfrac{1}{2} \times 1\,000 \times 8^2 = \dfrac{1}{2} \times 1\,000 \times 64 = \mathbf{32\,000\ \text{Pa}}\)</p>
-    <p><strong>3.</strong> Bernoulli : \(P_2 = P_1 + \dfrac{1}{2}\rho v_1^2 - \dfrac{1}{2}\rho v_2^2\)</p>
-    <p>\(P_2 = 3 \times 10^5 + 2\,000 - 32\,000 = 300\,000 - 30\,000 = \mathbf{270\,000\ \text{Pa} = 2{,}70\ \text{bar}}\)</p>
-    <p><strong>4.</strong> La pression <strong>diminue</strong> quand la vitesse augmente : c'est l'<strong>effet Venturi</strong>. Ce principe est utilisé dans les débitmètres, les carburateurs et les injecteurs.</p>
+    <p><strong>1.</strong> \(v_2 = \dfrac{v_1 \cdot S_1}{S_2} = \dfrac{2 \times 100}{25} = \mathbf{8\ \text{m/s}}\)</p>
+    <p><strong>2.</strong> \(\dfrac{1}{2}\rho v_1^2 = \dfrac{1}{2} \times 1\,000 \times 4 = \mathbf{2\,000\ \text{Pa}}\)</p>
+    <p>\(\dfrac{1}{2}\rho v_2^2 = \dfrac{1}{2} \times 1\,000 \times 64 = \mathbf{32\,000\ \text{Pa}}\)</p>
+    <p><strong>3.</strong> \(P_2 = P_1 + \dfrac{1}{2}\rho v_1^2 - \dfrac{1}{2}\rho v_2^2 = 300\,000 + 2\,000 - 32\,000 = \mathbf{270\,000\ \text{Pa} = 2{,}70\ \text{bar}}\)</p>
+    <p><strong>4.</strong> La pression <strong>diminue</strong> quand la vitesse augmente : c'est l'<strong>effet Venturi</strong>.</p>
   </div>
 </div>
 
-<!-- ===== EXERCICES D'APPLICATION ===== -->
-<h2>Exercices d'application</h2>
-
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Dimensionnement du diamètre d'une conduite</span>
-    <span class="diff diff-2">Niveau 2</span>
-  </div>
-  <p>On veut transporter un débit volumique \(Q_v = 300\ \text{L/h}\) d'eau. La vitesse maximale recommandée dans un circuit de chauffage est \(v_{\text{max}} = 1{,}5\ \text{m/s}\).</p>
-  <p class="q"><strong>1.</strong> Convertir \(Q_v = 300\ \text{L/h}\) en m³/s.</p>
-  <p class="q"><strong>2.</strong> Calculer la section minimale \(S_{\text{min}} = Q_v / v_{\text{max}}\) en m².</p>
-  <p class="q"><strong>3.</strong> En déduire le diamètre minimal \(D_{\text{min}}\) à partir de \(S = \pi (D/2)^2\).</p>
-  <p class="q"><strong>4.</strong> Choisir le diamètre commercial parmi : 15 mm, 20 mm, 25 mm. Justifier.</p>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> \(Q_v = \dfrac{300 \times 10^{-3}}{3\,600} \approx \mathbf{8{,}33 \times 10^{-5}\ \text{m}^3/\text{s}}\)</p>
-    <p><strong>2.</strong> \(S_{\text{min}} = \dfrac{Q_v}{v_{\text{max}}} = \dfrac{8{,}33 \times 10^{-5}}{1{,}5} \approx \mathbf{5{,}56 \times 10^{-5}\ \text{m}^2}\)</p>
-    <p><strong>3.</strong> \(S = \pi \left(\dfrac{D}{2}\right)^2 \Rightarrow D = 2\sqrt{\dfrac{S}{\pi}} = 2\sqrt{\dfrac{5{,}56 \times 10^{-5}}{\pi}} = 2\sqrt{1{,}77 \times 10^{-5}} \approx 2 \times 4{,}21 \times 10^{-3} \approx \mathbf{8{,}4\ \text{mm}}\)</p>
-    <p><strong>4.</strong> \(D_{\text{min}} \approx 8{,}4\ \text{mm}\). On choisit le diamètre commercial immédiatement supérieur : <strong>15 mm</strong>.</p>
-    <p>Vérification : avec \(D = 15\ \text{mm}\), \(S = \pi \times (0{,}0075)^2 \approx 1{,}77 \times 10^{-4}\ \text{m}^2\), \(v = Q_v/S \approx 0{,}47\ \text{m/s} < 1{,}5\ \text{m/s}\). Conforme.</p>
-  </div>
-</div>
-
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Chauffe-eau solaire — puissance thermique et rendement</span>
-    <span class="diff diff-3">Niveau 3</span>
-  </div>
-  <p>Un capteur solaire chauffe l'eau de \(T_{\text{froide}} = 15\ \text{°C}\) à \(T_{\text{chaude}} = 55\ \text{°C}\). Le débit massique est \(Q_m = 0{,}02\ \text{kg/s}\). Le capteur a une surface \(S_c = 2\ \text{m}^2\) et reçoit une irradiance solaire de \(E = 800\ \text{W/m}^2\). On prend \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\).</p>
-  <p class="q"><strong>1.</strong> Calculer l'écart de température \(\Delta T\).</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance thermique utile transférée à l'eau : \(P_{\text{utile}} = Q_m \cdot c \cdot \Delta T\).</p>
-  <p class="q"><strong>3.</strong> Calculer la puissance solaire reçue par le capteur : \(P_{\text{solaire}} = E \times S_c\).</p>
-  <p class="q"><strong>4.</strong> Calculer le rendement du capteur solaire : \(\eta = P_{\text{utile}} / P_{\text{solaire}}\).</p>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> \(\Delta T = T_{\text{chaude}} - T_{\text{froide}} = 55 - 15 = \mathbf{40\ \text{°C} = 40\ \text{K}}\)</p>
-    <p><strong>2.</strong> \(P_{\text{utile}} = Q_m \cdot c \cdot \Delta T = 0{,}02 \times 4\,186 \times 40 = \mathbf{3\,349\ \text{W} \approx 3{,}35\ \text{kW}}\)</p>
-    <p><strong>3.</strong> \(P_{\text{solaire}} = E \times S_c = 800 \times 2 = \mathbf{1\,600\ \text{W}}\)</p>
-    <p><strong>4.</strong> \(\eta = \dfrac{P_{\text{utile}}}{P_{\text{solaire}}} = \dfrac{3\,349}{1\,600} \approx 2{,}09\)</p>
-    <p>Ce résultat supérieur à 1 est physiquement impossible pour un simple capteur solaire ! Cela signifie que les données sont incohérentes : à \(Q_m = 0{,}02\ \text{kg/s}\) et \(\Delta T = 40\ \text{K}\), la puissance utile dépasse la puissance solaire reçue. En pratique, on devrait soit réduire \(Q_m\), soit réduire \(\Delta T\). Par exemple, pour \(\eta = 0{,}70\) : \(P_{\text{utile}} = 0{,}70 \times 1\,600 = 1\,120\ \text{W}\), soit \(\Delta T = \dfrac{1\,120}{Q_m \cdot c} = \dfrac{1\,120}{0{,}02 \times 4\,186} \approx 13{,}4\ \text{K}\).</p>
-  </div>
-</div>
-
-<!-- ===== EXERCICES CONTEXTUALISÉS ICCER ===== -->
-<h2>Exercices contextualisés ICCER</h2>
-
-<div class="exo">
+<!-- ── Exercice 8 — Standard ── -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
     <span class="exo-title">Dimensionnement d'un réseau de VMC</span>
-    <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>Un technicien en installations thermiques pose une VMC (ventilation mécanique contrôlée) dans un bâtiment. La gaine principale a un diamètre \(D = 200\ \text{mm} = 0{,}200\ \text{m}\) et l'air y circule à \(v = 3\ \text{m/s}\) (\(\rho_{\text{air}} = 1{,}2\ \text{kg/m}^3\)). La gaine se divise en 4 branches identiques, chacune de diamètre \(D_{\text{br}} = 100\ \text{mm} = 0{,}100\ \text{m}\).</p>
+  <p>Un technicien CVC pose une VMC dans un bâtiment. La gaine principale a un diamètre \(D = 200\ \text{mm}\) et l'air y circule à \(v = 3\ \text{m/s}\) (\(\rho_{\text{air}} = 1{,}2\ \text{kg/m}^3\)). La gaine se divise en 4 branches identiques de diamètre \(D_{\text{br}} = 100\ \text{mm}\).</p>
   <p class="q"><strong>1.</strong> Calculer la section de la gaine principale \(S\) en m².</p>
   <p class="q"><strong>2.</strong> Calculer le débit volumique principal \(Q_{v,\text{total}}\) en m³/s, puis en L/s.</p>
-  <p class="q"><strong>3.</strong> Calculer le débit volumique par branche \(Q_{v,\text{br}} = Q_{v,\text{total}} / 4\) en L/s.</p>
-  <p class="q"><strong>4.</strong> Calculer la section d'une branche \(S_{\text{br}}\), puis la vitesse de l'air dans chaque branche.</p>
+  <p class="q"><strong>3.</strong> Calculer le débit volumique par branche \(Q_{v,\text{br}}\) en L/s.</p>
+  <p class="q"><strong>4.</strong> Calculer la section d'une branche \(S_{\text{br}}\), puis la vitesse de l'air dans chaque branche. Commenter.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(S = \pi \times \left(\dfrac{0{,}200}{2}\right)^2 = \pi \times (0{,}100)^2 \approx \mathbf{3{,}14 \times 10^{-2}\ \text{m}^2}\)</p>
-    <p><strong>2.</strong> \(Q_{v,\text{total}} = v \times S = 3 \times 3{,}14 \times 10^{-2} \approx \mathbf{0{,}0942\ \text{m}^3/\text{s} \approx 94{,}2\ \text{L/s}}\)</p>
-    <p><strong>3.</strong> \(Q_{v,\text{br}} = \dfrac{94{,}2}{4} \approx \mathbf{23{,}6\ \text{L/s}}\) par branche</p>
+    <p><strong>1.</strong> \(S = \pi \times (0{,}100)^2 \approx \mathbf{3{,}14 \times 10^{-2}\ \text{m}^2}\)</p>
+    <p><strong>2.</strong> \(Q_{v,\text{total}} = 3 \times 3{,}14 \times 10^{-2} \approx \mathbf{0{,}0942\ \text{m}^3/\text{s} \approx 94{,}2\ \text{L/s}}\)</p>
+    <p><strong>3.</strong> \(Q_{v,\text{br}} = 94{,}2 / 4 \approx \mathbf{23{,}6\ \text{L/s}}\)</p>
     <p><strong>4.</strong> \(S_{\text{br}} = \pi \times (0{,}050)^2 \approx 7{,}85 \times 10^{-3}\ \text{m}^2\)</p>
-    <p>\(v_{\text{br}} = \dfrac{Q_{v,\text{br}}}{S_{\text{br}}} = \dfrac{23{,}6 \times 10^{-3}}{7{,}85 \times 10^{-3}} \approx \mathbf{3{,}0\ \text{m/s}}\)</p>
-    <p>La vitesse dans les branches est identique à celle de la gaine principale ! C'est cohérent : la section totale des 4 branches (\(4 \times S_{\text{br}} \approx 4 \times 7{,}85 \times 10^{-3} \approx 3{,}14 \times 10^{-2}\ \text{m}^2\)) est égale à la section de la gaine principale. La continuité est respectée.</p>
+    <p>\(v_{\text{br}} = \dfrac{23{,}6 \times 10^{-3}}{7{,}85 \times 10^{-3}} \approx \mathbf{3{,}0\ \text{m/s}}\)</p>
+    <p>La vitesse dans les branches est identique à celle de la gaine principale. La section totale des 4 branches (\(4 \times S_{\text{br}} \approx 3{,}14 \times 10^{-2}\ \text{m}^2\)) est égale à la section de la gaine principale : la continuité est respectée.</p>
   </div>
 </div>
 
-<div class="exo">
+<!-- ── Exercice 9 — Standard ── -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">Dimensionnement d'un circuit de plancher chauffant</span>
-    <span class="diff diff-3">Niveau 3</span>
+    <span class="exo-title">Dimensionnement du diamètre d'une conduite</span>
   </div>
-  <p>Un plombier chauffagiste dimensionne un circuit de plancher chauffant. Le débit volumique est \(Q_v = 400\ \text{L/h}\) dans un tube de diamètre \(D = 16\ \text{mm} = 0{,}016\ \text{m}\). L'écart de température entre l'aller et le retour est \(\Delta T = 5\ \text{°C}\). On prend \(\rho = 1\,000\ \text{kg/m}^3\), \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\). La longueur totale du circuit est 100 m et la perte de charge est \(\Delta P_{\text{lin}} = 10\ \text{Pa/m}\).</p>
-  <p class="q"><strong>1.</strong> Convertir \(Q_v = 400\ \text{L/h}\) en m³/s, puis calculer \(Q_m\) en kg/s.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance thermique délivrée par le plancher : \(P_{\text{th}} = Q_m \cdot c \cdot \Delta T\).</p>
-  <p class="q"><strong>3.</strong> Calculer la section du tube \(S\), puis la vitesse \(v\) de l'eau dans le tube.</p>
-  <p class="q"><strong>4.</strong> Calculer la pression totale à vaincre par la pompe de circulation : \(\Delta P_{\text{total}} = \Delta P_{\text{lin}} \times L\). Exprimer en Pa et en bar.</p>
+  <p>Un installateur thermique doit transporter un débit volumique \(Q_v = 300\ \text{L/h}\) d'eau dans un circuit de chauffage. La vitesse maximale recommandée est \(v_{\text{max}} = 1{,}5\ \text{m/s}\).</p>
+  <p class="q"><strong>1.</strong> Convertir \(Q_v\) en m³/s.</p>
+  <p class="q"><strong>2.</strong> Calculer la section minimale \(S_{\text{min}} = Q_v / v_{\text{max}}\).</p>
+  <p class="q"><strong>3.</strong> En déduire le diamètre minimal \(D_{\text{min}}\) à partir de \(S = \pi (D/2)^2\).</p>
+  <p class="q"><strong>4.</strong> Choisir le diamètre commercial parmi : 15 mm, 20 mm, 25 mm. Justifier et vérifier que la vitesse est conforme.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(Q_v = \dfrac{400 \times 10^{-3}}{3\,600} \approx \mathbf{1{,}11 \times 10^{-4}\ \text{m}^3/\text{s}}\)</p>
-    <p>\(Q_m = \rho \cdot Q_v = 1\,000 \times 1{,}11 \times 10^{-4} \approx \mathbf{0{,}111\ \text{kg/s}}\)</p>
-    <p><strong>2.</strong> \(P_{\text{th}} = Q_m \cdot c \cdot \Delta T = 0{,}111 \times 4\,186 \times 5 \approx \mathbf{2\,323\ \text{W} \approx 2{,}32\ \text{kW}}\)</p>
-    <p><strong>3.</strong> \(S = \pi \times \left(\dfrac{0{,}016}{2}\right)^2 = \pi \times (0{,}008)^2 \approx 2{,}01 \times 10^{-4}\ \text{m}^2\)</p>
-    <p>\(v = \dfrac{Q_v}{S} = \dfrac{1{,}11 \times 10^{-4}}{2{,}01 \times 10^{-4}} \approx \mathbf{0{,}552\ \text{m/s}}\)</p>
-    <p>Cette vitesse est inférieure à 0,8 m/s (recommandation pour les planchers chauffants) : le dimensionnement est acceptable.</p>
-    <p><strong>4.</strong> \(\Delta P_{\text{total}} = \Delta P_{\text{lin}} \times L = 10 \times 100 = \mathbf{1\,000\ \text{Pa} = 0{,}01\ \text{bar}}\)</p>
-    <p>C'est une perte de charge faible, correspondant à une hauteur manométrique d'environ \(h = \Delta P / (\rho g) = 1\,000 / (1\,000 \times 9{,}81) \approx 0{,}10\ \text{m}\) de colonne d'eau. Une petite pompe de circulation suffit pour ce circuit.</p>
+    <p><strong>1.</strong> \(Q_v = \dfrac{300 \times 10^{-3}}{3\,600} \approx \mathbf{8{,}33 \times 10^{-5}\ \text{m}^3/\text{s}}\)</p>
+    <p><strong>2.</strong> \(S_{\text{min}} = \dfrac{8{,}33 \times 10^{-5}}{1{,}5} \approx \mathbf{5{,}56 \times 10^{-5}\ \text{m}^2}\)</p>
+    <p><strong>3.</strong> \(D = 2\sqrt{\dfrac{S}{\pi}} = 2\sqrt{\dfrac{5{,}56 \times 10^{-5}}{\pi}} \approx \mathbf{8{,}4\ \text{mm}}\)</p>
+    <p><strong>4.</strong> On choisit \(D = \mathbf{15\ \text{mm}}\) (premier diamètre commercial supérieur à 8,4 mm).</p>
+    <p>Vérification : \(S = \pi \times (0{,}0075)^2 \approx 1{,}77 \times 10^{-4}\ \text{m}^2\), \(v = Q_v/S \approx 0{,}47\ \text{m/s} < 1{,}5\ \text{m/s}\). Conforme.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 10 — Standard ── -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Circulation sanguine</span>
+  </div>
+  <p>Le sang (\(\rho = 1\,060\ \text{kg/m}^3\)) circule dans l'aorte de diamètre \(D = 25\ \text{mm}\) à la vitesse \(v = 0{,}30\ \text{m/s}\).</p>
+  <p class="q"><strong>1.</strong> Calculer la section de l'aorte.</p>
+  <p class="q"><strong>2.</strong> Calculer le débit volumique en m³/s puis en L/min.</p>
+  <p class="q"><strong>3.</strong> Calculer le débit massique en kg/s.</p>
+  <p class="q"><strong>4.</strong> L'aorte se ramifie en artères plus petites dont la section totale est \(S_{\text{art}} = 20\ \text{cm}^2\). Quelle est la vitesse du sang dans ces artères ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(S = \pi \times (0{,}0125)^2 \approx \mathbf{4{,}91 \times 10^{-4}\ \text{m}^2}\)</p>
+    <p><strong>2.</strong> \(Q_v = 0{,}30 \times 4{,}91 \times 10^{-4} \approx 1{,}47 \times 10^{-4}\ \text{m}^3/\text{s}\)</p>
+    <p>\(Q_v = 1{,}47 \times 10^{-4} \times 1\,000 \times 60 \approx \mathbf{8{,}8\ \text{L/min}}\)</p>
+    <p><strong>3.</strong> \(Q_m = 1\,060 \times 1{,}47 \times 10^{-4} \approx \mathbf{0{,}156\ \text{kg/s}}\)</p>
+    <p><strong>4.</strong> \(v_{\text{art}} = \dfrac{Q_v}{S_{\text{art}}} = \dfrac{1{,}47 \times 10^{-4}}{20 \times 10^{-4}} \approx \mathbf{0{,}074\ \text{m/s}}\)</p>
+    <p>La vitesse diminue car la section totale augmente (continuité). Le sang ralentit dans les artères pour favoriser les échanges avec les organes.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                  EXERCICES APPROFONDISSEMENT                  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>Exercices avancés</h2>
+
+<!-- ── Exercice 11 — Approfondissement ── -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Dimensionnement complet d'un circuit de plancher chauffant</span>
+  </div>
+  <p>Un plombier chauffagiste dimensionne un circuit de plancher chauffant pour une pièce de 25 m². Le tube PER utilisé a un diamètre intérieur \(D = 16\ \text{mm}\). L'eau entre à \(T_{\text{aller}} = 35\ \text{°C}\) et ressort à \(T_{\text{retour}} = 30\ \text{°C}\). La longueur totale du circuit est \(L = 100\ \text{m}\) et la perte de charge linéaire est \(\Delta P_{\text{lin}} = 10\ \text{Pa/m}\).</p>
+  <p>Données : \(\rho = 1\,000\ \text{kg/m}^3\), \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\).</p>
+  <p class="q"><strong>1.</strong> Le cahier des charges impose une puissance de chauffage \(P_{\text{th}} = 2\,500\ \text{W}\). Déterminer le débit massique \(Q_m\) nécessaire.</p>
+  <p class="q"><strong>2.</strong> En déduire le débit volumique \(Q_v\) en m³/s puis en L/h.</p>
+  <p class="q"><strong>3.</strong> Calculer la vitesse de l'eau dans le tube. La recommandation pour un plancher chauffant est \(v < 0{,}8\ \text{m/s}\). Le dimensionnement est-il conforme ?</p>
+  <p class="q"><strong>4.</strong> Calculer la perte de charge totale \(\Delta P_{\text{total}}\) en Pa et en bar. Quelle hauteur manométrique la pompe doit-elle vaincre ?</p>
+  <p class="q"><strong>5.</strong> Calculer la puissance surfacique de chauffage en W/m². Comparer à la norme (environ 100 W/m² max pour un plancher chauffant basse température).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{\text{th}} = Q_m \cdot c \cdot \Delta T\) donc \(Q_m = \dfrac{P_{\text{th}}}{c \cdot \Delta T} = \dfrac{2\,500}{4\,186 \times 5} \approx \mathbf{0{,}119\ \text{kg/s}}\)</p>
+    <p><strong>2.</strong> \(Q_v = \dfrac{Q_m}{\rho} = \dfrac{0{,}119}{1\,000} = 1{,}19 \times 10^{-4}\ \text{m}^3/\text{s}\)</p>
+    <p>\(Q_v = 1{,}19 \times 10^{-4} \times 3\,600 \times 1\,000 \approx \mathbf{429\ \text{L/h}}\)</p>
+    <p><strong>3.</strong> \(S = \pi \times (0{,}008)^2 \approx 2{,}01 \times 10^{-4}\ \text{m}^2\)</p>
+    <p>\(v = \dfrac{Q_v}{S} = \dfrac{1{,}19 \times 10^{-4}}{2{,}01 \times 10^{-4}} \approx \mathbf{0{,}59\ \text{m/s}}\)</p>
+    <p>\(0{,}59 < 0{,}8\ \text{m/s}\) : le dimensionnement est <strong>conforme</strong>.</p>
+    <p><strong>4.</strong> \(\Delta P_{\text{total}} = 10 \times 100 = \mathbf{1\,000\ \text{Pa} = 0{,}01\ \text{bar}}\)</p>
+    <p>\(h = \dfrac{\Delta P}{\rho g} = \dfrac{1\,000}{1\,000 \times 9{,}81} \approx \mathbf{0{,}10\ \text{m}}\) de colonne d'eau. Une petite pompe de circulation suffit.</p>
+    <p><strong>5.</strong> \(p = \dfrac{P_{\text{th}}}{A} = \dfrac{2\,500}{25} = \mathbf{100\ \text{W/m}^2}\). On est à la limite de la norme : le dimensionnement est juste acceptable.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 12 — Approfondissement ── -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Chauffe-eau solaire — rendement et cohérence des données</span>
+  </div>
+  <p>Un installateur en énergies renouvelables dimensionne un chauffe-eau solaire. Le capteur de surface \(S_c = 4\ \text{m}^2\) reçoit une irradiance solaire \(E = 850\ \text{W/m}^2\). L'eau entre à \(T_1 = 15\ \text{°C}\) et doit sortir à \(T_2 = 50\ \text{°C}\). Le rendement annoncé par le fabricant est \(\eta = 0{,}65\).</p>
+  <p>Données : \(\rho = 1\,000\ \text{kg/m}^3\), \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\).</p>
+  <p class="q"><strong>1.</strong> Calculer la puissance solaire reçue \(P_{\text{sol}} = E \times S_c\).</p>
+  <p class="q"><strong>2.</strong> En déduire la puissance utile \(P_{\text{utile}} = \eta \times P_{\text{sol}}\).</p>
+  <p class="q"><strong>3.</strong> Déterminer le débit massique maximal \(Q_m\) permettant d'atteindre \(\Delta T = 35\ \text{°C}\).</p>
+  <p class="q"><strong>4.</strong> En déduire le débit volumique en L/h. Commenter : est-ce un débit réaliste pour un chauffe-eau solaire domestique ?</p>
+  <p class="q"><strong>5.</strong> Si le technicien augmente le débit à \(Q_v = 150\ \text{L/h}\), quel sera le nouvel écart de température \(\Delta T\) ? Commenter l'intérêt d'augmenter le débit.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{\text{sol}} = 850 \times 4 = \mathbf{3\,400\ \text{W}}\)</p>
+    <p><strong>2.</strong> \(P_{\text{utile}} = 0{,}65 \times 3\,400 = \mathbf{2\,210\ \text{W}}\)</p>
+    <p><strong>3.</strong> \(Q_m = \dfrac{P_{\text{utile}}}{c \cdot \Delta T} = \dfrac{2\,210}{4\,186 \times 35} \approx \mathbf{0{,}0151\ \text{kg/s}}\)</p>
+    <p><strong>4.</strong> \(Q_v = \dfrac{Q_m}{\rho} = 1{,}51 \times 10^{-5}\ \text{m}^3/\text{s} = 1{,}51 \times 10^{-5} \times 3{,}6 \times 10^6 \approx \mathbf{54\ \text{L/h}}\)</p>
+    <p>C'est un débit réaliste pour un chauffe-eau solaire domestique (typiquement 30 à 80 L/h).</p>
+    <p><strong>5.</strong> \(Q_m = \dfrac{150 \times 10^{-3}}{3\,600} \times 1\,000 \approx 0{,}0417\ \text{kg/s}\)</p>
+    <p>\(\Delta T = \dfrac{P_{\text{utile}}}{Q_m \cdot c} = \dfrac{2\,210}{0{,}0417 \times 4\,186} \approx \mathbf{12{,}7\ \text{°C}}\)</p>
+    <p>En augmentant le débit, l'écart de température diminue. L'eau sort moins chaude (27,7 °C au lieu de 50 °C) mais la puissance totale transférée reste la même. Il faut trouver le bon compromis entre débit et température de sortie.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 13 — Approfondissement ── -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Problème ouvert — Bernoulli et continuité dans une installation CVC</span>
+  </div>
+  <p>Un technicien climaticien vérifie une installation de climatisation. L'eau glacée (\(\rho = 1\,000\ \text{kg/m}^3\)) circule horizontalement dans une conduite dont la section passe de \(S_1 = 80\ \text{cm}^2\) à \(S_2 = 20\ \text{cm}^2\) (venturi). En amont : \(v_1 = 1{,}5\ \text{m/s}\), \(P_1 = 2{,}5\ \text{bar}\).</p>
+  <p class="q"><strong>1.</strong> Calculer le débit volumique \(Q_v\) et le débit massique \(Q_m\).</p>
+  <p class="q"><strong>2.</strong> Calculer la vitesse \(v_2\) dans le venturi.</p>
+  <p class="q"><strong>3.</strong> Appliquer le théorème de Bernoulli pour déterminer la pression \(P_2\) dans le venturi. Exprimer en Pa et en bar.</p>
+  <p class="q"><strong>4.</strong> La pression de vapeur saturante de l'eau à 5 °C est \(P_{\text{vap}} \approx 872\ \text{Pa}\). Y a-t-il un risque de cavitation ? Justifier.</p>
+  <p class="q"><strong>5.</strong> Proposer une modification de l'installation pour réduire ce risque.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(Q_v = v_1 \times S_1 = 1{,}5 \times 80 \times 10^{-4} = \mathbf{1{,}2 \times 10^{-2}\ \text{m}^3/\text{s}}\)</p>
+    <p>\(Q_m = \rho \times Q_v = 1\,000 \times 1{,}2 \times 10^{-2} = \mathbf{12\ \text{kg/s}}\)</p>
+    <p><strong>2.</strong> \(v_2 = \dfrac{v_1 \times S_1}{S_2} = \dfrac{1{,}5 \times 80}{20} = \mathbf{6\ \text{m/s}}\)</p>
+    <p><strong>3.</strong> \(P_2 = P_1 + \dfrac{1}{2}\rho(v_1^2 - v_2^2)\)</p>
+    <p>\(P_2 = 250\,000 + \dfrac{1}{2} \times 1\,000 \times (1{,}5^2 - 6^2) = 250\,000 + 500 \times (2{,}25 - 36)\)</p>
+    <p>\(P_2 = 250\,000 - 16\,875 = \mathbf{233\,125\ \text{Pa} \approx 2{,}33\ \text{bar}}\)</p>
+    <p><strong>4.</strong> \(P_2 = 233\,125\ \text{Pa} \gg P_{\text{vap}} = 872\ \text{Pa}\). Il n'y a <strong>pas de risque de cavitation</strong> car la pression dans le venturi reste très largement supérieure à la pression de vapeur saturante.</p>
+    <p><strong>5.</strong> Pour réduire le risque de cavitation dans d'autres conditions, on pourrait : augmenter la section \(S_2\) (réduire le rapport de rétrécissement), diminuer le débit, ou augmenter la pression en amont.</p>
+  </div>
+</div>
+
+<!-- ── Exercice 14 — Approfondissement ── -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <div class="exo-header">
+    <span class="exo-num">Exercice 14</span>
+    <span class="exo-title">Étude comparative — Deux circuits de chauffage (type BTS)</span>
+  </div>
+  <p>Un bureau d'études compare deux configurations de circuit de chauffage pour un bâtiment nécessitant \(P_{\text{th}} = 10\ \text{kW}\).</p>
+  <table>
+    <thead><tr><th></th><th>Circuit A (haute température)</th><th>Circuit B (basse température)</th></tr></thead>
+    <tbody>
+      <tr><td>\(\Delta T\)</td><td>20 °C</td><td>5 °C</td></tr>
+      <tr><td>Diamètre \(D\)</td><td>20 mm</td><td>25 mm</td></tr>
+    </tbody>
+  </table>
+  <p>Données : \(\rho = 1\,000\ \text{kg/m}^3\), \(c = 4\,186\ \text{J·kg}^{-1}\text{·K}^{-1}\).</p>
+  <p class="q"><strong>1.</strong> Pour chaque circuit, calculer le débit massique \(Q_m\) nécessaire.</p>
+  <p class="q"><strong>2.</strong> Pour chaque circuit, calculer le débit volumique \(Q_v\) en L/h.</p>
+  <p class="q"><strong>3.</strong> Pour chaque circuit, calculer la vitesse de l'eau dans la conduite.</p>
+  <p class="q"><strong>4.</strong> Comparer les deux circuits. Quel est l'avantage et l'inconvénient de chaque configuration ?</p>
+  <p class="q"><strong>5.</strong> La vitesse maximale recommandée est 1,5 m/s. Le circuit B est-il conforme ? Si non, quel diamètre minimal faudrait-il utiliser ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <p>Circuit A : \(Q_m = \dfrac{10\,000}{4\,186 \times 20} \approx \mathbf{0{,}119\ \text{kg/s}}\)</p>
+    <p>Circuit B : \(Q_m = \dfrac{10\,000}{4\,186 \times 5} \approx \mathbf{0{,}478\ \text{kg/s}}\)</p>
+    <p><strong>2.</strong></p>
+    <p>Circuit A : \(Q_v = 0{,}119 \times 10^{-3} \times 3{,}6 \times 10^6 \div 1\,000 \approx \mathbf{429\ \text{L/h}}\)</p>
+    <p>Circuit B : \(Q_v = 0{,}478 \times 10^{-3} \times 3{,}6 \times 10^6 \div 1\,000 \approx \mathbf{1\,720\ \text{L/h}}\)</p>
+    <p><strong>3.</strong></p>
+    <p>Circuit A : \(S_A = \pi \times (0{,}010)^2 \approx 3{,}14 \times 10^{-4}\ \text{m}^2\), \(v_A = \dfrac{1{,}19 \times 10^{-4}}{3{,}14 \times 10^{-4}} \approx \mathbf{0{,}38\ \text{m/s}}\)</p>
+    <p>Circuit B : \(S_B = \pi \times (0{,}0125)^2 \approx 4{,}91 \times 10^{-4}\ \text{m}^2\), \(v_B = \dfrac{4{,}78 \times 10^{-4}}{4{,}91 \times 10^{-4}} \approx \mathbf{0{,}97\ \text{m/s}}\)</p>
+    <p><strong>4.</strong></p>
+    <ul>
+      <li><strong>Circuit A :</strong> débit faible, vitesse faible, pompe de faible puissance. Mais température élevée (risque de brûlure, pertes thermiques plus importantes).</li>
+      <li><strong>Circuit B :</strong> confort thermique supérieur (basse température), compatible plancher chauffant. Mais débit 4 fois plus élevé, vitesse plus grande, pompe plus puissante nécessaire.</li>
+    </ul>
+    <p><strong>5.</strong> \(v_B \approx 0{,}97\ \text{m/s} < 1{,}5\ \text{m/s}\) : le circuit B est <strong>conforme</strong>.</p>
+    <p>Si la vitesse n'était pas conforme, il faudrait \(S_{\text{min}} = Q_v / v_{\text{max}}\) et \(D_{\text{min}} = 2\sqrt{S_{\text{min}}/\pi}\).</p>
   </div>
 </div>
 
@@ -261,5 +441,6 @@
 </div>
 <script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
 <script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

@@ -163,8 +163,182 @@
   </details>
 </div>
 
+<!-- ═══════════════════════════════════ SOCLE ═══════════════════════════════════ -->
+<div class="diff-socle">
+<div class="section-titre">
+  <span class="tag-socle">Socle</span>
+  <span class="niveau n1">Exercices guidés — Pas à pas</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- S1 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S1</span>Lire sin, cos et tan dans un triangle rectangle (guidé)</div>
+
+  <div class="meth">
+    <span class="label-meth">Méthode SOH-CAH-TOA</span>
+    <ul>
+      <li><strong>S</strong>in = <strong>O</strong>pposé / <strong>H</strong>ypoténuse</li>
+      <li><strong>C</strong>os = <strong>A</strong>djacent / <strong>H</strong>ypoténuse</li>
+      <li><strong>T</strong>an = <strong>O</strong>pposé / <strong>A</strong>djacent</li>
+    </ul>
+  </div>
+
+  <p>Soit le triangle \(MNP\) rectangle en \(P\) avec \(MN = 10\) cm (hypoténuse), \(MP = 8\) cm et \(NP = 6\) cm.</p>
+
+  <div style="text-align:center;margin:16px 0">
+    <svg width="280" height="200" viewBox="0 0 280 200">
+      <polygon points="40,170 240,170 240,30" fill="none" stroke="#0969da" stroke-width="2"/>
+      <rect x="230" y="160" width="10" height="10" fill="none" stroke="#0969da" stroke-width="1.5"/>
+      <text x="25" y="185" font-size="14" fill="#1a202c" font-weight="600">M</text>
+      <text x="248" y="185" font-size="14" fill="#1a202c" font-weight="600">P</text>
+      <text x="248" y="25" font-size="14" fill="#1a202c" font-weight="600">N</text>
+      <text x="130" y="192" font-size="12" fill="#4a5568">8 cm (adjacent)</text>
+      <text x="248" y="105" font-size="12" fill="#4a5568">6 cm (opposé)</text>
+      <text x="105" y="88" font-size="12" fill="#0969da" font-weight="600">10 cm (hyp.)</text>
+      <path d="M 65,170 A 25,25 0 0,0 58,152" fill="none" stroke="#e53e3e" stroke-width="1.5"/>
+      <text x="72" y="158" font-size="11" fill="#e53e3e">α</text>
+    </svg>
+  </div>
+
+  <div class="consigne">
+    <strong>Étape 1 :</strong> Repérer les côtés par rapport à l'angle \(\alpha = \widehat{NMP}\).<br>
+    &bull; Côté <strong>opposé</strong> à \(\alpha\) = \(\boxed{\phantom{NP = 6}}\)<br>
+    &bull; Côté <strong>adjacent</strong> à \(\alpha\) = \(\boxed{\phantom{MP = 8}}\)<br>
+    &bull; <strong>Hypoténuse</strong> = \(\boxed{\phantom{MN = 10}}\)<br><br>
+
+    <strong>Étape 2 :</strong> Appliquer SOH-CAH-TOA.<br>
+    \(\sin \alpha = \dfrac{\text{opposé}}{\text{hypoténuse}} = \dfrac{\boxed{\phantom{6}}}{\boxed{\phantom{10}}} = \boxed{\phantom{0{,}6}}\)<br><br>
+    \(\cos \alpha = \dfrac{\text{adjacent}}{\text{hypoténuse}} = \dfrac{\boxed{\phantom{8}}}{\boxed{\phantom{10}}} = \boxed{\phantom{0{,}8}}\)<br><br>
+    \(\tan \alpha = \dfrac{\text{opposé}}{\text{adjacent}} = \dfrac{\boxed{\phantom{6}}}{\boxed{\phantom{8}}} = \boxed{\phantom{0{,}75}}\)
+  </div>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>Étape 1 :</strong> Opposé = \(NP = 6\) cm, Adjacent = \(MP = 8\) cm, Hypoténuse = \(MN = 10\) cm.</p>
+      <p><strong>Étape 2 :</strong></p>
+      <p><span class="reponse">\(\sin \alpha = \dfrac{6}{10} = 0{,}6\)</span></p>
+      <p><span class="reponse">\(\cos \alpha = \dfrac{8}{10} = 0{,}8\)</span></p>
+      <p><span class="reponse">\(\tan \alpha = \dfrac{6}{8} = 0{,}75\)</span></p>
+      <p>Vérification : \(0{,}6^2 + 0{,}8^2 = 0{,}36 + 0{,}64 = 1\) ✓ (identité fondamentale)</p>
+    </div>
+  </details>
+</div>
+
+<!-- S2 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S2</span>Calculer un côté avec la trigonométrie (guidé)</div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier agenceur doit installer une rampe d'accès. La rampe fait un angle de \(20°\) avec le sol et doit atteindre une hauteur de \(0{,}80\) m. Il veut connaître la longueur de la rampe.
+  </div>
+
+  <div style="text-align:center;margin:16px 0">
+    <svg width="300" height="160" viewBox="0 0 300 160">
+      <polygon points="30,130 260,130 260,40" fill="none" stroke="#0969da" stroke-width="2"/>
+      <rect x="250" y="120" width="10" height="10" fill="none" stroke="#0969da" stroke-width="1.5"/>
+      <text x="140" y="148" font-size="12" fill="#4a5568">sol (adjacent)</text>
+      <text x="265" y="90" font-size="12" fill="#4a5568">0,80 m</text>
+      <text x="120" y="72" font-size="12" fill="#0969da" font-weight="600">rampe = ?</text>
+      <path d="M 60,130 A 30,30 0 0,0 55,115" fill="none" stroke="#e53e3e" stroke-width="1.5"/>
+      <text x="65" y="118" font-size="11" fill="#e53e3e">20°</text>
+    </svg>
+  </div>
+
+  <div class="meth">
+    <span class="label-meth">Méthode — Trouver un côté</span>
+    <ol>
+      <li>Identifier l'angle connu et les côtés en jeu (opposé, adjacent, hypoténuse).</li>
+      <li>Choisir la bonne formule (SOH, CAH ou TOA).</li>
+      <li>Isoler l'inconnue et calculer.</li>
+    </ol>
+  </div>
+
+  <div class="consigne">
+    <strong>Étape 1 :</strong> Par rapport à l'angle de \(20°\), quels sont les côtés connus et inconnus ?<br>
+    &bull; La hauteur \(0{,}80\) m est le côté \(\boxed{\phantom{\text{opposé}}}\)<br>
+    &bull; La rampe est \(\boxed{\phantom{\text{l'hypoténuse}}}\)<br><br>
+
+    <strong>Étape 2 :</strong> Quelle formule utiliser ?<br>
+    On connaît l'<strong>opposé</strong> et on cherche l'<strong>hypoténuse</strong> → formule : \(\boxed{\phantom{\sin}}\)<br><br>
+
+    <strong>Étape 3 :</strong> Poser et résoudre.<br>
+    \(\sin(20°) = \dfrac{0{,}80}{\text{rampe}}\)<br><br>
+    Donc : rampe \(= \dfrac{0{,}80}{\sin(20°)} = \dfrac{0{,}80}{\boxed{\phantom{0{,}342}}} = \boxed{\phantom{2{,}34 \text{ m}}}\)
+  </div>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>Étape 1 :</strong> La hauteur \(0{,}80\) m est le côté <strong>opposé</strong>. La rampe est l'<strong>hypoténuse</strong>.</p>
+      <p><strong>Étape 2 :</strong> Opposé et hypoténuse → formule <strong>sin</strong> (SOH).</p>
+      <p><strong>Étape 3 :</strong> \(\sin(20°) = \dfrac{0{,}80}{\text{rampe}}\)</p>
+      <p>Rampe \(= \dfrac{0{,}80}{\sin(20°)} = \dfrac{0{,}80}{0{,}342} \approx\) <span class="reponse">\(2{,}34\) m</span></p>
+      <p>Le menuisier a besoin d'une rampe d'environ <strong>2,34 m</strong>.</p>
+    </div>
+  </details>
+</div>
+
+<!-- S3 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">S3</span>Calculer un angle avec les fonctions inverses (guidé)</div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien chauffagiste doit incliner un tuyau d'évacuation. Le tuyau monte de \(0{,}50\) m sur une distance horizontale de \(1{,}20\) m. Il veut connaître l'angle d'inclinaison.
+  </div>
+
+  <div style="text-align:center;margin:16px 0">
+    <svg width="280" height="150" viewBox="0 0 280 150">
+      <polygon points="30,120 230,120 230,50" fill="none" stroke="#0969da" stroke-width="2"/>
+      <rect x="220" y="110" width="10" height="10" fill="none" stroke="#0969da" stroke-width="1.5"/>
+      <text x="120" y="138" font-size="12" fill="#4a5568">1,20 m</text>
+      <text x="238" y="90" font-size="12" fill="#4a5568">0,50 m</text>
+      <path d="M 60,120 A 30,30 0 0,0 56,107" fill="none" stroke="#e53e3e" stroke-width="1.5"/>
+      <text x="65" y="110" font-size="11" fill="#e53e3e">α = ?</text>
+    </svg>
+  </div>
+
+  <div class="meth">
+    <span class="label-meth">Méthode — Trouver un angle</span>
+    <ol>
+      <li>Calculer le rapport trigonométrique avec les côtés connus.</li>
+      <li>Utiliser la touche <strong>arctan</strong> (ou \(\tan^{-1}\)) de la calculatrice.</li>
+      <li>Vérifier que le résultat est cohérent (un angle entre 0° et 90°).</li>
+    </ol>
+  </div>
+
+  <div class="consigne">
+    <strong>Étape 1 :</strong> On connaît le côté opposé (\(0{,}50\) m) et le côté adjacent (\(1{,}20\) m).<br>
+    Quelle formule choisir ? → \(\boxed{\phantom{\tan}}\)<br><br>
+
+    <strong>Étape 2 :</strong> Calculer le rapport.<br>
+    \(\tan(\alpha) = \dfrac{\text{opposé}}{\text{adjacent}} = \dfrac{0{,}50}{1{,}20} = \boxed{\phantom{0{,}4167}}\)<br><br>
+
+    <strong>Étape 3 :</strong> Trouver l'angle avec la calculatrice.<br>
+    Sur la calculatrice, taper : <kbd>SHIFT</kbd> <kbd>tan</kbd> <kbd>(</kbd> <kbd>0.4167</kbd> <kbd>)</kbd> <kbd>=</kbd><br>
+    \(\alpha = \arctan(0{,}4167) = \boxed{\phantom{22{,}6°}}\)
+  </div>
+
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>Étape 1 :</strong> On connaît opposé et adjacent → formule <strong>tan</strong> (TOA).</p>
+      <p><strong>Étape 2 :</strong> \(\tan(\alpha) = \dfrac{0{,}50}{1{,}20} \approx 0{,}4167\)</p>
+      <p><strong>Étape 3 :</strong> <span class="reponse">\(\alpha = \arctan(0{,}4167) \approx 22{,}6°\)</span></p>
+      <p>Le tuyau fait un angle d'environ <strong>22,6°</strong> avec l'horizontale. C'est cohérent : le tuyau monte peu sur une grande distance.</p>
+    </div>
+  </details>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ═══════════════════════════════════ STANDARD ═══════════════════════════════════ -->
+<div class="diff-standard">
+
 <!-- ═══════════════════════════════════ NIVEAU 2 ═══════════════════════════════════ -->
 <div class="section-titre">
+  <span class="tag-standard">Standard</span>
   <span class="niveau n2">Niveau 2 — Application directe</span>
   <div class="section-ligne"></div>
 </div>
@@ -430,8 +604,14 @@
   </details>
 </div>
 
+</div><!-- fin diff-standard -->
+
+<!-- ═══════════════════════════════════ APPRO ═══════════════════════════════════ -->
+<div class="diff-appro">
+
 <!-- ═══════════════════════════════════ NIVEAU 4 ═══════════════════════════════════ -->
 <div class="section-titre">
+  <span class="tag-appro">Approfondissement</span>
   <span class="niveau n4">Niveau 4 — Problèmes contextualisés</span>
   <div class="section-ligne"></div>
 </div>
@@ -595,6 +775,8 @@
   </details>
 </div>
 
+</div><!-- fin diff-appro -->
+
 <div class="nav-footer">
   <a href="lecon.html">📖 Cours Ch07</a>
   <a href="ds.html">📝 Devoir Ch07</a>
@@ -603,5 +785,6 @@
 
 </div>
 <script src="/nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

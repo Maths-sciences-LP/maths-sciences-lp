@@ -7,11 +7,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
-.methode strong{color:#d97706}
-.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-.attention strong{color:#be123c}</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
 </head>
 <body><div class="c">
 <a href="../../../pc-term-iccer.html" class="nb">← Retour au sommaire</a>
@@ -39,17 +35,138 @@
   </ul>
 </div>
 
-<div class="attention">
-  <strong>Attention !</strong> Le facteur de puissance \(\cos\varphi\) est compris entre 0 et 1. Pour un récepteur purement résistif (résistance chauffante, radiateur électrique), \(\cos\varphi = 1\). Pour un moteur, \(\cos\varphi\) est typiquement 0,7 à 0,9. Un mauvais \(\cos\varphi\) augmente le courant à puissance utile égale, ce qui surcharge les câbles et augmente les pertes Joule.
+<div class="att">
+  <span class="label-att">Attention</span>
+  Le facteur de puissance \(\cos\varphi\) est compris entre 0 et 1. Pour un récepteur purement résistif (résistance chauffante, radiateur électrique), \(\cos\varphi = 1\). Pour un moteur, \(\cos\varphi\) est typiquement 0,7 à 0,9. Un mauvais \(\cos\varphi\) augmente le courant à puissance utile égale, ce qui surcharge les câbles et augmente les pertes Joule.
 </div>
 
-<!-- ===== EXERCICES DE BASE ===== -->
-<h2>Exercices de base</h2>
+<!-- ============================================================ -->
+<!--                       NIVEAU SOCLE                           -->
+<!-- ============================================================ -->
 
-<div class="exo">
+<h2>Exercices guidés pas à pas</h2>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S1</span>
+    <span class="exo-title">Radiateur électrique – calcul guidé de P et S</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un technicien chauffagiste installe un radiateur électrique dans un vestiaire. Le radiateur est branché sur une prise monophasée <strong>230 V</strong> et absorbe un courant de <strong>8 A</strong>. C'est un récepteur purement résistif : \(\cos\varphi = 1\).</p>
+  <div class="meth">
+    <span class="label-meth">Méthode</span>
+    Pour un récepteur résistif (\(\cos\varphi = 1\)), la formule se simplifie : \(P = U \times I \times 1 = U \times I\).
+  </div>
+  <p class="q"><strong>1.</strong> Compléter le calcul de la puissance apparente :</p>
+  <p>\(S = U \times I = 230 \times \boxed{\phantom{0000}} = \boxed{\phantom{0000}}\ \text{VA}\)</p>
+  <p class="q"><strong>2.</strong> Compléter le calcul de la puissance active :</p>
+  <p>\(P = U \times I \times \cos\varphi = 230 \times 8 \times \boxed{\phantom{00}} = \boxed{\phantom{0000}}\ \text{W}\)</p>
+  <p class="q"><strong>3.</strong> Comparer \(P\) et \(S\). Cocher la bonne réponse :</p>
+  <ul>
+    <li>☐ \(P > S\)</li>
+    <li>☐ \(P = S\)</li>
+    <li>☐ \(P < S\)</li>
+  </ul>
+  <p class="q"><strong>4.</strong> Que vaut la puissance réactive \(Q\) pour un récepteur purement résistif ? (Rappel : \(\sin\varphi = 0\) quand \(\cos\varphi = 1\))</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(S = U \times I = 230 \times 8 = \mathbf{1\,840\ VA}\)</p>
+    <p><strong>2.</strong> \(P = 230 \times 8 \times 1 = \mathbf{1\,840\ W}\)</p>
+    <p><strong>3.</strong> \(P = S\) (bonne réponse : la deuxième case). Pour un récepteur purement résistif, toute la puissance apparente est convertie en puissance utile.</p>
+    <p><strong>4.</strong> \(Q = U \times I \times \sin\varphi = 230 \times 8 \times 0 = \mathbf{0\ var}\). La puissance réactive est nulle.</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S2</span>
+    <span class="exo-title">Compléter un tableau de puissances</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un installateur thermique relève les données de trois appareils monophasés branchés sur le réseau 230 V. Compléter le tableau ci-dessous.</p>
+  <p><em>Formules :</em> \(S = U \times I\) &nbsp;|&nbsp; \(P = U \times I \times \cos\varphi\) &nbsp;|&nbsp; \(Q = U \times I \times \sin\varphi\)</p>
+  <table>
+    <tr><th>Appareil</th><th>\(U\) (V)</th><th>\(I\) (A)</th><th>\(\cos\varphi\)</th><th>\(\sin\varphi\)</th><th>\(S\) (VA)</th><th>\(P\) (W)</th><th>\(Q\) (var)</th></tr>
+    <tr><td>Convecteur</td><td>230</td><td>6,5</td><td>1</td><td>0</td><td>…</td><td>…</td><td>…</td></tr>
+    <tr><td>Circulateur</td><td>230</td><td>0,9</td><td>0,65</td><td>0,76</td><td>…</td><td>…</td><td>…</td></tr>
+    <tr><td>Ventilateur VMC</td><td>230</td><td>1,2</td><td>0,80</td><td>0,60</td><td>…</td><td>…</td><td>…</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>Appareil</th><th>\(S\) (VA)</th><th>\(P\) (W)</th><th>\(Q\) (var)</th></tr>
+      <tr><td>Convecteur</td><td>\(230 \times 6{,}5 = \mathbf{1\,495}\)</td><td>\(1\,495 \times 1 = \mathbf{1\,495}\)</td><td>\(1\,495 \times 0 = \mathbf{0}\)</td></tr>
+      <tr><td>Circulateur</td><td>\(230 \times 0{,}9 = \mathbf{207}\)</td><td>\(207 \times 0{,}65 = \mathbf{134{,}6}\)</td><td>\(207 \times 0{,}76 = \mathbf{157{,}3}\)</td></tr>
+      <tr><td>Ventilateur VMC</td><td>\(230 \times 1{,}2 = \mathbf{276}\)</td><td>\(276 \times 0{,}80 = \mathbf{220{,}8}\)</td><td>\(276 \times 0{,}60 = \mathbf{165{,}6}\)</td></tr>
+    </table>
+    <p>On remarque que pour le convecteur (\(\cos\varphi = 1\)), \(P = S\) et \(Q = 0\). Pour les moteurs (\(\cos\varphi < 1\)), \(P < S\) et \(Q \neq 0\).</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S3</span>
+    <span class="exo-title">Lire un triangle des puissances – QCM</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un récepteur présente : \(P = 2\,400\ \text{W}\) et \(Q = 1\,800\ \text{var}\).</p>
+  <p>On rappelle : \(S^2 = P^2 + Q^2\) donc \(S = \sqrt{P^2 + Q^2}\).</p>
+  <p class="q"><strong>1.</strong> Compléter le calcul étape par étape :</p>
+  <p>\(P^2 = 2\,400^2 = \boxed{\phantom{00000000}}\)</p>
+  <p>\(Q^2 = 1\,800^2 = \boxed{\phantom{00000000}}\)</p>
+  <p>\(P^2 + Q^2 = \boxed{\phantom{00000000}}\)</p>
+  <p>\(S = \sqrt{\phantom{00000000}} = \boxed{\phantom{0000}}\ \text{VA}\)</p>
+  <p class="q"><strong>2.</strong> Calculer le facteur de puissance : \(\cos\varphi = \dfrac{P}{S} = \dfrac{2\,400}{\boxed{\phantom{000}}} = \boxed{\phantom{000}}\)</p>
+  <p class="q"><strong>3.</strong> Ce facteur de puissance est-il bon ? Cocher :</p>
+  <ul>
+    <li>☐ Oui, il est supérieur à 0,93</li>
+    <li>☐ Non, il est inférieur à 0,93</li>
+  </ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <p>\(P^2 = 2\,400^2 = \mathbf{5\,760\,000}\)</p>
+    <p>\(Q^2 = 1\,800^2 = \mathbf{3\,240\,000}\)</p>
+    <p>\(P^2 + Q^2 = 5\,760\,000 + 3\,240\,000 = \mathbf{9\,000\,000}\)</p>
+    <p>\(S = \sqrt{9\,000\,000} = \mathbf{3\,000\ VA = 3\ kVA}\)</p>
+    <p><strong>2.</strong> \(\cos\varphi = \dfrac{2\,400}{3\,000} = \mathbf{0{,}8}\)</p>
+    <p><strong>3.</strong> Non, il est inférieur à 0,93. Ce facteur de puissance est typique d'une installation comportant des moteurs, mais il n'est pas suffisant pour satisfaire les exigences du fournisseur d'électricité.</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S4</span>
+    <span class="exo-title">Coût de fonctionnement d'un sèche-serviettes</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un plombier chauffagiste installe un sèche-serviettes électrique dans une salle de bain. L'appareil a une puissance de \(P = 750\ \text{W} = 0{,}75\ \text{kW}\). Il fonctionne <strong>4 heures par jour</strong> pendant <strong>200 jours par an</strong>. Le prix du kWh est de <strong>0,2276 €</strong>.</p>
+  <p><em>Formule :</em> Énergie (kWh) = Puissance (kW) × temps (h)</p>
+  <p class="q"><strong>1.</strong> Calculer la durée totale de fonctionnement par an :</p>
+  <p>\(t_{\text{total}} = 4 \times \boxed{\phantom{000}} = \boxed{\phantom{000}}\ \text{h}\)</p>
+  <p class="q"><strong>2.</strong> Calculer l'énergie consommée sur un an :</p>
+  <p>\(W = P \times t = 0{,}75 \times \boxed{\phantom{000}} = \boxed{\phantom{000}}\ \text{kWh}\)</p>
+  <p class="q"><strong>3.</strong> Calculer le coût annuel :</p>
+  <p>\(\text{Coût} = W \times \text{prix} = \boxed{\phantom{000}} \times 0{,}2276 = \boxed{\phantom{000}}\ €\)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(t_{\text{total}} = 4 \times 200 = \mathbf{800\ h}\)</p>
+    <p><strong>2.</strong> \(W = 0{,}75 \times 800 = \mathbf{600\ kWh}\)</p>
+    <p><strong>3.</strong> \(\text{Coût} = 600 \times 0{,}2276 = \mathbf{136{,}56\ €}\)</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                     NIVEAU STANDARD                          -->
+<!-- ============================================================ -->
+
+<h2>Exercices d'application</h2>
+
+<div class="exo diff-standard">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
     <span class="exo-title">Résistance chauffante – calcul de P et S</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Une résistance chauffante est alimentée sous <strong>230 V</strong> monophasé. Elle absorbe un courant de <strong>8 A</strong>. C'est un récepteur purement résistif : \(\cos\varphi = 1\).</p>
   <p class="q"><strong>1.</strong> Rappeler la formule de la puissance active en monophasé.</p>
@@ -65,28 +182,11 @@
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Lire un triangle des puissances</span>
-  </div>
-  <p>Un récepteur industriel présente les caractéristiques suivantes : \(P = 2\,400\ \text{W}\) et \(Q = 1\,800\ \text{var}\).</p>
-  <p class="q"><strong>1.</strong> Rappeler la relation entre \(S\), \(P\) et \(Q\).</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance apparente \(S\).</p>
-  <p class="q"><strong>3.</strong> Calculer le facteur de puissance \(\cos\varphi = P/S\).</p>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> \(S^2 = P^2 + Q^2\) donc \(S = \sqrt{P^2 + Q^2}\)</p>
-    <p><strong>2.</strong> \(S = \sqrt{2\,400^2 + 1\,800^2} = \sqrt{5\,760\,000 + 3\,240\,000} = \sqrt{9\,000\,000} = \mathbf{3\,000\ VA = 3\ kVA}\)</p>
-    <p><strong>3.</strong> \(\cos\varphi = \dfrac{P}{S} = \dfrac{2\,400}{3\,000} = \mathbf{0{,}8}\)</p>
-    <p>Ce facteur de puissance de 0,8 est typique d'une installation comportant des moteurs électriques.</p>
-  </div>
-</div>
-
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 3</span>
     <span class="exo-title">Conversions kW / kVA / kvar</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Un récepteur a les caractéristiques suivantes : \(P = 4{,}5\ \text{kW}\), \(\cos\varphi = 0{,}9\).</p>
   <p class="q"><strong>1.</strong> Convertir \(P\) en watts.</p>
@@ -102,18 +202,13 @@
   </div>
 </div>
 
-<!-- ===== EXERCICES GUIDÉS ===== -->
-<h2>Exercices guidés</h2>
-
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 4</span>
-    <span class="exo-title">Radiateur électrique monophasé – courant, puissance apparente et énergie</span>
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Radiateur électrique – courant, puissance apparente et énergie</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Un radiateur électrique monophasé fonctionne sous \(U = 230\ \text{V}\). Sa puissance nominale est \(P = 2\,000\ \text{W}\) et \(\cos\varphi = 1\).</p>
-  <div class="methode">
-    <strong>Méthode :</strong> Pour un récepteur résistif (\(\cos\varphi = 1\)), la formule \(P = U \cdot I\) permet de calculer le courant directement. L'énergie consommée sur une durée \(t\) vaut \(W = P \times t\). Si \(t\) est en heures, \(W\) est en Wh.
-  </div>
   <p class="q"><strong>1.</strong> Calculer l'intensité \(I\) absorbée par le radiateur.</p>
   <p class="q"><strong>2.</strong> Calculer la puissance apparente \(S\).</p>
   <p class="q"><strong>3.</strong> Calculer l'énergie consommée en 3 heures de fonctionnement (en Wh puis en kWh).</p>
@@ -127,15 +222,13 @@
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 5</span>
+    <span class="exo-num">Exercice 4</span>
     <span class="exo-title">Moteur triphasé – courant de ligne et puissance mécanique</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Un moteur triphasé est alimenté sous \(U = 400\ \text{V}\). Sa puissance active absorbée est \(P = 5\ \text{kW}\), son facteur de puissance \(\cos\varphi = 0{,}8\) et son rendement \(\eta = 0{,}85\).</p>
-  <div class="methode">
-    <strong>Méthode :</strong> En triphasé, \(P = \sqrt{3} \cdot U \cdot I \cdot \cos\varphi\). Pour isoler \(I\), on divise les deux membres par \(\sqrt{3} \cdot U \cdot \cos\varphi\). Le rendement relie la puissance mécanique utile et la puissance électrique absorbée : \(\eta = P_{\text{utile}} / P_{\text{absorbée}}\).
-  </div>
   <p class="q"><strong>1.</strong> Rappeler la formule de la puissance active triphasée.</p>
   <p class="q"><strong>2.</strong> Calculer le courant de ligne \(I\) absorbé par le moteur.</p>
   <p class="q"><strong>3.</strong> Calculer la puissance mécanique utile \(P_{\text{utile}} = \eta \times P\).</p>
@@ -148,14 +241,11 @@
   </div>
 </div>
 
-<!-- ===== EXERCICES D'APPLICATION ===== -->
-<h2>Exercices d'application</h2>
-
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 6</span>
+    <span class="exo-num">Exercice 5</span>
     <span class="exo-title">Impact du facteur de puissance sur le courant absorbé</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Une installation 230 V monophasé fournit une puissance active de \(P = 3\ \text{kW}\). On compare deux situations : \(\cos\varphi_1 = 0{,}7\) (sans compensation) et \(\cos\varphi_2 = 0{,}95\) (avec condensateur de compensation).</p>
   <p class="q"><strong>1.</strong> Calculer le courant \(I_1\) pour \(\cos\varphi_1 = 0{,}7\).</p>
@@ -172,44 +262,11 @@
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Bilan de puissance d'une installation triphasée multi-récepteurs</span>
-    <span class="diff diff-3">Niveau 3</span>
-  </div>
-  <p>Une installation triphasée 400 V comporte trois récepteurs :</p>
-  <table>
-    <tr><th>Récepteur</th><th>Puissance active \(P\)</th><th>\(\cos\varphi\)</th></tr>
-    <tr><td>Récepteur 1 (résistance)</td><td>1 kW</td><td>1</td></tr>
-    <tr><td>Récepteur 2 (moteur ventilation)</td><td>2 kW</td><td>0,8</td></tr>
-    <tr><td>Récepteur 3 (compresseur)</td><td>3 kW</td><td>0,7</td></tr>
-  </table>
-  <p class="q"><strong>1.</strong> Calculer \(P_{\text{totale}}\).</p>
-  <p class="q"><strong>2.</strong> Calculer les puissances réactives \(Q_1\), \(Q_2\), \(Q_3\) de chaque récepteur (utiliser \(\tan\varphi = Q/P\)).</p>
-  <p class="q"><strong>3.</strong> Calculer \(Q_{\text{totale}} = Q_1 + Q_2 + Q_3\).</p>
-  <p class="q"><strong>4.</strong> Calculer \(S_{\text{totale}} = \sqrt{P_{\text{totale}}^2 + Q_{\text{totale}}^2}\) puis \(\cos\varphi_{\text{global}}\).</p>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> \(P_{\text{totale}} = 1 + 2 + 3 = \mathbf{6\ kW}\)</p>
-    <p><strong>2.</strong> Pour chaque récepteur, \(Q = P \times \tan\varphi\) :</p>
-    <p>\(\cos\varphi_1 = 1 \Rightarrow \tan\varphi_1 = 0 \Rightarrow Q_1 = 1 \times 0 = \mathbf{0\ kvar}\)</p>
-    <p>\(\cos\varphi_2 = 0{,}8 \Rightarrow \sin\varphi_2 = 0{,}6 \Rightarrow \tan\varphi_2 = \dfrac{0{,}6}{0{,}8} = 0{,}75 \Rightarrow Q_2 = 2 \times 0{,}75 = \mathbf{1{,}5\ kvar}\)</p>
-    <p>\(\cos\varphi_3 = 0{,}7 \Rightarrow \sin\varphi_3 = \sqrt{1-0{,}49} \approx 0{,}714 \Rightarrow \tan\varphi_3 \approx \dfrac{0{,}714}{0{,}7} \approx 1{,}020 \Rightarrow Q_3 = 3 \times 1{,}020 \approx \mathbf{3{,}06\ kvar}\)</p>
-    <p><strong>3.</strong> \(Q_{\text{totale}} = 0 + 1{,}5 + 3{,}06 = \mathbf{4{,}56\ kvar}\)</p>
-    <p><strong>4.</strong> \(S_{\text{totale}} = \sqrt{6^2 + 4{,}56^2} = \sqrt{36 + 20{,}79} = \sqrt{56{,}79} \approx \mathbf{7{,}54\ kVA}\)</p>
-    <p>\(\cos\varphi_{\text{global}} = \dfrac{P_{\text{totale}}}{S_{\text{totale}}} = \dfrac{6}{7{,}54} \approx \mathbf{0{,}80}\)</p>
-  </div>
-</div>
-
-<!-- ===== EXERCICES CONTEXTUALISÉS ICCER ===== -->
-<h2>Exercices contextualisés ICCER</h2>
-
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
+    <span class="exo-num">Exercice 6</span>
     <span class="exo-title">Installation d'une pompe à chaleur triphasée – choix du disjoncteur</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Un technicien CVC installe une pompe à chaleur triphasée. Les données de la plaque signalétique sont : \(U = 400\ \text{V}\), puissance électrique absorbée \(P = 3{,}5\ \text{kW}\), \(\cos\varphi = 0{,}82\).</p>
   <p class="q"><strong>1.</strong> Rappeler la formule de la puissance active triphasée.</p>
@@ -224,30 +281,115 @@
   </div>
 </div>
 
-<div class="exo">
+<!-- ============================================================ -->
+<!--                   NIVEAU APPROFONDISSEMENT                   -->
+<!-- ============================================================ -->
+
+<h2>Exercices d'approfondissement</h2>
+
+<div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">Compensation du facteur de puissance d'une installation de chauffage</span>
-    <span class="diff diff-3">Niveau 3</span>
+    <span class="exo-num">Exercice A1</span>
+    <span class="exo-title">Bilan de puissance d'une installation triphasée multi-récepteurs</span>
+    <span class="tag-appro">Approfondissement</span>
   </div>
-  <p>Un plombier chauffagiste relève la plaque signalétique d'une chaudière électrique : \(U = 230\ \text{V}\), \(P = 6\ \text{kW}\), \(\cos\varphi = 1\). Pour l'ensemble de l'installation du client, le \(\cos\varphi\) global est de 0,75. Un condensateur de correction est ajouté pour relever ce \(\cos\varphi\) global à 0,95. La puissance active totale de l'installation est \(P_{\text{globale}} = 8\ \text{kW}\).</p>
-  <p class="q"><strong>1.</strong> Calculer la puissance réactive \(Q_1\) avant compensation (\(\cos\varphi_1 = 0{,}75\)).</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance réactive \(Q_2\) après compensation (\(\cos\varphi_2 = 0{,}95\)).</p>
-  <p class="q"><strong>3.</strong> Calculer la puissance réactive du condensateur à installer : \(Q_C = Q_1 - Q_2\).</p>
-  <p class="q"><strong>4.</strong> Calculer les puissances apparentes \(S_1\) et \(S_2\) avant et après compensation. Conclure.</p>
+  <p>Une installation triphasée 400 V comporte trois récepteurs :</p>
+  <table>
+    <tr><th>Récepteur</th><th>Puissance active \(P\)</th><th>\(\cos\varphi\)</th></tr>
+    <tr><td>Résistance chauffante</td><td>1 kW</td><td>1</td></tr>
+    <tr><td>Moteur de ventilation</td><td>2 kW</td><td>0,8</td></tr>
+    <tr><td>Compresseur frigorifique</td><td>3 kW</td><td>0,7</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Calculer \(P_{\text{totale}}\).</p>
+  <p class="q"><strong>2.</strong> Calculer les puissances réactives \(Q_1\), \(Q_2\), \(Q_3\) de chaque récepteur (utiliser \(\tan\varphi = Q/P\)).</p>
+  <p class="q"><strong>3.</strong> Calculer \(Q_{\text{totale}} = Q_1 + Q_2 + Q_3\).</p>
+  <p class="q"><strong>4.</strong> Calculer \(S_{\text{totale}} = \sqrt{P_{\text{totale}}^2 + Q_{\text{totale}}^2}\) puis \(\cos\varphi_{\text{global}}\).</p>
+  <p class="q"><strong>5.</strong> Le fournisseur d'énergie exige \(\cos\varphi \geq 0{,}93\). Calculer la puissance réactive du condensateur à installer pour atteindre cette valeur.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(\tan\varphi_1 = \dfrac{\sin\varphi_1}{\cos\varphi_1}\) avec \(\sin\varphi_1 = \sqrt{1 - 0{,}75^2} = \sqrt{0{,}4375} \approx 0{,}661\)</p>
-    <p>\(\tan\varphi_1 = \dfrac{0{,}661}{0{,}75} \approx 0{,}882\)</p>
-    <p>\(Q_1 = P \times \tan\varphi_1 = 8\,000 \times 0{,}882 \approx \mathbf{7\,056\ var \approx 7{,}06\ kvar}\)</p>
-    <p><strong>2.</strong> \(\sin\varphi_2 = \sqrt{1 - 0{,}95^2} = \sqrt{0{,}0975} \approx 0{,}312\)</p>
-    <p>\(\tan\varphi_2 = \dfrac{0{,}312}{0{,}95} \approx 0{,}329\)</p>
-    <p>\(Q_2 = P \times \tan\varphi_2 = 8\,000 \times 0{,}329 \approx \mathbf{2\,629\ var \approx 2{,}63\ kvar}\)</p>
-    <p><strong>3.</strong> \(Q_C = Q_1 - Q_2 = 7\,056 - 2\,629 \approx \mathbf{4\,427\ var \approx 4{,}43\ kvar}\)</p>
-    <p>Il faut installer un condensateur fournissant une puissance réactive capacitive de <strong>4,43 kvar</strong>.</p>
-    <p><strong>4.</strong> \(S_1 = \dfrac{P}{\cos\varphi_1} = \dfrac{8\,000}{0{,}75} \approx \mathbf{10\,667\ VA \approx 10{,}67\ kVA}\)</p>
-    <p>\(S_2 = \dfrac{P}{\cos\varphi_2} = \dfrac{8\,000}{0{,}95} \approx \mathbf{8\,421\ VA \approx 8{,}42\ kVA}\)</p>
-    <p><strong>Conclusion :</strong> La compensation réduit la puissance apparente de 10,67 kVA à 8,42 kVA (réduction de 21 %). Le courant absorbé diminue dans la même proportion, ce qui réduit les pertes Joule en ligne et les contraintes sur les câbles et disjoncteurs. La puissance active utile (\(P = 8\ \text{kW}\)) reste inchangée.</p>
+    <p><strong>1.</strong> \(P_{\text{totale}} = 1 + 2 + 3 = \mathbf{6\ kW}\)</p>
+    <p><strong>2.</strong> Pour chaque récepteur, \(Q = P \times \tan\varphi\) :</p>
+    <p>\(\cos\varphi_1 = 1 \Rightarrow \tan\varphi_1 = 0 \Rightarrow Q_1 = 1 \times 0 = \mathbf{0\ kvar}\)</p>
+    <p>\(\cos\varphi_2 = 0{,}8 \Rightarrow \sin\varphi_2 = 0{,}6 \Rightarrow \tan\varphi_2 = \dfrac{0{,}6}{0{,}8} = 0{,}75 \Rightarrow Q_2 = 2 \times 0{,}75 = \mathbf{1{,}5\ kvar}\)</p>
+    <p>\(\cos\varphi_3 = 0{,}7 \Rightarrow \sin\varphi_3 = \sqrt{1-0{,}49} \approx 0{,}714 \Rightarrow \tan\varphi_3 \approx \dfrac{0{,}714}{0{,}7} \approx 1{,}020 \Rightarrow Q_3 = 3 \times 1{,}020 \approx \mathbf{3{,}06\ kvar}\)</p>
+    <p><strong>3.</strong> \(Q_{\text{totale}} = 0 + 1{,}5 + 3{,}06 = \mathbf{4{,}56\ kvar}\)</p>
+    <p><strong>4.</strong> \(S_{\text{totale}} = \sqrt{6^2 + 4{,}56^2} = \sqrt{36 + 20{,}79} = \sqrt{56{,}79} \approx \mathbf{7{,}54\ kVA}\)</p>
+    <p>\(\cos\varphi_{\text{global}} = \dfrac{P_{\text{totale}}}{S_{\text{totale}}} = \dfrac{6}{7{,}54} \approx \mathbf{0{,}80}\)</p>
+    <p><strong>5.</strong> On souhaite \(\cos\varphi_2 = 0{,}93\), donc \(\tan\varphi_2 = \dfrac{\sqrt{1 - 0{,}93^2}}{0{,}93} = \dfrac{0{,}3676}{0{,}93} \approx 0{,}395\).</p>
+    <p>\(Q_C = P \times (\tan\varphi_1 - \tan\varphi_2) = 6 \times \left(\dfrac{4{,}56}{6} - 0{,}395\right) = 6 \times (0{,}760 - 0{,}395) = 6 \times 0{,}365 \approx \mathbf{2{,}19\ kvar}\)</p>
+    <p>Il faut installer un condensateur de <strong>2,19 kvar</strong> pour relever le facteur de puissance de 0,80 à 0,93.</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice A2</span>
+    <span class="exo-title">Compensation du facteur de puissance d'une chaufferie collective</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>Un technicien de maintenance énergétique effectue un audit sur une chaufferie collective alimentée en triphasé 400 V. L'installation comporte : un brûleur (\(P_1 = 1{,}5\ \text{kW}\), \(\cos\varphi_1 = 0{,}85\)), deux circulateurs (\(P_2 = 2 \times 0{,}4 = 0{,}8\ \text{kW}\), \(\cos\varphi_2 = 0{,}65\)) et un système de régulation (\(P_3 = 0{,}2\ \text{kW}\), \(\cos\varphi_3 = 1\)).</p>
+  <p class="q"><strong>1.</strong> Calculer la puissance active totale \(P_T\) de l'installation.</p>
+  <p class="q"><strong>2.</strong> Calculer la puissance réactive de chaque poste, puis la puissance réactive totale \(Q_T\).</p>
+  <p class="q"><strong>3.</strong> En déduire la puissance apparente \(S_T\) et le facteur de puissance global \(\cos\varphi_{\text{global}}\).</p>
+  <p class="q"><strong>4.</strong> Calculer le courant de ligne \(I\) absorbé par l'ensemble de l'installation.</p>
+  <p class="q"><strong>5.</strong> Le gestionnaire du réseau exige \(\cos\varphi \geq 0{,}93\). Calculer la puissance réactive \(Q_C\) du condensateur à installer. En déduire la nouvelle puissance apparente \(S_T'\) et le nouveau courant \(I'\).</p>
+  <p class="q"><strong>6.</strong> Calculer le pourcentage de réduction du courant obtenu grâce à la compensation. Expliquer l'intérêt économique pour l'exploitant.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_T = 1{,}5 + 0{,}8 + 0{,}2 = \mathbf{2{,}5\ kW}\)</p>
+    <p><strong>2.</strong></p>
+    <p>Brûleur : \(\tan\varphi_1 = \dfrac{\sqrt{1-0{,}85^2}}{0{,}85} = \dfrac{0{,}527}{0{,}85} \approx 0{,}620 \Rightarrow Q_1 = 1{,}5 \times 0{,}620 \approx \mathbf{0{,}930\ kvar}\)</p>
+    <p>Circulateurs : \(\tan\varphi_2 = \dfrac{\sqrt{1-0{,}65^2}}{0{,}65} = \dfrac{0{,}760}{0{,}65} \approx 1{,}169 \Rightarrow Q_2 = 0{,}8 \times 1{,}169 \approx \mathbf{0{,}935\ kvar}\)</p>
+    <p>Régulation : \(\cos\varphi_3 = 1 \Rightarrow Q_3 = \mathbf{0\ kvar}\)</p>
+    <p>\(Q_T = 0{,}930 + 0{,}935 + 0 = \mathbf{1{,}865\ kvar}\)</p>
+    <p><strong>3.</strong> \(S_T = \sqrt{2{,}5^2 + 1{,}865^2} = \sqrt{6{,}25 + 3{,}478} = \sqrt{9{,}728} \approx \mathbf{3{,}12\ kVA}\)</p>
+    <p>\(\cos\varphi_{\text{global}} = \dfrac{2{,}5}{3{,}12} \approx \mathbf{0{,}801}\)</p>
+    <p><strong>4.</strong> \(I = \dfrac{S_T}{\sqrt{3} \times U} = \dfrac{3\,120}{\sqrt{3} \times 400} = \dfrac{3\,120}{692{,}8} \approx \mathbf{4{,}50\ A}\)</p>
+    <p><strong>5.</strong> \(\tan\varphi_{\text{cible}} = \dfrac{\sqrt{1-0{,}93^2}}{0{,}93} \approx 0{,}395\)</p>
+    <p>\(Q_C = P_T \times (\tan\varphi_{\text{actuel}} - \tan\varphi_{\text{cible}}) = 2{,}5 \times \left(\dfrac{1{,}865}{2{,}5} - 0{,}395\right) = 2{,}5 \times (0{,}746 - 0{,}395) = 2{,}5 \times 0{,}351 \approx \mathbf{0{,}878\ kvar}\)</p>
+    <p>\(Q_T' = 1{,}865 - 0{,}878 = 0{,}987\ \text{kvar}\)</p>
+    <p>\(S_T' = \sqrt{2{,}5^2 + 0{,}987^2} = \sqrt{6{,}25 + 0{,}974} = \sqrt{7{,}224} \approx \mathbf{2{,}69\ kVA}\)</p>
+    <p>\(I' = \dfrac{2\,690}{\sqrt{3} \times 400} \approx \mathbf{3{,}88\ A}\)</p>
+    <p><strong>6.</strong> Réduction : \(\dfrac{4{,}50 - 3{,}88}{4{,}50} \times 100 \approx \mathbf{13{,}8\ \%}\)</p>
+    <p>Intérêt économique : la réduction du courant diminue les pertes Joule dans les câbles (\(P_J = R \times I^2\)), permet d'utiliser des sections de câbles plus faibles, et évite les pénalités facturées par le fournisseur d'énergie pour un \(\cos\varphi\) insuffisant.</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice A3</span>
+    <span class="exo-title">Audit énergétique – comparaison de deux systèmes de chauffage</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>Un technicien en énergies renouvelables compare deux solutions pour chauffer un logement :</p>
+  <ul>
+    <li><strong>Solution A :</strong> Convecteurs électriques, puissance totale \(P_A = 6\ \text{kW}\), \(\cos\varphi_A = 1\), fonctionnement 10 h/jour pendant 180 jours.</li>
+    <li><strong>Solution B :</strong> Pompe à chaleur air/eau, puissance électrique absorbée \(P_B = 2{,}2\ \text{kW}\), \(\cos\varphi_B = 0{,}82\), COP = 3, fonctionnement 10 h/jour pendant 180 jours.</li>
+  </ul>
+  <p>Prix du kWh : 0,2276 €.</p>
+  <p class="q"><strong>1.</strong> Calculer l'énergie électrique consommée par an pour chaque solution (en kWh).</p>
+  <p class="q"><strong>2.</strong> Calculer le coût annuel de fonctionnement pour chaque solution.</p>
+  <p class="q"><strong>3.</strong> Calculer la puissance thermique restituée par la pompe à chaleur. Cette puissance est-elle suffisante pour remplacer les convecteurs ?</p>
+  <p class="q"><strong>4.</strong> Calculer le courant absorbé par chaque solution (monophasé 230 V). Quelle conséquence sur le dimensionnement du tableau électrique ?</p>
+  <p class="q"><strong>5.</strong> Calculer la puissance apparente et la puissance réactive de la solution B. Discuter de l'impact sur l'installation électrique.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Durée annuelle : \(t = 10 \times 180 = 1\,800\ \text{h}\)</p>
+    <p>Solution A : \(W_A = 6 \times 1\,800 = \mathbf{10\,800\ kWh}\)</p>
+    <p>Solution B : \(W_B = 2{,}2 \times 1\,800 = \mathbf{3\,960\ kWh}\)</p>
+    <p><strong>2.</strong> Solution A : \(\text{Coût}_A = 10\,800 \times 0{,}2276 = \mathbf{2\,458{,}08\ €}\)</p>
+    <p>Solution B : \(\text{Coût}_B = 3\,960 \times 0{,}2276 = \mathbf{901{,}30\ €}\)</p>
+    <p>Économie annuelle : \(2\,458{,}08 - 901{,}30 = \mathbf{1\,556{,}78\ €}\)</p>
+    <p><strong>3.</strong> Le COP (Coefficient de Performance) vaut 3 : la PAC restitue 3 fois plus d'énergie thermique qu'elle ne consomme d'énergie électrique.</p>
+    <p>\(P_{\text{thermique}} = \text{COP} \times P_B = 3 \times 2{,}2 = \mathbf{6{,}6\ kW}\)</p>
+    <p>La PAC restitue 6,6 kW thermiques, ce qui est supérieur aux 6 kW des convecteurs. Elle est donc suffisante.</p>
+    <p><strong>4.</strong> Solution A : \(I_A = \dfrac{P_A}{U \times \cos\varphi_A} = \dfrac{6\,000}{230 \times 1} \approx \mathbf{26{,}1\ A}\)</p>
+    <p>Solution B : \(I_B = \dfrac{P_B}{U \times \cos\varphi_B} = \dfrac{2\,200}{230 \times 0{,}82} \approx \mathbf{11{,}7\ A}\)</p>
+    <p>La PAC nécessite un disjoncteur de 16 A contre 32 A pour les convecteurs. Le tableau électrique est moins sollicité.</p>
+    <p><strong>5.</strong> \(S_B = \dfrac{P_B}{\cos\varphi_B} = \dfrac{2{,}2}{0{,}82} \approx \mathbf{2{,}68\ kVA}\)</p>
+    <p>\(\sin\varphi_B = \sqrt{1 - 0{,}82^2} = \sqrt{0{,}3276} \approx 0{,}572\)</p>
+    <p>\(Q_B = S_B \times \sin\varphi_B = 2{,}68 \times 0{,}572 \approx \mathbf{1{,}53\ kvar}\)</p>
+    <p>La PAC génère de la puissance réactive (1,53 kvar) contrairement aux convecteurs. Si l'installation comporte d'autres moteurs, le \(\cos\varphi\) global peut se dégrader et nécessiter une compensation par condensateur. Malgré cela, l'économie de 1 557 €/an justifie largement l'investissement dans la PAC.</p>
   </div>
 </div>
 
@@ -266,5 +408,6 @@
 </div>
 <script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
 <script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

@@ -38,13 +38,118 @@
   avec \(V\) = volume de la salle (m³), \(A\) = surface absorbante équivalente (m²), \(T_R\) en secondes.</p>
 </div>
 
+<!-- ═══════════════════════════════════════════════ -->
+<!--              NIVEAU SOCLE                      -->
+<!-- ═══════════════════════════════════════════════ -->
+
 <h2>Exercices de base</h2>
 
-<div class="exo">
+<div class="exo diff-socle">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Calculer longueur d'onde et période — pas à pas</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un son de fréquence \(f = 1\,000\text{ Hz}\) se propage dans l'air à \(v = 340\text{ m/s}\).</p>
+  <p class="q"><strong>1.</strong> Compléter la formule puis calculer la longueur d'onde :</p>
+  <p>\[\lambda = \dfrac{v}{f} = \dfrac{\boxed{\phantom{340}}}{\boxed{\phantom{1\,000}}} = \boxed{\phantom{0{,}34}} \text{ m}\]</p>
+  <p class="q"><strong>2.</strong> Compléter la formule puis calculer la période :</p>
+  <p>\[T = \dfrac{1}{f} = \dfrac{1}{\boxed{\phantom{1\,000}}} = \boxed{\phantom{0{,}001}} \text{ s}\]</p>
+  <p class="q"><strong>3.</strong> Le domaine audible va de 20 Hz à 20 000 Hz. Entourer la bonne réponse :</p>
+  <ul>
+    <li>Ce son de 1 000 Hz est <strong>audible / inaudible</strong>.</li>
+  </ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong>
+    \[\lambda = \dfrac{v}{f} = \dfrac{340}{1\,000} = \mathbf{0{,}34\text{ m}} = 34\text{ cm}\]</p>
+    <p><strong>2.</strong>
+    \[T = \dfrac{1}{f} = \dfrac{1}{1\,000} = \mathbf{1 \times 10^{-3}\text{ s}} = 1\text{ ms}\]</p>
+    <p><strong>3.</strong> \(f = 1\,000\text{ Hz}\) est bien compris entre 20 Hz et 20 000 Hz : ce son est <strong>audible</strong>.</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Calculer un niveau sonore — QCM et calcul guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>On donne : \(I_0 = 10^{-12}\text{ W/m}^2\). Un son a une intensité \(I = 10^{-8}\text{ W/m}^2\).</p>
+  <p class="q"><strong>1.</strong> Compléter le calcul du niveau sonore \(L\) :</p>
+  <p>\[L = 10 \times \log\!\left(\dfrac{I}{I_0}\right) = 10 \times \log\!\left(\dfrac{10^{-8}}{10^{-12}}\right) = 10 \times \log\!\left(10^{\boxed{\phantom{4}}}\right) = 10 \times \boxed{\phantom{4}} = \boxed{\phantom{40}} \text{ dB}\]</p>
+  <p class="q"><strong>2.</strong> Ce niveau de 40 dB correspond environ à :</p>
+  <ul>
+    <li>&#x2610; Un concert rock (~110 dB)</li>
+    <li>&#x2610; Un appartement calme (~40 dB)</li>
+    <li>&#x2610; Un moteur de tondeuse (~90 dB)</li>
+  </ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong>
+    \[L = 10 \times \log\!\left(\dfrac{10^{-8}}{10^{-12}}\right) = 10 \times \log(10^{4}) = 10 \times 4 = \mathbf{40\text{ dB}}\]</p>
+    <p><strong>2.</strong> 40 dB correspond a un <strong>appartement calme</strong>.</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Retrouver l'intensité à partir du niveau sonore — pas à pas</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un son a un niveau sonore \(L = 80\text{ dB}\). On donne \(I_0 = 10^{-12}\text{ W/m}^2\).</p>
+  <p class="q"><strong>1.</strong> Compléter le calcul :</p>
+  <p>\[I = I_0 \times 10^{L/10} = 10^{-12} \times 10^{\boxed{\phantom{80}}/10} = 10^{-12} \times 10^{\boxed{\phantom{8}}} = \boxed{\phantom{10^{-4}}} \text{ W/m}^2\]</p>
+  <p class="q"><strong>2.</strong> À 40 dB, l'intensité vaut \(I = 10^{-8}\text{ W/m}^2\). À 80 dB, on vient de trouver \(I = 10^{-4}\text{ W/m}^2\).</p>
+  <p>Compléter : quand le niveau passe de 40 à 80 dB (il double), l'intensité est multipliée par :</p>
+  <p>\[\dfrac{10^{-4}}{10^{-8}} = \boxed{\phantom{10\,000}}\]</p>
+  <p class="q"><strong>3.</strong> Entourer la bonne réponse : l'échelle des décibels est une échelle <strong>linéaire / logarithmique</strong>.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong>
+    \[I = 10^{-12} \times 10^{80/10} = 10^{-12} \times 10^{8} = \mathbf{10^{-4}\text{ W/m}^2}\]</p>
+    <p><strong>2.</strong> L'intensité est multipliée par \(\dfrac{10^{-4}}{10^{-8}} = \mathbf{10\,000}\). Doubler le niveau en dB ne double pas l'intensite !</p>
+    <p><strong>3.</strong> L'echelle des decibels est une echelle <strong>logarithmique</strong>.</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Bruit d'un ventilateur — lecture et comparaison guidées</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un technicien CVC relève les niveaux sonores de deux ventilateurs :</p>
+  <table>
+    <tr><th>Ventilateur</th><th>Niveau sonore à 1 m</th></tr>
+    <tr><td>Modèle A</td><td>55 dB</td></tr>
+    <tr><td>Modèle B</td><td>70 dB</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Quel ventilateur est le plus bruyant ?</p>
+  <p class="q"><strong>2.</strong> La réglementation impose un maximum de 40 dB dans les bureaux. Compléter :</p>
+  <p>Le modèle A dépasse la limite de : \(55 - 40 = \boxed{\phantom{15}}\text{ dB}\).</p>
+  <p>Le modèle B dépasse la limite de : \(70 - 40 = \boxed{\phantom{30}}\text{ dB}\).</p>
+  <p class="q"><strong>3.</strong> Les deux ventilateurs nécessitent-ils un silencieux acoustique ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le <strong>modèle B</strong> (70 dB) est le plus bruyant.</p>
+    <p><strong>2.</strong> Le modèle A dépasse de <strong>15 dB</strong> ; le modèle B dépasse de <strong>30 dB</strong>.</p>
+    <p><strong>3.</strong> <strong>Oui</strong>, les deux ventilateurs dépassent la limite de 40 dB en bureau. Ils nécessitent tous les deux un silencieux acoustique ou un éloignement suffisant.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--            NIVEAU STANDARD                     -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<h2>Exercices d'application</h2>
+
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
     <span class="exo-title">Calculer longueur d'onde et période d'un son</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Un son de fréquence \(f = 1\,000\text{ Hz}\) se propage dans l'air à \(v = 340\text{ m/s}\).</p>
   <p class="q"><strong>1.</strong> Calculer la longueur d'onde \(\lambda\) de ce son.</p>
@@ -60,54 +165,38 @@
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Calculer un niveau sonore L en dB</span>
-    <span class="diff diff-1">Niveau 1</span>
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Calculer un niveau sonore et retrouver l'intensité</span>
+    <span class="tag-standard">Standard</span>
   </div>
-  <p>On donne : \(I_0 = 10^{-12}\text{ W/m}^2\). Un son a une intensité sonore \(I = 10^{-8}\text{ W/m}^2\).</p>
-  <p class="q"><strong>1.</strong> Calculer le niveau sonore \(L\) en dB correspondant à cette intensité.</p>
-  <p class="q"><strong>2.</strong> À quel type de bruit courant correspond approximativement ce niveau (conversation normale ≈ 60 dB, moteur tondeuse ≈ 90 dB, seuil de danger ≈ 120 dB) ?</p>
+  <p>On donne : \(I_0 = 10^{-12}\text{ W/m}^2\).</p>
+  <p class="q"><strong>1.</strong> Un son a une intensité \(I = 10^{-8}\text{ W/m}^2\). Calculer le niveau sonore \(L\) en dB.</p>
+  <p class="q"><strong>2.</strong> À quel type de bruit courant correspond ce niveau (conversation normale ~ 60 dB, moteur tondeuse ~ 90 dB, seuil de danger ~ 120 dB) ?</p>
+  <p class="q"><strong>3.</strong> Un autre son a un niveau sonore \(L = 80\text{ dB}\). Calculer l'intensité \(I\) en W/m² à l'aide de la formule \(I = I_0 \times 10^{L/10}\).</p>
+  <p class="q"><strong>4.</strong> Comparer les deux intensités (40 dB et 80 dB). Le niveau a doublé : l'intensité a-t-elle simplement doublé ? Conclure sur l'échelle décibel.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong>
-    \[L = 10 \times \log\!\left(\dfrac{I}{I_0}\right) = 10 \times \log\!\left(\dfrac{10^{-8}}{10^{-12}}\right) = 10 \times \log(10^{4}) = 10 \times 4 = \mathbf{40\text{ dB}}\]</p>
-    <p><strong>2.</strong> 40 dB correspond à une ambiance calme, comme une <strong>bibliothèque ou un appartement silencieux</strong>. Ce niveau est très en dessous du seuil d'action de 85 dB.</p>
+    \[L = 10 \times \log\!\left(\dfrac{10^{-8}}{10^{-12}}\right) = 10 \times \log(10^{4}) = 10 \times 4 = \mathbf{40\text{ dB}}\]</p>
+    <p><strong>2.</strong> 40 dB correspond à une ambiance calme, comme une <strong>bibliothèque ou un appartement silencieux</strong>.</p>
+    <p><strong>3.</strong>
+    \[I = 10^{-12} \times 10^{80/10} = 10^{-12} \times 10^{8} = \mathbf{10^{-4}\text{ W/m}^2}\]</p>
+    <p><strong>4.</strong> Le niveau a doublé (40 → 80 dB), mais l'intensité a été multipliée par \(\dfrac{10^{-4}}{10^{-8}} = 10\,000\). L'échelle décibel est <strong>logarithmique</strong>, pas linéaire. +10 dB correspond à une intensité multipliée par 10.</p>
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 3</span>
-    <span class="exo-title">Retrouver l'intensité à partir du niveau sonore</span>
-    <span class="diff diff-1">Niveau 1</span>
-  </div>
-  <p>Un son a un niveau sonore \(L = 80\text{ dB}\). On donne \(I_0 = 10^{-12}\text{ W/m}^2\).</p>
-  <p class="q"><strong>1.</strong> En utilisant la formule \(I = I_0 \times 10^{L/10}\), calculer l'intensité sonore \(I\) en W/m².</p>
-  <p class="q"><strong>2.</strong> Comparer cette valeur à l'intensité de l'exercice précédent (40 dB). Le niveau a doublé (de 40 à 80 dB) : l'intensité a-t-elle simplement doublé ? Que peut-on conclure sur l'échelle décibel ?</p>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong>
-    \[I = I_0 \times 10^{L/10} = 10^{-12} \times 10^{80/10} = 10^{-12} \times 10^{8} = \mathbf{10^{-4}\text{ W/m}^2}\]</p>
-    <p><strong>2.</strong> À 40 dB : \(I = 10^{-8}\text{ W/m}^2\) &nbsp;|&nbsp; À 80 dB : \(I = 10^{-4}\text{ W/m}^2\)<br>
-    Le niveau a doublé (40 → 80 dB), mais l'intensité a été multipliée par \(\dfrac{10^{-4}}{10^{-8}} = 10\,000\) !<br>
-    <strong>Conclusion :</strong> l'échelle décibel est <strong>logarithmique</strong>, pas linéaire. Doubler le niveau en dB correspond à multiplier l'intensité par un facteur considérable. C'est pourquoi +10 dB correspond à une intensité multipliée par 10 et +20 dB à une intensité multipliée par 100.</p>
-  </div>
-</div>
-
-<h2>Exercices guidés</h2>
-
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 4</span>
+    <span class="exo-num">Exercice 7</span>
     <span class="exo-title">Addition de sources sonores identiques</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Deux sources sonores identiques émettent chacune un niveau sonore \(L_1 = 70\text{ dB}\).<br>
   Formule pour n sources identiques : \(L_\text{total} = L_1 + 10 \cdot \log(n)\)</p>
   <div class="methode">
-    <strong>Méthode :</strong> Cette formule s'applique uniquement à des sources identiques (même niveau, même fréquence et mêmes positions de référence). On ne peut pas additionner directement les niveaux en dB : 70 + 70 ≠ 140 dB !
+    <strong>Méthode :</strong> Cette formule s'applique uniquement à des sources identiques. On ne peut pas additionner directement les niveaux en dB : 70 + 70 ≠ 140 dB !
   </div>
   <p class="q"><strong>1.</strong> Calculer le niveau total \(L_\text{total}\) pour \(n = 2\) sources.</p>
   <p class="q"><strong>2.</strong> Calculer le niveau total pour \(n = 4\) sources.</p>
@@ -119,165 +208,215 @@
     \[L_\text{total} = 70 + 10 \times \log(2) = 70 + 10 \times 0{,}301 = 70 + 3{,}01 \approx \mathbf{73\text{ dB}}\]</p>
     <p><strong>2.</strong> \(n = 4\) :
     \[L_\text{total} = 70 + 10 \times \log(4) = 70 + 10 \times 0{,}602 = 70 + 6{,}02 \approx \mathbf{76\text{ dB}}\]</p>
-    <p><strong>3.</strong> De n = 2 (73 dB) à n = 4 (76 dB), on double le nombre de sources et le niveau augmente de seulement <strong>3 dB</strong>. En général, doubler le nombre de sources ajoute toujours \(10 \times \log(2) \approx 3\text{ dB}\). L'échelle logarithmique amortit fortement les augmentations.</p>
+    <p><strong>3.</strong> Doubler le nombre de sources ajoute toujours \(10 \times \log(2) \approx \mathbf{3\text{ dB}}\).</p>
     <p><strong>4.</strong> On cherche n tel que \(L_\text{total} = 80\text{ dB}\) :
-    \[80 = 70 + 10 \times \log(n)\]
-    \[10 = 10 \times \log(n) \Rightarrow \log(n) = 1 \Rightarrow n = 10\]
-    Il faudrait <strong>10 sources identiques</strong> de 70 dB pour obtenir un niveau total de 80 dB.</p>
+    \[80 = 70 + 10 \times \log(n) \Rightarrow \log(n) = 1 \Rightarrow n = 10\]
+    Il faudrait <strong>10 sources identiques</strong> de 70 dB.</p>
   </div>
 </div>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 5</span>
+    <span class="exo-num">Exercice 8</span>
     <span class="exo-title">Atténuation avec la distance — source ponctuelle</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Une source sonore ponctuelle émet une puissance acoustique \(P = 0{,}1\text{ W}\).<br>
   Formule de l'intensité : \(I = \dfrac{P}{4\pi d^2}\) &nbsp;|&nbsp; \(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\) avec \(I_0 = 10^{-12}\text{ W/m}^2\)</p>
-  <div class="methode">
-    <strong>Méthode :</strong> L'intensité sonore d'une source ponctuelle décroît en \(1/d^2\) (loi de l'inverse du carré de la distance). On calcule I pour chaque distance, puis L en dB.
-  </div>
-  <p class="q"><strong>1.</strong> Calculer l'intensité \(I\) à \(d = 1\text{ m}\).</p>
-  <p class="q"><strong>2.</strong> Calculer l'intensité \(I\) à \(d = 2\text{ m}\).</p>
-  <p class="q"><strong>3.</strong> Calculer l'intensité \(I\) à \(d = 10\text{ m}\).</p>
-  <p class="q"><strong>4.</strong> Calculer le niveau sonore \(L\) en dB pour chacune de ces trois distances. Vérifier que doubler la distance diminue L d'environ 6 dB.</p>
+  <p class="q"><strong>1.</strong> Calculer l'intensité \(I\) à \(d = 1\text{ m}\), puis à \(d = 2\text{ m}\), puis à \(d = 10\text{ m}\).</p>
+  <p class="q"><strong>2.</strong> Calculer le niveau sonore \(L\) en dB pour chacune de ces trois distances.</p>
+  <p class="q"><strong>3.</strong> Vérifier que doubler la distance diminue \(L\) d'environ 6 dB. Justifier ce résultat.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> À \(d = 1\text{ m}\) :
-    \[I_1 = \dfrac{0{,}1}{4\pi \times 1^2} = \dfrac{0{,}1}{12{,}57} \approx \mathbf{7{,}96 \times 10^{-3}\text{ W/m}^2}\]</p>
-    <p><strong>2.</strong> À \(d = 2\text{ m}\) :
-    \[I_2 = \dfrac{0{,}1}{4\pi \times 4} = \dfrac{0{,}1}{50{,}27} \approx \mathbf{1{,}99 \times 10^{-3}\text{ W/m}^2}\]
-    On vérifie : \(I_2 = I_1 / 4\) ✓ (distance doublée → intensité divisée par 4)</p>
-    <p><strong>3.</strong> À \(d = 10\text{ m}\) :
-    \[I_{10} = \dfrac{0{,}1}{4\pi \times 100} = \dfrac{0{,}1}{1\,256{,}6} \approx \mathbf{7{,}96 \times 10^{-5}\text{ W/m}^2}\]</p>
-    <p><strong>4.</strong> Niveaux sonores :
-    \[L_1 = 10 \times \log\!\left(\dfrac{7{,}96 \times 10^{-3}}{10^{-12}}\right) = 10 \times \log(7{,}96 \times 10^9) = 10 \times 9{,}90 \approx \mathbf{99\text{ dB}}\]
-    \[L_2 = 10 \times \log\!\left(\dfrac{1{,}99 \times 10^{-3}}{10^{-12}}\right) = 10 \times 9{,}30 \approx \mathbf{93\text{ dB}}\]
-    \[L_{10} = 10 \times \log\!\left(\dfrac{7{,}96 \times 10^{-5}}{10^{-12}}\right) = 10 \times 7{,}90 \approx \mathbf{79\text{ dB}}\]
-    De \(d = 1\text{ m}\) à \(d = 2\text{ m}\) : \(\Delta L = 99 - 93 = 6\text{ dB}\) ✓ (distance × 2 → −6 dB)</p>
+    <p><strong>1.</strong><br>
+    À \(d = 1\text{ m}\) : \(I_1 = \dfrac{0{,}1}{4\pi \times 1^2} \approx \mathbf{7{,}96 \times 10^{-3}\text{ W/m}^2}\)<br>
+    À \(d = 2\text{ m}\) : \(I_2 = \dfrac{0{,}1}{4\pi \times 4} \approx \mathbf{1{,}99 \times 10^{-3}\text{ W/m}^2}\) (\(I_2 = I_1/4\))<br>
+    À \(d = 10\text{ m}\) : \(I_{10} = \dfrac{0{,}1}{4\pi \times 100} \approx \mathbf{7{,}96 \times 10^{-5}\text{ W/m}^2}\)</p>
+    <p><strong>2.</strong><br>
+    \(L_1 \approx \mathbf{99\text{ dB}}\) &nbsp;|&nbsp; \(L_2 \approx \mathbf{93\text{ dB}}\) &nbsp;|&nbsp; \(L_{10} \approx \mathbf{79\text{ dB}}\)</p>
+    <p><strong>3.</strong> De \(d = 1\text{ m}\) à \(d = 2\text{ m}\) : \(99 - 93 = 6\text{ dB}\). Doubler la distance divise l'intensité par 4, soit \(-10 \times \log(4) = -6\text{ dB}\).</p>
   </div>
 </div>
 
-<h2>Exercices d'application</h2>
-
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Bruit de chantier — respect du seuil réglementaire à 10 m</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Bruit de chantier — respect du seuil réglementaire</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Un chantier de travaux produit un bruit de \(L_1 = 95\text{ dB}\) à \(d_1 = 1\text{ m}\).<br>
   La réglementation impose un niveau maximal de 85 dB à \(d_2 = 10\text{ m}\) du chantier.<br>
-  On utilise la loi d'atténuation : \(I \propto 1/d^2\), soit \(L_2 = L_1 - 20 \times \log\!\left(\dfrac{d_2}{d_1}\right)\)</p>
-  <p class="q"><strong>1.</strong> Calculer l'intensité \(I_1\) à 1 m (en W/m²) à partir du niveau \(L_1 = 95\text{ dB}\), en utilisant \(I = I_0 \times 10^{L/10}\).</p>
-  <p class="q"><strong>2.</strong> En appliquant \(I \propto 1/d^2\), calculer l'intensité \(I_2\) à \(d_2 = 10\text{ m}\).</p>
-  <p class="q"><strong>3.</strong> Calculer le niveau sonore \(L_2\) à 10 m. Le seuil réglementaire de 85 dB est-il respecté ?</p>
-  <p class="q"><strong>4.</strong> Vérifier le résultat avec la formule \(L_2 = L_1 - 20 \times \log(d_2/d_1)\).</p>
+  Loi d'atténuation : \(L_2 = L_1 - 20 \times \log\!\left(\dfrac{d_2}{d_1}\right)\)</p>
+  <p class="q"><strong>1.</strong> Calculer l'intensité \(I_1\) à 1 m à partir de \(L_1 = 95\text{ dB}\).</p>
+  <p class="q"><strong>2.</strong> En appliquant \(I \propto 1/d^2\), calculer l'intensité \(I_2\) à 10 m.</p>
+  <p class="q"><strong>3.</strong> Calculer le niveau sonore \(L_2\) à 10 m. Le seuil de 85 dB est-il respecté ?</p>
+  <p class="q"><strong>4.</strong> Vérifier avec la formule \(L_2 = L_1 - 20 \times \log(d_2/d_1)\).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong>
     \[I_1 = 10^{-12} \times 10^{95/10} = 10^{-12} \times 10^{9{,}5} \approx \mathbf{3{,}16 \times 10^{-3}\text{ W/m}^2}\]</p>
-    <p><strong>2.</strong> La distance passe de 1 m à 10 m, soit un facteur 10. L'intensité est divisée par \(10^2 = 100\) :
-    \[I_2 = \dfrac{I_1}{100} = \dfrac{3{,}16 \times 10^{-3}}{100} = \mathbf{3{,}16 \times 10^{-5}\text{ W/m}^2}\]</p>
+    <p><strong>2.</strong> Distance multipliée par 10 → intensité divisée par 100 :
+    \[I_2 = \dfrac{3{,}16 \times 10^{-3}}{100} = \mathbf{3{,}16 \times 10^{-5}\text{ W/m}^2}\]</p>
     <p><strong>3.</strong>
-    \[L_2 = 10 \times \log\!\left(\dfrac{3{,}16 \times 10^{-5}}{10^{-12}}\right) = 10 \times \log(3{,}16 \times 10^7) = 10 \times 7{,}5 = \mathbf{75\text{ dB}}\]
-    75 dB &lt; 85 dB → le seuil réglementaire est <strong>respecté ✓</strong>.</p>
-    <p><strong>4.</strong> Vérification :
-    \[L_2 = 95 - 20 \times \log\!\left(\dfrac{10}{1}\right) = 95 - 20 \times 1 = 95 - 20 = \mathbf{75\text{ dB}}\] ✓</p>
-  </div>
-</div>
-
-<div class="exo">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Réverbération dans une salle — formule de Sabine</span>
-    <span class="diff diff-3">Niveau 3</span>
-  </div>
-  <p>Un technicien thermique intervient dans une salle de réunion d'un bâtiment tertiaire pour optimiser le traitement acoustique.<br>
-  Données : volume de la salle \(V = 200\text{ m}^3\), surface absorbante équivalente actuelle \(A = 50\text{ m}^2\).<br>
-  Formule de Sabine : \(T_R = \dfrac{0{,}16 \times V}{A}\) (T_R en secondes, V en m³, A en m²)</p>
-  <p class="q"><strong>1.</strong> Calculer le temps de réverbération actuel \(T_R\) de la salle.</p>
-  <p class="q"><strong>2.</strong> Un temps de réverbération cible de \(T_R = 0{,}5\text{ s}\) est recommandé pour les salles de réunion. La salle actuelle est-elle trop réverbérante ou pas assez ?</p>
-  <p class="q"><strong>3.</strong> Pour atteindre \(T_R = 0{,}5\text{ s}\), calculer la surface absorbante équivalente \(A_\text{cible}\) nécessaire. En déduire la surface absorbante supplémentaire à installer.</p>
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong>
-    \[T_R = \dfrac{0{,}16 \times V}{A} = \dfrac{0{,}16 \times 200}{50} = \dfrac{32}{50} = \mathbf{0{,}64\text{ s}}\]</p>
-    <p><strong>2.</strong> \(T_R = 0{,}64\text{ s} > 0{,}5\text{ s}\) : la salle est <strong>trop réverbérante</strong>. Les sons se propagent et se cumulent trop longtemps, ce qui nuit à l'intelligibilité de la parole.</p>
-    <p><strong>3.</strong> On cherche \(A_\text{cible}\) pour \(T_R = 0{,}5\text{ s}\) :
-    \[0{,}5 = \dfrac{0{,}16 \times 200}{A_\text{cible}} = \dfrac{32}{A_\text{cible}}\]
-    \[A_\text{cible} = \dfrac{32}{0{,}5} = \mathbf{64\text{ m}^2}\]
-    Surface supplémentaire : \(\Delta A = 64 - 50 = \mathbf{14\text{ m}^2}\)<br>
-    Il faut ajouter l'équivalent de <strong>14 m²</strong> de matériaux absorbants (panneaux de mousse acoustique, plafond suspendu, rideaux épais...).</p>
+    \[L_2 = 10 \times \log\!\left(\dfrac{3{,}16 \times 10^{-5}}{10^{-12}}\right) = 10 \times 7{,}5 = \mathbf{75\text{ dB}}\]
+    75 dB &lt; 85 dB → seuil <strong>respecté</strong>.</p>
+    <p><strong>4.</strong> \(L_2 = 95 - 20 \times \log(10) = 95 - 20 = \mathbf{75\text{ dB}}\) ✓</p>
   </div>
 </div>
 
 <h2>Exercices contextualisés ICCER</h2>
 
-<div class="exo">
+<div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
-    <span class="exo-title">CTA et silencieux acoustique — respect des niveaux en local traité</span>
-    <span class="diff diff-2">Niveau 2</span>
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">CTA et silencieux acoustique</span>
+    <span class="tag-standard">Standard</span>
   </div>
   <p>Un technicien CVC installe une centrale de traitement d'air (CTA) pour la ventilation d'un bâtiment tertiaire. Le ventilateur de la CTA émet un bruit de \(L_\text{source} = 85\text{ dB}\) à 1 m.<br>
   Les locaux traités exigent un niveau maximal de <strong>40 dB</strong>.<br>
   Un silencieux est installé en gaine ; il réduit le niveau de <strong>30 dB</strong>.<br>
-  Loi d'atténuation : \(L(d) = L_1 - 20 \times \log(d)\) (avec \(L_1\) le niveau à 1 m)</p>
+  Loi d'atténuation : \(L(d) = L_1 - 20 \times \log(d)\)</p>
   <p class="q"><strong>1.</strong> Calculer le niveau après le silencieux : \(L_\text{après} = L_\text{source} - 30\text{ dB}\). Ce niveau est-il suffisant pour respecter les 40 dB dans les locaux ?</p>
-  <p class="q"><strong>2.</strong> Sans silencieux, à quelle distance minimale \(d\) le niveau atteint-il 40 dB ? (Utiliser \(40 = 85 - 20 \times \log(d)\), résoudre en d.)</p>
+  <p class="q"><strong>2.</strong> Sans silencieux, à quelle distance minimale \(d\) le niveau atteint-il 40 dB ?</p>
   <p class="q"><strong>3.</strong> Avec le silencieux (niveau réduit à 55 dB à 1 m), à quelle distance le niveau atteint-il 40 dB ? Conclure sur l'utilité du silencieux.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong>
     \[L_\text{après} = 85 - 30 = \mathbf{55\text{ dB}}\]
-    55 dB &gt; 40 dB → Le niveau est <strong>insuffisant</strong> : le silencieux seul ne permet pas de respecter l'exigence de 40 dB directement à la sortie de la gaine.</p>
-    <p><strong>2.</strong> Sans silencieux, on cherche d tel que \(L(d) = 40\text{ dB}\) :
-    \[40 = 85 - 20 \times \log(d)\]
-    \[20 \times \log(d) = 85 - 40 = 45\]
-    \[\log(d) = \dfrac{45}{20} = 2{,}25\]
-    \[d = 10^{2{,}25} \approx \mathbf{178\text{ m}}\]
-    Sans silencieux, il faudrait être à plus de 178 m de la CTA pour avoir 40 dB, ce qui est irréaliste dans un bâtiment.</p>
-    <p><strong>3.</strong> Avec le silencieux (L₁ = 55 dB à 1 m), on cherche d tel que \(L(d) = 40\text{ dB}\) :
-    \[40 = 55 - 20 \times \log(d)\]
-    \[20 \times \log(d) = 15\]
-    \[\log(d) = 0{,}75\]
-    \[d = 10^{0{,}75} \approx \mathbf{5{,}6\text{ m}}\]
-    Avec le silencieux, le niveau de 40 dB est atteint à seulement <strong>5,6 m</strong> de la source — une distance réaliste dans un bâtiment.<br>
-    <strong>Conclusion :</strong> le silencieux est indispensable ; il réduit d'un facteur ~32 la distance nécessaire pour respecter l'exigence acoustique.</p>
+    55 dB &gt; 40 dB → le silencieux seul ne suffit pas à la sortie de gaine.</p>
+    <p><strong>2.</strong> Sans silencieux :
+    \[40 = 85 - 20 \times \log(d) \Rightarrow \log(d) = 2{,}25 \Rightarrow d = 10^{2{,}25} \approx \mathbf{178\text{ m}}\]
+    Irréaliste dans un bâtiment.</p>
+    <p><strong>3.</strong> Avec silencieux :
+    \[40 = 55 - 20 \times \log(d) \Rightarrow \log(d) = 0{,}75 \Rightarrow d = 10^{0{,}75} \approx \mathbf{5{,}6\text{ m}}\]
+    <strong>Conclusion :</strong> le silencieux est indispensable ; il réduit d'un facteur ~32 la distance nécessaire.</p>
   </div>
 </div>
 
-<div class="exo">
+<!-- ═══════════════════════════════════════════════ -->
+<!--         NIVEAU APPROFONDISSEMENT               -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<h2>Exercices approfondis</h2>
+
+<div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">PAC en toiture — respect de la réglementation de voisinage</span>
-    <span class="diff diff-3">Niveau 3</span>
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">PAC en toiture — réglementation de voisinage</span>
+    <span class="tag-appro">Approfondissement</span>
   </div>
-  <p>Un installateur pose une pompe à chaleur (PAC) air/air en toiture d'un immeuble. La PAC émet un niveau sonore de \(L_1 = 65\text{ dB}\) à \(d_1 = 1\text{ m}\).<br>
+  <p>Un installateur de pompes à chaleur pose une PAC air/air en toiture d'un immeuble. La PAC émet un niveau sonore de \(L_1 = 65\text{ dB}\) à \(d_1 = 1\text{ m}\).<br>
   La réglementation impose un niveau maximal de <strong>35 dB</strong> à la limite de propriété, à \(d = 5\text{ m}\).<br>
   Loi d'atténuation : \(L_2 = L_1 - 20 \times \log\!\left(\dfrac{d_2}{d_1}\right)\)</p>
   <p class="q"><strong>1.</strong> Calculer le niveau sonore \(L\) à \(d = 5\text{ m}\).</p>
-  <p class="q"><strong>2.</strong> Ce niveau respecte-t-il la réglementation (35 dB) ? Calculer l'atténuation supplémentaire nécessaire si ce n'est pas le cas.</p>
-  <p class="q"><strong>3.</strong> L'installateur envisage d'installer un capot absorbant autour de la PAC. Si ce capot réduit le niveau à la source de 20 dB (nouveau niveau à 1 m = 45 dB), recalculer le niveau à 5 m. La réglementation est-elle respectée ?</p>
+  <p class="q"><strong>2.</strong> Ce niveau respecte-t-il la réglementation (35 dB) ? Calculer l'atténuation supplémentaire nécessaire.</p>
+  <p class="q"><strong>3.</strong> Un capot absorbant réduit le niveau à la source de 20 dB (nouveau niveau à 1 m = 45 dB). Recalculer le niveau à 5 m. La réglementation est-elle respectée ?</p>
   <p class="q"><strong>4.</strong> Proposer deux autres solutions techniques pour réduire le bruit d'une PAC en toiture.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p><strong>1.</strong>
-    \[L(5\text{ m}) = 65 - 20 \times \log\!\left(\dfrac{5}{1}\right) = 65 - 20 \times \log(5) = 65 - 20 \times 0{,}699 = 65 - 14 = \mathbf{51\text{ dB}}\]</p>
-    <p><strong>2.</strong> \(51\text{ dB} > 35\text{ dB}\) → la réglementation <strong>n'est pas respectée</strong>.<br>
-    Atténuation supplémentaire nécessaire :
-    \[\Delta L = 51 - 35 = \mathbf{16\text{ dB}}\]
-    Il faut apporter une réduction supplémentaire d'au moins <strong>16 dB</strong> pour respecter la limite de propriété.</p>
-    <p><strong>3.</strong> Avec le capot absorbant : nouveau niveau à 1 m = \(65 - 20 = 45\text{ dB}\).<br>
-    Niveau à 5 m :
-    \[L'(5\text{ m}) = 45 - 20 \times \log(5) = 45 - 14 = \mathbf{31\text{ dB}}\]
-    31 dB &lt; 35 dB → la réglementation est <strong>respectée ✓</strong> avec une marge de 4 dB.</p>
-    <p><strong>4.</strong> Autres solutions techniques :<br>
-    — <strong>Anti-vibratoires sous la PAC</strong> : plots ou silent-blocs qui découplent la PAC de la structure du bâtiment, réduisant la transmission du bruit solide dans les murs.<br>
-    — <strong>Silencieux sur les conduits d'air</strong> (plenums acoustiques) : des lèvres absorbantes placées sur les orifices de prise d'air et de soufflage réduisent le rayonnement acoustique des conduits.<br>
-    — <strong>Orientation de la PAC</strong> : diriger les orifices d'air vers une zone sans voisinage sensible diminue l'exposition des riverains.</p>
+    \[L(5\text{ m}) = 65 - 20 \times \log(5) = 65 - 20 \times 0{,}699 = 65 - 14 = \mathbf{51\text{ dB}}\]</p>
+    <p><strong>2.</strong> 51 dB &gt; 35 dB → la réglementation <strong>n'est pas respectée</strong>. Atténuation supplémentaire nécessaire : \(51 - 35 = \mathbf{16\text{ dB}}\).</p>
+    <p><strong>3.</strong> Avec le capot : \(L'(5\text{ m}) = 45 - 14 = \mathbf{31\text{ dB}}\). 31 dB &lt; 35 dB → réglementation <strong>respectée</strong> avec 4 dB de marge.</p>
+    <p><strong>4.</strong> Autres solutions :<br>
+    — <strong>Anti-vibratoires</strong> (silent-blocs) sous la PAC pour réduire la transmission du bruit solide.<br>
+    — <strong>Silencieux sur les conduits d'air</strong> (plenums acoustiques).<br>
+    — <strong>Orientation de la PAC</strong> vers une zone sans voisinage sensible.</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Réverbération dans une salle — formule de Sabine</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>Un technicien thermique intervient dans une salle de réunion d'un bâtiment tertiaire pour optimiser le traitement acoustique.<br>
+  Données : volume \(V = 200\text{ m}^3\), surface absorbante équivalente actuelle \(A = 50\text{ m}^2\).<br>
+  Formule de Sabine : \(T_R = \dfrac{0{,}16 \times V}{A}\)</p>
+  <p class="q"><strong>1.</strong> Calculer le temps de réverbération actuel \(T_R\).</p>
+  <p class="q"><strong>2.</strong> Un temps cible de \(T_R = 0{,}5\text{ s}\) est recommandé. La salle est-elle trop réverbérante ou pas assez ?</p>
+  <p class="q"><strong>3.</strong> Calculer la surface absorbante \(A_\text{cible}\) nécessaire pour atteindre \(T_R = 0{,}5\text{ s}\). En déduire la surface supplémentaire à installer.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong>
+    \[T_R = \dfrac{0{,}16 \times 200}{50} = \dfrac{32}{50} = \mathbf{0{,}64\text{ s}}\]</p>
+    <p><strong>2.</strong> \(0{,}64 > 0{,}5\) → la salle est <strong>trop réverbérante</strong>.</p>
+    <p><strong>3.</strong>
+    \[A_\text{cible} = \dfrac{0{,}16 \times 200}{0{,}5} = \dfrac{32}{0{,}5} = \mathbf{64\text{ m}^2}\]
+    Surface supplémentaire : \(64 - 50 = \mathbf{14\text{ m}^2}\) de matériaux absorbants à ajouter.</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Étude acoustique complète d'une chaufferie</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle</strong> — Un technicien de maintenance énergétique réalise un diagnostic acoustique d'une chaufferie collective. La chaufferie contient 3 chaudières identiques, chacune émettant un niveau sonore de \(L_1 = 78\text{ dB}\) à 1 m.<br>
+    La porte de la chaufferie donne sur un couloir desservant des logements. La réglementation impose un niveau inférieur à 30 dB dans les logements.<br>
+    La distance de la source au logement le plus proche est de 8 m.<br>
+    Données : \(\log(2) = 0{,}301\) ; \(\log(3) = 0{,}477\) ; \(\log(8) = 0{,}903\).
+  </div>
+  <p class="q"><strong>1.</strong> Calculer le niveau sonore total \(L_\text{total}\) produit par les 3 chaudières fonctionnant simultanément.</p>
+  <p class="q"><strong>2.</strong> Calculer le niveau sonore à 8 m de la source (en utilisant la loi d'atténuation avec la distance).</p>
+  <p class="q"><strong>3.</strong> La réglementation de 30 dB dans les logements est-elle respectée ? Calculer l'atténuation supplémentaire nécessaire.</p>
+  <p class="q"><strong>4.</strong> On installe une porte acoustique apportant une isolation de 35 dB. Montrer que cette solution permet de respecter la réglementation. Calculer la marge obtenue.</p>
+  <p class="q"><strong>5.</strong> Le technicien propose également de poser des manchons antivibratoires sur les tuyauteries. Expliquer en quoi cette mesure complémentaire est pertinente (distinguer bruit aérien et bruit solidien).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> 3 sources identiques :
+    \[L_\text{total} = L_1 + 10 \times \log(3) = 78 + 10 \times 0{,}477 = 78 + 4{,}8 \approx \mathbf{83\text{ dB}}\]</p>
+    <p><strong>2.</strong> Atténuation à 8 m :
+    \[L(8\text{ m}) = 83 - 20 \times \log(8) = 83 - 20 \times 0{,}903 = 83 - 18{,}1 \approx \mathbf{65\text{ dB}}\]</p>
+    <p><strong>3.</strong> 65 dB &gt; 30 dB → la réglementation <strong>n'est pas respectée</strong>. Atténuation supplémentaire nécessaire : \(65 - 30 = \mathbf{35\text{ dB}}\).</p>
+    <p><strong>4.</strong> Avec la porte acoustique (-35 dB) :
+    \[L_\text{logement} = 65 - 35 = \mathbf{30\text{ dB}}\]
+    30 dB \(\leq\) 30 dB → la réglementation est <strong>juste respectée</strong>, avec une marge de 0 dB. En pratique, on recommande une marge de sécurité, donc cette solution est limite.</p>
+    <p><strong>5.</strong> Les manchons antivibratoires réduisent le <strong>bruit solidien</strong> (vibrations transmises par les tuyauteries au bâti), distinct du <strong>bruit aérien</strong> (propagation dans l'air) traité par la porte acoustique. Sans manchons, les vibrations des chaudières se propagent dans les murs et les planchers jusqu'aux logements, contournant la porte acoustique. Les deux mesures sont complémentaires.</p>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 14</span>
+    <span class="exo-title">Nuisances sonores — comparaison de pompes à chaleur (type BTS)</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle</strong> — Un installateur de pompes à chaleur doit choisir entre deux modèles pour l'installation en toiture-terrasse d'un bâtiment de bureaux. Le cahier des charges impose un niveau sonore inférieur à 45 dB à 3 m de la PAC (terrasse accessible) et inférieur à 35 dB à 15 m (limite de propriété).
+  </div>
+  <table>
+    <tr><th>Modèle</th><th>Puissance acoustique \(P\) (W)</th><th>Fréquence principale (Hz)</th></tr>
+    <tr><td>PAC Alpha</td><td>\(5 \times 10^{-4}\)</td><td>250</td></tr>
+    <tr><td>PAC Beta</td><td>\(2 \times 10^{-4}\)</td><td>800</td></tr>
+  </table>
+  <p>Formules : \(I = \dfrac{P}{4\pi d^2}\) &nbsp;|&nbsp; \(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\) &nbsp;|&nbsp; \(\lambda = v / f\) avec \(v = 340\text{ m/s}\).</p>
+  <p class="q"><strong>1.</strong> Pour chaque modèle, calculer l'intensité sonore et le niveau en dB à \(d = 3\text{ m}\) puis à \(d = 15\text{ m}\).</p>
+  <p class="q"><strong>2.</strong> Déterminer quel(s) modèle(s) respecte(nt) le cahier des charges aux deux distances.</p>
+  <p class="q"><strong>3.</strong> Calculer la longueur d'onde du son émis par chaque modèle. En déduire lequel produit un son plus aigu.</p>
+  <p class="q"><strong>4.</strong> En pratique, les sons aigus sont davantage atténués par les obstacles (murs, écrans). Rédiger un avis technique argumenté sur le choix du modèle, en intégrant les résultats des questions précédentes et les caractéristiques fréquentielles.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> PAC Alpha :<br>
+    À 3 m : \(I = \dfrac{5 \times 10^{-4}}{4\pi \times 9} = \dfrac{5 \times 10^{-4}}{113{,}1} \approx 4{,}42 \times 10^{-6}\text{ W/m}^2\)<br>
+    \(L = 10 \times \log\!\left(\dfrac{4{,}42 \times 10^{-6}}{10^{-12}}\right) = 10 \times 6{,}645 \approx \mathbf{66{,}5\text{ dB}}\)<br>
+    À 15 m : \(I = \dfrac{5 \times 10^{-4}}{4\pi \times 225} \approx 1{,}77 \times 10^{-7}\text{ W/m}^2\)<br>
+    \(L \approx 10 \times 5{,}248 \approx \mathbf{52{,}5\text{ dB}}\)</p>
+    <p>PAC Beta :<br>
+    À 3 m : \(I = \dfrac{2 \times 10^{-4}}{113{,}1} \approx 1{,}77 \times 10^{-6}\text{ W/m}^2\)<br>
+    \(L \approx 10 \times 6{,}248 \approx \mathbf{62{,}5\text{ dB}}\)<br>
+    À 15 m : \(I \approx 7{,}07 \times 10^{-8}\text{ W/m}^2\)<br>
+    \(L \approx 10 \times 4{,}85 \approx \mathbf{48{,}5\text{ dB}}\)</p>
+    <p><strong>2.</strong> Cahier des charges : &lt; 45 dB à 3 m et &lt; 35 dB à 15 m.<br>
+    — PAC Alpha : 66,5 dB à 3 m et 52,5 dB à 15 m → <strong>ne respecte aucun critère</strong>.<br>
+    — PAC Beta : 62,5 dB à 3 m et 48,5 dB à 15 m → <strong>ne respecte aucun critère non plus</strong>.<br>
+    Aucun modèle seul ne respecte le cahier des charges : un traitement acoustique complémentaire est indispensable.</p>
+    <p><strong>3.</strong> \(\lambda_\text{Alpha} = 340 / 250 = \mathbf{1{,}36\text{ m}}\) &nbsp;|&nbsp; \(\lambda_\text{Beta} = 340 / 800 = \mathbf{0{,}425\text{ m}}\).<br>
+    La PAC Beta produit un son plus <strong>aigu</strong> (fréquence plus élevée, longueur d'onde plus courte).</p>
+    <p><strong>4.</strong> <strong>Avis technique :</strong> La PAC Beta est préférable pour deux raisons : (1) sa puissance acoustique est 2,5 fois plus faible, ce qui réduit les niveaux à toutes les distances ; (2) son son aigu (800 Hz) est davantage atténué par les obstacles urbains (murs, écrans acoustiques, végétation) que le son grave (250 Hz) de la PAC Alpha. Cependant, un capot absorbant ou un écran acoustique reste indispensable pour respecter le cahier des charges. On recommande la PAC Beta avec un écran absorbant apportant au moins 18 dB d'atténuation à 3 m.</p>
   </div>
 </div>
 
@@ -297,5 +436,6 @@
 </div>
 <script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
 <script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>

@@ -6,9 +6,9 @@
   <title>Ch01 – Évaluer la puissance consommée – DS</title>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" href="../../../styles.css">
-<link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
+  <link rel="stylesheet" href="../../../print.css" media="print">
+  <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+    .info-ds{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em;display:flex;gap:30px;flex-wrap:wrap}
     .info-ds div{flex:1;min-width:150px}
     .info-ds strong{display:block;color:var(--p);margin-bottom:2px}
     .pts{font-size:.8em;background:#ede9fe;color:#5b21b6;padding:2px 8px;border-radius:4px;font-weight:600}
@@ -259,6 +259,102 @@
   <div class="total-bar">TOTAL : 20 points</div>
 
   </div><!-- fin diff-standard -->
+
+  <!-- ================= NIVEAU APPROFONDISSEMENT ================= -->
+  <div class="diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 1</span>
+      <span class="exo-title">Bilan de puissance et compensation d'une chaufferie</span>
+      <span class="pts">10 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien de maintenance énergétique réalise un bilan électrique sur la chaufferie d'un immeuble collectif. L'installation est alimentée en triphasé 400 V / 50 Hz et comporte les récepteurs suivants :
+      <ul>
+        <li>Brûleur fioul : \(P_1 = 2{,}5\) kW, \(\cos\varphi_1 = 0{,}85\)</li>
+        <li>Circulateur primaire : \(P_2 = 0{,}55\) kW, \(\cos\varphi_2 = 0{,}62\)</li>
+        <li>Circulateur secondaire : \(P_3 = 0{,}37\) kW, \(\cos\varphi_3 = 0{,}62\)</li>
+        <li>Régulation et automatismes : \(P_4 = 0{,}18\) kW, \(\cos\varphi_4 = 1\)</li>
+      </ul>
+      Le fournisseur d'électricité exige un facteur de puissance global \(\cos\varphi \geq 0{,}93\).
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la puissance active totale \(P_T\) de l'installation. <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>2.</strong> Pour chaque récepteur, calculer la puissance réactive \(Q_i = P_i \times \tan\varphi_i\). En déduire \(Q_T\). <span class="q-pts">(3 pts)</span></div>
+    <div class="q"><strong>3.</strong> Calculer la puissance apparente \(S_T\) et le facteur de puissance global \(\cos\varphi_{\text{global}}\). L'installation est-elle conforme ? <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>4.</strong> Calculer la puissance réactive \(Q_C\) du condensateur nécessaire pour atteindre \(\cos\varphi = 0{,}93\). <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>5.</strong> Calculer le courant de ligne avant et après compensation. En déduire le pourcentage de réduction et expliquer l'intérêt pour l'exploitant. <span class="q-pts">(2 pts)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(P_T = 2{,}5 + 0{,}55 + 0{,}37 + 0{,}18 = \mathbf{3{,}60\ kW}\)</p>
+      <p><strong>2.</strong></p>
+      <p>Brûleur : \(\tan\varphi_1 = \dfrac{\sqrt{1-0{,}85^2}}{0{,}85} = \dfrac{0{,}527}{0{,}85} \approx 0{,}620 \Rightarrow Q_1 = 2{,}5 \times 0{,}620 = \mathbf{1{,}550\ kvar}\)</p>
+      <p>Circulateur primaire : \(\tan\varphi_2 = \dfrac{\sqrt{1-0{,}62^2}}{0{,}62} = \dfrac{0{,}785}{0{,}62} \approx 1{,}266 \Rightarrow Q_2 = 0{,}55 \times 1{,}266 = \mathbf{0{,}696\ kvar}\)</p>
+      <p>Circulateur secondaire : \(Q_3 = 0{,}37 \times 1{,}266 = \mathbf{0{,}468\ kvar}\)</p>
+      <p>Régulation : \(\cos\varphi_4 = 1 \Rightarrow Q_4 = \mathbf{0\ kvar}\)</p>
+      <p>\(Q_T = 1{,}550 + 0{,}696 + 0{,}468 + 0 = \mathbf{2{,}714\ kvar}\)</p>
+      <p><strong>3.</strong> \(S_T = \sqrt{P_T^2 + Q_T^2} = \sqrt{3{,}60^2 + 2{,}714^2} = \sqrt{12{,}96 + 7{,}37} = \sqrt{20{,}33} \approx \mathbf{4{,}51\ kVA}\)</p>
+      <p>\(\cos\varphi_{\text{global}} = \dfrac{3{,}60}{4{,}51} \approx \mathbf{0{,}798}\)</p>
+      <p>Or \(0{,}798 < 0{,}93\) : <strong>l'installation n'est pas conforme</strong>.</p>
+      <p><strong>4.</strong> \(\tan\varphi_{\text{cible}} = \dfrac{\sqrt{1-0{,}93^2}}{0{,}93} \approx 0{,}395\)</p>
+      <p>\(Q_C = P_T \times (\tan\varphi_{\text{actuel}} - \tan\varphi_{\text{cible}}) = 3{,}60 \times \left(\dfrac{2{,}714}{3{,}60} - 0{,}395\right) = 3{,}60 \times (0{,}754 - 0{,}395) = 3{,}60 \times 0{,}359 \approx \mathbf{1{,}29\ kvar}\)</p>
+      <p><strong>5.</strong> Avant : \(I_1 = \dfrac{S_T}{\sqrt{3} \times U} = \dfrac{4\,510}{\sqrt{3} \times 400} = \dfrac{4\,510}{692{,}8} \approx \mathbf{6{,}51\ A}\)</p>
+      <p>Après : \(Q_T' = 2{,}714 - 1{,}29 = 1{,}424\ \text{kvar}\)</p>
+      <p>\(S_T' = \sqrt{3{,}60^2 + 1{,}424^2} = \sqrt{12{,}96 + 2{,}03} = \sqrt{14{,}99} \approx 3{,}87\ \text{kVA}\)</p>
+      <p>\(I_2 = \dfrac{3\,870}{692{,}8} \approx \mathbf{5{,}59\ A}\)</p>
+      <p>Réduction : \(\dfrac{6{,}51 - 5{,}59}{6{,}51} \times 100 \approx \mathbf{14{,}1\ \%}\)</p>
+      <p>Intérêt : réduction des pertes Joule (\(P_J = R \cdot I^2\)), possibilité d'utiliser des câbles de section inférieure, absence de pénalités du fournisseur d'énergie pour \(\cos\varphi\) insuffisant.</p>
+    </div>
+  </div>
+
+  <div class="exo">
+    <div class="exo-header">
+      <span class="exo-num">Exercice 2</span>
+      <span class="exo-title">Comparaison énergétique : convecteurs vs pompe à chaleur</span>
+      <span class="pts">10 points</span>
+    </div>
+    <p class="enonce">
+      Un technicien en énergies renouvelables conseille un client qui souhaite remplacer ses convecteurs électriques par une pompe à chaleur (PAC) air/eau. L'installation est alimentée en monophasé 230 V.
+      <ul>
+        <li><strong>Solution actuelle :</strong> Convecteurs électriques, \(P_A = 5{,}5\) kW, \(\cos\varphi_A = 1\)</li>
+        <li><strong>Solution proposée :</strong> PAC air/eau, puissance électrique absorbée \(P_B = 1{,}8\) kW, \(\cos\varphi_B = 0{,}80\), COP moyen = 3,2</li>
+        <li>Fonctionnement : 12 h/jour pendant 180 jours/an</li>
+        <li>Prix du kWh : 0,2276 €</li>
+        <li>Coût d'installation de la PAC : 8 500 €</li>
+      </ul>
+    </p>
+    <div class="q"><strong>1.</strong> Calculer la puissance thermique restituée par la PAC. Cette puissance est-elle suffisante pour remplacer les convecteurs ? <span class="q-pts">(1,5 pt)</span></div>
+    <div class="q"><strong>2.</strong> Calculer l'énergie électrique consommée par an pour chaque solution. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>3.</strong> Calculer le coût annuel de fonctionnement pour chaque solution et l'économie annuelle réalisée. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>4.</strong> Calculer le temps de retour sur investissement de la PAC (en années). <span class="q-pts">(1 pt)</span></div>
+    <div class="q"><strong>5.</strong> Calculer le courant absorbé par chaque solution. Comparer et commenter l'impact sur le dimensionnement de la protection électrique. <span class="q-pts">(2 pts)</span></div>
+    <div class="q"><strong>6.</strong> Calculer \(S_B\) et \(Q_B\) pour la PAC. Expliquer pourquoi la PAC dégrade le facteur de puissance de l'installation globale et proposer une solution. <span class="q-pts">(1,5 pt)</span></div>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
+    <div class="corr">
+      <p><strong>1.</strong> \(P_{\text{th}} = \text{COP} \times P_B = 3{,}2 \times 1{,}8 = \mathbf{5{,}76\ kW}\)</p>
+      <p>\(5{,}76 > 5{,}5\) kW : la PAC restitue suffisamment de puissance thermique pour remplacer les convecteurs.</p>
+      <p><strong>2.</strong> Durée annuelle : \(t = 12 \times 180 = 2\,160\ \text{h}\)</p>
+      <p>Convecteurs : \(W_A = 5{,}5 \times 2\,160 = \mathbf{11\,880\ kWh}\)</p>
+      <p>PAC : \(W_B = 1{,}8 \times 2\,160 = \mathbf{3\,888\ kWh}\)</p>
+      <p><strong>3.</strong> Coût convecteurs : \(11\,880 \times 0{,}2276 = \mathbf{2\,703{,}89\ €}\)</p>
+      <p>Coût PAC : \(3\,888 \times 0{,}2276 = \mathbf{885{,}11\ €}\)</p>
+      <p>Économie annuelle : \(2\,703{,}89 - 885{,}11 = \mathbf{1\,818{,}78\ €}\)</p>
+      <p><strong>4.</strong> Temps de retour = \(\dfrac{8\,500}{1\,818{,}78} \approx \mathbf{4{,}7\ \text{ans}}\)</p>
+      <p>L'investissement est rentabilisé en moins de 5 ans.</p>
+      <p><strong>5.</strong> Convecteurs : \(I_A = \dfrac{5\,500}{230 \times 1} = \mathbf{23{,}9\ A}\) → disjoncteur 25 A ou 32 A</p>
+      <p>PAC : \(I_B = \dfrac{1\,800}{230 \times 0{,}80} = \dfrac{1\,800}{184} \approx \mathbf{9{,}78\ A}\) → disjoncteur 16 A</p>
+      <p>La PAC nécessite un disjoncteur de calibre bien inférieur. Le tableau électrique est moins sollicité et les câbles peuvent être de section plus faible.</p>
+      <p><strong>6.</strong> \(S_B = \dfrac{P_B}{\cos\varphi_B} = \dfrac{1{,}8}{0{,}80} = \mathbf{2{,}25\ kVA}\)</p>
+      <p>\(\sin\varphi_B = \sqrt{1 - 0{,}80^2} = \sqrt{0{,}36} = 0{,}6\)</p>
+      <p>\(Q_B = S_B \times \sin\varphi_B = 2{,}25 \times 0{,}6 = \mathbf{1{,}35\ kvar}\)</p>
+      <p>Les convecteurs (\(\cos\varphi = 1\)) ne génèrent aucune puissance réactive. La PAC, avec son compresseur (moteur), introduit une puissance réactive de 1,35 kvar qui dégrade le \(\cos\varphi\) de l'installation globale. Si d'autres moteurs sont présents, l'installation risque de ne plus satisfaire l'exigence \(\cos\varphi \geq 0{,}93\). Solution : installer un condensateur de compensation en parallèle sur l'alimentation de la PAC.</p>
+    </div>
+  </div>
+
+  <div class="total-bar">TOTAL : 20 points</div>
+
+  </div><!-- fin diff-appro -->
 </div>
 <script>
 function toggle(btn){
@@ -267,6 +363,7 @@ function toggle(btn){
   else{c.style.display='block';btn.textContent='Masquer la correction';}
 }
 </script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
 </body>
 </html>
