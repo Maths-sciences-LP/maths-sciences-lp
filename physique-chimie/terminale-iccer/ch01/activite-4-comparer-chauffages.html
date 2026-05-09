@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Activité 4 – Comparer 3 solutions de chauffage – Terminale ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Comparer 3 solutions de chauffage pour une chambre <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 1 – Évaluer la puissance consommée | Terminale Bac Pro (Grpt 1) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer une énergie consommée E = P × t</li>
+    <li>Comprendre le coefficient de performance (COP) d'une pompe à chaleur</li>
+    <li>Comparer le coût annuel de 3 solutions de chauffage</li>
+    <li>Calculer un retour sur investissement</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (énergie E = P × t) et §5 (rendement et COP). \(E_{\text{élec}} = E_{\text{thermique}} / \text{COP}\) pour une pompe à chaleur.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – rénovation énergétique chez un particulier</h2>
+  <p><em>Léo, technicien en énergies renouvelables chez l'entreprise « Calorie+ », est appelé chez M. et Mme Petit à Reims. Leur chambre de 25 m² est actuellement chauffée par un vieux convecteur électrique de 2 000 W, mais ils trouvent leur facture d'hiver trop élevée. Léo doit comparer 3 solutions de remplacement et leur fournir un rapport chiffré.</em></p>
+
+  <h3>Document 1 — Caractéristiques techniques des 3 solutions</h3>
+  <table>
+    <thead>
+      <tr><th>Solution</th><th>Puissance installée</th><th>Particularité</th><th>Prix achat + pose</th><th>Durée de vie</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>① Convecteur électrique (existant)</td><td>2 000 W</td><td>Fonctionne en continu sur la plage de chauffe</td><td>0 € (déjà installé)</td><td>10 ans</td></tr>
+      <tr><td>② Radiateur à inertie (céramique)</td><td>1 500 W</td><td>Fonctionne 70 % du temps grâce à l'inertie</td><td>650 €</td><td>20 ans</td></tr>
+      <tr><td>③ Pompe à chaleur air/air (split)</td><td>800 W électriques</td><td>COP = 3,5 (3,5 kWh thermiques pour 1 kWh élec.)</td><td>2 800 €</td><td>15 ans</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Schéma de la chambre à chauffer</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 640 280" style="max-width:640px;display:block;margin:0 auto" role="img" aria-label="Schéma d'une chambre de 25 m² à 19°C avec une fenêtre côté nord, température extérieure −5°C. Trois solutions de chauffage sont possibles : convecteur fixé au mur ouest, radiateur inertie au mur ouest, pompe à chaleur split en hauteur côté sud.">
+      <defs>
+        <linearGradient id="ext" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#bfdbfe"/>
+          <stop offset="100%" stop-color="#dbeafe"/>
+        </linearGradient>
+        <linearGradient id="int" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#fef3c7"/>
+          <stop offset="100%" stop-color="#fde68a"/>
+        </linearGradient>
+        <style>
+          .ti{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl{font:11px sans-serif;fill:#1a202c}
+          .lblB{font:600 11px sans-serif;fill:#1d4ed8}
+          .lblR{font:700 12px sans-serif;fill:#b91c1c}
+          .lblG{font:700 12px sans-serif;fill:#15803d}
+        </style>
+      </defs>
+
+      <text class="ti" x="320" y="22">Chambre de 25 m² (5 m × 5 m, hauteur 2,5 m)</text>
+
+      <!-- Extérieur -->
+      <rect x="0" y="40" width="640" height="240" fill="url(#ext)"/>
+      <text class="lblR" x="60" y="65" text-anchor="middle">EXT.</text>
+      <text class="lblR" x="60" y="82" text-anchor="middle">−5 °C</text>
+
+      <!-- Pièce -->
+      <rect x="120" y="60" width="400" height="200" fill="url(#int)" stroke="#92400e" stroke-width="3"/>
+      <text class="lblG" x="320" y="85" text-anchor="middle">INTÉRIEUR : 19 °C</text>
+      <text class="lbl" x="320" y="103" text-anchor="middle" font-style="italic">25 m² · volume 62,5 m³</text>
+
+      <!-- Fenêtre nord -->
+      <rect x="240" y="55" width="160" height="10" fill="#fff" stroke="#475569" stroke-width="1.5"/>
+      <line x1="320" y1="55" x2="320" y2="65" stroke="#475569" stroke-width="1"/>
+      <text class="lbl" x="320" y="50" text-anchor="middle" font-size="10" fill="#475569">fenêtre (perte chaleur)</text>
+
+      <!-- ① Convecteur (mur ouest) -->
+      <rect x="125" y="180" width="22" height="50" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+      <line x1="129" y1="190" x2="143" y2="190" stroke="#dc2626" stroke-width="1"/>
+      <line x1="129" y1="200" x2="143" y2="200" stroke="#dc2626" stroke-width="1"/>
+      <line x1="129" y1="210" x2="143" y2="210" stroke="#dc2626" stroke-width="1"/>
+      <line x1="129" y1="220" x2="143" y2="220" stroke="#dc2626" stroke-width="1"/>
+      <text class="lblR" x="155" y="207">①</text>
+      <text class="lbl" x="155" y="222" font-size="9" fill="#7f1d1d">2000 W</text>
+
+      <!-- ② Radiateur inertie (mur ouest, plus bas) -->
+      <rect x="125" y="240" width="35" height="15" fill="#475569" stroke="#1f2937" stroke-width="1.5"/>
+      <text class="lblB" x="170" y="252">②</text>
+      <text class="lbl" x="170" y="265" font-size="9">1500 W inertie</text>
+
+      <!-- ③ Pompe à chaleur split (mur sud, en hauteur) -->
+      <rect x="450" y="80" width="60" height="22" fill="#f1f5f9" stroke="#0969da" stroke-width="2" rx="3"/>
+      <line x1="455" y1="92" x2="505" y2="92" stroke="#0969da" stroke-width="0.7"/>
+      <text class="lblB" x="480" y="98" text-anchor="middle" font-size="9">PAC split</text>
+      <text class="lblG" x="480" y="118" text-anchor="middle">③</text>
+      <text class="lbl" x="480" y="132" text-anchor="middle" font-size="9" fill="#15803d">800 W élec · COP 3,5</text>
+
+      <!-- Flèches de chaleur -->
+      <path d="M 470 105 Q 470 130 470 145" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrW)"/>
+      <path d="M 460 105 Q 440 130 420 150" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrW)"/>
+      <path d="M 490 105 Q 510 130 510 150" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrW)"/>
+
+      <defs>
+        <marker id="arrW" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 8,4 0,8" fill="#f59e0b"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <h3>Document 3 — Données d'usage et tarif EDF</h3>
+  <ul>
+    <li>Saison de chauffe : <strong>5 mois</strong> (du 1<sup>er</sup> novembre au 31 mars)</li>
+    <li>Durée de chauffe quotidienne : <strong>10 h/jour</strong> en moyenne</li>
+    <li>Tarif EDF (option Base) : <strong>0,2516 €/kWh</strong> TTC (tarif 2026)</li>
+    <li>Conversion : 1 kWh = 1 000 W × 1 h = 1 kW × 1 h</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle est la solution la plus économique sur 10 ans ? Le surcoût d'achat d'une pompe à chaleur est-il compensé par les économies d'énergie ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la <strong>durée totale de chauffe</strong> sur la saison (5 mois × 30 jours × 10 h/jour). Exprimer en heures.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>t = 5 mois × 30 jours × 10 h = <strong>1 500 h/saison</strong></p>
+    <p>(approximation : on prend 30 j/mois pour simplifier ; en réalité 151 jours du 1er novembre au 31 mars).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'énergie consommée annuellement par le <strong>convecteur ① (2 000 W)</strong>. Exprimer en kWh.</p>
+  <p><em>Rappel : E (kWh) = P (kW) × t (h).</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P = 2 000 W = 2 kW.</p>
+    <p>E₁ = 2 × 1 500 = <strong>3 000 kWh/an</strong>.</p>
+    <p>(le convecteur est un appareil purement résistif : toute la puissance électrique est convertie en chaleur).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'énergie consommée annuellement par le <strong>radiateur à inertie ② (1 500 W)</strong>, sachant qu'il ne fonctionne que <strong>70 % du temps</strong> grâce à son inertie thermique (la céramique restitue la chaleur emmagasinée).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Temps de fonctionnement réel : 1 500 × 0,70 = <strong>1 050 h/saison</strong>.</p>
+    <p>E₂ = 1,5 × 1 050 = <strong>1 575 kWh/an</strong>.</p>
+    <p>Économie d'énergie par rapport au convecteur : (3 000 − 1 575) / 3 000 ≈ <strong>48 %</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>La <strong>pompe à chaleur ③</strong> a un coefficient de performance <strong>COP = 3,5</strong>. Cela signifie que pour 1 kWh d'électricité consommée, elle fournit <strong>3,5 kWh de chaleur</strong> à la pièce (en captant la chaleur de l'air extérieur).</p>
+  <p>Pour fournir la <strong>même chaleur que le convecteur</strong> (3 000 kWh thermiques/an), quelle est l'énergie électrique <strong>réellement consommée</strong> par la PAC ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Relation fondamentale : E_élec = E_thermique / COP.</p>
+    <p>E₃ = 3 000 / 3,5 ≈ <strong>857 kWh/an</strong> d'électricité.</p>
+    <p>La PAC est la solution qui consomme le moins d'électricité car elle ne « crée » pas la chaleur : elle la <strong>déplace</strong> de l'extérieur vers l'intérieur (comme un réfrigérateur à l'envers).</p>
+    <p>Vérification : 857 × 3,5 ≈ 3 000 kWh thermiques fournis ✓.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>coût annuel</strong> de chacune des 3 solutions (tarif EDF = 0,2516 €/kWh).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût = E × tarif.</p>
+    <ul>
+      <li>① Convecteur : 3 000 × 0,2516 ≈ <strong>755 €/an</strong></li>
+      <li>② Inertie : 1 575 × 0,2516 ≈ <strong>396 €/an</strong></li>
+      <li>③ PAC : 857 × 0,2516 ≈ <strong>216 €/an</strong></li>
+    </ul>
+    <p>Économie annuelle PAC vs convecteur : 755 − 216 = <strong>539 €/an</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Calculer le <strong>temps de retour sur investissement</strong> de la PAC ③ par rapport au convecteur ① (= surcoût d'achat ÷ économie annuelle).</p>
+  <p>Conclure : sur la durée de vie de 15 ans, l'investissement est-il rentable ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Retour sur investissement : 2 800 / 539 ≈ <strong>5,2 ans</strong>.</p>
+    <p>Sur 15 ans de vie, économies cumulées : 15 × 539 = 8 085 € — surcoût 2 800 € = <strong>5 285 € net économisés</strong>.</p>
+    <p>Conclusion : la PAC est <strong>très rentable</strong> sur sa durée de vie (rentabilisée en 5 ans, puis 10 ans d'économies pures).</p>
+    <p>Bonus : avec MaPrimeRénov' ou la prime CEE, le coût peut tomber à ~1 800 €, ramenant le retour à 3,3 ans.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>L'inertie ② a un prix d'achat de 650 € et une durée de vie de 20 ans. Calculer son temps de retour sur investissement par rapport au convecteur. Comparer à la PAC.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Économie annuelle inertie vs convecteur : 755 − 396 = 359 €/an.</p>
+    <p>Retour sur investissement : 650 / 359 ≈ <strong>1,8 an</strong>.</p>
+    <p>Sur 20 ans : 20 × 359 = 7 180 € − 650 € = <strong>6 530 € net économisés</strong>.</p>
+    <p>Verdict : l'inertie a un retour <strong>beaucoup plus rapide</strong> (1,8 an vs 5,2 ans) mais une économie <strong>moins massive</strong> à long terme (6 530 € vs 8 085 € + durée plus longue).</p>
+    <p>Compromis idéal selon profil client : trésorerie limitée → inertie ; investissement long terme → PAC.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>rapport de Léo</strong> à M. et Mme Petit, qui :</p>
+  <ul>
+    <li>compare les 3 solutions chiffrées</li>
+    <li>recommande une solution avec justification</li>
+    <li>mentionne l'aide financière éventuelle</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Calorie+ — Diagnostic chauffage chambre 25 m² · M. et Mme Petit</strong><br>
+      • <strong>Coût annuel</strong> : convecteur actuel 755 €, radiateur à inertie 396 €, pompe à chaleur 216 €.<br>
+      • <strong>Recommandation : pompe à chaleur air/air split</strong> (③). Économie de 539 €/an, rentabilisée en 5 ans, soit <strong>5 285 € nets économisés sur 15 ans</strong>.<br>
+      • Solution alternative en cas de budget limité : <strong>radiateur à inertie</strong> (②), retour sur investissement en moins de 2 ans, durée de vie 20 ans.<br>
+      • Aides mobilisables : <strong>MaPrimeRénov' + prime CEE</strong>, jusqu'à 1 000 € pour la PAC. Coût final estimé ~ 1 800 €.<br>
+      • Bénéfice secondaire PAC : peut aussi rafraîchir l'été (mode réversible).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>En réalité, le COP d'une pompe à chaleur <strong>dépend de la température extérieure</strong>. À −5 °C, le COP réel chute à 2,5 (au lieu des 3,5 annoncés). Recalculer la consommation électrique annuelle dans ce cas plus défavorable, puis le coût et le nouveau retour sur investissement.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Avec COP = 2,5 : E₃' = 3 000 / 2,5 = <strong>1 200 kWh/an</strong>.</p>
+    <p>Coût : 1 200 × 0,2516 ≈ <strong>302 €/an</strong> (au lieu de 216 €).</p>
+    <p>Économie vs convecteur : 755 − 302 = 453 €/an. Retour sur investissement : 2 800 / 453 ≈ <strong>6,2 ans</strong>.</p>
+    <p>Conclusion : même dans un scénario pessimiste, la PAC reste très rentable. Mais en région froide (Reims, Lyon, est de la France), le COP saisonnier moyen (SCOP) doit être pris en compte plutôt que le COP nominal annoncé par le fabricant.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Énergie consommée :</strong> \(E = P \times t\). En kWh si P en kW et t en h.</li>
+    <li><strong>Coefficient de performance (COP) d'une PAC :</strong> rapport entre la chaleur fournie et l'électricité consommée. COP = 3,5 → 1 kWh élec donne 3,5 kWh thermiques.</li>
+    <li><strong>Énergie électrique d'une PAC :</strong> \(E_{\text{élec}} = E_{\text{thermique}} / \text{COP}\).</li>
+    <li><strong>Coût annuel :</strong> coût = E × tarif (en €/kWh).</li>
+    <li><strong>Retour sur investissement :</strong> RSI = surcoût d'achat / économie annuelle. Pertinent uniquement sur la durée de vie de l'équipement.</li>
+    <li><strong>Aides 2026 :</strong> MaPrimeRénov' + CEE peuvent réduire de 30 à 50 % le coût d'une PAC.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Énergie consommée) et §5 (Rendement et COP) de la leçon Ch01.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

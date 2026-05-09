@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch01 – Activite – Puissance consommee – Terminale ICCER</title>
+<title>Ch01 – Activité – Puissance consommée – Terminale ICCER</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
@@ -14,17 +14,18 @@
 <a href="../../../pc-term-iccer.html" class="nb">← Retour au sommaire</a>
 
 <header>
-  <h1>Activite – Audit de puissance d'une installation de climatisation</h1>
-  <p class="sous-titre">Chapitre 1 | Terminale Bac Pro (Grpt 1) | Physique – Electricite | &#9201; 35 min</p>
+  <h1>Activité – Audit de puissance d'une installation de climatisation</h1>
+  <p class="sous-titre">Chapitre 1 | Terminale Bac Pro (Grpt 1) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, restauration des accents</p>
 </header>
 <button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
 <div class="objectifs">
   <strong>Objectifs :</strong>
   <ul>
-    <li>Distinguer puissance active, puissance apparente et puissance reactive</li>
-    <li>Decouvrir le facteur de puissance cos φ et son role en installation thermique</li>
+    <li>Distinguer puissance active, puissance apparente et puissance réactive</li>
+    <li>Découvrir le facteur de puissance cos φ et son rôle en installation thermique</li>
     <li>Utiliser la relation \(P = U \times I \times \cos\varphi\)</li>
-    <li>Construire et interpreter le triangle des puissances</li>
+    <li>Construire et interpréter le triangle des puissances</li>
   </ul>
 </div>
 
@@ -32,19 +33,19 @@
 <div class="situation">
   <h2>Situation professionnelle</h2>
   <p>
-    <em>Lucas est technicien CVC chez <strong>ClimaConfort</strong>, une entreprise de maintenance de climatisation a Lyon.
-    Son responsable lui demande de realiser un audit de puissance sur l'installation d'un restaurant de 120 m&sup2;.</em>
+    <em>Lucas est technicien CVC chez <strong>ClimaConfort</strong>, une entreprise de maintenance de climatisation à Lyon.
+    Son responsable lui demande de réaliser un audit de puissance sur l'installation d'un restaurant de 120 m².</em>
   </p>
   <p>
-    Lucas utilise un <strong>wattmetre</strong> (analyseur de reseau) branche sur le tableau electrique. Il releve la tension efficace, le courant efficace et la puissance active de chaque equipement. Voici ses mesures :
+    Lucas utilise un <strong>wattmètre</strong> (analyseur de réseau) branché sur le tableau électrique. Il relève la tension efficace, le courant efficace et la puissance active de chaque équipement. Voici ses mesures :
   </p>
 
-  <h3>Releves du wattmetre</h3>
+  <h3>Relevés du wattmètre</h3>
 
   <table>
     <thead>
       <tr>
-        <th>Equipement</th>
+        <th>Équipement</th>
         <th>Tension U (V)</th>
         <th>Courant I (A)</th>
         <th>Puissance active P (W)</th>
@@ -52,13 +53,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Groupe exterieur climatisation</strong></td>
+        <td><strong>Groupe extérieur climatisation</strong></td>
         <td>230</td>
         <td>14,0</td>
         <td>2 380</td>
       </tr>
       <tr>
-        <td><strong>Unite interieure gainable</strong></td>
+        <td><strong>Unité intérieure gainable</strong></td>
         <td>230</td>
         <td>2,5</td>
         <td>552</td>
@@ -76,7 +77,7 @@
         <td>180</td>
       </tr>
       <tr>
-        <td><strong>Resistance electrique d'appoint</strong></td>
+        <td><strong>Résistance électrique d'appoint</strong></td>
         <td>230</td>
         <td>8,7</td>
         <td>2 001</td>
@@ -84,7 +85,7 @@
     </tbody>
   </table>
 
-  <p><strong>Rappel :</strong> le wattmetre mesure directement la puissance <em>active</em> P (en watts), qui est la puissance reellement consommee par l'appareil.</p>
+  <p><strong>Rappel :</strong> le wattmètre mesure directement la puissance <em>active</em> P (en watts), qui est la puissance réellement consommée par l'appareil.</p>
 </div>
 
 <div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
@@ -95,31 +96,31 @@
 
 <div class="exo">
 <h2>Question 1 <span class="badge-green">APP</span></h2>
-<p>Pour chaque equipement, calculer le produit \(U \times I\) (appele <strong>puissance apparente S</strong>, exprimee en voltamperes VA). Completer le tableau ci-dessous.</p>
+<p>Pour chaque équipement, calculer le produit \(U \times I\) (appele <strong>puissance apparente S</strong>, exprimée en voltampères VA). Compléter le tableau ci-dessous.</p>
 <table>
   <thead>
-    <tr><th>Equipement</th><th>U × I = S (VA)</th><th>P (W)</th></tr>
+    <tr><th>Équipement</th><th>U × I = S (VA)</th><th>P (W)</th></tr>
   </thead>
   <tbody>
-    <tr><td>Groupe exterieur</td><td>...</td><td>2 380</td></tr>
-    <tr><td>Unite interieure</td><td>...</td><td>552</td></tr>
+    <tr><td>Groupe extérieur</td><td>...</td><td>2 380</td></tr>
+    <tr><td>Unité intérieure</td><td>...</td><td>552</td></tr>
     <tr><td>Ventilo-convecteur</td><td>...</td><td>414</td></tr>
     <tr><td>Circulateur</td><td>...</td><td>180</td></tr>
-    <tr><td>Resistance d'appoint</td><td>...</td><td>2 001</td></tr>
+    <tr><td>Résistance d'appoint</td><td>...</td><td>2 001</td></tr>
   </tbody>
 </table>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr">
   <table>
     <thead>
-      <tr><th>Equipement</th><th>S = U × I (VA)</th><th>P (W)</th></tr>
+      <tr><th>Équipement</th><th>S = U × I (VA)</th><th>P (W)</th></tr>
     </thead>
     <tbody>
-      <tr><td>Groupe exterieur</td><td>230 × 14,0 = <strong>3 220 VA</strong></td><td>2 380</td></tr>
-      <tr><td>Unite interieure</td><td>230 × 2,5 = <strong>575 VA</strong></td><td>552</td></tr>
+      <tr><td>Groupe extérieur</td><td>230 × 14,0 = <strong>3 220 VA</strong></td><td>2 380</td></tr>
+      <tr><td>Unité intérieure</td><td>230 × 2,5 = <strong>575 VA</strong></td><td>552</td></tr>
       <tr><td>Ventilo-convecteur</td><td>230 × 1,8 = <strong>414 VA</strong></td><td>414</td></tr>
       <tr><td>Circulateur</td><td>230 × 0,9 = <strong>207 VA</strong></td><td>180</td></tr>
-      <tr><td>Resistance d'appoint</td><td>230 × 8,7 = <strong>2 001 VA</strong></td><td>2 001</td></tr>
+      <tr><td>Résistance d'appoint</td><td>230 × 8,7 = <strong>2 001 VA</strong></td><td>2 001</td></tr>
     </tbody>
   </table>
 </div>
@@ -127,47 +128,47 @@
 
 <div class="exo">
 <h2>Question 2 <span class="badge-blue">ANA</span></h2>
-<p>Comparer, pour chaque equipement, la puissance apparente S et la puissance active P. Pour quels appareils observe-t-on un ecart ? Pour lesquels S = P ?</p>
+<p>Comparer, pour chaque équipement, la puissance apparente S et la puissance active P. Pour quels appareils observe-t-on un écart ? Pour lesquels S = P ?</p>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr">
   <ul>
-    <li><strong>Groupe exterieur :</strong> S = 3 220 VA ≠ P = 2 380 W → ecart important.</li>
-    <li><strong>Unite interieure :</strong> S = 575 VA ≠ P = 552 W → leger ecart.</li>
-    <li><strong>Ventilo-convecteur :</strong> S = 414 VA = P = 414 W → pas d'ecart.</li>
-    <li><strong>Circulateur :</strong> S = 207 VA ≠ P = 180 W → ecart notable.</li>
-    <li><strong>Resistance d'appoint :</strong> S = 2 001 VA = P = 2 001 W → pas d'ecart.</li>
+    <li><strong>Groupe extérieur :</strong> S = 3 220 VA ≠ P = 2 380 W → écart important.</li>
+    <li><strong>Unité intérieure :</strong> S = 575 VA ≠ P = 552 W → léger écart.</li>
+    <li><strong>Ventilo-convecteur :</strong> S = 414 VA = P = 414 W → pas d&apos;écart.</li>
+    <li><strong>Circulateur :</strong> S = 207 VA ≠ P = 180 W → écart notable.</li>
+    <li><strong>Résistance d'appoint :</strong> S = 2 001 VA = P = 2 001 W → pas d&apos;écart.</li>
   </ul>
-  <p>Les appareils a moteur (groupe exterieur, circulateur) presentent un ecart. Les charges purement resistives (resistance d'appoint, ventilo-convecteur) n'en presentent pas.</p>
+  <p>Les appareils à moteur (groupe extérieur, circulateur) présentent un écart. Les charges purement résistives (résistance d'appoint, ventilo-convecteur) n'en présentent pas.</p>
 </div>
 </div>
 
 <div class="exo">
 <h2>Question 3 <span class="badge-blue">ANA</span></h2>
-<p>Les appareils pour lesquels S ≠ P contiennent des <strong>moteurs electriques</strong> (compresseur, pompe). Les appareils pour lesquels S = P sont des <strong>charges resistives</strong>.</p>
-<p>D'apres vous, quelle est la cause physique de cet ecart entre S et P ?</p>
+<p>Les appareils pour lesquels S ≠ P contiennent des <strong>moteurs électriques</strong> (compresseur, pompe). Les appareils pour lesquels S = P sont des <strong>charges résistives</strong>.</p>
+<p>D'apres vous, quelle est la cause physique de cet écart entre S et P ?</p>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr">
-  <p>L'ecart est du au <strong>dephasage</strong> entre la tension u(t) et le courant i(t). Dans un moteur (charge inductive), le courant est en retard sur la tension. Ce decalage fait que le produit U × I ne donne pas directement la puissance reellement consommee.</p>
-  <p>Pour une charge purement resistive, tension et courant sont en phase (φ = 0), donc S = P.</p>
+  <p>L'écart est dû au <strong>déphasage</strong> entre la tension u(t) et le courant i(t). Dans un moteur (charge inductive), le courant est en retard sur la tension. Ce décalage fait que le produit U × I ne donne pas directement la puissance réellement consommée.</p>
+  <p>Pour une charge purement résistive, tension et courant sont en phase (φ = 0), donc S = P.</p>
 </div>
 </div>
 
 <div class="exo">
 <h2>Question 4 <span class="badge-green">REA</span></h2>
 <p>Le <strong>facteur de puissance</strong> est defini par : \(\cos\varphi = \dfrac{P}{S} = \dfrac{P}{U \times I}\)</p>
-<p>Calculer cos φ pour chaque equipement. Arrondir au centieme.</p>
+<p>Calculer cos φ pour chaque équipement. Arrondir au centième.</p>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr">
   <table>
     <thead>
-      <tr><th>Equipement</th><th>cos φ = P / S</th></tr>
+      <tr><th>Équipement</th><th>cos φ = P / S</th></tr>
     </thead>
     <tbody>
-      <tr><td>Groupe exterieur</td><td>\(\frac{2\,380}{3\,220} \approx\) <strong>0,74</strong></td></tr>
-      <tr><td>Unite interieure</td><td>\(\frac{552}{575} \approx\) <strong>0,96</strong></td></tr>
+      <tr><td>Groupe extérieur</td><td>\(\frac{2\,380}{3\,220} \approx\) <strong>0,74</strong></td></tr>
+      <tr><td>Unité intérieure</td><td>\(\frac{552}{575} \approx\) <strong>0,96</strong></td></tr>
       <tr><td>Ventilo-convecteur</td><td>\(\frac{414}{414} =\) <strong>1,00</strong></td></tr>
       <tr><td>Circulateur</td><td>\(\frac{180}{207} \approx\) <strong>0,87</strong></td></tr>
-      <tr><td>Resistance d'appoint</td><td>\(\frac{2\,001}{2\,001} =\) <strong>1,00</strong></td></tr>
+      <tr><td>Résistance d'appoint</td><td>\(\frac{2\,001}{2\,001} =\) <strong>1,00</strong></td></tr>
     </tbody>
   </table>
 </div>
@@ -175,38 +176,38 @@
 
 <div class="exo">
 <h2>Question 5 <span class="badge-blue">ANA</span></h2>
-<p>a) Que vaut cos φ pour une charge purement resistive ? Justifier.</p>
-<p>b) Quel equipement presente le cos φ le plus faible ? Que signifie cette valeur pour le dimensionnement du disjoncteur ?</p>
+<p>a) Que vaut cos φ pour une charge purement résistive ? Justifier.</p>
+<p>b) Quel équipement présente le cos φ le plus faible ? Que signifie cette valeur pour le dimensionnement du disjoncteur ?</p>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr">
-  <p><strong>a)</strong> Pour une charge purement resistive, φ = 0, donc cos φ = cos(0) = <strong>1</strong>. Toute la puissance apparente est convertie en puissance active.</p>
-  <p><strong>b)</strong> Le <strong>groupe exterieur</strong> a le cos φ le plus faible (0,74). Cela signifie que le courant appele (14 A) est bien superieur a ce que la puissance active seule laisserait penser. Le disjoncteur et les cables doivent etre dimensionnes sur la puissance apparente S = 3 220 VA (soit le courant reel I = 14 A), et non sur P = 2 380 W.</p>
+  <p><strong>a)</strong> Pour une charge purement résistive, φ = 0, donc cos φ = cos(0) = <strong>1</strong>. Toute la puissance apparente est convertie en puissance active.</p>
+  <p><strong>b)</strong> Le <strong>groupe extérieur</strong> a le cos φ le plus faible (0,74). Cela signifie que le courant appele (14 A) est bien supérieur a ce que la puissance active seule laisserait penser. Le disjoncteur et les câbles doivent etre dimensionnés sur la puissance apparente S = 3 220 VA (soit le courant reel I = 14 A), et non sur P = 2 380 W.</p>
 </div>
 </div>
 
 <div class="exo">
 <h2>Question 6 <span class="badge-green">REA</span></h2>
-<p>On definit la <strong>puissance reactive</strong> Q (en voltamperes reactifs, var) par la relation :</p>
+<p>On definit la <strong>puissance réactive</strong> Q (en voltampères reactifs, var) par la relation :</p>
 <p>\[ Q = U \times I \times \sin\varphi \]</p>
-<p>Pour le groupe exterieur (cos φ = 0,74) :</p>
-<p>a) Calculer l'angle φ en degres a l'aide de la touche cos<sup>-1</sup> de la calculatrice.</p>
-<p>b) En deduire sin φ, puis la puissance reactive Q.</p>
+<p>Pour le groupe extérieur (cos φ = 0,74) :</p>
+<p>a) Calculer l'angle φ en degrés a l'aide de la touche cos⁻¹ de la calculatrice.</p>
+<p>b) En deduire sin φ, puis la puissance réactive Q.</p>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr">
   <p><strong>a)</strong> \(\varphi = \cos^{-1}(0{,}74) \approx 42{,}3°\)</p>
   <p><strong>b)</strong> \(\sin(42{,}3°) \approx 0{,}673\)</p>
   <p>\(Q = U \times I \times \sin\varphi = 230 \times 14{,}0 \times 0{,}673 \approx \mathbf{2\,167 \text{ var}}\)</p>
-  <p><strong>Verification :</strong> \(S^2 = P^2 + Q^2\) → \(\sqrt{2\,380^2 + 2\,167^2} = \sqrt{5\,662\,400 + 4\,695\,889} \approx \sqrt{10\,358\,289} \approx 3\,218 \approx 3\,220\) VA &#10003;</p>
+  <p><strong>Vérification :</strong> \(S^2 = P^2 + Q^2\) → \(\sqrt{2\,380^2 + 2\,167^2} = \sqrt{5\,662\,400 + 4\,695\,889} \approx \sqrt{10\,358\,289} \approx 3\,218 \approx 3\,220\) VA &#10003;</p>
 </div>
 </div>
 
 <div class="exo">
 <h2>Question 7 <span class="badge-green">REA</span></h2>
-<p>Construire le <strong>triangle des puissances</strong> pour le groupe exterieur. Placer sur un schema :</p>
+<p>Construire le <strong>triangle des puissances</strong> pour le groupe extérieur. Placer sur un schema :</p>
 <ul>
-  <li>L'hypotenuse S (puissance apparente)</li>
-  <li>Le cote horizontal P (puissance active)</li>
-  <li>Le cote vertical Q (puissance reactive)</li>
+  <li>L'hypoténuse S (puissance apparente)</li>
+  <li>Le côté horizontal P (puissance active)</li>
+  <li>Le côté vertical Q (puissance réactive)</li>
   <li>L'angle φ</li>
 </ul>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
@@ -223,61 +224,61 @@
       <text x="95" y="65" fill="#2f855a" font-weight="bold">φ ≈ 42°</text>
     </svg>
   </div>
-  <p>Le triangle des puissances est un triangle rectangle dont l'hypotenuse est S, le cote adjacent a φ est P et le cote oppose a φ est Q. On verifie : \(S^2 = P^2 + Q^2\).</p>
+  <p>Le triangle des puissances est un triangle rectangle dont l'hypoténuse est S, le côté adjacent à φ est P et le côté opposé à φ est Q. On vérifie : \(S^2 = P^2 + Q^2\).</p>
 </div>
 </div>
 
 <div class="exo">
 <h2>Question 8 <span class="badge-green">VAL</span></h2>
-<p>Le fournisseur d'electricite facture l'energie sur la base de la puissance <strong>active</strong> P. Cependant, si le facteur de puissance de l'installation est trop faible (cos φ &lt; 0,85), des penalites tarifaires s'appliquent.</p>
-<p>a) Le cos φ global du groupe exterieur (0,74) respecte-t-il ce seuil ?</p>
+<p>Le fournisseur d'électricité facture l'energie sur la base de la puissance <strong>active</strong> P. Cependant, si le facteur de puissance de l'installation est trop faible (cos φ &lt; 0,85), des pénalités tarifaires s'appliquent.</p>
+<p>a) Le cos φ global du groupe extérieur (0,74) respecte-t-il ce seuil ?</p>
 <p>b) Proposer une solution technique pour ameliorer le facteur de puissance d'une installation.</p>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr">
-  <p><strong>a)</strong> Non : cos φ = 0,74 &lt; 0,85. Le restaurant risque des penalites tarifaires.</p>
-  <p><strong>b)</strong> On installe des <strong>condensateurs de compensation</strong> (batteries de condensateurs) en parallele sur l'installation. Les condensateurs fournissent de l'energie reactive et font remonter le facteur de puissance vers 1.</p>
+  <p><strong>a)</strong> Non : cos φ = 0,74 &lt; 0,85. Le restaurant risque des pénalités tarifaires.</p>
+  <p><strong>b)</strong> On installe des <strong>condensateurs de compensation</strong> (batteries de condensateurs) en parallèle sur l'installation. Les condensateurs fournissent de l'energie réactive et font remonter le facteur de puissance vers 1.</p>
 </div>
 </div>
 
 <div class="exo">
 <h2>Question 9 <span class="badge-green">REA</span></h2>
-<p>Lucas doit estimer la facture electrique mensuelle du restaurant liee a la climatisation. On suppose que l'installation fonctionne 10 h par jour, 26 jours par mois, et que le tarif est de 0,22 €/kWh.</p>
+<p>Lucas doit estimer la facture électrique mensuelle du restaurant liee a la climatisation. On suppose que l'installation fonctionne 10 h par jour, 26 jours par mois, et que le tarif est de 0,22 €/kWh.</p>
 <p>a) Calculer la puissance active totale P<sub>totale</sub> de l'installation.</p>
-<p>b) Calculer l'energie consommee par mois en kWh.</p>
-<p>c) En deduire le cout mensuel.</p>
+<p>b) Calculer l'energie consommée par mois en kWh.</p>
+<p>c) En deduire le coût mensuel.</p>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr">
   <p><strong>a)</strong> \(P_{\text{totale}} = 2\,380 + 552 + 414 + 180 + 2\,001 = \mathbf{5\,527 \text{ W}} = 5{,}527 \text{ kW}\)</p>
-  <p><strong>b)</strong> Duree mensuelle : 10 × 26 = 260 h</p>
+  <p><strong>b)</strong> Durée mensuelle : 10 × 26 = 260 h</p>
   <p>\(E = P \times t = 5{,}527 \times 260 = \mathbf{1\,437 \text{ kWh}}\)</p>
-  <p><strong>c)</strong> Cout : \(1\,437 \times 0{,}22 = \mathbf{316 \text{ euros}}\) par mois (environ).</p>
+  <p><strong>c)</strong> Coût : \(1\,437 \times 0{,}22 = \mathbf{316 \text{ euros}}\) par mois (environ).</p>
 </div>
 </div>
 
 <div class="exo">
 <h2>Question 10 <span class="badge-yellow">COM</span></h2>
-<p>Rediger un court paragraphe (4-5 lignes) expliquant a un client non technicien :</p>
+<p>Rédiger un court paragraphe (4-5 lignes) expliquant a un client non technicien :</p>
 <ul>
   <li>ce qu'est le facteur de puissance,</li>
-  <li>pourquoi le produit U × I ne donne pas toujours la puissance reellement consommee,</li>
-  <li>pourquoi c'est important pour le dimensionnement de l'installation electrique.</li>
+  <li>pourquoi le produit U × I ne donne pas toujours la puissance réellement consommée,</li>
+  <li>pourquoi c'est important pour le dimensionnement de l'installation électrique.</li>
 </ul>
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr">
   <p><em>Exemple de reponse :</em></p>
-  <p>Le facteur de puissance cos φ indique quelle part de l'electricite fournie par le reseau est reellement transformee en travail utile (chauffage, compression, ventilation). Plus cos φ est proche de 1, plus l'installation est efficace. Quand cos φ est faible, le courant qui circule dans les cables est plus eleve que necessaire : il faut des cables plus gros et des disjoncteurs plus puissants, et le fournisseur d'electricite peut appliquer des penalites. C'est pourquoi on installe parfois des condensateurs pour corriger le facteur de puissance.</p>
+  <p>Le facteur de puissance cos φ indique quelle part de l'électricité fournie par le réseau est réellement transformée en travail utile (chauffage, compression, ventilation). Plus cos φ est proche de 1, plus l'installation est efficace. Quand cos φ est faible, le courant qui circule dans les câbles est plus élevée que necessaire : il faut des câbles plus gros et des disjoncteurs plus puissants, et le fournisseur d'électricité peut appliquer des pénalités. C'est pourquoi on installe parfois des condensateurs pour corriger le facteur de puissance.</p>
 </div>
 </div>
 
 <!-- ===== A RETENIR ===== -->
 <div class="retenir">
   <strong>À retenir</strong>
-  <p><strong>Puissance active :</strong> \(P = U \times I \times \cos\varphi\) &nbsp; (en watts, W) — puissance reellement consommee.</p>
-  <p><strong>Puissance apparente :</strong> \(S = U \times I\) &nbsp; (en voltamperes, VA) — produit des valeurs efficaces.</p>
-  <p><strong>Puissance reactive :</strong> \(Q = U \times I \times \sin\varphi\) &nbsp; (en voltamperes reactifs, var).</p>
+  <p><strong>Puissance active :</strong> \(P = U \times I \times \cos\varphi\) &nbsp; (en watts, W) — puissance réellement consommée.</p>
+  <p><strong>Puissance apparente :</strong> \(S = U \times I\) &nbsp; (en voltampères, VA) — produit des valeurs efficaces.</p>
+  <p><strong>Puissance réactive :</strong> \(Q = U \times I \times \sin\varphi\) &nbsp; (en voltampères reactifs, var).</p>
   <p><strong>Facteur de puissance :</strong> \(\cos\varphi = \dfrac{P}{S}\) — compris entre 0 et 1.</p>
   <ul>
-    <li>Charge resistive (radiateur) : cos φ = 1 → S = P</li>
+    <li>Charge résistive (radiateur) : cos φ = 1 → S = P</li>
     <li>Charge inductive (moteur, compresseur) : cos φ &lt; 1 → S &gt; P</li>
   </ul>
   <p><strong>Triangle des puissances :</strong> \(S^2 = P^2 + Q^2\)</p>
