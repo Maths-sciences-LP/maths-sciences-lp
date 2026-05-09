@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 2 – Débits et puissances de 10 – CAP MIT</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Calculer un débit et une consommation annuelle <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 7 — Calculs numériques | CAP MIT (Métiers Installation Thermique) | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Convertir des débits (L/h ↔ m³/s)</li>
+    <li>Manipuler les puissances de 10 et l'écriture scientifique</li>
+    <li>Estimer un ordre de grandeur de consommation</li>
+    <li>Arrondir avec un nombre de chiffres significatifs adapté</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – consommation d'eau d'un client</h2>
+  <p><em>Karim, apprenti chauffagiste à Nice, intervient chez un client qui veut connaître sa consommation annuelle d'eau chaude. Le mitigeur de la douche débite 12 L/min. La famille (4 personnes) prend 4 douches par jour de 8 minutes en moyenne. Karim doit calculer la consommation annuelle et estimer le coût à partir du tarif de l'eau chaude.</em></p>
+
+  <h3>Document 1 — Données client</h3>
+  <ul>
+    <li>Débit du mitigeur : <strong>12 L/min</strong>.</li>
+    <li>Durée d'une douche : <strong>8 min</strong>.</li>
+    <li>Nombre de douches par jour : <strong>4</strong>.</li>
+    <li>1 an = <strong>365 jours</strong>.</li>
+  </ul>
+
+  <h3>Document 2 — Tarif eau chaude (chauffe-eau électrique)</h3>
+  <ul>
+    <li>Énergie nécessaire pour chauffer 1 L d'eau de 15 °C à 50 °C : <strong>≈ 0,041 kWh/L</strong>.</li>
+    <li>Tarif EDF heures pleines : <strong>0,21 €/kWh</strong>.</li>
+  </ul>
+
+  <h3>Document 3 — Conversions utiles</h3>
+  <ul>
+    <li>$1 \,$L = $10^{-3} \,$m³ = $0,001 \,$m³.</li>
+    <li>$1 \,$min = $60 \,$s.</li>
+    <li>$1 \,$h = $3\,600 \,$s.</li>
+    <li>$1 \,$kWh = $3,6 \times 10^6 \,$J.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle est la consommation annuelle d'eau chaude (en L et en m³) et le coût correspondant ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Convertir le débit <strong>12 L/min</strong> en L/h. Puis en m³/h.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$12 \times 60 = $ <strong>720 L/h</strong>.</p>
+    <p>$720 \times 10^{-3} = 0,72 \,$m³/h soit <strong>$7,2 \times 10^{-1} \,$m³/h</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>volume d'eau d'une douche</strong> de 8 min (en L).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$12 \times 8 = $ <strong>96 L</strong> par douche.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le volume d'eau <strong>annuel</strong> consommé par la famille (4 douches/jour × 365 jours).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Volume annuel = $96 \times 4 \times 365 = $ <strong>140 160 L</strong>.</p>
+    <p>En m³ : $140\,160 \times 10^{-3} = $ <strong>140,16 m³</strong>.</p>
+    <p>En écriture scientifique : $1,4 \times 10^5 \,$L ou $1,4 \times 10^2 \,$m³.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer l'<strong>énergie</strong> nécessaire pour chauffer cette eau (de 15 à 50 °C, à 0,041 kWh/L).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$E = 140\,160 \times 0,041 \approx $ <strong>5 747 kWh</strong>/an.</p>
+    <p>Soit ≈ $5,7 \times 10^3 \,$kWh — un ordre de grandeur de la consommation typique d'un foyer pour l'eau chaude (4 000-7 000 kWh/an).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>coût annuel</strong> de l'eau chaude (à 0,21 €/kWh).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$5\,747 \times 0,21 \approx $ <strong>1 207 €</strong>/an.</p>
+    <p>Arrondi : ~1 200 € — environ 100 €/mois pour l'eau chaude seule.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Donner une <strong>estimation rapide (ordre de grandeur)</strong> du calcul $96 \times 4 \times 365$ en arrondissant chaque valeur. Votre estimation est-elle proche du résultat exact (140 160) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Estimation : $100 \times 4 \times 400 = 160\,000$. Ordre $1,6 \times 10^5$.</p>
+    <p>Résultat exact : $1,4 \times 10^5$. Estimation cohérente (même ordre de grandeur ✓).</p>
+    <p>L'arrondi a tendance à <strong>surestimer</strong> ici (deux des trois facteurs ont été agrandis).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Karim conseille au client d'<strong>installer un mitigeur économe</strong> qui réduit le débit à 8 L/min. Recalculer la nouvelle consommation et le nouveau coût annuel. Quelle économie réalise le client ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Volume : $\dfrac{8}{12} \times 140\,160 \approx 93\,440 \,$L (~93 m³).</p>
+    <p>Énergie : $93\,440 \times 0,041 \approx 3\,831 \,$kWh.</p>
+    <p>Coût : $3\,831 \times 0,21 \approx $ <strong>805 €</strong>.</p>
+    <p>Économie : $1\,207 - 805 = $ <strong>402 €</strong>/an (~33 %).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>conseil énergétique</strong> que Karim laisse au client en fin d'intervention.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermie Nice — Audit consommation eau chaude · 7 mai 2026</strong><br>
+      • <strong>Consommation :</strong> 4 douches × 8 min × 12 L/min × 365 j = 140 160 L (~140 m³).<br>
+      • <strong>Énergie :</strong> 5 747 kWh/an pour chauffer cette eau.<br>
+      • <strong>Coût :</strong> 1 207 €/an (~100 €/mois).<br>
+      • <strong>Action recommandée :</strong> mitigeur économe 8 L/min (50 € HT environ).<br>
+      • <strong>Gain estimé :</strong> 402 €/an, retour sur investissement ~6 semaines !
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Combien de <strong>m³</strong> d'eau cela représente-t-il sur <strong>30 ans</strong> de vie d'une famille ? Donner le résultat en écriture scientifique avec 2 chiffres significatifs.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$140 \times 30 = 4\,200 \,$m³ → <strong>$4,2 \times 10^3 \,$m³</strong>.</p>
+    <p>Soit l'équivalent d'un peu plus de la moitié d'une <strong>piscine olympique</strong> (50 × 25 × 2 = 2 500 m³).</p>
+    <p>L'éducation aux économies d'eau dès l'enfance a un impact fort sur la consommation totale d'une vie.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Conversions :</strong> 1 L = 1 dm³ = $10^{-3}$ m³ ; 1 m³ = 1 000 L.</li>
+    <li><strong>Débit :</strong> volume / temps. L/min × 60 → L/h ; L/h × $10^{-3}$ → m³/h.</li>
+    <li><strong>Écriture scientifique :</strong> $a \times 10^n$ avec $1 \leq a < 10$.</li>
+    <li><strong>Ordre de grandeur :</strong> arrondir à 1 chiffre significatif pour vérifier mentalement.</li>
+    <li><strong>Coût d'une consommation :</strong> volume × énergie × tarif.</li>
+    <li><strong>Application pro :</strong> audit, conseil énergétique, dimensionnement chauffe-eau.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Décimaux), §4 (Puissances de 10), §5 (Ordres de grandeur) et §6 (Conversions) de la leçon Ch07.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
