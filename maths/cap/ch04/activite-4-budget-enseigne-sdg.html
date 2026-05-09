@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité 4 – Budget enseigne et lettrage – CAP SDG</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Calculer le nombre de lettres dans un budget <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 4 — Équations du premier degré | CAP SDG (Signalétique et Décors Graphiques) | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Mettre une situation budgétaire en équation</li>
+    <li>Résoudre une équation $ax + b = c$ avec contrainte d'entier</li>
+    <li>Comparer deux solutions par une équation $ax + b = cx + d$</li>
+    <li>Interpréter une solution dans le contexte commercial</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – devis enseigne en lettres découpées</h2>
+  <p><em>Sami, apprenti en signalétique chez « Couleurs Vives » à Marseille, prépare une enseigne pour un cabinet d'avocats. Le client veut une enseigne avec son nom de cabinet en lettres découpées sur dibond (panneau aluminium-plastique). Sami a un budget client à respecter et un nombre de lettres à découper.</em></p>
+
+  <h3>Document 1 — Tarifs « Couleurs Vives »</h3>
+  <ul>
+    <li>Forfait fixe (préparation, étude graphique, transport) : <strong>180 € HT</strong>.</li>
+    <li>Prix d'une lettre découpée standard : <strong>15 € HT</strong>.</li>
+    <li>Pose forfaitaire (tous formats) : <strong>120 € HT</strong>.</li>
+  </ul>
+
+  <h3>Document 2 — Cahier des charges client</h3>
+  <ul>
+    <li>Budget client maximum : <strong>720 € HT</strong>.</li>
+    <li>Le client a un nom à inscrire en majuscules (chaque lettre = 1 lettre découpée).</li>
+    <li>Espaces et apostrophes ne sont pas comptés.</li>
+  </ul>
+
+  <h3>Document 3 — Concurrent</h3>
+  <p>« SignéMédia » propose : forfait <strong>240 € HT</strong> + <strong>11 € HT</strong> par lettre. Pose comprise.</p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Combien de lettres maximum peut découper Sami dans le budget de 720 € HT ? À partir de combien de lettres l'offre concurrente devient-elle plus avantageuse ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>On note $x$ le nombre de lettres découpées. Exprimer le <strong>coût total HT</strong> chez « Couleurs Vives » en fonction de $x$.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût = forfait + lettres + pose = $180 + 15x + 120$.</p>
+    <p>En simplifiant : <strong>$15x + 300$</strong> (en € HT).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Écrire l'<strong>équation</strong> qui traduit que le coût total est égal au budget de 720 € HT.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$15x + 300 = 720$.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Résoudre cette équation. Quelle est la valeur de $x$ ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$15x + 300 = 720$</p>
+    <p>$15x = 420$</p>
+    <p>$x = \dfrac{420}{15} = $ <strong>28 lettres</strong>.</p>
+    <p>Sami peut découper jusqu'à 28 lettres dans le budget client.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Le client demande l'inscription : « <strong>CABINET DURAND ASSOCIES</strong> » (espaces non comptés). Combien y a-t-il de lettres ? Le budget est-il respecté ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Compter : C-A-B-I-N-E-T (7) + D-U-R-A-N-D (6) + A-S-S-O-C-I-E-S (8) = <strong>21 lettres</strong>.</p>
+    <p>Coût : $15 \times 21 + 300 = 315 + 300 = $ <strong>615 € HT</strong>. Budget OK (105 € de marge).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer les deux entreprises pour <strong>$x = 21$ lettres</strong>. Quel est l'écart ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Couleurs Vives : 615 € HT (calculé).</p>
+    <p>SignéMédia : $240 + 11 \times 21 = 240 + 231 = $ <strong>471 € HT</strong>.</p>
+    <p>Écart : $615 - 471 = $ <strong>144 € moins cher chez SignéMédia</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>À partir de combien de lettres « Couleurs Vives » devient-il <strong>plus avantageux</strong> que « SignéMédia » ? Écrire l'équation et la résoudre.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>On cherche $x$ tel que les coûts soient égaux : $15x + 300 = 11x + 240$.</p>
+    <p>$15x - 11x = 240 - 300$ → $4x = -60$ → $x = -15$.</p>
+    <p>Pas de solution positive : « Couleurs Vives » <strong>n'est jamais</strong> plus avantageux que « SignéMédia » dès lors qu'on a au moins 1 lettre. SignéMédia est toujours moins cher (lettres moins chères + forfait pose inclus).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Le patron de Sami décide de <strong>baisser le prix de la lettre</strong> à 10 € HT pour s'aligner. Quelle est désormais l'équation pour égalité, et le nombre de lettres ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Nouvelle équation : $10x + 300 = 11x + 240$.</p>
+    <p>$10x - 11x = 240 - 300$ → $-x = -60$ → $x = $ <strong>60 lettres</strong>.</p>
+    <p>Au-delà de 60 lettres, « Couleurs Vives » devient compétitif. En-dessous, SignéMédia reste moins cher.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note d'analyse</strong> que Sami remet à son patron pour ajuster la grille tarifaire de « Couleurs Vives ».</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Couleurs Vives Marseille — Analyse tarifaire enseigne lettres · 7 mai 2026</strong><br>
+      • <strong>Devis client cabinet Durand (21 lettres) :</strong> 615 € HT — dans le budget 720 €.<br>
+      • <strong>Comparatif concurrence (SignéMédia) :</strong> 471 € HT, soit 144 € moins cher.<br>
+      • <strong>Cause :</strong> nos lettres sont à 15 € contre 11 € + nous facturons la pose à part.<br>
+      • <strong>Proposition :</strong> intégrer la pose au forfait fixe (300 € tout compris) et baisser la lettre à 10 €.<br>
+      • <strong>Effet :</strong> nous redevenons compétitifs au-delà de 60 lettres (grandes enseignes).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Sami propose une option « <strong>lettrage rétroéclairé LED</strong> » à 8 € HT supplémentaires par lettre. Quel est le budget total pour 21 lettres rétroéclairées chez « Couleurs Vives » ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût lettre + LED : $15 + 8 = 23 \,€$ par lettre.</p>
+    <p>Coût total : $23 \times 21 + 300 = 483 + 300 = $ <strong>783 € HT</strong>. Budget 720 € dépassé de 63 €.</p>
+    <p>Sami doit soit négocier le budget, soit réduire le nombre de lettres : avec rétroéclairage, $x_{max}$ devient $\dfrac{720 - 300}{23} \approx 18$ lettres.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Coût total :</strong> partie fixe + partie variable × nombre d'unités.</li>
+    <li><strong>Équation $ax + b = c$ :</strong> nombre maximal d'unités dans un budget.</li>
+    <li><strong>Équation $ax + b = cx + d$ :</strong> seuil de rentabilité entre 2 offres.</li>
+    <li><strong>Si pas de solution positive :</strong> une offre domine toujours l'autre.</li>
+    <li><strong>Inconnue entière :</strong> arrondir au nombre entier inférieur (= rester dans le budget).</li>
+    <li><strong>Application pro :</strong> devis, comparaison fournisseurs, ajustement tarifaire.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Mise en équation), §3 (Résolution $ax + b = c$) et §4 (Comparaison $ax + b = cx + d$) de la leçon Ch04.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

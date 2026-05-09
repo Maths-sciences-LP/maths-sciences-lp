@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité 3 – Découpe de planche optimale – CAP Ébéniste</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Découper une planche en pièces de longueurs données <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 4 — Équations du premier degré | CAP Ébéniste | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Mettre une situation de découpe en équation</li>
+    <li>Résoudre une équation $ax + b = c$</li>
+    <li>Tenir compte de la perte de matière à la coupe</li>
+    <li>Vérifier la cohérence du résultat avec le plan</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – fabrication d'une étagère murale</h2>
+  <p><em>Inès, apprentie ébéniste à Lyon, fabrique une étagère murale pour un client. Elle dispose d'une planche de chêne de 1,80 m. Elle doit en tirer 4 montants identiques et 1 plateau de longueur 0,50 m. La scie circulaire fait perdre 4 mm à chaque trait de coupe (perte due à l'épaisseur de la lame).</em></p>
+
+  <h3>Document 1 — Plan de l'étagère</h3>
+  <div class="svg-wrap">
+  <svg viewBox="0 0 460 130" width="460" height="130" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="50" width="420" height="20" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
+    <text x="230" y="36" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Planche de chêne — 1,80 m = 180 cm</text>
+    <line x1="100" y1="48" x2="100" y2="72" stroke="#dc2626" stroke-width="2"/>
+    <line x1="180" y1="48" x2="180" y2="72" stroke="#dc2626" stroke-width="2"/>
+    <line x1="260" y1="48" x2="260" y2="72" stroke="#dc2626" stroke-width="2"/>
+    <line x1="340" y1="48" x2="340" y2="72" stroke="#dc2626" stroke-width="2"/>
+    <text x="60" y="65" text-anchor="middle" font-size="11" fill="#1f2937">x</text>
+    <text x="140" y="65" text-anchor="middle" font-size="11" fill="#1f2937">x</text>
+    <text x="220" y="65" text-anchor="middle" font-size="11" fill="#1f2937">x</text>
+    <text x="300" y="65" text-anchor="middle" font-size="11" fill="#1f2937">x</text>
+    <text x="390" y="65" text-anchor="middle" font-size="11" fill="#1f2937">50 cm</text>
+    <text x="100" y="95" text-anchor="middle" font-size="9" fill="#dc2626">trait scie 0,4 cm</text>
+    <text x="180" y="95" text-anchor="middle" font-size="9" fill="#dc2626">0,4 cm</text>
+    <text x="260" y="95" text-anchor="middle" font-size="9" fill="#dc2626">0,4 cm</text>
+    <text x="340" y="95" text-anchor="middle" font-size="9" fill="#dc2626">0,4 cm</text>
+    <text x="230" y="115" text-anchor="middle" font-size="11" fill="#475569">4 montants identiques (x) + 1 plateau (50 cm) — 4 traits de scie</text>
+  </svg>
+  </div>
+
+  <h3>Document 2 — Cahier des charges</h3>
+  <ul>
+    <li>Longueur totale planche : <strong>1,80 m = 180 cm</strong>.</li>
+    <li>4 montants de longueur $x$ (en cm).</li>
+    <li>1 plateau de <strong>50 cm</strong>.</li>
+    <li>Perte par trait de scie : <strong>0,4 cm</strong>. Il y a <strong>4 traits</strong> au total.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle longueur Inès peut-elle donner à chaque montant pour utiliser la planche au maximum ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Quelle est la <strong>perte totale</strong> de bois liée aux 4 traits de scie ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Perte totale = $4 \times 0,4 = $ <strong>1,6 cm</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Écrire l'<strong>équation</strong> qui traduit que la longueur totale de la planche est utilisée pour les 4 montants + 1 plateau + 4 pertes de scie.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$4x + 50 + 1,6 = 180$, soit <strong>$4x + 51,6 = 180$</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Résoudre l'équation. Donner la valeur de $x$ en cm.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$4x + 51,6 = 180$</p>
+    <p>$4x = 180 - 51,6 = 128,4$</p>
+    <p>$x = \dfrac{128,4}{4} = $ <strong>32,1 cm</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Vérifier la solution : 4 montants de 32,1 cm + 1 plateau de 50 cm + 4 pertes de 0,4 cm = ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$4 \times 32,1 + 50 + 1,6 = 128,4 + 50 + 1,6 = $ <strong>180 cm</strong> ✓.</p>
+    <p>La planche est utilisée intégralement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Inès oublie la perte de scie dans son calcul initial. Avec quelle valeur de $x$ se serait-elle trompée ? Quelle serait la <strong>conséquence</strong> sur la dernière coupe ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Sans pertes : $4x + 50 = 180$ → $x = $ <strong>32,5 cm</strong>.</p>
+    <p>Conséquence : sur les 4 montants $4 \times 32,5 = 130$ cm utilisés + 50 cm plateau + 1,6 cm pertes = 181,6 cm. <strong>Manque 1,6 cm</strong> : la dernière pièce serait trop courte ou la planche trop courte ! Erreur classique de débutant.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Inès souhaite arrondir les montants à <strong>32 cm</strong> (mesure plus pratique au mètre). Combien de bois reste-t-il en chute après les 4 coupes ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Utilisé : $4 \times 32 + 50 + 1,6 = 128 + 51,6 = 179,6 \,$cm.</p>
+    <p>Chute = $180 - 179,6 = $ <strong>0,4 cm</strong>.</p>
+    <p>Pratiquement rien : très bonne optimisation. Inès gagne 0,1 cm par montant pour une coupe plus précise.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Le client veut maintenant que les montants fassent <strong>40 cm</strong>. Inès dispose-t-elle d'une planche assez longue ? Quelle longueur minimum lui faut-il ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Longueur nécessaire : $4 \times 40 + 50 + 1,6 = 160 + 51,6 = $ <strong>211,6 cm</strong>.</p>
+    <p>La planche de 1,80 m (180 cm) <strong>ne suffit pas</strong>. Il faut au moins une planche de <strong>2,12 m</strong>.</p>
+    <p>Soit prendre une planche de 2,20 m, soit conserver 32 cm de montants.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche de débit</strong> qu'Inès affiche à l'atelier avant la coupe.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Lyon — Fiche débit étagère murale · 7 mai 2026</strong><br>
+      • <strong>Matière :</strong> 1 planche chêne 1,80 m × largeur 20 cm × ép. 18 mm.<br>
+      • <strong>Coupes :</strong> 4 montants de 32 cm + 1 plateau de 50 cm.<br>
+      • <strong>Pertes scie :</strong> 4 traits × 4 mm = 16 mm.<br>
+      • <strong>Vérification équation :</strong> $4 \times 32 + 50 + 1,6 = 179,6 \,$cm < 180 cm ✓.<br>
+      • <strong>Chute prévue :</strong> 4 mm — à conserver pour gabarit ou test de finition.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Inès doit fabriquer <strong>3 étagères identiques</strong> à partir de planches de 1,80 m. Combien de planches lui faut-il, en tenant compte des pertes ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pour 1 étagère : 4 montants + 1 plateau = 5 pièces, dans 1 planche.</p>
+    <p>Pour 3 étagères : <strong>3 planches</strong> de 1,80 m suffisent (1 par étagère, c'est la solution optimale).</p>
+    <p>Si on essaie de regrouper plusieurs étagères sur une grande planche, on multiplie les pertes de scie. Mieux vaut 3 planches séparées.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Mise en équation :</strong> identifier l'inconnue ($x = $ longueur cherchée).</li>
+    <li><strong>Compter toutes les longueurs :</strong> pièces utiles + pertes de matière.</li>
+    <li><strong>Équation linéaire :</strong> $ax + b = c$ → $x = \dfrac{c - b}{a}$.</li>
+    <li><strong>Vérifier :</strong> remplacer $x$ et contrôler que la somme = longueur totale.</li>
+    <li><strong>Sens pratique :</strong> arrondir à une mesure facile à reporter au mètre.</li>
+    <li><strong>Application pro :</strong> débit, optimisation matière, gestion des chutes.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Mise en équation), §3 (Résolution) et §5 (Application) de la leçon Ch04.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

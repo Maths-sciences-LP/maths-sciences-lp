@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité 2 – Équilibre puissance des radiateurs – CAP MIT</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Équilibrer la puissance des radiateurs <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 4 — Équations du premier degré | CAP MIT (Métiers Installation Thermique) | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Mettre une situation en équation</li>
+    <li>Résoudre une équation du type $ax + b = c$</li>
+    <li>Vérifier la solution dans le contexte professionnel</li>
+    <li>Interpréter le résultat physique</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – installation de chauffage central</h2>
+  <p><em>Karim, apprenti chauffagiste à Toulouse, doit installer 6 radiateurs dans une maison. La puissance totale à fournir pour chauffer toute la maison est de 8 400 W. Le salon nécessite un radiateur plus puissant (« radiateur principal »), les 5 autres pièces sont équipées de radiateurs identiques de petite taille.</em></p>
+
+  <h3>Document 1 — Cahier des charges</h3>
+  <ul>
+    <li>Puissance totale à installer : <strong>8 400 W</strong>.</li>
+    <li>Le radiateur du salon : <strong>2 fois plus puissant</strong> que les autres + 200 W de plus.</li>
+    <li>5 radiateurs identiques de puissance $x$ (en W) dans les chambres et la salle de bain.</li>
+  </ul>
+
+  <h3>Document 2 — Schéma de l'installation</h3>
+  <div class="svg-wrap">
+  <svg viewBox="0 0 460 200" width="460" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="20" width="420" height="160" fill="#fffbeb" stroke="#92400e" stroke-width="2" rx="8"/>
+    <rect x="40" y="40" width="170" height="120" fill="#fde68a" stroke="#b45309"/>
+    <text x="125" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Salon</text>
+    <text x="125" y="80" text-anchor="middle" font-size="11">Radiateur principal</text>
+    <text x="125" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">2x + 200 W</text>
+    <g font-size="11" fill="#1f2937">
+      <rect x="230" y="40" width="80" height="55" fill="#fef3c7" stroke="#92400e"/>
+      <text x="270" y="60" text-anchor="middle" font-weight="700">Ch.1</text>
+      <text x="270" y="80" text-anchor="middle">x W</text>
+      <rect x="320" y="40" width="80" height="55" fill="#fef3c7" stroke="#92400e"/>
+      <text x="360" y="60" text-anchor="middle" font-weight="700">Ch.2</text>
+      <text x="360" y="80" text-anchor="middle">x W</text>
+      <rect x="230" y="105" width="80" height="55" fill="#fef3c7" stroke="#92400e"/>
+      <text x="270" y="125" text-anchor="middle" font-weight="700">Ch.3</text>
+      <text x="270" y="145" text-anchor="middle">x W</text>
+      <rect x="320" y="105" width="80" height="55" fill="#fef3c7" stroke="#92400e"/>
+      <text x="360" y="125" text-anchor="middle" font-weight="700">SdB</text>
+      <text x="360" y="145" text-anchor="middle">x W</text>
+    </g>
+  </svg>
+  <p style="text-align:center;font-size:.85em;color:#475569">Maison du client — 1 radiateur principal salon + 5 radiateurs identiques (4 affichés + bureau).</p>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle puissance Karim doit-il commander pour chacun des 5 petits radiateurs ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>On note $x$ la puissance (en W) d'un petit radiateur. Exprimer la puissance du radiateur du <strong>salon</strong> en fonction de $x$.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Salon : <strong>$2x + 200$</strong> (W).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Écrire l'<strong>équation</strong> qui traduit que la puissance totale est 8 400 W (5 petits + 1 salon).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Somme des puissances : $5x + (2x + 200) = 8\,400$.</p>
+    <p>En simplifiant : <strong>$7x + 200 = 8\,400$</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Résoudre cette équation. Détailler les étapes.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$7x + 200 = 8\,400$</p>
+    <p>$7x = 8\,400 - 200 = 8\,200$</p>
+    <p>$x = \dfrac{8\,200}{7} \approx $ <strong>1 171,4 W</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Karim arrondit à un radiateur standard de <strong>1 200 W</strong> par chambre. Quelle est alors la puissance totale réellement installée ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>5 petits radiateurs × 1 200 W = 6 000 W.</p>
+    <p>Salon : $2 \times 1\,200 + 200 = 2\,600 \,$W.</p>
+    <p>Total = $6\,000 + 2\,600 = $ <strong>8 600 W</strong>.</p>
+    <p>L'arrondi vers le haut donne 200 W de marge, ce qui est confortable.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Vérifier en remplaçant $x = 1\,171,4$ dans l'équation initiale. La puissance totale est-elle bien de 8 400 W ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$7 \times 1\,171,4 + 200 = 8\,199,8 + 200 = 8\,399,8 \approx 8\,400$ W ✓.</p>
+    <p>L'écart de 0,2 W est dû à l'arrondi de $x$. La solution exacte $\dfrac{8\,200}{7}$ donne pile 8 400 W.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Le client demande à Karim d'<strong>ajouter un radiateur</strong> de plus dans le bureau (puissance $x$). Quelle nouvelle équation faut-il résoudre ? Quelle est la nouvelle puissance $x$ ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Maintenant 6 petits radiateurs : $6x + 2x + 200 = 8\,400$ → $8x = 8\,200$ → $x = $ <strong>1 025 W</strong>.</p>
+    <p>Avec un radiateur de plus, chaque radiateur peut être moins puissant (logique : on répartit la puissance).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Les radiateurs sur catalogue existent en : 750, 1 000, 1 250, 1 500, 2 000 W. Quels sont les 2 modèles les plus proches de la solution $x \approx 1\,171\,$W ? Lequel choisir ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Les 2 plus proches : <strong>1 000 W</strong> et <strong>1 250 W</strong>.</p>
+    <p>Choix : <strong>1 250 W</strong> (arrondi au-dessus). Mieux vaut un peu plus de puissance que pas assez (sensation de froid en hiver). Marge confort : ~80 W par pièce.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>compte-rendu d'étude</strong> que Karim remet à son patron pour valider le choix des radiateurs.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermie Toulouse — Étude installation chauffage · 7 mai 2026</strong><br>
+      • <strong>Puissance demandée :</strong> 8 400 W (calcul de déperdition par bureau d'étude).<br>
+      • <strong>Configuration :</strong> 1 radiateur principal salon (2x + 200 W) + 5 radiateurs identiques.<br>
+      • <strong>Équation :</strong> $7x + 200 = 8\,400$ → $x \approx 1\,171$ W.<br>
+      • <strong>Choix radiateurs :</strong> modèle 1 250 W chambres/SdB + modèle 2 700 W salon.<br>
+      • <strong>Total installé :</strong> 8 950 W (marge 6,5 % conforme aux règles de l'art).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Le client demande à Karim de remplacer le radiateur principal par un <strong>poêle à granulés</strong> de 4 500 W. Quelle est la nouvelle puissance $x$ pour les 5 autres radiateurs ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Équation : $5x + 4\,500 = 8\,400$ → $5x = 3\,900$ → $x = $ <strong>780 W</strong>.</p>
+    <p>Les radiateurs des chambres peuvent être plus petits (modèle 750 ou 1 000 W). Le poêle assure l'essentiel de la chauffe. Solution économe en énergie si granulés bois.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Mettre en équation :</strong> nommer l'inconnue $x$, traduire la phrase en égalité.</li>
+    <li><strong>Équation $ax + b = c$ :</strong> isoler $x$ en faisant l'inverse.</li>
+    <li><strong>Étapes :</strong> 1) regrouper les $x$ d'un côté, 2) regrouper les nombres de l'autre, 3) diviser.</li>
+    <li><strong>Vérifier :</strong> remplacer $x$ par sa valeur dans l'équation initiale.</li>
+    <li><strong>Sens physique :</strong> arrondir à un modèle commercial réel (catalogue).</li>
+    <li><strong>Application pro :</strong> dimensionnement, équilibrage, calcul de charge.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Mise en équation), §3 (Résolution) et §4 (Vérification) de la leçon Ch04.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
