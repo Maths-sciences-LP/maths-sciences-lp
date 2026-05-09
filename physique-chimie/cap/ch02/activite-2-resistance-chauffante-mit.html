@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 2 – Résistance d'un chauffe-eau – CAP MIT</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Mesurer une résistance chauffante de chauffe-eau <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 2 — Électricité | CAP MIT (Métiers Installation Thermique) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Appliquer la loi d'Ohm $U = R \times I$</li>
+    <li>Calculer la puissance électrique $P = U \times I$</li>
+    <li>Distinguer tension continue et alternative</li>
+    <li>Diagnostiquer une résistance défectueuse</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – diagnostic chauffe-eau électrique</h2>
+  <p><em>Karim, apprenti chauffagiste à Tours, est appelé chez un client qui n'a plus d'eau chaude. Le chauffe-eau est branché sur le secteur (230 V / 50 Hz). Karim mesure l'intensité dans la résistance chauffante avec un ampèremètre, et soupçonne une résistance partiellement claquée.</em></p>
+
+  <h3>Document 1 — Caractéristiques constructeur</h3>
+  <ul>
+    <li>Tension d'alimentation : <strong>230 V</strong> alternatif (secteur).</li>
+    <li>Puissance nominale : <strong>2 400 W</strong>.</li>
+    <li>Résistance nominale (à neuf) : <strong>R₀ = 22 Ω</strong>.</li>
+  </ul>
+
+  <h3>Document 2 — Mesures de Karim</h3>
+  <table>
+    <thead><tr><th>Grandeur mesurée</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Tension U aux bornes</td><td>230 V</td></tr>
+      <tr><td>Intensité I dans la résistance</td><td>5,5 A</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Lois utiles</h3>
+  <ul>
+    <li><strong>Loi d'Ohm :</strong> $U = R \times I$, soit $R = \dfrac{U}{I}$.</li>
+    <li><strong>Puissance :</strong> $P = U \times I$ (en watts).</li>
+    <li><strong>Énergie :</strong> $E = P \times t$ (en Wh ou kWh).</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> La résistance du chauffe-eau est-elle conforme ? Si non, faut-il la remplacer ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>D'après la loi d'Ohm, calculer la <strong>résistance mesurée</strong> à partir de U et I.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$R = \dfrac{U}{I} = \dfrac{230}{5,5} \approx $ <strong>41,8 Ω</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Comparer à la résistance nominale (22 Ω). La résistance est-elle <strong>conforme</strong> ? Justifier.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Mesurée 41,8 Ω, nominale 22 Ω → <strong>écart de +90 %</strong>. Non conforme.</p>
+    <p>La résistance a probablement <strong>vieilli ou s'est partiellement coupée</strong> (oxydation à un point de soudure interne).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>puissance dissipée</strong> par cette résistance défaillante.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$P = U \times I = 230 \times 5,5 = $ <strong>1 265 W</strong> ≈ 1,26 kW.</p>
+    <p>Soit <strong>52 %</strong> de la puissance nominale (2 400 W). La résistance fonctionne « à moitié ».</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Le client se plaint que l'eau chauffe <strong>2 fois plus lentement</strong>. Expliquer le lien avec la mesure.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'énergie dépend de la puissance : $E = P \times t$. Si $P$ est divisée par 2, le temps $t$ pour produire la même énergie est <strong>multiplié par 2</strong>.</p>
+    <p>Cohérent avec le ressenti du client. La résistance n'est pas totalement claquée, mais inefficace.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Le secteur fournit une tension <strong>alternative sinusoïdale 230 V / 50 Hz</strong>. Que représentent ces deux valeurs ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>230 V = <strong>tension efficace</strong>. La tension instantanée varie en réalité entre $-325 \,$V et $+325 \,$V.</p>
+    <p>50 Hz = <strong>fréquence</strong> = 50 oscillations par seconde, soit une période $T = 0,02 \,$s = 20 ms.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Karim remplace la résistance par une neuve (R = 22 Ω). Calculer la nouvelle <strong>intensité I</strong> et la nouvelle <strong>puissance P</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$I = \dfrac{U}{R} = \dfrac{230}{22} \approx $ <strong>10,45 A</strong>.</p>
+    <p>$P = U \times I = 230 \times 10,45 = $ <strong>2 404 W</strong> ≈ 2,4 kW (conforme à la valeur constructeur ✓).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Le disjoncteur du circuit chauffe-eau est <strong>calibré à 16 A</strong>. La nouvelle intensité (10,45 A) est-elle compatible ? Pourquoi le disjoncteur n'a-t-il pas déclenché ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>10,45 A &lt; 16 A → <strong>compatible</strong>, marge ~35 %.</p>
+    <p>Le disjoncteur ne déclenche que si I dépasse 16 A pendant un certain temps (caractéristique « C »). En l'occurrence le défaut était une <strong>diminution</strong> d'intensité (résistance coupée), donc pas de déclenchement.</p>
+    <p>Le diagnostic ne se fait pas par le disjoncteur mais par la mesure ohmique ou de puissance.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>compte-rendu d'intervention</strong> que Karim laisse au client.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermie Tours — Diagnostic chauffe-eau · 7 mai 2026</strong><br>
+      • <strong>Mesures :</strong> U = 230 V, I = 5,5 A → R mesurée = 41,8 Ω.<br>
+      • <strong>Constructeur :</strong> R nominale = 22 Ω, P = 2 400 W.<br>
+      • <strong>Diagnostic :</strong> résistance partiellement claquée (90 % d'écart). Puissance effective ~1 260 W.<br>
+      • <strong>Action :</strong> remplacement de la résistance, puissance restaurée à 2 404 W.<br>
+      • <strong>Vérification :</strong> I nouvelle = 10,4 A &lt; 16 A disjoncteur. Conforme.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Calculer l'<strong>énergie</strong> nécessaire pour chauffer 200 L d'eau de 15 à 60 °C. Sachant qu'il faut 0,058 kWh par L et par tranche de 1 °C — non, plutôt $E = mc\Delta T$ avec $c = 4\,180 \,$J/(kg·°C). Combien de temps faut-il avec la résistance neuve (2 400 W) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$E = m \cdot c \cdot \Delta T = 200 \times 4\,180 \times (60-15) = 200 \times 4\,180 \times 45 = 37\,620\,000 \,$J ≈ 10,45 kWh.</p>
+    <p>Temps : $t = \dfrac{E}{P} = \dfrac{10\,450}{2\,400} \approx 4,35 \,$h ≈ <strong>4 h 21 min</strong>.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Loi d'Ohm :</strong> $U = R \times I$ → $R = \dfrac{U}{I}$.</li>
+    <li><strong>Puissance électrique :</strong> $P = U \times I$.</li>
+    <li><strong>Tension efficace 230 V :</strong> tension d'amplitude max ≈ 325 V (sinus).</li>
+    <li><strong>Fréquence 50 Hz :</strong> 50 cycles par seconde, période 20 ms.</li>
+    <li><strong>Diagnostic résistance :</strong> mesurer R à froid, comparer à la valeur constructeur.</li>
+    <li><strong>Application pro :</strong> dépannage chauffe-eau, dimensionnement, sécurité électrique.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Loi d'Ohm), §5 (Continu/alternatif) et §7 (Secteur 230 V) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
