@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 2 – Fixer un radiateur au mur – CAP MIT</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Fixer un radiateur en fonte au mur <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 3 — Mécanique | CAP MIT (Métiers Installation Thermique) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer le poids d'un objet $P = m \cdot g$</li>
+    <li>Identifier les forces sur un solide en équilibre</li>
+    <li>Choisir des fixations adaptées à la charge</li>
+    <li>Comprendre la sécurité des fixations</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – installation d'un radiateur en fonte</h2>
+  <p><em>Karim, apprenti chauffagiste à Strasbourg, doit fixer un radiateur en fonte rétro sur un mur en parpaing creux. Le radiateur est lourd et son client souhaite qu'il soit posé en hauteur. Karim doit choisir les chevilles adaptées et vérifier la sécurité du montage.</em></p>
+
+  <h3>Document 1 — Caractéristiques du radiateur</h3>
+  <ul>
+    <li>Masse à vide : <strong>45 kg</strong>.</li>
+    <li>Volume d'eau intérieur : <strong>15 L</strong> (= 15 kg en plus quand rempli).</li>
+    <li>Pose à : <strong>1,50 m</strong> du sol.</li>
+    <li>Fixation : <strong>2 supports muraux</strong> répartissant la charge.</li>
+  </ul>
+
+  <h3>Document 2 — Tableau de chevilles</h3>
+  <table>
+    <thead><tr><th>Type cheville</th><th>Charge max par cheville</th></tr></thead>
+    <tbody>
+      <tr><td>Cheville plastique standard Ø 8 mm</td><td>20 kg</td></tr>
+      <tr><td>Cheville à expansion métal M8</td><td>50 kg</td></tr>
+      <tr><td>Cheville chimique scellement résine</td><td>200 kg</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Lois utiles</h3>
+  <ul>
+    <li><strong>Poids :</strong> $P = m \cdot g$ avec $g = 9,81 \,$N/kg ≈ 10 N/kg.</li>
+    <li><strong>Équilibre 2 forces :</strong> mêmes intensité, même droite, sens opposés.</li>
+    <li>Une force se mesure en <strong>newtons (N)</strong>.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle cheville choisir pour le radiateur rempli ? Quelle est la force que doit supporter chaque cheville ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la <strong>masse totale</strong> du radiateur quand il est rempli d'eau.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$m = 45 + 15 = $ <strong>60 kg</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>poids</strong> du radiateur rempli (avec $g = 10$ N/kg pour simplifier).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$P = m \cdot g = 60 \times 10 = $ <strong>600 N</strong>.</p>
+    <p>(Avec $g = 9,81$ : $P = 588,6 \,$N — quasi identique.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Le radiateur est en <strong>équilibre</strong> sur ses 2 supports. Quelle force exerce-t-il sur chaque support (en supposant la charge également répartie) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$F_{support} = \dfrac{P}{2} = \dfrac{600}{2} = $ <strong>300 N</strong> par support.</p>
+    <p>Soit l'équivalent d'une masse de 30 kg par fixation.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Karim envisage 2 chevilles plastique standard par support (4 au total). Sont-elles suffisantes ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>4 chevilles × 20 kg = <strong>80 kg</strong> de capacité totale. Charge réelle : 60 kg.</p>
+    <p>Sur le papier : <strong>OK</strong>. Mais la marge de sécurité est faible (33 % seulement).</p>
+    <p>Recommandation : <strong>x2 sécurité</strong> en pratique (vibrations, fatigue, mur fragilisé). Donc préférer chevilles métal.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Karim choisit finalement des <strong>chevilles à expansion métal M8</strong>. Quelle marge de sécurité a-t-il par cheville ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Capacité par cheville : 50 kg. Charge par cheville (1 par support en règle de l'art) : 30 kg.</p>
+    <p>Marge : $\dfrac{50 - 30}{30} \times 100 \approx $ <strong>67 %</strong>. Marge de sécurité confortable.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Que se passerait-il si une <strong>seule</strong> cheville lâchait ? Le radiateur tiendrait-il sur l'autre ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'autre cheville devrait supporter <strong>600 N (60 kg)</strong> = au-delà de sa capacité de 50 kg.</p>
+    <p>Elle <strong>céderait à son tour</strong> en quelques secondes ou minutes (effet de cascade).</p>
+    <p>Importance d'une <strong>vérification visuelle régulière</strong> des fixations (pas de fissures dans le mur).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Pour un mur en <strong>parpaing creux</strong>, certaines chevilles sont déconseillées. Quel type Karim doit-il choisir et pourquoi ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Préférer <strong>cheville chimique</strong> (scellement résine) qui se répartit dans la cavité du parpaing creux.</p>
+    <p>Les chevilles à expansion mécanique « éclatent » la paroi du parpaing creux → tenue insuffisante.</p>
+    <p>Capacité chimique : 200 kg → <strong>marge énorme</strong>, idéal pour pose en hauteur où le risque de chute est sérieux.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>compte-rendu de pose</strong> que Karim laisse au client.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermie Strasbourg — Pose radiateur fonte · 7 mai 2026</strong><br>
+      • <strong>Charge :</strong> radiateur fonte 45 kg + 15 L d'eau = 60 kg → poids 600 N.<br>
+      • <strong>Mur :</strong> parpaing creux → chevilles chimiques scellement résine (200 kg/cheville).<br>
+      • <strong>Répartition :</strong> 2 supports, 30 kg / cheville, marge sécurité × 6.<br>
+      • <strong>Pose :</strong> à 1,50 m du sol, niveau bulle vérifié, équilibre confirmé.<br>
+      • <strong>Recommandation client :</strong> ne pas suspendre d'objet supplémentaire au radiateur.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Sur la Lune, $g_{lune} = 1,62 \,$N/kg. Quel serait le poids du radiateur ? Et sur Mars ($g_{mars} = 3,72 \,$N/kg) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Lune : $P = 60 \times 1,62 = $ <strong>97 N</strong> ≈ 9,7 kgf (1/6 de la Terre).</p>
+    <p>Mars : $P = 60 \times 3,72 = $ <strong>223 N</strong> ≈ 22,3 kgf.</p>
+    <p>La <strong>masse</strong> reste 60 kg partout, c'est le <strong>poids</strong> qui change avec $g$.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Poids :</strong> $P = m \cdot g$ (en newtons, m en kg, g ≈ 10 N/kg sur Terre).</li>
+    <li><strong>Force :</strong> en newtons (N). 1 kgf ≈ 10 N.</li>
+    <li><strong>Équilibre 2 forces :</strong> mêmes intensité, support, sens opposé.</li>
+    <li><strong>Charge / fixation :</strong> appliquer une marge de sécurité × 2 minimum.</li>
+    <li><strong>Cheville chimique :</strong> idéale pour parpaing creux (200 kg).</li>
+    <li><strong>Application pro :</strong> sécurité de pose, choix matériels, prévention de chute.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Forces), §4 (Poids) et §5 (Équilibre) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

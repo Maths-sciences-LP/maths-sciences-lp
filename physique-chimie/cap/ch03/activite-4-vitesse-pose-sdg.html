@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 4 – Vitesse de pose et productivité – CAP SDG</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Calculer la vitesse de pose d'enseignes <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 3 — Mécanique | CAP SDG (Signalétique et Décors Graphiques) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer une vitesse moyenne $v = \dfrac{d}{t}$</li>
+    <li>Convertir m/s ↔ km/h</li>
+    <li>Calculer le poids d'un panneau et la force d'arrachement</li>
+    <li>Estimer une productivité de chantier</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – tournée de pose d'enseignes</h2>
+  <p><em>Sami, apprenti en signalétique chez « Couleurs Vives » à Marseille, accompagne son maître pour une tournée de pose. Ils ont 5 chantiers à faire dans la journée et doivent estimer si c'est faisable. Sami calcule aussi le poids d'un panneau de plus en plus grand pour vérifier la résistance des fixations.</em></p>
+
+  <h3>Document 1 — Tournée prévue</h3>
+  <table>
+    <thead><tr><th>Trajet</th><th>Distance (km)</th><th>Durée prévue (min)</th></tr></thead>
+    <tbody>
+      <tr><td>Atelier → Client A</td><td>12</td><td>20</td></tr>
+      <tr><td>Client A → Client B</td><td>8</td><td>15</td></tr>
+      <tr><td>Client B → Client C</td><td>15</td><td>30</td></tr>
+      <tr><td>Client C → Client D</td><td>10</td><td>20</td></tr>
+      <tr><td>Client D → Client E</td><td>20</td><td>35</td></tr>
+      <tr><td>Client E → Atelier</td><td>30</td><td>40</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Panneau à poser chez le client D</h3>
+  <ul>
+    <li>Dimensions : 2 m × 1,5 m, dibond 4 mm épaisseur.</li>
+    <li>Masse volumique du dibond : 1 600 kg/m³.</li>
+    <li>Volume : $2 \times 1,5 \times 0,004 = 0,012 \,$m³.</li>
+    <li>Fixation : 4 vis, capacité 25 kg chacune.</li>
+  </ul>
+
+  <h3>Document 3 — Lois utiles</h3>
+  <ul>
+    <li><strong>Vitesse moyenne :</strong> $v = \dfrac{d}{t}$.</li>
+    <li>1 m/s = 3,6 km/h.</li>
+    <li><strong>Poids :</strong> $P = m \cdot g = \rho V \cdot g$.</li>
+    <li><strong>Équilibre :</strong> capacité fixations ≥ poids panneau.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> La tournée est-elle réaliste avec 1h30 de pose chez chaque client ? Le panneau peut-il être fixé en sécurité ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la <strong>distance totale</strong> et la <strong>durée totale de trajet</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Distance : $12 + 8 + 15 + 10 + 20 + 30 = $ <strong>95 km</strong>.</p>
+    <p>Durée trajets : $20 + 15 + 30 + 20 + 35 + 40 = 160$ min = <strong>2 h 40</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>vitesse moyenne</strong> de la tournée en km/h.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$v = \dfrac{d}{t} = \dfrac{95}{2,667} \approx $ <strong>35,6 km/h</strong>.</p>
+    <p>Vitesse cohérente avec une circulation urbaine + périurbaine.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Si Sami et son maître posent <strong>1 h 30 chez chaque client</strong> (5 clients), calculer la durée totale de la journée (trajets + poses).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pose : $5 \times 90 = 450$ min = 7 h 30.</p>
+    <p>Trajets : 2 h 40.</p>
+    <p>Total : <strong>10 h 10</strong>. Trop long pour une journée standard de 8 h !</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Combien de temps maximum peuvent-ils consacrer à <strong>chaque pose</strong> pour rester dans 8 h de journée (en gardant les trajets) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Temps disponible pour les poses : $8 \times 60 - 160 = 480 - 160 = 320$ min.</p>
+    <p>Par client : $\dfrac{320}{5} = $ <strong>64 min</strong> ≈ 1 h 04 par client.</p>
+    <p>Pose moyenne &lt; 1 h 30. Soit on prévoit moins de chantiers, soit on prend un 2<sup>e</sup> binôme.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>masse</strong> du panneau dibond chez le client D.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$m = \rho \cdot V = 1\,600 \times 0,012 = $ <strong>19,2 kg</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>poids</strong> du panneau et la force par fixation (équilibre, charge équitable). Les fixations sont-elles suffisantes ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$P = 19,2 \times 10 = 192 \,$N (≈ 19,2 kg).</p>
+    <p>Force par fixation : $\dfrac{19,2}{4} = $ <strong>4,8 kg</strong> par vis.</p>
+    <p>Capacité par vis : 25 kg → marge × 5 → <strong>très largement suffisant</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Calculer la <strong>vitesse en m/s</strong> de Sami à pied dans le magasin (parcourt 200 m en 4 min). Comparer à la vitesse moyenne de la tournée en m/s.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Sami à pied : $v = \dfrac{200}{240} \approx 0,83 \,$m/s = 3 km/h (marche).</p>
+    <p>Tournée : $35,6 \div 3,6 \approx 9,9 \,$m/s.</p>
+    <p>La camionnette est <strong>~12 fois plus rapide</strong> que Sami à pied. Logique en circulation routière.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>planning corrigé</strong> que Sami propose à son maître pour la journée.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Couleurs Vives Marseille — Planning tournée pose · 7 mai 2026</strong><br>
+      • <strong>Parcours :</strong> 5 clients, 95 km, 2 h 40 de trajet à 36 km/h moyenne.<br>
+      • <strong>Constat :</strong> 1 h 30/pose × 5 = 10 h 10 total → dépassement journée 8 h.<br>
+      • <strong>Option A :</strong> réduire à 4 clients aujourd'hui, 5<sup>e</sup> demain matin.<br>
+      • <strong>Option B :</strong> 2 binômes en parallèle (2,5 clients × binôme), retour atelier 17 h 30.<br>
+      • <strong>Panneau client D :</strong> 19 kg sur 4 vis 25 kg → marge × 5, sécurité OK.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si la circulation se dégrade (vitesse moyenne tombée à <strong>25 km/h</strong>), recalculer la durée totale de trajet. Combien de clients pour rester dans 8 h ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Nouvelle durée : $\dfrac{95}{25} = 3,8 \,$h ≈ 3 h 48.</p>
+    <p>Pose disponible : $8 - 3,8 = 4,2 \,$h = 252 min.</p>
+    <p>Soit $\dfrac{252}{90} \approx 2,8$ → <strong>2 clients seulement</strong> à 1 h 30/pose. Reporter les 3 autres.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Vitesse moyenne :</strong> $v = \dfrac{d}{t}$.</li>
+    <li><strong>Conversion :</strong> 1 m/s = 3,6 km/h.</li>
+    <li><strong>Poids :</strong> $P = m \cdot g$ ; <strong>Masse :</strong> $m = \rho V$.</li>
+    <li><strong>Charge fixations :</strong> répartir équitablement, marge × 2 minimum.</li>
+    <li><strong>Productivité :</strong> distance + temps de pose = total journée.</li>
+    <li><strong>Application pro :</strong> planification chantier, choix matériels, productivité.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Mouvement), §2 (Vitesse), §3 (Forces), §4 (Poids) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
