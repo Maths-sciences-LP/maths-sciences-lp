@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Activité 3 – Temps de pose meubles – CAP Ébéniste</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Temps de finition de meubles à l'atelier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 1 — Statistiques | CAP Ébéniste | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 10 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Construire un tableau d'effectifs en classes</li>
+    <li>Calculer une moyenne pondérée par classe</li>
+    <li>Lire un diagramme en bâtons</li>
+    <li>Interpréter une dispersion de temps de production</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – relevé de temps chez l'ébéniste Inès</h2>
+  <p><em>Inès, apprentie ébéniste à Bordeaux, doit chiffrer ses devis. Elle relève le temps qu'elle met à finir 20 commodes (ponçage, vernissage, contrôle final). Sa patronne lui dit que la moyenne « professionnelle » est de 4 h par commode.</em></p>
+
+  <h3>Document 1 — Temps relevés sur 20 commodes (en heures)</h3>
+  <table>
+    <thead><tr><th>Classe</th><th>[2 ; 3[</th><th>[3 ; 4[</th><th>[4 ; 5[</th><th>[5 ; 6[</th></tr></thead>
+    <tbody>
+      <tr><td>Effectif</td><td>3</td><td>8</td><td>7</td><td>2</td></tr>
+      <tr><td>Centre de classe</td><td>2,5</td><td>3,5</td><td>4,5</td><td>5,5</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Inès est-elle au niveau « pro » de 4 h/commode ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Combien de commodes Inès a-t-elle finies en moins de 4 h ? Et en plus de 4 h ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Moins de 4 h : 3 + 8 = <strong>11 commodes</strong> (55 %).</p>
+    <p>Plus de 4 h : 7 + 2 = <strong>9 commodes</strong> (45 %).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>fréquence</strong> de chaque classe en pourcentage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>[2;3[ : 3/20 = <strong>15 %</strong></li>
+      <li>[3;4[ : 8/20 = <strong>40 %</strong></li>
+      <li>[4;5[ : 7/20 = <strong>35 %</strong></li>
+      <li>[5;6[ : 2/20 = <strong>10 %</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>temps moyen</strong> par commode (moyenne pondérée par les centres de classe).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>m = (3 × 2,5 + 8 × 3,5 + 7 × 4,5 + 2 × 5,5) / 20</p>
+    <p>= (7,5 + 28 + 31,5 + 11) / 20 = 78 / 20 = <strong>3,9 h</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer ce temps moyen (3,9 h) au standard pro (4 h). Inès est-elle au niveau professionnel ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>3,9 h &lt; 4 h → Inès est <strong>légèrement plus rapide</strong> que la moyenne pro. Bon résultat pour une apprentie !</p>
+    <p>Mais attention à la régularité (cf Q5).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Quelle est la <strong>classe modale</strong> (la plus fréquente) ?</p>
+  <p>Quelle est l'étendue des temps relevés ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Classe modale : [3;4[ avec 40 % des commodes.</p>
+    <p>Étendue : 6 − 2 = <strong>4 h</strong> entre la commode la plus rapide et la plus lente. C'est large, signe d'irrégularité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Inès chiffre ses devis sur la base de la moyenne (3,9 h) ou plutôt sur la borne haute (5-6 h) ? Justifier.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pour ne pas être perdante en cas d'imprévu (nœud difficile, finition complexe), Inès doit chiffrer sur la <strong>borne haute</strong> (5 h ou plus), pas sur la moyenne.</p>
+    <p>Règle commerciale : prévoir 20-30 % de marge sur le temps moyen pour absorber les aléas.</p>
+    <p>Devis recommandé : 4,5-5 h × tarif horaire.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Si Inès améliore son procédé et fait toutes ses commodes en 3 à 4 h (effectifs 5 et 15), recalculer la moyenne. Gain par rapport à actuel ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>m' = (5 × 2,5 + 15 × 3,5) / 20 = (12,5 + 52,5) / 20 = <strong>3,25 h</strong>.</p>
+    <p>Gain : 3,9 − 3,25 = 0,65 h par commode (≈ 40 min).</p>
+    <p>Sur 200 commodes/an : 130 h gagnées = ≈ 1 mois de production en plus.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>bilan de production</strong> qu'Inès remet à sa patronne.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Inès Apprentie ébéniste — Relevé temps · 10 mai 2026</strong><br>
+      • <strong>20 commodes</strong> finies. Temps moyen : <strong>3,9 h</strong> (vs standard pro 4 h).<br>
+      • <strong>Classe modale :</strong> 3 à 4 h (40 % des commodes).<br>
+      • <strong>Dispersion</strong> 2 à 6 h (étendue 4 h) : à améliorer pour plus de régularité.<br>
+      • <strong>Devis recommandé :</strong> 4,5 h × tarif horaire (marge sécurité).<br>
+      • <strong>Objectif</strong> 2026 : ramener tous les temps à 3-4 h. Gain estimé : 40 min/commode.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Représenter ces données par un <strong>diagramme circulaire</strong> (camembert). Calculer l'angle de chaque secteur (1 % = 3,6°).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>[2;3[ : 15 % × 3,6 = <strong>54°</strong></li>
+      <li>[3;4[ : 40 % × 3,6 = <strong>144°</strong></li>
+      <li>[4;5[ : 35 % × 3,6 = <strong>126°</strong></li>
+      <li>[5;6[ : 10 % × 3,6 = <strong>36°</strong></li>
+    </ul>
+    <p>Vérification : 54 + 144 + 126 + 36 = 360° ✓</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Données en classes :</strong> on regroupe par intervalles, on prend le centre pour calculer la moyenne.</li>
+    <li><strong>Moyenne pondérée :</strong> m = Σ(n × x) / N.</li>
+    <li><strong>Étendue</strong> = max − min : indique la dispersion.</li>
+    <li><strong>Diagramme circulaire :</strong> 1 % = 3,6° d'angle.</li>
+    <li><strong>Application pro :</strong> chiffrage des devis, suivi qualité, optimisation des temps de production.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Effectifs / fréquences), §4 (Représentations) et §5 (Moyenne) de la leçon Ch01.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

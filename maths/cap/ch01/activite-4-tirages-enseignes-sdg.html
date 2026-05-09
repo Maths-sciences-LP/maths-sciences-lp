@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Activité 4 – Tirages d'enseignes lumineuses – CAP SDG</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Couleurs d'enseignes commandées au mois <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 1 — Statistiques | CAP SDG (Signalétique Décor Graphique) | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 10 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Construire un tableau d'effectifs sur des données qualitatives</li>
+    <li>Calculer des fréquences et angles pour un diagramme circulaire</li>
+    <li>Identifier le mode dans une distribution</li>
+    <li>Optimiser un stock à partir d'un relevé statistique</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – atelier signalétique de Sami</h2>
+  <p><em>Sami, apprenti chez « Plast'Lumière » à Lyon, fait un relevé des couleurs commandées sur les 50 dernières enseignes lumineuses produites. Son patron veut optimiser le stock de néons et LED de couleur.</em></p>
+
+  <h3>Document 1 — Couleurs commandées sur 50 enseignes</h3>
+  <table>
+    <thead><tr><th>Couleur</th><th>Rouge</th><th>Bleu</th><th>Vert</th><th>Jaune</th><th>Blanc</th></tr></thead>
+    <tbody>
+      <tr><td>Effectif</td><td>15</td><td>13</td><td>5</td><td>4</td><td>13</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle est la couleur la plus demandée, et comment Sami doit-il dimensionner son stock ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Vérifier que l'effectif total est bien 50.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>15 + 13 + 5 + 4 + 13 = <strong>50</strong> ✓.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>fréquence</strong> de chaque couleur en pourcentage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Rouge : 15/50 = <strong>30 %</strong></li>
+      <li>Bleu : 13/50 = <strong>26 %</strong></li>
+      <li>Vert : 5/50 = <strong>10 %</strong></li>
+      <li>Jaune : 4/50 = <strong>8 %</strong></li>
+      <li>Blanc : 13/50 = <strong>26 %</strong></li>
+    </ul>
+    <p>Total : 100 % ✓</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer les <strong>angles</strong> pour un diagramme circulaire (camembert). 1 % = 3,6°.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Rouge : 30 × 3,6 = <strong>108°</strong></li>
+      <li>Bleu : 26 × 3,6 = <strong>93,6°</strong></li>
+      <li>Vert : 10 × 3,6 = <strong>36°</strong></li>
+      <li>Jaune : 8 × 3,6 = <strong>28,8°</strong></li>
+      <li>Blanc : 26 × 3,6 = <strong>93,6°</strong></li>
+    </ul>
+    <p>Total : 108 + 93,6 + 36 + 28,8 + 93,6 = 360° ✓</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Quelle est la <strong>couleur modale</strong> ? Combien de couleurs représentent au moins 25 % chacune ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Mode : <strong>Rouge</strong> (30 %).</p>
+    <p>Couleurs ≥ 25 % : Rouge (30), Bleu (26), Blanc (26) → <strong>3 couleurs dominantes</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Si Sami commande son stock pour 200 enseignes au prochain trimestre, combien de néons de chaque couleur prévoir (en supposant les fréquences inchangées) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>200 × fréquence de chaque couleur :</p>
+    <ul>
+      <li>Rouge : 200 × 0,30 = <strong>60</strong></li>
+      <li>Bleu : 200 × 0,26 = <strong>52</strong></li>
+      <li>Blanc : 200 × 0,26 = <strong>52</strong></li>
+      <li>Vert : 200 × 0,10 = <strong>20</strong></li>
+      <li>Jaune : 200 × 0,08 = <strong>16</strong></li>
+    </ul>
+    <p>Total : 200 ✓</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Pourquoi prévoir une <strong>marge de sécurité</strong> sur le stock (par exemple +20 %) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Les fréquences observées sur 50 enseignes <strong>varient légèrement</strong> sur 200 (effet de petit échantillon). Une commande exceptionnelle (ex. boîte de nuit avec 30 néons rouges d'un coup) peut épuiser le stock.</p>
+    <p>Marge sécurité +20 % : 60 → 72 rouges. Stock encombrant un peu plus, mais évite la rupture.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Sami remarque que les couleurs <strong>vert et jaune</strong> sont peu demandées (18 % cumulé). Que peut-il faire ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Plusieurs options :</p>
+    <ul>
+      <li>Stock <strong>réduit</strong> pour ces couleurs (juste-à-temps via fournisseur 48 h).</li>
+      <li><strong>Supprimer</strong> ces couleurs du catalogue (commercial).</li>
+      <li><strong>Promouvoir</strong> ces couleurs avec un prix attractif (équilibrer la demande).</li>
+    </ul>
+    <p>Décision selon stratégie commerciale.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note d'analyse</strong> de Sami pour son patron.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Plast'Lumière — Analyse stock néons · Sami · 10 mai 2026</strong><br>
+      • <strong>Échantillon :</strong> 50 enseignes des 3 derniers mois.<br>
+      • <strong>Top 3</strong> couleurs : Rouge 30 %, Bleu 26 %, Blanc 26 % (= 82 % du marché).<br>
+      • Vert 10 % et Jaune 8 % = couleurs minoritaires.<br>
+      • <strong>Stock recommandé pour 200 enseignes</strong> : Rouge 72, Bleu 62, Blanc 62 (avec +20 % sécurité), Vert 24, Jaune 19.<br>
+      • Suggestion : promotion sur Vert/Jaune pour rééquilibrer ou stocker en juste-à-temps.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si Sami voulait représenter ses données par un <strong>diagramme en barres</strong> (au lieu d'un camembert), comment faire ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Axe horizontal : couleurs (Rouge, Bleu, Vert, Jaune, Blanc).</p>
+    <p>Axe vertical : effectif (de 0 à 16). Une barre par couleur, hauteur proportionnelle.</p>
+    <p>Avantages : facile à comparer visuellement (vs camembert où petits secteurs sont peu lisibles).</p>
+    <p>Camembert : meilleur pour montrer des proportions (« 82 % du marché en 3 couleurs »). Barres : meilleur pour comparer des grandeurs.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Données qualitatives</strong> (couleurs, types) : on calcule effectifs et fréquences. Pas de moyenne.</li>
+    <li><strong>Mode :</strong> valeur la plus fréquente.</li>
+    <li><strong>Diagramme circulaire :</strong> 1 % = 3,6° d'angle.</li>
+    <li><strong>Diagramme en barres :</strong> mieux pour comparer des grandeurs.</li>
+    <li><strong>Application pro :</strong> dimensionnement de stocks, analyse marché, choix d'offre commerciale.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Effectifs / fréquences) et §4 (Représentations) de la leçon Ch01.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
