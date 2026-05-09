@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 2 – Probabilité de raccord conforme – CAP MIT</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Tirer un raccord au hasard dans la caisse <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 2 — Probabilités | CAP MIT (Métiers Installation Thermique) | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Identifier les issues d'une expérience aléatoire</li>
+    <li>Calculer la probabilité d'un événement en situation d'équiprobabilité</li>
+    <li>Reconnaître un événement certain, impossible, contraire</li>
+    <li>Interpréter une probabilité dans un contexte de contrôle qualité</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – stockage en chaufferie</h2>
+  <p><em>Karim, apprenti plombier chauffagiste chez « ProThermie » à Lyon, range les raccords en cuivre dans une caisse à l'atelier. Tous les raccords sont mélangés. Pour préparer un chantier, il prend les pièces sans regarder dans la caisse pour gagner du temps. Mais il faut s'assurer que la pièce convient à la pose.</em></p>
+
+  <h3>Document 1 — Inventaire de la caisse</h3>
+  <table>
+    <thead><tr><th>Type de raccord</th><th>Coude 90°</th><th>Té</th><th>Manchon droit</th><th>Réduction</th><th>Total</th></tr></thead>
+    <tbody><tr><td>Nombre</td><td>20</td><td>10</td><td>15</td><td>5</td><td>50</td></tr></tbody>
+  </table>
+
+  <h3>Document 2 — Schéma de la caisse</h3>
+  <div class="svg-wrap">
+  <svg viewBox="0 0 420 180" width="420" height="180" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="30" width="380" height="130" fill="#fef3c7" stroke="#b45309" stroke-width="2" rx="8"/>
+    <text x="210" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309">Caisse de raccords cuivre — 50 pièces</text>
+    <g font-size="11" fill="#1f2937">
+      <circle cx="60" cy="60" r="9" fill="#fbbf24" stroke="#b45309"/>
+      <circle cx="90" cy="60" r="9" fill="#fbbf24" stroke="#b45309"/>
+      <circle cx="120" cy="60" r="9" fill="#fbbf24" stroke="#b45309"/>
+      <text x="160" y="64">Coude 90° : 20</text>
+      <rect x="55" y="90" width="14" height="10" fill="#3b82f6" stroke="#1d4ed8"/>
+      <rect x="80" y="90" width="14" height="10" fill="#3b82f6" stroke="#1d4ed8"/>
+      <text x="160" y="98">Té : 10</text>
+      <line x1="55" y1="125" x2="75" y2="125" stroke="#10b981" stroke-width="6"/>
+      <line x1="85" y1="125" x2="105" y2="125" stroke="#10b981" stroke-width="6"/>
+      <text x="160" y="129">Manchon droit : 15</text>
+      <polygon points="55,150 75,148 75,156 55,154" fill="#dc2626" stroke="#7f1d1d"/>
+      <text x="160" y="155">Réduction : 5</text>
+    </g>
+  </svg>
+  </div>
+
+  <h3>Document 3 — Règle d'équiprobabilité</h3>
+  <p>Quand toutes les pièces ont la même chance d'être tirées (mélange homogène, tirage à l'aveugle), la probabilité d'un événement est :</p>
+  <p style="text-align:center;font-size:1.1em">$P(A) = \dfrac{\text{nombre de pièces favorables}}{\text{nombre total de pièces}}$</p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle est la probabilité que Karim tire la bonne pièce sans regarder ? Et que faut-il en conclure pour son organisation de chantier ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Karim tire <strong>une pièce au hasard</strong> dans la caisse. Combien d'<strong>issues</strong> possibles a cette expérience aléatoire ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Il y a <strong>50 issues</strong> possibles (50 raccords). Chaque pièce a la même chance d'être tirée : on est en situation d'équiprobabilité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la probabilité de l'événement A : « tirer un <strong>coude 90°</strong> ». Donner le résultat en fraction puis en pourcentage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$P(A) = \dfrac{20}{50} = \dfrac{2}{5} = 0,4 = $ <strong>40 %</strong>.</p>
+    <p>Karim a 4 chances sur 10 de tirer un coude 90°.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer les probabilités des événements suivants :</p>
+  <ul>
+    <li>B : « tirer un té »</li>
+    <li>C : « tirer un manchon droit »</li>
+    <li>D : « tirer une réduction »</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>$P(B) = \dfrac{10}{50} = \dfrac{1}{5} = $ <strong>20 %</strong></li>
+      <li>$P(C) = \dfrac{15}{50} = \dfrac{3}{10} = $ <strong>30 %</strong></li>
+      <li>$P(D) = \dfrac{5}{50} = \dfrac{1}{10} = $ <strong>10 %</strong></li>
+    </ul>
+    <p>Vérification : $40 + 20 + 30 + 10 = 100\%$ ✓ (la somme des probabilités vaut toujours 1).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Quel est l'événement le plus probable ? Le moins probable ? Justifier.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le plus probable : tirer un <strong>coude 90°</strong> (40 %), car c'est la pièce la plus représentée.</p>
+    <p>Le moins probable : tirer une <strong>réduction</strong> (10 %), car il y en a seulement 5 sur 50.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Karim cherche un <strong>coude OU un té</strong> (les deux conviennent pour son chantier). Quelle est la probabilité de cet événement E ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$P(E) = \dfrac{20 + 10}{50} = \dfrac{30}{50} = $ <strong>60 %</strong>.</p>
+    <p>Plus de 1 chance sur 2 : son organisation a un peu de marge mais reste risquée.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Identifier les événements suivants comme <strong>certain</strong>, <strong>impossible</strong>, ou <strong>ni l'un ni l'autre</strong> :</p>
+  <ul>
+    <li>F : « tirer un raccord en cuivre »</li>
+    <li>G : « tirer un raccord en PVC »</li>
+    <li>H : « tirer un coude ou un manchon ou un té ou une réduction »</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>F : <strong>certain</strong> — toutes les pièces sont en cuivre. $P(F) = 1$.</li>
+      <li>G : <strong>impossible</strong> — il n'y a pas de pièces PVC. $P(G) = 0$.</li>
+      <li>H : <strong>certain</strong> — c'est forcément un de ces 4 types. $P(H) = 1$.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Si Karim a besoin d'<strong>une réduction</strong> précisément, quelle est la probabilité qu'il <strong>ne tire pas</strong> la bonne pièce du premier coup ? Quel conseil lui donner ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Événement contraire : « ne pas tirer une réduction » = $1 - P(D) = 1 - 0,1 = $ <strong>0,9 = 90 %</strong>.</p>
+    <p><strong>Conseil :</strong> 9 chances sur 10 de se tromper ! Karim doit organiser sa caisse en compartiments séparés (par type) pour éviter les pertes de temps et les erreurs de pose.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note de service</strong> que Karim adresse à son patron pour proposer une nouvelle organisation de la caisse à raccords.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermie Lyon — Note d'organisation atelier · 7 mai 2026</strong><br>
+      • <strong>Constat :</strong> raccords mélangés dans une seule caisse (50 pièces).<br>
+      • <strong>Probabilité de tirer la bonne pièce du premier coup :</strong> entre 10 % (réduction) et 40 % (coude 90°).<br>
+      • <strong>Risque :</strong> perte de temps, erreurs de pose, pièces abîmées.<br>
+      • <strong>Proposition :</strong> compartimenter la caisse en 4 cases étiquetées (coude / té / manchon / réduction).<br>
+      • <strong>Bénéfice :</strong> probabilité = 100 % à chaque tirage. Gain estimé : 5-10 min par chantier.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Karim ajoute <strong>10 raccords en laiton</strong> à la caisse (en plus des 50 en cuivre). Quelle est la nouvelle probabilité de tirer une pièce <strong>en cuivre</strong> ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Total : $50 + 10 = 60$ pièces. $P(\text{cuivre}) = \dfrac{50}{60} = \dfrac{5}{6} \approx $ <strong>83,3 %</strong>.</p>
+    <p>L'événement n'est plus certain : il y a 1 chance sur 6 de tirer un raccord laiton (à éviter pour souder en cuivre).</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Issue :</strong> résultat possible d'une expérience aléatoire.</li>
+    <li><strong>Équiprobabilité :</strong> chaque issue a la même chance.</li>
+    <li><strong>Probabilité :</strong> $P(A) = \dfrac{\text{nombre d'issues favorables}}{\text{nombre d'issues totales}}$.</li>
+    <li><strong>Événement certain :</strong> $P = 1$. <strong>Impossible :</strong> $P = 0$.</li>
+    <li><strong>Événement contraire :</strong> $P(\bar{A}) = 1 - P(A)$.</li>
+    <li><strong>Application pro :</strong> contrôle qualité, organisation atelier, fiabilité.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Issues), §3 (Événements), §4 (Probabilité) et §5 (Événement contraire) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

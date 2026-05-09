@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 3 – Tirage d'une planche au stock – CAP Ébéniste</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Tirer une planche au hasard dans le stock <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 2 — Probabilités | CAP Ébéniste | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer une probabilité dans une situation d'équiprobabilité</li>
+    <li>Calculer la probabilité d'un événement composé (« A ou B »)</li>
+    <li>Utiliser l'événement contraire</li>
+    <li>Construire un arbre de probabilités simple</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – atelier d'ébénisterie</h2>
+  <p><em>Inès, apprentie ébéniste à l'atelier « Bois & Tradition » à Bordeaux, prépare la fabrication d'une commode. Le maître d'apprentissage l'envoie chercher des planches au fond du stock. Les planches sont rangées sans étiquette par essence, dans un seul lot. Inès doit en tirer une au hasard pour vérifier la teinte avant le débit.</em></p>
+
+  <h3>Document 1 — Inventaire du stock par essence</h3>
+  <table>
+    <thead><tr><th>Essence</th><th>Chêne</th><th>Hêtre</th><th>Pin</th><th>Noyer</th><th>Total</th></tr></thead>
+    <tbody><tr><td>Nombre de planches</td><td>30</td><td>25</td><td>35</td><td>10</td><td>100</td></tr></tbody>
+  </table>
+
+  <h3>Document 2 — Schéma du stock</h3>
+  <div class="svg-wrap">
+  <svg viewBox="0 0 440 180" width="440" height="180" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="20" width="400" height="150" fill="#fef3c7" stroke="#92400e" stroke-width="2" rx="6"/>
+    <text x="220" y="14" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Stock — 100 planches mélangées</text>
+    <g>
+      <rect x="40" y="40" width="80" height="20" fill="#92400e" stroke="#7c2d12"/>
+      <text x="80" y="54" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Chêne 30</text>
+      <rect x="40" y="68" width="60" height="20" fill="#d97706" stroke="#92400e"/>
+      <text x="70" y="82" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Hêtre 25</text>
+      <rect x="40" y="96" width="90" height="20" fill="#fbbf24" stroke="#b45309"/>
+      <text x="85" y="110" text-anchor="middle" fill="#1f2937" font-size="11" font-weight="700">Pin 35</text>
+      <rect x="40" y="124" width="35" height="20" fill="#451a03" stroke="#000"/>
+      <text x="57" y="138" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Noyer 10</text>
+    </g>
+    <g font-size="11" fill="#1f2937">
+      <text x="170" y="56">Bois dur clair (massif, ameublement)</text>
+      <text x="170" y="84">Bois dur clair (chaises, plans de travail)</text>
+      <text x="170" y="112">Bois résineux (caisserie, intérieurs)</text>
+      <text x="170" y="140">Bois précieux foncé (placage, marqueterie)</text>
+    </g>
+  </svg>
+  </div>
+
+  <h3>Document 3 — Règle d'équiprobabilité</h3>
+  <p>Quand toutes les planches sont mélangées et indiscernables au toucher, chaque planche a la même chance d'être tirée :</p>
+  <p style="text-align:center;font-size:1.1em">$P(A) = \dfrac{\text{nombre de planches favorables}}{\text{nombre total de planches}}$</p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle est la chance qu'Inès tire la bonne essence du premier coup pour sa commode (chêne ou noyer) ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Combien d'<strong>issues</strong> possède l'expérience « tirer une planche au hasard dans le stock » ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>100 issues</strong> possibles (100 planches indiscernables). Situation d'équiprobabilité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la probabilité de tirer une planche en <strong>chêne</strong>. Donner le résultat en fraction simplifiée et en pourcentage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$P(\text{Chêne}) = \dfrac{30}{100} = \dfrac{3}{10} = $ <strong>30 %</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer les probabilités pour les autres essences :</p>
+  <ul>
+    <li>$P(\text{Hêtre})$, $P(\text{Pin})$, $P(\text{Noyer})$</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>$P(\text{Hêtre}) = \dfrac{25}{100} = \dfrac{1}{4} = $ <strong>25 %</strong></li>
+      <li>$P(\text{Pin}) = \dfrac{35}{100} = \dfrac{7}{20} = $ <strong>35 %</strong></li>
+      <li>$P(\text{Noyer}) = \dfrac{10}{100} = \dfrac{1}{10} = $ <strong>10 %</strong></li>
+    </ul>
+    <p>Vérification : $30 + 25 + 35 + 10 = 100\%$ ✓.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Pour la commode, le maître a demandé du <strong>chêne ou du noyer</strong>. Calculer la probabilité de l'événement E : « tirer une essence acceptée pour la commode ».</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$P(E) = P(\text{Chêne}) + P(\text{Noyer}) = \dfrac{30 + 10}{100} = \dfrac{40}{100} = $ <strong>40 %</strong>.</p>
+    <p>Soit 4 chances sur 10 de tomber bien du premier coup.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la probabilité de l'événement contraire : « tirer une essence <strong>non acceptée</strong> » (autre que chêne ou noyer).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Méthode 1 (directe) : $P(\bar{E}) = P(\text{Hêtre}) + P(\text{Pin}) = 25 + 35 = $ <strong>60 %</strong>.</p>
+    <p>Méthode 2 (événement contraire) : $P(\bar{E}) = 1 - P(E) = 1 - 0,4 = 0,6 = $ <strong>60 %</strong>. ✓</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Identifier les événements suivants comme certain (P = 1) ou impossible (P = 0) :</p>
+  <ul>
+    <li>F : « tirer une planche en bois »</li>
+    <li>G : « tirer une planche en métal »</li>
+    <li>H : « tirer une planche en chêne ou hêtre ou pin ou noyer »</li>
+    <li>I : « tirer une planche en chêne ET en pin »</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>F : <strong>certain</strong> ($P = 1$)</li>
+      <li>G : <strong>impossible</strong> ($P = 0$)</li>
+      <li>H : <strong>certain</strong> ($P = 1$, c'est forcément l'une des 4 essences)</li>
+      <li>I : <strong>impossible</strong> ($P = 0$, une planche ne peut pas être 2 essences à la fois)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Inès tire une planche, la repose, et tire à nouveau. Si elle tire 100 fois en remettant la planche à chaque fois, environ combien de planches en <strong>noyer</strong> tirera-t-elle en moyenne ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Sur un grand nombre de tirages, la <strong>fréquence se rapproche de la probabilité</strong> (loi des grands nombres).</p>
+    <p>$100 \times 0,1 = $ <strong>environ 10 planches en noyer</strong> sur 100 tirages.</p>
+    <p>Mais sur un seul tirage, on ne peut pas prédire — c'est aléatoire.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>recommandation</strong> qu'Inès rédige au chef d'atelier pour améliorer le stockage du bois.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Bois &amp; Tradition — Note d'organisation · 7 mai 2026</strong><br>
+      • <strong>Constat :</strong> 100 planches mélangées sans tri par essence dans le stock principal.<br>
+      • <strong>Probabilité de tirer une essence demandée :</strong> 40 % pour chêne ou noyer (commode), 35 % pour pin (caisserie).<br>
+      • <strong>Risque :</strong> erreur de teinte, planche débitée à l'envers, perte de matière première (noyer = bois précieux !).<br>
+      • <strong>Proposition :</strong> séparer en 4 racks identifiés par essence, étiquette couleur visible.<br>
+      • <strong>Bénéfice :</strong> $P = 1$ d'avoir la bonne pièce, gain de temps, réduction du gaspillage de noyer (10 planches seulement).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Inès tire <strong>2 planches</strong> à la suite (sans remise). Quelle est la probabilité de tirer 2 noyers ? <em>(astuce : après le 1er tirage, il reste 99 planches dont 9 noyers).</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Tirage 1 : $P_1 = \dfrac{10}{100}$. Tirage 2 : $P_2 = \dfrac{9}{99}$.</p>
+    <p>$P(2\text{ noyers}) = \dfrac{10}{100} \times \dfrac{9}{99} = \dfrac{90}{9900} = \dfrac{1}{110} \approx $ <strong>0,9 %</strong>.</p>
+    <p>Très peu probable : moins d'1 chance sur 100 ! D'où l'intérêt de stocker le bois précieux à part.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Probabilité (équiprobabilité) :</strong> $P = \dfrac{\text{cas favorables}}{\text{cas totaux}}$.</li>
+    <li><strong>Somme des probabilités :</strong> toujours égale à 1 (ou 100 %).</li>
+    <li><strong>Événement contraire :</strong> $P(\bar{A}) = 1 - P(A)$.</li>
+    <li><strong>Événement (A ou B) :</strong> probabilités s'ajoutent si A et B sont incompatibles.</li>
+    <li><strong>Loi des grands nombres :</strong> la fréquence observée se rapproche de la probabilité théorique.</li>
+    <li><strong>Application pro :</strong> organisation du stock, contrôle des essences, traçabilité.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Événements), §4 (Probabilité), §5 (Contraire) et §6 (Loi des grands nombres) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
