@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 4 – Circuit LED enseigne 24 V – CAP SDG</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Dimensionner un circuit LED d'enseigne <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 2 — Électricité | CAP SDG (Signalétique et Décors Graphiques) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Appliquer la loi d'Ohm à un circuit LED</li>
+    <li>Distinguer montage série et montage parallèle</li>
+    <li>Calculer la puissance et l'énergie consommée</li>
+    <li>Choisir un transformateur adapté</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – câblage d'une enseigne lumineuse</h2>
+  <p><em>Sami, apprenti en signalétique chez « Couleurs Vives » à Marseille, doit câbler une enseigne lumineuse composée de 30 LED blanches identiques. L'alimentation se fait par un transformateur 230 V → 24 V continu. Sami doit choisir le bon montage pour que toutes les LED brillent au même éclat sans risque de surchauffe.</em></p>
+
+  <h3>Document 1 — Caractéristiques d'une LED</h3>
+  <ul>
+    <li>Tension de fonctionnement : <strong>U_LED = 3,2 V</strong>.</li>
+    <li>Intensité nominale : <strong>I_LED = 20 mA</strong>.</li>
+    <li>Puissance unitaire : $P = 3,2 \times 0,02 = 0,064 \,$W = 64 mW.</li>
+  </ul>
+
+  <h3>Document 2 — Montages possibles</h3>
+  <ul>
+    <li><strong>Série :</strong> les LED sont câblées les unes après les autres. La <strong>tension</strong> totale = somme des tensions. L'<strong>intensité</strong> est la même partout.</li>
+    <li><strong>Parallèle :</strong> les LED sont câblées en branches indépendantes. La <strong>tension</strong> est la même sur chaque branche. Les <strong>intensités s'additionnent</strong>.</li>
+  </ul>
+
+  <h3>Document 3 — Transformateur disponible</h3>
+  <ul>
+    <li>Sortie : 24 V continu (= DC).</li>
+    <li>Intensité maximale : 2 A.</li>
+    <li>Puissance maximale : $P_{max} = 24 \times 2 = 48 \,$W.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Comment câbler les 30 LED en mélangeant série et parallèle pour optimiser le circuit ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Dans un montage <strong>en série</strong>, on aligne plusieurs LED. Combien de LED peut-on mettre en série sous 24 V (chaque LED nécessite 3,2 V) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\dfrac{24}{3,2} = $ <strong>7,5</strong> → on peut mettre <strong>7 LED en série</strong>.</p>
+    <p>Reste $24 - 7 \times 3,2 = 1,6 \,$V à dissiper sur une <strong>résistance de protection</strong> (limite l'intensité).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la valeur de la <strong>résistance de protection</strong> à mettre en série avec les 7 LED, sachant que I = 20 mA.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Loi d'Ohm : $R = \dfrac{U}{I} = \dfrac{1,6}{0,02} = $ <strong>80 Ω</strong>.</p>
+    <p>Valeur normalisée la plus proche : 82 Ω (E12).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Sami souhaite câbler les <strong>30 LED</strong>. Combien de <strong>branches en parallèle</strong> de 7 LED faut-il (+ résistance) ? Combien de LED restent ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\dfrac{30}{7} \approx 4,28$ → <strong>4 branches</strong> de 7 LED = 28 LED.</p>
+    <p>Reste : $30 - 28 = 2$ LED à câbler. Inenvisageable de gâcher → on retient <strong>4 branches</strong> et on laisse 2 LED de réserve, ou on adapte le design (28 LED).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer l'<strong>intensité totale</strong> tirée par les 4 branches en parallèle. Le transformateur (max 2 A) est-il suffisant ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$I_{total} = 4 \times 20 = 80 \,$mA = 0,08 A.</p>
+    <p>0,08 A ≪ 2 A. <strong>Le transformateur est largement suffisant</strong> (utilisation à 4 % seulement).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>puissance totale</strong> consommée par les 28 LED + 4 résistances de protection.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$P = U \times I = 24 \times 0,08 = $ <strong>1,92 W</strong>.</p>
+    <p>Soit moins de 2 W pour 28 LED ! Une enseigne très économe en énergie.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Si Sami câble par erreur <strong>toutes les LED en parallèle</strong> sur 24 V (sans résistance), que se passe-t-il ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Chaque LED reçoit 24 V au lieu de 3,2 V → <strong>surtension</strong> énorme.</p>
+    <p>L'intensité explose, les LED <strong>brûlent immédiatement</strong> (effet Joule). Erreur classique de débutant.</p>
+    <p>La résistance de protection est <strong>indispensable</strong> pour limiter le courant.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>L'enseigne fonctionne <strong>12 h/jour, 365 jours/an</strong>. Calculer l'énergie annuelle consommée et le coût (0,21 €/kWh).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$E = P \times t = 1,92 \times 12 \times 365 = 8\,410 \,$Wh ≈ <strong>8,41 kWh/an</strong>.</p>
+    <p>Coût : $8,41 \times 0,21 \approx $ <strong>1,77 €/an</strong>. Quasiment rien !</p>
+    <p>Comparaison enseigne néon (~50 W) : 219 kWh/an → 46 €/an. Économie de ~26 fois.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche technique</strong> du circuit LED que Sami remet au client.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Couleurs Vives Marseille — Fiche technique enseigne LED · 7 mai 2026</strong><br>
+      • <strong>Composition :</strong> 28 LED blanches 3,2 V / 20 mA en 4 branches × 7 LED + 4 R = 80 Ω.<br>
+      • <strong>Alimentation :</strong> transformateur 230 V → 24 V continu, 2 A max.<br>
+      • <strong>Intensité totale :</strong> 80 mA (4 % du transfo).<br>
+      • <strong>Puissance :</strong> 1,92 W → 8,41 kWh/an, coût ~1,77 €/an.<br>
+      • <strong>Économie vs néon :</strong> ~26 fois moins cher en énergie. Durée de vie LED ~50 000 h.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Sami veut ajouter un <strong>module clignotant</strong> qui consomme 0,5 W en permanence. Recalculer la consommation annuelle totale et l'augmentation en pourcentage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Module : $0,5 \times 12 \times 365 = 2\,190 \,$Wh = 2,19 kWh/an.</p>
+    <p>Total : $8,41 + 2,19 = 10,6 \,$kWh → <strong>2,23 €/an</strong>.</p>
+    <p>Augmentation : $\dfrac{2,19}{8,41} \approx 26 \%$. Significatif mais peu de surcoût.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Loi d'Ohm :</strong> $U = R \times I$ → résistance de protection LED.</li>
+    <li><strong>En série :</strong> tensions s'additionnent, I est la même.</li>
+    <li><strong>En parallèle :</strong> tension identique sur chaque branche, I s'additionnent.</li>
+    <li><strong>Puissance :</strong> $P = U \times I$.</li>
+    <li><strong>Énergie :</strong> $E = P \times t$.</li>
+    <li><strong>Application pro :</strong> dimensionnement enseignes LED, transformateur, économie énergétique.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Circuits), §3 (Loi d'Ohm), §5 (Continu/alternatif) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
