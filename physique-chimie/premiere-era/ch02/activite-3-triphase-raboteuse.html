@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 3 – Réseau triphasé pour raboteuse – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Raccorder une raboteuse triphasée à l'atelier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 2 – Puissance consommée | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Distinguer un réseau monophasé (230 V, 2 fils) et triphasé (400 V, 4 fils)</li>
+    <li>Calculer la puissance d'un moteur triphasé : P = √3 × U × I × cos φ</li>
+    <li>Calculer le courant par phase d'une machine triphasée</li>
+    <li>Choisir la section de câble adaptée à un raccordement triphasé</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a>. Triphasé : 3 phases + neutre. Tension entre phases U = 400 V. Puissance : P = √3 × U × I × cos φ ≈ 1,73 × U × I × cos φ.
+</p>
+
+<div class="situation">
+  <h2>Situation – nouvelle raboteuse-dégauchisseuse pour Bois & Compagnie</h2>
+  <p><em>Sami, électricien partenaire de l'atelier « Bois & Compagnie » à Nantes, doit raccorder une nouvelle raboteuse-dégauchisseuse Felder AD 951 (puissance 5,5 kW). C'est un moteur triphasé 400 V. Sami doit choisir la section du câble d'alimentation et vérifier le calibre du disjoncteur.</em></p>
+
+  <h3>Document 1 — Caractéristiques de la raboteuse</h3>
+  <ul>
+    <li>Puissance moteur : <strong>P = 5,5 kW</strong> à pleine charge</li>
+    <li>Tension d'alimentation : <strong>U = 400 V</strong> entre phases (réseau triphasé)</li>
+    <li>Cos φ moteur asynchrone : <strong>0,85</strong></li>
+    <li>Distance tableau ↔ raboteuse : 18 m</li>
+  </ul>
+
+  <h3>Document 2 — Tableau de section minimale câble cuivre triphasé (NF C 15-100)</h3>
+  <table>
+    <thead>
+      <tr><th>Courant nominal I</th><th>Section minimale</th><th>Calibre disjoncteur</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>≤ 10 A</td><td>1,5 mm²</td><td>10 A</td></tr>
+      <tr><td>≤ 16 A</td><td>2,5 mm²</td><td>16 A</td></tr>
+      <tr><td>≤ 25 A</td><td>4 mm²</td><td>25 A</td></tr>
+      <tr><td>≤ 32 A</td><td>6 mm²</td><td>32 A</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle section de câble triphasé Sami doit-il poser pour raccorder la raboteuse, et quel calibre de disjoncteur installer ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Citer la <strong>relation</strong> qui donne la puissance d'un moteur triphasé. Identifier les grandeurs et leurs unités.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Relation triphasée : <strong>P = √3 × U × I × cos φ</strong>.</p>
+    <ul>
+      <li>P : puissance active en W</li>
+      <li>U : tension entre phases en V (400 V en triphasé domestique/industriel léger)</li>
+      <li>I : courant en ligne (par phase) en A</li>
+      <li>cos φ : facteur de puissance, sans unité</li>
+    </ul>
+    <p>√3 ≈ 1,732. Cette racine vient de la géométrie des 3 tensions déphasées de 120°.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>courant nominal par phase</strong> de la raboteuse, à l'aide de la formule \(I = P / (\sqrt{3} \times U \times \cos\varphi)\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>I = 5 500 / (1,732 × 400 × 0,85) = 5 500 / 588,9 ≈ <strong>9,3 A</strong> par phase.</p>
+    <p>Note : un moteur identique en monophasé 230 V exigerait I = 5 500 / (230 × 0,85) ≈ 28 A — 3 fois plus de courant.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>D'après le Doc 2, quelle <strong>section de câble cuivre</strong> Sami doit-il choisir pour ce raccordement triphasé ? Quel calibre de disjoncteur ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>9,3 A &lt; 10 A → choix possible : <strong>section 1,5 mm² + disjoncteur 10 A</strong>.</p>
+    <p>Mais en pratique, on ajoute une marge pour les pointes de démarrage du moteur (× 1,5 typiquement) :</p>
+    <p>I × 1,5 = 14 A → choix recommandé : <strong>section 2,5 mm² + disjoncteur 16 A courbe D</strong> (adaptée aux moteurs).</p>
+    <p>Attention : un câble triphasé contient 4 fils (3 phases + neutre) + 1 fil de terre. Donc 5 conducteurs.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Au démarrage, le moteur asynchrone consomme <strong>5 fois</strong> son courant nominal pendant 0,5 seconde (« pointe de démarrage »). Calculer ce courant. Pourquoi le disjoncteur ne déclenche-t-il pas malgré tout ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>I<sub>démarrage</sub> = 5 × 9,3 ≈ <strong>46,5 A</strong> par phase.</p>
+    <p>C'est très au-dessus du calibre 16 A. Mais le disjoncteur ne déclenche pas car :</p>
+    <ul>
+      <li>Il a une <strong>courbe D</strong> (déclenchement entre 10 et 14 × calibre) → ne déclenche qu'au-delà de 14 × 16 = 224 A.</li>
+      <li>Le déclenchement thermique a une inertie : il faut quelques secondes à plusieurs A au-dessus du calibre pour déclencher.</li>
+      <li>Le pic de 0,5 s n'est donc pas vu comme une surcharge persistante.</li>
+    </ul>
+    <p>D'où la règle : <strong>disjoncteur courbe D pour les moteurs</strong>, courbe C ou D pour usage général, courbe B pour très haute sensibilité (informatique).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>résistance d'une phase</strong> du câble cuivre 2,5 mm² sur 18 m (ρ<sub>Cu</sub> = 1,7 × 10⁻⁸ Ω·m).</p>
+  <p>En déduire la <strong>chute de tension</strong> à pleine charge (R × I) et vérifier qu'elle est conforme à la norme NF C 15-100 (3 % de 400 V max).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>R = ρL/S = (1,7 × 10⁻⁸) × 18 / (2,5 × 10⁻⁶) = 3,06 × 10⁻⁸ / 2,5 × 10⁻⁶ × 18</p>
+    <p>R = (1,7 × 18) / (2,5) × 10⁻² = 12,24 × 10⁻² ≈ <strong>0,12 Ω</strong> par phase.</p>
+    <p>ΔU = R × I = 0,12 × 9,3 ≈ <strong>1,1 V</strong> par phase.</p>
+    <p>Pourcentage : 1,1 / 230 (tension simple V) ≈ 0,5 %. <strong>Conforme</strong> (norme &lt; 3 %).</p>
+    <p>(En triphasé, on raisonne en tension simple V = U / √3 ≈ 230 V pour la chute de tension.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Pourquoi le réseau industriel utilise-t-il du <strong>triphasé</strong> plutôt que du monophasé pour les grosses puissances ? Citer 3 avantages.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li><strong>Courant divisé par √3</strong> à puissance égale → câbles plus fins, moins de pertes Joule.</li>
+      <li><strong>Moteur triphasé asynchrone</strong> : démarre seul (champ tournant naturel), plus simple, plus fiable que le monophasé qui nécessite condensateur de démarrage.</li>
+      <li><strong>Couple plus régulier</strong> : 3 sinusoïdes décalées → couple instantané quasi constant, peu de vibrations. Le moteur tourne plus rond, dure plus longtemps.</li>
+      <li><strong>Standard industriel mondial</strong> : machines pro disponibles en triphasé.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Si l'atelier de Sami n'avait que du <strong>monophasé 230 V</strong>, quelle puissance maximale pourrait-il alimenter avec un câble 2,5 mm² (calibre 16 A, cos φ = 0,85) ? La raboteuse 5,5 kW serait-elle compatible ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>max mono</sub> = U × I × cos φ = 230 × 16 × 0,85 ≈ <strong>3 130 W ≈ 3,1 kW</strong>.</p>
+    <p>5,5 kW &gt; 3,1 kW → <strong>incompatible</strong> en monophasé sur ce câble. Solutions :</p>
+    <ul>
+      <li>(1) Faire venir le triphasé chez le client (souvent disponible chez ENEDIS, simple changement de contrat).</li>
+      <li>(2) Choisir une raboteuse monophasée moins puissante (≤ 3 kW), mais qualité de coupe inférieure pour gros bois.</li>
+      <li>(3) Câble plus gros + disjoncteur 32 A → autorise 230 × 32 × 0,85 ≈ 6,3 kW. Mais courant élevé = plus de pertes Joule.</li>
+    </ul>
+    <p>Pour un atelier ERA-MA, le triphasé est <strong>la norme</strong> dès qu'on a une raboteuse, scie à ruban, défonceuse de qualité pro.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche de pose</strong> que Sami remet au gérant de Bois & Compagnie.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Sami Électricité — Pose raboteuse Felder AD 951 chez Bois & Compagnie · 7 mai 2026</strong><br>
+      • <strong>Raboteuse :</strong> moteur triphasé 5,5 kW, 400 V, cos φ 0,85. Courant nominal par phase : <strong>9,3 A</strong>.<br>
+      • <strong>Câble posé :</strong> 5G2,5 mm² cuivre (3 phases + neutre + terre), longueur 18 m. Chute de tension &lt; 1 % (norme respectée).<br>
+      • <strong>Protection :</strong> disjoncteur 16 A courbe D + différentiel 30 mA en tête. Adapté aux pointes de démarrage moteur (≈ 47 A pendant 0,5 s).<br>
+      • <strong>Test mise en service :</strong> rotation moteur OK, courant pleine charge mesuré 9,1 A par phase ✓, échauffement câble normal après 30 min.<br>
+      • <strong>Recommandation :</strong> contrôle annuel du serrage des bornes (vibrations machines), nettoyage filtre disjoncteur.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>L'atelier comporte aussi une scie à ruban triphasée 4 kW (cos φ 0,80). Calculer son courant par phase. Les 2 machines tournent simultanément : courant total triphasé ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>I<sub>scie</sub> = 4 000 / (1,732 × 400 × 0,80) = 4 000 / 554,2 ≈ <strong>7,2 A</strong>.</p>
+    <p>Total triphasé : 9,3 + 7,2 = <strong>16,5 A par phase</strong> si simultanéité = 1.</p>
+    <p>Disjoncteur principal triphasé d'atelier : 25 A minimum (avec marge pour autres équipements). Section 4 mm².</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Triphasé :</strong> 3 phases + neutre. Tension entre phases U = 400 V, tension simple V = 230 V (= U/√3).</li>
+    <li><strong>Puissance triphasée :</strong> P = √3 × U × I × cos φ.</li>
+    <li><strong>Courant par phase :</strong> I = P / (√3 × U × cos φ). À puissance égale, divisé par √3 ≈ 1,73 par rapport au monophasé.</li>
+    <li><strong>Choix de section :</strong> NF C 15-100 ; tenir compte du courant nominal × 1,3-1,5 pour démarrage moteur.</li>
+    <li><strong>Disjoncteur courbe D</strong> recommandé pour moteurs (tolère pointes de démarrage 5-10 × I nominal).</li>
+    <li><strong>Avantage triphasé :</strong> moteurs plus fiables, couple régulier, courants moins forts par phase.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Puissance) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – Activité 4 – Wifi atelier menuiserie – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+<header><h1>Activité 4 – Wifi pour tablette numérique en atelier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+<p class="sous-titre">Chapitre 9 – Ondes électromagnétiques | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Ondes | ⏱ 35 min</p>
+<p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p></header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs"><strong>Objectifs :</strong>
+<ul><li>Calculer la longueur d'onde Wifi 2,4 GHz et 5 GHz</li><li>Comprendre l'atténuation à travers les obstacles</li><li>Choisir le placement d'une borne Wifi en atelier</li><li>Comprendre les enjeux d'une connexion stable pour la production</li></ul></div>
+
+<div class="situation"><h2>Situation – atelier 4.0 connecté</h2>
+<p><em>Lila, gérante d'un atelier d'agencement à Lyon, équipe ses 6 menuisiers de tablettes pour consulter les plans CAO directement à leur poste. Sa box Wifi est dans le bureau (au fond), et l'atelier mesure 25 × 12 m avec des cloisons en panneaux bois.</em></p>
+
+<h3>Document 1 — Spécifications Wifi disponibles</h3>
+<table><thead><tr><th>Standard</th><th>Fréquence</th><th>Portée libre</th><th>Atténuation cloison bois 50 mm</th></tr></thead>
+<tbody>
+<tr><td>Wifi 4 (n)</td><td>2,4 GHz</td><td>50 m</td><td>−4 dB</td></tr>
+<tr><td>Wifi 5 (ac)</td><td>5 GHz</td><td>25 m</td><td>−8 dB</td></tr>
+<tr><td>Wifi 6 (ax)</td><td>2,4 + 6 GHz</td><td>30 m (6 GHz)</td><td>−10 dB (6 GHz)</td></tr></tbody></table>
+
+<h3>Document 2 — Configuration atelier Lila</h3>
+<ul><li>Atelier : 25 × 12 m = 300 m² avec 3 cloisons bois 50 mm.</li>
+<li>Box dans bureau (fond gauche), tablettes dans tout l'atelier.</li>
+<li>Distance max box → tablette : 28 m.</li>
+<li>Box émet à <strong>−40 dBm</strong>. Seuil minimal Wifi stable : <strong>−75 dBm</strong>.</li></ul></div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+<strong>Problématique :</strong> Le Wifi de Lila couvre-t-il toutes les positions de l'atelier ? Sinon, quelle solution ?</div>
+
+<div class="exo"><h2>Question 1 <span class="badge-yellow">REA</span></h2>
+<p>Calculer la <strong>longueur d'onde</strong> Wifi 2,4 GHz et Wifi 5 GHz.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>λ<sub>2,4 GHz</sub> = 3 × 10⁸ / 2,4 × 10⁹ = <strong>0,125 m = 12,5 cm</strong>.</p>
+<p>λ<sub>5 GHz</sub> = 3 × 10⁸ / 5 × 10⁹ = <strong>0,06 m = 6 cm</strong>.</p></div></div>
+
+<div class="exo"><h2>Question 2 <span class="badge-blue">ANA</span></h2>
+<p>Pourquoi le Wifi 5 GHz porte-t-il moins loin que le 2,4 GHz, malgré la fréquence plus élevée ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Plus la fréquence est élevée, plus l'onde est <strong>absorbée par les obstacles</strong> (eau, métal, bois). Le 5 GHz est donc plus rapide (plus de bande passante) mais moins « pénétrant ».</p>
+<p>Compromis : 2,4 GHz pour couverture et obstacles, 5 GHz pour vitesse en zone sans obstacles.</p></div></div>
+
+<div class="exo"><h2>Question 3 <span class="badge-yellow">REA</span></h2>
+<p>Pour Wifi 2,4 GHz, signal box −40 dBm, atténuation distance ≈ −1 dB/m + 3 cloisons à −4 dB. Calculer le signal à 28 m.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Atténuation distance : 28 × 1 = 28 dB.</p>
+<p>Atténuation cloisons : 3 × 4 = 12 dB.</p>
+<p>Atténuation totale : 28 + 12 = 40 dB.</p>
+<p>Signal reçu : −40 − 40 = <strong>−80 dBm</strong>.</p>
+<p>−80 &lt; −75 dBm → <strong>signal trop faible</strong>, connexion instable.</p></div></div>
+
+<div class="exo"><h2>Question 4 <span class="badge-blue">ANA</span></h2>
+<p>Mêmes calculs en Wifi 5 GHz (atténuation 1,5 dB/m + 8 dB/cloison). Conclure.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Atténuation : 28 × 1,5 + 3 × 8 = 42 + 24 = 66 dB.</p>
+<p>Signal : −40 − 66 = <strong>−106 dBm</strong>. Encore pire. Le 5 GHz est inutilisable au fond de l'atelier.</p></div></div>
+
+<div class="exo"><h2>Question 5 <span class="badge-blue">VAL</span></h2>
+<p>Lila ajoute un <strong>répéteur Wifi 4 (2,4 GHz)</strong> au milieu de l'atelier. Calculer le signal arrivant au répéteur (à 14 m), puis du répéteur jusqu'à la tablette la plus éloignée (à 14 m supplémentaires, 1 cloison entre).</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Box → répéteur (14 m, 1 cloison) : −40 − (14×1 + 1×4) = −58 dBm. ✓</p>
+<p>Répéteur émet à −40 dBm typique → signal à 14 m + 1 cloison = −40 − 18 = −58 dBm. ✓</p>
+<p>Couverture totale assurée. Investissement répéteur : 60 €.</p></div></div>
+
+<div class="exo"><h2>Question 6 <span class="badge-blue">ANA</span></h2>
+<p>Pourquoi une bonne connexion Wifi est-elle <strong>importante</strong> pour Lila ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><ul><li><strong>Plans CAO consultés sur tablette</strong> → pas d'erreur de fabrication.</li>
+<li><strong>Suivi production en temps réel</strong> (logiciel ERP).</li>
+<li><strong>Photos de pose</strong> envoyées au bureau pour validation.</li>
+<li><strong>Vidéos formation</strong> en cas de procédure complexe.</li>
+<li>Reçus / facturation mobile clients.</li></ul></div></div>
+
+<div class="exo"><h2>Question 7 <span class="badge-blue">ANA</span></h2>
+<p>Lila s'inquiète des <strong>effets santé</strong> du Wifi en atelier. Argumenter.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Le Wifi 2,4 GHz émet à puissance ≈ 100 mW (vs ≈ 2 000 mW pour un téléphone portable, ≈ 1 000 W pour un four à micro-ondes). L'exposition est très faible.</p>
+<p>OMS (2014) : « pas d'effet sanitaire avéré aux niveaux de puissance Wifi ». Niveau d'exposition très inférieur aux normes (10 W/m² admissible, Wifi à 30 cm ≈ 0,01 W/m²).</p>
+<p>Recommandations : éloigner les bornes de zones de séjour prolongé (> 1 h), couper le Wifi la nuit.</p></div></div>
+
+<div class="exo"><h2>Question 8 <span class="badge-red">COM</span></h2>
+<p>Rédiger en 5 lignes la <strong>note technique</strong> de Lila pour son installateur Wifi.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir un exemple</button>
+<div class="corr"><p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+<strong>Atelier Lila — Couverture Wifi · 7 mai 2026</strong><br>
+• <strong>Atelier 25 × 12 m, 3 cloisons bois.</strong> Couverture nécessaire pour 6 tablettes en CAO.<br>
+• <strong>Solution :</strong> Wifi 2,4 GHz box principale + 1 répéteur central. Standard Wifi 4 (n) suffisant.<br>
+• <strong>Couverture vérifiée :</strong> signal &gt; −60 dBm partout. Stabilité garantie.<br>
+• <strong>Sécurité :</strong> WPA3, mot de passe complexe, mise à jour firmware automatique.<br>
+• <strong>Coût :</strong> 60 € répéteur + 1 h installation 50 €. Budget total 110 € HT.</p></div></div>
+
+<div class="bonus"><strong>Pour aller plus loin (bonus)</strong>
+<p>Combien de bornes Wifi faut-il pour couvrir un atelier de <strong>50 × 30 m</strong> avec cloisons multiples ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Surface : 1 500 m². Une borne 2,4 GHz couvre environ 200 m² avec obstacles → <strong>8 bornes minimum</strong>, en maillage (mesh). Solution professionnelle Ubiquiti UniFi à 80 €/borne.</p>
+<p>Pour ce volume, on parle de Wifi mesh : les bornes communiquent entre elles et adaptent automatiquement la puissance.</p></div></div>
+
+<div class="retenir"><strong>À retenir</strong>
+<ul><li><strong>Wifi 2,4 GHz :</strong> λ = 12,5 cm, portée 50 m, traverse mieux les obstacles.</li>
+<li><strong>Wifi 5 GHz :</strong> λ = 6 cm, plus rapide mais moins pénétrant.</li>
+<li><strong>Atténuation :</strong> distance + obstacles. Cloison bois 50 mm = −4 dB en 2,4 GHz.</li>
+<li><strong>Seuil utilisable :</strong> &gt; −75 dBm. En dessous : connexion instable.</li>
+<li><strong>Solutions atelier :</strong> répéteur central, ou maillage Wifi (mesh) pour grandes surfaces.</li>
+<li><strong>Santé :</strong> exposition Wifi très faible vs normes. Pas d'effets sanitaires avérés (OMS).</li></ul></div>
+
+</div><script src="../../../nav.js"></script></body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité 4 – Rayonnement d'un radiateur showroom – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Rayonnement d'un radiateur fonte dans un showroom <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 4 – Transferts thermiques | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Thermique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Convertir une température en kelvins</li>
+    <li>Appliquer la loi de Stefan-Boltzmann</li>
+    <li>Calculer la puissance rayonnée par un radiateur en fonte</li>
+    <li>Comprendre l'impact de l'émissivité (couleur, état de surface)</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §3. Φ = ε × σ × S × (T<sub>chaud</sub>⁴ − T<sub>froid</sub>⁴), σ = 5,67 × 10⁻⁸ W/(m²·K⁴).
+</p>
+
+<div class="situation">
+  <h2>Situation – chauffage du showroom Bois & Style</h2>
+  <p><em>Léa, agenceuse à Aix, a un showroom de meubles design 100 m² chauffé par 4 radiateurs fonte anciens (typeur Edwardian) qui dégagent une « chaleur douce » très appréciée des clients. Léa veut comprendre la physique du rayonnement thermique de ces radiateurs et leur efficacité.</em></p>
+
+  <h3>Document 1 — Caractéristiques du radiateur fonte</h3>
+  <ul>
+    <li>Surface rayonnante (1 radiateur) : <strong>S = 1,2 m²</strong></li>
+    <li>Température moyenne surface : <strong>T = 65 °C</strong></li>
+    <li>Émissivité fonte peinte : <strong>ε = 0,90</strong></li>
+    <li>Température ambiante (murs, sol) : <strong>T<sub>amb</sub> = 19 °C</strong></li>
+    <li>4 radiateurs identiques.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle puissance rayonne un radiateur fonte du showroom, et quelle part cela représente-t-il dans le chauffage total ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Convertir les températures en kelvins (T(K) = T(°C) + 273).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>T<sub>chaud</sub> = 65 + 273 = <strong>338 K</strong>. T<sub>amb</sub> = 19 + 273 = <strong>292 K</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer T<sub>chaud</sub>⁴ et T<sub>amb</sub>⁴, puis leur différence.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>338⁴ = (338²)² = 114 244² ≈ <strong>1,305 × 10¹⁰</strong>.</p>
+    <p>292⁴ = (292²)² = 85 264² ≈ <strong>0,727 × 10¹⁰ = 7,27 × 10⁹</strong>.</p>
+    <p>Δ = 1,305 × 10¹⁰ − 0,727 × 10¹⁰ ≈ <strong>5,78 × 10⁹ K⁴</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Appliquer la <strong>loi de Stefan-Boltzmann</strong> pour calculer la puissance Φ rayonnée par un radiateur.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Φ = ε × σ × S × ΔT⁴ = 0,90 × (5,67 × 10⁻⁸) × 1,2 × (5,78 × 10⁹)</p>
+    <p>Φ = 0,90 × 5,67 × 1,2 × 5,78 × 10⁻⁸⁺⁹ = 35,4 × 10 ≈ <strong>354 W</strong> par radiateur.</p>
+    <p>Pour 4 radiateurs : 4 × 354 = <strong>~ 1 420 W rayonnés</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Un radiateur en fonte fournit aussi de la chaleur par <strong>convection naturelle</strong> (≈ 70 % du total). Estimer la puissance totale (rayonnement + convection) d'un radiateur.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Si rayonnement = 30 % du total : P<sub>total</sub> = 354 / 0,30 ≈ <strong>1 180 W</strong>.</p>
+    <p>4 radiateurs : 4 × 1 180 ≈ 4 720 W ≈ <strong>4,7 kW</strong> au total.</p>
+    <p>Cohérent avec les besoins de chauffage d'un showroom 100 m² (≈ 50 W/m²).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Si le radiateur était <strong>chromé brillant</strong> (ε = 0,10 au lieu de 0,90), recalculer la puissance rayonnée. Pourquoi les radiateurs sont-ils peints (et pas chromés) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Φ<sub>chromé</sub> = (0,10 / 0,90) × 354 ≈ <strong>39 W</strong>. Soit 9 fois moins.</p>
+    <p>Un radiateur chromé garde sa chaleur à l'intérieur du métal au lieu de la rayonner. Énergie « stockée » dans le radiateur, pas envoyée vers la pièce.</p>
+    <p>D'où la peinture <strong>noire mate ou couleur foncée</strong> standard sur tous les radiateurs : pour maximiser ε et donc le rayonnement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Un client de Léa lui demande si la <strong>chaleur douce ressentie</strong> du showroom vient du rayonnement ou de la convection. Comment expliquer ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La <strong>chaleur ressentie</strong> par notre peau provient surtout du rayonnement IR direct (effet « cheminée », « soleil »). Plus agréable car immédiat, sans courant d'air.</p>
+    <p>La convection chauffe d'abord l'air, puis l'air chauffe les objets et la peau. Plus indirect, parfois sec et étouffant si l'air monte beaucoup.</p>
+    <p>La fonte massive (inertie) maintient une température stable et donc un rayonnement régulier — perçu comme « doux et constant ». Les radiateurs en acier fin chauffent vite mais refroidissent vite aussi → variations marquées.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Si Léa augmentait la T radiateur à <strong>75 °C</strong> au lieu de 65 °C, recalculer la puissance rayonnée. Effet de 10 °C en plus ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>T = 348 K. T⁴ = 1,468 × 10¹⁰. ΔT⁴ = 1,468 − 0,727 = 7,41 × 10⁹.</p>
+    <p>Φ' = 0,9 × 5,67 × 10⁻⁸ × 1,2 × 7,41 × 10⁹ ≈ <strong>454 W</strong> (au lieu de 354 W).</p>
+    <p>+ 28 % de rayonnement pour seulement 10 °C de plus, grâce à la loi en T⁴.</p>
+    <p>Mais consommation et risques de brûlure plus élevés. Compromis : 65 °C est la T standard pour habitat / showroom.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche technique</strong> que Léa met à disposition de ses clients curieux du showroom.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Bois & Style — La chaleur douce du showroom</strong><br>
+      • Notre showroom est chauffé par 4 radiateurs en fonte vernis noir (esthétique edwardienne, à 65 °C en surface).<br>
+      • Chaque radiateur fournit 1,2 kW dont 30 % par <strong>rayonnement IR direct</strong> (354 W). Cette chaleur réchauffe directement vos objets et votre peau, pas seulement l'air ambiant.<br>
+      • La <strong>fonte massive</strong> garantit une température stable et un rayonnement constant : pas de courants d'air froids/chauds alternés.<br>
+      • La <strong>peinture noir mat</strong> (émissivité 0,90) maximise le rayonnement vers la pièce. Un radiateur chromé brillant rayonnerait 9 fois moins.<br>
+      • Bénéfice : confort thermique élevé pour vos visites et essais de meubles, sans bruit ni courant d'air.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>L'âtre d'une cheminée traditionnelle atteint ~ 600 °C en pleine combustion. Calculer la puissance rayonnée vers une personne à 1 m, supposée 1,8 m² × ε 1 (corps humain).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>T<sub>chaud</sub> = 873 K. T<sub>chaud</sub>⁴ ≈ 5,81 × 10¹¹. T<sub>peau</sub>⁴ (33 °C, 306 K) ≈ 8,77 × 10⁹.</p>
+    <p>ΔT⁴ ≈ 5,72 × 10¹¹. Si la personne reçoit ≈ 10 % du rayonnement (facteur de forme) sur S = 1,8 m² :</p>
+    <p>Φ = 1 × 5,67 × 10⁻⁸ × 1,8 × 5,72 × 10¹¹ × 0,1 ≈ <strong>5 800 W</strong>.</p>
+    <p>D'où la chaleur immédiate ressentie face à un feu de cheminée. Énorme intensité due à la T⁴.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Loi de Stefan-Boltzmann :</strong> Φ = ε × σ × S × (T⁴_chaud − T⁴_froid). T en kelvins.</li>
+    <li><strong>Émissivité ε :</strong> 0 à 1. Matières mates ε ~ 0,9, métaux brillants ε ~ 0,1.</li>
+    <li><strong>Variation en T⁴ :</strong> petite augmentation de T = grande variation du rayonnement.</li>
+    <li><strong>Radiateur fonte vs acier :</strong> fonte = inertie + rayonnement régulier ; acier = montée rapide mais variation forte.</li>
+    <li><strong>Chaleur douce ressentie :</strong> mélange optimal rayonnement (immédiat) + convection (homogène).</li>
+    <li><strong>Pourquoi peindre en noir mat :</strong> ε max → rayonnement max vers la pièce.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Rayonnement) de la leçon Ch04.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

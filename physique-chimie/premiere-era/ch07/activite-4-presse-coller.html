@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 4 – Presse à coller en ébénisterie – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+<header><h1>Activité 4 – Presse à coller pour panneaux contrecollés <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+<p class="sous-titre">Chapitre 7 – Pression et force pressante | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Mécanique des fluides | ⏱ 35 min</p>
+<p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p></header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs"><strong>Objectifs :</strong>
+<ul><li>Calculer une pression de collage à partir d'une force totale et d'une surface</li><li>Calculer la force exercée par un système de serres-joints multiples</li><li>Choisir le nombre de serres-joints selon la surface de collage</li><li>Comprendre le respect des préconisations fabricant de colle</li></ul></div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">💡 <a href="lecon.html">leçon</a>. P = F/S, F = P × S.</p>
+
+<div class="situation"><h2>Situation – plaquage chez Hugo</h2>
+<p><em>Hugo, ébéniste, plaque une porte de cuisine en mélaminé sur un panneau aggloméré (surface 60 × 40 cm). La colle vinylique nécessite une pression de plaquage de <strong>0,5 bar = 50 000 Pa</strong> pendant 12 h. Hugo dispose de serres-joints à vis avec une force max de 2 000 N chacun.</em></p>
+
+<h3>Document 1 — Données du collage</h3>
+<ul><li>Surface plaquée : <strong>S = 0,60 × 0,40 = 0,24 m²</strong></li>
+<li>Pression de plaquage requise : <strong>P = 0,5 bar = 50 000 Pa</strong></li>
+<li>Force max par serre-joint : <strong>F<sub>SJ</sub> = 2 000 N</strong></li>
+<li>Pression colle vinylique : « 0,3 à 1 bar » selon notice</li></ul></div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+<strong>Problématique :</strong> Combien de serres-joints Hugo doit-il poser pour atteindre les 0,5 bar de plaquage uniformément sur les 0,24 m² ?</div>
+
+<div class="exo"><h2>Question 1 <span class="badge-yellow">REA</span></h2>
+<p>Calculer la <strong>force totale F<sub>totale</sub></strong> nécessaire pour atteindre 0,5 bar sur 0,24 m².</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>F = P × S = 50 000 × 0,24 = <strong>12 000 N</strong>.</p>
+<p>Soit l'équivalent d'un poids de 1 200 kg appliqué uniformément.</p></div></div>
+
+<div class="exo"><h2>Question 2 <span class="badge-yellow">REA</span></h2>
+<p>Combien de <strong>serres-joints</strong> Hugo doit-il utiliser ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>n = F<sub>totale</sub> / F<sub>SJ</sub> = 12 000 / 2 000 = <strong>6 serres-joints minimum</strong>.</p>
+<p>Hugo en pose 8 pour homogénéité (et marge de sécurité).</p></div></div>
+
+<div class="exo"><h2>Question 3 <span class="badge-blue">ANA</span></h2>
+<p>Pourquoi <strong>répartir</strong> les serres-joints uniformément ? Conséquence d'une mauvaise répartition ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>La pression doit être <strong>uniforme</strong> pour que la colle prenne partout. Mauvaise répartition :</p>
+<ul><li>Zones « affamées » sans pression → poches d'air → décollement futur.</li>
+<li>Zones « écrasées » → trop de colle évacuée → joint sec.</li></ul>
+<p>Solution : poser les serres-joints en <strong>grille régulière</strong> (par ex. 8 serres répartis sur les 4 côtés et au centre).</p></div></div>
+
+<div class="exo"><h2>Question 4 <span class="badge-yellow">REA</span></h2>
+<p>Si Hugo n'a que <strong>4 serres-joints</strong>, quelle pression atteint-il ? Suffisant ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>F = 4 × 2 000 = 8 000 N.</p>
+<p>P = F/S = 8 000/0,24 ≈ <strong>33 333 Pa = 0,33 bar</strong>.</p>
+<p>0,33 bar est dans la plage 0,3-1 bar de la notice → <strong>juste suffisant</strong>. Mais marge faible et risque de défaut local. Ajouter au moins 2 serres-joints supplémentaires.</p></div></div>
+
+<div class="exo"><h2>Question 5 <span class="badge-blue">ANA</span></h2>
+<p>Pourquoi est-il important d'avoir des <strong>cales en bois</strong> entre les serres-joints et le panneau ? Calculer la pression locale sous une serre-joint sans cale.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Surface du tampon serre-joint : ≈ 4 cm² = 4 × 10⁻⁴ m².</p>
+<p>P locale = 2 000 / 4 × 10⁻⁴ = <strong>5 × 10⁶ Pa = 50 bar</strong> sous le tampon !</p>
+<p>50 bar localisé écrase le mélaminé en surface (mark visible permanent). <strong>Cales en bois</strong> ≈ 100 cm² répartissent la pression à 0,2 MPa = 2 bar (acceptable).</p></div></div>
+
+<div class="exo"><h2>Question 6 <span class="badge-blue">VAL</span></h2>
+<p>Quelles sont les <strong>conséquences</strong> d'une pression insuffisante (&lt; 0,3 bar) ou excessive (&gt; 1 bar) ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><ul><li><strong>Pression insuffisante</strong> : adhésion incomplète, bulles d'air, décollement après quelques semaines.</li>
+<li><strong>Pression excessive</strong> : colle trop chassée hors du joint → joint sec, finalement adhésion faible. Possible déformation du panneau.</li>
+<li>Le compromis fabricant 0,3-1 bar correspond à l'optimum.</li></ul></div></div>
+
+<div class="exo"><h2>Question 7 <span class="badge-blue">ANA</span></h2>
+<p>Hugo veut <strong>plaquer une grande porte</strong> 200 × 80 cm. Calculer la force totale et le nombre de serres-joints nécessaires.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>S = 2,00 × 0,80 = 1,6 m².</p>
+<p>F = 50 000 × 1,6 = 80 000 N.</p>
+<p>n = 80 000 / 2 000 = <strong>40 serres-joints</strong>. Inacceptable ! Solution : <strong>presse hydraulique</strong> 1 seul vérin avec table 1,6 m².</p></div></div>
+
+<div class="exo"><h2>Question 8 <span class="badge-red">COM</span></h2>
+<p>Rédiger en 5 lignes la <strong>fiche de plaquage</strong> de Hugo.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir un exemple</button>
+<div class="corr"><p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+<strong>Hugo Ébénisterie — Fiche plaquage panneau cuisine</strong><br>
+• <strong>Surface plaquée :</strong> 0,24 m² (60×40 cm). Pression cible : 0,5 bar.<br>
+• <strong>Force totale :</strong> 12 000 N. <strong>8 serres-joints</strong> répartis (6 minimum + marge).<br>
+• <strong>Cales bois</strong> 10 × 10 cm sous chaque mâchoire pour répartir la pression et éviter les marques.<br>
+• <strong>Durée :</strong> 12 h minimum (colle vinylique). Ne pas déplacer pendant le serrage.<br>
+• <strong>Pour grandes pièces (&gt; 1 m²) :</strong> presse hydraulique au lieu de multiples serres-joints.</p></div></div>
+
+<div class="bonus"><strong>Pour aller plus loin (bonus)</strong>
+<p>Une <strong>presse hydraulique</strong> applique une force unique grâce à un piston (Pascal). Si la pression hydraulique est de 100 bar et le piston a 80 cm² de surface, calculer la force exercée. Suffisante pour la grande porte ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>F = P × S = (100 × 10⁵) × (80 × 10⁻⁴) = 100 × 80 × 10 = <strong>80 000 N</strong>.</p>
+<p>Exactement la force requise pour la grande porte → <strong>1 seule presse hydraulique remplace 40 serres-joints</strong>. Investissement justifié pour ateliers volume.</p></div></div>
+
+<div class="retenir"><strong>À retenir</strong>
+<ul><li><strong>Force et pression :</strong> F = P × S.</li>
+<li><strong>Plaquage colle vinylique :</strong> 0,3-1 bar pendant 12 h (notice fabricant).</li>
+<li><strong>Nombre de serres-joints :</strong> n = F<sub>totale</sub> / F<sub>par serre</sub>.</li>
+<li><strong>Cales</strong> obligatoires pour répartir la pression et protéger les surfaces visibles.</li>
+<li><strong>Pour grandes surfaces :</strong> presse hydraulique (1 vérin = 40 serres-joints).</li>
+<li><strong>Erreur fréquente :</strong> mauvaise répartition → décollements localisés.</li></ul></div>
+
+</div><script src="../../../nav.js"></script></body></html>

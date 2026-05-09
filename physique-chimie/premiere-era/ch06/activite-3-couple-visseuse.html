@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – Activité 3 – Couple d'une visseuse à bois – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Choisir le bon couple de visseuse pour vis bois <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 6 – Équilibre rotation | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Mécanique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre la notion de couple de serrage</li>
+    <li>Choisir le réglage de couple selon le type de vis et de bois</li>
+    <li>Éviter le sur-serrage qui casse la tête de vis ou éclate le bois</li>
+    <li>Optimiser la durée de vie de l'outil</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – pose d'une cuisine intégrée par Léa</h2>
+  <p><em>Léa, monteuse de cuisines chez « Cuisine & Co », doit fixer 32 caissons en mélaminé sur une crémaillère murale. Sa visseuse Bosch GSR 18V dispose d'un réglage de couple en 21 positions (de 1 à 20 + mode « percussion »).</em></p>
+
+  <h3>Document 1 — Couples recommandés selon vis et bois</h3>
+  <table>
+    <thead><tr><th>Vis (Ø × L)</th><th>Bois</th><th>Couple recommandé (N·m)</th><th>Position visseuse</th></tr></thead>
+    <tbody>
+      <tr><td>3 × 16 mm</td><td>aggloméré, mélaminé</td><td>1,5</td><td>5</td></tr>
+      <tr><td>4 × 30 mm</td><td>aggloméré</td><td>3</td><td>9</td></tr>
+      <tr><td>5 × 50 mm</td><td>mélaminé sur ossature pin</td><td>5</td><td>13</td></tr>
+      <tr><td>6 × 80 mm</td><td>chêne massif</td><td>10</td><td>17</td></tr>
+      <tr><td>8 × 100 mm</td><td>charpente résineux</td><td>20</td><td>20 + percussion</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Caractéristiques visseuse Bosch GSR 18V</h3>
+  <ul>
+    <li>Couple max (mode percussion) : <strong>60 N·m</strong></li>
+    <li>21 positions de réglage (linéaire de 0 à 20 N·m + mode forçage)</li>
+    <li>Mandrin Ø 13 mm, embouts standard</li>
+    <li>Distance moyenne main → bout d'embout : 0,12 m</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel couple Léa doit-elle régler pour ses vis 5×50 dans le mélaminé, et quels risques en cas de mauvais réglage ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Citer la relation couple — force à la main d'une visseuse (C = F × L où L est la longueur de l'embout/manche).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>C = F × L. Avec un embout court (12 cm), la force exercée par le moteur de la visseuse multipliée par 12 cm donne le couple appliqué à la vis.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Pour les vis 5 × 50 (couple 5 N·m), quelle <strong>position</strong> du sélecteur Léa choisit-elle ? Vérifier en utilisant l'échelle linéaire.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Position 13 d'après le tableau. Vérification : 13/20 × 20 N·m = 13 N·m. Hmm — ce serait trop !</p>
+    <p>En réalité l'échelle des visseuses n'est pas linéaire mais étalonnée selon les couples typiques. Position 13 ≈ 5 N·m sur la Bosch GSR.</p>
+    <p>Toujours vérifier la table fabricant, pas faire de règle de 3.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-blue">ANA</span></h2>
+  <p>Si Léa <strong>sur-serre</strong> (couple = 10 N·m au lieu de 5) sur du mélaminé, que se passe-t-il ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>Tête de vis arrachée</strong> (foire) : la croisillon ne tient plus, la vis tourne dans le vide.</li>
+      <li><strong>Éclatement du mélaminé</strong> : la pression écrase la couche surfacique, qui craque.</li>
+      <li><strong>Fil arraché</strong> dans le bois : la vis tourne sans plus rien tenir.</li>
+    </ul>
+    <p>Conséquence : visserie ratée à refaire. Perte de temps + matière. D'où l'importance du <strong>réglage progressif</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Si Léa <strong>sous-serre</strong> (couple 1 N·m au lieu de 5), conséquences ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Caisson <strong>mal fixé</strong> : jeu, instabilité.</li>
+      <li>Tête de vis dépasse → esthétique compromise.</li>
+      <li>Avec les vibrations d'usage, vis se desserre progressivement → caisson tombe.</li>
+    </ul>
+    <p>Solution : Léa serre d'abord à couple modéré, contrôle visuellement, puis ajuste légèrement à la main.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>force tangentielle</strong> exercée par la visseuse à 5 N·m, en supposant un rayon d'embout de 5 mm (= 0,005 m).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F = C / r = 5 / 0,005 = <strong>1 000 N</strong>.</p>
+    <p>Force importante (≈ 100 kg de pression !) concentrée sur la pointe de l'embout. Explique le couplage et l'usure des embouts.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Léa change parfois pour visser dans du chêne massif (couple 10 N·m). À quelle position régler ? Quelles précautions ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Position 17 (couple 10 N·m).</p>
+    <p>Précautions : <strong>pré-percer</strong> au foret Ø 4 mm (pour vis Ø 6) sur 80 % de la longueur. Évite éclatement du chêne et facilite la rotation. Sans pré-perçage : risque de casser la vis ou fendre le bois.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Pour 32 caissons à fixer (4 vis chacun = 128 vis), durée totale de vissage si chaque vis prend 8 secondes ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>128 × 8 = 1 024 s ≈ <strong>17 minutes</strong> de vissage net.</p>
+    <p>Mais en pratique : pré-perçage, déplacements, vérifications doublent ou triplent ce temps. Compter ≈ 1 h pour le chantier complet.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes une <strong>fiche réglages visseuse</strong> pour l'équipe Cuisine & Co.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Cuisine & Co — Fiche réglages visseuse Bosch GSR 18V</strong><br>
+      • <strong>Vis 3 × 16 mélaminé :</strong> position 5 (1,5 N·m).<br>
+      • <strong>Vis 4 × 30 aggloméré :</strong> position 9 (3 N·m).<br>
+      • <strong>Vis 5 × 50 mélaminé/pin :</strong> position 13 (5 N·m). Cas standard cuisines.<br>
+      • <strong>Vis 6 × 80 chêne :</strong> position 17 (10 N·m). <strong>Pré-percer Ø 4 mm</strong> obligatoire.<br>
+      • <strong>Vis 8 × 100 charpente :</strong> mode percussion. Pré-percer Ø 6 mm, embout robuste, attention au recul.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Pourquoi la batterie 18V donne-t-elle plus de couple qu'une 12V ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Plus la tension est élevée, plus le moteur peut tourner vite et fournir un couple élevé (à courant donné). Une 18V atteint 60 N·m, une 12V plafonne à 30 N·m typiquement.</p>
+    <p>Compromis : 18V plus lourd que 12V. Pour cuisine et meuble, 12V suffit. Pour charpente, 18V minimum.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Couple :</strong> C = F × L (en N·m).</li>
+    <li><strong>Réglage visseuse :</strong> 5-21 positions selon couple cible.</li>
+    <li><strong>Couples typiques :</strong> mélaminé 1,5-5 N·m, chêne 8-10, charpente 15-25.</li>
+    <li><strong>Sur-serrage :</strong> arrache la tête, éclate le bois, foire la vis.</li>
+    <li><strong>Sous-serrage :</strong> jeu, vibrations, desserrage progressif.</li>
+    <li><strong>Pré-perçage</strong> obligatoire dans le bois dur (chêne, hêtre, charpente).</li>
+  </ul>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

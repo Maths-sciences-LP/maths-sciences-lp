@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – Activité 2 – Lever une planche au levier – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Lever une planche de chêne au levier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 6 – Équilibre rotation | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Mécanique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer le moment d'une force par rapport à un axe</li>
+    <li>Appliquer le principe des moments à un levier</li>
+    <li>Choisir la longueur de levier adaptée à une charge donnée</li>
+    <li>Préserver son dos en utilisant un outil mécanique</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a>. M = F × d. À l'équilibre : F<sub>1</sub>·d<sub>1</sub> = F<sub>2</sub>·d<sub>2</sub>.
+</p>
+
+<div class="situation">
+  <h2>Situation – planche de chêne lourde à manipuler</h2>
+  <p><em>Marc, ébéniste, doit déplacer une planche de chêne massif de 80 kg pour l'engager sur sa raboteuse. Sa force max sans risque de blessure dorsale : 250 N. Il utilise un pied-de-biche en acier.</em></p>
+
+  <h3>Document 1 — Données</h3>
+  <ul>
+    <li>Masse de la planche : <strong>m = 80 kg</strong>, P = m × g = 800 N (avec g = 10 N/kg).</li>
+    <li>Force maximale Marc : <strong>F<sub>max</sub> = 250 N</strong>.</li>
+    <li>Distance point d'appui ↔ planche (côté charge) : <strong>d<sub>charge</sub> = 0,15 m</strong>.</li>
+    <li>2 pieds-de-biche disponibles : <strong>court 0,80 m</strong> et <strong>long 1,50 m</strong>.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel pied-de-biche Marc doit-il choisir pour soulever sans se blesser ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>moment résistant</strong> exercé par la planche sur le levier.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>M<sub>r</sub> = P × d<sub>charge</sub> = 800 × 0,15 = <strong>120 N·m</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>force F<sub>1</sub></strong> nécessaire avec le pied-de-biche court (bras opérateur 0,80 − 0,15 = 0,65 m).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F<sub>1</sub> = M<sub>r</sub> / d<sub>1</sub> = 120 / 0,65 ≈ <strong>185 N</strong>. &lt; 250 N → OK pour Marc.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer F<sub>2</sub> avec le pied-de-biche long (bras opérateur 1,50 − 0,15 = 1,35 m).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F<sub>2</sub> = 120 / 1,35 ≈ <strong>89 N</strong>. Soit ≈ 9 kg de pression : très léger !</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Quel <strong>rapport d'amplification</strong> obtient-on avec chaque levier ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Court : 800/185 ≈ <strong>×4,3</strong>.</p>
+    <p>Long : 800/89 ≈ <strong>×9</strong>.</p>
+    <p>Le long divise par 9 la force humaine nécessaire.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">VAL</span></h2>
+  <p>Choix recommandé pour Marc et pourquoi ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Pied-de-biche long (1,50 m).</strong> 89 N seulement → fatigue minimale, geste sans à-coup, dos préservé.</p>
+    <p>Le court suffit (185 N &lt; 250) mais le long permet de soulever des planches encore plus lourdes (jusqu'à 180 kg) sans se blesser.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-yellow">REA</span></h2>
+  <p>Si Marc utilise un <strong>diable</strong> (chariot 2 roues, bras 1,2 m) pour rouler la planche : la force pour incliner le diable est-elle similaire ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Sur un diable, le poids 800 N se répartit entre les roues (point d'appui) et la main (force).</p>
+    <p>Si le centre de gravité de la planche est à 0,30 m du sol et que la main est à 1,2 m : F = 800 × 0,30 / 1,2 = <strong>200 N</strong>.</p>
+    <p>Ensuite pour rouler horizontalement, l'effort est uniquement dû au frottement (≈ 30 N pour un diable bien graissé). Très facile.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Charge maximale soulevable avec le pied-de-biche long sans dépasser 250 N ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>max</sub> = F<sub>max</sub> × d<sub>op</sub> / d<sub>charge</sub> = 250 × 1,35 / 0,15 = <strong>2 250 N</strong> = 225 kg.</p>
+    <p>Marc peut soulever jusqu'à <strong>225 kg</strong> avec son levier long. Au-delà, il faut un palan ou un chariot élévateur.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche de bonnes pratiques</strong> de Marc pour son apprenti.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Marc — Fiche soulèvement de planches lourdes</strong><br>
+      • <strong>Limite humaine :</strong> 250 N (≈ 25 kg) sans risque dorsal. Au-delà, recourir à un outil mécanique.<br>
+      • <strong>Pied-de-biche long</strong> (1,50 m) : permet de soulever jusqu'à 225 kg avec 89 N seulement (×9 d'amplification).<br>
+      • <strong>Point d'appui :</strong> caler en bois solide, près de la charge (réduit la force nécessaire).<br>
+      • <strong>Diable</strong> pour les déplacements longs : 200 N pour incliner, ≈ 30 N pour rouler ensuite.<br>
+      • <strong>Au-delà de 250 kg</strong> : palan, chariot élévateur, ou demander un collègue. Jamais soulever avec le dos courbé.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Calculer la position optimale du point d'appui pour minimiser la force humaine, en déplaçant l'appui à 0,10 m de la charge (au lieu de 0,15).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Bras opérateur : 1,50 − 0,10 = 1,40 m. Bras charge : 0,10.</p>
+    <p>F = 800 × 0,10 / 1,40 ≈ <strong>57 N</strong> au lieu de 89 N. Réduction 36 %.</p>
+    <p>Plus l'appui est proche de la charge, plus le geste est facile. Astuce universelle.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Moment :</strong> M = F × d.</li>
+    <li><strong>Équilibre levier :</strong> F<sub>op</sub> × d<sub>op</sub> = P × d<sub>charge</sub>.</li>
+    <li><strong>Charge max</strong> avec un levier : P<sub>max</sub> = F<sub>max</sub> × d<sub>op</sub> / d<sub>charge</sub>.</li>
+    <li><strong>Position appui :</strong> plus on rapproche du poids, plus on amplifie.</li>
+    <li><strong>Force humaine sécurisée :</strong> ≤ 250 N à la main, sans torsion du dos.</li>
+    <li><strong>Outils :</strong> pied-de-biche, levier en bois, diable, palan, treuil.</li>
+  </ul>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

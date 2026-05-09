@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 3 – Compresseur d'atelier menuiserie – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+<header><h1>Activité 3 – Compresseur d'air d'atelier menuiserie <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+<p class="sous-titre">Chapitre 7 – Pression et force pressante | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Mécanique des fluides | ⏱ 35 min</p>
+<p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p></header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs"><strong>Objectifs :</strong>
+<ul><li>Appliquer la loi de Boyle-Mariotte au stockage d'air comprimé</li><li>Calculer le volume équivalent d'air ambiant stocké dans une cuve</li><li>Estimer le temps de remplissage d'un compresseur</li><li>Évaluer les contraintes de sécurité d'une cuve sous pression</li></ul></div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">💡 <a href="lecon.html">leçon</a> §V (Boyle-Mariotte). À T constante, P × V = constante.</p>
+
+<div class="situation"><h2>Situation – nouveau compresseur pour Camille</h2>
+<p><em>Camille, gérante d'un atelier d'agencement à Reims, achète un compresseur pour alimenter ses outils pneumatiques (cloueuse, agrafeuse, soufflette nettoyage). Modèle : Mauguin Citaprop 100 L, pression service 10 bar.</em></p>
+
+<h3>Document 1 — Caractéristiques compresseur</h3>
+<ul><li>Volume cuve : <strong>V<sub>cuve</sub> = 100 L = 0,100 m³</strong></li>
+<li>Pression service max : <strong>10 bar relative = 11 bar absolue</strong></li>
+<li>Débit moteur (aspiration air ambiant) : <strong>q = 250 L/min</strong></li>
+<li>Pression atmosphérique : 1 bar</li></ul>
+
+<h3>Document 2 — Outils alimentés</h3>
+<ul><li>Cloueuse Bostitch : 6 bar, conso 0,1 L par clou (à 6 bar)</li>
+<li>Agrafeuse : 6 bar, conso 0,05 L par agrafe</li>
+<li>Soufflette nettoyage : 6 bar, conso 50 L/min en continu</li></ul></div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+<strong>Problématique :</strong> Combien de temps Camille peut-elle utiliser sa soufflette continûment avant que le compresseur ne se rallume, et le compresseur peut-il suivre ?</div>
+
+<div class="exo"><h2>Question 1 <span class="badge-yellow">REA</span></h2>
+<p>À pleine pression (11 bar abs), combien d'<strong>air équivalent à 1 bar</strong> contient la cuve (Boyle) ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>V<sub>1 bar</sub> = (P × V) / 1 = (11 × 100) / 1 = <strong>1 100 L</strong>.</p>
+<p>La cuve 100 L contient l'équivalent de 1 100 L d'air ambiant.</p></div></div>
+
+<div class="exo"><h2>Question 2 <span class="badge-yellow">REA</span></h2>
+<p>Camille utilise sa cloueuse à 6 bar (= 7 bar abs). Calculer le volume d'air à 1 bar correspondant à <strong>1 L d'air à 6 bar relative</strong>.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>V<sub>1 bar</sub> = 7 × 1 = <strong>7 L</strong>.</p>
+<p>Régler à 6 bar consomme 7 L d'air ambiant pour chaque L détendu à 6 bar.</p></div></div>
+
+<div class="exo"><h2>Question 3 <span class="badge-yellow">REA</span></h2>
+<p>Camille tire la pression cuve de 10 bar à 6 bar (= 11 → 7 bar abs) avec sa soufflette. Calculer le volume d'air ambiant prélevé.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>V<sub>11 bar</sub> = 11 × 100 = 1 100 L à 1 bar.</p>
+<p>V<sub>7 bar</sub> = 7 × 100 = 700 L à 1 bar.</p>
+<p>Différence : <strong>400 L d'air ambiant</strong> sortis. Soit 8 minutes de soufflette à 50 L/min.</p></div></div>
+
+<div class="exo"><h2>Question 4 <span class="badge-yellow">REA</span></h2>
+<p>Calculer le <strong>temps de remplissage</strong> de la cuve de 6 bar à 10 bar (= 7 → 11 bar abs) par le compresseur (250 L/min d'air aspiré).</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Volume à pomper : 1 100 − 700 = 400 L à 1 bar.</p>
+<p>Temps : 400/250 = <strong>1,6 min ≈ 1 min 36 s</strong>.</p></div></div>
+
+<div class="exo"><h2>Question 5 <span class="badge-blue">ANA</span></h2>
+<p>Si Camille utilise la soufflette en <strong>continu</strong> (50 L/min à 6 bar = 350 L/min à 1 bar), le compresseur peut-il suivre ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Conso : 50 × 7 = 350 L/min à 1 bar (équivalent).</p>
+<p>Compresseur fournit : 250 L/min à 1 bar.</p>
+<p>Déficit : 100 L/min → la cuve se vide. <strong>Compresseur sous-dimensionné</strong> pour usage continu de la soufflette. À utiliser par à-coups.</p></div></div>
+
+<div class="exo"><h2>Question 6 <span class="badge-blue">VAL</span></h2>
+<p>Calculer la <strong>force totale</strong> que la pression d'air exerce sur le fond plat de la cuve (surface 0,15 m² environ pour une cuve cylindrique).</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>F = P × S = (10 × 10⁵) × 0,15 = <strong>150 000 N = 15 tonnes</strong>.</p>
+<p>D'où l'épaisseur d'acier importante des cuves (3-5 mm), testées en pression et soumises à inspection annuelle.</p></div></div>
+
+<div class="exo"><h2>Question 7 <span class="badge-blue">ANA</span></h2>
+<p>Quelle <strong>sécurité</strong> empêche la cuve d'exploser en cas de surpression ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p><strong>Soupape de sécurité</strong> tarée à 11 bar (au-dessus de la pression service 10 bar). Si la pression dépasse, elle s'ouvre et libère l'air en sifflant.</p>
+<p>Vérification annuelle obligatoire (test bouton). Si défaillante, risque d'explosion (énergie 100 L × 10 bar ≈ 100 kJ, soit l'équivalent d'une grenade).</p></div></div>
+
+<div class="exo"><h2>Question 8 <span class="badge-red">COM</span></h2>
+<p>Rédiger en 5 lignes la <strong>note d'utilisation</strong> du compresseur pour l'équipe.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir un exemple</button>
+<div class="corr"><p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+<strong>Atelier Camille — Compresseur Mauguin 100 L · 7 mai 2026</strong><br>
+• Cuve 100 L à 10 bar = 1 100 L d'air ambiant équivalent.<br>
+• <strong>Cloueuse / agrafeuse :</strong> usage à volonté (faible consommation).<br>
+• <strong>Soufflette :</strong> usage par à-coups de 8 min max, puis attendre 2 min recharge. Pas en continu.<br>
+• <strong>Sécurité :</strong> ne jamais démonter la soupape (15 t de pression sur la cuve !). Test 1 fois/an.<br>
+• <strong>Entretien :</strong> purger l'eau de condensation chaque semaine (vanne du bas).</p></div></div>
+
+<div class="bonus"><strong>Pour aller plus loin (bonus)</strong>
+<p>Combien de clous Camille peut-elle planter avant une recharge complète (cuve passe de 10 → 6 bar) ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Air disponible (à 6 bar relative) : 400 L à 1 bar / 7 = 57 L à 6 bar utilisable.</p>
+<p>Clous possibles : 57 / 0,1 = <strong>~ 570 clous</strong> avant recharge.</p>
+<p>À ce rythme, le compresseur a largement le temps de recharger entre deux séries.</p></div></div>
+
+<div class="retenir"><strong>À retenir</strong>
+<ul><li><strong>Boyle-Mariotte :</strong> P<sub>1</sub>V<sub>1</sub> = P<sub>2</sub>V<sub>2</sub>.</li>
+<li><strong>Volume équivalent à 1 bar :</strong> V<sub>1 bar</sub> = P<sub>abs</sub> × V<sub>cuve</sub>.</li>
+<li><strong>Cuve 100 L à 10 bar</strong> = 1 100 L d'air ambiant stocké.</li>
+<li><strong>Force pressante sur paroi :</strong> F = P × S. À 10 bar et 0,15 m² : 15 t.</li>
+<li><strong>Soupape de sécurité</strong> obligatoire. Tarage 10 % au-dessus de P service.</li>
+<li><strong>Ratio compresseur/usage :</strong> vérifier que le débit moteur ≥ débit utilisé en continu.</li></ul></div>
+
+</div><script src="../../../nav.js"></script></body></html>

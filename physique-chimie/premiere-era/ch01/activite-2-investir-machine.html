@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Activité 2 – Investir dans une nouvelle machine d'atelier – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Investir dans une nouvelle machine d'atelier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 1 – Énergie et puissance électrique | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la puissance électrique consommée par une machine : P = U × I</li>
+    <li>Calculer une énergie consommée annuellement : E = P × t</li>
+    <li>Comparer le coût d'utilisation et le retour sur investissement de 2 machines</li>
+    <li>Choisir une machine selon des critères technico-économiques</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (puissance électrique) et §3 (énergie consommée). \(P = U \times I\), \(E = P \times t\) (kWh si P en kW et t en h).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – modernisation de l'atelier de Karim</h2>
+  <p><em>Karim, ébéniste artisan à Aix-en-Provence, doit remplacer sa vieille raboteuse-dégauchisseuse qui tombe régulièrement en panne. Il hésite entre 2 modèles : un modèle d'entrée de gamme moins cher mais plus gourmand, et un modèle haut de gamme avec moteur Inverter à variation de vitesse, plus économique à l'usage. Il veut chiffrer précisément le coût de chaque solution sur 10 ans.</em></p>
+
+  <h3>Document 1 — Caractéristiques des 2 machines</h3>
+  <table>
+    <thead>
+      <tr><th>Modèle</th><th>Puissance moteur</th><th>Tension U</th><th>Courant nominal I</th><th>Prix achat HT</th><th>Garantie</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>① Raboteuse standard (Holzmann HOB 305)</td><td>2 200 W</td><td>230 V</td><td>9,6 A</td><td>1 500 €</td><td>2 ans</td></tr>
+      <tr><td>② Raboteuse Inverter (Felder AD 531)</td><td>3 000 W (variable 1 000-3 000 W)</td><td>400 V triphasé</td><td>4,5 A par phase</td><td>4 800 €</td><td>5 ans</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Données d'utilisation de l'atelier de Karim</h3>
+  <ul>
+    <li>Heures de fonctionnement de la raboteuse : <strong>4 h/jour, 5 jours/semaine, 50 semaines/an</strong> = 1 000 h/an</li>
+    <li>Charge moyenne du moteur : <strong>70 % de la puissance nominale</strong> (ne fonctionne pas tout le temps à pleine charge)</li>
+    <li>Tarif EDF Pro Bleu : <strong>0,2516 €/kWh</strong></li>
+    <li>Le moteur Inverter de la Felder ajuste sa puissance au besoin → consomme en moyenne <strong>50 % seulement</strong> de sa puissance nominale.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Sur 10 ans d'utilisation, laquelle des 2 raboteuses sera la plus économique pour Karim, en tenant compte du prix d'achat et des coûts d'énergie ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Vérifier que la puissance affichée pour la raboteuse standard ① est cohérente avec le calcul \(P = U \times I\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P = U × I = 230 × 9,6 = <strong>2 208 W ≈ 2 200 W</strong> ✓.</p>
+    <p>La valeur est cohérente (avec un facteur de puissance proche de 1 pour les moteurs modernes en monophasé).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>puissance moyenne</strong> consommée par chaque raboteuse en fonctionnement (en tenant compte des taux de charge du Doc 2).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Standard ① : P<sub>moy</sub> = 2 200 × 0,70 = <strong>1 540 W = 1,54 kW</strong>.</p>
+    <p>Inverter ② : P<sub>moy</sub> = 3 000 × 0,50 = <strong>1 500 W = 1,50 kW</strong>.</p>
+    <p>Très proches en pratique malgré les puissances nominales différentes — l'Inverter se règle au besoin réel.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>énergie consommée annuellement</strong> par chaque machine (E = P × t, avec t = 1 000 h).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>① Standard : E₁ = 1,54 × 1 000 = <strong>1 540 kWh/an</strong>.</p>
+    <p>② Inverter : E₂ = 1,50 × 1 000 = <strong>1 500 kWh/an</strong>.</p>
+    <p>Différence faible : 40 kWh/an. L'Inverter n'est pas dramatiquement plus économe en énergie.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>coût annuel d'énergie</strong> pour chaque machine (tarif 0,2516 €/kWh).</p>
+  <p>Sur 10 ans : calculer le <strong>coût total</strong> (achat + énergie cumulée).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût annuel énergie :</p>
+    <ul>
+      <li>① : 1 540 × 0,2516 ≈ <strong>387 €/an</strong>.</li>
+      <li>② : 1 500 × 0,2516 ≈ <strong>377 €/an</strong>.</li>
+    </ul>
+    <p>Sur 10 ans :</p>
+    <ul>
+      <li>① : 1 500 + (10 × 387) = 1 500 + 3 870 = <strong>5 370 €</strong>.</li>
+      <li>② : 4 800 + (10 × 377) = 4 800 + 3 770 = <strong>8 570 €</strong>.</li>
+    </ul>
+    <p>Sur 10 ans, l'Inverter coûte 3 200 € de plus que la standard, malgré sa consommation légèrement inférieure. Le surcoût d'achat n'est pas compensé.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Karim peut-il néanmoins préférer le modèle Inverter ? Citer 3 <strong>arguments non chiffrés</strong> qui pourraient justifier l'investissement.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li><strong>Variation de vitesse Inverter :</strong> permet d'adapter la coupe à l'essence du bois (chêne dur, balsa tendre). Meilleure qualité de finition.</li>
+      <li><strong>Garantie 5 ans</strong> vs 2 ans : moins de risque de panne coûteuse en milieu de période.</li>
+      <li><strong>Moins de bruit et de vibrations</strong> avec un moteur Inverter (confort de l'atelier, moins d'usure des paliers, durée de vie potentiellement &gt; 10 ans).</li>
+      <li><strong>Triphasé</strong> : moteur plus robuste, mieux adapté à un usage intensif que du monophasé.</li>
+      <li><strong>Image professionnelle</strong> : le matériel haut de gamme rassure les clients exigeants (ébénisterie d'art).</li>
+    </ol>
+    <p>Décision = arbitrage entre rentabilité immédiate et qualité long terme. Pour un artisan ébéniste comme Karim, l'argument qualité peut peser plus que les 3 200 € de surcoût.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Si l'atelier de Karim fonctionnait <strong>2 fois plus</strong> (2 000 h/an au lieu de 1 000), recalculer le coût total sur 10 ans pour chacune et conclure.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie annuelle doublée :</p>
+    <ul>
+      <li>① : 3 080 kWh/an → 775 €/an. Sur 10 ans : 1 500 + 7 750 = <strong>9 250 €</strong>.</li>
+      <li>② : 3 000 kWh/an → 754 €/an. Sur 10 ans : 4 800 + 7 540 = <strong>12 340 €</strong>.</li>
+    </ul>
+    <p>Conclusion : avec un usage intensif, la standard reste plus économique sur 10 ans (3 090 € de différence). Mais si on prolonge à 15 ans, la garantie Inverter et la durée de vie attendue commencent à inverser la balance.</p>
+    <p>L'arbitrage dépend du <strong>niveau d'utilisation</strong> et de la <strong>durée d'amortissement</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Karim apprend qu'il peut profiter d'une <strong>aide « Ma transition pro »</strong> de <strong>1 500 €</strong> pour l'achat de la machine Inverter (matériel à haute efficacité énergétique). Recalculer le bilan sur 10 ans avec aide.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût Inverter avec aide : 4 800 − 1 500 = 3 300 €.</p>
+    <p>Bilan 10 ans : 3 300 + 3 770 = <strong>7 070 €</strong> (au lieu de 8 570 €).</p>
+    <p>Comparaison : standard 5 370 € vs Inverter 7 070 € → Inverter encore 1 700 € plus chère, mais l'écart se réduit.</p>
+    <p>Si Karim ajoute la valeur des arguments qualité (Q5), l'Inverter devient un choix raisonnable.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche de décision</strong> de Karim au sujet de cet investissement :</p>
+  <ul>
+    <li>chiffrage des deux options (achat + énergie 10 ans, avec aide)</li>
+    <li>arguments non chiffrés en faveur de l'Inverter</li>
+    <li>recommandation finale</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Karim — Fiche d'investissement raboteuse · 7 mai 2026</strong><br>
+      • <strong>① Holzmann standard 2 200 W :</strong> 1 500 € HT + 387 €/an d'énergie. Total 10 ans : <strong>5 370 €</strong>.<br>
+      • <strong>② Felder Inverter 3 000 W :</strong> 4 800 € (3 300 € après aide « Ma transition pro »). Énergie : 377 €/an. Total 10 ans : <strong>7 070 €</strong> avec aide.<br>
+      • <strong>Surcoût Inverter :</strong> 1 700 €/10 ans = 170 €/an. Justifié par : variation de vitesse pour qualité de coupe selon essence, garantie 5 ans, triphasé robuste, durée de vie attendue ≥ 15 ans.<br>
+      • <strong>Décision : Felder Inverter</strong> (qualité + durabilité &gt; économie pure).<br>
+      • Démarrage : commande au fournisseur, livraison 4 semaines, formation Felder 1 jour incluse.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Calculer la <strong>puissance triphasée</strong> de la Felder à pleine charge à partir de I = 4,5 A par phase et U = 400 V (entre phases). Formule triphasée : \(P = \sqrt{3} \times U \times I \times \cos\varphi\), avec cos φ ≈ 0,85.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P = √3 × 400 × 4,5 × 0,85 = 1,732 × 400 × 4,5 × 0,85</p>
+    <p>P ≈ <strong>2 651 W ≈ 2,65 kW</strong> à pleine charge nominale.</p>
+    <p>L'écart avec les 3 000 W annoncés (2 651 vs 3 000) provient de l'arrondi commercial. La valeur cohérente avec U et I est environ 2,7 kW à cos φ = 0,85.</p>
+    <p>Pour le calcul d'énergie, on utilisera 1,5 kW moyen (Inverter à 50 % de charge), qui reste valide.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Puissance électrique :</strong> P = U × I (monophasé) ou P = √3 × U × I × cos φ (triphasé).</li>
+    <li><strong>Énergie consommée :</strong> E = P × t (en kWh si P en kW et t en h).</li>
+    <li><strong>Coût d'utilisation :</strong> coût = E × tarif unitaire. À multiplier par durée d'utilisation pour comparer 2 équipements.</li>
+    <li><strong>Bilan investissement :</strong> coût total = prix achat + Σ coûts d'énergie sur la durée d'amortissement.</li>
+    <li><strong>Moteur Inverter :</strong> ajuste sa puissance au besoin → moins de consommation moyenne, mais surcoût d'achat.</li>
+    <li><strong>Critères non chiffrables</strong> à intégrer : qualité de finition, garantie, durée de vie, ergonomie, image pro.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Puissance électrique) et §3 (Énergie consommée) de la leçon Ch01.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

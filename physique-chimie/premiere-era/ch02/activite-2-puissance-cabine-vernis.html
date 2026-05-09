@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 2 – Puissance d'une cabine de vernissage – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Puissance d'une cabine de vernissage <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 2 – Puissance consommée | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la puissance électrique d'une installation à plusieurs équipements</li>
+    <li>Distinguer puissance simultanée et puissance installée (coefficient de simultanéité)</li>
+    <li>Vérifier qu'une installation respecte la puissance souscrite</li>
+    <li>Conseiller l'évolution du contrat EDF</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a>. P = U × I, P<sub>simultanée</sub> = ks × P<sub>installée</sub> avec ks coefficient de simultanéité.
+</p>
+
+<div class="situation">
+  <h2>Situation – cabine de vernissage à équiper</h2>
+  <p><em>Hugo, technicien d'agencement chez « MeubleArt » à Bordeaux, équipe une nouvelle cabine de vernissage pour traiter les meubles avant livraison. La cabine concentre plusieurs équipements électriques. Hugo doit vérifier que le tableau divisionnaire et l'abonnement EDF supporteront la nouvelle installation.</em></p>
+
+  <h3>Document 1 — Équipements électriques de la cabine</h3>
+  <table>
+    <thead>
+      <tr><th>Équipement</th><th>Tension U</th><th>Courant I</th><th>Usage</th><th>Coeff. simultanéité ks</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pompe pulvérisation vernis</td><td>230 V</td><td>4,5 A</td><td>continu pendant pulv.</td><td>0,9</td></tr>
+      <tr><td>Ventilation extraction (3 m³/s)</td><td>400 V tri</td><td>5,0 A par phase</td><td>continu</td><td>1,0</td></tr>
+      <tr><td>Lampes UV séchage (8 × 80 W)</td><td>230 V</td><td>2,8 A total</td><td>5 min après pulvérisation</td><td>0,5</td></tr>
+      <tr><td>Éclairage LED cabine (6 × 30 W)</td><td>230 V</td><td>0,8 A total</td><td>continu</td><td>1,0</td></tr>
+      <tr><td>Chauffage soufflant 2 kW</td><td>230 V</td><td>8,7 A</td><td>en hiver uniquement</td><td>0,3</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Contrat EDF actuel et caractéristiques tableau</h3>
+  <ul>
+    <li>Puissance souscrite : <strong>9 kVA monophasé</strong> (≈ 39 A nominal)</li>
+    <li>Disjoncteur principal divisionnaire cabine : <strong>32 A</strong></li>
+    <li>cos φ moyen : 0,90 (charge majoritairement résistive avec un peu d'inductif)</li>
+    <li>Triphasé converti en monophasé pour le calcul global : la phase la plus chargée détermine la limite</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> La cabine de vernissage tient-elle dans les 9 kVA souscrits, et le disjoncteur 32 A est-il suffisamment dimensionné ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>puissance unitaire</strong> de chaque équipement (P = U × I, ou en triphasé P = √3 × U × I × cos φ).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Pompe : 230 × 4,5 = <strong>1 035 W</strong></li>
+      <li>Ventilation triphasée : √3 × 400 × 5 × 0,90 ≈ <strong>3 118 W</strong></li>
+      <li>Lampes UV : 230 × 2,8 = <strong>644 W</strong></li>
+      <li>Éclairage LED : 230 × 0,8 = <strong>184 W</strong></li>
+      <li>Chauffage soufflant : 230 × 8,7 = <strong>2 001 W</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>puissance totale installée</strong> P<sub>installée</sub> (somme de toutes les puissances unitaires).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>installée</sub> = 1 035 + 3 118 + 644 + 184 + 2 001 = <strong>6 982 W ≈ 7,0 kW</strong>.</p>
+    <p>Si tout fonctionne en même temps à pleine charge, on a 7 kW.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>puissance simultanée moyenne</strong> en utilisant les coefficients de simultanéité ks (P<sub>i</sub> × ks<sub>i</sub> sommé).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Pompe : 1 035 × 0,9 = 932 W</li>
+      <li>Ventilation : 3 118 × 1,0 = 3 118 W</li>
+      <li>UV : 644 × 0,5 = 322 W</li>
+      <li>Éclairage : 184 × 1,0 = 184 W</li>
+      <li>Chauffage : 2 001 × 0,3 = 600 W</li>
+    </ul>
+    <p>P<sub>simultanée</sub> = 932 + 3 118 + 322 + 184 + 600 = <strong>5 156 W ≈ 5,2 kW</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer P<sub>simultanée</sub> à la puissance souscrite <strong>9 kVA</strong>. La cabine peut-elle fonctionner sans dépasser le contrat ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>simultanée</sub> = 5,2 kW &lt; 9 kVA × 0,90 (cos φ) ≈ 8,1 kW.</p>
+    <p>Donc la cabine consomme <strong>5,2 / 8,1 = 64 %</strong> de la puissance souscrite. <strong>Compatible</strong>.</p>
+    <p>Il reste 2,9 kW disponibles pour les autres équipements de l'atelier (machines, éclairage hors cabine).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>courant simultané</strong> côté monophasé (en sommant les contributions de chaque équipement). Comparer aux 32 A du disjoncteur divisionnaire.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Conversion vers monophasé équivalent (puissance / 230 V) :</p>
+    <ul>
+      <li>Pompe + UV + éclairage + chauffage simultanés : (932 + 322 + 184 + 600) / 230 = 2 038 / 230 ≈ 8,9 A.</li>
+      <li>Ventilation triphasée alimentée en parallèle (autre arrivée) : ne charge pas le disjoncteur monophasé.</li>
+    </ul>
+    <p>Courant maximal sur le disjoncteur monophasé : <strong>≈ 9 A</strong> &lt;&lt; 32 A.</p>
+    <p>Le disjoncteur 32 A est largement dimensionné. Si tous les équipements monophasés tournaient à 100 % en même temps : (1 035+644+184+2 001)/230 = 17 A — toujours sous 32 A.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Hugo prévoit d'<strong>ajouter</strong> en hiver un système de chauffage de l'air comprimé pour évacuer l'humidité (3 kW supplémentaires). Recalculer P<sub>simultanée</sub> et conclure sur la compatibilité.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Avec chauffage air comprimé ks = 0,3 (hiver uniquement) : 3 000 × 0,3 = 900 W supplémentaires.</p>
+    <p>Nouvelle P<sub>simultanée</sub> = 5 156 + 900 = <strong>6 056 W ≈ 6,1 kW</strong>.</p>
+    <p>Reste 6,1 / 8,1 = 75 % de la puissance souscrite. <strong>Toujours compatible</strong>, marge réduite à 2 kW pour le reste de l'atelier.</p>
+    <p>Si les nouveaux équipements montent en charge, Hugo devrait envisager de passer à <strong>12 kVA</strong> de souscription.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer l'<strong>énergie consommée par jour</strong> par la cabine de vernissage (8 h de fonctionnement, hors hiver donc sans chauffage).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Sans chauffage soufflant (été) : P<sub>simultanée</sub> = 5 156 − 600 = 4 556 W = 4,56 kW.</p>
+    <p>E = 4,56 × 8 = <strong>36,5 kWh/jour</strong>.</p>
+    <p>Coût : 36,5 × 0,2516 ≈ <strong>9,2 €/jour</strong> de fonctionnement de la cabine.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note technique</strong> que Hugo remet au comptable de l'entreprise.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>MeubleArt — Bilan installation cabine vernissage · 7 mai 2026</strong><br>
+      • <strong>Puissance installée :</strong> 7,0 kW. Avec coefficients de simultanéité réalistes : <strong>5,2 kW</strong> (été), 6,1 kW (hiver).<br>
+      • <strong>Compatibilité 9 kVA souscrits :</strong> ✓ (utilisation 64-75 % de la puissance contractée).<br>
+      • <strong>Disjoncteur 32 A divisionnaire</strong> : largement dimensionné (charge maxi ≈ 17 A).<br>
+      • <strong>Coût d'usage :</strong> ≈ 9 €/jour de fonctionnement, soit ≈ 2 200 €/an.<br>
+      • <strong>Recommandation</strong> : si extension prévue (chauffage air comprimé), passer à 12 kVA pour conserver de la marge sur le reste de l'atelier.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>L'installation de la ventilation triphasée 3,1 kW à 400 V au lieu d'une ventilation monophasée 230 V de même puissance permet de <strong>réduire le courant</strong> par phase. Calculer le courant si la même puissance était fournie en monophasé (cos φ = 0,9).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Si monophasé 230 V : I = P / (U × cos φ) = 3 118 / (230 × 0,9) ≈ <strong>15,1 A</strong>.</p>
+    <p>Triphasé : 5 A par phase (déjà donné).</p>
+    <p>Avantage triphasé : I 3 fois plus faible → câbles plus fins, moins de pertes Joule. C'est pour cela que les machines de moyenne et grosse puissance utilisent le triphasé en atelier.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Puissance simultanée :</strong> P<sub>simu</sub> = ∑ (P<sub>i</sub> × ks<sub>i</sub>) avec ks coefficient propre à chaque équipement (entre 0 et 1).</li>
+    <li><strong>Puissance installée :</strong> P<sub>install</sub> = ∑ P<sub>i</sub>. Toujours ≥ P<sub>simu</sub>.</li>
+    <li><strong>Choix abonnement :</strong> il doit couvrir P<sub>simu</sub> avec une marge (typiquement +20 %).</li>
+    <li><strong>Disjoncteur :</strong> calibre courant nominal × 1,5 environ pour absorber les pointes de démarrage.</li>
+    <li><strong>Triphasé vs monophasé :</strong> à puissance égale, courant divisé par √3 en triphasé. Avantage pour grosses puissances.</li>
+    <li><strong>Pour ateliers ERA-MA :</strong> machines puissantes en triphasé, éclairage et petits équipements en monophasé.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Puissance) et §6 (Applications) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

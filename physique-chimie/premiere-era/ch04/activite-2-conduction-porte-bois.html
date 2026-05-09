@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité 2 – Conduction à travers une porte bois – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Conduction à travers une porte d'entrée en bois <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 4 – Transferts thermiques | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Thermique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la résistance thermique R = e / λ d'un matériau bois</li>
+    <li>Comparer 3 conceptions de porte d'entrée (chêne plein, sapin alvéolaire, isolée mousse)</li>
+    <li>Calculer le flux thermique perdu et l'énergie sur une saison de chauffe</li>
+    <li>Choisir une porte selon performance, prix et esthétique</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a>. Loi de Fourier : Φ = (S × ΔT) / R, R = e / λ.
+</p>
+
+<div class="situation">
+  <h2>Situation – choix de porte d'entrée chez M. Roux</h2>
+  <p><em>Marc, menuisier agenceur, propose à son client M. Roux 3 modèles de porte d'entrée pour sa maison rénovée. Le client veut un compromis entre esthétique (le chêne massif est superbe) et performance thermique. Marc chiffre les pertes de chaque option.</em></p>
+
+  <h3>Document 1 — 3 modèles de porte (surface 2 m²)</h3>
+  <table>
+    <thead><tr><th>Modèle</th><th>Composition</th><th>λ (W/m·K)</th><th>e</th><th>Prix HT</th></tr></thead>
+    <tbody>
+      <tr><td>① Chêne massif</td><td>chêne plein</td><td>0,18</td><td>40 mm</td><td>2 200 €</td></tr>
+      <tr><td>② Sapin alvéolaire</td><td>panneau aggloméré</td><td>0,15</td><td>40 mm</td><td>650 €</td></tr>
+      <tr><td>③ Bois + mousse PU</td><td>40 mm bois + 40 mm PU</td><td>0,15 / 0,022</td><td>80 mm total</td><td>1 800 €</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Conditions climatiques</h3>
+  <ul>
+    <li>Saison de chauffe : 5 000 h de fonctionnement par an</li>
+    <li>ΔT moyen intérieur/extérieur : 12 °C</li>
+    <li>Tarif énergie : 0,2516 €/kWh, rendement chaudière 95 %</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel modèle de porte présente le meilleur rapport performance / prix pour M. Roux ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>résistance thermique R</strong> de chaque porte (R = e/λ).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>① Chêne : 0,040 / 0,18 ≈ <strong>0,22 m²·K/W</strong>.</li>
+      <li>② Alvéolaire : 0,040 / 0,15 ≈ <strong>0,27 m²·K/W</strong>.</li>
+      <li>③ Bois + PU : R = R<sub>bois</sub> + R<sub>PU</sub> = 0,040/0,15 + 0,040/0,022 = 0,27 + 1,82 = <strong>2,09 m²·K/W</strong>.</li>
+    </ul>
+    <p>La porte ③ est <strong>10 fois plus isolante</strong> que les deux autres grâce à sa couche de mousse PU.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>flux thermique Φ</strong> perdu par chaque porte (Φ = S × ΔT / R).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>① Chêne : Φ = 2 × 12 / 0,22 ≈ <strong>109 W</strong>.</li>
+      <li>② Alvéolaire : Φ = 2 × 12 / 0,27 ≈ <strong>89 W</strong>.</li>
+      <li>③ Bois + PU : Φ = 2 × 12 / 2,09 ≈ <strong>11,5 W</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>énergie perdue annuelle</strong> par chaque porte (E = Φ × t, t = 5 000 h).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>① : 109 × 5 000 / 1 000 ≈ <strong>545 kWh/an</strong>.</li>
+      <li>② : 89 × 5 000 / 1 000 ≈ <strong>445 kWh/an</strong>.</li>
+      <li>③ : 11,5 × 5 000 / 1 000 ≈ <strong>57,5 kWh/an</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>coût annuel</strong> du chauffage perdu par chaque porte.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie consommée chaudière (rendement 95 %) :</p>
+    <ul>
+      <li>① : 545/0,95 × 0,2516 ≈ <strong>144 €/an</strong>.</li>
+      <li>② : 445/0,95 × 0,2516 ≈ <strong>118 €/an</strong>.</li>
+      <li>③ : 57,5/0,95 × 0,2516 ≈ <strong>15 €/an</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer l'<strong>économie cumulée sur 30 ans</strong> (durée de vie d'une porte) entre la porte la plus performante (③) et chacune des autres.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>③ vs ① : (144 − 15) × 30 = <strong>3 870 €</strong> économisés.</li>
+      <li>③ vs ② : (118 − 15) × 30 = <strong>3 090 €</strong> économisés.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Conclure : quelle porte M. Roux doit-il choisir s'il privilégie le confort thermique ? Et s'il privilégie le coût d'achat ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Confort thermique :</strong> porte ③ (bois + mousse PU) — économie 3 000 à 3 900 € sur 30 ans, vs surcoût 1 150 € à l'achat. Très rentable.</p>
+    <p><strong>Coût d'achat :</strong> porte ② (alvéolaire) — la moins chère mais 8 fois plus de pertes que la ③.</p>
+    <p>Esthétique chêne (① massif) : peu rationnel thermiquement, sauf si plaqué chêne sur la porte ③ pour combiner aspect + isolation.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>La <strong>norme RT 2012</strong> impose pour une porte d'entrée U &lt; 1,7 W/m²/K (où U = 1/R + résistances superficielles ≈ 1/R + 0,17). Lesquelles des 3 portes respectent la norme ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>U ≈ 1/(R + 0,17) :</p>
+    <ul>
+      <li>① : U = 1/(0,22+0,17) = 1/0,39 ≈ <strong>2,56 W/m²/K</strong> → NON conforme.</li>
+      <li>② : U = 1/0,44 ≈ <strong>2,27 W/m²/K</strong> → NON conforme.</li>
+      <li>③ : U = 1/2,26 ≈ <strong>0,44 W/m²/K</strong> → CONFORME largement.</li>
+    </ul>
+    <p>Seule la porte ③ respecte la RT 2012. Pour une rénovation thermique aidée (MaPrimeRénov'), la ③ est obligatoire.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>conseil d'achat</strong> de Marc à M. Roux.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Marc Menuiserie — Conseil porte d'entrée · M. Roux — 7 mai 2026</strong><br>
+      • <strong>Recommandation :</strong> porte ③ « bois + mousse polyuréthane » (1 800 € HT). U = 0,44 W/m²/K, conforme RT 2012.<br>
+      • <strong>Performance :</strong> 8 fois moins de pertes que les autres modèles. 11 W de pertes vs 100 W, soit 15 €/an d'énergie perdue (vs 120-145 €).<br>
+      • <strong>Économie cumulée 30 ans :</strong> 3 000 à 4 000 € vs portes simples.<br>
+      • <strong>Esthétique :</strong> placage chêne disponible en option (+ 200 €) pour conserver l'aspect noble du chêne massif.<br>
+      • <strong>Aides :</strong> MaPrimeRénov' couvre 30-50 % du coût pour rénovation thermique. Reste à charge ≈ 1 000-1 200 €.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>La résistance thermique d'une cloison s'additionne (en série). Ajouter une couche de 100 mm de laine de bois (λ = 0,038) à une cloison de 18 mm bois (λ = 0,15) — calculer R total.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>R<sub>bois</sub> = 0,018 / 0,15 = 0,12 m²·K/W. R<sub>laine</sub> = 0,100 / 0,038 = 2,63 m²·K/W.</p>
+    <p>R<sub>total</sub> = 0,12 + 2,63 = <strong>2,75 m²·K/W</strong>.</p>
+    <p>L'isolant représente 96 % de la résistance totale — l'épaisseur de bois est presque négligeable thermiquement. C'est pourquoi en construction bois, on ajoute toujours une couche d'isolant pour atteindre les performances thermiques requises.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Loi de Fourier :</strong> Φ = (S × ΔT) / R.</li>
+    <li><strong>Résistance thermique d'une couche :</strong> R = e / λ. Unités m²·K/W.</li>
+    <li><strong>Couches en série :</strong> R<sub>total</sub> = R₁ + R₂ + … (les R s'additionnent).</li>
+    <li><strong>U (transmittance) :</strong> U = 1/R<sub>total</sub> + résistances superficielles (≈ 0,17). Norme porte RT 2012 : U &lt; 1,7.</li>
+    <li><strong>Bois pur</strong> est moyennement isolant (λ ≈ 0,15). À combiner avec un isolant (mousse PU 0,022, laine bois 0,038) pour atteindre les normes.</li>
+    <li><strong>Application :</strong> portes d'entrée, fenêtres, cloisons MOB.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Conduction thermique) et §5 (Applications) de la leçon Ch04.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

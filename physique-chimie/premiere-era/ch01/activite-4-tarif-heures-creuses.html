@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Activité 4 – Optimiser le tarif EDF d'un atelier – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Optimiser le tarif EDF d'un atelier d'ébénisterie <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 1 – Énergie et puissance électrique | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer une consommation en option Base et en option HP/HC</li>
+    <li>Identifier les usages déplaçables en heures creuses</li>
+    <li>Calculer une économie annuelle et un retour sur investissement</li>
+    <li>Conseiller une tarification adaptée à un atelier artisanal</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §3 (énergie consommée). Coût annuel = ∑ (E × tarif) pour chaque tranche horaire + abonnement.
+</p>
+
+<div class="situation">
+  <h2>Situation – Atelier d'ébénisterie « Bois & Style »</h2>
+  <p><em>Inès, ébéniste à Lyon, dispose d'un séchoir à bois électrique (4 kW) qui fonctionne en continu 24h/24, 7j/7 pour stabiliser ses planches de chêne avant ouvrage. Elle se demande si passer au tarif <strong>Heures Pleines / Heures Creuses</strong> serait avantageux pour son atelier, sachant qu'une grande partie de la consommation peut être déplacée la nuit.</em></p>
+
+  <h3>Document 1 — Tarifs EDF Pro Bleu 2026 (puissance souscrite 12 kVA)</h3>
+  <table>
+    <thead><tr><th>Option</th><th>Abonnement / mois</th><th>HP (8h-22h)</th><th>HC (22h-8h)</th></tr></thead>
+    <tbody>
+      <tr><td>Base (tarif unique 24h/24)</td><td>22,50 €</td><td colspan="2">0,2516 €/kWh</td></tr>
+      <tr><td>HP / HC</td><td>23,75 €</td><td>0,2700 €/kWh</td><td>0,2068 €/kWh</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Profil de consommation de l'atelier</h3>
+  <ul>
+    <li>Séchoir à bois : <strong>4 kW × 24 h/24, 7 j/7</strong> = 96 kWh/jour</li>
+    <li>Machines (raboteuse, scie, défonceuse) : <strong>3 kW pendant 8 h/jour</strong> en HP (8h-17h)</li>
+    <li>Éclairage atelier : <strong>0,9 kW pendant 9 h/jour</strong> en HP (8h-17h)</li>
+    <li>Charge nocturne (système anti-intrusion + frigo de colle) : <strong>0,2 kW × 14 h</strong> en HC</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Inès doit-elle passer en option HP/HC pour son atelier, et à partir de quelle proportion de consommation déplaçable la nouvelle option devient-elle rentable ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la <strong>consommation journalière</strong> totale de l'atelier (somme de tous les postes).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Séchoir : 4 × 24 = 96 kWh/jour</li>
+      <li>Machines : 3 × 8 = 24 kWh/jour</li>
+      <li>Éclairage : 0,9 × 9 = 8,1 kWh/jour</li>
+      <li>Charge nocturne : 0,2 × 14 = 2,8 kWh/jour</li>
+    </ul>
+    <p>Total : 96 + 24 + 8,1 + 2,8 = <strong>130,9 kWh/jour</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Décomposer la consommation entre <strong>HP (8h-22h, 14 h)</strong> et <strong>HC (22h-8h, 10 h)</strong>.</p>
+  <p>Pour le séchoir 24h/24, fraction HP = 14/24, fraction HC = 10/24.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Séchoir HP : 96 × 14/24 = <strong>56 kWh/j</strong>. Séchoir HC : 96 × 10/24 = <strong>40 kWh/j</strong>.</p>
+    <p>Machines HP : 24 kWh/j (toutes en HP).</p>
+    <p>Éclairage HP : 8,1 kWh/j (tout en HP).</p>
+    <p>Charge nocturne HC : 2,8 kWh/j (tout en HC).</p>
+    <p><strong>Total HP : 56 + 24 + 8,1 = 88,1 kWh/j</strong>. <strong>Total HC : 40 + 2,8 = 42,8 kWh/j.</strong></p>
+    <p>Vérification : 88,1 + 42,8 = 130,9 ✓.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>L'atelier ouvre 250 jours/an. Calculer la <strong>consommation annuelle</strong> en HP et en HC.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Mais le séchoir et la charge nocturne fonctionnent <strong>365 jours/an</strong>, pas 250.</p>
+    <p>Recalculons :</p>
+    <ul>
+      <li>Séchoir HP : 56 × 365 = 20 440 kWh/an</li>
+      <li>Séchoir HC : 40 × 365 = 14 600 kWh/an</li>
+      <li>Machines HP : 24 × 250 = 6 000 kWh/an</li>
+      <li>Éclairage HP : 8,1 × 250 ≈ 2 025 kWh/an</li>
+      <li>Charge nocturne HC : 2,8 × 365 ≈ 1 022 kWh/an</li>
+    </ul>
+    <p><strong>Total HP : 28 465 kWh/an</strong>. <strong>Total HC : 15 622 kWh/an</strong>. Total annuel : <strong>44 087 kWh/an</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>coût annuel en option Base</strong> (tarif unique + abonnement).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie : 44 087 × 0,2516 ≈ <strong>11 092 €/an</strong>.</p>
+    <p>Abonnement : 22,50 × 12 = 270 €/an.</p>
+    <p>Total Base : <strong>11 362 €/an</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>coût annuel en option HP/HC</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie HP : 28 465 × 0,2700 ≈ <strong>7 686 €/an</strong>.</p>
+    <p>Énergie HC : 15 622 × 0,2068 ≈ <strong>3 230 €/an</strong>.</p>
+    <p>Abonnement : 23,75 × 12 = 285 €/an.</p>
+    <p>Total HP/HC : 7 686 + 3 230 + 285 = <strong>11 201 €/an</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer les 2 options. L'option HP/HC est-elle rentable pour Inès ? Quelle est l'<strong>économie annuelle</strong> ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Économie : 11 362 − 11 201 = <strong>161 €/an</strong>.</p>
+    <p>Rentable mais marginalement (1,4 % de baisse). Aucun investissement nécessaire (changement de contrat gratuit chez EDF).</p>
+    <p>Sur 10 ans : ≈ 1 600 € économisés sans rien faire d'autre que de signer un nouveau contrat.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Inès envisage d'<strong>installer un programmateur</strong> qui fait fonctionner le séchoir à bois <strong>uniquement en HC</strong> (au lieu de 24h/24). Calculer la nouvelle consommation HP/HC et le nouveau coût annuel HP/HC.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le séchoir, qui fonctionnait 24h/24, ne tourne plus que pendant les 10 h de HC.</p>
+    <p>Énergie séchoir : 4 × 10 × 365 = <strong>14 600 kWh/an</strong> (au lieu de 35 040 kWh, soit 58 % en moins). Mais cela suppose que le bois sèche assez vite avec moins d'heures — à valider.</p>
+    <p>Si on suppose 50 % de cycle suffisant : machines toujours 6 000 + éclairage 2 025 en HP, séchoir 14 600 + nocturne 1 022 en HC.</p>
+    <p>Total HP : 6 000 + 2 025 = 8 025 kWh. Total HC : 14 600 + 1 022 = 15 622 kWh.</p>
+    <p>Coût : (8 025 × 0,27) + (15 622 × 0,2068) + 285 = 2 167 + 3 230 + 285 = <strong>5 682 €/an</strong>.</p>
+    <p><strong>Économie supplémentaire : 11 201 − 5 682 = 5 519 €/an</strong> ! (mais consommation totale réduite aussi).</p>
+    <p>Investissement programmateur : 200 € → ROI &lt; 2 mois.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>conseil tarifaire</strong> qu'un comptable d'Inès lui transmet.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Bois & Style — Conseil tarifaire EDF · Inès Rousseau (Lyon) — 7 mai 2026</strong><br>
+      • Consommation actuelle 44 000 kWh/an, coût Base : <strong>11 360 €/an</strong>.<br>
+      • <strong>Étape 1 :</strong> passage option HP/HC (gratuit) → 11 200 €/an. Économie 160 €/an.<br>
+      • <strong>Étape 2 :</strong> programmateur séchoir limité aux HC (200 € HT) → 5 680 €/an. Économie supplémentaire <strong>5 520 €/an</strong>. ROI 2 mois.<br>
+      • <strong>Conseil :</strong> faire les 2 actions ensemble. Économie cumulée : 5 680 €/an, soit 50 % de la facture actuelle.<br>
+      • <strong>Démarches :</strong> 1) appel EDF Pro 3022 pour bascule HP/HC. 2) Achat programmateur Heating Twido + installation 1 h électricien.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si Inès remplace son séchoir par un <strong>déshumidificateur à pompe à chaleur</strong> (P = 1,5 kW en moyenne au lieu de 4 kW pour le même résultat), recalculer la consommation annuelle du séchoir.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Nouvelle consommation séchoir : 1,5 × 24 × 365 = <strong>13 140 kWh/an</strong> (au lieu de 35 040 kWh = -62 %).</p>
+    <p>Économie supplémentaire : (35 040 − 13 140) × 0,2 (tarif moyen) ≈ 4 380 €/an.</p>
+    <p>Investissement déshumidificateur PAC : 4 500 €. ROI : 4 500 / 4 380 ≈ 1 an.</p>
+    <p>Combiné aux mesures précédentes (HP/HC + programmateur + PAC) : facture annuelle réduite à ≈ 3 000 €, soit -73 % vs Base initial.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Option Base :</strong> tarif unique 24h/24. Simple, recommandé si peu de consommation déplaçable.</li>
+    <li><strong>Option HP/HC :</strong> tarif réduit en HC (22h-8h, 10 h). Rentable si ≥ 30 % de consommation peut être déplacée la nuit.</li>
+    <li><strong>Programmateur :</strong> permet de faire fonctionner certains usages (séchoir, lave-linge, ballon ECS) uniquement en HC. Économie souvent &gt; 30 %.</li>
+    <li><strong>Méthode de calcul :</strong> séparer la consommation en tranches horaires, multiplier chacune par son tarif, ajouter l'abonnement.</li>
+    <li><strong>Pour ateliers :</strong> identifier les usages 24h/24 (séchoir, frigo de colle) qui peuvent passer en HC. Énorme effet de levier.</li>
+    <li><strong>Compteur Linky</strong> : permet de suivre sa conso en HP/HC sur l'app EDF, identifier les pics et déplacer les usages.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Énergie consommée) et §6 (Applications professionnelles) de la leçon Ch01.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

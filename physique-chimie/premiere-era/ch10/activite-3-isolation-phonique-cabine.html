@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Activité 3 – Isolation phonique d'une cabine – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+<header><h1>Activité 3 – Concevoir une cabine acoustique d'atelier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+<p class="sous-titre">Chapitre 10 – Signal sonore | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Acoustique | ⏱ 35 min</p>
+<p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p></header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs"><strong>Objectifs :</strong>
+<ul><li>Comprendre l'affaiblissement acoustique d'une paroi</li><li>Calculer le niveau sonore après traversée d'une cloison</li><li>Choisir une composition de cloison pour atteindre un niveau cible</li><li>Concevoir une cabine acoustique d'atelier</li></ul></div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">💡 Affaiblissement R d'une paroi : L<sub>après</sub> = L<sub>avant</sub> − R.</p>
+
+<div class="situation"><h2>Situation – cabine pour finitions et bureau</h2>
+<p><em>Antoine, agenceur, isole une <strong>cabine acoustique</strong> dans son atelier (8 m² au coin) pour les opérations de finition silencieuse (vernissage manuel, contrôle qualité). Le niveau atelier est de 95 dB(A). Antoine veut atteindre 50 dB max dans la cabine (ambiance bureau).</em></p>
+
+<h3>Document 1 — Affaiblissement de différents matériaux</h3>
+<table><thead><tr><th>Composition cloison</th><th>Affaiblissement R</th></tr></thead>
+<tbody>
+<tr><td>Cloison BA13 simple (13 mm plâtre)</td><td>30 dB</td></tr>
+<tr><td>Double cloison BA13 + isolant</td><td>45 dB</td></tr>
+<tr><td>Mur béton 20 cm</td><td>50 dB</td></tr>
+<tr><td>Cloison sandwich pro (acier + laine + acier)</td><td>55 dB</td></tr></tbody></table></div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+<strong>Problématique :</strong> Quelle composition de cloison Antoine choisit-il pour passer de 95 à 50 dB ?</div>
+
+<div class="exo"><h2>Question 1 <span class="badge-yellow">REA</span></h2>
+<p>Calculer l'<strong>affaiblissement nécessaire</strong> R<sub>cible</sub>.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>R<sub>cible</sub> = 95 − 50 = <strong>45 dB</strong>.</p></div></div>
+
+<div class="exo"><h2>Question 2 <span class="badge-blue">ANA</span></h2>
+<p>Quelle composition convient ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p><strong>Double BA13 + isolant</strong> (45 dB) ou mieux. Antoine choisit cette solution standard menuiserie.</p></div></div>
+
+<div class="exo"><h2>Question 3 <span class="badge-yellow">REA</span></h2>
+<p>Si la cabine a 1 porte simple (R = 25 dB), niveau dans la cabine quand la porte est fermée ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Le niveau passant par la porte : 95 − 25 = <strong>70 dB</strong> dans la cabine.</p>
+<p>La porte est <strong>le maillon faible</strong> ! Il faut une porte acoustique R ≥ 40 dB (300 €) pour que le niveau cabine descende à 55 dB.</p></div></div>
+
+<div class="exo"><h2>Question 4 <span class="badge-blue">ANA</span></h2>
+<p>Loi du « maillon faible » : si une cloison est R = 45 dB et la porte R = 25 dB, le niveau global de la cabine est dominé par lequel ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Niveau dans la cabine = max(95−45, 95−25) = max(50, 70) = <strong>70 dB</strong>. Dominé par la porte.</p>
+<p>Conclusion : une porte standard ruine l'investissement isolation des murs. <strong>Il faut une porte au moins aussi performante que les cloisons.</strong></p></div></div>
+
+<div class="exo"><h2>Question 5 <span class="badge-yellow">REA</span></h2>
+<p>Antoine pose une porte acoustique R = 45 dB et une fenêtre de contrôle vitrage 2 × 6 mm R = 35 dB. Niveau cabine ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Maillon faible : fenêtre 35 dB → 95 − 35 = <strong>60 dB</strong>.</p>
+<p>Pour atteindre &lt; 50 dB il faudrait un vitrage feuilleté 8/16/8 mm (R = 45 dB).</p></div></div>
+
+<div class="exo"><h2>Question 6 <span class="badge-blue">ANA</span></h2>
+<p>Pourquoi y a-t-il une <strong>épaisseur d'air</strong> entre les 2 plaques BA13 d'une cloison double, et quel est son rôle ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Le couplage entre 2 plaques rigides accolées laisserait passer la vibration. L'<strong>air + laine</strong> entre les 2 absorbe les vibrations en chaleur (frottement) → R passe de 30 à 45 dB.</p>
+<p>Principe : système masse-ressort-masse. La laine joue le rôle d'amortisseur.</p></div></div>
+
+<div class="exo"><h2>Question 7 <span class="badge-blue">VAL</span></h2>
+<p>Combien coûte la cabine acoustique d'Antoine ? Estimer.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Cloisons (4 × 8 m² = 32 m²) à 80 €/m² double BA13 : 2 560 €.</p>
+<p>Porte acoustique 45 dB : 800 €.</p>
+<p>Vitrage feuilleté 1 m² : 400 €.</p>
+<p>Plafond + sol : 800 €.</p>
+<p><strong>Total ≈ 4 600 € HT</strong> pour une cabine 8 m² silencieuse.</p>
+<p>ROI : amélioration confort + qualité contrôle finition → réduction des défauts (rejets clients). Difficile à chiffrer mais souvent rentable en 1-2 ans.</p></div></div>
+
+<div class="exo"><h2>Question 8 <span class="badge-red">COM</span></h2>
+<p>Rédiger en 5 lignes la <strong>fiche de conception</strong> de la cabine.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir un exemple</button>
+<div class="corr"><p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+<strong>Antoine Agencement — Cabine acoustique 8 m² · 7 mai 2026</strong><br>
+• <strong>Cible :</strong> 50 dB intérieur (ambiance bureau) avec atelier à 95 dB → R minimum 45 dB.<br>
+• <strong>Cloisons :</strong> double BA13 + 50 mm laine de roche (R = 45 dB). 4 faces (32 m²).<br>
+• <strong>Porte acoustique</strong> R = 45 dB, joints périphériques. <strong>Vitrage</strong> feuilleté 8/16/8 (R = 45 dB).<br>
+• <strong>Sol :</strong> chape flottante sur isolant. <strong>Plafond :</strong> faux plafond + laine.<br>
+• <strong>Coût :</strong> 4 600 € HT. Usage : finition manuelle, contrôle qualité, accueil clients calme.</p></div></div>
+
+<div class="bonus"><strong>Pour aller plus loin (bonus)</strong>
+<p>Une <strong>salle anéchoïque</strong> (ex : labos test microphones) atteint un bruit de fond de seulement <strong>5 dB</strong>. Quel R équivalent ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>R ≈ 100 − 5 = <strong>95 dB</strong> ! Murs en sandwich métal/laine de 50 cm d'épaisseur, double porte sas, ventilation acoustique, sol flottant. Coût : ≈ 100 000 €.</p>
+<p>Utilisée pour mesurer fidèlement les sons sans aucun bruit de fond. C'est aussi très inconfortable pour l'humain (au bout de 10 min, on entend battre son cœur, le sang dans les oreilles).</p></div></div>
+
+<div class="retenir"><strong>À retenir</strong>
+<ul><li><strong>Affaiblissement R :</strong> L<sub>après</sub> = L<sub>avant</sub> − R.</li>
+<li><strong>Cumul série</strong> de cloisons R₁ + R₂ : approximation, en réalité moins (~ ×1).</li>
+<li><strong>Loi du maillon faible :</strong> le niveau global est dominé par l'élément le moins isolant (porte, fenêtre).</li>
+<li><strong>Cloison double</strong> (BA13 + laine + BA13) : R ≈ 45 dB.</li>
+<li><strong>Porte acoustique pro</strong> : R 35-50 dB selon prix.</li>
+<li><strong>Cabine acoustique atelier :</strong> ≈ 4 000-5 000 € pour 8 m² silencieuse.</li></ul></div>
+
+</div><script src="../../../nav.js"></script></body></html>

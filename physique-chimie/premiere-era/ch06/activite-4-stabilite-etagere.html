@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – Activité 4 – Stabilité d'une étagère murale – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Stabilité d'une étagère murale chargée <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 6 – Équilibre rotation | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Mécanique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Identifier les forces s'exerçant sur une étagère murale</li>
+    <li>Calculer le moment de basculement et le moment résistant des fixations</li>
+    <li>Dimensionner les chevilles selon la charge prévue</li>
+    <li>Évaluer le risque de basculement</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – étagère bibliothèque chez M. Roux</h2>
+  <p><em>Inès, agenceuse, pose une étagère murale en bois 100 cm × 30 cm × 4 cm dans la bibliothèque de M. Roux. La planche est fixée par 4 chevilles dans le mur béton. M. Roux veut y mettre des livres anciens (≈ 25 kg). Inès vérifie que les fixations tiendront.</em></p>
+
+  <h3>Document 1 — Données mécaniques</h3>
+  <ul>
+    <li>Masse étagère : <strong>m = 4 kg</strong>, P<sub>étagère</sub> = 40 N. Centre gravité au milieu de la planche (15 cm du mur).</li>
+    <li>Charge max prévue : <strong>m<sub>charge</sub> = 25 kg</strong>, P<sub>charge</sub> = 250 N. Centre de gravité à 15 cm du mur (livres répartis).</li>
+    <li>4 chevilles : 2 en haut, 2 en bas, écartement vertical <strong>h = 20 cm = 0,20 m</strong>.</li>
+    <li>Charge max admissible par cheville en arrachement : <strong>F<sub>cheville</sub> = 200 N</strong> (cheville Fischer SX 8 mm).</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Les 4 chevilles tiendront-elles l'étagère pleine de 25 kg de livres ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>moment de basculement</strong> exercé par le poids total (étagère + livres) par rapport à l'axe inférieur (chevilles du bas).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>total</sub> = 40 + 250 = 290 N à 15 cm du mur (= 0,15 m).</p>
+    <p>M<sub>basculement</sub> = P<sub>total</sub> × d = 290 × 0,15 = <strong>43,5 N·m</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>force d'arrachement F<sub>arr</sub></strong> exercée sur les 2 chevilles du haut, sachant que le bras de levier au point d'appui (chevilles du bas) est h = 0,20 m.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>À l'équilibre des moments : F<sub>arr</sub> × h = M<sub>basculement</sub>.</p>
+    <p>F<sub>arr</sub> = 43,5 / 0,20 = <strong>217,5 N</strong> au total sur les 2 chevilles du haut.</p>
+    <p>Soit ≈ 109 N par cheville.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer à la charge admissible (200 N par cheville). Y a-t-il une marge de sécurité ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>109 N par cheville &lt; 200 N admissibles → <strong>conforme</strong>. Marge : (200 − 109)/200 ≈ 45 %. Bonne sécurité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Si M. Roux double sa charge à <strong>50 kg</strong> de livres, l'étagère tient-elle toujours ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>total</sub> = 40 + 500 = 540 N. M = 540 × 0,15 = 81 N·m.</p>
+    <p>F<sub>arr</sub> = 81/0,20 = 405 N → 202 N par cheville.</p>
+    <p>202 N &gt; 200 N → <strong>limite atteinte</strong>. Risque accru : oscillations, vibrations, fluage progressif. <strong>Refuser cette charge ou renforcer.</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Si Inès ajoute <strong>2 chevilles supplémentaires</strong> en haut (4 chevilles haut au total), recalculer la force par cheville pour 50 kg de livres.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Force totale haut : 405 N (inchangée) répartie sur 4 chevilles → 101 N par cheville.</p>
+    <p>101 N &lt; 200 N admissibles. <strong>Conforme avec marge.</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Pourquoi placer les chevilles le plus <strong>haut possible</strong> et le plus <strong>écartées</strong> (verticalement) est-il important ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'écartement vertical h augmente le bras de levier des fixations supérieures → <strong>force d'arrachement diminue</strong> (F = M/h).</p>
+    <p>Si h = 0,40 m au lieu de 0,20 m : F arrachement divisée par 2.</p>
+    <p>Règle pratique menuisier : éloigner verticalement les fixations sur l'épaisseur disponible. Pour une étagère 4 cm, on dispose de très peu de marge — d'où nécessité d'une équerre métallique pour augmenter h.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer <strong>F admissible</strong> avec une équerre métallique de 30 cm de hauteur (h = 0,30 m), conservant 4 chevilles : charge max ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Force totale max sur les chevilles du haut : 4 × 200 = 800 N.</p>
+    <p>Moment max admissible : 800 × 0,30 = 240 N·m.</p>
+    <p>P<sub>max total</sub> = 240/0,15 = <strong>1 600 N = 160 kg</strong>.</p>
+    <p>Avec équerre 30 cm, l'étagère peut porter jusqu'à 160 kg ! Plus que confortable pour une bibliothèque.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche de pose</strong> d'Inès pour M. Roux.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Inès Agencement — Fiche pose étagère bibliothèque · M. Roux</strong><br>
+      • <strong>Étagère 100 × 30 × 4 cm</strong> chêne, fixée par <strong>équerre métallique 30 cm</strong> + 4 chevilles Fischer SX 8.<br>
+      • <strong>Charge max recommandée : 25 kg</strong> (livres standards). Marge sécurité 45 %.<br>
+      • <strong>Charge max théorique :</strong> 50-160 kg selon configuration. Au-delà, risque d'arrachement et chute.<br>
+      • <strong>Précautions :</strong> répartir la charge uniformément, éviter de tirer vers le bas (effet de levier amplifié).<br>
+      • <strong>Garantie pose 2 ans</strong>. Vérification annuelle conseillée (resserrage chevilles si jeu).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Et si les livres étaient placés <strong>au bord avant</strong> de l'étagère (à 25 cm du mur au lieu de 15) ? Recalculer F arrachement pour 25 kg.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P × d = 290 × 0,25 = 72,5 N·m (au lieu de 43,5).</p>
+    <p>F arrachement total : 72,5/0,20 = 363 N → 181 N par cheville (vs 109 avant).</p>
+    <p>Plus on charge en avant, plus le moment de basculement est grand. Conseil : <strong>placer les charges lourdes près du mur</strong>.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Force d'arrachement</strong> sur fixations supérieures : F = M<sub>basculement</sub> / h.</li>
+    <li><strong>Moment de basculement :</strong> M = P × d (d = distance horizontale charge ↔ mur).</li>
+    <li><strong>Plus h est grand</strong> (chevilles écartées verticalement), plus la force par cheville est faible.</li>
+    <li><strong>Plus d est grand</strong> (charge en bord), plus M augmente → fragilité.</li>
+    <li><strong>Solutions :</strong> équerre, plusieurs chevilles, charges placées près du mur.</li>
+    <li><strong>Marge sécurité</strong> : viser ≥ 30-50 % en arrachement (vibrations, charges variables).</li>
+  </ul>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – Activité 3 – Scanner laser 3D pour relevé d'agencement – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+<header><h1>Activité 3 – Scanner laser 3D pour un relevé d'agencement <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+<p class="sous-titre">Chapitre 9 – Ondes électromagnétiques | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Ondes | ⏱ 35 min</p>
+<p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p></header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs"><strong>Objectifs :</strong>
+<ul><li>Comprendre le principe du LiDAR (mesure de distance par laser)</li><li>Calculer une distance à partir du temps de vol d'un signal laser</li><li>Évaluer la précision et la portée d'un scanner</li><li>Appliquer aux relevés d'agencement intérieur</li></ul></div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">💡 LiDAR : envoie un pulse laser, mesure le temps t pour qu'il revienne. d = c × t / 2 (aller-retour).</p>
+
+<div class="situation"><h2>Situation – relevé d'une cuisine pour Antoine</h2>
+<p><em>Antoine, agenceur, doit relever une cuisine de 25 m² aux dimensions complexes (angles non orthogonaux, alcôves) pour fabriquer un plan-de-travail sur mesure. Avec un mètre, le relevé prendrait 2 h pour une précision ± 5 mm. Avec un <strong>scanner laser 3D Leica BLK360</strong>, 5 minutes pour ± 1 mm.</em></p>
+
+<h3>Document 1 — Caractéristiques scanner Leica BLK360</h3>
+<ul><li>Longueur d'onde laser : <strong>λ = 830 nm</strong> (IR proche, classe 1, sans danger)</li>
+<li>Vitesse de balayage : 360 000 points/seconde</li>
+<li>Portée : 0,6 m à 60 m</li>
+<li>Précision : ± 1 mm à 10 m</li>
+<li>Ouverture angulaire : 360° horizontal × 300° vertical</li></ul></div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+<strong>Problématique :</strong> Comment le scanner mesure-t-il les distances de la cuisine d'Antoine, et quelle est sa précision pour un agencement de qualité ?</div>
+
+<div class="exo"><h2>Question 1 <span class="badge-yellow">REA</span></h2>
+<p>Calculer la <strong>fréquence</strong> du laser à 830 nm.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>f = c/λ = (3 × 10⁸)/(830 × 10⁻⁹) ≈ <strong>3,6 × 10¹⁴ Hz = 360 THz</strong>. Domaine IR proche.</p></div></div>
+
+<div class="exo"><h2>Question 2 <span class="badge-yellow">REA</span></h2>
+<p>Le scanner mesure le <strong>temps de vol</strong> d'un pulse laser sur un mur situé à 5 m. Calculer ce temps (aller-retour).</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Distance aller-retour : 2 × 5 = 10 m.</p>
+<p>Temps : t = 10 / (3 × 10⁸) ≈ <strong>3,3 × 10⁻⁸ s = 33 ns</strong>.</p>
+<p>33 nanosecondes ! Le scanner doit donc avoir une horloge interne au moins 100 fois plus précise pour mesurer ce temps.</p></div></div>
+
+<div class="exo"><h2>Question 3 <span class="badge-blue">ANA</span></h2>
+<p>Si l'horloge a une précision de ± 7 picosecondes (7 × 10⁻¹² s), quelle est la <strong>précision sur la distance</strong> ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Δd = c × Δt / 2 = (3 × 10⁸) × (7 × 10⁻¹²) / 2 = 1,05 × 10⁻³ m = <strong>1,05 mm</strong>.</p>
+<p>Cohérent avec la spécification ± 1 mm à 10 m. Précision impressionnante !</p></div></div>
+
+<div class="exo"><h2>Question 4 <span class="badge-yellow">REA</span></h2>
+<p>Pour scanner toute la cuisine (volume 50 m³), le scanner doit prendre des <strong>millions de points</strong>. Si chaque point demande 360 000⁻¹ s, calculer le temps pour 100 millions de points.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>t = 10⁸ / 360 000 = 278 s ≈ <strong>4,6 min</strong>.</p>
+<p>Cohérent avec « 5 min » du Doc 1.</p></div></div>
+
+<div class="exo"><h2>Question 5 <span class="badge-blue">VAL</span></h2>
+<p>Comparer mètre traditionnel vs scanner 3D pour le relevé d'Antoine.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><table><thead><tr><th>Critère</th><th>Mètre</th><th>Scanner 3D</th></tr></thead><tbody>
+<tr><td>Temps</td><td>2 h</td><td>5 min</td></tr>
+<tr><td>Précision</td><td>± 5 mm</td><td>± 1 mm</td></tr>
+<tr><td>Coût</td><td>20 €</td><td>15 000 €</td></tr>
+<tr><td>Compétence requise</td><td>basique</td><td>formation 1 jour</td></tr>
+<tr><td>Données exploitables CAO</td><td>plan papier</td><td>nuage de points 3D direct</td></tr>
+</tbody></table>
+<p>Pour atelier qui fait 100 chantiers/an : le scanner s'amortit en 1 an (gain de 100 × 1h45 d'une personne à 30 €/h = 5 250 €/an + meilleure qualité). Pour artisan seul : non rentable.</p></div></div>
+
+<div class="exo"><h2>Question 6 <span class="badge-blue">ANA</span></h2>
+<p>Que se passe-t-il si le mur est <strong>brillant ou métallique</strong> (miroir) ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Une surface miroir réfléchit le laser dans une <strong>direction unique</strong> (réflexion spéculaire). Si elle ne réfléchit pas vers le scanner, pas de retour → pas de mesure. Le point apparaît comme un « trou » dans le nuage.</p>
+<p>Solutions : pulvériser un spray mat temporaire sur les surfaces brillantes, ou approcher le scanner pour avoir un angle direct.</p></div></div>
+
+<div class="exo"><h2>Question 7 <span class="badge-blue">ANA</span></h2>
+<p>Quels autres usages d'un scanner LiDAR <strong>en menuiserie / agencement</strong> ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><ul><li>Relevé de bâtiments anciens (charpentes, escaliers patrimoniaux).</li>
+<li>Vérification après pose (« as-built ») : comparer à plan théorique CAO.</li>
+<li>Mesure de déformations bois (gonflement, fluage) sur 1 an.</li>
+<li>Numérisation de mobilier ancien à reproduire.</li>
+<li>Visualisation virtuelle pour le client (réalité augmentée du futur agencement).</li></ul></div></div>
+
+<div class="exo"><h2>Question 8 <span class="badge-red">COM</span></h2>
+<p>Rédiger en 5 lignes la <strong>note d'investissement</strong> pour la direction de l'atelier.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir un exemple</button>
+<div class="corr"><p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+<strong>Atelier Antoine — Investissement scanner Leica BLK360</strong><br>
+• <strong>Achat :</strong> 15 000 € HT (avec logiciel Leica Cyclone Register).<br>
+• <strong>Économie</strong> : 1h45 par chantier vs mètre. Sur 100 chantiers/an à 30 €/h : <strong>5 250 €/an</strong>.<br>
+• <strong>Précision améliorée</strong> : ± 1 mm vs ± 5 mm → moins d'erreurs de fabrication, moins de SAV.<br>
+• <strong>Argument commercial</strong> : nuages 3D livrables au client, visualisation 3D en RA → image moderne de l'atelier.<br>
+• <strong>ROI estimé : 3 ans</strong> (économie + nouveaux clients + qualité). Recommandation : achat dès Q3 2026.</p></div></div>
+
+<div class="bonus"><strong>Pour aller plus loin (bonus)</strong>
+<p>Le LiDAR <strong>aérien</strong> (drone, avion) sert à mesurer la hauteur des arbres en forêt française. Calculer le temps de vol d'un pulse jusqu'à un arbre à 100 m de distance.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>t = (2 × 100) / (3 × 10⁸) = <strong>6,7 × 10⁻⁷ s = 670 ns</strong>.</p>
+<p>Application : cartographie forestière nationale ONF, calcul de biomasse et tonnage exploitable. Permet de planifier les coupes durablement.</p></div></div>
+
+<div class="retenir"><strong>À retenir</strong>
+<ul><li><strong>LiDAR :</strong> Light Detection And Ranging. Mesure de distance par temps de vol laser.</li>
+<li><strong>d = c × t / 2.</strong></li>
+<li><strong>Précision ± 1 mm</strong> à 10 m possible avec horloges au picoseconde.</li>
+<li><strong>Vitesse :</strong> 5 min pour scanner une pièce vs 2 h au mètre.</li>
+<li><strong>Limites :</strong> surfaces miroirs/brillantes mal détectées, dépend de la portée (60 m max pour Leica BLK360).</li>
+<li><strong>Applications :</strong> relevé agencement, bâtiments anciens, mobilier, contrôle qualité après pose.</li></ul></div>
+
+</div><script src="../../../nav.js"></script></body></html>
