@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 4 – Agrandissement d'enseigne et coût – CAP SDG</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Agrandir une enseigne et calculer le coût <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 3 — Proportionnalité et pourcentages | CAP SDG (Signalétique et Décors Graphiques) | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Utiliser un coefficient d'agrandissement</li>
+    <li>Distinguer proportionnalité linéaire et proportionnalité quadratique (aire)</li>
+    <li>Appliquer remise et TVA sur un devis</li>
+    <li>Calculer un prix au m² d'enseigne adhésive</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – devis enseigne pour une boulangerie</h2>
+  <p><em>Sami, apprenti en signalétique chez « Couleurs Vives » à Marseille, prépare le devis d'une enseigne adhésive pour une nouvelle boulangerie. Le commerçant veut un visuel imprimé puis posé sur la vitrine. Il hésite entre 3 tailles d'enseigne. Sami doit calculer rapidement les coûts pour orienter le choix.</em></p>
+
+  <h3>Document 1 — Tarif imprimerie « Couleurs Vives »</h3>
+  <table>
+    <thead><tr><th>Format</th><th>Largeur (m)</th><th>Hauteur (m)</th><th>Aire (m²)</th><th>Prix HT (€)</th></tr></thead>
+    <tbody>
+      <tr><td>Modèle S</td><td>1,00</td><td>0,50</td><td>0,50</td><td>120</td></tr>
+      <tr><td>Modèle M</td><td>2,00</td><td>1,00</td><td>?</td><td>?</td></tr>
+      <tr><td>Modèle L</td><td>3,00</td><td>1,50</td><td>?</td><td>?</td></tr>
+    </tbody>
+  </table>
+  <p><em>Le prix est <strong>proportionnel à l'aire</strong> de l'enseigne (à 240 €/m² HT pour cette gamme adhésive premium).</em></p>
+
+  <h3>Document 2 — Schéma des 3 tailles</h3>
+  <div class="svg-wrap">
+  <svg viewBox="0 0 460 200" width="460" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="100" width="80" height="40" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+    <text x="60" y="125" text-anchor="middle" font-size="11" font-weight="700">S</text>
+    <text x="60" y="155" text-anchor="middle" font-size="9">1×0,5 m</text>
+    <text x="60" y="166" text-anchor="middle" font-size="9">0,5 m²</text>
+    <rect x="130" y="80" width="160" height="80" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+    <text x="210" y="125" text-anchor="middle" font-size="14" font-weight="700">M</text>
+    <text x="210" y="175" text-anchor="middle" font-size="9">2×1 m — 2 m²</text>
+    <rect x="320" y="60" width="120" height="60" fill="#dc2626" stroke="#7f1d1d" stroke-width="2" opacity=".7"/>
+    <rect x="320" y="60" width="120" height="60" fill="none" stroke="#dc2626" stroke-width="2"/>
+    <text x="380" y="95" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">L</text>
+    <text x="380" y="135" text-anchor="middle" font-size="9">3×1,5 m</text>
+    <text x="380" y="146" text-anchor="middle" font-size="9">4,5 m²</text>
+    <text x="230" y="195" text-anchor="middle" font-size="11" fill="#475569">3 modèles à comparer (échelle approximative)</text>
+  </svg>
+  </div>
+
+  <h3>Document 3 — Pose</h3>
+  <p>Forfait pose adhésif sur vitrine : <strong>80 € HT par m²</strong>. TVA 20 % sur l'ensemble.</p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Si on double la <strong>largeur</strong> de l'enseigne, le prix double-t-il aussi ? Quel modèle correspond au meilleur rapport visibilité/coût ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer l'<strong>aire</strong> du modèle M (2 m × 1 m) et du modèle L (3 m × 1,5 m).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Aire M = $2 \times 1 = $ <strong>2 m²</strong>.</p>
+    <p>Aire L = $3 \times 1,5 = $ <strong>4,5 m²</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Vérifier que le prix HT est <strong>proportionnel à l'aire</strong> avec le coefficient 240 €/m². Calculer le prix HT du modèle M et L.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Vérification S : $0,5 \times 240 = 120 \,€$ ✓.</p>
+    <p>Modèle M : $2 \times 240 = $ <strong>480 €</strong>.</p>
+    <p>Modèle L : $4,5 \times 240 = $ <strong>1 080 €</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>En passant du modèle S au modèle M, on <strong>double les dimensions</strong> (largeur ET hauteur). Le prix double-t-il ? Justifier par un calcul.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Prix S = 120 €, prix M = 480 €. Coefficient : $480 \div 120 = $ <strong>4</strong>, pas 2 !</p>
+    <p>Quand on double les dimensions, l'<strong>aire est multipliée par 4</strong> ($2^2 = 4$). Le prix suit l'aire, donc il est aussi multiplié par 4.</p>
+    <p>⚠️ Piège classique : <strong>l'aire ne double pas</strong> quand les dimensions doublent.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le prix de la <strong>pose</strong> (80 €/m²) pour chacun des 3 modèles.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Modèle</th><th>Aire</th><th>Pose HT (€)</th></tr></thead>
+      <tbody>
+        <tr><td>S</td><td>0,5 m²</td><td>40</td></tr>
+        <tr><td>M</td><td>2 m²</td><td>160</td></tr>
+        <tr><td>L</td><td>4,5 m²</td><td>360</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>total TTC</strong> (impression + pose, TVA 20 %) pour chaque modèle.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Modèle</th><th>Impression HT</th><th>Pose HT</th><th>Total HT</th><th>TTC (×1,20)</th></tr></thead>
+      <tbody>
+        <tr><td>S</td><td>120</td><td>40</td><td>160</td><td><strong>192 €</strong></td></tr>
+        <tr><td>M</td><td>480</td><td>160</td><td>640</td><td><strong>768 €</strong></td></tr>
+        <tr><td>L</td><td>1 080</td><td>360</td><td>1 440</td><td><strong>1 728 €</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Le commerçant a un <strong>budget de 800 € TTC</strong>. Quel modèle lui conseiller ? Quel est l'écart en pourcentage par rapport à son budget ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le modèle <strong>M (768 €)</strong> rentre dans son budget. Le modèle L (1 728 €) le dépasse de plus du double.</p>
+    <p>Marge restante par rapport au budget : $\dfrac{800 - 768}{800} \times 100 = $ <strong>4 %</strong> (32 € pour finitions).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Sami propose au client une <strong>remise nouvelle adresse</strong> de 10 % sur le total HT. Calculer le nouveau TTC pour le modèle M.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>HT remisé = $640 \times 0,90 = 576 \,€$.</p>
+    <p>TTC = $576 \times 1,20 = $ <strong>691,20 €</strong>.</p>
+    <p>Économie réalisée : $768 - 691,20 = 76,80 \,€$ (soit 10 % du TTC initial — confirme bien la remise).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>devis enseigne</strong> que Sami remet au commerçant pour le modèle M.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Couleurs Vives Marseille — Devis enseigne adhésive · 7 mai 2026</strong><br>
+      • <strong>Format :</strong> 2 m × 1 m (modèle M, 2 m²) — adhésif premium imprimé.<br>
+      • <strong>Impression :</strong> 480 € HT (240 €/m²).<br>
+      • <strong>Pose vitrine :</strong> 160 € HT (80 €/m²).<br>
+      • <strong>Remise nouvelle adresse :</strong> −10 % → 576 € HT. <strong>TVA 20 % → 691,20 € TTC</strong>.<br>
+      • Garantie 5 ans (résistance UV, étanchéité). Délai pose : 7 jours après bon pour accord.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si le commerçant souhaite <strong>tripler les dimensions</strong> du modèle S (largeur ET hauteur ×3), par quel coefficient l'aire est-elle multipliée ? Quel sera le prix HT impression ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Aire ×$3^2 = $ <strong>×9</strong>. Nouvelle aire = $0,5 \times 9 = 4,5 \,$m² (= modèle L !).</p>
+    <p>Prix HT impression = $4,5 \times 240 = $ <strong>1 080 €</strong>.</p>
+    <p>Règle : si on multiplie les dimensions linéaires par $k$, l'<strong>aire</strong> (et le prix au m²) est multipliée par $k^2$.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Aire d'un rectangle :</strong> $A = L \times \ell$.</li>
+    <li><strong>Prix au m² :</strong> rapport constant ⇔ proportionnalité.</li>
+    <li><strong>Si on multiplie les dimensions par $k$ :</strong> l'aire est multipliée par $k^2$ (pas par $k$).</li>
+    <li><strong>Coefficient multiplicateur :</strong> remise ou TVA = multiplication, pas addition.</li>
+    <li><strong>Total TTC :</strong> $\text{HT} \times (1 + \text{TVA})$ après remises.</li>
+    <li><strong>Application pro :</strong> devis enseignes, dimensionnement, comparaison d'offres.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Proportionnalité), §4 (Pourcentage), §6 (Application au devis) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 2 – Tarif d'installation chauffage – CAP MIT</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Calculer un devis chauffage avec remise <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 3 — Proportionnalité et pourcentages | CAP MIT (Métiers Installation Thermique) | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Compléter un tableau de proportionnalité</li>
+    <li>Calculer la TVA et un pourcentage de remise</li>
+    <li>Appliquer un coefficient multiplicateur</li>
+    <li>Vérifier la cohérence d'un devis professionnel</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – devis pour un client particulier</h2>
+  <p><em>Karim, apprenti plombier chauffagiste à Bordeaux, accompagne son patron pour préparer un devis chez un client. Le client veut faire installer un chauffage par radiateurs dans une maison de 80 m². Karim doit compléter le tableau et appliquer la promotion de printemps de l'entreprise.</em></p>
+
+  <h3>Document 1 — Tarifs de l'entreprise « ProThermie »</h3>
+  <table>
+    <thead><tr><th>Surface chauffée (m²)</th><th>10</th><th>40</th><th>80</th><th>120</th></tr></thead>
+    <tbody>
+      <tr><td>Coût matériel HT (€)</td><td>180</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td>Main-d'œuvre HT (€)</td><td>220</td><td>?</td><td>?</td><td>?</td></tr>
+    </tbody>
+  </table>
+  <p><em>Le matériel et la main-d'œuvre sont facturés <strong>au prorata de la surface chauffée</strong>.</em></p>
+
+  <h3>Document 2 — Promotion de printemps</h3>
+  <p>Du 1<sup>er</sup> mars au 31 mai : <strong>−15 % sur le total HT</strong> de l'installation.</p>
+
+  <h3>Document 3 — TVA applicable</h3>
+  <p>Travaux de rénovation énergétique en logement de + 2 ans : <strong>TVA à 5,5 %</strong> (taux réduit).</p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel est le prix TTC final que paie le client après remise de printemps et TVA ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Vérifier que les tarifs sont en <strong>situation de proportionnalité</strong> avec la surface (10 m² → 180 € matériel et 220 € main-d'œuvre). Quel est le coefficient pour le matériel ? Pour la main-d'œuvre ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coefficient matériel : $180 \div 10 = $ <strong>18 €/m²</strong>.</p>
+    <p>Coefficient main-d'œuvre : $220 \div 10 = $ <strong>22 €/m²</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Compléter le tableau pour 40, 80 et 120 m².</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Surface (m²)</th><th>10</th><th>40</th><th>80</th><th>120</th></tr></thead>
+      <tbody>
+        <tr><td>Matériel (€)</td><td>180</td><td><strong>720</strong></td><td><strong>1 440</strong></td><td><strong>2 160</strong></td></tr>
+        <tr><td>Main-d'œuvre (€)</td><td>220</td><td><strong>880</strong></td><td><strong>1 760</strong></td><td><strong>2 640</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Calculs : matériel = surface × 18 ; main-d'œuvre = surface × 22.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Pour la maison du client (80 m²), calculer le <strong>total HT</strong> avant remise.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Total HT = 1 440 + 1 760 = <strong>3 200 €</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>remise de 15 %</strong> sur le total HT et le nouveau total HT après remise.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Remise = $3\,200 \times \dfrac{15}{100} = $ <strong>480 €</strong>.</p>
+    <p>Total HT après remise = $3\,200 - 480 = $ <strong>2 720 €</strong>.</p>
+    <p>Méthode coefficient multiplicateur : $3\,200 \times 0,85 = 2\,720 \,€$ ✓.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>montant de la TVA</strong> (5,5 %) puis le <strong>total TTC</strong> que paiera le client.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Montant TVA = $2\,720 \times 0,055 = $ <strong>149,60 €</strong>.</p>
+    <p>Total TTC = $2\,720 + 149,60 = $ <strong>2 869,60 €</strong>.</p>
+    <p>Méthode coefficient : $2\,720 \times 1,055 = 2\,869,60 \,€$ ✓.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Le client compare avec un concurrent qui propose <strong>3 100 € TTC</strong> sans remise. Quelle économie réalise-t-il en choisissant « ProThermie » ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Économie = $3\,100 - 2\,869,60 = $ <strong>230,40 €</strong>.</p>
+    <p>Pourcentage d'économie : $\dfrac{230,40}{3\,100} \times 100 \approx $ <strong>7,4 %</strong> moins cher.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Karim se rend compte qu'il a oublié l'<strong>éco-prime CEE</strong> (Certificats d'Économie d'Énergie) qui rembourse 350 € au client. Quel est le coût final réellement payé par le client après cette aide ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût après éco-prime = $2\,869,60 - 350 = $ <strong>2 519,60 €</strong>.</p>
+    <p>Soit une réduction supplémentaire de $\dfrac{350}{2\,869,60} \times 100 \approx $ <strong>12,2 %</strong> par rapport au TTC.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>devis client</strong> que Karim remet à son patron pour relecture.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermie Bordeaux — Devis chauffage radiateurs · 7 mai 2026</strong><br>
+      • <strong>Surface chauffée :</strong> 80 m² (maison particulière, rénovation).<br>
+      • <strong>Coût HT :</strong> 1 440 € matériel + 1 760 € main-d'œuvre = 3 200 €.<br>
+      • <strong>Remise printemps :</strong> −15 % → 2 720 € HT.<br>
+      • <strong>TVA 5,5 %</strong> (rénovation énergétique) : 149,60 €. <strong>TTC = 2 869,60 €</strong>.<br>
+      • <strong>Reste à charge</strong> après éco-prime CEE 350 € : <strong>2 519,60 €</strong>.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si le client choisit une <strong>pompe à chaleur</strong> (matériel + 1 200 € HT, MO identique), quel sera le nouveau TTC après remise et TVA ? L'économie liée aux CEE passe alors à 1 200 €.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Nouveau total HT = $3\,200 + 1\,200 = 4\,400 \,€$.</p>
+    <p>Après −15 % : $4\,400 \times 0,85 = 3\,740 \,€$. Avec TVA 5,5 % : $3\,740 \times 1,055 \approx $ <strong>3 945,70 € TTC</strong>.</p>
+    <p>Reste à charge après CEE : $3\,945,70 - 1\,200 = $ <strong>2 745,70 €</strong>. Coût final voisin du chauffage radiateurs, mais consommation divisée par 3 → choix gagnant à long terme.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Proportionnalité :</strong> deux grandeurs proportionnelles ⇔ rapport constant ($k = y/x$).</li>
+    <li><strong>Pourcentage d'une quantité :</strong> $\text{quantité} \times \dfrac{p}{100}$.</li>
+    <li><strong>Remise (−p %) :</strong> coefficient multiplicateur $1 - \dfrac{p}{100}$.</li>
+    <li><strong>Augmentation TVA (+p %) :</strong> coefficient $1 + \dfrac{p}{100}$.</li>
+    <li>Plusieurs taux successifs : <strong>multiplier les coefficients</strong> (ne pas additionner les %).</li>
+    <li><strong>Application pro :</strong> devis, facturation, remises commerciales, aides énergétiques.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Tableau de proportionnalité), §4 (Pourcentage d'une quantité) et §5 (Évolution en pourcentage) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
