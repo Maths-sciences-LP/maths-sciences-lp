@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – Activité 2 – Lampe UV pour séchage vernis – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+<header><h1>Activité 2 – Lampe UV pour séchage rapide de vernis <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+<p class="sous-titre">Chapitre 9 – Ondes électromagnétiques | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Ondes | ⏱ 35 min</p>
+<p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p></header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs"><strong>Objectifs :</strong>
+<ul><li>Calculer la fréquence d'une onde UV à partir de sa longueur d'onde</li><li>Identifier les domaines UVA, UVB, UVC dans le spectre</li><li>Comprendre l'utilisation des UV pour polymériser un vernis</li><li>Connaître les risques santé des UV et la protection nécessaire</li></ul></div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">💡 <a href="lecon.html">leçon</a>. UV : 100-400 nm. Plus la fréquence est élevée, plus l'énergie photon est grande.</p>
+
+<div class="situation"><h2>Situation – cabine UV pour finition Hugo</h2>
+<p><em>Hugo, ébéniste, investit dans une cabine UV pour sécher ses vernis modernes <strong>UV-photopolymérisables</strong> en 30 secondes au lieu de 12 h. La lampe émet à 365 nm (UVA). Hugo doit comprendre la physique pour bien régler la machine et travailler en sécurité.</em></p>
+
+<h3>Document 1 — Spectre UV</h3>
+<table><thead><tr><th>Domaine</th><th>λ</th><th>Effet biologique</th></tr></thead>
+<tbody>
+<tr><td>UVA</td><td>320-400 nm</td><td>Bronzage, vieillissement peau</td></tr>
+<tr><td>UVB</td><td>280-320 nm</td><td>Coups de soleil, cancer peau</td></tr>
+<tr><td>UVC</td><td>100-280 nm</td><td>Mortel pour bactéries, brûle la cornée</td></tr></tbody></table>
+
+<h3>Document 2 — Lampe UV cabine</h3>
+<ul><li>Longueur d'onde émise : <strong>λ = 365 nm</strong></li>
+<li>Puissance électrique : 400 W</li>
+<li>Rendement (% conversion électrique → UV) : 30 %</li>
+<li>Surface éclairée à 30 cm : 0,5 m²</li>
+<li>Temps polymérisation vernis : 30 s</li></ul></div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+<strong>Problématique :</strong> Quelle est la fréquence de l'onde UV émise, et pourquoi peut-elle « durcir » un vernis en 30 s alors qu'à l'air libre il faut 12 h ?</div>
+
+<div class="exo"><h2>Question 1 <span class="badge-yellow">REA</span></h2>
+<p>Calculer la <strong>fréquence f</strong> de la lampe UV (c = 3 × 10⁸ m/s, λ = 365 × 10⁻⁹ m).</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>f = c/λ = (3 × 10⁸)/(365 × 10⁻⁹) ≈ <strong>8,2 × 10¹⁴ Hz = 820 THz</strong>.</p></div></div>
+
+<div class="exo"><h2>Question 2 <span class="badge-green">APP</span></h2>
+<p>Identifier le domaine UV (UVA, UVB ou UVC) auquel appartient 365 nm.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>365 nm ∈ [320, 400] → <strong>UVA</strong>.</p>
+<p>Les UVA sont les moins dangereux des UV, mais peuvent quand même causer brûlures et vieillissement cutané. Les UVC sont les plus dangereux.</p></div></div>
+
+<div class="exo"><h2>Question 3 <span class="badge-yellow">REA</span></h2>
+<p>Calculer la <strong>puissance UV émise</strong> par la lampe (rendement 30 %).</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>P<sub>UV</sub> = 400 × 0,30 = <strong>120 W</strong> d'UV. Le reste (280 W) en chaleur.</p></div></div>
+
+<div class="exo"><h2>Question 4 <span class="badge-yellow">REA</span></h2>
+<p>Calculer l'<strong>éclairement UV</strong> à 30 cm (W/m²) sur la surface 0,5 m².</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>E<sub>UV</sub> = 120/0,5 = <strong>240 W/m²</strong>.</p>
+<p>(Pour comparer : Soleil au zénith ≈ 1 000 W/m² total, mais seulement ≈ 50 W/m² en UV. La lampe est 5 fois plus intense en UV que le Soleil !)</p></div></div>
+
+<div class="exo"><h2>Question 5 <span class="badge-blue">ANA</span></h2>
+<p>Pourquoi les UV peuvent-ils « durcir » un vernis spécial UV alors qu'un vernis classique sèche par évaporation pendant 12 h ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Vernis UV contient un <strong>photoinitiateur</strong> qui absorbe l'énergie UV. À 365 nm, l'énergie d'un photon (E = h × f) est suffisante pour casser certaines liaisons chimiques et déclencher la <strong>polymérisation</strong> (formation de chaînes macromoléculaires).</p>
+<p>En 30 s, le vernis durcit complètement par <strong>réticulation</strong> (formation d'un réseau 3D solide). À l'inverse, le vernis classique sèche par évaporation du solvant — beaucoup plus lent.</p>
+<p>Avantage : production rapide, pas de solvant volatil (mieux écologie + santé).</p></div></div>
+
+<div class="exo"><h2>Question 6 <span class="badge-blue">VAL</span></h2>
+<p>Quels <strong>EPI</strong> Hugo doit-il porter ? Pourquoi ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><ul><li><strong>Lunettes UV</strong> spéciales (verres barre 100 % UV, type lasergoogles classe 3) : protège les yeux. Sans lunettes, exposition 30 s à 240 W/m² UV cause photokératite (« coup d'arc » — douleur intense après 6-12 h).</li>
+<li><strong>Gants longs + manches longues</strong> : protège la peau. Brûlures possibles dès 5 min d'exposition prolongée.</li>
+<li><strong>Cabine fermée à interlock</strong> : la lampe ne s'allume pas si la porte n'est pas fermée. Sécurité ESC obligatoire.</li>
+<li>Pas de regard direct, même bref, sur la lampe allumée.</li></ul></div></div>
+
+<div class="exo"><h2>Question 7 <span class="badge-blue">ANA</span></h2>
+<p>Productivité : Hugo vernit 50 portes de cuisine par jour. Comparer le temps total avec lampe UV (30 s/porte) vs vernis classique (12 h séchage).</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Avec UV : 50 × 30 = 1 500 s = 25 min de séchage total. Pose de vernis : ~ 5 min/porte → 4 h total.</p>
+<p>Avec vernis classique : application 4 h, séchage 12 h, total ≈ 16 h. Plus pénible : besoin de stocker 50 portes sur séchoirs pendant 12 h.</p>
+<p>Gain UV : facteur 4 sur le délai, et flux production tout en continu. ROI cabine UV (10 000 €) en quelques mois pour un atelier sérieux.</p></div></div>
+
+<div class="exo"><h2>Question 8 <span class="badge-red">COM</span></h2>
+<p>Rédiger en 5 lignes une <strong>fiche d'utilisation</strong> de la cabine UV pour l'équipe.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir un exemple</button>
+<div class="corr"><p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+<strong>Atelier Hugo — Cabine UV vernis · 7 mai 2026</strong><br>
+• <strong>Lampe :</strong> 400 W, λ = 365 nm (UVA), 120 W d'UV utiles. Cabine étanche aux UV.<br>
+• <strong>Vernis UV-photopolymérisable</strong> requis (ne fonctionne pas sur vernis classiques !). Polymérisation en 30 s.<br>
+• <strong>Sécurité absolue :</strong> ne JAMAIS ouvrir la cabine pendant l'allumage. Lunettes UV obligatoires si problème (coupure d'urgence).<br>
+• <strong>Productivité :</strong> 50 portes/jour vs 16 h en vernis classique. Gain ×30 sur le délai.<br>
+• <strong>Maintenance :</strong> nettoyer les vitres UV mensuellement (jaunissement réduit l'émission). Lampe à remplacer tous les 8 000 h.</p></div></div>
+
+<div class="bonus"><strong>Pour aller plus loin (bonus)</strong>
+<p>Les UVC (254 nm) sont utilisés pour <strong>désinfecter l'air et les surfaces</strong> dans les hôpitaux. Calculer leur fréquence et expliquer pourquoi ils tuent les bactéries (alors que les UVA non).</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>f<sub>UVC</sub> = (3 × 10⁸)/(254 × 10⁻⁹) ≈ <strong>1,18 × 10¹⁵ Hz</strong>.</p>
+<p>L'énergie d'un photon UVC (E = h × f ≈ 4,9 eV) est suffisante pour <strong>casser les liaisons ADN</strong> des bactéries → mort cellulaire. Les UVA (3,4 eV) ne suffisent pas pour ce niveau d'énergie.</p>
+<p>Application pratique : lampe UVC en hôpital pour désinfecter les blocs entre 2 patients (en l'absence de personnes !).</p></div></div>
+
+<div class="retenir"><strong>À retenir</strong>
+<ul><li><strong>UV :</strong> 100-400 nm. UVA (320-400, le moins dangereux), UVB (280-320), UVC (100-280, le plus dangereux).</li>
+<li><strong>c = λ × f.</strong></li>
+<li><strong>UVA pour vernis :</strong> 365 nm typique. Polymérisation par photoinitiateur.</li>
+<li><strong>Avantage UV :</strong> séchage en 30 s vs 12 h vernis classique.</li>
+<li><strong>EPI obligatoires :</strong> lunettes UV, gants, cabine étanche, interlock.</li>
+<li><strong>Risque sans EPI :</strong> photokératite (« coup d'arc »), brûlures cutanées.</li></ul></div>
+
+</div><script src="../../../nav.js"></script></body></html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 4 – Sécurité électrique en atelier – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Sécurité électrique : protection différentielle <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 2 – Puissance consommée | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre le rôle d'un disjoncteur différentiel (DD)</li>
+    <li>Distinguer disjoncteur magnétothermique et différentiel</li>
+    <li>Calculer le courant de défaut à la terre</li>
+    <li>Choisir un DD adapté à un atelier professionnel humide</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : le disjoncteur différentiel (DD) coupe le courant si la somme des courants entrant et sortant ≠ 0 (fuite à la terre). Sensibilité 30 mA pour la sécurité des personnes.
+</p>
+
+<div class="situation">
+  <h2>Situation – diagnostic après accident</h2>
+  <p><em>Yann, électricien dépanneur, est appelé en urgence chez « MenuiPro » à Lille : un apprenti a reçu une décharge en touchant la carcasse de la défonceuse mouillée. Heureusement le disjoncteur différentiel a coupé immédiatement (sensibilité 30 mA). Yann doit comprendre l'origine du défaut, vérifier la mise à la terre et expliquer pourquoi le DD a sauvé l'apprenti.</em></p>
+
+  <h3>Document 1 — Risques selon le courant traversant le corps humain</h3>
+  <table>
+    <thead><tr><th>I (mA)</th><th>Effet sur le corps</th></tr></thead>
+    <tbody>
+      <tr><td>1 mA</td><td>Seuil de perception (picotement)</td></tr>
+      <tr><td>10 mA</td><td>Tétanisation des muscles, lâcher prise impossible</td></tr>
+      <tr><td><strong>30 mA</strong></td><td><strong>Seuil de mort par fibrillation cardiaque (durée &gt; 1 s)</strong></td></tr>
+      <tr><td>100 mA</td><td>Mort quasi immédiate</td></tr>
+      <tr><td>500 mA et +</td><td>Brûlures graves, arrêt respiratoire</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Caractéristiques de l'installation</h3>
+  <ul>
+    <li>Tension d'alimentation atelier : <strong>U = 230 V monophasé</strong></li>
+    <li>Résistance du corps humain (peau humide, mains mouillées) : <strong>R<sub>corps</sub> = 1 000 Ω</strong></li>
+    <li>Résistance de la prise de terre : <strong>R<sub>terre</sub> = 50 Ω</strong> (norme : ≤ 100 Ω en habitation)</li>
+    <li>Disjoncteur différentiel installé : <strong>30 mA, type AC, calibre 30 A</strong></li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Calculer le courant qui aurait traversé l'apprenti sans DD, et expliquer pourquoi le DD 30 mA est obligatoire en milieu humide.
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Énoncer la <strong>loi d'Ohm</strong> qui relie U, I et R. Quelle relation utiliser pour calculer le courant qui traverse une résistance soumise à une tension ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Loi d'Ohm : <strong>U = R × I</strong>, soit <strong>I = U / R</strong>.</p>
+    <ul>
+      <li>U : tension en volts (V)</li>
+      <li>I : courant en ampères (A)</li>
+      <li>R : résistance en ohms (Ω)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>courant qui aurait traversé le corps</strong> de l'apprenti si la défonceuse n'avait pas été reliée à la terre (corps en série avec U = 230 V).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>I = U / R<sub>corps</sub> = 230 / 1 000 = <strong>0,23 A = 230 mA</strong>.</p>
+    <p>D'après le Doc 1, 230 mA &gt;&gt; 100 mA → <strong>mort quasi immédiate</strong> par fibrillation cardiaque.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Avec la mise à la terre (R<sub>terre</sub> = 50 Ω), le courant de défaut passe par le chemin de moindre résistance (la terre, 50 Ω, vs corps 1 000 Ω). Calculer le courant de défaut total.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le courant choisit le chemin le plus facile : terre (50 Ω). Mais une petite partie passe quand même dans le corps en parallèle.</p>
+    <p>Approximation simple : I<sub>terre</sub> = U / R<sub>terre</sub> = 230 / 50 = <strong>4,6 A</strong>.</p>
+    <p>Ce courant est largement supérieur au seuil de déclenchement du DD (30 mA = 0,03 A) → le DD coupe instantanément.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Le disjoncteur différentiel (DD) coupe en <strong>moins de 30 ms</strong> dès que la fuite dépasse 30 mA. Sans DD, un disjoncteur magnétothermique 30 A aurait-il coupé ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>4,6 A &lt;&lt; 30 A → un disjoncteur magnétothermique 30 A <strong>n'aurait pas coupé</strong>.</p>
+    <p>Le défaut serait passé inaperçu pour la protection « surintensité », mais aurait pu fortement chauffer la carcasse mouillée et la garder sous tension dangereuse.</p>
+    <p>D'où la nécessité d'un <strong>disjoncteur différentiel</strong> pour la protection <em>des personnes</em> (et non du matériel). Les 2 protections sont complémentaires.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Si la prise de terre était <strong>défectueuse</strong> (R<sub>terre</sub> = 1 000 Ω au lieu de 50 Ω), calculer le courant de défaut total. Le DD se déclencherait-il ? Quel risque pour le corps humain ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Avec R<sub>terre</sub> = 1 000 Ω et R<sub>corps</sub> = 1 000 Ω en parallèle, le courant total = U / (R<sub>terre</sub> // R<sub>corps</sub>) = 230 / 500 = <strong>0,46 A</strong>.</p>
+    <p>Ce courant est partagé : moitié dans la terre, moitié dans le corps → <strong>230 mA dans le corps</strong> (mortel).</p>
+    <p>Le DD se déclenche (0,46 &gt;&gt; 30 mA) en moins de 30 ms : c'est la durée pendant laquelle l'apprenti reçoit le choc. Limite supérieure du temps de tolérance : ≈ 1 s à 30 mA pour rester non létal. Donc <strong>30 ms = sécurité acceptable</strong>.</p>
+    <p>Conclusion : la mise à la terre <strong>ET</strong> le DD doivent fonctionner ensemble. Vérification annuelle obligatoire de la résistance de terre par un électricien.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Pourquoi un atelier de menuiserie / agencement (souvent humide à cause de la sciure mouillée, des produits de finition) doit-il être équipé d'un <strong>DD 30 mA type B ou A renforcé</strong> et non simplement type AC ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Les DD se classent en types selon les courants détectables :</p>
+    <ul>
+      <li><strong>Type AC</strong> : détecte les courants alternatifs sinusoïdaux purs. Utilisable sur prises générales.</li>
+      <li><strong>Type A</strong> : détecte aussi les courants pulsés (présents dans variateurs, électroménager, plaques induction). Recommandé en atelier moderne.</li>
+      <li><strong>Type B</strong> : détecte aussi les courants continus. Indispensable pour bornes de recharge VE, photovoltaïque, certaines machines à variateur.</li>
+    </ul>
+    <p>En atelier ERA-MA avec machines à variateur de vitesse électronique (raboteuse Inverter, défonceuse) : <strong>type A minimum</strong>, type B si bornes de recharge ou onduleurs.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>L'atelier mesure 80 m². Pour une protection optimale, on recommande de séparer les circuits en plusieurs DD pour limiter l'impact d'un défaut. Combien de DD Yann recommande-t-il, et quels circuits relier à chacun ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Recommandation : <strong>3 DD séparés</strong>.</p>
+    <ul>
+      <li><strong>DD 1 (30 mA, type A) :</strong> circuits machines (raboteuse, scie, défonceuse).</li>
+      <li><strong>DD 2 (30 mA, type A) :</strong> circuits éclairage + prises de bureau.</li>
+      <li><strong>DD 3 (30 mA, type A) :</strong> prises de courant en zone humide (cabine de finition).</li>
+    </ul>
+    <p>Ainsi, si une machine a un défaut, seul son DD coupe — les autres circuits restent alimentés. Permet de continuer à travailler partiellement en attendant la réparation.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>compte-rendu d'intervention</strong> que Yann remet à MenuiPro après son diagnostic.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Yann Élec — Diagnostic post-accident électrique chez MenuiPro · 7 mai 2026</strong><br>
+      • <strong>Incident :</strong> apprenti choqué en touchant carcasse défonceuse mouillée. DD 30 mA a coupé en &lt; 30 ms (sauvetage).<br>
+      • <strong>Calcul de risque :</strong> sans DD, courant traversant le corps = 230 mA → mort quasi instantanée. Avec terre intacte : courant détourné vers la terre, DD coupe à 30 mA.<br>
+      • <strong>Vérifications faites :</strong> R<sub>terre</sub> mesurée = 48 Ω (conforme &lt; 100 Ω). Continuité des masses OK. Origine défaut : pénétration humidité dans le bobinage moteur. Réparation moteur ou remplacement.<br>
+      • <strong>Recommandation :</strong> remplacer DD type AC par <strong>type A</strong> (compatible variateurs modernes), prévoir 3 DD séparés pour cloisonner les défauts.<br>
+      • <strong>Action immédiate :</strong> arrêt défonceuse, pose étiquette « hors service », remplacement sous 48 h. Test annuel des DD (bouton T) à programmer.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Que se passerait-il si l'apprenti était <strong>pieds nus sur sol sec</strong> (R<sub>sol-pieds</sub> = 10 000 Ω) au moment du contact ? Recalculer le courant traversant le corps.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Résistance totale : R<sub>corps</sub> + R<sub>sol-pieds</sub> = 1 000 + 10 000 = 11 000 Ω.</p>
+    <p>I = 230 / 11 000 ≈ <strong>21 mA</strong> (au lieu de 230 mA mains mouillées).</p>
+    <p>21 mA &lt; 30 mA seuil mortel → l'apprenti aurait pu s'en sortir, mais avec une forte commotion. <strong>L'humidité multiplie par 10 le danger</strong>. C'est pour cela que les ateliers humides doivent toujours avoir un DD 30 mA, et que les chaussures de sécurité avec semelle isolante sont recommandées.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Loi d'Ohm :</strong> I = U / R. À 230 V, le corps mouillé (1 kΩ) reçoit 230 mA — mortel.</li>
+    <li><strong>Disjoncteur différentiel (DD) :</strong> coupe si fuite à la terre &gt; sensibilité (typiquement 30 mA en habitation/ERP).</li>
+    <li><strong>Mise à la terre :</strong> détourne le courant de défaut → DD coupe → personne protégée. R<sub>terre</sub> ≤ 100 Ω obligatoire.</li>
+    <li><strong>Types de DD :</strong> AC (alternatif simple), A (avec variateurs), B (avec courant continu, bornes VE).</li>
+    <li><strong>Cloisonnement :</strong> séparer les circuits sur plusieurs DD pour limiter l'impact d'un défaut.</li>
+    <li><strong>En atelier humide</strong> (menuiserie, agencement) : DD 30 mA type A obligatoire, R<sub>terre</sub> contrôlée annuellement.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §6 (Sécurité électrique) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

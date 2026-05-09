@@ -182,6 +182,60 @@ La dernière question (ou un encadré dédié) formalise la notion :
 
 ---
 
+## Format « manuel scolaire complet » (activités secondaires `activite-N-...html`)
+
+Pour les activités **secondaires** d'un chapitre (nommées `activite-2-slug.html`, `activite-3-slug.html`, `activite-4-slug.html`), le format de référence est plus rigide que pour `activite.html`. Il s'agit d'un format unifié, imprimable, calibré pour 30 min de travail élève en classe.
+
+### Caractéristiques obligatoires
+
+| Élément | Spécification |
+|---|---|
+| **Timestamp** | `<p class="maj">Dernière mise à jour : J mois AAAA, format manuel scolaire</p>` dans le `<header>` |
+| **Bouton imprimer** | `<button onclick="window.print()">🖨️ Imprimer cette activité</button>` après le header |
+| **Badge SITUATION PRO** | `<span style="font-size:.55em;color:VAR;font-weight:600">SITUATION PRO</span>` dans le `<h1>` |
+| **Sous-titre** | `Chapitre X — Titre | Niveau Bac Pro | Matière | ⏱ 30 min` |
+| **Objectifs** | bloc `.objectifs` avec 3 items (verbes d'action : utiliser, calculer, comprendre…) |
+| **Encart leçon** | `<p style="background:#fef3c7;border-left:3px solid #b45309">💡 Notions centrales : <a href="lecon.html">leçon</a> §X. [Formule centrale en MathJax]</p>` (PC uniquement, optionnel maths) |
+| **Situation pro** | Persona réaliste **avec prénom et métier réel** (jamais de sigle filière). Filière : MAMA pour 2nde, ICCER/ERA-MA pour 1ère/Term, MIT/Ébéniste/SDG pour CAP |
+| **Documents structurés** | Doc 1 = SVG inline (schéma/graphique), Doc 2 = données numériques (`<ul>` avec `<strong>`) |
+| **Problématique** | Encadrée dans `<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0">` |
+| **8 questions** | Réparties APP (1-2) + REA (2-3) + ANA (1-2) + VAL (1) + COM (1, badge **rouge**) |
+| **Lignes-réponse imprimables** | `<ul class="lignes-reponse"><li></li>×5</ul>` après chaque question (5 lignes par défaut, 4 pour COM si rédaction longue) |
+| **Bonus** | `<div class="bonus">` (encadré jaune `#fef3c7` avec `border-left:4px solid #f59e0b`) — 1 question d'extension avec correction |
+| **À retenir** | `<div class="retenir">` avec 3-5 items synthèse + ref leçon finale : `<p><em>📚 Cette activité s'appuie sur §X (...) et §Y (...) de la leçon ChXX.</em></p>` |
+
+### Style CSS inline obligatoire
+
+```html
+<style>:root{--p:COULEUR;--p-bg:COULEUR-BG;--p-border:COULEUR-BORDER}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+```
+
+### Badges compétences (rappel pour ce format)
+
+- APP : `<span class="badge-green">APP</span>`
+- REA : `<span class="badge-yellow">REA</span>`
+- ANA : `<span class="badge-blue">ANA</span>`
+- VAL : `<span class="badge-blue">VAL</span>` ou `<span class="badge-green">VAL</span>`
+- COM : `<span class="badge-red">COM</span>` (toujours rouge dans ce format)
+
+### Checklist spécifique « format manuel scolaire »
+
+- [ ] Timestamp `class="maj"` présent dans le `<header>`
+- [ ] Bouton imprimer après le header
+- [ ] Badge SITUATION PRO dans `<h1>`
+- [ ] Persona avec prénom + métier réel (pas de sigle filière)
+- [ ] Documents 1 et 2 séparés (SVG + données)
+- [ ] Problématique dans un encadré couleur primaire
+- [ ] **Exactement 8 questions** numérotées de 1 à 8
+- [ ] **Lignes-réponse imprimables** sous chaque question (`<ul class="lignes-reponse">`)
+- [ ] Section bonus avec encadré jaune `.bonus`
+- [ ] Ref leçon `📚 §X de la leçon ChXX` à la fin du À retenir
+- [ ] Badge COM en rouge (`badge-red`)
+- [ ] Aucune balise malformée `<li</li>` (vérifier avec `grep '<li</li>'`)
+
+---
+
 ## Différenciation pédagogique
 
 L'activité est en général **une base commune** (pas de différenciation par défaut).

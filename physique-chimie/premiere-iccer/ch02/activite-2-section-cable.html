@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 2 – Choisir la section du câble électrique – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Choisir la section du câble pour raccorder une PAC <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 2 – Transport de l'énergie | 1ère Bac Pro ICCER (Grpt 1) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la résistance d'un câble électrique en fonction de sa longueur et de sa section</li>
+    <li>Calculer la chute de tension dans une ligne et la vérifier vs la norme NF C 15-100</li>
+    <li>Choisir une section de câble adaptée à un raccordement professionnel</li>
+    <li>Comprendre l'enjeu économique et sécuritaire du dimensionnement</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (effet Joule, R, ρ). Résistance d'un conducteur : \(R = \rho \cdot L / S\). Chute de tension : \(\Delta U = R \cdot I\) (en continu ou en alternatif sur charge résistive).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – raccordement d'une PAC chez M. et Mme Lefèvre</h2>
+  <p><em>Yanis, électricien-thermicien chez « ÉlectroChauf » à Bordeaux, doit raccorder une nouvelle pompe à chaleur air/eau de 12 kW thermiques (3,8 kW électriques) au tableau électrique de la maison de M. et Mme Lefèvre. La PAC est installée à l'extérieur, contre le mur ; le tableau est dans le garage à l'autre bout de la maison. Yanis doit choisir la section du câble en cuivre pour respecter la norme NF C 15-100 (chute de tension &lt; 3 % en circuit terminal).</em></p>
+
+  <h3>Document 1 — Caractéristiques du raccordement</h3>
+  <ul>
+    <li>Tension d'alimentation : <strong>U = 230 V</strong> monophasé</li>
+    <li>Courant nominal absorbé par la PAC : <strong>I = 16 A</strong> (au démarrage, jusqu'à 24 A pendant 2 secondes)</li>
+    <li>Distance tableau ↔ PAC (aller simple) : <strong>L = 25 m</strong></li>
+    <li>Câble en <strong>cuivre</strong> (résistivité ρ = <strong>1,7 × 10⁻⁸ Ω·m</strong>)</li>
+    <li>Norme à respecter : NF C 15-100 — <strong>chute de tension max 3 %</strong> (soit ΔU ≤ 6,9 V)</li>
+  </ul>
+
+  <h3>Document 2 — Catalogue de câbles cuivre disponibles</h3>
+  <table>
+    <thead>
+      <tr><th>Section S</th><th>Courant max admissible</th><th>Prix au mètre</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1,5 mm²</td><td>16 A</td><td>0,80 €/m</td></tr>
+      <tr><td>2,5 mm²</td><td>21 A</td><td>1,30 €/m</td></tr>
+      <tr><td>4 mm²</td><td>27 A</td><td>2,10 €/m</td></tr>
+      <tr><td>6 mm²</td><td>34 A</td><td>3,15 €/m</td></tr>
+      <tr><td>10 mm²</td><td>46 A</td><td>5,20 €/m</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Schéma de l'installation</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 240" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : maison vue en coupe avec à gauche le tableau électrique 230V dans le garage, et à droite la PAC à l'extérieur. Un câble bipolaire de longueur L = 25 m relie le tableau à la PAC en passant par les murs. Le courant nominal est I = 16 A. Une chute de tension ΔU = R × I se produit dans le câble.">
+      <defs>
+        <linearGradient id="murCh02" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#fef3c7"/>
+          <stop offset="100%" stop-color="#fde68a"/>
+        </linearGradient>
+        <style>
+          .ti2c{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl2c{font:11px sans-serif;fill:#1a202c}
+          .lblB2c{font:700 11px sans-serif;fill:#1d4ed8}
+          .lblR2c{font:700 11px sans-serif;fill:#b91c1c}
+          .cable{stroke:#dc2626;stroke-width:3;fill:none;stroke-linecap:round}
+        </style>
+      </defs>
+
+      <text class="ti2c" x="350" y="22">Raccordement PAC – câble en cuivre, longueur 25 m</text>
+
+      <!-- Sol -->
+      <rect x="0" y="200" width="700" height="40" fill="#84cc16" opacity=".3"/>
+      <line x1="0" y1="200" x2="700" y2="200" stroke="#16a34a" stroke-width="1.5"/>
+
+      <!-- Maison -->
+      <rect x="40" y="60" width="540" height="140" fill="url(#murCh02)" stroke="#92400e" stroke-width="2.5"/>
+      <polygon points="40,60 310,30 580,60" fill="#92400e" stroke="#7c2d12" stroke-width="2"/>
+
+      <!-- Garage à gauche avec tableau électrique -->
+      <line x1="180" y1="60" x2="180" y2="200" stroke="#92400e" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text class="lbl2c" x="110" y="80" text-anchor="middle" font-style="italic" fill="#7c2d12">garage</text>
+
+      <!-- Tableau électrique -->
+      <rect x="70" y="100" width="60" height="80" fill="#fff" stroke="#1f2937" stroke-width="2"/>
+      <line x1="78" y1="115" x2="122" y2="115" stroke="#475569"/>
+      <line x1="78" y1="130" x2="122" y2="130" stroke="#475569"/>
+      <line x1="78" y1="145" x2="122" y2="145" stroke="#475569"/>
+      <line x1="78" y1="160" x2="122" y2="160" stroke="#475569"/>
+      <text class="lbl2c" x="100" y="195" text-anchor="middle" font-size="9" fill="#475569">tableau 230 V</text>
+
+      <!-- Câble qui parcourt la maison -->
+      <path class="cable" d="M 130 140 Q 200 140 260 140 L 540 140 L 600 140"/>
+      <text class="lblR2c" x="350" y="130" text-anchor="middle">câble cuivre · L = 25 m · I = 16 A</text>
+      <text class="lbl2c" x="350" y="158" text-anchor="middle" font-size="10" fill="#475569" font-style="italic">ΔU = R × I (chute de tension à calculer)</text>
+
+      <!-- PAC à droite extérieur -->
+      <rect x="600" y="160" width="80" height="50" fill="#f1f5f9" stroke="#0969da" stroke-width="2.5" rx="5"/>
+      <line x1="608" y1="172" x2="672" y2="172" stroke="#0969da" stroke-width="0.8"/>
+      <line x1="608" y1="184" x2="672" y2="184" stroke="#0969da" stroke-width="0.8"/>
+      <line x1="608" y1="196" x2="672" y2="196" stroke="#0969da" stroke-width="0.8"/>
+      <text class="lblB2c" x="640" y="155" text-anchor="middle">PAC 12 kW</text>
+      <text class="lbl2c" x="640" y="225" text-anchor="middle" font-size="9" fill="#475569">extérieur</text>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle section minimale de câble cuivre Yanis doit-il poser pour respecter à la fois la norme NF C 15-100 (chute de tension &lt; 3 %) et la sécurité (courant max admissible) ? Quel est le surcoût d'un câble surdimensionné ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la <strong>chute de tension maximale autorisée</strong> ΔU<sub>max</sub> par la norme NF C 15-100 (3 % de la tension nominale 230 V). Vérifier la cohérence avec la valeur du Doc 1.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>ΔU<sub>max</sub> = 3 % × 230 = 0,03 × 230 = <strong>6,9 V</strong></p>
+    <p>Cohérent avec la valeur indiquée dans le Doc 1.</p>
+    <p>Cette limite garantit que la PAC reçoit au moins 230 − 6,9 = 223,1 V à ses bornes (sinon, son moteur peut chauffer ou démarrer mal).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Le câble parcourt 25 m mais le courant fait un <strong>aller-retour</strong> (phase + neutre). La longueur effective de conducteur traversé par le courant est donc 2 × L = 50 m.</p>
+  <p>Calculer la résistance R d'un câble de section <strong>1,5 mm²</strong> à l'aide de la formule \(R = \rho \times L_{\text{effective}} / S\).</p>
+  <p><em>Attention aux unités : ρ en Ω·m, L en m, S en m². 1 mm² = 10⁻⁶ m².</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>S = 1,5 mm² = 1,5 × 10⁻⁶ m². L_eff = 50 m.</p>
+    <p>R = (1,7 × 10⁻⁸) × 50 / (1,5 × 10⁻⁶)</p>
+    <p>R = (1,7 × 50 / 1,5) × 10⁻⁸⁺⁶ = 56,67 × 10⁻² ≈ <strong>0,57 Ω</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>En déduire la <strong>chute de tension</strong> ΔU = R × I dans le câble 1,5 mm². Comparer à ΔU<sub>max</sub> = 6,9 V. Cette section est-elle conforme ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>ΔU = R × I = 0,57 × 16 ≈ <strong>9,1 V</strong></p>
+    <p>9,1 V &gt; 6,9 V → la chute de tension <strong>dépasse la limite de 3 %</strong>. La section 1,5 mm² est <strong>NON CONFORME</strong>.</p>
+    <p>De plus, la PAC ne recevrait que 230 − 9,1 = 220,9 V → risque de mauvais démarrage et d'échauffement du moteur.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Refaire les calculs (R puis ΔU) pour les sections <strong>2,5 mm²</strong>, <strong>4 mm²</strong> et <strong>6 mm²</strong>. Compléter le tableau et identifier la <strong>section minimale conforme</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Section S</th><th>R (Ω)</th><th>ΔU = R × I (V)</th><th>ΔU / 230 (%)</th><th>Conforme ?</th></tr></thead>
+      <tbody>
+        <tr><td>1,5 mm²</td><td>0,57</td><td>9,1</td><td>3,9 %</td><td>❌ NON</td></tr>
+        <tr><td>2,5 mm²</td><td>0,34</td><td>5,4</td><td>2,4 %</td><td>✅ OUI</td></tr>
+        <tr><td>4 mm²</td><td>0,21</td><td>3,4</td><td>1,5 %</td><td>✅ OUI</td></tr>
+        <tr><td>6 mm²</td><td>0,14</td><td>2,3</td><td>1,0 %</td><td>✅ OUI</td></tr>
+      </tbody>
+    </table>
+    <p>Calculs détaillés (formule R = ρ × L_eff / S) :</p>
+    <ul>
+      <li>S = 2,5 mm² : R = (1,7 × 10⁻⁸) × 50 / (2,5 × 10⁻⁶) = 0,34 Ω → ΔU = 0,34 × 16 = 5,4 V</li>
+      <li>S = 4 mm² : R = 0,21 Ω → ΔU = 3,4 V</li>
+      <li>S = 6 mm² : R = 0,14 Ω → ΔU = 2,3 V</li>
+    </ul>
+    <p><strong>Section minimale conforme : 2,5 mm²</strong> (chute de tension 2,4 % &lt; 3 %).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Vérifier aussi le critère <strong>courant maximal admissible</strong> (Doc 2). Une section conforme à la chute de tension est-elle systématiquement conforme au courant ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le courant nominal est 16 A.</p>
+    <ul>
+      <li>2,5 mm² : I_max = 21 A &gt; 16 A ✓ — conforme</li>
+      <li>4 mm² : I_max = 27 A &gt; 16 A ✓ — conforme</li>
+    </ul>
+    <p>Pour ce raccordement, les deux critères donnent le même résultat. Mais sur des câbles plus longs ou très chargés, la chute de tension peut devenir le critère le plus contraignant. <strong>Toujours vérifier les deux critères.</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>coût total du câble</strong> (longueur 25 m × prix au mètre) pour les sections 2,5 mm², 4 mm² et 6 mm². Quel est le surcoût d'un câble surdimensionné ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>2,5 mm² : 25 × 1,30 = <strong>32,50 €</strong> (minimal conforme)</li>
+      <li>4 mm² : 25 × 2,10 = <strong>52,50 €</strong> (+20 €)</li>
+      <li>6 mm² : 25 × 3,15 = <strong>78,75 €</strong> (+46 €)</li>
+    </ul>
+    <p>Surdimensionner reste raisonnable en habitat résidentiel (quelques dizaines d'euros). Mais en industrie ou réseau public, le surcoût peut représenter des milliers d'euros — d'où l'importance du calcul.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Yanis hésite entre <strong>2,5 mm²</strong> (juste conforme à 2,4 %) et <strong>4 mm²</strong> (large marge à 1,5 %). Calculer la <strong>puissance perdue par effet Joule</strong> dans chaque câble (P<sub>perdue</sub> = R × I²) lorsque la PAC fonctionne à I = 16 A.</p>
+  <p>Sur 2 310 h de fonctionnement annuel (saison de chauffe), calculer l'énergie perdue et son coût (0,2516 €/kWh).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Câble 2,5 mm² : P_perdue = R × I² = 0,34 × 16² = 0,34 × 256 ≈ <strong>87 W</strong></p>
+    <p>Câble 4 mm² : P_perdue = 0,21 × 256 ≈ <strong>54 W</strong></p>
+    <p>Économie de pertes avec 4 mm² : 87 − 54 = <strong>33 W</strong> (énergie dissipée en chaleur dans les murs).</p>
+    <p>Sur 2 310 h/an : énergie perdue économisée = 33 × 2 310 / 1 000 ≈ 76 kWh/an</p>
+    <p>Coût économisé : 76 × 0,2516 ≈ <strong>19 €/an</strong></p>
+    <p>Sur 25 ans (durée de vie d'un câble), économie cumulée ≈ 475 €. Le surcoût initial de 20 € se rembourse en 1 an. <strong>Surdimensionner légèrement est rentable !</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note de chantier</strong> que Yanis remet à M. et Mme Lefèvre :</p>
+  <ul>
+    <li>section choisie et justification (2 critères normatifs)</li>
+    <li>coût matériel</li>
+    <li>recommandation éventuelle d'un surdimensionnement</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ÉlectroChauf — Note de chantier · raccordement PAC chez M. et Mme Lefèvre</strong><br>
+      • Distance tableau / PAC : 25 m. Courant nominal : 16 A. Norme NF C 15-100 : ΔU max 3 % = 6,9 V.<br>
+      • <strong>Section minimale conforme : 2,5 mm² cuivre</strong> (R = 0,34 Ω, ΔU = 5,4 V soit 2,4 %, courant max admissible 21 A).<br>
+      • Coût matériel : <strong>32,50 €</strong> pour 25 m.<br>
+      • <strong>Recommandation</strong> : opter pour du <strong>4 mm²</strong> (52,50 €) — surcoût 20 € rentabilisé en 1 an grâce à la baisse des pertes Joule (~ 19 €/an), et marge de sécurité accrue si la PAC monte ponctuellement à 24 A au démarrage.<br>
+      • Disjoncteur de protection : <strong>20 A courbe D</strong> (compatible avec les pointes de démarrage).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si la maison était à <strong>50 m</strong> du tableau (au lieu de 25 m), recalculer la section minimale conforme (sans recommencer entièrement le calcul : utiliser une règle de proportionnalité). Quelle leçon en tirer ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>R est proportionnel à L. Si L double, R double, donc ΔU double aussi (à I constant).</p>
+    <p>Avec L = 50 m, ΔU pour la 2,5 mm² serait 2 × 5,4 = 10,8 V (4,7 %) → <strong>NON CONFORME</strong>.</p>
+    <p>Pour rester sous 6,9 V, il faut R divisée par 1,57. R proportionnel à 1/S → S devrait être × 1,57. Soit ≈ <strong>4 mm²</strong> minimum.</p>
+    <p><strong>Leçon :</strong> plus le câble est long, plus la section doit être grande à courant donné. C'est exactement la même problématique que pour le transport de l'électricité sur de longues distances (ligne haute tension : voir activité 4).</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Résistance d'un conducteur :</strong> \(R = \rho \cdot L / S\) où ρ est la résistivité (1,7 × 10⁻⁸ Ω·m pour le cuivre), L la longueur, S la section.</li>
+    <li><strong>Longueur effective :</strong> en monophasé, le courant fait un aller-retour (phase + neutre) → L_eff = 2 × L_câble.</li>
+    <li><strong>Chute de tension :</strong> \(\Delta U = R \cdot I\). Norme NF C 15-100 : ΔU &lt; 3 % en circuit terminal, &lt; 5 % au total.</li>
+    <li><strong>Pertes par effet Joule :</strong> \(P_{\text{pertes}} = R \cdot I^2\). Augmentent avec le carré du courant !</li>
+    <li><strong>Choix d'une section :</strong> doit respecter à la fois (a) le courant maximal admissible (sécurité thermique) et (b) la chute de tension max (qualité d'alimentation). Toujours vérifier les deux.</li>
+    <li><strong>Surdimensionnement modéré :</strong> souvent rentable à long terme grâce à la baisse des pertes Joule.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Effet Joule, résistance) et §5 (Applications professionnelles) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

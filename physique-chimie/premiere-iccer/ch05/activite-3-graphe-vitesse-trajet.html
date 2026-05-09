@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité 3 – Lire un graphe v(t) du trajet d'un fourgon – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Lire un graphe v(t) : trajet d'un fourgon de livraison <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 5 – Vitesse et accélération | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Identifier les phases d'un mouvement à partir d'un graphe v(t)</li>
+    <li>Calculer une accélération à partir de la pente du graphe : a = Δv / Δt</li>
+    <li>Calculer une distance parcourue à partir de l'aire sous la courbe</li>
+    <li>Calculer une vitesse moyenne sur un trajet composite</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §3 (types de mouvement) et §5 (lire un graphe v(t)). Pente du graphe = accélération a. Aire sous la courbe = distance parcourue d.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – livraison d'une chaudière chez Mme Garcia</h2>
+  <p><em>Camille, livreuse pour « DistriThermique » à Toulouse, vient de quitter le dépôt en fourgon utilitaire pour livrer une chaudière à condensation chez Mme Garcia, à 800 m du dépôt. Le tachygraphe du fourgon enregistre la vitesse en fonction du temps. À l'arrivée, Camille consulte le graphe v(t) pour analyser son trajet et vérifier qu'elle a respecté les vitesses urbaines.</em></p>
+
+  <h3>Document 1 — Graphe v(t) enregistré par le tachygraphe</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 360" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Graphe vitesse-temps du trajet du fourgon. Axe horizontal : temps de 0 à 30 secondes. Axe vertical : vitesse de 0 à 25 m/s. Phase 1 (0 à 8 s) : ligne droite croissante de 0 à 22,2 m/s, c'est l'accélération du démarrage. Phase 2 (8 à 26 s) : palier horizontal à 22,2 m/s, vitesse constante. Phase 3 (26 à 30 s) : ligne droite décroissante de 22,2 à 0 m/s, c'est le freinage. La vitesse maximale 22,2 m/s correspond à 80 km/h.">
+      <defs>
+        <style>
+          .axM{stroke:#1f2937;stroke-width:1.5;fill:none}
+          .grid5{stroke:#e5e7eb;stroke-width:0.5}
+          .courbe5{stroke:#0969da;stroke-width:2.8;fill:none}
+          .zone1{fill:#dcfce7;opacity:.5}
+          .zone2{fill:#dbeafe;opacity:.5}
+          .zone3{fill:#fee2e2;opacity:.5}
+          .lbl5g{font:11px sans-serif;fill:#374151}
+          .lblPhase{font:700 12px sans-serif;text-anchor:middle}
+          .ti5g{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+        </style>
+      </defs>
+
+      <text class="ti5g" x="350" y="22">Vitesse v en fonction du temps t — trajet du fourgon</text>
+
+      <!-- Grille horizontale (vitesse) -->
+      <g class="grid5">
+        <line x1="60" y1="60" x2="660" y2="60"/>
+        <line x1="60" y1="100" x2="660" y2="100"/>
+        <line x1="60" y1="140" x2="660" y2="140"/>
+        <line x1="60" y1="180" x2="660" y2="180"/>
+        <line x1="60" y1="220" x2="660" y2="220"/>
+        <line x1="60" y1="260" x2="660" y2="260"/>
+      </g>
+
+      <!-- Grille verticale (temps) -->
+      <g class="grid5">
+        <line x1="120" y1="40" x2="120" y2="300"/>
+        <line x1="180" y1="40" x2="180" y2="300"/>
+        <line x1="240" y1="40" x2="240" y2="300"/>
+        <line x1="300" y1="40" x2="300" y2="300"/>
+        <line x1="360" y1="40" x2="360" y2="300"/>
+        <line x1="420" y1="40" x2="420" y2="300"/>
+        <line x1="480" y1="40" x2="480" y2="300"/>
+        <line x1="540" y1="40" x2="540" y2="300"/>
+        <line x1="600" y1="40" x2="600" y2="300"/>
+      </g>
+
+      <!-- Zones colorées correspondant aux phases -->
+      <!-- Échelle : x de t=0 à t=30 → 60→660 (20 px/s), y de v=0 à v=25 m/s → 300→60 (9,6 px/(m/s)) -->
+      <!-- Phase 1 (0-8s, accélération de 0 à 22,2 m/s) : zone triangulaire -->
+      <polygon class="zone1" points="60,300 220,300 220,87"/>
+      <!-- Phase 2 (8-26s, palier 22,2 m/s) : zone rectangle -->
+      <polygon class="zone2" points="220,300 580,300 580,87 220,87"/>
+      <!-- Phase 3 (26-30s, décélération) : zone triangulaire -->
+      <polygon class="zone3" points="580,300 660,300 580,87"/>
+
+      <!-- Axes -->
+      <line class="axM" x1="60" y1="300" x2="680" y2="300"/>
+      <line class="axM" x1="60" y1="40" x2="60" y2="300"/>
+
+      <!-- Courbe v(t) -->
+      <path class="courbe5" d="M 60,300 L 220,87 L 580,87 L 660,300"/>
+
+      <!-- Points clés -->
+      <circle cx="60" cy="300" r="4" fill="#0969da"/>
+      <circle cx="220" cy="87" r="4" fill="#0969da"/>
+      <circle cx="580" cy="87" r="4" fill="#0969da"/>
+      <circle cx="660" cy="300" r="4" fill="#0969da"/>
+
+      <!-- Graduations X -->
+      <text class="lbl5g" x="60" y="318" text-anchor="middle">0</text>
+      <text class="lbl5g" x="120" y="318" text-anchor="middle">3</text>
+      <text class="lbl5g" x="180" y="318" text-anchor="middle">6</text>
+      <text class="lbl5g" x="220" y="318" text-anchor="middle" font-weight="bold" fill="#15803d">8</text>
+      <text class="lbl5g" x="300" y="318" text-anchor="middle">12</text>
+      <text class="lbl5g" x="420" y="318" text-anchor="middle">18</text>
+      <text class="lbl5g" x="540" y="318" text-anchor="middle">24</text>
+      <text class="lbl5g" x="580" y="318" text-anchor="middle" font-weight="bold" fill="#1d4ed8">26</text>
+      <text class="lbl5g" x="660" y="318" text-anchor="middle" font-weight="bold" fill="#b91c1c">30</text>
+      <text class="lbl5g" x="350" y="340" text-anchor="middle" font-style="italic">temps t (s)</text>
+
+      <!-- Graduations Y -->
+      <text class="lbl5g" x="50" y="304" text-anchor="end">0</text>
+      <text class="lbl5g" x="50" y="264" text-anchor="end">5</text>
+      <text class="lbl5g" x="50" y="224" text-anchor="end">10</text>
+      <text class="lbl5g" x="50" y="184" text-anchor="end">15</text>
+      <text class="lbl5g" x="50" y="144" text-anchor="end">20</text>
+      <text class="lbl5g" x="50" y="91" text-anchor="end" font-weight="bold" fill="#0969da">22,2</text>
+      <text class="lbl5g" x="50" y="64" text-anchor="end">25</text>
+      <text class="lbl5g" x="20" y="170" text-anchor="middle" transform="rotate(-90 20 170)" font-style="italic">vitesse v (m/s)</text>
+
+      <!-- Labels phases -->
+      <text class="lblPhase" x="140" y="55" fill="#15803d">PHASE 1</text>
+      <text class="lblPhase" x="140" y="200" fill="#15803d" font-size="10">accélération</text>
+      <text class="lblPhase" x="400" y="55" fill="#1d4ed8">PHASE 2</text>
+      <text class="lblPhase" x="400" y="200" fill="#1d4ed8" font-size="10">vitesse constante (uniforme)</text>
+      <text class="lblPhase" x="620" y="55" fill="#b91c1c">PHASE 3</text>
+      <text class="lblPhase" x="620" y="200" fill="#b91c1c" font-size="10">freinage</text>
+
+      <!-- Niveau v_max horizontal pointillé -->
+      <line x1="60" y1="87" x2="220" y2="87" stroke="#0969da" stroke-width="0.8" stroke-dasharray="3,2"/>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle distance Camille a-t-elle parcourue pendant les 30 secondes du trajet, et quelle a été sa vitesse moyenne ? A-t-elle respecté la limitation à 80 km/h ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>D'après le graphe (Doc 1), identifier les <strong>3 phases</strong> du mouvement, la <strong>durée</strong> de chaque phase et le <strong>type de mouvement</strong> (uniforme, accéléré, décéléré).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>Phase 1 (0 à 8 s, durée 8 s) :</strong> v augmente de 0 à 22,2 m/s. Mouvement rectiligne <strong>uniformément accéléré</strong>. Pente positive constante.</li>
+      <li><strong>Phase 2 (8 à 26 s, durée 18 s) :</strong> v reste constante à 22,2 m/s. Mouvement rectiligne <strong>uniforme</strong>. Pente nulle.</li>
+      <li><strong>Phase 3 (26 à 30 s, durée 4 s) :</strong> v diminue de 22,2 à 0 m/s. Mouvement rectiligne <strong>uniformément décéléré</strong>. Pente négative constante.</li>
+    </ul>
+    <p>Durée totale : 8 + 18 + 4 = <strong>30 s</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>accélération</strong> a₁ pendant la <strong>phase 1</strong> (démarrage), à l'aide de la relation \(a = \Delta v / \Delta t\).</p>
+  <p>Convertir la vitesse maximale 22,2 m/s en km/h pour vérifier qu'elle correspond bien à 80 km/h.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>a₁ = (22,2 − 0) / (8 − 0) = 22,2 / 8 ≈ <strong>+2,8 m/s²</strong></p>
+    <p>Conversion : 22,2 × 3,6 ≈ <strong>80 km/h</strong> ✓ (vitesse limitée hors agglomération sur cette route).</p>
+    <p>Une accélération de 2,8 m/s² est <strong>modérée</strong> (l'accélération d'un fourgon utilitaire chargé ne dépasse rarement 3 m/s², contre 5-6 m/s² pour une berline puissante).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>accélération</strong> a₃ pendant la <strong>phase 3</strong> (freinage). Préciser son signe.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>a₃ = (0 − 22,2) / (30 − 26) = −22,2 / 4 ≈ <strong>−5,55 m/s²</strong></p>
+    <p>Signe négatif : la vitesse diminue, on parle aussi de <strong>décélération</strong> de 5,55 m/s². C'est un freinage normal (un freinage d'urgence atteindrait −7 à −9 m/s²).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>distance d₁ parcourue pendant la phase 1</strong>. Sur un graphe v(t), la distance parcourue est égale à l'<strong>aire sous la courbe</strong>. Pour la phase 1 (triangle), \(d_1 = \dfrac{1}{2} \times v_{\max} \times \Delta t\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>d₁ = ½ × 22,2 × 8 = <strong>88,8 m</strong></p>
+    <p>(Aire d'un triangle de base 8 s et de hauteur 22,2 m/s.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>distance d₂ parcourue pendant la phase 2</strong> (rectangle d'aire = base × hauteur).</p>
+  <p>Calculer aussi la <strong>distance d₃ pendant la phase 3</strong> (triangle décroissant).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Phase 2 (rectangle) : d₂ = 22,2 × 18 = <strong>400 m</strong> (en 18 s à 22,2 m/s).</p>
+    <p>Phase 3 (triangle) : d₃ = ½ × 22,2 × 4 = <strong>44,4 m</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>distance totale d</strong> parcourue par Camille sur les 30 secondes du trajet, et la <strong>vitesse moyenne</strong> v<sub>moy</sub> = d / Δt.</p>
+  <p>Comparer à la vitesse maximale (22,2 m/s).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>d = d₁ + d₂ + d₃ = 88,8 + 400 + 44,4 = <strong>533 m</strong> (sur 30 s).</p>
+    <p>v<sub>moy</sub> = 533 / 30 ≈ <strong>17,8 m/s ≈ 64 km/h</strong>.</p>
+    <p>La vitesse moyenne (64 km/h) est plus faible que la vitesse maximale (80 km/h) parce que Camille n'a pas roulé tout le temps à pleine vitesse — il y a eu les phases d'accélération et de freinage.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Le dépôt est à <strong>800 m</strong> du domicile de Mme Garcia. Camille a parcouru 533 m en 30 s. Si elle continue au même rythme moyen, en combien de temps total atteindra-t-elle le domicile ?</p>
+  <p>Et si elle peut « profiter » entièrement des 22,2 m/s pendant la suite (en supposant une route dégagée), à partir de quand atteint-elle Mme Garcia ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Cas 1 — au rythme moyen actuel (17,8 m/s) :</strong> t = d / v<sub>moy</sub> = 800 / 17,8 ≈ <strong>45 s</strong>.</p>
+    <p><strong>Cas 2 — en supposant continuité à 22,2 m/s :</strong> il reste 800 − 88,8 (phase 1 déjà parcourue) = 711 m. Si Camille roule encore à 22,2 m/s : 711 / 22,2 ≈ 32 s. Plus 8 s (phase 1) = <strong>40 s</strong>.</p>
+    <p>Mais en réalité, il y aura encore une phase de freinage à l'arrivée : ajouter ≈ 4 s. Trajet réel : <strong>~ 44 s</strong>, soit moins d'une minute pour 800 m.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes l'<strong>analyse de trajet</strong> que Camille saisit dans son carnet de bord :</p>
+  <ul>
+    <li>les 3 phases identifiées (durée, vitesse, accélération)</li>
+    <li>la distance totale et la vitesse moyenne</li>
+    <li>respect ou non de la limite de vitesse</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>DistriThermique — Analyse trajet · livraison Mme Garcia (Toulouse) — 7 mai 2026</strong><br>
+      • <strong>Phase 1 (0–8 s) :</strong> accélération de 0 à 22,2 m/s (80 km/h). Accélération a = +2,8 m/s². Distance 88,8 m.<br>
+      • <strong>Phase 2 (8–26 s) :</strong> vitesse constante 22,2 m/s pendant 18 s. Distance 400 m.<br>
+      • <strong>Phase 3 (26–30 s) :</strong> freinage à −5,55 m/s², arrêt complet. Distance 44,4 m.<br>
+      • <strong>Bilan :</strong> 533 m parcourus en 30 s, vitesse moyenne <strong>64 km/h</strong>. Vitesse max 80 km/h ✓ (limite respectée).<br>
+      • Le trajet de 800 m total devrait prendre ≈ 45 s, soit moins d'une minute du dépôt au client. Conforme aux objectifs de tournée.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Vérifier le résultat de la phase 1 par une autre méthode : utiliser la formule \(d = \dfrac{1}{2} a \cdot t^2\) (mouvement uniformément accéléré, départ arrêté). Comparer.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>d = ½ × a × t² = ½ × 2,8 × 8² = 0,5 × 2,8 × 64 = <strong>89,6 m</strong></p>
+    <p>Très proche de 88,8 m calculé par l'aire (la petite différence 0,8 m vient de l'arrondi de a). Les deux méthodes donnent le même résultat à l'arrondi près.</p>
+    <p>Cette double vérification est utile en physique : si on obtient deux valeurs nettement différentes (par exemple 90 m vs 50 m), cela signifie qu'on a fait une erreur de calcul ou de lecture du graphe.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Lire un graphe v(t) :</strong> pente = accélération a, aire sous la courbe = distance d.</li>
+    <li><strong>Mouvement uniforme</strong> (v constante) : graphe horizontal, a = 0, d = v × t.</li>
+    <li><strong>Mouvement uniformément accéléré</strong> : graphe linéaire croissant, a constante &gt; 0, d = ½ × a × t² (départ arrêté) ou d = ½ × (v₀ + v_f) × t.</li>
+    <li><strong>Mouvement uniformément décéléré (freinage)</strong> : graphe linéaire décroissant, a constante &lt; 0.</li>
+    <li><strong>Vitesse moyenne :</strong> \(v_{\text{moy}} = d_{\text{totale}} / t_{\text{total}}\). Toujours plus faible que la vitesse maximale s'il y a des phases d'accélération/freinage.</li>
+    <li><strong>Vérification :</strong> calculer la distance par 2 méthodes (aire ou formule cinématique) doit donner le même résultat.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Vitesse), §2 (Accélération), §3 (Types de mouvement) et §5 (Lire un graphe v(t)) de la leçon Ch05.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité 2 – Choisir l'isolation des combles – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Choisir l'isolation des combles d'une maison <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 4 – Transferts thermiques | 1ère Bac Pro ICCER (Grpt 1) | Physique – Thermique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la résistance thermique d'un matériau isolant : R = e / λ</li>
+    <li>Calculer un flux thermique de conduction : Φ = (S × ΔT) / R</li>
+    <li>Comparer trois isolants pour des combles selon le critère RT 2012</li>
+    <li>Estimer les économies d'énergie et le retour sur investissement d'une isolation</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §1 (conduction thermique). Loi de Fourier : \(\Phi = \dfrac{\lambda \cdot S \cdot \Delta T}{e}\). Résistance thermique : \(R = e / \lambda\).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – isolation des combles chez M. Garnier</h2>
+  <p><em>Yann, technicien isolation chez « IsolerMieux » à Caen, intervient chez M. Garnier pour isoler les combles perdus de sa maison de 110 m² (combles non aménageables, isolation actuelle obsolète). Avec un toit non isolé, on estime que <strong>30 % des pertes thermiques</strong> de la maison passent par le toit. Yann doit choisir entre 3 isolants disponibles, et chiffrer l'économie d'énergie attendue.</em></p>
+
+  <h3>Document 1 — Caractéristiques de la maison</h3>
+  <ul>
+    <li>Surface des combles à isoler : <strong>S = 110 m²</strong></li>
+    <li>Température intérieure visée : 19 °C en hiver</li>
+    <li>Température extérieure moyenne en hiver (Caen, zone H1) : 7 °C → ΔT ≈ <strong>12 °C</strong></li>
+    <li>Saison de chauffe : <strong>5 000 heures</strong> (décembre à mars + mi-saisons)</li>
+    <li>Isolation actuelle des combles : 5 cm de laine de verre tassée, R<sub>actuel</sub> ≈ 1,4 m²·K/W</li>
+    <li>Norme RT 2012 pour les combles perdus : <strong>R ≥ 7 m²·K/W</strong></li>
+  </ul>
+
+  <h3>Document 2 — Catalogue des 3 isolants disponibles</h3>
+  <table>
+    <thead>
+      <tr><th>Matériau</th><th>Conductivité λ (W/m·K)</th><th>Prix (€/m² posé pour R = 7)</th><th>Empreinte carbone</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Laine de verre</td><td>0,035</td><td>22 €/m²</td><td>Moyenne</td></tr>
+      <tr><td>Ouate de cellulose (papier recyclé)</td><td>0,039</td><td>28 €/m²</td><td>Très faible (biosourcé)</td></tr>
+      <tr><td>Polyuréthane (panneaux)</td><td>0,022</td><td>45 €/m²</td><td>Élevée (pétrochimie)</td></tr>
+    </tbody>
+  </table>
+  <p><em>Plus la conductivité λ est faible, plus le matériau est isolant. Plus l'épaisseur e est grande, plus la résistance R = e / λ est élevée.</em></p>
+
+  <h3>Document 3 — Schéma du transfert thermique à travers le toit</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 240" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Coupe d'une maison montrant le transfert de chaleur par conduction à travers le toit isolé. À l'intérieur, température 19°C. Dans les combles, l'isolant d'épaisseur e en laine de verre, ouate ou polyuréthane. À l'extérieur, température 7°C. La chaleur Φ traverse l'isolant de l'intérieur vers l'extérieur, proportionnelle à S × ΔT et inversement proportionnelle à e.">
+      <defs>
+        <linearGradient id="iso" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#fef3c7"/>
+          <stop offset="100%" stop-color="#fde68a"/>
+        </linearGradient>
+        <style>
+          .ti4i{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl4i{font:11px sans-serif;fill:#1a202c}
+          .lblG4i{font:700 12px sans-serif;fill:#15803d}
+          .lblR4i{font:700 12px sans-serif;fill:#b91c1c}
+        </style>
+      </defs>
+
+      <text class="ti4i" x="350" y="22">Conduction thermique à travers le toit isolé</text>
+
+      <!-- Ciel -->
+      <rect x="0" y="40" width="700" height="100" fill="#bfdbfe"/>
+      <text class="lblR4i" x="80" y="65" text-anchor="middle">EXTÉRIEUR</text>
+      <text class="lblR4i" x="80" y="85" text-anchor="middle">7 °C</text>
+
+      <!-- Maison -->
+      <rect x="160" y="140" width="380" height="80" fill="url(#iso)" stroke="#92400e" stroke-width="2"/>
+      <polygon points="160,140 350,80 540,140" fill="#92400e" stroke="#7c2d12" stroke-width="2"/>
+
+      <!-- Couche d'isolation (lignes hachurées) -->
+      <rect x="170" y="125" width="360" height="22" fill="#fef3c7" stroke="#475569" stroke-width="1.5"/>
+      <line x1="180" y1="125" x2="180" y2="147" stroke="#475569"/>
+      <line x1="200" y1="125" x2="200" y2="147" stroke="#475569"/>
+      <line x1="220" y1="125" x2="220" y2="147" stroke="#475569"/>
+      <line x1="240" y1="125" x2="240" y2="147" stroke="#475569"/>
+      <line x1="260" y1="125" x2="260" y2="147" stroke="#475569"/>
+      <line x1="280" y1="125" x2="280" y2="147" stroke="#475569"/>
+      <line x1="300" y1="125" x2="300" y2="147" stroke="#475569"/>
+      <line x1="320" y1="125" x2="320" y2="147" stroke="#475569"/>
+      <line x1="340" y1="125" x2="340" y2="147" stroke="#475569"/>
+      <line x1="360" y1="125" x2="360" y2="147" stroke="#475569"/>
+      <line x1="380" y1="125" x2="380" y2="147" stroke="#475569"/>
+      <line x1="400" y1="125" x2="400" y2="147" stroke="#475569"/>
+      <line x1="420" y1="125" x2="420" y2="147" stroke="#475569"/>
+      <line x1="440" y1="125" x2="440" y2="147" stroke="#475569"/>
+      <line x1="460" y1="125" x2="460" y2="147" stroke="#475569"/>
+      <line x1="480" y1="125" x2="480" y2="147" stroke="#475569"/>
+      <line x1="500" y1="125" x2="500" y2="147" stroke="#475569"/>
+      <line x1="520" y1="125" x2="520" y2="147" stroke="#475569"/>
+
+      <!-- Cote épaisseur e -->
+      <line x1="555" y1="125" x2="565" y2="125" stroke="#dc2626"/>
+      <line x1="555" y1="147" x2="565" y2="147" stroke="#dc2626"/>
+      <line x1="560" y1="125" x2="560" y2="147" stroke="#dc2626" stroke-width="1.5" marker-start="url(#arrU)" marker-end="url(#arrD)"/>
+      <text class="lbl4i" x="572" y="140" font-size="11" fill="#b91c1c" font-weight="bold">e</text>
+
+      <text class="lbl4i" x="350" y="143" text-anchor="middle" font-size="10" font-style="italic" fill="#475569">isolant (λ, e)</text>
+
+      <!-- Intérieur -->
+      <text class="lblG4i" x="350" y="180" text-anchor="middle">INTÉRIEUR : 19 °C</text>
+      <text class="lbl4i" x="350" y="200" text-anchor="middle" font-size="10" font-style="italic">surface S</text>
+
+      <!-- Flèches de chaleur (vers l'extérieur) -->
+      <path d="M 250 160 L 250 105" stroke="#dc2626" stroke-width="2" marker-end="url(#arrU)"/>
+      <path d="M 350 160 L 350 105" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrU)"/>
+      <path d="M 450 160 L 450 105" stroke="#dc2626" stroke-width="2" marker-end="url(#arrU)"/>
+      <text class="lblR4i" x="350" y="100" text-anchor="middle">Φ (flux thermique)</text>
+
+      <defs>
+        <marker id="arrU" markerWidth="9" markerHeight="9" refX="4" refY="0" orient="auto">
+          <polygon points="0,9 4,0 9,9" fill="#dc2626"/>
+        </marker>
+        <marker id="arrD" markerWidth="9" markerHeight="9" refX="4" refY="9" orient="auto">
+          <polygon points="0,0 4,9 9,0" fill="#dc2626"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle épaisseur d'isolant Yann doit-il poser pour atteindre R = 7 m²·K/W avec chaque matériau, et quelle solution sera la plus économique sur 30 ans en tenant compte du coût de pose et des économies d'énergie ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Citer la <strong>loi de Fourier</strong> qui donne le flux thermique de conduction à travers un matériau, et l'unité de chaque grandeur.</p>
+  <p>Que représente physiquement la conductivité thermique λ ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Loi de Fourier : \(\Phi = \dfrac{\lambda \cdot S \cdot \Delta T}{e}\)</p>
+    <ul>
+      <li>Φ : flux thermique (puissance perdue) en watts (W)</li>
+      <li>λ : conductivité thermique du matériau en W/(m·K)</li>
+      <li>S : surface traversée en m²</li>
+      <li>ΔT : différence de température entre les 2 faces en K (ou °C)</li>
+      <li>e : épaisseur du matériau en m</li>
+    </ul>
+    <p><strong>λ</strong> caractérise la « facilité » avec laquelle un matériau laisse passer la chaleur. Plus λ est faible, plus le matériau est isolant. Le métal a λ ≈ 100, l'air immobile λ ≈ 0,025, les isolants ≈ 0,02–0,04.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>épaisseur</strong> e nécessaire pour atteindre R = 7 m²·K/W avec chacun des 3 isolants, à l'aide de la formule \(R = e / \lambda\) → \(e = R \times \lambda\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Laine de verre (λ = 0,035) : e = 7 × 0,035 = <strong>0,245 m = 24,5 cm</strong></li>
+      <li>Ouate de cellulose (λ = 0,039) : e = 7 × 0,039 = <strong>0,273 m = 27,3 cm</strong></li>
+      <li>Polyuréthane (λ = 0,022) : e = 7 × 0,022 = <strong>0,154 m = 15,4 cm</strong></li>
+    </ul>
+    <p>Le polyuréthane est le plus performant : il atteint R = 7 avec une épaisseur 1,6 fois plus faible. Utile en rénovation quand la hauteur de combles est limitée.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>flux thermique perdu</strong> à travers le toit dans les conditions actuelles (R<sub>actuel</sub> = 1,4 m²·K/W), à l'aide de la relation \(\Phi = (S \times \Delta T) / R\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Φ<sub>actuel</sub> = (S × ΔT) / R = (110 × 12) / 1,4 = 1 320 / 1,4 ≈ <strong>943 W</strong></p>
+    <p>Sur la saison de chauffe (5 000 h), énergie perdue = 943 × 5 000 / 1 000 ≈ <strong>4 715 kWh/an</strong> par le toit seul.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>nouveau flux thermique</strong> Φ<sub>nouveau</sub> après isolation à R = 7 m²·K/W. En déduire la <strong>réduction des pertes</strong> et l'énergie économisée annuellement.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Φ<sub>nouveau</sub> = (110 × 12) / 7 = 1 320 / 7 ≈ <strong>189 W</strong></p>
+    <p>Réduction : 943 − 189 = <strong>754 W</strong> de moins de pertes.</p>
+    <p>Énergie économisée annuellement : 754 × 5 000 / 1 000 ≈ <strong>3 770 kWh/an</strong>, soit <strong>80 % de pertes en moins</strong> par le toit.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>La maison est chauffée au gaz (rendement chaudière 95 %, tarif 0,11 €/kWh PCI). Calculer l'<strong>économie financière annuelle</strong> liée à l'isolation des combles, ainsi que la réduction d'émissions CO₂ (210 g CO₂/kWh PCI gaz).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie utile économisée : 3 770 kWh/an. Énergie gaz nécessaire correspondante : 3 770 / 0,95 ≈ 3 970 kWh PCI/an.</p>
+    <p>Économie financière : 3 970 × 0,11 ≈ <strong>437 €/an</strong></p>
+    <p>Émissions CO₂ évitées : 3 970 × 210 = 833 700 g ≈ <strong>834 kg CO₂/an</strong></p>
+    <p>Sur 30 ans (durée de vie isolation) : économies cumulées ≈ 13 100 €, et 25 t CO₂ évitées.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer le <strong>coût total de pose</strong> des 3 solutions pour 110 m² de combles, et calculer le <strong>temps de retour sur investissement</strong> (en supposant les aides MaPrimeRénov' à 1 100 € identiques pour les 3 matériaux).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Matériau</th><th>Coût brut</th><th>Net (− 1 100 € aides)</th><th>ROI vs économies (437 €/an)</th></tr></thead>
+      <tbody>
+        <tr><td>Laine de verre</td><td>110 × 22 = 2 420 €</td><td><strong>1 320 €</strong></td><td>1 320 / 437 ≈ <strong>3 ans</strong></td></tr>
+        <tr><td>Ouate de cellulose</td><td>110 × 28 = 3 080 €</td><td><strong>1 980 €</strong></td><td>1 980 / 437 ≈ <strong>4,5 ans</strong></td></tr>
+        <tr><td>Polyuréthane</td><td>110 × 45 = 4 950 €</td><td><strong>3 850 €</strong></td><td>3 850 / 437 ≈ <strong>8,8 ans</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Toutes les solutions sont rentables sur 30 ans. La laine de verre est la moins chère à l'achat, le polyuréthane la plus chère mais aussi la plus compacte (épaisseur 15 cm vs 25 cm).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>M. Garnier a une hauteur de combles limitée à <strong>20 cm</strong>. Quels matériaux peut-il choisir, et quel autre critère doit l'aider à décider entre eux ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Épaisseurs nécessaires : laine 24,5 cm, ouate 27,3 cm, polyuréthane 15,4 cm.</p>
+    <p>Avec seulement 20 cm de hauteur disponible, <strong>seul le polyuréthane</strong> permet d'atteindre R = 7 m²·K/W. Les autres matériaux n'atteindront que R ≈ 5,7 (laine) ou R ≈ 5,1 (ouate), insuffisant pour la norme RT 2012.</p>
+    <p>Critère complémentaire : si M. Garnier valorise <strong>l'écologie</strong>, il pourrait préférer la laine de verre ou l'ouate (matériau biosourcé) malgré le R légèrement inférieur, et accepter de ne pas atteindre la norme. Ou, surélever la charpente pour gagner 5 cm.</p>
+    <p>Décision finale : compromis hauteur / écologie / coût. Yann doit faire le choix avec son client.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>devis-conseil</strong> que Yann remet à M. Garnier :</p>
+  <ul>
+    <li>diagnostic actuel (R, pertes, coût gaspillé)</li>
+    <li>recommandation matériau + épaisseur</li>
+    <li>économies annuelles attendues + retour sur investissement</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>IsolerMieux — Devis-conseil isolation combles · M. Garnier (Caen) — 7 mai 2026</strong><br>
+      • <strong>Diagnostic actuel :</strong> 5 cm laine de verre tassée, R = 1,4 m²·K/W (insuffisant). Pertes par le toit : 943 W, soit 4 715 kWh/an (≈ 437 €/an gaspillés).<br>
+      • <strong>Recommandation : laine de verre soufflée 24,5 cm</strong>, R = 7 m²·K/W (norme RT 2012 pour combles perdus). Coût : 2 420 € HT, net après MaPrimeRénov' : <strong>1 320 €</strong>.<br>
+      • <strong>Économies attendues :</strong> 437 €/an sur la facture gaz, 834 kg CO₂/an évités. Réduction de 80 % des pertes par le toit.<br>
+      • <strong>Retour sur investissement : 3 ans</strong>. Sur 30 ans (durée de vie) : ≈ 13 100 € économisés, 25 t CO₂ évitées.<br>
+      • <strong>Alternative</strong> en cas de hauteur limitée &lt; 20 cm : panneaux polyuréthane 15 cm (3 850 € net, ROI 8,8 ans).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si M. Garnier <strong>double l'épaisseur de laine de verre</strong> à 50 cm (au lieu de 24,5 cm), il atteint R ≈ 14 m²·K/W. Calculer le nouveau flux thermique et la nouvelle économie. Conclure : faut-il toujours mettre plus d'isolant ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Φ<sub>R=14</sub> = (110 × 12) / 14 ≈ <strong>94 W</strong> (au lieu de 189 W avec R=7).</p>
+    <p>Énergie : 94 × 5 000 / 1 000 ≈ 470 kWh/an. Économie supplémentaire vs R=7 : (190 − 94) × 5 000 / 1 000 ≈ 480 kWh, soit ≈ 56 €/an.</p>
+    <p>Mais doubler l'épaisseur double aussi le coût (~ 2 420 € de plus). ROI de cet investissement supplémentaire : 2 420 / 56 ≈ <strong>43 ans</strong>.</p>
+    <p>Conclusion : <strong>il y a un optimum</strong> entre 7 et 10 m²·K/W. Au-delà, le surcoût est très long à amortir (loi des rendements décroissants). C'est pourquoi la norme RT 2012 fixe R = 7 comme cible et non R = 14.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Conduction thermique :</strong> transfert de chaleur dans un matériau solide (ou fluide immobile) du chaud vers le froid. Loi de Fourier : \(\Phi = \dfrac{\lambda \cdot S \cdot \Delta T}{e}\).</li>
+    <li><strong>Conductivité λ :</strong> propriété du matériau en W/(m·K). Métaux ≈ 50–400 (très conducteurs), bois ≈ 0,15, isolants ≈ 0,02–0,04 (très peu conducteurs).</li>
+    <li><strong>Résistance thermique :</strong> \(R = e / \lambda\) en m²·K/W. Plus R est grand, plus l'isolation est efficace.</li>
+    <li><strong>Norme RT 2012 (combles perdus) :</strong> R ≥ 7 m²·K/W. C'est l'objectif standard d'une rénovation aidée.</li>
+    <li><strong>Flux à travers une paroi :</strong> \(\Phi = (S \times \Delta T) / R\). Énergie sur une saison : E = Φ × t.</li>
+    <li><strong>Compromis isolation :</strong> au-delà de R ≈ 10, le retour sur investissement devient trop long. L'optimum économique se situe entre R = 7 et R = 10.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Conduction thermique) et §5 (Applications en installation thermique) de la leçon Ch04.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

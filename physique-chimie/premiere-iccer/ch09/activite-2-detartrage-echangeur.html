@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – Activité 2 – Détartrer un échangeur de chaudière – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Détartrer un échangeur de chaudière à condensation <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 9 – Solutions aqueuses | 1ère Bac Pro ICCER (Grpt 1) | Physique – Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer une quantité de matière à partir d'une masse : n = m / M</li>
+    <li>Utiliser la stœchiométrie d'une réaction acide-base pour calculer une quantité de réactif</li>
+    <li>Calculer un volume de solution à partir d'une concentration molaire</li>
+    <li>Sécuriser l'utilisation d'acide en plomberie</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §II (masse molaire), §III (n = m/M) et §IV (concentration molaire). Réaction acide carbonate : 2 HCl + CaCO₃ → CaCl₂ + CO₂ + H₂O.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – chaudière de M. Garnier qui rendement chute</h2>
+  <p><em>Marc, technicien chauffagiste chez « ProMaintenance » à Avignon, intervient chez M. Garnier dont la chaudière à condensation Vitodens 200 a vu son rendement chuter de 95 % à 88 % en 3 ans. Diagnostic : l'échangeur primaire est entartré (région à eau dure). Marc propose un détartrage chimique avec une solution d'acide chlorhydrique HCl. Il doit calculer la quantité exacte de produit nécessaire pour dissoudre les 200 g de tartre estimés, sans excès dangereux pour le matériel.</em></p>
+
+  <h3>Document 1 — Données du tartre et de l'acide</h3>
+  <ul>
+    <li>Tartre = carbonate de calcium <strong>CaCO₃</strong>, masse molaire M = 100 g/mol</li>
+    <li>Masse de tartre estimée dans l'échangeur : <strong>m<sub>tartre</sub> = 200 g</strong></li>
+    <li>Acide chlorhydrique commercial : solution à <strong>concentration molaire C = 1,0 mol/L</strong> (acide dilué pour usage chauffagiste)</li>
+    <li>Réaction : <strong>2 HCl + CaCO₃ → CaCl₂ + CO₂ + H₂O</strong></li>
+    <li>Pour 1 mole de CaCO₃, il faut <strong>2 moles de HCl</strong> (stœchiométrie)</li>
+  </ul>
+
+  <h3>Document 2 — Schéma du détartrage</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 200" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : un échangeur de chaudière entartré (dépôt blanc de CaCO3 sur les parois). On verse une solution d'acide chlorhydrique HCl. La réaction libère du CO2 (gaz, bulles) et forme du chlorure de calcium CaCl2 dissous. Après rinçage, l'échangeur est propre.">
+      <defs>
+        <style>
+          .ti9d{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl9d{font:11px sans-serif;fill:#1a202c}
+          .lblB9d{font:700 11px sans-serif;fill:#1d4ed8}
+        </style>
+      </defs>
+
+      <text class="ti9d" x="350" y="22">Détartrage chimique d'un échangeur</text>
+
+      <!-- Avant -->
+      <text class="lbl9d" x="170" y="50" text-anchor="middle" font-weight="bold" fill="#b91c1c">AVANT (entartré)</text>
+      <rect x="100" y="60" width="140" height="100" fill="#cbd5e1" stroke="#1f2937" stroke-width="2"/>
+      <!-- Tartre -->
+      <rect x="105" y="65" width="130" height="20" fill="#fff" stroke="#475569" stroke-width="1"/>
+      <rect x="105" y="140" width="130" height="15" fill="#fff" stroke="#475569" stroke-width="1"/>
+      <text class="lbl9d" x="170" y="115" text-anchor="middle" font-size="10" fill="#475569" font-style="italic">CaCO₃ (tartre blanc)</text>
+
+      <!-- Flèche -->
+      <line x1="260" y1="110" x2="320" y2="110" stroke="#1f2937" stroke-width="3" marker-end="url(#arr9d)"/>
+      <text class="lbl9d" x="290" y="100" text-anchor="middle" font-size="10" font-weight="bold">+ HCl</text>
+      <text class="lbl9d" x="290" y="125" text-anchor="middle" font-size="9" fill="#15803d">2 HCl + CaCO₃</text>
+
+      <!-- Après -->
+      <text class="lbl9d" x="500" y="50" text-anchor="middle" font-weight="bold" fill="#15803d">APRÈS (détartré)</text>
+      <rect x="430" y="60" width="140" height="100" fill="#cbd5e1" stroke="#1f2937" stroke-width="2"/>
+      <text class="lbl9d" x="500" y="115" text-anchor="middle" font-size="10" fill="#15803d" font-style="italic">propre, échangeur libéré</text>
+
+      <!-- Bulles de CO2 -->
+      <circle cx="600" cy="80" r="3" fill="#bfdbfe" stroke="#1d4ed8"/>
+      <circle cx="610" cy="100" r="4" fill="#bfdbfe" stroke="#1d4ed8"/>
+      <circle cx="595" cy="125" r="3" fill="#bfdbfe" stroke="#1d4ed8"/>
+      <circle cx="615" cy="145" r="2" fill="#bfdbfe" stroke="#1d4ed8"/>
+      <text class="lbl9d" x="615" y="175" text-anchor="middle" font-size="9" fill="#1d4ed8">↑ CO₂ + H₂O + CaCl₂</text>
+
+      <defs>
+        <marker id="arr9d" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="#1f2937"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel volume exact de solution HCl à 1,0 mol/L Marc doit-il préparer pour dissoudre les 200 g de tartre, et combien de temps faut-il prévoir pour le rinçage ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>quantité de matière</strong> n<sub>tartre</sub> de CaCO₃ correspondant à 200 g, avec la relation \(n = m / M\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>n<sub>tartre</sub> = m / M = 200 / 100 = <strong>2,0 mol</strong> de CaCO₃</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>D'après l'équation de réaction (Doc 1, stœchiométrie 2:1), calculer la <strong>quantité de matière de HCl</strong> nécessaire pour dissoudre les 2,0 mol de tartre.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pour 1 mole de CaCO₃ il faut 2 moles de HCl. Donc pour 2 moles de CaCO₃ : n<sub>HCl</sub> = 2 × 2 = <strong>4,0 mol de HCl</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>La solution d'acide a une concentration C = 1,0 mol/L. Calculer le <strong>volume V</strong> de solution nécessaire pour fournir 4,0 mol de HCl, à l'aide de la relation \(V = n / C\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V = n / C = 4,0 / 1,0 = <strong>4,0 L</strong> de solution HCl à 1 mol/L.</p>
+    <p>C'est le volume théorique exact (stœchiométrique). En pratique, on prévoit toujours <strong>10-20 % d'excès</strong> pour compenser les impuretés et garantir la dissolution complète. Marc préparera donc 5 L.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>masse de CO₂</strong> libérée par la réaction (M(CO₂) = 44 g/mol). Convertir en volume de gaz à 1 bar et 20 °C, sachant que dans ces conditions, <strong>1 mole de gaz occupe 24 L</strong> (volume molaire).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>D'après l'équation : 1 mole CaCO₃ → 1 mole CO₂. Pour 2 mol CaCO₃ : <strong>n<sub>CO₂</sub> = 2,0 mol</strong>.</p>
+    <p>Masse CO₂ : m = n × M = 2,0 × 44 = <strong>88 g</strong>.</p>
+    <p>Volume CO₂ : V = n × V<sub>molaire</sub> = 2,0 × 24 = <strong>48 L</strong> de gaz à dégager — important !</p>
+    <p>Il faudra <strong>aérer la pièce</strong> et travailler avec une chaudière déconnectée + réservoir ouvert pour évacuer le gaz, sinon risque d'asphyxie en local fermé.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Si la concentration de la solution était <strong>plus diluée (0,5 mol/L au lieu de 1)</strong>, quel volume Marc devrait-il préparer ? Avantages et inconvénients.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V' = n / C = 4,0 / 0,5 = <strong>8,0 L</strong> (deux fois plus de volume).</p>
+    <p>Avantages d'une solution plus diluée : plus sûre (moins agressive sur la peau, le métal de la chaudière, les joints), moins corrosive.</p>
+    <p>Inconvénients : volume double à manipuler et stocker. Réaction plus lente (moins d'acide par cm³ de tartre).</p>
+    <p>Compromis pratique : 1 mol/L est un bon équilibre pour le détartrage sanitaire/chauffage. Pour une chaudière industrielle plus robuste, on peut aller jusqu'à 2 mol/L.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>L'acide HCl à 1 mol/L a un pH d'environ 0. Quelles sont les <strong>précautions de sécurité</strong> que Marc doit respecter ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>EPI obligatoires :</strong> gants chimiques (nitrile ou néoprène), lunettes de sécurité, blouse / combinaison, masque anti-vapeurs si grande quantité.</li>
+      <li><strong>Ventilation :</strong> aérer la pièce (CO₂ + vapeurs HCl irritantes).</li>
+      <li><strong>Préparation :</strong> verser <strong>l'acide dans l'eau</strong> (jamais l'inverse !), mélanger lentement.</li>
+      <li><strong>Neutralisation</strong> : avant rejet dans les égouts, neutraliser l'acide usagé avec du bicarbonate ou de la soude (jusqu'à pH 6-8).</li>
+      <li><strong>En cas de projection sur la peau :</strong> rincer abondamment 15 min à l'eau, consulter un médecin.</li>
+      <li><strong>Stockage :</strong> dans un local ventilé, hors de portée d'enfants, étiquetage clair.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-yellow">REA</span></h2>
+  <p>Après détartrage, Marc doit <strong>rincer abondamment</strong> l'échangeur. Le manuel recommande 3 rinçages avec 5 L d'eau claire à chaque fois. Calculer la <strong>quantité d'eau totale</strong> utilisée pour le détartrage complet (acide + rinçages).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Acide préparé : 5 L. Rinçages : 3 × 5 = 15 L. Total : <strong>20 L d'eau</strong> à neutraliser et évacuer.</p>
+    <p>Sur 1 intervention par chaudière (typiquement 1 fois tous les 5 ans), c'est négligeable. Mais pour un parc de 100 chaudières dans un bailleur, cela représente 2 m³ d'eau acide à traiter par campagne.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche d'intervention</strong> de Marc pour la maintenance de M. Garnier :</p>
+  <ul>
+    <li>diagnostic et quantité de tartre</li>
+    <li>produits utilisés (HCl, volume)</li>
+    <li>vérification post-détartrage</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProMaintenance — Fiche détartrage chaudière · M. Garnier (Avignon) — 7 mai 2026</strong><br>
+      • <strong>Diagnostic :</strong> 200 g de tartre dans l'échangeur primaire (chute rendement 95 → 88 %).<br>
+      • <strong>Produit :</strong> 5 L de HCl à 1 mol/L (équivalent stœchiométrique 4 L + 25 % marge). Manipulation EPI complets.<br>
+      • <strong>Réaction :</strong> 2 HCl + CaCO₃ → CaCl₂ + CO₂ + H₂O. Dégagement 48 L de CO₂ (local ventilé).<br>
+      • <strong>Rinçage :</strong> 3 × 5 L d'eau claire, contrôle pH neutre (entre 6 et 8). Solution acide neutralisée au bicarbonate avant rejet.<br>
+      • <strong>Vérification :</strong> rendement chaudière remonté à 94 % (analyseur fumées). Recommandation : pose adoucisseur d'eau pour éviter récidive (zone calcaire 30 °f).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>L'acide HCl à 1 mol/L peut être préparé à partir d'acide concentré commercial à <strong>10 mol/L</strong>. Quel volume de l'acide concentré faut-il diluer dans de l'eau pour obtenir 5 L de solution à 1 mol/L ? (Loi de dilution : C₁V₁ = C₂V₂.)</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>C₁ × V₁ = C₂ × V₂ → V₁ = C₂ × V₂ / C₁ = 1 × 5 / 10 = <strong>0,5 L = 500 mL</strong> d'acide concentré.</p>
+    <p>Puis ajouter de l'eau distillée jusqu'à atteindre 5 L total → ajouter 5 − 0,5 = <strong>4,5 L d'eau</strong>.</p>
+    <p><strong>Toujours verser l'acide dans l'eau</strong> (et non l'inverse) : la réaction est exothermique, projeter de l'eau dans l'acide concentré peut faire bouillir et éclabousser. Procéder lentement, dans un récipient résistant aux acides.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Quantité de matière :</strong> n = m / M (avec M masse molaire en g/mol).</li>
+    <li><strong>Concentration molaire :</strong> C = n / V → V = n / C.</li>
+    <li><strong>Stœchiométrie :</strong> dans une équation chimique, les coefficients donnent les rapports de moles. 2 HCl + CaCO₃ → 2 mol HCl pour 1 mol CaCO₃.</li>
+    <li><strong>Détartrage :</strong> dissolution du calcaire CaCO₃ par un acide (HCl ou plus doux comme l'acide citrique). Libère CO₂.</li>
+    <li><strong>Sécurité acide :</strong> EPI obligatoires, ventilation, verser l'acide dans l'eau (jamais inverse), neutraliser avant rejet.</li>
+    <li><strong>Dilution :</strong> C₁V₁ = C₂V₂. Loi simple pour préparer une solution diluée à partir d'un concentré.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §II (Masse molaire), §III (n = m/M), §IV (Concentration) et §V (Dilution) de la leçon Ch09.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

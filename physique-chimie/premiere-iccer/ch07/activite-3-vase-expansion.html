@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 3 – Dimensionner un vase d'expansion – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Dimensionner un vase d'expansion <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 7 – Pression et force pressante | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique des fluides | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre le rôle d'un vase d'expansion dans un circuit chauffage</li>
+    <li>Appliquer la loi de Boyle-Mariotte : P₁ × V₁ = P₂ × V₂</li>
+    <li>Calculer le volume d'un vase d'expansion à partir de la dilatation de l'eau</li>
+    <li>Vérifier la pression maximale d'un circuit pour éviter le déclenchement de la soupape</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §V (Boyle-Mariotte) et §VI (vase d'expansion). Loi : à T constante, P × V = constante. Dilatation de l'eau de 20 à 80 °C ≈ 3 %.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – choix du vase d'expansion d'une chaudière</h2>
+  <p><em>Hugo, technicien chauffagiste chez « Énergie Plus » à Lille, doit choisir le bon vase d'expansion pour la nouvelle chaudière à condensation qu'il pose chez M. Wagner. Le circuit fait 120 L d'eau, et la température varie entre 20 °C (arrêt) et 80 °C (régime). L'eau se dilate, il faut absorber ce surplus de volume — c'est le rôle du vase. Mal dimensionné, soit la soupape de sécurité s'ouvre (gaspillage d'eau), soit le vase ne suit pas (surpression dangereuse).</em></p>
+
+  <h3>Document 1 — Données du circuit chez M. Wagner</h3>
+  <ul>
+    <li>Volume total d'eau du circuit : <strong>V<sub>eau</sub> = 120 L</strong></li>
+    <li>Coefficient de dilatation de l'eau (de 20 à 80 °C) : <strong>3 %</strong></li>
+    <li>Pression de service à froid (20 °C) : <strong>1,5 bar relative</strong> = 2,5 bar absolue</li>
+    <li>Pression maximale autorisée (déclenchement soupape) : <strong>3 bar relative</strong> = 4 bar absolue</li>
+    <li>Pré-pression du vase d'expansion (réglage usine) : <strong>1,5 bar absolue</strong> (côté air, à vide)</li>
+  </ul>
+
+  <h3>Document 2 — Catalogue de vases d'expansion (membrane)</h3>
+  <table>
+    <thead>
+      <tr><th>Modèle</th><th>Volume total</th><th>Prix HT</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Reflex N5</td><td>5 L</td><td>45 €</td></tr>
+      <tr><td>Reflex N8</td><td>8 L</td><td>62 €</td></tr>
+      <tr><td>Reflex N12</td><td>12 L</td><td>85 €</td></tr>
+      <tr><td>Reflex N18</td><td>18 L</td><td>110 €</td></tr>
+      <tr><td>Reflex N25</td><td>25 L</td><td>145 €</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Schéma de fonctionnement du vase</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 220" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : à gauche, vase d'expansion à froid (20°C) avec membrane séparant l'eau du circuit (en bas) et un coussin d'air pré-pressurisé (en haut). À droite, vase d'expansion à chaud (80°C) : l'eau a dilaté, le volume d'air est comprimé, sa pression augmente selon Boyle-Mariotte.">
+      <defs>
+        <style>
+          .ti7v{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl7v{font:11px sans-serif;fill:#1a202c}
+          .lblB7v{font:700 11px sans-serif;fill:#1d4ed8}
+          .lblR7v{font:700 11px sans-serif;fill:#b91c1c}
+        </style>
+      </defs>
+
+      <text class="ti7v" x="350" y="22">Vase d'expansion à membrane — froid vs chaud</text>
+
+      <!-- Cas froid (gauche) -->
+      <text class="lblB7v" x="170" y="50" text-anchor="middle">À FROID (20 °C)</text>
+      <ellipse cx="170" cy="80" rx="60" ry="20" fill="#cbd5e1" stroke="#1e293b" stroke-width="2"/>
+      <line x1="110" y1="80" x2="110" y2="180" stroke="#1e293b" stroke-width="2"/>
+      <line x1="230" y1="80" x2="230" y2="180" stroke="#1e293b" stroke-width="2"/>
+      <ellipse cx="170" cy="180" rx="60" ry="20" fill="#cbd5e1" stroke="#1e293b" stroke-width="2"/>
+      <!-- Air (haut) -->
+      <rect x="111" y="80" width="118" height="60" fill="#bfdbfe"/>
+      <!-- Eau (bas) -->
+      <rect x="111" y="140" width="118" height="40" fill="#3b82f6" opacity=".7"/>
+      <!-- Membrane -->
+      <line x1="111" y1="140" x2="229" y2="140" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="3,2"/>
+      <text class="lbl7v" x="170" y="115" text-anchor="middle" font-size="10" fill="#1d4ed8" font-weight="bold">AIR (V₁ ; P₁)</text>
+      <text class="lbl7v" x="170" y="165" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">EAU</text>
+      <text class="lbl7v" x="170" y="200" text-anchor="middle" font-size="9" font-style="italic">P_circuit = 1,5 bar rel</text>
+
+      <!-- Flèche transformation -->
+      <line x1="280" y1="120" x2="380" y2="120" stroke="#1f2937" stroke-width="3" marker-end="url(#arr7v)"/>
+      <text class="lbl7v" x="330" y="113" text-anchor="middle" font-size="10" font-weight="bold">+ chauffage</text>
+      <text class="lbl7v" x="330" y="135" text-anchor="middle" font-size="9" font-style="italic">eau dilate</text>
+
+      <!-- Cas chaud (droite) -->
+      <text class="lblR7v" x="530" y="50" text-anchor="middle">À CHAUD (80 °C)</text>
+      <ellipse cx="530" cy="80" rx="60" ry="20" fill="#cbd5e1" stroke="#1e293b" stroke-width="2"/>
+      <line x1="470" y1="80" x2="470" y2="180" stroke="#1e293b" stroke-width="2"/>
+      <line x1="590" y1="80" x2="590" y2="180" stroke="#1e293b" stroke-width="2"/>
+      <ellipse cx="530" cy="180" rx="60" ry="20" fill="#cbd5e1" stroke="#1e293b" stroke-width="2"/>
+      <!-- Air (haut comprimé) -->
+      <rect x="471" y="80" width="118" height="40" fill="#bfdbfe"/>
+      <!-- Eau (bas remontée) -->
+      <rect x="471" y="120" width="118" height="60" fill="#3b82f6" opacity=".7"/>
+      <!-- Membrane (déplacée vers le haut) -->
+      <line x1="471" y1="120" x2="589" y2="120" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="3,2"/>
+      <text class="lbl7v" x="530" y="103" text-anchor="middle" font-size="10" fill="#b91c1c" font-weight="bold">AIR (V₂ ; P₂)</text>
+      <text class="lbl7v" x="530" y="155" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">EAU + dilatée</text>
+      <text class="lbl7v" x="530" y="200" text-anchor="middle" font-size="9" font-style="italic">P_circuit ≤ 3 bar rel</text>
+
+      <defs>
+        <marker id="arr7v" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="#1f2937"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel volume de vase d'expansion Hugo doit-il choisir, et la pression du circuit restera-t-elle bien sous les 3 bar (déclenchement soupape) en régime chaud ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer le <strong>volume d'eau supplémentaire</strong> ΔV dû à la dilatation de l'eau quand elle passe de 20 °C à 80 °C, sachant que le coefficient de dilatation est 3 %.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>ΔV = 3 % × 120 = 0,03 × 120 = <strong>3,6 L</strong></p>
+    <p>L'eau prend 3,6 L de plus en se réchauffant de 20 à 80 °C. Cette surplus doit être absorbé par le vase d'expansion sans provoquer de surpression dans le circuit.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Hugo choisit un vase Reflex N12 (volume total 12 L). À froid, le vase contient <strong>12 L d'air</strong> à pression P₁ = 2,5 bar absolue (= pression de service à froid).</p>
+  <p>Quand l'eau dilate de 3,6 L, elle pousse la membrane et comprime l'air. Calculer le <strong>nouveau volume d'air</strong> V₂.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'eau prend 3,6 L de plus dans le vase. Donc l'air est comprimé : V₂ = V₁ − ΔV = 12 − 3,6 = <strong>8,4 L</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Appliquer la <strong>loi de Boyle-Mariotte</strong> à l'air comprimé : \(P_1 \times V_1 = P_2 \times V_2\). Calculer la nouvelle pression P₂ (absolue) puis convertir en pression relative.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P₂ = (P₁ × V₁) / V₂ = (2,5 × 12) / 8,4 = 30 / 8,4 ≈ <strong>3,57 bar absolue</strong></p>
+    <p>Pression relative (manomètre) : P₂_rel = 3,57 − 1 = <strong>2,57 bar relative</strong>.</p>
+    <p>La pression du circuit en régime chaud monte à environ 2,6 bar relative.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>La soupape de sécurité s'ouvre à 3 bar relative. La pression atteinte (2,57 bar relative) reste-t-elle <strong>en dessous</strong> de ce seuil ? Conclure sur le choix du vase N12.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>2,57 bar relative &lt; 3 bar de déclenchement → <strong>la soupape ne s'ouvre pas</strong>. Le vase Reflex N12 est <strong>conforme</strong> pour ce circuit.</p>
+    <p>Marge de sécurité : 3,00 − 2,57 = 0,43 bar (≈ 17 %). C'est une marge correcte pour absorber des variations imprévues (température + élevée, surpression de remplissage, etc.).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Si Hugo avait choisi un vase plus petit, le <strong>Reflex N5</strong> (5 L), recalculer la pression P₂. Le circuit resterait-il sécurisé ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V₁ = 5 L, V₂ = 5 − 3,6 = 1,4 L.</p>
+    <p>P₂ = (2,5 × 5) / 1,4 = 12,5 / 1,4 ≈ <strong>8,93 bar absolue = 7,93 bar relative</strong>.</p>
+    <p>7,93 bar &gt;&gt; 3 bar de soupape → <strong>la soupape s'ouvre largement</strong>, l'eau est éjectée par le purgeur. Le circuit perd de l'eau, la pression chute, l'air entre dans le système → entartrage et corrosion.</p>
+    <p><strong>Le vase N5 est sous-dimensionné.</strong> Toujours choisir un vase de capacité au moins 10 % du volume du circuit pour les chauffages standards.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Inversement, si Hugo avait choisi un vase trop gros, <strong>Reflex N25</strong> (25 L), recalculer la pression P₂. Y a-t-il un inconvénient ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V₁ = 25 L, V₂ = 25 − 3,6 = 21,4 L.</p>
+    <p>P₂ = (2,5 × 25) / 21,4 = 62,5 / 21,4 ≈ <strong>2,92 bar absolue = 1,92 bar relative</strong>.</p>
+    <p>Pression très peu modifiée — la soupape ne risque rien. Mais inconvénients :</p>
+    <ul>
+      <li>Coût supérieur (145 € vs 85 € pour N12).</li>
+      <li>Encombrement plus grand dans le local technique.</li>
+      <li>Pression de circuit à chaud trop proche de la pression à froid → moins de marge de stabilité.</li>
+    </ul>
+    <p>Conclusion : <strong>le N12 est le choix optimal</strong> (juste assez, ni trop, ni trop peu).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Hugo veut <strong>vérifier en magasin</strong> que la pré-pression du vase est bien réglée à 1,5 bar absolue (= 0,5 bar relative). Comment fait-il, et que se passe-t-il si la pré-pression est mal réglée ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Vérification : <strong>vase à vide</strong> (déconnecté du circuit), brancher un manomètre sur la valve de gonflage (type Schrader, comme un pneu de voiture). Si la valeur affichée est différente de 1,5 bar absolue, regonfler à l'azote (pas à l'air ambiant pour éviter la corrosion interne).</p>
+    <p>Si pré-pression <strong>trop basse</strong> : le vase « accepte » l'eau dès la mise en pression du circuit → volume d'air faible dès le début → faible capacité d'absorption.</p>
+    <p>Si pré-pression <strong>trop haute</strong> : le vase n'absorbe pas l'eau → la dilatation pousse directement la soupape qui s'ouvre.</p>
+    <p><strong>Règle :</strong> la pré-pression du vase = pression de service à froid (1,5 bar relative ici, soit 2,5 bar absolue). Mais dans certains catalogues, elle est exprimée en relative (1,5 bar) — toujours vérifier la convention.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche de pose</strong> que Hugo remplit pour la chaudière de M. Wagner :</p>
+  <ul>
+    <li>vase choisi et justification chiffrée</li>
+    <li>pression à froid et à chaud</li>
+    <li>vérifications à faire avant mise en service</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Énergie Plus — Pose chaudière chez M. Wagner (Lille) — 7 mai 2026</strong><br>
+      • <strong>Volume d'eau circuit :</strong> 120 L. Dilatation thermique 20→80 °C ≈ <strong>3,6 L</strong> à absorber par le vase.<br>
+      • <strong>Vase choisi : Reflex N12</strong> (12 L, 85 € HT). Conforme : pression à 80 °C = <strong>2,57 bar relative</strong>, en dessous du seuil soupape (3 bar). Marge 0,43 bar.<br>
+      • <strong>Pré-pression vase</strong> contrôlée à 1,5 bar absolue (= pression de service circuit à froid). Regonflage à l'azote effectué.<br>
+      • <strong>Vérifications avant mise en service :</strong> test étanchéité 30 min à 3 bar (→ activité 2), purge des radiateurs, contrôle ouverture soupape de sécurité.<br>
+      • <strong>Maintenance annuelle :</strong> contrôler la pré-pression du vase (peut chuter avec le temps), regonfler si nécessaire.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Au bout de 3 ans, le vase de M. Wagner perd de l'azote et sa pré-pression chute à <strong>1,0 bar absolue</strong>. Recalculer la pression P₂ atteinte à chaud. Que se passe-t-il ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Avec une pré-pression vase de 1,0 bar absolue (= 0 bar relative), dès la mise en pression du circuit à 1,5 bar relative (2,5 bar abs), l'eau pousse directement dans le vase et le compresse. À froid, V<sub>air</sub> est déjà réduit.</p>
+    <p>Calcul approché : à froid, l'eau pousse jusqu'à équilibrer 2,5 bar absolue : V₁ × 1,0 = 2,5 × V<sub>après</sub> → V<sub>après</sub> = 12 / 2,5 = 4,8 L → l'eau a déjà rempli 7,2 L du vase à froid.</p>
+    <p>À chaud, ΔV = 3,6 L pousse encore : V<sub>air final</sub> = 4,8 − 3,6 = 1,2 L. P<sub>finale</sub> = 1,0 × 12 / 1,2 = <strong>10 bar absolue ≈ 9 bar relative</strong>.</p>
+    <p>La soupape s'ouvre largement (au-dessus de 3 bar) → l'eau s'évacue à chaque cycle de chauffe. Avec le temps, il faut ajouter de l'eau régulièrement → entartrage du circuit, panne future.</p>
+    <p>Conclusion : <strong>la pré-pression du vase doit être contrôlée chaque année</strong>. C'est l'opération de maintenance la plus oubliée et la plus critique.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Loi de Boyle-Mariotte :</strong> à température constante, P × V = constante. Si V diminue, P augmente proportionnellement.</li>
+    <li><strong>Vase d'expansion :</strong> compense la dilatation de l'eau (≈ 3 % de 20 à 80 °C). Évite la surpression et le déclenchement de la soupape.</li>
+    <li><strong>Dimensionnement :</strong> volume vase ≈ 10 % du volume du circuit pour un chauffage standard. Vérifier que P à chaud reste &lt; 3 bar relative.</li>
+    <li><strong>Pré-pression du vase</strong> : régler à la pression de service à froid (typiquement 1,5 bar relative). À l'azote, jamais à l'air comprimé (corrosion).</li>
+    <li><strong>Maintenance :</strong> contrôler la pré-pression chaque année. Une chute de pré-pression cause surpressions et fuite à la soupape.</li>
+    <li><strong>Vase trop petit</strong> : surpression et fuite par soupape. <strong>Vase trop gros</strong> : surcoût et marge faible. Trouver le juste milieu.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §V (Loi de Boyle-Mariotte) et §VI (Vase d'expansion) de la leçon Ch07.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

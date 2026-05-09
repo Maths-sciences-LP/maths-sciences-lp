@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 4 – Détecter une combustion incomplète – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}
+.alarm{background:#fee2e2;border-left:4px solid #dc2626;padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0;color:#7f1d1d}
+.alarm strong{color:#b91c1c}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Détecter une combustion incomplète : analyse des fumées <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 3 – Combustion | 1ère Bac Pro ICCER (Grpt 1) | Physique – Chimie | ⏱ 40 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Distinguer une combustion complète d'une combustion incomplète</li>
+    <li>Équilibrer l'équation d'une combustion incomplète (CH₄ → CO)</li>
+    <li>Lire un analyseur de fumées et diagnostiquer un défaut de réglage</li>
+    <li>Comprendre la dangerosité du monoxyde de carbone (CO) et la perte d'énergie associée</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §3 (combustion incomplète) et §7 (sécurité). Combustion incomplète si manque d'air : \(2\,\text{CH}_4 + 3\,\text{O}_2 \rightarrow 2\,\text{CO} + 4\,\text{H}_2\text{O}\). Le CO est toxique, mortel à forte dose.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – intervention urgence chez M. Lambert</h2>
+  <p><em>Marc, technicien chauffagiste chez « ProChauffe » à Strasbourg, est appelé en urgence chez M. Lambert : son détecteur de monoxyde de carbone a sonné dans la nuit. Sa chaudière gaz murale (12 ans d'âge) n'a pas eu d'entretien depuis 2 ans. Marc débarque avec son <strong>analyseur de fumées</strong> Testo 320 et inspecte le brûleur. Il doit poser un diagnostic chiffré et remettre l'installation en sécurité.</em></p>
+
+  <div class="alarm">
+    <strong>⚠ Rappel sécurité — Le monoxyde de carbone (CO)</strong>
+    <p>Le CO est un gaz <strong>incolore, inodore et mortel</strong>. Il se fixe à l'hémoglobine du sang en lieu et place de l'oxygène. Effets :</p>
+    <ul>
+      <li>50 ppm : maux de tête après quelques heures</li>
+      <li>200 ppm : nausées, vertiges (risque létal en 8 h)</li>
+      <li>800 ppm : inconscience en 45 min, mort en 2 h</li>
+      <li>1 600 ppm : mort en 1 h</li>
+    </ul>
+    <p>En France, environ <strong>3 000 personnes</strong> sont intoxiquées au CO chaque année (chaudière mal entretenue, conduit obstrué).</p>
+  </div>
+
+  <h3>Document 1 — Mesures de l'analyseur de fumées (Testo 320)</h3>
+  <table>
+    <thead>
+      <tr><th>Grandeur mesurée</th><th>Valeur observée</th><th>Norme attendue</th><th>État</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Température des fumées</td><td>220 °C</td><td>120 à 180 °C (condensation)</td><td>⚠ Trop chaud</td></tr>
+      <tr><td>Teneur en O₂ des fumées</td><td>7,5 %</td><td>3 à 5 % (gaz)</td><td>⚠ Excès d'air</td></tr>
+      <tr><td>Teneur en CO₂ des fumées</td><td>8,2 %</td><td>10 à 12 %</td><td>⚠ Trop faible</td></tr>
+      <tr><td>Teneur en CO des fumées</td><td><strong style="color:#b91c1c">480 ppm</strong></td><td>&lt; 100 ppm</td><td>🔴 ALARME</td></tr>
+      <tr><td>Tirage cheminée</td><td>−12 Pa</td><td>−5 à −10 Pa</td><td>⚠ Tirage fort</td></tr>
+    </tbody>
+  </table>
+  <p><em>Note : ppm = partie par million. 100 ppm = 0,01 % en volume.</em></p>
+
+  <h3>Document 2 — Schéma : combustion complète vs incomplète</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 280" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Comparaison entre combustion complète (assez d'air, produit CO2 et H2O, flamme bleue, sécuritaire) et combustion incomplète (manque d'air, produit CO et H2O et suie, flamme jaune-orange, dangereuse car émet du monoxyde de carbone toxique).">
+      <defs>
+        <style>
+          .ti3i{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl3i{font:11px sans-serif;fill:#1a202c}
+          .lblG3i{font:700 12px sans-serif;fill:#15803d}
+          .lblR3i{font:700 12px sans-serif;fill:#b91c1c}
+        </style>
+      </defs>
+
+      <text class="ti3i" x="350" y="22">Comparaison : combustion complète vs incomplète</text>
+
+      <!-- Cas A : complète -->
+      <rect x="40" y="50" width="290" height="200" fill="#dcfce7" stroke="#16a34a" stroke-width="2" rx="6"/>
+      <text class="lblG3i" x="185" y="75" text-anchor="middle">✅ COMPLÈTE (sécuritaire)</text>
+      <text class="lbl3i" x="185" y="95" text-anchor="middle" font-size="11" fill="#15803d">Air suffisant, mélange optimal</text>
+
+      <!-- Flamme bleue -->
+      <path d="M 165,170 Q 170,150 175,170 Q 180,145 185,170 Q 190,148 195,170 Q 200,150 205,170 Z" fill="#3b82f6" stroke="#1d4ed8"/>
+      <text class="lbl3i" x="185" y="190" text-anchor="middle" font-size="10" fill="#1d4ed8">flamme bleue</text>
+
+      <text class="lbl3i" x="185" y="215" text-anchor="middle" font-weight="bold" font-size="12">CH₄ + 2 O₂ → CO₂ + 2 H₂O</text>
+      <text class="lbl3i" x="185" y="235" text-anchor="middle" font-size="10" fill="#15803d">Énergie maximale libérée. Pas de CO.</text>
+
+      <!-- Cas B : incomplète -->
+      <rect x="370" y="50" width="290" height="200" fill="#fee2e2" stroke="#dc2626" stroke-width="2" rx="6"/>
+      <text class="lblR3i" x="515" y="75" text-anchor="middle">🔴 INCOMPLÈTE (dangereuse)</text>
+      <text class="lbl3i" x="515" y="95" text-anchor="middle" font-size="11" fill="#b91c1c">Manque d'air, mélange mal réglé</text>
+
+      <!-- Flamme jaune -->
+      <path d="M 495,170 Q 500,140 505,170 Q 510,135 515,170 Q 520,138 525,170 Q 530,140 535,170 Z" fill="#f59e0b" stroke="#b45309"/>
+      <!-- Suie (cercles noirs) -->
+      <circle cx="498" cy="155" r="2" fill="#1f2937"/>
+      <circle cx="510" cy="148" r="2" fill="#1f2937"/>
+      <circle cx="525" cy="153" r="2" fill="#1f2937"/>
+      <text class="lbl3i" x="515" y="190" text-anchor="middle" font-size="10" fill="#b45309">flamme jaune + suie</text>
+
+      <text class="lbl3i" x="515" y="215" text-anchor="middle" font-weight="bold" font-size="12">2 CH₄ + 3 O₂ → 2 CO + 4 H₂O</text>
+      <text class="lbl3i" x="515" y="235" text-anchor="middle" font-size="10" fill="#b91c1c">CO toxique. Énergie perdue.</text>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle est l'origine de la teneur élevée en CO mesurée par Marc, et que doit-il régler sur la chaudière de M. Lambert pour rétablir une combustion sûre et performante ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>D'après le Doc 1, identifier les <strong>4 valeurs anormales</strong> mesurées par l'analyseur de fumées et préciser l'origine probable de chaque anomalie.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>O₂ = 7,5 % (trop élevé)</strong> : la chaudière aspire trop d'air comburant. Origine : volet d'air ouvert trop largement, joint d'étanchéité du brûleur fuit, ou tirage cheminée trop fort.</li>
+      <li><strong>CO₂ = 8,2 % (trop bas)</strong> : conséquence directe de l'excès d'air (les fumées sont diluées dans l'air en excès).</li>
+      <li><strong>CO = 480 ppm (très élevé)</strong> : combustion incomplète. Une partie du méthane brûle en CO au lieu de CO₂.</li>
+      <li><strong>T fumées = 220 °C (trop chaud)</strong> : la chaudière n'extrait pas assez de chaleur, l'énergie est rejetée par la cheminée. Lié à l'excès d'air ou à un échangeur encrassé.</li>
+    </ul>
+    <p>Les 4 anomalies pointent vers un même diagnostic : <strong>déréglage du brûleur + encrassement</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Équilibrer l'équation de la combustion <strong>incomplète</strong> du méthane qui produit du CO (et non du CO₂) :</p>
+  <p style="text-align:center;font-size:1.05em">… CH₄ + … O₂ → … CO + … H₂O</p>
+  <p>Vérifier la conservation des atomes.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Étape 1 — équilibrer C : 1 CH₄ → 1 CO.</p>
+    <p>Étape 2 — équilibrer H : 4 H → 2 H₂O.</p>
+    <p>Étape 3 — équilibrer O : à droite : 1 (CO) + 2 × 1 (2 H₂O) = 3 O. Donc à gauche : 3/2 O₂.</p>
+    <p>Pour avoir des coefficients entiers, on multiplie par 2 :</p>
+    <p style="text-align:center;font-size:1.05em"><strong>2 CH₄ + 3 O₂ → 2 CO + 4 H₂O</strong></p>
+    <p>Vérification : C : 2 = 2 ✓ ; H : 8 = 8 ✓ ; O : 6 = 2 + 4 = 6 ✓</p>
+    <p>À comparer à la combustion complète : <strong>CH₄ + 2 O₂ → CO₂ + 2 H₂O</strong> (qui demande plus d'oxygène).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-blue">ANA</span></h2>
+  <p>Marc note que les fumées contiennent <strong>à la fois du CO₂ (8,2 %) et du CO (480 ppm)</strong>. Que peut-on en déduire sur ce qui se passe dans la chambre de combustion ?</p>
+  <p>Combien de méthane brûle « complètement » et combien brûle « incomplètement » dans la chaudière ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La chaudière fonctionne en <strong>combustion mixte</strong> : la majorité du méthane brûle complètement (→ CO₂), mais une petite fraction brûle incomplètement (→ CO).</p>
+    <p>Ratio CO / (CO + CO₂) : 480 ppm / (480 + 82 000) ppm ≈ <strong>0,58 %</strong>.</p>
+    <p>Donc environ <strong>0,6 % du méthane brûle en CO</strong> au lieu de CO₂. Faible en pourcentage mais très dangereux car le CO est mortel à 480 ppm s'il fuit dans le logement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Une combustion incomplète libère <strong>moins d'énergie</strong> qu'une combustion complète, car le CO contient encore de l'énergie chimique (qui aurait pu être libérée en finissant la combustion en CO₂).</p>
+  <p>Sachant que la combustion complète libère 890 kJ/mol, et la combustion en CO seulement 605 kJ/mol, calculer la <strong>perte d'énergie</strong> par mole de méthane qui brûle en CO au lieu de CO₂.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie perdue par mole : 890 − 605 = <strong>285 kJ/mol</strong>, soit 32 % de l'énergie potentielle.</p>
+    <p>À l'échelle de la chaudière : 0,6 % du méthane brûle en CO. La perte de rendement liée au CO est donc 0,6 % × 32 % ≈ <strong>0,2 % de pertes énergétiques</strong> directes.</p>
+    <p>Mais les pertes totales sont plus grandes : excès d'air → fumées chaudes → énergie envolée par la cheminée. Au total, le rendement chute typiquement de 95 % à <strong>80-85 %</strong> dans ce type de chaudière déréglée.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Si la chaudière de M. Lambert consomme normalement <strong>1 500 m³ de gaz/an</strong>, calculer la perte financière annuelle si le rendement chute de 95 % à 82 %.</p>
+  <p><em>Repère : tarif gaz 0,11 €/kWh, PCI gaz 10 kWh/m³.</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie utile actuelle = 1 500 × 10 × 0,82 = 12 300 kWh.</p>
+    <p>Pour obtenir cette même énergie utile à rendement nominal 95 % : V = 12 300 / (10 × 0,95) ≈ 1 295 m³/an.</p>
+    <p>Surconsommation due au déréglage : 1 500 − 1 295 = <strong>205 m³/an de gaz gaspillés</strong>.</p>
+    <p>Coût gaspillé : 205 × 10 × 0,11 ≈ <strong>225 €/an</strong>.</p>
+    <p>Sur 2 ans (durée du défaut), Mme Lambert a perdu ≈ 450 € — c'est plus cher qu'un entretien annuel obligatoire (~ 150 €).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>D'après le diagnostic des Q1 et Q2, citer <strong>3 actions correctives</strong> que Marc doit effectuer sur la chaudière pour rétablir une combustion complète et sûre.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li><strong>Régler le volet d'air comburant</strong> du brûleur pour ramener l'O₂ des fumées à 3-5 %, et donc augmenter le CO₂ à ≈ 11 %.</li>
+      <li><strong>Nettoyer le brûleur et l'échangeur</strong> (encrassé après 2 ans sans entretien) : enlever la suie qui empêche la flamme d'avoir un bon contact avec l'oxygène.</li>
+      <li><strong>Vérifier le tirage de la cheminée</strong> (tirage trop fort à −12 Pa) : poser un modérateur de tirage si nécessaire pour éviter d'aspirer trop d'air.</li>
+    </ol>
+    <p>Marc termine par une mesure de contrôle après réglage : si le CO retombe sous 100 ppm et l'O₂ est entre 3 et 5 %, la chaudière est conforme.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>L'<strong>entretien annuel</strong> d'une chaudière gaz est obligatoire en France (décret n° 2009-649). Coût ≈ 150 €/an. Justifier en quoi cet entretien est rentable, à la lumière des résultats des questions précédentes.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Trois bénéfices d'un entretien annuel régulier :</p>
+    <ul>
+      <li><strong>Sécurité :</strong> détection précoce d'une combustion incomplète (CO mortel évité). Inestimable.</li>
+      <li><strong>Économie :</strong> 150 € d'entretien évitent ≈ 225 €/an de surconsommation gaz (cf Q5). <strong>Bénéfice net : 75 €/an</strong>, sans compter la durée de vie prolongée de la chaudière.</li>
+      <li><strong>Environnement :</strong> moins de gaz brûlé = moins de CO₂ émis. 205 m³ de gaz économisés ≈ 430 kg CO₂/an évités.</li>
+    </ul>
+    <p>Conclusion : l'entretien obligatoire n'est pas qu'une contrainte administrative, c'est <strong>très rentable financièrement</strong> et indispensable pour la sécurité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>compte-rendu d'intervention</strong> que Marc remet à M. Lambert :</p>
+  <ul>
+    <li>diagnostic posé (mesures, cause du déclenchement du détecteur CO)</li>
+    <li>actions correctives effectuées</li>
+    <li>recommandations pour éviter une récidive</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProChauffe — Intervention urgence chaudière chez M. Lambert (Strasbourg) — 7 mai 2026</strong><br>
+      • <strong>Diagnostic</strong> : combustion incomplète détectée, taux de CO dans les fumées 480 ppm (norme &lt; 100 ppm). Excès d'air (O₂ 7,5 %, CO₂ 8,2 %), fumées trop chaudes (220 °C), tirage cheminée fort (−12 Pa). Origine : déréglage du brûleur + encrassement (pas d'entretien depuis 2 ans).<br>
+      • <strong>Actions effectuées</strong> : nettoyage brûleur et échangeur, réglage volet d'air, contrôle joint d'étanchéité, pose modérateur de tirage. Mesure après réglage : CO 35 ppm ✓, O₂ 4,2 % ✓, CO₂ 10,8 % ✓, T fumées 165 °C ✓.<br>
+      • <strong>Récidive évitée</strong> : surconsommation gaz résorbée (≈ 225 €/an récupérés), risque CO neutralisé.<br>
+      • <strong>Recommandations</strong> : entretien annuel obligatoire (à programmer chaque automne, ≈ 150 €). Conserver le détecteur CO en fonctionnement (pile à changer chaque année).<br>
+      • <strong>Garantie</strong> : intervention couverte par notre garantie 6 mois. Prochaine visite préventive : septembre 2026.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Une combustion <strong>très incomplète</strong> peut produire en plus du CO de la <strong>suie (carbone solide C)</strong> et du <strong>noir de carbone</strong>. Équilibrer l'équation \(\text{CH}_4 + \text{O}_2 \rightarrow \text{C} + 2\,\text{H}_2\text{O}\) (extrême manque d'air, formation de suie pure) et expliquer pourquoi cela noircit l'intérieur des cheminées et de la chaudière.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Équilibrage : à droite, 2 H₂O contiennent 2 O. À gauche, il faut 1 O₂.</p>
+    <p style="text-align:center;font-size:1.05em"><strong>CH₄ + O₂ → C + 2 H₂O</strong></p>
+    <p>Vérification : C : 1 = 1 ✓ ; H : 4 = 4 ✓ ; O : 2 = 2 ✓</p>
+    <p>Le carbone produit (C) est sous forme de fines particules de <strong>suie noire</strong> qui se déposent sur l'échangeur, dans le conduit, et finissent par sortir par la cheminée. Effets :</p>
+    <ul>
+      <li>Encrassement progressif → rendement chute encore plus → cercle vicieux.</li>
+      <li>Risque d'incendie de cheminée (la suie est combustible).</li>
+      <li>Pollution atmosphérique : particules fines PM2.5 (effet santé).</li>
+    </ul>
+    <p>Une chaudière qui produit de la suie est en panne grave — arrêt immédiat et appel au technicien.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Combustion complète</strong> (assez d'air) : \(\text{CH}_4 + 2\,\text{O}_2 \rightarrow \text{CO}_2 + 2\,\text{H}_2\text{O}\). Énergie maximale, sans danger, flamme bleue.</li>
+    <li><strong>Combustion incomplète</strong> (manque d'air) : \(2\,\text{CH}_4 + 3\,\text{O}_2 \rightarrow 2\,\text{CO} + 4\,\text{H}_2\text{O}\). Forme du <strong>monoxyde de carbone CO</strong> mortel, flamme jaune, suie.</li>
+    <li><strong>CO :</strong> gaz incolore, inodore, mortel. Détecteur CO obligatoire dans tout logement chauffé au gaz / fioul.</li>
+    <li><strong>Diagnostic d'une chaudière :</strong> analyseur de fumées mesure O₂, CO₂, CO, T fumées. Une combustion saine donne O₂ ≈ 4 %, CO₂ ≈ 10-12 %, CO &lt; 100 ppm, T ≈ 150 °C.</li>
+    <li><strong>Causes d'une combustion incomplète :</strong> excès d'air, manque d'air, brûleur encrassé, échangeur sale, tirage de cheminée mal réglé.</li>
+    <li><strong>Entretien annuel</strong> de chaudière gaz/fioul : <strong>obligatoire</strong> en France (décret 2009). Garantit sécurité + économie d'énergie.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Combustion complète), §3 (Combustion incomplète) et §7 (Erreurs fréquentes / sécurité) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

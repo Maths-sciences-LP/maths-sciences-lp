@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité 4 – ITE avec bardage bois – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Rénovation par ITE avec bardage bois <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 5 – Minimiser les transferts thermiques | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Thermique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comparer R d'un mur ancien et après ITE</li>
+    <li>Calculer économies d'énergie après rénovation thermique</li>
+    <li>Estimer un retour sur investissement avec aides MaPrimeRénov'</li>
+    <li>Argumenter le choix d'un bardage bois en finition extérieure</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – rénovation maison ancienne</h2>
+  <p><em>Karim, charpentier-couvreur, propose à Mme Roussel (maison de 120 m² mal isolée, mur béton 20 cm sans isolant) une rénovation par ITE avec bardage bois mélèze. R actuel = 0,2 m²·K/W (très mauvais). Objectif : atteindre R = 5,5 m²·K/W (RE 2020).</em></p>
+
+  <h3>Document 1 — Composition mur après ITE</h3>
+  <table>
+    <thead><tr><th>Couche (existant + ajouté)</th><th>e</th><th>λ</th></tr></thead>
+    <tbody>
+      <tr><td>Mur béton existant</td><td>200 mm</td><td>1,75</td></tr>
+      <tr><td>Pare-pluie (négligeable)</td><td>—</td><td>—</td></tr>
+      <tr><td>Laine de bois rigide ITE</td><td>200 mm</td><td>0,038</td></tr>
+      <tr><td>Lame d'air ventilée 30 mm (négligeable)</td><td>—</td><td>—</td></tr>
+      <tr><td>Bardage mélèze</td><td>22 mm</td><td>0,15</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Données économiques</h3>
+  <ul>
+    <li>Surface murs extérieurs : 100 m²</li>
+    <li>ΔT moyen hiver : 12 °C, saison 5 000 h</li>
+    <li>Tarif énergie : 0,11 €/kWh PCI gaz, η chaudière 90 %</li>
+    <li>Coût ITE : 150 €/m² posé HT</li>
+    <li>Aides MaPrimeRénov' : 80 €/m²</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle économie annuelle de chauffage Mme Roussel obtient-elle, et en combien d'années l'investissement est-il rentabilisé ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer R<sub>existant</sub> du mur béton seul.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>R<sub>béton</sub> = 0,200 / 1,75 = <strong>0,11 m²·K/W</strong>.</p>
+    <p>(Le béton est un mauvais isolant, à peine ≈ 1/40 de la performance d'un isolant.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer R<sub>final</sub> après ITE (somme des couches).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>R<sub>béton</sub> = 0,11</li>
+      <li>R<sub>laine bois</sub> = 0,200/0,038 = 5,26</li>
+      <li>R<sub>bardage</sub> = 0,022/0,15 = 0,15</li>
+    </ul>
+    <p>R<sub>total</sub> = 0,11 + 5,26 + 0,15 = <strong>5,52 m²·K/W</strong>. <strong>Conforme RE 2020 (≥ 5,5)</strong>. ✓</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>flux thermique perdu</strong> par les 100 m² de murs avant et après ITE (Φ = S × ΔT / R).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Avant : Φ<sub>av</sub> = 100 × 12 / 0,11 = <strong>10 909 W ≈ 10,9 kW</strong> (énorme !).</p>
+    <p>Après : Φ<sub>ap</sub> = 100 × 12 / 5,52 = <strong>217 W ≈ 0,22 kW</strong>.</p>
+    <p>Réduction : 50 fois moins de pertes thermiques par les murs.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>énergie économisée annuellement</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>E<sub>av</sub> = 10,9 × 5 000 = 54 500 kWh/an.</p>
+    <p>E<sub>ap</sub> = 0,22 × 5 000 = 1 100 kWh/an.</p>
+    <p>Économie : 54 500 − 1 100 = <strong>53 400 kWh/an</strong> (ces chiffres sont théoriques car en pratique, la maison aurait des limites de chauffe).</p>
+    <p>Plus réaliste : économie effective ≈ <strong>50-70 %</strong> de la facture chauffage initiale.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Mme Roussel dépense actuellement <strong>3 000 €/an</strong> de chauffage. Estimer la <strong>nouvelle facture</strong> après ITE (réduction 60 %), et l'économie annuelle.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Nouvelle facture : 3 000 × (1 − 0,60) = <strong>1 200 €/an</strong>.</p>
+    <p>Économie annuelle : 3 000 − 1 200 = <strong>1 800 €/an</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>coût total de l'ITE</strong> et le <strong>retour sur investissement</strong> (avec aides).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût brut : 100 × 150 = 15 000 €.</p>
+    <p>Aide MaPrimeRénov' : 100 × 80 = 8 000 €.</p>
+    <p>Reste à charge : <strong>7 000 €</strong>.</p>
+    <p>ROI : 7 000 / 1 800 ≈ <strong>3,9 ans</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Pourquoi Karim recommande-t-il un bardage <strong>en mélèze</strong> plutôt qu'en pin ou plastique ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>Mélèze :</strong> bois durable naturellement (sans traitement), patine grise élégante, durée de vie 50 ans.</li>
+      <li><strong>Pin :</strong> moins durable, nécessite traitement autoclave classe 4, plus court.</li>
+      <li><strong>Plastique (PVC) :</strong> uniforme mais dégradation aux UV, fin de vie problématique, image dévalorisante.</li>
+    </ul>
+    <p>Mélèze = compromis durabilité + esthétique + écologie.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note technique</strong> de Karim pour Mme Roussel.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Karim Charpente — Projet ITE bardage bois · Mme Roussel · 7 mai 2026</strong><br>
+      • <strong>Existant :</strong> mur béton 20 cm, R = 0,11 m²·K/W (très insuffisant). Facture chauffage 3 000 €/an.<br>
+      • <strong>Solution :</strong> ITE laine de bois 200 mm + bardage mélèze ventilé. R obtenu = 5,52 m²·K/W (conforme RE 2020).<br>
+      • <strong>Coût :</strong> 15 000 € HT − 8 000 € MaPrimeRénov' = <strong>7 000 € net</strong>.<br>
+      • <strong>Économies :</strong> 1 800 €/an (-60 % facture). ROI 3,9 ans. Sur 30 ans : ~ 47 000 € économisés.<br>
+      • <strong>Esthétique :</strong> bardage mélèze patiné gris naturellement après 2 ans. Aucun traitement nécessaire. Devis détaillé sous 1 semaine.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Calculer le <strong>nombre d'années de chauffage gaz</strong> que représente l'énergie économisée par l'ITE sur 30 ans, en supposant le rendement chaudière constant.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Économie 1 800 €/an × 30 ans = 54 000 € net (après remboursement ITE 7 000 €).</p>
+    <p>Au tarif gaz 0,11 €/kWh, ça représente 54 000 / 0,11 ≈ <strong>490 000 kWh évités</strong>.</p>
+    <p>≈ <strong>16 ans de chauffage</strong> évités sur les 30 ans. C'est massif. L'ITE est une des rénovations les plus rentables qui existent.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>ITE (Isolation Thermique par l'Extérieur) :</strong> ajoute un manteau isolant à l'extérieur, recouvert d'un bardage ou enduit.</li>
+    <li><strong>Avantages :</strong> élimine ponts thermiques, conserve l'inertie intérieure, pas de perte de surface, moins de gêne pour les habitants.</li>
+    <li><strong>R typique après ITE :</strong> 5-7 m²·K/W (conforme RE 2020).</li>
+    <li><strong>Économie typique :</strong> 50-70 % de la facture chauffage initiale d'une maison ancienne.</li>
+    <li><strong>Aides 2026 :</strong> MaPrimeRénov' couvre 30-50 % du coût pour ITE biosourcée.</li>
+    <li><strong>Bardage bois</strong> (mélèze, douglas) : finition naturelle durable, recyclable, faible énergie grise. Compromis idéal pour une démarche éco.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur les notions de R cumul, économie énergétique et applications pro de la leçon Ch05.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

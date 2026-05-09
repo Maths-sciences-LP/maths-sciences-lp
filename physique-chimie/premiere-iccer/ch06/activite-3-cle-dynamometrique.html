@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – Activité 3 – Clé dynamométrique et couple de serrage – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Clé dynamométrique et couple de serrage <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 6 – Équilibre en rotation | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre la notion de couple de serrage M = F × d</li>
+    <li>Calculer la force à exercer au bout d'une clé pour atteindre un couple cible</li>
+    <li>Choisir une clé adaptée à un raccord de plomberie (selon le couple recommandé)</li>
+    <li>Comprendre les conséquences d'un sous-serrage ou d'un sur-serrage</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (moment d'une force) et §6 (applications). Couple de serrage : C = F × L où F est la force au bout de la clé et L la longueur effective.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – montage d'une chaudière à condensation chez M. Da Silva</h2>
+  <p><em>Léa, technicienne installatrice chez « ProThermique » à Nantes, finalise le raccordement d'une chaudière gaz murale Viessmann Vitodens 200. La notice du fabricant indique <strong>3 couples de serrage</strong> spécifiques pour 3 raccords critiques. Léa doit utiliser sa clé dynamométrique pour respecter exactement ces couples : un sous-serrage cause une fuite, un sur-serrage casse le raccord. Elle veut comprendre comment lire la notice et choisir le bon réglage.</em></p>
+
+  <h3>Document 1 — Couples de serrage notice Viessmann</h3>
+  <table>
+    <thead>
+      <tr><th>Raccord</th><th>Diamètre</th><th>Couple recommandé C</th><th>Tolérance</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Arrivée gaz (DN 20)</td><td>3/4"</td><td><strong>40 N·m</strong></td><td>± 5 %</td></tr>
+      <tr><td>Départ chauffage (DN 25)</td><td>1"</td><td><strong>25 N·m</strong></td><td>± 5 %</td></tr>
+      <tr><td>Bornier électrique principal</td><td>M6</td><td><strong>2,5 N·m</strong></td><td>± 10 %</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Caractéristiques des 3 clés disponibles</h3>
+  <table>
+    <thead>
+      <tr><th>Outil</th><th>Longueur effective L</th><th>Plage de couples</th><th>Usage typique</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Clé dynamométrique courte</td><td>L₁ = 0,20 m</td><td>1 à 6 N·m</td><td>Bornier électrique fin, vis M3-M6</td></tr>
+      <tr><td>Clé dynamométrique standard</td><td>L₂ = 0,40 m</td><td>10 à 60 N·m</td><td>Raccords plomberie courants</td></tr>
+      <tr><td>Clé à choc pneumatique</td><td>L₃ = 0,30 m</td><td>50 à 250 N·m</td><td>Gros boulonnage, démontage</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Schéma : couple de serrage et bras de levier</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 200" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma d'une clé dynamométrique horizontale. À gauche, l'extrémité tournante (douille sur l'écrou ou raccord). À droite, la poignée. La main exerce une force F vers le bas à la distance L du centre de l'écrou. Le couple de serrage C = F × L provoque la rotation de l'écrou.">
+      <defs>
+        <style>
+          .ti6c{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl6c{font:11px sans-serif;fill:#1a202c}
+          .lblB6c{font:700 12px sans-serif;fill:#1d4ed8}
+        </style>
+      </defs>
+
+      <text class="ti6c" x="350" y="22">Clé dynamométrique : couple C = F × L</text>
+
+      <!-- Raccord (écrou) à gauche -->
+      <polygon points="100,90 130,75 160,90 160,120 130,135 100,120" fill="#cbd5e1" stroke="#1e293b" stroke-width="2"/>
+      <text class="lbl6c" x="130" y="155" text-anchor="middle" font-size="10" font-style="italic" fill="#475569">écrou (à serrer)</text>
+
+      <!-- Clé (manche horizontal) -->
+      <rect x="130" y="100" width="380" height="14" fill="#475569" stroke="#1f2937" stroke-width="1.5" rx="4"/>
+      <!-- Poignée -->
+      <rect x="500" y="92" width="80" height="30" fill="#dc2626" stroke="#7f1d1d" stroke-width="2" rx="6"/>
+      <text class="lbl6c" x="540" y="110" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">poignée</text>
+
+      <!-- Main / Force -->
+      <circle cx="540" cy="80" r="14" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+      <line x1="540" y1="125" x2="540" y2="155" stroke="#dc2626" stroke-width="3" marker-end="url(#arrFc)"/>
+      <text class="lblB6c" x="565" y="148">F</text>
+
+      <!-- Cote longueur L -->
+      <line x1="130" y1="170" x2="540" y2="170" stroke="#1d4ed8" stroke-width="1"/>
+      <line x1="130" y1="165" x2="130" y2="175" stroke="#1d4ed8"/>
+      <line x1="540" y1="165" x2="540" y2="175" stroke="#1d4ed8"/>
+      <text class="lbl6c" x="335" y="185" text-anchor="middle" font-weight="bold" fill="#1d4ed8">L (longueur effective)</text>
+
+      <!-- Flèche rotation -->
+      <path d="M 100 95 Q 80 110 100 130" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#arrRot)"/>
+      <text class="lbl6c" x="60" y="115" text-anchor="middle" font-size="10" fill="#15803d" font-style="italic">rotation</text>
+
+      <defs>
+        <marker id="arrFc" markerWidth="9" markerHeight="9" refX="4" refY="9" orient="auto">
+          <polygon points="0,0 4,9 9,0" fill="#dc2626"/>
+        </marker>
+        <marker id="arrRot" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="#16a34a"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle clé Léa doit-elle utiliser pour chacun des 3 raccords, et quelle force doit-elle exercer au bout de la poignée pour atteindre exactement le couple recommandé ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Citer la relation entre le <strong>couple de serrage C</strong>, la force F appliquée à la main et la longueur effective L de la clé. Préciser les unités.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Relation : <strong>C = F × L</strong></p>
+    <ul>
+      <li>C : couple de serrage en N·m (newton-mètre)</li>
+      <li>F : force exercée perpendiculairement à la clé en N (newton)</li>
+      <li>L : longueur effective de la clé en m (mètre)</li>
+    </ul>
+    <p>Le couple est l'équivalent rotationnel du moment d'une force : il quantifie la « force tournante » exercée sur l'écrou.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Pour le raccord <strong>« Départ chauffage »</strong> (C = 25 N·m), Léa utilise sa clé dynamométrique standard (L₂ = 0,40 m). Calculer la force F qu'elle doit exercer à la poignée.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F = C / L₂ = 25 / 0,40 = <strong>62,5 N</strong></p>
+    <p>Soit l'équivalent d'environ 6 kg de pression sur la poignée. Léa atteint cela facilement à la main.</p>
+    <p>Note : la clé dynamométrique « bipe » ou claque dès que le couple est atteint, pour éviter le sur-serrage.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Pour le raccord <strong>« Arrivée gaz »</strong> (C = 40 N·m), même clé standard (L₂ = 0,40 m). Calculer la force F.</p>
+  <p>Pour le <strong>bornier électrique</strong> (C = 2,5 N·m), avec la clé courte (L₁ = 0,20 m). Calculer la force F.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Arrivée gaz : F = 40 / 0,40 = <strong>100 N</strong> (≈ 10 kg sur la poignée).</p>
+    <p>Bornier électrique : F = 2,5 / 0,20 = <strong>12,5 N</strong> (≈ 1,25 kg, très léger).</p>
+    <p>La clé courte est <strong>indispensable</strong> pour le bornier — sa plage de couples (1 à 6 N·m) est adaptée à des serrages fins. Une clé standard donnerait trop d'amplitude pour un couple si faible.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Si Léa essayait de serrer le bornier électrique (C = 2,5 N·m) avec sa clé standard L₂ = 0,40 m, quelle force devrait-elle exercer ? Pourquoi est-ce <strong>très imprécis</strong> ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F = 2,5 / 0,40 = <strong>6,25 N</strong> (≈ 0,6 kg).</p>
+    <p>Cette force est <strong>très faible</strong>, en dehors de la plage de précision de la clé standard (10-60 N·m). Léa risque de serrer entre 1 et 5 N·m sans s'en rendre compte — sous-serrage = mauvais contact électrique = échauffement et risque d'incendie.</p>
+    <p><strong>Règle :</strong> chaque clé a une plage de précision optimale. Travailler en dehors = mauvaise précision et risques.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>tolérance absolue</strong> sur le couple « Arrivée gaz » (40 N·m ± 5 %). Donner la plage de couple acceptable.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Tolérance : 5 % × 40 = <strong>± 2 N·m</strong>.</p>
+    <p>Plage acceptable : <strong>de 38 N·m à 42 N·m</strong>. Tout couple en dehors de cette plage rend le raccord non conforme — rejet en contrôle qualité.</p>
+    <p>Sur la clé : F entre 95 N et 105 N. Marge de manœuvre faible — la clé dynamométrique avec déclenchement audible est essentielle.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Léa hésite à utiliser sa clé à choc pneumatique pour gagner du temps sur le raccord arrivée gaz. Que pense-t-on de cette idée, sachant que la clé à choc travaille en plage 50-250 N·m ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>40 N·m est <strong>en dessous</strong> de la plage de la clé à choc (50-250 N·m). Mauvaise idée :</p>
+    <ul>
+      <li>La clé à choc est imprécise dans cette plage basse.</li>
+      <li>Risque de sur-serrage par à-coups violents → fissure du raccord laiton, fuite gaz potentielle.</li>
+      <li>Pas de feedback de couple → on ne saurait jamais si on a atteint exactement 40 N·m.</li>
+    </ul>
+    <p>Conclusion : pour les raccords gaz et eau, <strong>seule la clé dynamométrique manuelle</strong> à déclenchement permet d'atteindre le couple précis. La clé à choc est réservée aux gros boulonnages (boulons de roue, charpente métallique).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Sur le terrain, Léa s'aperçoit que sa clé dynamométrique standard (L₂ = 0,40 m) est en panne. Elle ne dispose plus que d'une clé plate ordinaire de longueur L = 0,25 m, sans déclenchement. Pour atteindre 25 N·m, quelle force devrait-elle exercer ? Et comment peut-elle estimer sans déclenchement audible ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F = 25 / 0,25 = <strong>100 N</strong> (≈ 10 kg).</p>
+    <p>Avec une clé sans déclenchement, l'estimation est <strong>très imprécise</strong> : Léa peut sentir « 10 kg sur la main », mais l'incertitude est de ± 30 % typiquement.</p>
+    <p>Bonne pratique : ne <strong>pas finaliser</strong> le chantier avec une clé inadaptée. Reporter la fin de pose à demain avec un outil approprié, ou demander à un collègue d'apporter une clé dynamométrique. Sécurité gaz et eau = pas de compromis.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche de fin de chantier</strong> que Léa remplit pour le client M. Da Silva :</p>
+  <ul>
+    <li>les 3 raccords serrés et leur couple appliqué</li>
+    <li>la conformité aux préconisations Viessmann</li>
+    <li>la garantie qui en découle</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermique — Fiche de fin de chantier · Chaudière Vitodens 200 chez M. Da Silva (Nantes)</strong><br>
+      • <strong>Arrivée gaz (DN 20)</strong> serrée à <strong>40 N·m</strong> avec clé dynamométrique standard (force 100 N à 0,40 m). Conforme spec Viessmann ± 5 %.<br>
+      • <strong>Départ chauffage (DN 25)</strong> serré à <strong>25 N·m</strong>. Conforme.<br>
+      • <strong>Bornier électrique principal</strong> serré à <strong>2,5 N·m</strong> avec clé courte 0,20 m. Conforme.<br>
+      • Les 3 couples ont été contrôlés au déclenchement audible de la clé dynamométrique calibrée (étalonnage 2026).<br>
+      • <strong>Garantie constructeur applicable</strong> (5 ans pièces, 2 ans pose). Test d'étanchéité réalisé : aucune fuite détectée à 3 bar pendant 30 min.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Sur les notices anglaises, les couples sont parfois donnés en <strong>lb·ft</strong> (pound-foot). Sachant que 1 lb·ft = 1,356 N·m, convertir 25 N·m en lb·ft. Une notice américaine indique « 18 lb·ft » : à combien cela correspond-il en N·m ? Est-ce le même couple ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>25 N·m → 25 / 1,356 ≈ <strong>18,4 lb·ft</strong></p>
+    <p>18 lb·ft → 18 × 1,356 ≈ <strong>24,4 N·m</strong></p>
+    <p>Les deux valeurs sont quasi identiques (24,4 ≈ 25 N·m, écart de 2 %, dans la tolérance de ± 5 %). Conclusion : 25 N·m français ≈ 18 lb·ft américain, c'est cohérent.</p>
+    <p>Toujours <strong>vérifier l'unité</strong> sur les notices internationales avant de régler la clé — un facteur 1,356 multiplié par erreur peut casser un raccord.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Couple de serrage :</strong> C = F × L (en N·m). C'est la version « rotation » du moment d'une force.</li>
+    <li><strong>Choix d'une clé :</strong> sa plage de précision doit englober le couple cible. Travailler en dehors = mauvaise précision.</li>
+    <li><strong>Clé dynamométrique à déclenchement :</strong> émet un « clic » audible dès que le couple cible est atteint. Indispensable pour raccords gaz, eau, gros borniers.</li>
+    <li><strong>Plages typiques :</strong> bornier élec 2-6 N·m (clé fine), plomberie 20-50 N·m (clé standard), boulonnage 50-250 N·m (clé à choc).</li>
+    <li><strong>Sous-serrage :</strong> fuite gaz/eau, mauvais contact électrique. <strong>Sur-serrage :</strong> casse du raccord, fissure du laiton.</li>
+    <li><strong>Conversion :</strong> 1 lb·ft ≈ 1,356 N·m. Toujours vérifier l'unité d'une notice internationale.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Moment d'une force) et §6 (Levier dans les métiers du bâtiment) de la leçon Ch06.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

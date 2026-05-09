@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Activité 2 – Wifi et domotique pour pilotage chauffage – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Wifi et domotique pour piloter le chauffage <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 10 – Ondes électromagnétiques | 1ère Bac Pro ICCER (Grpt 1) | Physique – Ondes | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la longueur d'onde d'une onde radio à partir de sa fréquence (c = λf)</li>
+    <li>Comprendre le spectre des ondes Wifi, Bluetooth, GSM, LoRa</li>
+    <li>Évaluer la portée d'une connexion Wifi en fonction des obstacles</li>
+    <li>Choisir le bon protocole pour piloter un thermostat connecté</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §II (longueur d'onde et fréquence) et §V (transmission d'informations). Relation : \(c = \lambda \times f\), avec c = 3 × 10⁸ m/s (vitesse de la lumière dans le vide).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – installation d'un thermostat connecté</h2>
+  <p><em>Lila, technicienne domotique chez « SmartHome 31 » à Toulouse, installe un thermostat Wifi Nest chez M. Martin (maison 110 m², 2 étages). Le thermostat doit communiquer avec la box internet du salon et avec la chaudière au sous-sol. Lila doit vérifier que le signal Wifi 2,4 GHz traverse bien les murs en béton du sous-sol et choisir le bon protocole de communication (Wifi, Bluetooth ou Zigbee selon la portée et les obstacles).</em></p>
+
+  <h3>Document 1 — Comparatif des protocoles sans fil pour domotique</h3>
+  <table>
+    <thead>
+      <tr><th>Protocole</th><th>Fréquence f</th><th>Portée libre</th><th>Usage typique</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Wifi 2,4 GHz</strong></td><td>2,4 × 10⁹ Hz</td><td>~ 50 m</td><td>Internet domestique, smartphones</td></tr>
+      <tr><td><strong>Wifi 5 GHz</strong></td><td>5 × 10⁹ Hz</td><td>~ 25 m</td><td>Internet rapide, courte distance</td></tr>
+      <tr><td><strong>Bluetooth</strong></td><td>2,4 × 10⁹ Hz</td><td>~ 10 m</td><td>Casque audio, montre connectée</td></tr>
+      <tr><td><strong>Zigbee</strong></td><td>2,4 × 10⁹ Hz</td><td>~ 30 m</td><td>Domotique faible consommation</td></tr>
+      <tr><td><strong>LoRa</strong></td><td>868 × 10⁶ Hz</td><td>~ 5 km</td><td>IoT longue portée, capteurs ruraux</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Atténuation à travers les matériaux courants</h3>
+  <ul>
+    <li>Cloison plâtre 7 cm : −3 dB (signal divisé par ≈ 2)</li>
+    <li>Mur béton 20 cm : <strong>−15 dB</strong> (signal divisé par ≈ 30)</li>
+    <li>Plancher béton 25 cm : −20 dB (signal divisé par 100)</li>
+    <li>Vitrage simple : −2 dB</li>
+    <li>Au-delà de −80 dBm de signal reçu, le Wifi devient instable et coupe</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle est la longueur d'onde du signal Wifi 2,4 GHz, et le signal arrivera-t-il assez fort de la box du salon jusqu'à la chaudière au sous-sol pour piloter le thermostat ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>longueur d'onde</strong> λ du signal Wifi 2,4 GHz, à l'aide de la relation \(\lambda = c / f\).</p>
+  <p><em>c = 3,0 × 10⁸ m/s, f = 2,4 × 10⁹ Hz.</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>λ = c / f = (3,0 × 10⁸) / (2,4 × 10⁹) = 3,0/2,4 × 10⁻¹ = 1,25 × 10⁻¹</p>
+    <p>λ ≈ <strong>0,125 m = 12,5 cm</strong></p>
+    <p>L'onde Wifi 2,4 GHz a une longueur d'onde de 12 cm — c'est l'ordre de grandeur d'une main, ce qui explique pourquoi des objets de cette taille (humains, meubles) atténuent le signal.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la longueur d'onde du Wifi 5 GHz et de la LoRa 868 MHz. Comparer les 3.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Wifi 5 GHz : λ = (3 × 10⁸) / (5 × 10⁹) = <strong>0,06 m = 6 cm</strong></p>
+    <p>LoRa 868 MHz : λ = (3 × 10⁸) / (8,68 × 10⁸) ≈ <strong>0,346 m = 34,6 cm</strong></p>
+    <p>Comparaison : Wifi 5 GHz (6 cm) &lt; Wifi 2,4 GHz (12,5 cm) &lt; LoRa 868 MHz (34,6 cm).</p>
+    <p>Plus la fréquence est élevée, plus la longueur d'onde est petite, et plus l'onde traverse mal les obstacles. C'est pourquoi le 5 GHz est plus rapide mais a moins de portée que le 2,4 GHz, et la LoRa porte loin.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-blue">ANA</span></h2>
+  <p>D'après le Doc 1, quel protocole sans fil Lila doit-elle <strong>privilégier pour atteindre le sous-sol</strong> ? Justifier en comparant les portées et fréquences.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pour atteindre le sous-sol à travers un plancher en béton (−20 dB), il faut une bonne portée et une fréquence pas trop élevée :</p>
+    <ul>
+      <li>Wifi 2,4 GHz : portée 50 m, λ = 12,5 cm. Bon compromis. ✓</li>
+      <li>Wifi 5 GHz : portée 25 m seulement, atténué fortement par béton.</li>
+      <li>Bluetooth : portée 10 m insuffisante.</li>
+      <li>Zigbee : portée 30 m, fréquence 2,4 GHz, peut convenir.</li>
+      <li>LoRa : portée 5 km, mais débit faible (peu adapté à un thermostat avec interface)</li>
+    </ul>
+    <p><strong>Choix : Wifi 2,4 GHz</strong> ou <strong>Zigbee</strong>. Pour un thermostat Nest, Wifi 2,4 GHz est natif et préférable.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>La box internet du salon émet à <strong>−40 dBm</strong>. Calculer le <strong>signal reçu</strong> au sous-sol après traversée de :</p>
+  <ul>
+    <li>1 cloison plâtre (−3 dB)</li>
+    <li>1 plancher béton (−20 dB)</li>
+    <li>1 mur béton (−15 dB)</li>
+  </ul>
+  <p>Le signal restera-t-il au-dessus du seuil de coupure (−80 dBm) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Atténuation totale : 3 + 20 + 15 = <strong>38 dB</strong>.</p>
+    <p>Signal reçu : −40 − 38 = <strong>−78 dBm</strong>.</p>
+    <p>−78 dBm &gt; −80 dBm → <strong>juste au-dessus du seuil</strong>. Le Wifi fonctionnera, mais avec un signal faible (probablement instable, débit réduit).</p>
+    <p>Conseil : poser un <strong>répéteur Wifi</strong> à mi-chemin (par exemple sur le palier du rez-de-chaussée) pour relayer le signal vers le sous-sol.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Si Lila avait choisi le <strong>Wifi 5 GHz</strong> (atténuation typique 1,5 fois supérieure au 2,4 GHz pour la même paroi), recalculer l'atténuation totale et le signal reçu. Le signal passe-t-il au sous-sol ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Atténuation totale 5 GHz : 38 × 1,5 = <strong>57 dB</strong>.</p>
+    <p>Signal reçu : −40 − 57 = <strong>−97 dBm</strong>.</p>
+    <p>−97 &lt; −80 dBm → <strong>signal coupé</strong>. Le 5 GHz ne traverserait pas le sous-sol.</p>
+    <p>Confirmation : le 2,4 GHz est nettement préférable pour une domotique en sous-sol ou maison ancienne.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Lila pose un <strong>répéteur Wifi</strong> au rez-de-chaussée, sortie box atténuée seulement de 3 dB (1 cloison). Calculer le signal au répéteur, puis du répéteur jusqu'au sous-sol.</p>
+  <p>Le répéteur réémet le signal à <strong>−45 dBm</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Signal au répéteur : −40 − 3 = −43 dBm. Suffisant pour qu'il capte la box.</p>
+    <p>Le répéteur réémet à −45 dBm.</p>
+    <p>Du répéteur au sous-sol : −45 − (20 + 15) = <strong>−80 dBm</strong> (limite). Et avec moins de cloisons cumulées sur ce chemin, on peut estimer −75 dBm en pratique.</p>
+    <p>Avec répéteur, signal stable et plus rapide. <strong>Solution recommandée.</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Pour des capteurs de température placés à 200 m dans le jardin (pour piloter une PAC géothermique externe), Wifi est insuffisant. Quel <strong>protocole longue portée</strong> Lila doit-elle utiliser ?</p>
+  <p>Calculer aussi sa longueur d'onde.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Recommandation : <strong>LoRa 868 MHz</strong> (portée 5 km, parfaitement adaptée à 200 m extérieurs avec quelques obstacles).</p>
+    <p>Longueur d'onde : λ = c / f = (3 × 10⁸) / (8,68 × 10⁸) ≈ <strong>0,346 m = 35 cm</strong>.</p>
+    <p>Avantages LoRa : très basse consommation (capteurs sur pile pendant 5 ans), portée multikm, peu sensible aux obstacles. Inconvénient : débit faible (quelques bits/seconde) — suffisant pour transmettre une mesure de température.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche d'installation</strong> que Lila remet à M. Martin :</p>
+  <ul>
+    <li>protocoles utilisés (Wifi 2,4 GHz, LoRa)</li>
+    <li>niveau de signal au sous-sol</li>
+    <li>équipements complémentaires (répéteur)</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>SmartHome 31 — Fiche installation domotique chauffage · M. Martin (Toulouse) — 7 mai 2026</strong><br>
+      • <strong>Thermostat Nest :</strong> communique en <strong>Wifi 2,4 GHz</strong> (λ = 12,5 cm) avec votre box internet.<br>
+      • <strong>Signal au sous-sol :</strong> −78 dBm (limite). Pour stabiliser : <strong>répéteur Wifi posé au rez-de-chaussée</strong> (modèle inclus dans le devis, 60 €).<br>
+      • <strong>Avec répéteur :</strong> signal −75 dBm au sous-sol. Connexion stable, latence &lt; 200 ms.<br>
+      • <strong>Capteurs extérieurs :</strong> protocole LoRa 868 MHz (portée 5 km) pour les sondes jardin et chaudière secondaire.<br>
+      • <strong>Garantie</strong> : 2 ans pose + télémaintenance gratuite 1 an. App « SmartHome » à télécharger sur votre smartphone.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Les <strong>fours à micro-ondes</strong> domestiques fonctionnent à 2,45 GHz (proche du Wifi !). Pourquoi cela peut-il <strong>perturber le Wifi</strong> de la maison ? Comment l'éviter ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le four à micro-ondes émet à 2,45 GHz, presque la même fréquence que le Wifi 2,4 GHz (canal 11 typiquement). Une partie de cette énergie peut <strong>fuiter</strong> à travers les joints du four et perturber le signal Wifi voisin.</p>
+    <p>Solutions : (1) Tenir routeur Wifi à plus de 3 m du four, (2) utiliser le Wifi 5 GHz (totalement séparé), (3) changer le canal Wifi (1, 6 ou 13).</p>
+    <p>Anecdote : le 2,4 GHz a été choisi pour les micro-ondes parce que cette fréquence excite efficacement les molécules d'eau (rotation moléculaire). Le Wifi a hérité de cette bande publique « libre » plus tard.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Onde EM :</strong> propagation simultanée d'un champ électrique et magnétique. Vitesse dans le vide : c = 3 × 10⁸ m/s.</li>
+    <li><strong>Relation fondamentale :</strong> c = λ × f. Plus la fréquence est élevée, plus la longueur d'onde est courte.</li>
+    <li><strong>Spectre :</strong> radio (kHz-MHz) → micro-ondes (GHz) → IR → visible (400-700 nm) → UV → rayons X → γ.</li>
+    <li><strong>Wifi 2,4 GHz</strong> : λ = 12,5 cm, portée 50 m, traverse murs.</li>
+    <li><strong>LoRa 868 MHz</strong> : λ = 35 cm, portée 5 km, idéal IoT extérieur.</li>
+    <li><strong>Atténuation :</strong> les ondes perdent en intensité à travers les obstacles (mesurée en dB). Béton 20 cm = −20 dB. Seuil de coupure Wifi typique : −80 dBm.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §II (Longueur d'onde et fréquence), §III (Spectre EM) et §V (Transmission d'informations) de la leçon Ch10.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

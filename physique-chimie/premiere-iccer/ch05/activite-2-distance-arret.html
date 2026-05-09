@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité 2 – Distance d'arrêt d'un véhicule – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Distance d'arrêt d'un fourgon utilitaire <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 5 – Vitesse et accélération | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Convertir une vitesse de km/h en m/s</li>
+    <li>Calculer une distance pendant un temps de réaction (mouvement uniforme)</li>
+    <li>Calculer une distance de freinage (mouvement uniformément décéléré)</li>
+    <li>Comprendre que la distance d'arrêt varie en v² (au carré de la vitesse)</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §1 (vitesse), §2 (accélération), §3 (mouvement uniformément varié). \(d = v \cdot \Delta t\) (mouvement uniforme), \(d = v^2 / (2 \cdot |a|)\) (freinage).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – Yann en intervention urgence</h2>
+  <p><em>Yann, technicien chauffagiste chez « ProThermique » à Lyon, conduit son fourgon utilitaire pour aller dépanner une chaudière en panne. La route est sèche, le fourgon est chargé (1 200 kg de matériel). Sur une départementale (limite 80 km/h), un enfant traverse soudainement à 60 mètres devant lui. Yann doit comprendre s'il a la distance pour s'arrêter à temps. La <strong>distance d'arrêt</strong> se compose du <strong>temps de réaction</strong> (le pied n'est pas encore sur le frein) et du <strong>freinage</strong> proprement dit.</em></p>
+
+  <h3>Document 1 — Données du fourgon et du conducteur</h3>
+  <ul>
+    <li>Vitesse initiale : <strong>v₀ = 80 km/h</strong></li>
+    <li>Temps de réaction moyen d'un conducteur attentif : <strong>t<sub>réaction</sub> = 1 s</strong></li>
+    <li>Décélération maximale du fourgon (route sèche, charge nominale) : <strong>a = −7 m/s²</strong></li>
+    <li>Distance entre Yann et l'enfant au moment où il aperçoit le danger : <strong>d<sub>vue</sub> = 60 m</strong></li>
+  </ul>
+
+  <h3>Document 2 — Phases du mouvement et formules</h3>
+  <table>
+    <thead>
+      <tr><th>Phase</th><th>Type de mouvement</th><th>Distance parcourue</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>① Réaction (œil → cerveau → pied)</td><td>Uniforme (v constante)</td><td>d₁ = v × t<sub>réaction</sub></td></tr>
+      <tr><td>② Freinage (pied sur la pédale)</td><td>Uniformément décéléré</td><td>d₂ = v² / (2 × |a|)</td></tr>
+      <tr><td>Total : distance d'arrêt</td><td></td><td>d<sub>arrêt</sub> = d₁ + d₂</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Schéma de la situation</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 220" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : fourgon roule à 80 km/h, aperçoit l'enfant à 60 m devant. Phase 1 (réaction) : fourgon parcourt d1 à vitesse constante pendant 1 s. Phase 2 (freinage) : fourgon décélère à -7 m/s² jusqu'à s'arrêter sur une distance d2. La somme d1 + d2 doit être inférieure à 60 m pour s'arrêter à temps.">
+      <defs>
+        <style>
+          .ti5{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl5{font:11px sans-serif;fill:#1a202c}
+          .lblR5{font:700 12px sans-serif;fill:#b91c1c}
+          .lblG5{font:700 12px sans-serif;fill:#15803d}
+        </style>
+      </defs>
+
+      <text class="ti5" x="350" y="22">Distance d'arrêt = distance de réaction + distance de freinage</text>
+
+      <!-- Route -->
+      <rect x="20" y="120" width="660" height="60" fill="#475569"/>
+      <line x1="40" y1="150" x2="60" y2="150" stroke="#fff" stroke-width="2"/>
+      <line x1="100" y1="150" x2="120" y2="150" stroke="#fff" stroke-width="2"/>
+      <line x1="160" y1="150" x2="180" y2="150" stroke="#fff" stroke-width="2"/>
+      <line x1="220" y1="150" x2="240" y2="150" stroke="#fff" stroke-width="2"/>
+      <line x1="280" y1="150" x2="300" y2="150" stroke="#fff" stroke-width="2"/>
+      <line x1="340" y1="150" x2="360" y2="150" stroke="#fff" stroke-width="2"/>
+      <line x1="400" y1="150" x2="420" y2="150" stroke="#fff" stroke-width="2"/>
+      <line x1="460" y1="150" x2="480" y2="150" stroke="#fff" stroke-width="2"/>
+      <line x1="520" y1="150" x2="540" y2="150" stroke="#fff" stroke-width="2"/>
+      <line x1="580" y1="150" x2="600" y2="150" stroke="#fff" stroke-width="2"/>
+
+      <!-- Fourgon (gauche) -->
+      <rect x="40" y="100" width="80" height="40" fill="#fff" stroke="#1f2937" stroke-width="2" rx="4"/>
+      <rect x="115" y="92" width="20" height="48" fill="#cbd5e1" stroke="#1f2937"/>
+      <circle cx="60" cy="145" r="6" fill="#1f2937"/>
+      <circle cx="105" cy="145" r="6" fill="#1f2937"/>
+      <text class="lbl5" x="80" y="125" text-anchor="middle" font-size="9" fill="#1f2937">FOURGON</text>
+      <text class="lbl5" x="80" y="92" text-anchor="middle" font-size="9" fill="#0969da">v₀ = 80 km/h</text>
+
+      <!-- Enfant (droite) -->
+      <circle cx="610" cy="125" r="10" fill="#fef3c7" stroke="#92400e" stroke-width="1.5"/>
+      <rect x="603" y="135" width="14" height="25" fill="#dc2626"/>
+      <text class="lbl5" x="610" y="100" text-anchor="middle" font-size="9" fill="#b91c1c">ENFANT</text>
+
+      <!-- Cote 60 m totale -->
+      <line x1="135" y1="200" x2="600" y2="200" stroke="#475569" stroke-width="1"/>
+      <line x1="135" y1="195" x2="135" y2="205" stroke="#475569"/>
+      <line x1="600" y1="195" x2="600" y2="205" stroke="#475569"/>
+      <text class="lbl5" x="367" y="218" text-anchor="middle" font-weight="bold">d_vue = 60 m</text>
+
+      <!-- Phase 1 (réaction) -->
+      <line x1="135" y1="80" x2="280" y2="80" stroke="#dc2626" stroke-width="2" marker-end="url(#arr5)"/>
+      <text class="lblR5" x="207" y="73" text-anchor="middle" font-size="11">d₁ (réaction)</text>
+
+      <!-- Phase 2 (freinage) -->
+      <line x1="280" y1="60" x2="600" y2="60" stroke="#15803d" stroke-width="2" marker-end="url(#arr5)"/>
+      <text class="lblG5" x="440" y="53" text-anchor="middle" font-size="11">d₂ (freinage)</text>
+
+      <line x1="280" y1="55" x2="280" y2="85" stroke="#475569" stroke-width="1" stroke-dasharray="3,2"/>
+
+      <defs>
+        <marker id="arr5" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="currentColor"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> La distance d'arrêt totale du fourgon de Yann lui permet-elle de s'arrêter avant l'enfant situé à 60 m ? Quelle aurait été la situation s'il roulait à 90 km/h ou à 50 km/h ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Convertir la vitesse <strong>v₀ = 80 km/h</strong> en mètres par seconde (m/s).</p>
+  <p><em>Rappel : 1 km/h = 1 000 m / 3 600 s = 1/3,6 m/s.</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>v₀ = 80 / 3,6 ≈ <strong>22,2 m/s</strong></p>
+    <p>(Astuce mentale : pour passer de km/h à m/s, on divise par 3,6.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>distance d₁ parcourue pendant le temps de réaction</strong> (1 seconde) de Yann. Pendant ce temps, le fourgon roule à <strong>vitesse constante</strong> (Yann n'a pas encore freiné).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Mouvement uniforme : d₁ = v × t<sub>réaction</sub> = 22,2 × 1 = <strong>22,2 m</strong></p>
+    <p>En 1 seconde de réaction, le fourgon parcourt déjà 22 m sans même avoir commencé à freiner !</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>distance d₂ de freinage</strong> à l'aide de la formule \(d_2 = \dfrac{v^2}{2 \cdot |a|}\), avec a = −7 m/s².</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>d₂ = (22,2)² / (2 × 7) = 493 / 14 ≈ <strong>35,2 m</strong></p>
+    <p>Pendant le freinage, le fourgon parcourt encore environ 35 m avant de s'arrêter.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>distance d'arrêt totale</strong> d<sub>arrêt</sub> = d₁ + d₂. Comparer avec les 60 m disponibles. Yann peut-il s'arrêter à temps ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>d<sub>arrêt</sub> = 22,2 + 35,2 = <strong>57,4 m</strong></p>
+    <p>57,4 m &lt; 60 m → <strong>Oui, Yann peut s'arrêter à temps</strong>, mais avec une marge de sécurité de seulement 2,6 m. C'est extrêmement court !</p>
+    <p>En pratique, en cas d'imprévu (chaussée légèrement humide, fourgon plus chargé, état des freins…) cette marge disparaît immédiatement et l'enfant est en danger.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Recalculer la distance d'arrêt si Yann roulait à <strong>90 km/h</strong> (5 km/h au-dessus de la limite). Que peut-on en conclure sur l'effet d'une augmentation modeste de la vitesse ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>v = 90 / 3,6 = 25 m/s.</p>
+    <p>d₁ = 25 × 1 = <strong>25 m</strong> (au lieu de 22,2)</p>
+    <p>d₂ = 25² / 14 = 625 / 14 ≈ <strong>44,6 m</strong> (au lieu de 35,2)</p>
+    <p>d<sub>arrêt</sub> = 25 + 44,6 ≈ <strong>69,6 m &gt; 60 m</strong></p>
+    <p><strong>L'enfant est percuté !</strong> Une augmentation de seulement 10 km/h fait passer la situation de « s'arrête juste » à « percute l'obstacle ».</p>
+    <p>Effet : la distance de freinage varie en v² → augmenter v de 12 % augmente d₂ de 27 %. C'est pourquoi les limitations de vitesse sont primordiales en zones à risque (écoles, intersections, travaux).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Recalculer la distance d'arrêt à <strong>50 km/h</strong> (zone urbaine).</p>
+  <p>Comparer le rapport « distance à 50 km/h / distance à 80 km/h ». Quelle leçon pour les zones 50 ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>v = 50 / 3,6 ≈ 13,9 m/s.</p>
+    <p>d₁ = 13,9 × 1 ≈ 13,9 m. d₂ = 13,9² / 14 ≈ 13,8 m. d<sub>arrêt</sub> ≈ <strong>28 m</strong>.</p>
+    <p>Rapport : 28 / 57 ≈ <strong>49 %</strong>. La distance d'arrêt à 50 km/h est <strong>la moitié</strong> de celle à 80 km/h.</p>
+    <p>Conclusion : limiter à 50 km/h en ville divise par 2 la distance d'arrêt. C'est ce qui sauve des piétons. La règle « + de vitesse → + d'accidents » est mathématiquement implacable, du fait du carré dans la formule.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Sur <strong>chaussée mouillée</strong>, la décélération chute à <strong>a = −4 m/s²</strong> (au lieu de −7). Recalculer la distance d'arrêt à 80 km/h. Yann peut-il toujours s'arrêter avant l'enfant à 60 m ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>d₁ inchangée : 22,2 m (le temps de réaction ne change pas).</p>
+    <p>d₂ mouillée = 22,2² / (2 × 4) = 493 / 8 ≈ <strong>61,6 m</strong> (au lieu de 35,2 m).</p>
+    <p>d<sub>arrêt</sub> = 22,2 + 61,6 ≈ <strong>84 m &gt;&gt; 60 m</strong> → <strong>l'enfant est percuté avec ~ 24 m d'avance.</strong></p>
+    <p>Conclusion : sur route mouillée, la distance d'arrêt est <strong>50 % plus longue</strong>. Yann doit absolument adapter sa vitesse en fonction des conditions (limite à 70 ou 60 km/h sous la pluie).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes une <strong>note de sécurité</strong> que Yann pourrait afficher dans le vestiaire de ses collègues techniciens :</p>
+  <ul>
+    <li>3 chiffres clés (réaction, freinage à 80 km/h, à 50 km/h)</li>
+    <li>2 facteurs aggravants (vitesse + 10 km/h, chaussée mouillée)</li>
+    <li>1 conseil pratique</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermique — Sécurité routière des techniciens · note du 7 mai 2026</strong><br>
+      • <strong>1 seconde de réaction = 22 m parcourus à 80 km/h</strong> avant même de freiner. Téléphone, radio, GPS : ne jamais détourner les yeux de la route.<br>
+      • <strong>Distance d'arrêt à 80 km/h : 57 m sur sec.</strong> À 90 km/h : 70 m. À 50 km/h : 28 m. La distance varie en v² — un peu plus de vitesse = beaucoup plus de mètres.<br>
+      • <strong>Sous la pluie : ×1,5 sur la distance de freinage.</strong> 84 m d'arrêt à 80 km/h. Adapter la vitesse à 60-70 km/h.<br>
+      • <strong>Charge du fourgon</strong> : un fourgon chargé met plus longtemps à freiner. Les chaudières, ballons d'eau et outillage représentent souvent 1 tonne — bien arrimer + ralentir.<br>
+      • <strong>Règle d'or :</strong> en zone scolaire / passage piéton / intersection, on roule sous la limite de vitesse, jamais au-dessus.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si Yann commence à freiner à v₀ = 22,2 m/s avec a = −7 m/s², calculer le <strong>temps</strong> nécessaire pour s'arrêter (utiliser \(\Delta v = a \cdot \Delta t\)).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Δv = v<sub>finale</sub> − v<sub>initiale</sub> = 0 − 22,2 = −22,2 m/s.</p>
+    <p>Δt = Δv / a = (−22,2) / (−7) ≈ <strong>3,17 secondes</strong></p>
+    <p>Le freinage dure environ 3 s. Pendant ces 3 secondes (+ la 1 s de réaction), Yann parcourt 57 m. À l'échelle d'un échange humain, 4 secondes c'est très court : tout doit se passer correctement immédiatement, sans hésitation.</p>
+    <p>(Vérification : d₂ = ½ × |a| × t² = 0,5 × 7 × 3,17² = 35,2 m ✓)</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Conversion vitesse :</strong> 1 km/h = 1/3,6 m/s. Pour passer de km/h à m/s, on divise par 3,6.</li>
+    <li><strong>Mouvement uniforme :</strong> v constante → d = v × t.</li>
+    <li><strong>Mouvement uniformément varié :</strong> a constante → \(\Delta v = a \cdot \Delta t\).</li>
+    <li><strong>Distance de freinage :</strong> \(d_2 = \dfrac{v^2}{2 \cdot |a|}\). Varie en v² : doubler la vitesse multiplie la distance de freinage par 4.</li>
+    <li><strong>Distance d'arrêt totale :</strong> d<sub>arrêt</sub> = d<sub>réaction</sub> + d<sub>freinage</sub> = v·t<sub>réaction</sub> + v² / (2|a|).</li>
+    <li><strong>Facteurs aggravants :</strong> chaussée mouillée (a chute de −7 à −4 m/s²), véhicule chargé (a réduit de 10-20 %), pneus usés, alcool / fatigue (t<sub>réaction</sub> double ou triple).</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Vitesse), §2 (Accélération) et §3 (Mouvement uniformément varié) de la leçon Ch05.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

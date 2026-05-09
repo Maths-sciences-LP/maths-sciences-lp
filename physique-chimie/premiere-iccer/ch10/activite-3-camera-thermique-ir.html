@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Activité 3 – Caméra thermique infrarouge – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Caméra thermique infrarouge pour audit énergétique <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 10 – Ondes électromagnétiques | 1ère Bac Pro ICCER (Grpt 1) | Physique – Ondes | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Situer les ondes infrarouges dans le spectre EM</li>
+    <li>Calculer la fréquence d'une onde IR à partir de sa longueur d'onde</li>
+    <li>Comprendre le principe d'une caméra thermique FLIR</li>
+    <li>Diagnostiquer un pont thermique sur une thermographie</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §III (spectre EM) et §IV (sources et détecteurs). Tout objet à T &gt; 0 K émet de l'IR. La caméra thermique convertit ce rayonnement en image colorée.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – diagnostic thermique avant rénovation</h2>
+  <p><em>Sophie, technicienne en rénovation thermique chez « DiagThermo » à Lyon, fait un audit chez M. Petit qui se plaint de courants d'air froid dans sa maison ancienne. Sophie utilise sa <strong>caméra thermique FLIR C3-X</strong> qui détecte les ondes infrarouges émises par les murs et le toit. Les zones froides apparaissent en bleu/violet (fuites de chaleur), les zones tièdes en jaune/rouge.</em></p>
+
+  <h3>Document 1 — Caractéristiques de la caméra FLIR</h3>
+  <ul>
+    <li>Plage spectrale détectée : <strong>longueurs d'onde 7,5 à 14 μm</strong> (infrarouge thermique « LWIR »)</li>
+    <li>Sensibilité thermique : 0,07 °C (peut détecter une différence de 0,1 °C)</li>
+    <li>Plage de mesure : −20 °C à +400 °C</li>
+    <li>Résolution image : 128 × 96 pixels</li>
+    <li>Émissivité réglable selon matériau (par défaut 0,95)</li>
+  </ul>
+
+  <h3>Document 2 — Le spectre électromagnétique (extraits)</h3>
+  <table>
+    <thead>
+      <tr><th>Domaine</th><th>Longueur d'onde λ</th><th>Fréquence f (Hz)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Radio (FM)</td><td>~ 3 m</td><td>~ 100 × 10⁶</td></tr>
+      <tr><td>Micro-ondes</td><td>1 mm – 30 cm</td><td>10⁹ – 3 × 10¹¹</td></tr>
+      <tr><td><strong>IR thermique (LWIR)</strong></td><td><strong>7,5 – 14 μm</strong></td><td>à calculer</td></tr>
+      <tr><td>IR proche</td><td>0,75 – 3 μm</td><td>10¹⁴</td></tr>
+      <tr><td>Visible</td><td>400 – 700 nm</td><td>4-7,5 × 10¹⁴</td></tr>
+      <tr><td>UV</td><td>10 – 400 nm</td><td>> 10¹⁵</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> À quelle fréquence correspond l'IR thermique détecté par la caméra de Sophie, et comment cette caméra permet-elle de visualiser les ponts thermiques d'une maison sans les ouvrir ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Convertir 7,5 μm et 14 μm en mètres (exprimer en notation scientifique). Calculer les <strong>fréquences correspondantes</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>1 μm = 10⁻⁶ m. Donc 7,5 μm = 7,5 × 10⁻⁶ m, et 14 μm = 1,4 × 10⁻⁵ m.</p>
+    <p>f₁ = c / λ₁ = (3 × 10⁸) / (7,5 × 10⁻⁶) = 4 × 10¹³ Hz = <strong>40 THz</strong>.</p>
+    <p>f₂ = c / λ₂ = (3 × 10⁸) / (1,4 × 10⁻⁵) ≈ 2,14 × 10¹³ Hz ≈ <strong>21 THz</strong>.</p>
+    <p>La caméra FLIR détecte l'IR dans la plage <strong>21 à 40 THz</strong> (térahertz).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer la <strong>longueur d'onde de l'IR thermique</strong> (≈ 10 μm) à celle du <strong>visible</strong> (≈ 0,5 μm). Pourquoi la caméra peut-elle « voir » à travers le brouillard ou la fumée alors que l'œil humain ne le peut pas ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'IR thermique a une longueur d'onde ≈ 20 fois plus grande que la lumière visible (10 μm vs 0,5 μm).</p>
+    <p>Or, les particules de brouillard et de fumée ont typiquement des tailles de 1-5 μm. Elles sont :</p>
+    <ul>
+      <li><strong>Comparables au visible (0,5 μm) :</strong> elles diffusent et bloquent la lumière visible (l'œil ne voit plus rien).</li>
+      <li><strong>Plus petites que l'IR thermique (10 μm) :</strong> elles laissent passer l'IR sans le diffuser (caméra thermique voit à travers).</li>
+    </ul>
+    <p>C'est ce qui permet aux pompiers d'utiliser des caméras thermiques pour repérer des victimes dans une fumée épaisse, ou aux militaires pour détecter des cibles dans le brouillard.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>La caméra de Sophie détecte sur la façade nord de la maison de M. Petit une zone à <strong>10 °C</strong> tandis que le mur ambiant est à <strong>15 °C</strong>. Calculer la différence de température et l'identifier comme un <strong>pont thermique</strong>.</p>
+  <p>Sachant qu'à 10 °C, λ<sub>max</sub> émise = 10,2 μm (loi de Wien), vérifier que cette λ est bien dans la plage de détection de la caméra.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>ΔT = 15 − 10 = <strong>5 °C de différence</strong>. Bien au-dessus de la sensibilité 0,07 °C → la caméra distingue très clairement la zone froide.</p>
+    <p>λ<sub>max</sub> à 10 °C = 10,2 μm, ce qui est dans la plage 7,5-14 μm de la caméra ✓.</p>
+    <p>Un écart de 5 °C est typique d'un <strong>pont thermique</strong> : zone où l'isolation est interrompue (poutrelle béton, joint d'isolant mal posé, ouvertures non isolées).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>D'après les notions du Ch04 (transferts thermiques), <strong>quelle est la perte d'énergie supplémentaire</strong> due au pont thermique ? Sophie a mesuré que la zone froide fait <strong>0,5 m²</strong> sur le mur, et le coefficient surfacique est de <strong>2 W/m²/K</strong> (au lieu de 0,3 W/m²/K pour le mur isolé).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coefficient supplémentaire dû au pont : 2 − 0,3 = 1,7 W/m²/K.</p>
+    <p>Si l'écart intérieur/extérieur moyen sur la saison de chauffe est de 12 °C :</p>
+    <p>Perte supplémentaire : Φ = K × S × ΔT = 1,7 × 0,5 × 12 = <strong>10,2 W</strong> en continu.</p>
+    <p>Sur 5 000 h/an de chauffe : E = 10,2 × 5 000 / 1 000 ≈ <strong>51 kWh/an</strong> perdus par ce seul pont thermique. Sur 100 ponts identiques (maison ancienne mal isolée) : 5 100 kWh/an, soit 1 280 € de chauffage gaspillé.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>La caméra FLIR fonctionne grâce à un détecteur appelé <strong>microbolomètre</strong>. Quel autre composant électronique (rencontré au Ch01) joue un rôle similaire en convertissant un signal de température en signal électrique ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le microbolomètre = un mini-thermomètre par pixel. Quand l'IR le frappe, il chauffe légèrement, et sa résistance électrique change. Cette variation de résistance est mesurée pour chaque pixel.</p>
+    <p>Composant analogue rencontré : la <strong>thermistance</strong> CTN (sonde de température en plomberie / chauffage). Même principe physique : T → R → courant.</p>
+    <p>Différence : la thermistance mesure une T au point de contact, le microbolomètre mesure le rayonnement IR à distance.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Sophie veut faire l'audit en <strong>hiver de préférence</strong> et <strong>tôt le matin</strong>. Pourquoi ces conditions sont-elles importantes ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>Hiver :</strong> écart de température intérieur (chauffé) / extérieur (froid) maximal → ponts thermiques bien plus visibles.</li>
+      <li><strong>Tôt le matin :</strong> les murs n'ont pas encore été chauffés par le soleil → image thermique « pure » (sinon, le sud apparaît rouge à cause du soleil, et masque les défauts d'isolation).</li>
+      <li><strong>Sans pluie :</strong> l'eau perturbe les mesures (évaporation, rayonnement, reflets).</li>
+    </ul>
+    <p>Conditions idéales : 6h-9h en hiver, ciel couvert, ΔT ≥ 10 °C entre intérieur et extérieur.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Un défaut courant : la caméra montre une zone qui semble très chaude alors qu'elle est en réalité plus froide. Que peut révéler cette anomalie ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Plusieurs origines possibles :</p>
+    <ul>
+      <li><strong>Émissivité différente :</strong> un matériau réfléchissant (vitre, métal poli) reflète le rayonnement IR ambiant comme un miroir → la caméra mesure la T de ce qui se reflète, pas du matériau.</li>
+      <li><strong>Reflet du Soleil</strong> sur une vitre : la vitre apparaît brûlante alors qu'elle est froide.</li>
+      <li><strong>Zone humide</strong> qui s'évapore : refroidit la surface localement.</li>
+    </ul>
+    <p>Compétence du technicien : <strong>interpréter</strong> ces faux positifs en couplant la thermographie à une inspection visuelle. Une caméra thermique ne remplace pas l'œil expert.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>rapport d'audit thermique</strong> que Sophie remet à M. Petit :</p>
+  <ul>
+    <li>technique utilisée</li>
+    <li>défauts identifiés</li>
+    <li>économies potentielles avec rénovation</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>DiagThermo — Audit thermographique · M. Petit (Lyon) — 7 mai 2026</strong><br>
+      • <strong>Méthode :</strong> caméra FLIR C3-X (LWIR, 7,5-14 μm). Audit réalisé à 7h00, ΔT 12 °C.<br>
+      • <strong>Défauts identifiés :</strong> 8 ponts thermiques sur la façade nord (poutrelles béton mal isolées), 3 fuites de chaleur autour des fenêtres (joints), 1 zone froide sur le toit (isolation tassée).<br>
+      • <strong>Pertes estimées :</strong> ~ 3 500 kWh/an liés à ces défauts → 880 € de chauffage gaspillé annuellement.<br>
+      • <strong>Recommandations :</strong> isolation extérieure 15 cm laine de verre (façade nord, 12 000 € HT après aides), remplacement joints fenêtres (200 €).<br>
+      • Retour sur investissement : 14 ans (sans aides) / 5 ans avec MaPrimeRénov'. Photos thermographiques jointes.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>La <strong>loi de Wien</strong> dit que la longueur d'onde du maximum d'émission d'un corps noir est : λ<sub>max</sub> = 2 898 / T (en μm si T en K). Calculer λ<sub>max</sub> pour le corps humain (T ≈ 36 °C). À quel domaine du spectre cela appartient-il ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>T = 36 + 273 = 309 K.</p>
+    <p>λ<sub>max</sub> = 2 898 / 309 ≈ <strong>9,4 μm</strong>.</p>
+    <p>9,4 μm est dans la plage 7,5-14 μm → <strong>infrarouge thermique LWIR</strong>. C'est exactement la plage de la caméra FLIR.</p>
+    <p>C'est pour cela qu'une caméra thermique « voit » très bien les humains : leur émission maximale est pile dans la zone détectée. C'est aussi pour cela que les serpents (vision IR) chassent dans la nuit en détectant les proies à sang chaud.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Tout corps à T &gt; 0 K émet de l'IR :</strong> rayonnement thermique, dans le domaine 7,5-14 μm pour des températures terrestres (LWIR).</li>
+    <li><strong>Caméra thermique :</strong> détecte cet IR via un microbolomètre par pixel. Convertit en image colorée selon T.</li>
+    <li><strong>Loi de Wien :</strong> λ<sub>max</sub> = 2 898 / T(K) μm. Plus l'objet est chaud, plus sa longueur d'onde dominante est courte.</li>
+    <li><strong>Application :</strong> audit thermique d'un bâtiment, détection de ponts thermiques, recherche de victimes en pompiers, vision nocturne.</li>
+    <li><strong>Avantage de l'IR :</strong> traverse fumée et brouillard (longueur d'onde plus grande que les particules en suspension).</li>
+    <li><strong>Limite :</strong> faux positifs si reflets, surfaces métalliques (faible ε). À coupler avec inspection visuelle.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §III (Spectre EM) et §IV (Sources et détecteurs) de la leçon Ch10.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

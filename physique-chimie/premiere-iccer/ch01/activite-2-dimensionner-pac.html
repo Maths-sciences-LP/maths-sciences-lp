@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Activité 2 – Dimensionner une PAC pour une maison – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Dimensionner une pompe à chaleur pour une maison <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 1 – Énergie et puissance électrique | 1ère Bac Pro ICCER (Grpt 1) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la puissance thermique nécessaire pour chauffer une maison</li>
+    <li>Utiliser le COP d'une pompe à chaleur pour calculer l'énergie électrique consommée</li>
+    <li>Estimer une consommation annuelle en kWh et un coût</li>
+    <li>Choisir un modèle de PAC adapté à un projet</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §3 (énergie E = P × t) et §5 (rendement). \(P_{\text{élec}} = P_{\text{thermique}} / \text{COP}\) pour une pompe à chaleur.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – étude technique chez M. Dubois</h2>
+  <p><em>Léa, technicienne en énergies renouvelables chez « ECO-Calorie » à Reims, doit dimensionner une pompe à chaleur air/eau pour la maison de M. Dubois. La maison fait 110 m², a été isolée en 2020, et est située en zone climatique H1 (hiver froid). Léa doit choisir le bon modèle de PAC et estimer le coût d'utilisation annuel.</em></p>
+
+  <h3>Document 1 — Caractéristiques de la maison</h3>
+  <ul>
+    <li>Surface habitable : <strong>110 m²</strong></li>
+    <li>Hauteur sous plafond : 2,5 m → volume ≈ 275 m³</li>
+    <li>Niveau d'isolation : récente (2020) — coefficient G ≈ <strong>1,1 W/m³/°C</strong></li>
+    <li>Zone climatique : <strong>H1</strong> (hiver froid, base extérieure −9 °C, intérieure +20 °C → ΔT = 29 °C)</li>
+    <li>Saison de chauffe : 5,5 mois (de mi-octobre à fin mars)</li>
+    <li>Durée moyenne de fonctionnement : <strong>14 h/jour</strong> (modulation automatique)</li>
+  </ul>
+
+  <p><em>Formule de dimensionnement (méthode simplifiée DPE) :</em> P<sub>thermique nécessaire</sub> = G × V × ΔT. C'est la puissance que la PAC doit fournir pour compenser les déperditions thermiques.</p>
+
+  <h3>Document 2 — Catalogue de pompes à chaleur disponibles</h3>
+  <table>
+    <thead>
+      <tr><th>Modèle</th><th>Puissance thermique nominale</th><th>Puissance électrique absorbée</th><th>COP nominal</th><th>Prix HT</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>PAC AirEau 6 kW</td><td>6,0 kW</td><td>1,5 kW</td><td>4,0</td><td>4 200 €</td></tr>
+      <tr><td>PAC AirEau 8 kW</td><td>8,0 kW</td><td>2,2 kW</td><td>3,6</td><td>5 100 €</td></tr>
+      <tr><td>PAC AirEau 10 kW</td><td>10,0 kW</td><td>3,0 kW</td><td>3,3</td><td>6 400 €</td></tr>
+      <tr><td>PAC AirEau 12 kW</td><td>12,0 kW</td><td>3,8 kW</td><td>3,2</td><td>7 800 €</td></tr>
+    </tbody>
+  </table>
+  <p><em>COP (coefficient de performance) = puissance thermique fournie ÷ puissance électrique absorbée. Pour 1 kWh d'électricité, la PAC restitue COP kWh de chaleur.</em></p>
+
+  <h3>Document 3 — Schéma de l'installation</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 640 280" style="max-width:640px;display:block;margin:0 auto" role="img" aria-label="Schéma : maison de 110 m² à 20°C avec une pompe à chaleur air/eau à l'extérieur. La PAC capte l'énergie thermique de l'air extérieur (à -9°C) avec un coefficient COP, et la restitue à l'intérieur via un circuit d'eau de chauffage. La PAC est alimentée en électricité.">
+      <defs>
+        <linearGradient id="ext1" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#bfdbfe"/>
+          <stop offset="100%" stop-color="#dbeafe"/>
+        </linearGradient>
+        <linearGradient id="int1" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#fef3c7"/>
+          <stop offset="100%" stop-color="#fde68a"/>
+        </linearGradient>
+        <style>
+          .ti1{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl1{font:11px sans-serif;fill:#1a202c}
+          .lblR1{font:700 12px sans-serif;fill:#b91c1c}
+          .lblG1{font:700 12px sans-serif;fill:#15803d}
+          .lblB1{font:700 11px sans-serif;fill:#1d4ed8}
+        </style>
+      </defs>
+
+      <text class="ti1" x="320" y="22">Pompe à chaleur air/eau – schéma de principe</text>
+
+      <!-- Extérieur -->
+      <rect x="0" y="40" width="640" height="240" fill="url(#ext1)"/>
+      <text class="lblR1" x="80" y="70" text-anchor="middle">EXTÉRIEUR</text>
+      <text class="lblR1" x="80" y="88" text-anchor="middle">−9 °C</text>
+
+      <!-- Maison (intérieur) -->
+      <rect x="200" y="80" width="380" height="180" fill="url(#int1)" stroke="#92400e" stroke-width="3"/>
+      <polygon points="200,80 390,40 580,80" fill="#92400e" stroke="#7c2d12" stroke-width="2"/>
+      <text class="lblG1" x="390" y="115" text-anchor="middle">INTÉRIEUR : 20 °C</text>
+      <text class="lbl1" x="390" y="135" text-anchor="middle" font-style="italic">110 m² — V ≈ 275 m³</text>
+
+      <!-- Radiateur intérieur -->
+      <rect x="245" y="200" width="40" height="40" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+      <line x1="251" y1="206" x2="279" y2="206" stroke="#dc2626"/>
+      <line x1="251" y1="216" x2="279" y2="216" stroke="#dc2626"/>
+      <line x1="251" y1="226" x2="279" y2="226" stroke="#dc2626"/>
+      <line x1="251" y1="236" x2="279" y2="236" stroke="#dc2626"/>
+      <text class="lbl1" x="265" y="255" text-anchor="middle" font-size="9">radiateur</text>
+
+      <!-- Plancher chauffant -->
+      <line x1="200" y1="260" x2="580" y2="260" stroke="#0969da" stroke-width="3"/>
+      <text class="lbl1" x="500" y="255" font-size="9" fill="#0969da">circuit eau</text>
+
+      <!-- PAC extérieure -->
+      <rect x="55" y="180" width="100" height="70" fill="#f1f5f9" stroke="#0969da" stroke-width="2.5" rx="6"/>
+      <line x1="60" y1="195" x2="150" y2="195" stroke="#0969da" stroke-width="0.8"/>
+      <line x1="60" y1="210" x2="150" y2="210" stroke="#0969da" stroke-width="0.8"/>
+      <line x1="60" y1="225" x2="150" y2="225" stroke="#0969da" stroke-width="0.8"/>
+      <text class="lblB1" x="105" y="240" text-anchor="middle" font-size="10">PAC air/eau</text>
+
+      <!-- Flèches énergie -->
+      <path d="M 28 215 L 50 215" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arrA)"/>
+      <text class="lbl1" x="32" y="208" font-size="9" fill="#1d4ed8">air ext.</text>
+
+      <path d="M 155 215 L 200 215" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrA)"/>
+      <text class="lbl1" x="180" y="207" font-size="9" fill="#b91c1c">eau chaude (50°C)</text>
+
+      <path d="M 105 175 L 105 145" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrA)"/>
+      <text class="lbl1" x="105" y="138" font-size="10" fill="#b45309" text-anchor="middle">⚡ électricité</text>
+
+      <defs>
+        <marker id="arrA" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="currentColor"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel modèle de PAC Léa doit-elle proposer à M. Dubois, et quel sera le coût annuel d'utilisation à comparer à son ancien chauffage électrique direct (3 000 € / an) ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la puissance thermique nécessaire P<sub>th</sub> pour chauffer la maison à l'aide de la formule \(P_{\text{th}} = G \times V \times \Delta T\). Exprimer en watts, puis en kilowatts.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>th</sub> = G × V × ΔT = 1,1 × 275 × 29</p>
+    <p>P<sub>th</sub> = <strong>8 772,5 W ≈ 8,8 kW</strong></p>
+    <p>C'est la puissance que la PAC doit pouvoir fournir au plus froid de l'hiver (à −9 °C extérieur).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>D'après le catalogue (Doc 2), quel modèle Léa doit-elle choisir pour M. Dubois ? Justifier en comparant la puissance thermique nominale au besoin calculé. Préciser pourquoi il ne faut <strong>ni sous-dimensionner</strong> ni <strong>surdimensionner</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Besoin = 8,8 kW. La PAC <strong>10 kW</strong> est la mieux adaptée :</p>
+    <ul>
+      <li>La PAC 8 kW est <strong>insuffisante</strong> (8,0 < 8,8) : la maison serait froide les jours les plus rigoureux.</li>
+      <li>La PAC 10 kW couvre le besoin avec une légère marge (10 / 8,8 ≈ 14 % de marge — recommandé).</li>
+      <li>La PAC 12 kW est <strong>surdimensionnée</strong> : prix d'achat plus élevé, fonctionnement par à-coups (cycles courts) qui usent prématurément le compresseur, COP réduit.</li>
+    </ul>
+    <p><strong>Choix : PAC AirEau 10 kW</strong> (COP = 3,3, prix 6 400 €).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Pour la PAC 10 kW choisie, vérifier la valeur du COP affichée dans le catalogue à l'aide de la relation : \(\text{COP} = \dfrac{P_{\text{thermique}}}{P_{\text{électrique}}}\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>COP = P<sub>th</sub> / P<sub>élec</sub> = 10,0 / 3,0 ≈ <strong>3,33</strong></p>
+    <p>Le COP affiché (3,3) est cohérent avec les puissances nominales du catalogue.</p>
+    <p>Interprétation : pour 1 kWh d'électricité absorbé, la PAC restitue 3,3 kWh de chaleur dans la maison. La différence (2,3 kWh) provient de la chaleur captée gratuitement dans l'air extérieur.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>durée totale de chauffe annuelle</strong> en heures, à partir des données du Doc 1 (5,5 mois × 30 jours × 14 h/jour).</p>
+  <p>En déduire l'<strong>énergie thermique totale</strong> fournie par la PAC sur une saison, en kWh, en supposant que la PAC fonctionne en moyenne à <strong>60 %</strong> de sa puissance nominale (modulation).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Durée : 5,5 × 30 × 14 = <strong>2 310 h/an</strong></p>
+    <p>Puissance moyenne fournie : 0,60 × 10 = 6 kW</p>
+    <p>E<sub>thermique</sub> = P × t = 6 × 2 310 = <strong>13 860 kWh/an</strong> de chaleur fournie à la maison.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>énergie électrique réellement consommée</strong> par la PAC sur une saison, à l'aide de la relation : \(E_{\text{élec}} = E_{\text{thermique}} / \text{COP}\). Comparer à un chauffage électrique direct (où E<sub>élec</sub> = E<sub>thermique</sub>).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>E<sub>élec</sub> = 13 860 / 3,3 ≈ <strong>4 200 kWh/an</strong></p>
+    <p>Avec un chauffage électrique direct : E<sub>élec</sub> = 13 860 kWh (toute la chaleur vient de l'électricité).</p>
+    <p>Économie d'énergie de la PAC : 13 860 − 4 200 = <strong>9 660 kWh/an</strong> évités, soit <strong>70 % d'énergie en moins</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Le tarif EDF Base 2026 est de <strong>0,2516 €/kWh</strong>. Calculer le coût annuel de la PAC. Comparer avec l'ancien chauffage électrique de M. Dubois (3 000 €/an).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût PAC : 4 200 × 0,2516 ≈ <strong>1 057 €/an</strong></p>
+    <p>Économie annuelle : 3 000 − 1 057 = <strong>1 943 €/an</strong></p>
+    <p>La PAC divise la facture par presque 3.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Calculer le <strong>temps de retour sur investissement</strong> de la PAC (prix 6 400 €) par rapport à l'ancien chauffage. M. Dubois peut bénéficier de <strong>4 000 € d'aides</strong> (MaPrimeRénov' + CEE). Recalculer.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Sans aides : 6 400 / 1 943 ≈ <strong>3,3 ans</strong></p>
+    <p>Avec aides : (6 400 − 4 000) / 1 943 = 2 400 / 1 943 ≈ <strong>1,2 an</strong></p>
+    <p>Avec les aides, la PAC est rentabilisée en moins de 15 mois ! Sur sa durée de vie de 15 ans, M. Dubois économisera 15 × 1 943 − 2 400 ≈ <strong>26 700 €</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes l'<strong>offre commerciale</strong> que Léa envoie à M. Dubois :</p>
+  <ul>
+    <li>recommandation chiffrée (modèle, prix, aides)</li>
+    <li>économies attendues</li>
+    <li>retour sur investissement</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ECO-Calorie — Étude technique pour M. Dubois (Reims)</strong><br>
+      • Besoin de chauffage calculé : <strong>8,8 kW thermiques</strong> pour votre maison de 110 m² en zone H1.<br>
+      • Recommandation : <strong>PAC air/eau 10 kW (COP 3,3)</strong>, prix 6 400 € HT pose comprise.<br>
+      • Aides cumulables : MaPrimeRénov' + prime CEE = ~4 000 € → reste à charge <strong>2 400 €</strong>.<br>
+      • Coût annuel : 1 057 € (au lieu de 3 000 € en chauffage électrique). <strong>Économie : 1 943 €/an</strong>.<br>
+      • Retour sur investissement : <strong>1,2 an</strong>. Sur 15 ans : <strong>~26 700 €</strong> économisés. Bénéfice écologique : 70 % d'énergie en moins.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Le COP nominal annoncé (3,3) est mesuré à +7 °C extérieur. Quand la température baisse à −9 °C (zone H1, jours les plus froids), le COP réel chute à <strong>2,2</strong>. Recalculer la consommation et le coût d'énergie sur les <strong>20 jours les plus froids</strong> (à 14 h/j) où le COP serait à 2,2. Conclure sur l'intérêt de connaître le SCOP (COP saisonnier moyen) plutôt que le COP nominal.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Durée : 20 × 14 = 280 h. À puissance nominale : E<sub>th</sub> = 10 × 280 = 2 800 kWh thermiques.</p>
+    <p>Avec COP = 2,2 : E<sub>élec</sub> = 2 800 / 2,2 ≈ <strong>1 273 kWh</strong>. Coût ≈ 320 € sur ces 20 jours.</p>
+    <p>À COP nominal 3,3 sur la même période : E<sub>élec</sub> = 848 kWh. <strong>Surconsommation par grand froid : +50 %.</strong></p>
+    <p>Conclusion : exiger du fabricant le <strong>SCOP</strong> (COP saisonnier moyen sur la zone climatique) — c'est la valeur réaliste pour le calcul annuel. Pour la zone H1, viser un SCOP ≥ 3,0.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Dimensionnement :</strong> P<sub>thermique</sub> = G × V × ΔT (méthode simplifiée pour une maison résidentielle).</li>
+    <li><strong>COP d'une PAC :</strong> rapport entre puissance thermique fournie et puissance électrique absorbée. Plus le COP est élevé, plus la PAC est efficace.</li>
+    <li><strong>Énergie consommée :</strong> E = P × t (en kWh si P en kW et t en h).</li>
+    <li><strong>Économie d'une PAC :</strong> E<sub>élec</sub> = E<sub>thermique</sub> / COP. Avec COP = 3, on consomme 3 fois moins d'électricité qu'un chauffage direct.</li>
+    <li><strong>Règle pro :</strong> ne jamais sous-dimensionner (maison froide) ni surdimensionner (cycles courts, COP réduit). Marge typique 10 à 15 %.</li>
+    <li><strong>SCOP :</strong> COP saisonnier moyen, plus réaliste que le COP nominal pour estimer la consommation annuelle.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Énergie électrique), §5 (Rendement) et §6 (Applications professionnelles) de la leçon Ch01.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

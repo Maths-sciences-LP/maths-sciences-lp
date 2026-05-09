@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 4 – Combustion incomplète d'un poêle – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Détecter une combustion incomplète d'un poêle à bois <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 3 – Combustion | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Distinguer combustion complète / incomplète</li>
+    <li>Équilibrer la combustion incomplète d'un combustible</li>
+    <li>Identifier les indices visuels et chimiques d'une combustion mal réglée</li>
+    <li>Connaître les risques sécurité et santé associés</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §3 (combustion incomplète). Manque d'O₂ → CO toxique + suie + perte d'énergie.
+</p>
+
+<div class="situation">
+  <h2>Situation – diagnostic du poêle de Théo qui fume</h2>
+  <p><em>Théo, ébéniste, constate que son poêle à bois (cf activité 2) <strong>fume noir</strong> depuis quelques semaines, et la suie noircit la paroi vitrée. L'atelier sent légèrement la fumée. Il appelle son ramoneur Marc qui mesure les fumées : <strong>O₂ = 12 %</strong> (devrait être 8-10 %), <strong>CO = 1 200 ppm</strong> (devrait être &lt; 100 ppm). Diagnostic et solutions ?</em></p>
+
+  <h3>Document 1 — Mesures de l'analyseur Testo</h3>
+  <table>
+    <thead><tr><th>Grandeur</th><th>Mesure</th><th>Norme bois</th><th>État</th></tr></thead>
+    <tbody>
+      <tr><td>O₂ fumées</td><td>12 %</td><td>8-10 %</td><td>⚠ Excès air froid</td></tr>
+      <tr><td>CO fumées</td><td><strong>1 200 ppm</strong></td><td>&lt; 100 ppm</td><td>🔴 ALARME</td></tr>
+      <tr><td>T fumées</td><td>180 °C</td><td>200-280 °C</td><td>⚠ Trop froid</td></tr>
+      <tr><td>Suie sur vitre</td><td>Importante</td><td>Limpide</td><td>🔴 Visible</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle est la cause de la combustion incomplète, et que doit faire Marc pour rétablir un fonctionnement sûr et performant ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Identifier sur le Doc 1 les <strong>3 anomalies</strong> et leur signification.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>O₂ trop élevé (12 %) :</strong> trop d'air froid entre dans le poêle, refroidit la combustion.</li>
+      <li><strong>CO élevé (1 200 ppm) :</strong> combustion incomplète → carbone n'a pas le temps de finir en CO₂.</li>
+      <li><strong>T fumées basse (180 °C) :</strong> combustion molle, pas assez chaude. Tirage cheminée faible.</li>
+      <li><strong>Suie sur vitre :</strong> imbrûlés (carbone) déposés.</li>
+    </ul>
+    <p>Toutes les mesures pointent vers : <strong>combustion mal réglée, tirage faible, bois mouillé probable</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Équilibrer la combustion <strong>incomplète</strong> du carbone (formation de CO) : … C + … O₂ → … CO.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>1 C → 1 CO. O à droite : 1 ; à gauche : 1/2 O₂. Multiplier par 2 :</p>
+    <p style="text-align:center;font-size:1.05em"><strong>2 C + O₂ → 2 CO</strong></p>
+    <p>(Comparer à la combustion complète : C + O₂ → CO₂ qui consomme 2 fois plus d'O₂.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-blue">ANA</span></h2>
+  <p>1 200 ppm de CO dans les fumées : danger pour Théo qui travaille toute la journée à proximité ? Sachant que 100 ppm de CO inhalés causent un mal de tête en quelques heures, et 800 ppm une perte de conscience en 45 min.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>1 200 ppm dans les fumées au cœur du poêle. Diluées dans l'atelier (volume 1 000 m³), la concentration est typiquement divisée par 1 000 → ≈ 1 ppm dans l'air ambiant. Pas de risque immédiat.</p>
+    <p>MAIS : si tirage cheminée défaillant ou fuite, les fumées s'échappent dans l'atelier. La concentration peut alors monter à 50-100 ppm en 30 min → mal de tête, fatigue, somnolence.</p>
+    <p>Théo doit installer un <strong>détecteur CO</strong> (obligatoire désormais en habitation). Coût 30 €, sauve des vies.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>perte de rendement</strong> liée à la combustion incomplète. Combustion complète libère 393 kJ/mol C. Combustion incomplète (CO) libère 110 kJ/mol C.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie perdue par mole de C qui finit en CO au lieu de CO₂ : 393 − 110 = <strong>283 kJ/mol</strong>, soit 72 % de l'énergie chimique non récupérée.</p>
+    <p>Si 5 % du carbone du bois brûle en CO (estimation à partir des 1 200 ppm), perte de rendement ≈ 5 % × 72 % = 3,6 %.</p>
+    <p>Sur les 9 000 kWh utiles annuels (cf activité 2), perte ≈ 320 kWh/an, soit ≈ 30 € en valeur. Pas énorme mais cumulé avec mauvais tirage = perte 5-10 %.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Quelles sont les <strong>3 causes principales</strong> d'une combustion incomplète d'un poêle à bois ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li><strong>Bois trop humide</strong> (taux d'humidité &gt; 20 %) : l'eau absorbe la chaleur, refroidit la combustion → CO et fumée. Idéal : bois séché 2 ans, taux ≤ 18 %.</li>
+      <li><strong>Tirage insuffisant</strong> (cheminée encrassée, bouchée par bistre, corneille) : pas assez d'O₂ entre dans le poêle.</li>
+      <li><strong>Réglage volet d'air</strong> mal positionné : trop fermé → manque d'air ; trop ouvert → air froid qui refroidit la combustion sans contribuer.</li>
+      <li>(autres) Bûches trop grosses qui brûlent en surface seulement, dépôt de suie sur les parois (isole), combustible inadapté (résineux verts).</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Quelles <strong>actions correctives</strong> Marc peut-il appliquer à Théo ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li><strong>Ramonage immédiat</strong> de la cheminée (probable bistre épais après 2 ans sans entretien). Obligatoire 2 fois/an pour bois.</li>
+      <li><strong>Vérifier humidité du bois</strong> avec un humidimètre. Si &gt; 20 %, basculer sur un autre stock plus sec.</li>
+      <li><strong>Régler volet d'air</strong> pour atteindre O₂ ≈ 9 %.</li>
+      <li><strong>Nettoyer le poêle</strong> (paroi, vitre, joints).</li>
+      <li><strong>Installer détecteur CO</strong> pour sécuriser à long terme.</li>
+    </ol>
+    <p>Coût total intervention : ≈ 200 € (ramonage + réglage + détecteur).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Effets sur la <strong>santé</strong> d'une exposition chronique à du CO faible (10-30 ppm) en atelier mal ventilé ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Fatigue chronique, maux de tête, troubles de la concentration (CO se fixe sur l'hémoglobine et bloque le transport O₂ vers le cerveau).</li>
+      <li>Sur le long terme : risque cardiovasculaire augmenté.</li>
+      <li>Effet renforcé si le travailleur fume (CO inhalé via cigarette s'ajoute).</li>
+    </ul>
+    <p>Recommandation INRS : air ambiant &lt; 10 ppm CO en milieu professionnel. Aérer 5 min/h dès que possible.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>compte-rendu de Marc</strong> pour Théo après diagnostic et correction.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Marc Ramonage — Diagnostic poêle bois Théo Lefèvre · 7 mai 2026</strong><br>
+      • <strong>Symptômes :</strong> fumée noire, suie vitre, CO = 1 200 ppm (norme &lt; 100), O₂ = 12 % (excès), T fumées 180 °C (faible).<br>
+      • <strong>Origine :</strong> conduit cheminée encrassé (bistre) + bois récupéré humide (28 %).<br>
+      • <strong>Actions effectuées :</strong> ramonage mécanique + chimique, réglage volet d'air, nettoyage vitre. Mesure post : CO 60 ppm ✓, O₂ 9,5 % ✓.<br>
+      • <strong>Recommandations :</strong> sécher 6 mois sous abri ventilé les chutes humides avant brûlage. Détecteur CO installé en hauteur (30 €). Ramonage 2 ×/an obligatoire (ass. habitation).<br>
+      • <strong>Bilan :</strong> rendement remonté de ~ 65 % à 75 %. Économie estimée 320 kWh/an. Sécurité : risque CO neutralisé.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Un poêle à <strong>granulés</strong> évite presque toujours ces problèmes. Pourquoi ? Citer 3 raisons.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li><strong>Granulés à humidité contrôlée</strong> (≤ 8 %) — toujours secs.</li>
+      <li><strong>Apport d'air automatique</strong> : un ventilateur dose l'O₂ comburant au mieux. Pas de réglage manuel hasardeux.</li>
+      <li><strong>Combustion en chambre étanche</strong> : moins de risque de fuite CO dans la pièce. Évacuation forcée des fumées.</li>
+    </ol>
+    <p>Inconvénient : nécessite électricité pour fonctionner (ne fonctionne pas en panne EDF).</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Combustion incomplète :</strong> 2 C + O₂ → 2 CO. Provoque CO toxique + suie + perte d'énergie.</li>
+    <li><strong>Indicateurs visuels :</strong> fumée noire, suie vitre, dépôts.</li>
+    <li><strong>Indicateurs chimiques (analyseur) :</strong> CO &gt; 100 ppm, O₂ &gt; 10 %, T fumées &lt; 200 °C.</li>
+    <li><strong>Causes :</strong> bois humide, tirage faible, mauvais réglage air comburant.</li>
+    <li><strong>Sécurité CO :</strong> mortel à 1 600 ppm en 1 h. Détecteur CO obligatoire en habitation/atelier.</li>
+    <li><strong>Solutions :</strong> ramonage 2 ×/an, bois sec ≤ 20 % humidité, réglage volet, surveillance humidimètre.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Combustion incomplète) et §6 (Sécurité) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

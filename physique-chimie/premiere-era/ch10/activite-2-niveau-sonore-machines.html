@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Activité 2 – Niveau sonore des machines d'atelier – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+<header><h1>Activité 2 – Niveau sonore des machines d'atelier <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+<p class="sous-titre">Chapitre 10 – Signal sonore | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Acoustique | ⏱ 35 min</p>
+<p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p></header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs"><strong>Objectifs :</strong>
+<ul><li>Lire un niveau sonore en décibels (dB)</li><li>Comprendre l'échelle logarithmique</li><li>Calculer le cumul de plusieurs sources sonores</li><li>Évaluer le risque auditif et choisir des EPI</li></ul></div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">💡 <a href="lecon.html">leçon</a>. Échelle dB logarithmique. +3 dB = puissance × 2. +10 dB = perception × 2.</p>
+
+<div class="situation"><h2>Situation – diagnostic bruit dans l'atelier de Léa</h2>
+<p><em>Léa, gérante atelier 8 personnes, fait mesurer le niveau sonore par un acousticien. Plusieurs machines tournent simultanément. Léa veut savoir si elle est en conformité avec le code du travail.</em></p>
+
+<h3>Document 1 — Relevés sonomètre</h3>
+<table><thead><tr><th>Machine</th><th>Niveau à 1 m</th></tr></thead>
+<tbody>
+<tr><td>Raboteuse en charge</td><td>92 dB</td></tr>
+<tr><td>Scie circulaire</td><td>95 dB</td></tr>
+<tr><td>Défonceuse</td><td>98 dB</td></tr>
+<tr><td>Aspirateur copeaux</td><td>85 dB</td></tr>
+<tr><td>Bruit de fond atelier (sans machine)</td><td>65 dB</td></tr></tbody></table>
+
+<h3>Document 2 — Seuils réglementaires (code du travail)</h3>
+<ul><li><strong>80 dB(A) sur 8 h</strong> : EPI fournis (bouchons d'oreilles).</li>
+<li><strong>85 dB(A) sur 8 h</strong> : EPI obligatoirement portés.</li>
+<li><strong>87 dB(A) sur 8 h</strong> : limite à ne pas dépasser (peau, EPI inclus).</li>
+<li>Référence : 0 dB = seuil d'audition humaine.</li></ul></div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+<strong>Problématique :</strong> L'atelier de Léa dépasse-t-il les seuils, et quels EPI son équipe doit-elle porter ?</div>
+
+<div class="exo"><h2>Question 1 <span class="badge-green">APP</span></h2>
+<p>Comparer les niveaux : raboteuse 92 dB et scie 95 dB. Que signifie « 3 dB de plus » en termes de puissance sonore ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>+3 dB ≈ <strong>puissance sonore doublée</strong>. La scie émet 2 fois plus de puissance acoustique que la raboteuse.</p>
+<p>+10 dB = puissance × 10 = perception subjective doublée.</p></div></div>
+
+<div class="exo"><h2>Question 2 <span class="badge-blue">ANA</span></h2>
+<p>Lorsque <strong>2 machines</strong> identiques tournent en même temps, le niveau augmente de 3 dB (puissance × 2). Léa fait fonctionner 2 raboteuses 92 dB simultanément. Niveau total ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Niveau cumulé : 92 + 3 = <strong>95 dB</strong>. Pas 92 × 2 (l'échelle dB est logarithmique).</p></div></div>
+
+<div class="exo"><h2>Question 3 <span class="badge-blue">ANA</span></h2>
+<p>4 machines identiques 92 dB ? Et 8 ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>4 machines = 2 paires → 2 × 3 = +6 dB → 98 dB.</p>
+<p>8 machines = 4 paires → +9 dB → 101 dB.</p>
+<p>Règle : doubler N → +3 dB. 10 × N → +10 dB.</p></div></div>
+
+<div class="exo"><h2>Question 4 <span class="badge-blue">ANA</span></h2>
+<p>Une personne se tient à <strong>2 m</strong> d'une machine 92 dB (au lieu de 1 m). Le niveau diminue de 6 dB par doublement de distance. Calculer le niveau perçu.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>92 − 6 = <strong>86 dB</strong> à 2 m. À 4 m : 80 dB. À 8 m : 74 dB.</p></div></div>
+
+<div class="exo"><h2>Question 5 <span class="badge-blue">VAL</span></h2>
+<p>L'opérateur de la défonceuse est exposé à 98 dB pendant <strong>3 h/jour</strong>, et au bruit de fond 65 dB le reste. Niveau d'exposition équivalent <strong>L<sub>ex,8h</sub></strong> ≈ 98 − 10 × log(8/3) = 98 − 4,3 = 93,7 dB. Conforme ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>L<sub>ex,8h</sub> ≈ 94 dB &gt; 87 dB seuil max → <strong>NON CONFORME</strong>, même avec EPI.</p>
+<p>Solution : EPI atténuant 30 dB (bouchons + casque) → exposition effective 94 − 30 = 64 dB. Conforme. Mais Léa doit aussi <strong>réduire la durée d'exposition</strong> ou enclencher un capotage acoustique sur la défonceuse.</p></div></div>
+
+<div class="exo"><h2>Question 6 <span class="badge-blue">ANA</span></h2>
+<p>Quels <strong>EPI</strong> Léa doit-elle imposer à son équipe selon les seuils réglementaires ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Atelier &gt; 85 dB → <strong>EPI obligatoirement portés</strong>. Choix :</p>
+<ul><li><strong>Bouchons mousse</strong> (atténuation 25-30 dB) : pas chers, jetables.</li>
+<li><strong>Casque anti-bruit</strong> (atténuation 30-35 dB) : confortable, réutilisable.</li>
+<li>Pour défonceuse à 98 dB : <strong>casque + bouchons</strong> en série pour atteindre 35-40 dB d'atténuation.</li></ul>
+<p>Affichage obligatoire : « Port d'EPI obligatoire ».</p></div></div>
+
+<div class="exo"><h2>Question 7 <span class="badge-blue">ANA</span></h2>
+<p>Quelles <strong>mesures organisationnelles</strong> Léa peut-elle prendre pour réduire l'exposition (au-delà des EPI) ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><ul><li><strong>Capotage acoustique</strong> sur défonceuse (réduction 10-15 dB).</li>
+<li><strong>Rotation</strong> des opérateurs sur les postes bruyants (max 2 h/jour).</li>
+<li><strong>Cabine acoustique</strong> pour les zones les plus bruyantes (cf activité 3).</li>
+<li><strong>Suivi audiométrique</strong> annuel obligatoire pour les opérateurs exposés.</li>
+<li><strong>Achat machines récentes</strong> à émission acoustique réduite (label CE).</li></ul></div></div>
+
+<div class="exo"><h2>Question 8 <span class="badge-red">COM</span></h2>
+<p>Rédiger en 5 lignes le <strong>plan de prévention bruit</strong> de Léa.</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir un exemple</button>
+<div class="corr"><p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+<strong>Atelier Léa — Plan prévention bruit · 7 mai 2026</strong><br>
+• <strong>Constat :</strong> exposition L<sub>ex,8h</sub> jusqu'à 94 dB(A) sur poste défonceuse. Au-dessus seuil 87 dB.<br>
+• <strong>EPI obligatoires :</strong> casque anti-bruit 30 dB. Bouchons + casque pour défonceuse.<br>
+• <strong>Capotage acoustique</strong> de la défonceuse (1 500 € HT). Rotation opérateurs 2 h max.<br>
+• <strong>Cabine acoustique</strong> pour les vissages et finitions calmes.<br>
+• <strong>Audiométrie annuelle</strong> obligatoire pour les 8 opérateurs. Affichage panneaux EPI.</p></div></div>
+
+<div class="bonus"><strong>Pour aller plus loin (bonus)</strong>
+<p>Le niveau sonore d'une <strong>scierie industrielle</strong> peut atteindre 110 dB. Combien de fois plus puissant que 92 dB de raboteuse ?</p>
+<ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr"><p>Différence : 110 − 92 = 18 dB. Chaque +10 dB = ×10 en puissance.</p>
+<p>18 dB ≈ ×10⁻¹·⁸ ≈ <strong>×63</strong> en puissance. La scierie émet 63 fois plus que la raboteuse.</p></div></div>
+
+<div class="retenir"><strong>À retenir</strong>
+<ul><li><strong>Échelle dB</strong> logarithmique. Référence : 0 dB seuil audition.</li>
+<li><strong>+3 dB</strong> = puissance × 2. <strong>+10 dB</strong> = perception × 2.</li>
+<li><strong>Cumul N sources identiques :</strong> +10 × log(N) dB.</li>
+<li><strong>Distance ×2</strong> : −6 dB.</li>
+<li><strong>Seuils code travail :</strong> 80 dB EPI fournis, 85 dB EPI portés, 87 dB max absolu.</li>
+<li><strong>Atelier menuiserie typique :</strong> 90-100 dB → EPI 30 dB obligatoires.</li></ul></div>
+
+</div><script src="../../../nav.js"></script></body></html>

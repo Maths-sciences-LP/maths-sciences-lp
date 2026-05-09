@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité 3 – Convection extracteur d'atelier – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Convection forcée : extracteur de copeaux d'atelier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 4 – Transferts thermiques | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Thermique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Distinguer convection naturelle / forcée</li>
+    <li>Calculer la puissance de chauffe perdue par renouvellement d'air</li>
+    <li>Évaluer le coût énergétique d'un système d'extraction de copeaux</li>
+    <li>Optimiser un atelier pour limiter les pertes</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (convection). P = ρ × c × q × ΔT pour la chaleur emportée par un fluide.
+</p>
+
+<div class="situation">
+  <h2>Situation – atelier de Sami avec extraction</h2>
+  <p><em>Sami, menuisier industriel, doit dimensionner l'extraction de copeaux de son atelier (raboteuse, scie circulaire, défonceuse). L'extraction aspire en continu 3 000 m³/h d'air à 20 °C et le rejette dehors à 0 °C l'hiver. Cet air doit être renouvelé en chauffant l'air entrant. Sami veut chiffrer cette perte.</em></p>
+
+  <h3>Document 1 — Données</h3>
+  <ul>
+    <li>Débit d'air extrait : <strong>q = 3 000 m³/h = 0,833 m³/s</strong></li>
+    <li>Masse volumique de l'air à 20 °C : ρ = <strong>1,20 kg/m³</strong></li>
+    <li>Capacité thermique massique de l'air : c = <strong>1 005 J/(kg·K)</strong></li>
+    <li>Différence de température hiver : <strong>ΔT = 20 °C</strong> (intérieur 20 → extérieur 0)</li>
+    <li>Saison de chauffe : 5 mois × 22 jours × 8 h/jour = <strong>880 h/an</strong></li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle puissance de chauffage Sami doit-il prévoir pour compenser l'air extrait, et combien cela lui coûte-t-il chaque hiver ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>débit massique d'air</strong> extrait (q<sub>m</sub> = ρ × q en kg/s).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>q<sub>m</sub> = 1,20 × 0,833 ≈ <strong>1,0 kg/s</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>puissance thermique</strong> P<sub>perdue</sub> = q<sub>m</sub> × c × ΔT que la chaudière doit compenser.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P = 1,0 × 1 005 × 20 = <strong>20 100 W ≈ 20 kW</strong>.</p>
+    <p>L'extraction « refroidit » l'atelier d'une puissance équivalente à 10 radiateurs domestiques !</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>énergie annuelle</strong> à compenser pour réchauffer cet air entrant (E = P × t).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>E = 20 × 880 = <strong>17 600 kWh/an</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Si Sami chauffe au gaz (rendement 95 %, tarif 0,11 €/kWh PCI), calculer son <strong>surcoût annuel</strong> dû à l'extraction.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie chaudière nécessaire : 17 600 / 0,95 ≈ 18 530 kWh.</p>
+    <p>Coût : 18 530 × 0,11 ≈ <strong>2 040 €/an</strong>.</p>
+    <p>Pertes par renouvellement d'air = ~ 30-40 % du coût total chauffage atelier !</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Sami envisage un <strong>récupérateur de chaleur sur air extrait</strong> (échangeur à plaques, rendement 75 %). Combien d'énergie peut-il récupérer ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie récupérable : 0,75 × 17 600 = <strong>13 200 kWh/an</strong>.</p>
+    <p>Économie financière : 13 200 / 0,95 × 0,11 ≈ <strong>1 528 €/an</strong>.</p>
+    <p>Avec un récupérateur, les pertes nettes ne sont plus que de 4 400 kWh/an. Investissement typique : 5 000 € → ROI ~ 3 ans.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Sami se demande si <strong>réduire le débit d'extraction</strong> à 2 000 m³/h serait plus économique. Recalculer la puissance perdue. Y a-t-il des inconvénients ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>q<sub>m</sub> = 1,20 × 2000/3600 = 0,667 kg/s. P = 0,667 × 1 005 × 20 ≈ <strong>13 400 W = 13,4 kW</strong> (au lieu de 20 kW).</p>
+    <p>Économie : 33 % de pertes thermiques évitées.</p>
+    <p><strong>Mais</strong> : un débit insuffisant ne capte plus assez de copeaux et de sciure. Risque pour la santé (poussières fines bois inhalées) et l'incendie. La norme INRS impose 1 000 à 1 500 m³/h par machine. Pas de compromis.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Le moteur d'extraction (3 kW) consomme aussi de l'<strong>électricité</strong>. Calculer son coût annuel sur 880 h.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>E<sub>élec</sub> = 3 × 880 = 2 640 kWh/an.</p>
+    <p>Coût : 2 640 × 0,2516 ≈ <strong>664 €/an</strong>.</p>
+    <p>Total coût extraction (gaz pour réchauffer + élec moteur) : 2 040 + 664 = <strong>2 700 €/an</strong>. Avec récupérateur : 1 170 €/an.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note d'optimisation</strong> de Sami pour son atelier.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Sami — Optimisation extraction · 7 mai 2026</strong><br>
+      • <strong>Constat :</strong> extraction 3 000 m³/h coûte 2 700 €/an (chauffage 2 040 € + élec moteur 664 €).<br>
+      • <strong>Recommandation :</strong> récupérateur de chaleur à plaques (5 000 €). Récupère 13 200 kWh/an = 1 530 €/an. ROI 3 ans.<br>
+      • <strong>Sécurité maintenue :</strong> le débit reste à 3 000 m³/h (norme INRS respectée pour aspiration copeaux).<br>
+      • <strong>Bonus :</strong> air rejeté plus froid = moins de pollution thermique de l'extérieur.<br>
+      • <strong>Action :</strong> commande échangeur Helios KWL EC 250 sous 1 mois, installation par mon partenaire CVC.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Quel est le rôle de la <strong>convection naturelle</strong> dans l'extraction des copeaux ? Pourquoi insuffisante seule ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La convection naturelle (l'air chaud monte) brasse modestement l'air dans l'atelier. Mais elle est <strong>très lente</strong> (≈ 0,3 m/s) — insuffisante pour aspirer copeaux et sciure tombant à plus d'1 m/s.</p>
+    <p>D'où l'usage de <strong>convection forcée</strong> par ventilateur centrifuge : vitesse 20-30 m/s dans la gaine, capable de transporter les particules contre la gravité jusqu'au filtre.</p>
+    <p>Loi : pour transporter des particules de masse m, il faut vitesse air ≥ vitesse de chute libre des particules (déterminée par leur taille / densité).</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Convection naturelle :</strong> air chaud monte spontanément. Lente, limitée.</li>
+    <li><strong>Convection forcée :</strong> ventilateur ou pompe imposent un débit. Indispensable en atelier (extraction copeaux, sécurité).</li>
+    <li><strong>Puissance perdue par renouvellement :</strong> P = ρ × c × q × ΔT.</li>
+    <li><strong>Pour l'air :</strong> ρ ≈ 1,2 kg/m³, c ≈ 1 005 J/(kg·K). Soit ≈ 1,2 kJ/(m³·K) en pratique.</li>
+    <li><strong>Récupérateur de chaleur</strong> sur air extrait : récupère 70-80 % de la chaleur. ROI 2-4 ans en milieu pro.</li>
+    <li><strong>Sécurité bois :</strong> jamais réduire le débit d'extraction sous la norme INRS (1 000-1 500 m³/h par machine).</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Convection) et §5 (Applications) de la leçon Ch04.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

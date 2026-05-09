@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch08 – Activité 4 – Flotteur de robinet à chasse d'eau – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Flotteur d'un robinet à chasse d'eau <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 8 – Force d'Archimède | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique des fluides | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre le principe d'un flotteur dans un réservoir</li>
+    <li>Calculer la profondeur d'immersion d'un flotteur en équilibre</li>
+    <li>Combiner la poussée d'Archimède avec le principe des moments (levier)</li>
+    <li>Diagnostiquer un dysfonctionnement de robinet à flotteur</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §III (flottabilité) couplée au <a href="../ch06/lecon.html">Ch06</a> (moments). Un flotteur partiellement immergé applique une force F<sub>A</sub> sur le bras de levier qui ferme le robinet.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – chasse d'eau qui déborde chez Mme Boucher</h2>
+  <p><em>Antoine, plombier dépanneur chez « SOS Plomberie 24 » à Nice, est appelé pour une chasse d'eau qui ne s'arrête plus de couler chez Mme Boucher. Antoine soulève le couvercle du réservoir et constate que le <strong>flotteur</strong> en plastique reste au fond, à moitié immergé. Il sait que c'est ce flotteur qui est censé monter avec le niveau d'eau et fermer le robinet d'arrivée. Il diagnostique la panne et explique le principe physique à sa cliente curieuse.</em></p>
+
+  <h3>Document 1 — Caractéristiques du flotteur</h3>
+  <ul>
+    <li>Forme : boule en plastique creux remplie d'air</li>
+    <li>Volume total V<sub>flotteur</sub> : <strong>250 cm³ = 2,5 × 10⁻⁴ m³</strong></li>
+    <li>Masse à sec (plastique seul, sans eau) : <strong>m<sub>flotteur</sub> = 30 g = 0,030 kg</strong></li>
+    <li>Densité de l'eau : ρ<sub>eau</sub> = 1 000 kg/m³</li>
+  </ul>
+
+  <h3>Document 2 — Caractéristiques du levier de fermeture</h3>
+  <ul>
+    <li>Bras flotteur : <strong>L<sub>1</sub> = 20 cm = 0,20 m</strong> du pivot au flotteur</li>
+    <li>Bras opérateur (membrane du robinet) : <strong>L<sub>2</sub> = 4 cm = 0,04 m</strong> du pivot à la membrane</li>
+    <li>Force minimale à exercer sur la membrane pour fermer le robinet : <strong>F<sub>fermer</sub> = 5 N</strong> (soit 0,5 kg d'effort minimum)</li>
+  </ul>
+
+  <h3>Document 3 — Schéma du robinet à flotteur</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 260" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : réservoir de chasse d'eau. À droite, robinet d'arrivée d'eau avec membrane fermée par un levier. Le levier pivote autour d'un point P. À gauche du pivot, un bras de 20 cm porte le flotteur sphérique. À droite du pivot, un bras de 4 cm appuie sur la membrane. Le flotteur, partiellement immergé dans l'eau, subit une poussée d'Archimède verticale qui crée un moment fermant le robinet.">
+      <defs>
+        <style>
+          .ti8f{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl8f{font:11px sans-serif;fill:#1a202c}
+          .lblB8f{font:700 11px sans-serif;fill:#1d4ed8}
+        </style>
+      </defs>
+
+      <text class="ti8f" x="350" y="22">Robinet à flotteur — équilibre des moments</text>
+
+      <!-- Réservoir -->
+      <rect x="60" y="60" width="560" height="180" fill="none" stroke="#1f2937" stroke-width="2.5"/>
+      <!-- Eau -->
+      <rect x="61" y="160" width="558" height="79" fill="#bfdbfe" opacity=".7"/>
+      <line x1="61" y1="160" x2="619" y2="160" stroke="#1d4ed8" stroke-width="2"/>
+      <text class="lbl8f" x="100" y="200" font-size="10" fill="#1d4ed8" font-weight="bold">EAU</text>
+
+      <!-- Pivot -->
+      <circle cx="500" cy="120" r="6" fill="#1f2937"/>
+      <text class="lbl8f" x="500" y="105" text-anchor="middle" font-size="11" font-weight="bold">P (pivot)</text>
+
+      <!-- Bras 1 (long, vers flotteur) -->
+      <line x1="500" y1="120" x2="220" y2="155" stroke="#475569" stroke-width="3"/>
+      <line x1="500" y1="125" x2="540" y2="125" stroke="#475569" stroke-width="3"/>
+
+      <!-- Flotteur -->
+      <circle cx="200" cy="160" r="22" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+      <text class="lbl8f" x="200" y="195" text-anchor="middle" font-size="10" font-style="italic">flotteur</text>
+      <text class="lbl8f" x="200" y="208" text-anchor="middle" font-size="9">250 cm³</text>
+
+      <!-- Cote L1 -->
+      <line x1="200" y1="225" x2="500" y2="225" stroke="#15803d" stroke-width="1"/>
+      <line x1="200" y1="220" x2="200" y2="230" stroke="#15803d"/>
+      <line x1="500" y1="220" x2="500" y2="230" stroke="#15803d"/>
+      <text class="lbl8f" x="350" y="240" text-anchor="middle" font-weight="bold" fill="#15803d">L₁ = 20 cm</text>
+
+      <!-- Robinet et membrane -->
+      <rect x="540" y="115" width="50" height="20" fill="#cbd5e1" stroke="#1f2937" stroke-width="2"/>
+      <text class="lbl8f" x="565" y="105" text-anchor="middle" font-size="9" font-style="italic">robinet</text>
+      <line x1="540" y1="125" x2="540" y2="105" stroke="#1d4ed8" stroke-width="2.5"/>
+      <text class="lbl8f" x="595" y="130" font-size="10" fill="#1d4ed8">membrane</text>
+
+      <!-- Cote L2 -->
+      <line x1="500" y1="150" x2="540" y2="150" stroke="#dc2626" stroke-width="1"/>
+      <line x1="500" y1="145" x2="500" y2="155" stroke="#dc2626"/>
+      <line x1="540" y1="145" x2="540" y2="155" stroke="#dc2626"/>
+      <text class="lbl8f" x="520" y="170" text-anchor="middle" font-size="9" font-weight="bold" fill="#b91c1c">L₂ = 4 cm</text>
+
+      <!-- Flèche poussée Archimède -->
+      <line x1="200" y1="155" x2="200" y2="125" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrUp8f)"/>
+      <text class="lbl8f" x="170" y="135" text-anchor="middle" font-size="10" fill="#15803d" font-weight="bold">F<sub>A</sub></text>
+
+      <defs>
+        <marker id="arrUp8f" markerWidth="9" markerHeight="9" refX="4" refY="0" orient="auto">
+          <polygon points="0,9 4,0 9,9" fill="#16a34a"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel volume du flotteur doit être immergé pour générer assez de poussée d'Archimède pour fermer le robinet, et pourquoi le flotteur de Mme Boucher ne fonctionne-t-il plus ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>D'après le principe des moments (Ch06), quelle <strong>poussée F<sub>A</sub></strong> doit être exercée sur le flotteur pour que le levier ferme le robinet (force F<sub>fermer</sub> = 5 N à transmettre côté membrane) ?</p>
+  <p><em>Rappel : F<sub>A</sub> × L₁ = F<sub>fermer</sub> × L₂.</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F<sub>A</sub> × L₁ = F<sub>fermer</sub> × L₂ → F<sub>A</sub> = F<sub>fermer</sub> × L₂ / L₁ = 5 × 0,04 / 0,20</p>
+    <p>F<sub>A</sub> = <strong>1 N</strong></p>
+    <p>Le flotteur doit fournir 1 N de poussée verticale pour fermer le robinet, grâce à l'amplification du levier (×5 du côté flotteur).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Avant tout, quelle force le <strong>poids du flotteur</strong> seul exerce-t-il vers le bas ? Sachant que la poussée Archimède doit aussi compenser ce poids, quelle est la <strong>poussée totale</strong> à fournir ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P = m × g = 0,030 × 10 = <strong>0,3 N</strong> (poids du flotteur).</p>
+    <p>Pour fermer, F<sub>A</sub> doit compenser le poids ET fournir 1 N pour le levier :</p>
+    <p>F<sub>A totale</sub> = P + 1 = 0,3 + 1 = <strong>1,3 N</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>volume du flotteur qui doit être immergé</strong> pour que F<sub>A</sub> atteigne 1,3 N.</p>
+  <p>Comparer au volume total (250 cm³) : quelle <strong>fraction</strong> du flotteur doit être sous l'eau ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F<sub>A</sub> = ρ<sub>eau</sub> × V<sub>immergé</sub> × g → V<sub>immergé</sub> = F<sub>A</sub> / (ρ × g) = 1,3 / (1 000 × 10)</p>
+    <p>V<sub>immergé</sub> = 1,3 × 10⁻⁴ m³ = <strong>130 cm³</strong>.</p>
+    <p>Fraction : 130 / 250 = <strong>52 %</strong> du flotteur doit être immergé pour fermer le robinet.</p>
+    <p>Bien dimensionné : le flotteur ferme le robinet quand il est <strong>à moitié immergé</strong>, c'est-à-dire à un niveau d'eau bien défini dans le réservoir.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Antoine constate chez Mme Boucher que le flotteur reste au fond du réservoir, presque entièrement immergé, mais ne ferme pas le robinet. Émettre une <strong>hypothèse</strong> sur l'origine de la panne.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Hypothèse : <strong>le flotteur est percé</strong> et s'est rempli partiellement d'eau. Sa masse a augmenté, sa flottabilité diminué.</p>
+    <p>Si le flotteur contient X grammes d'eau, son poids passe de 0,3 N à (0,030 + X×0,001) × 10 N.</p>
+    <p>Pour qu'il reste au fond et n'arrive plus à flotter assez : la poussée Archimède maximale (250 cm³ entièrement immergés) = 1 000 × 250e-6 × 10 = 2,5 N. Si poids + force levier nécessaire &gt; 2,5 N, le flotteur ne peut plus monter assez.</p>
+    <p>Critère : poids critique &gt; 2,5 − 1 = 1,5 N → masse totale 150 g → 120 g d'eau ajoutés (sur 30 g de plastique). Plausible : le flotteur est rempli à moitié d'eau.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Quelle est la <strong>conséquence</strong> de cette panne pour Mme Boucher si elle n'est pas réparée ? Estimer le <strong>volume d'eau gaspillée</strong> sur 1 jour si le robinet débite 0,5 L/min en continu vers le trop-plein.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le robinet ne se ferme jamais → l'eau coule en continu et part par le trop-plein (vers les WC).</p>
+    <p>Volume gaspillé : 0,5 × 60 × 24 = <strong>720 L/jour</strong></p>
+    <p>Soit ≈ 720 L × 365 = <strong>262 m³/an</strong> = ≈ <strong>1 050 € de surcoût annuel</strong> à 4 €/m³ (eau + assainissement).</p>
+    <p>D'où l'urgence d'intervenir. Une simple panne de flotteur est une des principales causes de surconsommation d'eau résidentielle.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-yellow">REA</span></h2>
+  <p>Antoine remplace le flotteur par un neuf. Le nouveau modèle est plus gros : <strong>V<sub>nouveau</sub> = 350 cm³</strong>, m<sub>nouveau</sub> = 35 g. Recalculer le volume immergé nécessaire et la fraction.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>nouveau</sub> = 0,035 × 10 = 0,35 N. F<sub>A</sub> totale = 1 + 0,35 = 1,35 N.</p>
+    <p>V<sub>immergé</sub> = 1,35 / 10 000 = <strong>135 cm³</strong>.</p>
+    <p>Fraction : 135 / 350 ≈ <strong>39 %</strong>.</p>
+    <p>Avec un flotteur plus gros, il suffit de l'immerger un peu moins (39 % au lieu de 52 %) pour fermer. Le seuil de fermeture est plus haut → le réservoir se remplit un peu plus.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Antoine a aussi un <strong>flotteur cylindrique réglable</strong> (« WC silencieux ») dont la position du pivot peut être déplacée le long du bras. Si Antoine déplace le flotteur à L₁' = 30 cm (au lieu de 20), comment cela modifie-t-il le système ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F<sub>A</sub> requise = F<sub>fermer</sub> × L₂ / L₁' = 5 × 0,04 / 0,30 = <strong>0,67 N</strong> (au lieu de 1 N).</p>
+    <p>Soit V<sub>immergé</sub> = (0,67 + 0,3) / 10 000 = <strong>97 cm³</strong> (au lieu de 130).</p>
+    <p>Fraction immergée 97/250 = 39 %.</p>
+    <p>Allonger le bras du flotteur permet de fermer le robinet avec une moindre immersion, donc à un <strong>niveau d'eau plus bas</strong>. Utile pour réduire la consommation par chasse d'eau (économie de 1-2 L par utilisation, soit ≈ 5 m³/an).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>compte-rendu de dépannage</strong> qu'Antoine remet à Mme Boucher :</p>
+  <ul>
+    <li>diagnostic posé</li>
+    <li>impact sur la consommation d'eau</li>
+    <li>réparation effectuée et conseil</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>SOS Plomberie 24 — Dépannage chez Mme Boucher (Nice) — 7 mai 2026</strong><br>
+      • <strong>Diagnostic :</strong> flotteur de chasse d'eau percé, rempli partiellement d'eau. Ne flotte plus assez pour fermer le robinet.<br>
+      • <strong>Impact si non réparé :</strong> ≈ 720 L d'eau gaspillés par jour vers le trop-plein, soit 262 m³/an = <strong>1 050 €/an</strong> de surcoût.<br>
+      • <strong>Action :</strong> remplacement du flotteur (350 cm³, 35 g, 12 € HT). Réglage de la position pour niveau d'eau optimisé.<br>
+      • <strong>Vérification :</strong> robinet se ferme correctement à 39 % d'immersion du flotteur. Test 5 chasses d'eau OK.<br>
+      • <strong>Conseil :</strong> vérifier 1 fois/an l'absence de fuite (mettre une goutte de colorant alimentaire dans le réservoir, attendre 1 h, vérifier la cuvette). Coût intervention : 65 € HT.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>La pression de l'eau au robinet est de <strong>3 bar relative</strong>. Calculer la <strong>force que cette pression exerce sur la membrane</strong> du robinet (surface 1 cm² = 10⁻⁴ m²). Comparer à F<sub>fermer</sub> = 5 N. Pourquoi le levier amplifie-t-il dans le bon sens ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F<sub>pression</sub> = P × S = (3 × 10⁵) × 10⁻⁴ = <strong>30 N</strong> qui pousse pour ouvrir le robinet.</p>
+    <p>Le flotteur, via le levier, doit fournir une force capable de vaincre 30 N côté membrane. Mais dans la pratique, la force F<sub>fermer</sub> annoncée (5 N) ne correspond qu'à une partie « efficace » : la membrane est conçue pour que la pression de l'eau s'auto-équilibre largement (système avec 2 chambres), de sorte que seul un effort résiduel de 5 N suffit.</p>
+    <p>Sans cette astuce mécanique, il faudrait des flotteurs énormes pour fermer un robinet en eau sous 3 bar. Cette ingéniosité date du 18ᵉ siècle (cabinet de toilette anglais).</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Robinet à flotteur :</strong> dispositif universel pour réguler le niveau d'un réservoir. Combine Archimède + levier + robinet à membrane.</li>
+    <li><strong>Force d'Archimède sur le flotteur :</strong> F<sub>A</sub> = ρ<sub>eau</sub> × V<sub>immergé</sub> × g. Le volume immergé augmente avec le niveau d'eau.</li>
+    <li><strong>Équilibre du levier :</strong> F<sub>A</sub> × L<sub>flotteur</sub> = F<sub>fermer</sub> × L<sub>membrane</sub>. Plus L<sub>flotteur</sub> est long, moins F<sub>A</sub> nécessaire.</li>
+    <li><strong>Panne fréquente :</strong> flotteur percé, rempli d'eau, perd sa flottabilité, le robinet reste ouvert.</li>
+    <li><strong>Conséquence :</strong> jusqu'à 700 L/jour gaspillés. Pour vérifier : colorant dans le réservoir, attendre 1 h.</li>
+    <li><strong>Réglage :</strong> ajuster la position du flotteur pour optimiser la quantité d'eau remplie (économie d'eau).</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §II (Archimède), §III (Flottabilité) de la leçon Ch08, couplé au Ch06 (moments).</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

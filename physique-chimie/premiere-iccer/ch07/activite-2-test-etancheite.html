@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 2 – Test d'étanchéité d'un circuit chauffage – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Test d'étanchéité d'un circuit de chauffage <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 7 – Pression et force pressante | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique des fluides | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Convertir entre unités de pression : Pa, bar, mbar</li>
+    <li>Appliquer la relation P = F / S</li>
+    <li>Calculer la force pressante sur une vanne ou un raccord</li>
+    <li>Diagnostiquer une fuite à partir d'une chute de pression</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §I (P = F/S) et §II (unités). 1 bar = 10⁵ Pa = 1 000 mbar. La pression d'un fluide sur une paroi crée une force F = P × S perpendiculaire à la paroi.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – test d'étanchéité après installation chez M. Vasseur</h2>
+  <p><em>Sophie, plombière-chauffagiste chez « ProInstall » à Lille, vient d'installer un nouveau circuit de chauffage central chez M. Vasseur (12 radiateurs). Avant la mise en service définitive, elle réalise un <strong>test d'étanchéité réglementaire</strong> : elle remplit le circuit d'eau, met sous pression à 3 bar avec une pompe d'épreuve, et observe la pression pendant 30 minutes. Toute baisse de pression supérieure à 0,2 bar signale une fuite.</em></p>
+
+  <h3>Document 1 — Pression de test et caractéristiques du circuit</h3>
+  <ul>
+    <li>Pression de test : <strong>P<sub>test</sub> = 3 bar</strong> (relative, soit 4 bar absolus)</li>
+    <li>Pression de service en fonctionnement : 1,5 bar (le test est à 2 × la pression de service)</li>
+    <li>Volume total du circuit : V = <strong>120 litres</strong> (tubes + radiateurs + chaudière)</li>
+    <li>Diamètre intérieur des raccords filetés : 20 mm (raccord 3/4")</li>
+    <li>Nombre de vannes / raccords filetés : 24 (2 par radiateur)</li>
+    <li>Surface d'une membrane de vanne : S<sub>vanne</sub> = <strong>3,14 × 10⁻⁴ m²</strong> (disque de Ø 20 mm)</li>
+  </ul>
+
+  <h3>Document 2 — Tableau des unités de pression</h3>
+  <table>
+    <thead>
+      <tr><th>Unité</th><th>Symbole</th><th>Conversion en Pa</th><th>Usage</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pascal</td><td>Pa</td><td>1 Pa = 1 N/m²</td><td>Unité SI</td></tr>
+      <tr><td>Bar</td><td>bar</td><td>1 bar = 10⁵ Pa = 100 000 Pa</td><td>Plomberie, chauffage</td></tr>
+      <tr><td>Millibar</td><td>mbar</td><td>1 mbar = 100 Pa</td><td>Météo, instruments fins</td></tr>
+      <tr><td>Hectopascal</td><td>hPa</td><td>1 hPa = 100 Pa = 1 mbar</td><td>Météo</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Schéma du circuit en test</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 220" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : pompe d'épreuve à gauche reliée par un tuyau au circuit de chauffage. Le manomètre indique 3 bar. Le circuit comprend la chaudière, des radiateurs et leurs vannes. La pression s'exerce uniformément sur toutes les parois et joints du circuit.">
+      <defs>
+        <style>
+          .ti7{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl7{font:11px sans-serif;fill:#1a202c}
+          .lblB7{font:700 11px sans-serif;fill:#1d4ed8}
+        </style>
+      </defs>
+
+      <text class="ti7" x="350" y="22">Test d'étanchéité — circuit sous 3 bar</text>
+
+      <!-- Pompe d'épreuve -->
+      <rect x="40" y="100" width="100" height="80" fill="#fef3c7" stroke="#b45309" stroke-width="2" rx="4"/>
+      <text class="lbl7" x="90" y="125" text-anchor="middle" font-size="10" font-weight="bold" fill="#b45309">POMPE</text>
+      <text class="lbl7" x="90" y="140" text-anchor="middle" font-size="10" fill="#b45309">d'épreuve</text>
+      <!-- Manomètre -->
+      <circle cx="90" cy="165" r="14" fill="#fff" stroke="#1f2937" stroke-width="1.5"/>
+      <text class="lbl7" x="90" y="170" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">3</text>
+      <text class="lbl7" x="90" y="190" text-anchor="middle" font-size="9" fill="#475569">bar</text>
+
+      <!-- Tuyau vers circuit -->
+      <line x1="140" y1="140" x2="220" y2="140" stroke="#1d4ed8" stroke-width="4"/>
+
+      <!-- Circuit (rectangle représentant les tubes) -->
+      <rect x="220" y="80" width="440" height="120" fill="none" stroke="#1d4ed8" stroke-width="3"/>
+
+      <!-- Chaudière -->
+      <rect x="240" y="90" width="60" height="100" fill="#cbd5e1" stroke="#1e293b" stroke-width="2"/>
+      <text class="lbl7" x="270" y="145" text-anchor="middle" font-size="10" font-weight="bold">chaudière</text>
+
+      <!-- Radiateurs -->
+      <rect x="340" y="100" width="40" height="80" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+      <line x1="345" y1="115" x2="375" y2="115" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="345" y1="135" x2="375" y2="135" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="345" y1="155" x2="375" y2="155" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="345" y1="175" x2="375" y2="175" stroke="#dc2626" stroke-width="0.7"/>
+      <text class="lbl7" x="360" y="195" text-anchor="middle" font-size="9">rad. 1</text>
+
+      <rect x="430" y="100" width="40" height="80" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+      <line x1="435" y1="115" x2="465" y2="115" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="435" y1="135" x2="465" y2="135" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="435" y1="155" x2="465" y2="155" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="435" y1="175" x2="465" y2="175" stroke="#dc2626" stroke-width="0.7"/>
+      <text class="lbl7" x="450" y="195" text-anchor="middle" font-size="9">rad. 2</text>
+
+      <text class="lbl7" x="510" y="145" text-anchor="middle" font-style="italic" fill="#475569">… 12 radiateurs</text>
+
+      <rect x="600" y="100" width="40" height="80" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+      <line x1="605" y1="115" x2="635" y2="115" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="605" y1="135" x2="635" y2="135" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="605" y1="155" x2="635" y2="155" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="605" y1="175" x2="635" y2="175" stroke="#dc2626" stroke-width="0.7"/>
+      <text class="lbl7" x="620" y="195" text-anchor="middle" font-size="9">rad. 12</text>
+
+      <!-- Flèches de pression internes -->
+      <path d="M 280 75 L 280 90" stroke="#dc2626" stroke-width="1" marker-end="url(#arrP7)"/>
+      <text class="lblB7" x="320" y="78">F = P × S sur chaque paroi</text>
+
+      <defs>
+        <marker id="arrP7" markerWidth="7" markerHeight="7" refX="3" refY="6" orient="auto">
+          <polygon points="0,0 3,6 6,0" fill="#dc2626"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle force pressante chaque vanne du circuit doit-elle supporter pendant le test à 3 bar, et comment Sophie peut-elle savoir si une fuite est apparue après 30 min d'observation ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Convertir la pression de test 3 bar en <strong>pascals (Pa)</strong> et en <strong>millibars (mbar)</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>1 bar = 10⁵ Pa, donc 3 bar = <strong>3 × 10⁵ Pa = 300 000 Pa</strong>.</p>
+    <p>1 bar = 1 000 mbar, donc 3 bar = <strong>3 000 mbar</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>force pressante</strong> F<sub>vanne</sub> exercée par l'eau sous pression sur la membrane d'une seule vanne (S = 3,14 × 10⁻⁴ m²) à l'aide de la relation \(F = P \times S\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F = P × S = (3 × 10⁵) × (3,14 × 10⁻⁴) = 3 × 3,14 × 10⁵⁻⁴ = 9,42 × 10¹</p>
+    <p>F<sub>vanne</sub> ≈ <strong>94 N</strong> (≈ 9,4 kg de force)</p>
+    <p>Chaque vanne du circuit doit supporter cette force pressante sans se déformer ni fuir. C'est pourquoi les vannes plomberie sont fabriquées en laiton ou inox épais.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>force totale</strong> exercée sur l'ensemble des 24 vannes / raccords filetés du circuit. Convertir en kg équivalent.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F<sub>totale</sub> = 24 × 94 = <strong>2 256 N</strong>, soit <strong>≈ 226 kg</strong> de force répartis sur l'ensemble.</p>
+    <p>C'est l'équivalent du poids d'un homme adulte sur chaque raccord en additionnant — d'où l'importance d'un serrage bien calibré (cf Activité 3 du Ch06).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Sophie remarque que la pression chute de <strong>3,00 bar à 2,75 bar</strong> en 30 minutes. La norme tolère 0,2 bar de chute (soit 200 mbar). La pression actuelle est-elle conforme ? Que doit-elle faire ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Chute observée : 3,00 − 2,75 = <strong>0,25 bar = 250 mbar</strong>.</p>
+    <p>Norme : ≤ 200 mbar. La chute observée est <strong>au-dessus de la limite</strong> → le circuit n'est <strong>pas étanche</strong>, il y a une fuite.</p>
+    <p>Sophie doit :</p>
+    <ul>
+      <li>Inspecter visuellement chaque raccord (gouttes, traces d'humidité).</li>
+      <li>Pulvériser de l'eau savonneuse sur les raccords (les fuites font apparaître des bulles).</li>
+      <li>Reserrer ou remplacer le ou les raccords défectueux.</li>
+      <li>Refaire le test d'étanchéité jusqu'à conformité.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Estimer le <strong>volume d'eau perdu</strong> par la fuite, sachant qu'une chute de 1 bar dans un circuit fermé d'eau correspond à environ <strong>0,5 % de variation de volume</strong> (l'eau étant peu compressible mais le circuit légèrement élastique).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Chute : 0,25 bar → variation volume ≈ 0,25 × 0,5 % = 0,125 % de 120 L = <strong>0,15 L = 150 mL</strong>.</p>
+    <p>Soit environ un demi-verre d'eau perdu en 30 min, ou ≈ 0,3 L/h. C'est une fuite <strong>lente mais réelle</strong>, qui passerait inaperçue à l'œil mais qui finirait par causer des dégâts.</p>
+    <p>Sur 1 an : 0,3 × 8 760 ≈ 2 600 L de fuite, soit l'équivalent de 17 baignoires d'eau gaspillée.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-yellow">REA</span></h2>
+  <p>Sophie répare le raccord défectueux et refait le test : la pression reste cette fois à <strong>2,95 bar</strong> après 30 minutes. Calculer la chute et conclure sur la conformité.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Chute : 3,00 − 2,95 = <strong>0,05 bar = 50 mbar</strong>.</p>
+    <p>Norme ≤ 200 mbar. <strong>50 &lt; 200 → conforme</strong>. Le circuit est étanche, Sophie peut signer le procès-verbal de mise en service.</p>
+    <p>(La petite chute de 50 mbar peut s'expliquer par : refroidissement léger de l'eau pendant le test → contraction → légère baisse de pression. Pas d'inquiétude.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Pourquoi la pression de <strong>test (3 bar)</strong> est-elle volontairement <strong>plus élevée</strong> que la pression de service (1,5 bar) ? Discuter avec un raisonnement physique.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le test à 2 × P<sub>service</sub> permet :</p>
+    <ul>
+      <li><strong>(1) Détecter les fuites micro :</strong> à pression doublée, la force F = P × S double aussi → une micro-fuite imperceptible à 1,5 bar devient visible à 3 bar.</li>
+      <li><strong>(2) Marge de sécurité :</strong> en service réel, la pression peut transitoirement monter (par exemple lors d'une chauffe rapide). Le test garantit que le circuit tient même dans ces conditions extrêmes.</li>
+      <li><strong>(3) Vérifier les raccords sous contrainte maximale :</strong> certains défauts ne se révèlent que sous forte pression (joint mal placé, fissure microscopique).</li>
+    </ul>
+    <p>Cette méthode du « test sous pression doublée » est universelle dans les métiers de la plomberie, du gaz et du chauffage.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>procès-verbal de test d'étanchéité</strong> que Sophie remet à M. Vasseur :</p>
+  <ul>
+    <li>conditions du test (P, durée, volume)</li>
+    <li>résultat (conforme / non conforme, chute observée)</li>
+    <li>conclusion sur la mise en service</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProInstall — PV de test d'étanchéité · M. Vasseur (Lille) — 7 mai 2026</strong><br>
+      • <strong>Conditions du test :</strong> circuit chauffage 12 radiateurs, volume 120 L, pressurisation à <strong>3 bar (2 × P<sub>service</sub>)</strong> pendant 30 min via pompe d'épreuve calibrée.<br>
+      • <strong>Premier test :</strong> chute de 250 mbar (norme &lt; 200 mbar) — <strong>NON CONFORME</strong>. Fuite identifiée sur raccord radiateur n° 4.<br>
+      • <strong>Action corrective :</strong> reserrage du raccord à 25 N·m + remplacement joint torique (réf K2-20).<br>
+      • <strong>Second test :</strong> chute de 50 mbar — <strong>CONFORME</strong>. Circuit déclaré étanche.<br>
+      • <strong>Conclusion :</strong> mise en service autorisée. Pression de service à 1,5 bar à régler par le client. Garantie installation : 2 ans pose, 5 ans pièces.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Une chaudière à condensation a une vanne de sécurité tarée à 3 bar (s'ouvre au-dessus). Calculer la <strong>force que devrait vaincre le ressort</strong> de cette vanne pour rester fermée, sachant que la membrane fait 4 cm² (= 4 × 10⁻⁴ m²).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F = P × S = (3 × 10⁵) × (4 × 10⁻⁴) = 12 × 10¹ = <strong>120 N</strong></p>
+    <p>Le ressort interne de la vanne doit pouvoir maintenir une force de 120 N (≈ 12 kg) avant de s'ouvrir. Au-delà, l'eau s'évacue par sécurité (vidange).</p>
+    <p>Cette vanne est <strong>obligatoire</strong> sur tout circuit fermé : elle évite l'explosion en cas de surpression accidentelle (chaudière en panne, vase d'expansion saturé).</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Pression :</strong> P = F / S, en pascals (Pa). 1 bar = 10⁵ Pa = 1 000 mbar.</li>
+    <li><strong>Force pressante :</strong> F = P × S, perpendiculaire à la paroi.</li>
+    <li><strong>Test d'étanchéité :</strong> pressuriser à 2 × P<sub>service</sub> pendant 30 min ; chute &lt; 200 mbar = circuit étanche.</li>
+    <li><strong>Pression de service typique</strong> en chauffage résidentiel : 1,0 à 1,5 bar à froid.</li>
+    <li><strong>Vanne de sécurité</strong> : obligatoire sur circuit fermé, tarée à 3 bar (= 2 × P<sub>service</sub>).</li>
+    <li><strong>Diagnostic fuite :</strong> chute &gt; 200 mbar / 30 min = fuite. Inspecter visuellement, eau savonneuse, reserrer ou remplacer le raccord.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §I (Pression et force pressante) et §II (Unités) de la leçon Ch07.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

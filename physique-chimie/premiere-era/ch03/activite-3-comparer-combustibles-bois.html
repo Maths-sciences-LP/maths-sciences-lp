@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 3 – Comparer combustibles atelier – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Choisir le bon combustible pour son atelier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 3 – Combustion | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la quantité d'un combustible nécessaire pour un besoin donné</li>
+    <li>Comparer 3 combustibles selon coût, CO₂ et praticité</li>
+    <li>Choisir un combustible adapté à un atelier de menuiserie</li>
+    <li>Argumenter une décision technico-économique</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a>. Énergie nécessaire = besoin / rendement. Quantité = énergie / PCI.
+</p>
+
+<div class="situation">
+  <h2>Situation – choix du chauffage par Camille</h2>
+  <p><em>Camille, gérante d'un atelier d'agencement à Strasbourg (volume 1 000 m³ à chauffer 5 mois/an), doit choisir le système de chauffage de son atelier neuf : bûches de bois, granulés, ou gaz propane (pas de gaz de ville en zone artisanale). Besoin annuel estimé : <strong>20 000 kWh utiles</strong>.</em></p>
+
+  <h3>Document 1 — Caractéristiques des 3 combustibles</h3>
+  <table>
+    <thead><tr><th>Combustible</th><th>PCI</th><th>Prix</th><th>Rendement appareil</th><th>CO₂ cycle long (g/kWh)</th></tr></thead>
+    <tbody>
+      <tr><td>Bûches de bois sec</td><td>4,8 kWh/kg</td><td>0,08 €/kg (vrac)</td><td>η = 75 %</td><td>30</td></tr>
+      <tr><td>Granulés bois (pellets)</td><td>4,8 kWh/kg</td><td>0,35 €/kg</td><td>η = 88 %</td><td>30</td></tr>
+      <tr><td>Propane citerne</td><td>13,8 kWh/kg</td><td>1,80 €/kg</td><td>η = 92 %</td><td>275</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle solution Camille doit-elle privilégier en termes de coût et d'empreinte carbone ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>quantité d'énergie</strong> que doit fournir l'appareil (E = E<sub>utile</sub> / η) pour chacune des 3 solutions.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Bûches : 20 000 / 0,75 ≈ <strong>26 670 kWh PCI/an</strong></li>
+      <li>Granulés : 20 000 / 0,88 ≈ <strong>22 730 kWh PCI/an</strong></li>
+      <li>Propane : 20 000 / 0,92 ≈ <strong>21 740 kWh PCI/an</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>masse annuelle de combustible</strong> nécessaire pour chacune.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Bûches : 26 670 / 4,8 ≈ <strong>5 555 kg/an = 5,5 t</strong> (~ 12 stères de chêne).</li>
+      <li>Granulés : 22 730 / 4,8 ≈ <strong>4 735 kg/an = 4,7 t</strong> (livré en sacs de 15 kg ou en vrac).</li>
+      <li>Propane : 21 740 / 13,8 ≈ <strong>1 575 kg/an = 1,6 t</strong> (citerne 1 500 L environ).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>coût annuel</strong> de chaque solution.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Bûches : 5 555 × 0,08 ≈ <strong>444 €/an</strong></li>
+      <li>Granulés : 4 735 × 0,35 ≈ <strong>1 657 €/an</strong></li>
+      <li>Propane : 1 575 × 1,80 ≈ <strong>2 835 €/an</strong></li>
+    </ul>
+    <p>Classement : bûches &lt;&lt; granulés &lt; propane.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer les <strong>émissions CO₂</strong> annuelles (cycle long) pour chaque solution.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Bûches : 20 000 × 30 = 600 000 g = <strong>600 kg/an</strong>.</li>
+      <li>Granulés : 600 kg/an (idem bois).</li>
+      <li>Propane : 20 000 × 275 = 5 500 000 g = <strong>5 500 kg/an = 5,5 t</strong>.</li>
+    </ul>
+    <p>Le propane émet <strong>9 fois plus</strong> de CO₂ que le bois.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer les 3 solutions sur 3 critères : <strong>coût, CO₂, praticité (alimentation et stockage)</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Critère</th><th>Bûches</th><th>Granulés</th><th>Propane</th></tr></thead>
+      <tbody>
+        <tr><td>Coût</td><td><strong>1ᵉʳ</strong> 444 €</td><td>2ᵉ 1 657 €</td><td>3ᵉ 2 835 €</td></tr>
+        <tr><td>CO₂</td><td><strong>1ᵉʳ ex aequo</strong> 600 kg</td><td><strong>1ᵉʳ ex aequo</strong> 600 kg</td><td>3ᵉ 5 500 kg</td></tr>
+        <tr><td>Praticité (alimentation auto)</td><td>3ᵉ (manuelle)</td><td><strong>1ᵉʳ</strong> (auto par silo)</td><td><strong>1ᵉʳ</strong> (auto par citerne)</td></tr>
+        <tr><td>Stockage</td><td>3ᵉ (12 stères)</td><td>2ᵉ (silo 5 m³)</td><td><strong>1ᵉʳ</strong> (citerne enterrée)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Camille travaille seule, n'a pas envie d'alimenter manuellement son chauffage tous les jours. Quelle <strong>solution</strong> Camille doit-elle privilégier compte tenu de ses contraintes ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Granulés bois</strong> est le meilleur compromis :</p>
+    <ul>
+      <li>Coût raisonnable : 1 657 €/an.</li>
+      <li>Empreinte carbone faible (cycle long).</li>
+      <li>Alimentation automatique (silo + vis sans fin).</li>
+      <li>Production française locale (filière bois énergie aidée par MaPrimeRénov').</li>
+    </ul>
+    <p>Bûches : trop manuel pour 1 personne seule. Propane : empreinte carbone catastrophique.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Le coût d'une chaudière à granulés (12 000 € installée, 4 000 € après aides) doit être amorti. Calculer le <strong>retour sur investissement</strong> par rapport au propane.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Économie annuelle granulés vs propane : 2 835 − 1 657 = <strong>1 178 €/an</strong>.</p>
+    <p>Surcoût d'achat granulés vs propane (5 000 € chaudière propane) : 4 000 − 5 000 = <strong>−1 000 €</strong>. Le granulés est moins cher à l'achat après aides !</p>
+    <p>Conclusion : granulés gagne sur tous les critères avec aides MaPrimeRénov'. Pas de retour sur investissement à calculer — c'est gagnant immédiatement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note de décision</strong> de Camille pour son comptable.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Camille — Décision chauffage atelier neuf · 7 mai 2026</strong><br>
+      • <strong>Choix : chaudière à granulés bois</strong> (4 700 kg/an, 1 657 €/an).<br>
+      • <strong>Investissement</strong> : 12 000 € HT - 8 000 € MaPrimeRénov' + CEE = <strong>4 000 € net</strong>.<br>
+      • <strong>Économie vs propane</strong> : 1 178 €/an. Bilan CO₂ : 0,6 t/an (vs 5,5 t pour propane).<br>
+      • <strong>Avantages</strong> : alimentation automatique (silo 5 m³ rempli 1 fois/an), filière française, zéro carbone cycle long.<br>
+      • <strong>Plan d'installation</strong> : commande chez Hargassner avant 1ᵉʳ juin 2026 pour mise en service début saison de chauffe (octobre).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Combustion du propane : C₃H₈ + O₂ → CO₂ + H₂O. Équilibrer.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>C : 3 → 3 CO₂. H : 8 → 4 H₂O. O à droite : 6 + 4 = 10. À gauche : 5 O₂.</p>
+    <p style="text-align:center;font-size:1.05em"><strong>C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O</strong></p>
+    <p>Vérification : C 3=3 ✓, H 8=8 ✓, O 10=10 ✓.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Quantité de combustible :</strong> m = E<sub>utile</sub> / (PCI × η).</li>
+    <li><strong>Hiérarchie carbone des combustibles :</strong> propane (275 g/kWh) ≫ gaz (210) &gt; granulés (30, cycle long) ≈ bûches (30).</li>
+    <li><strong>Hiérarchie coût (atelier 20 MWh) :</strong> bûches 444 € ≪ granulés 1 657 € &lt; propane 2 835 €.</li>
+    <li><strong>Compromis usage atelier :</strong> granulés = bon compromis (alimentation auto + faible CO₂ + coût raisonnable).</li>
+    <li><strong>Bûches :</strong> meilleure option si on a une source de bois proche (chutes valorisées).</li>
+    <li><strong>Propane :</strong> à éviter pour raison écologique et économique, sauf si pas d'autre choix (zone isolée).</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Combustion), §4 (Équilibrage) et §5 (Énergie libérée) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

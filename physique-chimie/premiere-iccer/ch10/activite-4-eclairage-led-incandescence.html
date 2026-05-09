@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Activité 4 – Éclairage LED vs incandescence – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Éclairage LED vs incandescence : spectre et rendement <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 10 – Ondes électromagnétiques | 1ère Bac Pro ICCER (Grpt 1) | Physique – Ondes | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Identifier les domaines d'émission (visible et IR) d'une lampe</li>
+    <li>Calculer le rendement lumineux d'une lampe (% de visible)</li>
+    <li>Comparer la consommation et la durée de vie LED vs incandescence</li>
+    <li>Argumenter le choix d'éclairage en rénovation énergétique</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §III (spectre EM) et §IV (sources). Visible : 400-700 nm. IR : 0,75-15 μm. Une lampe émet de la lumière + de la chaleur (IR) selon sa technologie.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – rénovation éclairage chez M. Dubois</h2>
+  <p><em>Théo, électricien-thermicien chez « EnergyPlus » à Nantes, propose à M. Dubois de remplacer toutes ses ampoules à incandescence par des LED dans le cadre d'un audit énergie global. M. Dubois a 20 ampoules de 60 W actuellement. Théo veut convaincre son client en chiffrant clairement les économies, mais aussi expliquer la <strong>physique sous-jacente</strong> : pourquoi une LED 8 W produit autant de lumière qu'une ampoule classique 60 W.</em></p>
+
+  <h3>Document 1 — Comparatif technique des 3 technologies</h3>
+  <table>
+    <thead>
+      <tr><th>Technologie</th><th>Puissance électrique</th><th>Flux lumineux</th><th>% visible</th><th>% IR/chaleur</th><th>Durée de vie</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Incandescence (filament)</td><td>60 W</td><td>700 lm</td><td><strong>5 %</strong></td><td>95 %</td><td>1 000 h</td></tr>
+      <tr><td>Halogène</td><td>42 W</td><td>700 lm</td><td>10 %</td><td>90 %</td><td>2 000 h</td></tr>
+      <tr><td><strong>LED</strong></td><td><strong>8 W</strong></td><td>700 lm</td><td><strong>90 %</strong></td><td>10 %</td><td>25 000 h</td></tr>
+    </tbody>
+  </table>
+  <p><em>Le flux lumineux (en lumens, lm) mesure la quantité de lumière visible perçue par l'œil. À flux égal, l'éclairage est équivalent en luminosité.</em></p>
+
+  <h3>Document 2 — Spectre d'émission</h3>
+  <ul>
+    <li>Visible perçu par l'œil humain : λ entre <strong>400 nm (violet)</strong> et <strong>700 nm (rouge)</strong></li>
+    <li>Maximum de sensibilité de l'œil : 555 nm (vert-jaune)</li>
+    <li>IR proche : 750 nm – 3 μm. IR thermique : 3-15 μm. Non visible mais ressenti comme chaleur.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Pourquoi une ampoule à incandescence consomme-t-elle 8 fois plus qu'une LED pour la même luminosité, et combien M. Dubois économisera-t-il en remplaçant ses 20 ampoules ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>D'après le Doc 1, calculer la <strong>puissance utile</strong> (visible) émise par chaque type d'ampoule. Conclure sur la part de chaleur perdue.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Incandescence : P<sub>visible</sub> = 60 × 0,05 = <strong>3 W de visible</strong>, 57 W perdus en chaleur (IR).</li>
+      <li>Halogène : 42 × 0,10 = <strong>4,2 W</strong> de visible, 37,8 W en chaleur.</li>
+      <li>LED : 8 × 0,90 = <strong>7,2 W</strong> de visible, 0,8 W en chaleur.</li>
+    </ul>
+    <p>Pour la même luminosité, la LED produit <strong>2,4 fois plus de lumière utile</strong> que l'incandescence, alors qu'elle consomme 7,5 fois moins.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>fréquence f</strong> de la lumière jaune-vert (λ = 555 nm) émise au maximum de sensibilité de l'œil.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>λ = 555 nm = 555 × 10⁻⁹ m = 5,55 × 10⁻⁷ m.</p>
+    <p>f = c / λ = (3 × 10⁸) / (5,55 × 10⁻⁷) ≈ <strong>5,4 × 10¹⁴ Hz = 540 THz</strong>.</p>
+    <p>La lumière visible est environ <strong>10 000 fois plus haute en fréquence</strong> que l'IR thermique des lampes (≈ 50 THz).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-blue">ANA</span></h2>
+  <p>Pourquoi une ampoule à <strong>filament en tungstène</strong> (incandescente) émet-elle peu de visible et beaucoup d'IR ?</p>
+  <p><em>Indice : utiliser la loi de Wien (Ch10 act3 bonus) : λ<sub>max</sub> = 2 898 / T (μm si T en K). Filament tungstène incandescent : T ≈ 2 800 K.</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>λ<sub>max</sub> = 2 898 / 2 800 ≈ <strong>1,03 μm = 1 030 nm</strong>.</p>
+    <p>Cette longueur d'onde est dans l'<strong>IR proche</strong> (au-delà de 700 nm visible). Le filament rayonne donc majoritairement de l'IR (chaleur), seule une « queue » du spectre tombe dans le visible (rouge-orange surtout).</p>
+    <p>Pour produire majoritairement du visible, il faudrait un filament à 5 800 K (température du Soleil), ce qui est impossible : le tungstène fond à 3 695 K.</p>
+    <p>Conclusion : <strong>l'incandescence est intrinsèquement inefficace</strong>. C'est pour cela qu'elle est interdite à la vente en Europe depuis 2012.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Une LED ne fonctionne pas par chauffage, mais par <strong>électroluminescence</strong> : un courant traverse une jonction semi-conductrice qui émet directement à une longueur d'onde précise. Sans chauffer le composant, la LED peut atteindre 90 % de rendement lumineux.</p>
+  <p>Combien d'<strong>énergie thermique</strong> émet une LED 8 W vs une incandescence 60 W (à flux égal) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Chaleur incandescence : 60 × 0,95 = <strong>57 W</strong>.</p>
+    <p>Chaleur LED : 8 × 0,10 = <strong>0,8 W</strong>.</p>
+    <p>Différence : 56 W de chaleur en moins par ampoule. Sur 20 ampoules → 1 120 W de chaleur en moins, c'est l'équivalent d'un radiateur électrique de 1 kW qui ne fonctionne plus l'été (climatisation soulagée). En hiver, c'est de la chaleur perdue qu'il faut compenser autrement, mais via une PAC plus efficace !</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>M. Dubois utilise ses ampoules <strong>5 h/jour</strong> en moyenne, soit 1 825 h/an. Calculer la <strong>consommation annuelle</strong> de ses 20 ampoules :</p>
+  <ul>
+    <li>(a) En incandescence (60 W chacune)</li>
+    <li>(b) Si remplacées en LED (8 W chacune)</li>
+  </ul>
+  <p>Calculer l'<strong>économie d'énergie</strong> annuelle.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>(a) Incandescence : E<sub>a</sub> = 20 × 60 × 1 825 / 1 000 = <strong>2 190 kWh/an</strong>.</p>
+    <p>(b) LED : E<sub>b</sub> = 20 × 8 × 1 825 / 1 000 = <strong>292 kWh/an</strong>.</p>
+    <p>Économie : 2 190 − 292 = <strong>1 898 kWh/an</strong> (≈ 87 % d'économie).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Au tarif EDF de <strong>0,2516 €/kWh</strong>, calculer l'<strong>économie financière</strong> annuelle. En sachant qu'une ampoule LED de qualité coûte 8 € et qu'il en faut 20, calculer le <strong>retour sur investissement</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Économie financière : 1 898 × 0,2516 ≈ <strong>478 €/an</strong>.</p>
+    <p>Investissement : 20 × 8 = 160 € pour 20 ampoules LED.</p>
+    <p>Retour sur investissement : 160 / 478 ≈ <strong>0,33 an = 4 mois</strong>.</p>
+    <p>Au-delà des 4 premiers mois, M. Dubois économise <strong>478 €/an pendant 13 ans</strong> (durée de vie LED ≈ 25 000 h ≈ 13 ans à raison de 5 h/jour).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Calculer la <strong>réduction d'émissions CO₂</strong> grâce au passage en LED, sachant que le mix électrique français émet 60 g CO₂/kWh.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Économies CO₂ annuelles : 1 898 × 60 = 113 880 g ≈ <strong>114 kg CO₂/an</strong>.</p>
+    <p>Sur 13 ans (durée de vie LED) : ≈ <strong>1,48 tonne CO₂ évitée</strong> juste pour M. Dubois.</p>
+    <p>À l'échelle d'un pays, le passage en LED a réduit la consommation française d'éclairage de 30 % en 10 ans (2014-2024). Effet majeur sur la transition énergétique.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche conseil</strong> que Théo remet à M. Dubois pour le convaincre de passer en LED :</p>
+  <ul>
+    <li>argument physique (rendement)</li>
+    <li>économies financières et énergétiques</li>
+    <li>retour sur investissement et bénéfice écologique</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>EnergyPlus — Conseil éclairage LED · M. Dubois (Nantes) — 7 mai 2026</strong><br>
+      • <strong>Pourquoi la LED est si efficace :</strong> elle convertit 90 % de l'électricité en lumière visible (vs 5 % pour l'incandescent qui chauffe à 95 %).<br>
+      • <strong>20 ampoules à remplacer :</strong> investissement 160 € (8 € × 20). Économie immédiate sur facture.<br>
+      • <strong>Économies :</strong> 1 898 kWh/an, soit <strong>478 €/an</strong>. Retour sur investissement : <strong>4 mois</strong>.<br>
+      • <strong>Sur 13 ans</strong> (durée de vie LED) : ≈ <strong>6 200 €</strong> économisés et <strong>1,5 t CO₂</strong> évitées.<br>
+      • <strong>Bénéfices supplémentaires :</strong> moins de chaleur en été (climatisation soulagée), moins de remplacements (LED 25 000 h vs 1 000 h pour incandescence). Recyclage des anciennes ampoules en magasin.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Une LED blanche est en réalité une LED <strong>bleue (450 nm)</strong> recouverte d'un phosphore qui absorbe une partie du bleu et réémet en jaune (≈ 580 nm). Le mélange bleu + jaune donne une lumière perçue comme blanche. Calculer le rapport des fréquences entre la LED bleue et la lumière jaune émise.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>f<sub>bleu</sub> = c / λ = (3 × 10⁸) / (4,5 × 10⁻⁷) ≈ <strong>6,67 × 10¹⁴ Hz</strong>.</p>
+    <p>f<sub>jaune</sub> = (3 × 10⁸) / (5,8 × 10⁻⁷) ≈ <strong>5,17 × 10¹⁴ Hz</strong>.</p>
+    <p>Rapport : 6,67 / 5,17 ≈ <strong>1,29</strong>. Le bleu a une fréquence 30 % plus élevée que le jaune (et donc une énergie plus élevée pour chaque photon).</p>
+    <p>Lors de la conversion bleu → jaune par le phosphore, il y a perte d'énergie (Stokes shift) qui se dissipe en chaleur. C'est ce qui limite le rendement maximum d'une LED blanche à environ 90 % (jamais 100 %).</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Spectre visible :</strong> 400-700 nm (violet → rouge). Maximum de sensibilité de l'œil : 555 nm (vert-jaune).</li>
+    <li><strong>Loi de Wien :</strong> λ<sub>max</sub> = 2 898 / T (μm). Un filament à 2 800 K rayonne surtout en IR (1 μm).</li>
+    <li><strong>Rendement éclairage :</strong> incandescent 5 %, halogène 10 %, LED 90 %.</li>
+    <li><strong>Économie LED vs incandescent :</strong> 87 % d'énergie en moins pour la même luminosité.</li>
+    <li><strong>Durée de vie :</strong> incandescent 1 000 h, halogène 2 000 h, LED 25 000 h. Avantage majeur : moins de remplacements.</li>
+    <li><strong>LED blanche :</strong> LED bleue (450 nm) + phosphore qui réémet en jaune. Mélange = blanc perçu.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §III (Spectre EM) et §IV (Sources et applications) de la leçon Ch10.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

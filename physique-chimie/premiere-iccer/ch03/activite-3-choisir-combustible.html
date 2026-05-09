@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 3 – Choisir le bon combustible – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Comparer 3 combustibles : gaz, fioul, granulés bois <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 3 – Combustion | 1ère Bac Pro ICCER (Grpt 1) | Physique – Chimie | ⏱ 40 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la quantité de combustible nécessaire à partir du PCI</li>
+    <li>Équilibrer l'équation de combustion d'un alcane (C₁₂H₂₆)</li>
+    <li>Comparer trois combustibles selon plusieurs critères (coût, CO₂, praticité)</li>
+    <li>Conseiller un client en fonction de son contexte</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (combustion complète), §4 (équilibrage) et §5 (énergie libérée). Énergie consommée = besoin / rendement. Quantité de combustible = énergie / PCI.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – choix de chaudière chez Mme Bernard (maison ancienne)</h2>
+  <p><em>Mathéo, conseiller en rénovation énergétique chez « Hellio » à Limoges, doit conseiller Mme Bernard qui hésite à remplacer sa vieille chaudière fioul. Sa maison ancienne (mal isolée) consomme 25 000 kWh/an de chaleur. Mme Bernard hésite entre 3 solutions : continuer au fioul, passer au gaz naturel, ou installer une chaudière à granulés bois. Mathéo doit chiffrer chaque option sur 3 critères : coût annuel, émissions CO₂, contraintes pratiques.</em></p>
+
+  <h3>Document 1 — Caractéristiques des 3 combustibles</h3>
+  <table>
+    <thead>
+      <tr><th>Combustible</th><th>Formule</th><th>PCI</th><th>Masse vol.</th><th>Prix (2026)</th><th>Émissions CO₂</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Gaz naturel</strong></td><td>CH₄</td><td>10 kWh/m³</td><td>0,72 kg/m³</td><td>0,110 €/kWh</td><td>210 g/kWh</td></tr>
+      <tr><td><strong>Fioul domestique</strong></td><td>C₁₂H₂₆ (simpl.)</td><td>13 kWh/kg</td><td>0,84 kg/L</td><td>1,30 €/L</td><td>320 g/kWh</td></tr>
+      <tr><td><strong>Granulés bois</strong></td><td>C₆H₉O₄ (cellulose)</td><td>4,8 kWh/kg</td><td>650 kg/m³ (en sac)</td><td>0,350 €/kg</td><td>30 g/kWh*</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.88em;font-style:italic;color:#475569">* Le bois est considéré comme « neutre carbone » sur cycle long (le CO₂ émis est réabsorbé par la croissance des forêts). Les 30 g résiduels viennent du transport et de la production.</p>
+
+  <h3>Document 2 — Données techniques des 3 chaudières</h3>
+  <ul>
+    <li>Chaudière gaz à condensation : rendement <strong>η = 95 %</strong>, prix achat 4 500 €</li>
+    <li>Chaudière fioul moderne : rendement <strong>η = 90 %</strong>, prix achat 5 200 €</li>
+    <li>Chaudière granulés bois : rendement <strong>η = 88 %</strong>, prix achat 12 000 € (mais 8 000 € après aides MaPrimeRénov')</li>
+  </ul>
+
+  <h3>Document 3 — Contraintes de stockage</h3>
+  <ul>
+    <li>Gaz : alimenté par le réseau (pas de stockage requis)</li>
+    <li>Fioul : citerne de 1 500 à 3 000 L, livraison annuelle ou semestrielle</li>
+    <li>Granulés bois : silo ou local de stockage de plusieurs m³, livraison en vrac par camion souffleur</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle solution Mathéo doit-il recommander à Mme Bernard pour minimiser à la fois la facture et l'empreinte carbone, tout en respectant les contraintes pratiques de la maison ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Pour chacun des 3 combustibles, calculer la <strong>quantité d'énergie</strong> que doit fournir la chaudière (énergie d'entrée combustible E<sub>combustible</sub> = E<sub>besoin</sub> / η), pour couvrir le besoin annuel de 25 000 kWh.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Gaz (η = 95 %) : E = 25 000 / 0,95 ≈ <strong>26 320 kWh PCI/an</strong></li>
+      <li>Fioul (η = 90 %) : E = 25 000 / 0,90 ≈ <strong>27 780 kWh PCI/an</strong></li>
+      <li>Granulés (η = 88 %) : E = 25 000 / 0,88 ≈ <strong>28 410 kWh PCI/an</strong></li>
+    </ul>
+    <p>Plus le rendement est élevé, moins on a besoin d'énergie d'entrée. Le gaz à condensation est le plus efficace énergétiquement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>quantité annuelle de combustible</strong> (volume ou masse selon le combustible) nécessaire pour chacune des 3 solutions, à partir du PCI.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Gaz : V = 26 320 / 10 = <strong>2 632 m³/an</strong></li>
+      <li>Fioul : m = 27 780 / 13 ≈ <strong>2 137 kg/an</strong>, soit V = 2 137 / 0,84 ≈ <strong>2 540 L/an</strong></li>
+      <li>Granulés : m = 28 410 / 4,8 ≈ <strong>5 920 kg/an = 5,9 tonnes/an</strong></li>
+    </ul>
+    <p>Le bois pèse <strong>3 fois plus</strong> que le fioul à énergie équivalente — c'est pourquoi le stockage est volumineux (≈ 9 m³ de granulés en vrac).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Équilibrer l'équation de combustion complète du <strong>fioul</strong> (formule simplifiée C₁₂H₂₆, dodécane) :</p>
+  <p style="text-align:center;font-size:1.05em">… C₁₂H₂₆ + … O₂ → … CO₂ + … H₂O</p>
+  <p>Vérifier la conservation des atomes.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Étape 1 — équilibrer C : 1 C₁₂H₂₆ → 12 CO₂.</p>
+    <p>Étape 2 — équilibrer H : 26 H à gauche → 13 H₂O à droite.</p>
+    <p>Étape 3 — équilibrer O : à droite, O présents = 12 × 2 + 13 × 1 = 24 + 13 = <strong>37 O</strong>. Donc à gauche : 37/2 = 18,5 O₂.</p>
+    <p>Pour avoir des coefficients entiers, on multiplie tout par 2 :</p>
+    <p style="text-align:center;font-size:1.05em"><strong>2 C₁₂H₂₆ + 37 O₂ → 24 CO₂ + 26 H₂O</strong></p>
+    <p>Vérification : C : 2×12 = 24 ✓ ; H : 2×26 = 52 = 26×2 ✓ ; O : 37×2 = 74 = 24×2 + 26 = 48 + 26 = 74 ✓</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>coût annuel</strong> de chacune des 3 solutions de chauffage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Gaz : 26 320 × 0,110 ≈ <strong>2 895 €/an</strong></li>
+      <li>Fioul : 2 540 L × 1,30 ≈ <strong>3 302 €/an</strong></li>
+      <li>Granulés : 5 920 × 0,350 ≈ <strong>2 072 €/an</strong></li>
+    </ul>
+    <p>Classement par coût : <strong>granulés (2 072 €) &lt; gaz (2 895 €) &lt; fioul (3 302 €)</strong>. Les granulés sont 37 % moins chers que le fioul.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer les <strong>émissions de CO₂ annuelles</strong> de chacune des 3 solutions, à partir des facteurs d'émission du Doc 1.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Gaz : 25 000 × 210 = 5 250 000 g = <strong>5 250 kg = 5,25 t/an</strong></li>
+      <li>Fioul : 25 000 × 320 = 8 000 000 g = <strong>8 000 kg = 8,0 t/an</strong></li>
+      <li>Granulés : 25 000 × 30 = 750 000 g = <strong>750 kg = 0,75 t/an</strong></li>
+    </ul>
+    <p>Classement carbone : <strong>granulés (0,75 t) ≪ gaz (5,25 t) &lt; fioul (8,0 t)</strong>.</p>
+    <p>Les granulés émettent <strong>10 fois moins</strong> de CO₂ que le fioul.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Compléter le tableau comparatif des 3 solutions selon les <strong>3 critères</strong> (coût, CO₂, praticité). Donner pour chaque critère un classement de 1 (meilleur) à 3 (moins bon).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Critère</th><th>Gaz</th><th>Fioul</th><th>Granulés</th></tr></thead>
+      <tbody>
+        <tr><td>Coût annuel (€)</td><td>2 895 — <strong>2ᵉ</strong></td><td>3 302 — 3ᵉ</td><td>2 072 — <strong>1ᵉʳ</strong></td></tr>
+        <tr><td>CO₂ (t/an)</td><td>5,25 — 2ᵉ</td><td>8,00 — 3ᵉ</td><td>0,75 — <strong>1ᵉʳ</strong></td></tr>
+        <tr><td>Praticité (stockage, livraison)</td><td><strong>1ᵉʳ</strong> (réseau)</td><td>2ᵉ (citerne)</td><td>3ᵉ (silo, gros volume)</td></tr>
+        <tr><td>Investissement (€)</td><td><strong>1ᵉʳ</strong> (4 500)</td><td>2ᵉ (5 200)</td><td>3ᵉ (8 000 net)</td></tr>
+      </tbody>
+    </table>
+    <p>Aucune solution n'est la meilleure sur tous les critères. Le choix dépend des priorités : économie pure → granulés ; simplicité → gaz ; statu quo → fioul (mais peu défendable).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Mme Bernard dispose d'un <strong>local annexe de 12 m³</strong> dans son sous-sol, peu utilisé. Elle se sent prête à investir un peu plus si l'économie est durable. Quelle solution Mathéo doit-il recommander, et pourquoi ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Recommandation : chaudière à granulés bois.</strong></p>
+    <p>Justification :</p>
+    <ul>
+      <li>Local de 12 m³ disponible → suffit pour 9 m³ de granulés annuels (livraison en vrac).</li>
+      <li>Investissement plus élevé (8 000 € net) mais retour sur investissement vs fioul = (8 000 − 5 200) / (3 302 − 2 072) = 2 800 / 1 230 ≈ <strong>2,3 ans</strong>.</li>
+      <li>Économie cumulée sur 15 ans (durée chaudière) : 15 × 1 230 − 2 800 ≈ 15 600 € net.</li>
+      <li>Réduction CO₂ : −7,25 t/an, soit −108 t sur 15 ans (équivalent 36 tours du monde en avion).</li>
+    </ul>
+    <p>Conditions : Mme Bernard doit accepter de gérer la livraison annuelle et le ramonage (1 fois/an obligatoire pour les chaudières bois).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>conseil personnalisé</strong> que Mathéo envoie à Mme Bernard :</p>
+  <ul>
+    <li>recommandation chiffrée</li>
+    <li>économie annuelle vs fioul actuel</li>
+    <li>impact CO₂ et aides mobilisables</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Hellio — Conseil rénovation pour Mme Bernard (Limoges) — 7 mai 2026</strong><br>
+      • <strong>Recommandation : chaudière à granulés bois</strong> (8 000 € après MaPrimeRénov' + CEE).<br>
+      • <strong>Économie vs fioul actuel : 1 230 €/an</strong>. Retour sur investissement <strong>2,3 ans</strong>. Sur 15 ans : ≈ 15 600 € net économisés.<br>
+      • <strong>Bilan carbone : −7,25 t CO₂/an</strong>, soit −90 % d'émissions par rapport au fioul actuel.<br>
+      • Stockage : votre local de 12 m³ suffit pour la livraison annuelle en vrac (5,9 t = 9 m³).<br>
+      • <strong>Démarches</strong> : devis chez 2 installateurs RGE Qualibois, demande MaPrimeRénov' avant travaux. Prime CEE complémentaire ≈ 1 500 €. Démarrage chantier idéal entre mai et septembre 2026.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Et si Mme Bernard envisageait une <strong>pompe à chaleur air/eau</strong> (COP 3,3, 12 000 € installée) ? Calculer la consommation électrique annuelle, le coût et les émissions CO₂ (mix électrique français : 60 g/kWh). Comparer aux granulés.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie électrique : 25 000 / 3,3 ≈ <strong>7 575 kWh/an</strong></p>
+    <p>Coût : 7 575 × 0,2516 ≈ <strong>1 906 €/an</strong></p>
+    <p>CO₂ : 7 575 × 60 ≈ 455 000 g = <strong>455 kg = 0,46 t/an</strong></p>
+    <p>Comparaison aux granulés (2 072 € et 0,75 t CO₂) : la PAC est légèrement plus chère à l'usage et émet moins (0,46 t vs 0,75 t). Le choix entre PAC et granulés dépend ensuite : isolation de la maison (la PAC est moins efficace si maison mal isolée), zone climatique (PAC moins efficace en H1 froid), goûts (le bois apporte une chaleur perçue plus agréable).</p>
+    <p>Pour une maison ancienne mal isolée comme celle de Mme Bernard : <strong>les granulés sont souvent un meilleur choix que la PAC</strong>, qui demanderait une isolation préalable.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Combustion du fioul (alcane simplifié) :</strong> \(2\,\text{C}_{12}\text{H}_{26} + 37\,\text{O}_2 \rightarrow 24\,\text{CO}_2 + 26\,\text{H}_2\text{O}\). Plus la molécule contient de carbone, plus elle émet de CO₂.</li>
+    <li><strong>Quantité de combustible :</strong> masse ou volume = E<sub>combustible</sub> / PCI. PCI = pouvoir calorifique inférieur, propre à chaque combustible.</li>
+    <li><strong>Énergie d'entrée :</strong> E<sub>combustible</sub> = E<sub>besoin</sub> / η (rendement de la chaudière). Plus le rendement est élevé, moins on consomme à besoin égal.</li>
+    <li><strong>Hiérarchie des combustibles fossiles :</strong> fioul (320 g CO₂/kWh) &gt; gaz (210) &gt; granulés bois (30 g, neutre carbone sur cycle long) &gt; PAC sur électricité française (≈ 18).</li>
+    <li><strong>Choix d'une chaudière :</strong> arbitrer entre coût d'achat, coût d'usage, émissions CO₂, contraintes de stockage et de maintenance, et qualité d'isolation préalable de la maison.</li>
+    <li><strong>Aides 2026 :</strong> MaPrimeRénov' + CEE peuvent couvrir 30 à 50 % du coût d'une chaudière biomasse ou d'une PAC.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Combustion complète), §4 (Équilibrage) et §5 (Énergie libérée) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

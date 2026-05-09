@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité 3 – Dimensionner un radiateur (convection) – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Dimensionner un radiateur (transfert par convection) <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 4 – Transferts thermiques | 1ère Bac Pro ICCER (Grpt 1) | Physique – Thermique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Distinguer convection naturelle et convection forcée</li>
+    <li>Calculer la puissance transportée par un fluide caloporteur : P = ρ × c × q × ΔT</li>
+    <li>Calculer un débit d'eau nécessaire pour transporter une puissance donnée</li>
+    <li>Choisir un radiateur et son régime de fonctionnement (haute ou basse température)</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (convection thermique). Puissance transportée par un fluide : \(P = \rho \cdot c \cdot q \cdot \Delta T\), avec ρ masse volumique, c capacité thermique, q débit volumique, ΔT écart de température.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – installation d'un radiateur dans le salon de M. Faure</h2>
+  <p><em>Théo, plombier-chauffagiste chez « ChauffeBien » à Tours, doit installer un nouveau radiateur dans le salon de M. Faure. La chaufferie au sous-sol envoie de l'eau chaude vers le radiateur, qui restitue cette chaleur à la pièce par convection. Le salon a besoin d'une puissance de chauffage de 1 500 W. Théo doit choisir le bon radiateur dans son catalogue et calculer le débit d'eau nécessaire.</em></p>
+
+  <h3>Document 1 — Caractéristiques de la pièce et du circuit</h3>
+  <ul>
+    <li>Salon : 25 m², déperditions = <strong>1 500 W</strong> à compenser</li>
+    <li>Eau du circuit : départ chaudière à <strong>T₁ = 65 °C</strong>, retour chaudière à <strong>T₂ = 55 °C</strong></li>
+    <li>Écart de température départ/retour : <strong>ΔT = 10 °C</strong></li>
+    <li>Masse volumique de l'eau : ρ = <strong>1 000 kg/m³</strong> (= 1 kg/L)</li>
+    <li>Capacité thermique massique de l'eau : c = <strong>4 180 J/(kg·K)</strong> ≈ 4,18 kJ/(kg·K)</li>
+  </ul>
+
+  <h3>Document 2 — Catalogue de radiateurs Acova</h3>
+  <table>
+    <thead>
+      <tr><th>Modèle</th><th>Hauteur × Largeur</th><th>Puissance nominale (régime 65/55/20)</th><th>Prix HT</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Acova Vuelta 60</td><td>60 × 120 cm</td><td>1 100 W</td><td>320 €</td></tr>
+      <tr><td>Acova Vuelta 80</td><td>80 × 120 cm</td><td>1 480 W</td><td>410 €</td></tr>
+      <tr><td>Acova Vuelta 100</td><td>100 × 120 cm</td><td>1 800 W</td><td>520 €</td></tr>
+      <tr><td>Acova Vuelta 120</td><td>120 × 120 cm</td><td>2 100 W</td><td>640 €</td></tr>
+    </tbody>
+  </table>
+  <p><em>Régime « 65/55/20 » signifie : eau de départ 65 °C, eau de retour 55 °C, ambiance 20 °C. La puissance nominale est garantie à ce régime.</em></p>
+
+  <h3>Document 3 — Schéma du transfert thermique dans un radiateur</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 240" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma d'un radiateur à eau : l'eau chaude entre par le haut à 65°C (côté gauche), traverse le radiateur en cédant sa chaleur à l'air par convection (flèches rouges montantes vers la pièce à 20°C), et ressort par le bas à 55°C. Le débit volumique est noté q.">
+      <defs>
+        <style>
+          .ti4r{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl4r{font:11px sans-serif;fill:#1a202c}
+          .lblR4r{font:700 12px sans-serif;fill:#b91c1c}
+          .lblB4r{font:700 12px sans-serif;fill:#1d4ed8}
+          .rad{fill:#fff;stroke:#dc2626;stroke-width:2}
+          .pipe{stroke:#1d4ed8;stroke-width:3;fill:none}
+        </style>
+      </defs>
+
+      <text class="ti4r" x="350" y="22">Radiateur à eau chaude — convection naturelle vers la pièce</text>
+
+      <!-- Pièce -->
+      <rect x="40" y="40" width="620" height="180" fill="#fef9c3" opacity=".4" stroke="#92400e" stroke-width="1.5"/>
+      <text class="lbl4r" x="350" y="60" text-anchor="middle" font-style="italic" fill="#92400e">Salon — air ambiant 20 °C</text>
+
+      <!-- Radiateur -->
+      <rect class="rad" x="220" y="100" width="260" height="100"/>
+      <line x1="240" y1="105" x2="460" y2="105" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="240" y1="120" x2="460" y2="120" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="240" y1="135" x2="460" y2="135" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="240" y1="150" x2="460" y2="150" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="240" y1="165" x2="460" y2="165" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="240" y1="180" x2="460" y2="180" stroke="#dc2626" stroke-width="0.7"/>
+      <line x1="240" y1="195" x2="460" y2="195" stroke="#dc2626" stroke-width="0.7"/>
+      <text class="lbl4r" x="350" y="220" text-anchor="middle" font-size="10" font-style="italic">radiateur (Acova Vuelta)</text>
+
+      <!-- Tuyau d'arrivée (départ chaudière, en haut) -->
+      <line class="pipe" x1="100" y1="105" x2="220" y2="105"/>
+      <line class="pipe" x1="100" y1="200" x2="100" y2="105"/>
+      <text class="lblR4r" x="160" y="98" text-anchor="middle">départ T₁ = 65 °C</text>
+      <path d="M 180 105 L 200 105" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrFR)"/>
+
+      <!-- Tuyau de sortie (retour chaudière, en bas) -->
+      <line class="pipe" x1="480" y1="195" x2="600" y2="195"/>
+      <line class="pipe" x1="600" y1="195" x2="600" y2="210"/>
+      <text class="lblB4r" x="540" y="188" text-anchor="middle">retour T₂ = 55 °C</text>
+      <path d="M 510 195 L 530 195" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#arrFR)"/>
+
+      <!-- Flèches de convection (chaleur émise vers la pièce) -->
+      <path d="M 270 100 Q 270 80 270 65" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrW)"/>
+      <path d="M 320 100 Q 320 80 320 65" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrW)"/>
+      <path d="M 370 100 Q 370 80 370 65" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrW)"/>
+      <path d="M 420 100 Q 420 80 420 65" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrW)"/>
+      <text class="lbl4r" x="350" y="80" text-anchor="middle" font-size="10" fill="#b45309" font-style="italic">convection naturelle (air chaud monte)</text>
+
+      <!-- Légende débit -->
+      <text class="lbl4r" x="100" y="135" text-anchor="middle" font-size="10" fill="#475569" font-style="italic">débit q</text>
+
+      <defs>
+        <marker id="arrFR" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="currentColor"/>
+        </marker>
+        <marker id="arrW" markerWidth="8" markerHeight="8" refX="4" refY="0" orient="auto">
+          <polygon points="0,8 4,0 8,8" fill="#f59e0b"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel modèle de radiateur Théo doit-il poser, et quel débit d'eau doit faire circuler le circulateur de la chaudière pour fournir les 1 500 W de chauffage attendus ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Citer la <strong>relation</strong> qui donne la puissance transportée par un fluide caloporteur entre deux points (départ et retour) avec un écart de température ΔT.</p>
+  <p>Identifier les unités à utiliser pour obtenir une puissance en watts (W).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Relation : \(P = \rho \cdot c \cdot q \cdot \Delta T\)</p>
+    <ul>
+      <li>P : puissance échangée en W</li>
+      <li>ρ : masse volumique du fluide en kg/m³ (eau : 1 000)</li>
+      <li>c : capacité thermique massique en J/(kg·K) (eau : 4 180)</li>
+      <li>q : débit volumique en m³/s</li>
+      <li>ΔT : écart de température en K (ou °C)</li>
+    </ul>
+    <p>Cette relation traduit : « la puissance transportée est proportionnelle à la quantité d'eau qui passe et à l'écart de température entre l'aller et le retour ».</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>débit volumique q</strong> d'eau (en m³/s, puis convertir en L/h) nécessaire pour transporter P = 1 500 W avec ΔT = 10 °C.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>De P = ρ × c × q × ΔT, on tire q = P / (ρ × c × ΔT) :</p>
+    <p>q = 1 500 / (1 000 × 4 180 × 10) = 1 500 / 41 800 000 ≈ <strong>3,59 × 10⁻⁵ m³/s</strong></p>
+    <p>Conversion : 1 m³ = 1 000 L et 1 s = 1/3 600 h, donc 1 m³/s = 3 600 000 L/h.</p>
+    <p>q ≈ 3,59 × 10⁻⁵ × 3 600 000 ≈ <strong>129 L/h</strong>, soit environ <strong>2,2 L/min</strong>.</p>
+    <p>(Pour ne pas se tromper d'unité, on peut directement utiliser : débit massique q<sub>m</sub> = P / (c × ΔT) = 1 500/(4 180×10) = 0,0359 kg/s × 3 600 = 129 kg/h, soit 129 L/h pour de l'eau.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>D'après le catalogue (Doc 2), quel <strong>modèle de radiateur</strong> Théo doit-il choisir pour couvrir 1 500 W ? Justifier en respectant la règle « légèrement surdimensionné mais pas trop ».</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Besoin : 1 500 W. Comparaison :</p>
+    <ul>
+      <li>Vuelta 60 : 1 100 W → <strong>insuffisant</strong> (déficit de 400 W).</li>
+      <li>Vuelta 80 : 1 480 W → quasi-juste, mais 1 % en dessous.</li>
+      <li>Vuelta 100 : 1 800 W → marge de 20 %, idéal.</li>
+      <li>Vuelta 120 : 2 100 W → surdimensionné (+ 40 %), prix élevé.</li>
+    </ul>
+    <p><strong>Choix : Vuelta 100</strong> (1 800 W, 520 €). Marge de 20 % = bonne sécurité par grand froid (jours où ΔT extérieure peut dépasser les 12 °C nominaux).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Théo se demande s'il pourrait utiliser un <strong>régime de chauffage basse température</strong> (eau à 45/35 °C → ΔT = 10 °C, mais T moyenne radiateur de 40 °C au lieu de 60 °C). Comment cela affecterait-il le radiateur Vuelta 100 ?</p>
+  <p><em>Repère : la puissance d'un radiateur dépend fortement de la température moyenne de l'eau. Un fabricant indique typiquement P_BT ≈ 0,5 × P_HT.</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>En régime basse température (45/35), le Vuelta 100 ne fournirait plus que ≈ 0,5 × 1 800 = <strong>900 W</strong> au lieu de 1 800 W.</p>
+    <p>Insuffisant pour couvrir les 1 500 W du salon. Il faudrait alors :</p>
+    <ul>
+      <li>soit choisir un radiateur plus grand (par ex. Vuelta 120, 1 050 W en BT ; toujours insuffisant !) → <strong>impossible avec ce catalogue</strong>.</li>
+      <li>soit installer 2 radiateurs en parallèle.</li>
+      <li>soit poser un <strong>plancher chauffant basse température</strong> (très grande surface) ou des <strong>radiateurs basse température spécifiques</strong> (plus larges, ailettes).</li>
+    </ul>
+    <p>Le régime BT est associé à des PAC (qui produisent mal de l'eau à 65 °C). C'est tout l'enjeu de la rénovation : passer une maison ancienne en BT pour permettre une PAC.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Distinguer <strong>convection naturelle</strong> (radiateur classique) et <strong>convection forcée</strong> (ventilo-convecteur). Donner un avantage et un inconvénient pour chacun.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Type</th><th>Principe</th><th>Avantage</th><th>Inconvénient</th></tr></thead>
+      <tbody>
+        <tr><td>Convection naturelle</td><td>L'air chaud monte spontanément (air dilaté plus léger). Pas de moteur.</td><td>Silencieux, fiable, sans maintenance, sans énergie électrique.</td><td>Échange lent, nécessite radiateur de grande taille pour transmettre la puissance.</td></tr>
+        <tr><td>Convection forcée</td><td>Un ventilateur souffle l'air sur les ailettes chaudes.</td><td>Échange thermique très rapide, radiateur plus compact (puissance × 3).</td><td>Bruit, consommation électrique du ventilateur (~ 30 W), maintenance.</td></tr>
+      </tbody>
+    </table>
+    <p>Application : convection naturelle → habitat résidentiel (chambres, salons). Convection forcée → ventilo-convecteurs en bureaux, climatisation, locaux industriels où la rapidité d'échange compte.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Si la maison a <strong>10 radiateurs identiques</strong> au Vuelta 100, calculer le <strong>débit total</strong> que doit fournir le circulateur principal (en supposant que tous fonctionnent à pleine puissance simultanément).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Puissance totale : 10 × 1 800 = 18 000 W = 18 kW.</p>
+    <p>Débit total : q<sub>tot</sub> = 18 000 / (1 000 × 4 180 × 10) = 18 000 / 41 800 000 ≈ <strong>4,3 × 10⁻⁴ m³/s</strong></p>
+    <p>Soit en L/h : 4,3 × 10⁻⁴ × 3 600 000 ≈ <strong>1 550 L/h ≈ 1,55 m³/h</strong>.</p>
+    <p>C'est l'ordre de grandeur du débit d'un circulateur Wilo Yonos PARA 7-130 (≈ 2 m³/h max), couramment installé dans une maison individuelle.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Théo se demande si <strong>diminuer ΔT</strong> entre départ et retour (par exemple 5 °C au lieu de 10 °C) serait préférable. Recalculer le débit q nécessaire pour 1 500 W avec ΔT = 5 °C, puis avec ΔT = 20 °C. Quelle est la conséquence d'un faible ΔT sur le circulateur ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>ΔT = 5 °C : q = 1 500 / (1 000 × 4 180 × 5) ≈ <strong>7,2 × 10⁻⁵ m³/s = 258 L/h</strong> (× 2 par rapport à ΔT = 10).</li>
+      <li>ΔT = 10 °C : 129 L/h (référence).</li>
+      <li>ΔT = 20 °C : q = 1 500 / (1 000 × 4 180 × 20) ≈ <strong>1,8 × 10⁻⁵ m³/s = 65 L/h</strong> (÷ 2).</li>
+    </ul>
+    <p>Conclusion : à puissance constante, q et ΔT sont <strong>inversement proportionnels</strong>. Un faible ΔT impose un débit plus élevé → circulateur plus puissant et bruyant, pertes de charge plus grandes.</p>
+    <p>Compromis pratique : ΔT = 10 °C est le standard pour les installations résidentielles. ΔT = 20 °C est utilisé en industrie (réseaux de chaleur urbains) pour réduire les diamètres de tuyauterie.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche d'installation</strong> que Théo remplit pour M. Faure :</p>
+  <ul>
+    <li>radiateur choisi et puissance</li>
+    <li>débit d'eau et écart de température</li>
+    <li>conditions de fonctionnement (régime haute/basse température)</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ChauffeBien — Fiche installation radiateur · Salon de M. Faure (Tours) — 7 mai 2026</strong><br>
+      • <strong>Modèle posé :</strong> Acova Vuelta 100 × 120 cm — puissance nominale <strong>1 800 W</strong> au régime 65/55/20 (besoin pièce 1 500 W, marge 20 %).<br>
+      • <strong>Débit nécessaire :</strong> 129 L/h (≈ 2,2 L/min) à régler sur le robinet thermostatique. Eau départ 65 °C, retour 55 °C → ΔT = 10 °C.<br>
+      • <strong>Régime de chauffage :</strong> haute température (compatible avec votre chaudière gaz à condensation actuelle).<br>
+      • Si évolution future vers une PAC : ce radiateur ne suffira plus (P chute à ≈ 900 W en BT). Prévoir alors le remplacement ou ajout d'un second radiateur.<br>
+      • <strong>Mise en service :</strong> purger l'air avant 1ʳᵉ chauffe, vérifier l'absence de fuite après 24 h. Garantie pièces 5 ans.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Le radiateur Vuelta 100 fournit 1 800 W à la pièce. Ce flux thermique se répartit en environ <strong>30 % de rayonnement</strong> infrarouge et <strong>70 % de convection</strong>. Calculer la part de chacun en watts. Pourquoi un radiateur en fonte (à inertie) émet-il proportionnellement plus de rayonnement qu'un radiateur en acier ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Rayonnement : 0,30 × 1 800 = <strong>540 W</strong>. Convection : 0,70 × 1 800 = <strong>1 260 W</strong>.</p>
+    <p>La fonte est <strong>plus massive</strong> (inertie thermique) → reste chaude longtemps après la coupure du circulateur, ce qui augmente le rayonnement à températures modérées. Les radiateurs en acier (fins) montent et descendent vite en température, donc surtout en convection chaude.</p>
+    <p>Côté confort : le rayonnement est perçu comme une chaleur « douce » (similaire au soleil), tandis que la convection chauffe l'air avant la peau. C'est pourquoi les radiateurs en fonte sont souvent jugés plus confortables, malgré leur poids.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Convection thermique :</strong> transfert de chaleur par déplacement d'un fluide. Naturelle (l'air chaud monte spontanément) ou forcée (ventilateur, pompe).</li>
+    <li><strong>Puissance transportée par un fluide :</strong> \(P = \rho \cdot c \cdot q \cdot \Delta T\). Pour l'eau : ρ = 1 000 kg/m³, c = 4 180 J/(kg·K).</li>
+    <li><strong>Régime standard chauffage résidentiel :</strong> 65/55/20 (départ/retour/ambiance) avec ΔT = 10 °C. Régime basse température : 45/35/20.</li>
+    <li><strong>Choix d'un radiateur :</strong> sa puissance nominale doit couvrir les déperditions de la pièce avec une marge de 10 à 20 %. La puissance dépend fortement de la température moyenne de l'eau.</li>
+    <li><strong>Débit et ΔT :</strong> à puissance constante, q et ΔT sont inversement proportionnels. Faible ΔT → débit fort → circulateur plus puissant.</li>
+    <li><strong>Émission d'un radiateur :</strong> ≈ 70 % par convection, ≈ 30 % par rayonnement. La fonte rayonne plus que l'acier.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Convection thermique) et §5 (Applications en installation thermique) de la leçon Ch04.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

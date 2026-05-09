@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 2 – Bilan CO₂ chauffage bois atelier – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Bilan CO₂ d'un chauffage bois en atelier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 3 – Combustion | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Équilibrer l'équation de combustion de la cellulose (modèle simplifié)</li>
+    <li>Calculer la masse de CO₂ libérée par combustion d'une masse de bois</li>
+    <li>Estimer les émissions annuelles d'un chauffage bois d'atelier</li>
+    <li>Comprendre le bilan « neutre carbone » à long terme</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a>. Combustion cellulose simplifiée : C₆H₁₀O₅ + 6 O₂ → 6 CO₂ + 5 H₂O. PCI bois sec : 4,8 kWh/kg.
+</p>
+
+<div class="situation">
+  <h2>Situation – chauffage bois récup pour atelier de Théo</h2>
+  <p><em>Théo, ébéniste à Annecy, chauffe son atelier (200 m²) avec un poêle à bûches alimenté par les <strong>chutes de bois</strong> de son activité. Il valorise ainsi ses déchets et limite ses achats de combustible. Il veut chiffrer son empreinte carbone et la comparer au gaz.</em></p>
+
+  <h3>Document 1 — Données du chauffage</h3>
+  <ul>
+    <li>Cellulose (composant majoritaire du bois sec) : <strong>C₆H₁₀O₅</strong>, M = 162 g/mol</li>
+    <li>Masse de chutes brûlées par saison de chauffe : <strong>2 500 kg/an</strong> (5 mois × 500 kg/mois)</li>
+    <li>PCI bois sec : <strong>4,8 kWh/kg</strong></li>
+    <li>Rendement poêle à bûches : 75 %</li>
+    <li>M(CO₂) = 44 g/mol, M(O₂) = 32 g/mol, M(H₂O) = 18 g/mol</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Combien de CO₂ Théo libère-t-il chaque année avec son poêle, et le bilan global est-il vraiment « neutre » comme le prétend la filière bois énergie ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Équilibrer la combustion complète de la cellulose : … C₆H₁₀O₅ + … O₂ → … CO₂ + … H₂O.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>C : 6 C → 6 CO₂. H : 10 H → 5 H₂O. O à droite : 6×2 + 5×1 = 17. O à gauche : déjà 5 dans cellulose, donc + 12 (= 6 O₂).</p>
+    <p style="text-align:center;font-size:1.05em"><strong>C₆H₁₀O₅ + 6 O₂ → 6 CO₂ + 5 H₂O</strong></p>
+    <p>Vérification : C 6=6 ✓, H 10=10 ✓, O 5+12=17 = 12+5 ✓.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>quantité de matière de cellulose</strong> dans 1 kg de bois sec, puis la <strong>masse de CO₂</strong> produite.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>n<sub>cellulose</sub> = 1 000 / 162 ≈ 6,17 mol.</p>
+    <p>D'après l'équation : 1 mol cellulose → 6 mol CO₂. Donc 6,17 × 6 ≈ 37 mol CO₂.</p>
+    <p>Masse CO₂ : 37 × 44 ≈ <strong>1 630 g ≈ 1,63 kg</strong> de CO₂ par kg de bois brûlé.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>masse annuelle de CO₂</strong> émise par le poêle de Théo.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>m<sub>CO₂</sub> = 2 500 × 1,63 ≈ <strong>4 075 kg/an ≈ 4,1 tonnes/an</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>énergie thermique fournie</strong> à l'atelier sur la saison (E = m × PCI × η).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>E = 2 500 × 4,8 × 0,75 = <strong>9 000 kWh/an</strong> de chaleur effective.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer l'<strong>intensité carbone</strong> du chauffage bois : g CO₂ par kWh de chaleur fournie. Comparer au gaz (210 g CO₂/kWh) et à l'électricité française (60 g/kWh).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>4 075 000 g / 9 000 kWh ≈ <strong>453 g CO₂/kWh</strong>.</p>
+    <p>Plus émetteur que le gaz (210) et bien plus que l'élec française (60). À première vue, le bois est <strong>très carboné</strong>.</p>
+    <p>MAIS : le bois est considéré « neutre carbone » sur cycle long. Voir Q6.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Pourquoi le bois est-il considéré comme <strong>neutre carbone</strong> sur cycle long, malgré ses 453 g CO₂/kWh à la combustion ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le CO₂ libéré à la combustion correspond exactement au CO₂ <strong>capté par photosynthèse</strong> pendant la croissance de l'arbre. Bilan carbone net sur cycle long : ≈ 0 (à condition que la forêt soit gérée durablement, replantée).</p>
+    <p>Inventaire ADEME : on retient ≈ 30 g CO₂/kWh pour le bois énergie (transport, séchage, transformation), au lieu de 453 g (combustion brute).</p>
+    <p>Pour Théo : si ses chutes seraient brûlées ailleurs ou jetées de toute façon, son bilan additionnel est <strong>quasi nul</strong>. Solution écologiquement très favorable.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Si Théo chauffait au gaz pour fournir les mêmes 9 000 kWh utiles (rendement chaudière 95 %), calculer ses émissions CO₂ annuelles. Comparer à son bois.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie gaz consommée : 9 000 / 0,95 ≈ 9 470 kWh.</p>
+    <p>CO₂ gaz : 9 470 × 0,210 ≈ <strong>1 990 kg/an ≈ 2 tonnes/an</strong>.</p>
+    <p>Bois (cycle long, ADEME) : 9 000 × 0,030 ≈ <strong>270 kg/an</strong>.</p>
+    <p>Bois bien plus économique en CO₂ que le gaz (8 fois moins) — à condition de respecter la chaîne durable et la combustion complète (sinon CO et particules fines).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche RSE</strong> de Théo pour son site internet, mettant en valeur sa démarche bois énergie.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Théo Lefèvre — Démarche RSE 2026</strong><br>
+      • <strong>Chauffage bois récupéré</strong> : 100 % de mes chutes d'ébénisterie (2,5 t/an) sont brûlées dans mon poêle pour chauffer l'atelier (200 m², 9 000 kWh/an).<br>
+      • <strong>Empreinte carbone</strong> : 270 kg CO₂/an (cycle long, ADEME), soit 8 fois moins qu'un chauffage au gaz équivalent (2 000 kg/an).<br>
+      • <strong>Économie circulaire</strong> : aucune chute jetée. Aucun achat de combustible. Filière courte 100 %.<br>
+      • <strong>Combustion contrôlée</strong> : poêle à condensation rendement 75 %, ramonage 2 ×/an, contrôle CO trimestriel pour éviter émissions de particules fines.<br>
+      • <strong>Engagement</strong> : avec un panneau solaire pour l'électricité prévu en 2027, mon atelier deviendra net zéro carbone.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Calculer la <strong>masse d'O₂ consommée</strong> par la combustion annuelle de Théo (2 500 kg de bois). Comparer à la consommation O₂ humaine (1 personne respire ≈ 800 g O₂/jour).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pour 2 500 kg cellulose : n = 2 500 000 / 162 ≈ 15 432 mol cellulose → 15 432 × 6 = 92 600 mol O₂.</p>
+    <p>m<sub>O₂</sub> = 92 600 × 32 ≈ <strong>2,96 × 10⁶ g ≈ 3 000 kg/an = 3 tonnes</strong>.</p>
+    <p>Comparaison humaine : 800 × 365 = 292 000 g = 0,29 t/an par personne.</p>
+    <p>Le poêle de Théo « respire » comme <strong>10 personnes</strong>. Il faut donc une bonne ventilation de l'atelier pour ne pas créer de pénurie locale d'oxygène (ce que prévient l'arrivée d'air comburant dédiée du poêle).</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Combustion cellulose :</strong> C₆H₁₀O₅ + 6 O₂ → 6 CO₂ + 5 H₂O.</li>
+    <li><strong>Règle simple :</strong> 1 kg de bois sec brûlé → ≈ 1,6 kg de CO₂ émis (et ≈ 1,2 kg O₂ consommés).</li>
+    <li><strong>PCI bois sec :</strong> ≈ 4,8 kWh/kg (humide : moins, jusqu'à 2 kWh/kg si bois mouillé).</li>
+    <li><strong>Bilan carbone bois :</strong> 453 g/kWh à la combustion, mais ≈ 30 g/kWh sur cycle long (ADEME) grâce à la photosynthèse.</li>
+    <li><strong>Avantage :</strong> filière courte, valorisation des chutes, neutre carbone si forêt durable.</li>
+    <li><strong>Inconvénients :</strong> particules fines si combustion mal réglée, stockage volumineux, manutention manuelle.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Combustion complète), §4 (Équilibrage) et §6 (CO₂) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

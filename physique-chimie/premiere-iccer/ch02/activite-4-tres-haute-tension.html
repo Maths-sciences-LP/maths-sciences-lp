@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 4 – Pourquoi transporter en très haute tension – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Pourquoi transporter l'électricité en très haute tension <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 2 – Transport de l'énergie | 1ère Bac Pro ICCER (Grpt 1) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer le courant transporté pour une puissance et une tension données : I = P / U</li>
+    <li>Calculer la résistance d'une ligne longue distance et les pertes Joule</li>
+    <li>Comparer trois scénarios de transport (BT, HT, THT) pour comprendre l'intérêt de la haute tension</li>
+    <li>Évaluer le coût annuel des pertes pour le réseau</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (effet Joule, P_pertes = R × I²) et §3 (pourquoi la haute tension). À puissance constante, augmenter U fait baisser I, donc baisser P_pertes en I².
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – étude de transport pour un nouveau parc éolien</h2>
+  <p><em>Camille, ingénieure réseau chez RTE (Réseau de Transport d'Électricité) à Saint-Quentin, doit expliquer au comité technique pourquoi le futur parc éolien offshore au large de Dunkerque sera raccordé à la métropole lilloise par une ligne en <strong>400 000 V</strong> (THT) plutôt qu'en basse tension (230 V) ou en haute tension classique (90 kV). Le comité comprend des élus non techniciens — Camille doit chiffrer rigoureusement les 3 hypothèses pour les convaincre.</em></p>
+
+  <h3>Document 1 — Données du projet</h3>
+  <ul>
+    <li>Puissance produite par le parc éolien : <strong>P = 100 MW = 100 000 kW</strong></li>
+    <li>Distance parc → métropole : <strong>L = 100 km = 100 000 m</strong> (aller simple)</li>
+    <li>Section de la ligne aluminium torsadée : <strong>S = 600 mm² = 6 × 10⁻⁴ m²</strong></li>
+    <li>Résistivité de l'aluminium : <strong>ρ = 2,8 × 10⁻⁸ Ω·m</strong></li>
+    <li>Pour simplifier, on considère une ligne aller-retour de longueur effective <strong>L_eff = 200 km = 200 000 m</strong> (aller + neutre/retour)</li>
+  </ul>
+
+  <h3>Document 2 — Schéma de principe du réseau électrique français</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 720 220" style="max-width:720px;display:block;margin:0 auto" role="img" aria-label="Chaîne électrique française : centrale produit en moyenne tension, transformateur élévateur monte à 400 kV, ligne longue distance THT, transformateur abaisseur HT 90 kV, distribution moyenne tension HTA 20 kV, et enfin distribution basse tension 230 V chez les abonnés.">
+      <defs>
+        <style>
+          .ti4{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl4t{font:11px sans-serif;fill:#1a202c}
+          .lblHT{font:700 11px sans-serif;fill:#b91c1c}
+          .lblBT{font:700 11px sans-serif;fill:#1d4ed8}
+          .ligne4{stroke:#1f2937;stroke-width:2.5;fill:none}
+        </style>
+      </defs>
+
+      <text class="ti4" x="360" y="22">De la centrale aux abonnés — la chaîne des tensions</text>
+
+      <!-- Centrale -->
+      <rect x="20" y="100" width="80" height="60" fill="#fef3c7" stroke="#b45309" stroke-width="2" rx="4"/>
+      <text class="lbl4t" x="60" y="135" text-anchor="middle" font-weight="bold" font-size="11">Centrale</text>
+      <text class="lbl4t" x="60" y="150" text-anchor="middle" font-size="9">20 kV</text>
+
+      <!-- Transfo élévateur -->
+      <circle cx="135" cy="125" r="16" fill="none" stroke="#0969da" stroke-width="2"/>
+      <circle cx="160" cy="125" r="16" fill="none" stroke="#0969da" stroke-width="2"/>
+      <text class="lbl4t" x="148" y="170" text-anchor="middle" font-size="9">élévateur</text>
+      <text class="lbl4t" x="148" y="92" text-anchor="middle" font-size="9">↑ 400 kV</text>
+
+      <!-- Ligne THT longue distance -->
+      <line class="ligne4" x1="100" y1="125" x2="125" y2="125"/>
+      <line class="ligne4" x1="175" y1="125" x2="370" y2="125" stroke="#b91c1c"/>
+      <text class="lblHT" x="270" y="115" text-anchor="middle">Ligne THT 400 kV — 100 km</text>
+      <!-- Pylône -->
+      <line x1="220" y1="100" x2="220" y2="190" stroke="#475569" stroke-width="2"/>
+      <line x1="320" y1="100" x2="320" y2="190" stroke="#475569" stroke-width="2"/>
+
+      <!-- Transfo abaisseur 1 -->
+      <circle cx="385" cy="125" r="14" fill="none" stroke="#0969da" stroke-width="2"/>
+      <circle cx="408" cy="125" r="14" fill="none" stroke="#0969da" stroke-width="2"/>
+      <text class="lbl4t" x="396" y="170" text-anchor="middle" font-size="9">abaisseur</text>
+      <text class="lbl4t" x="396" y="92" text-anchor="middle" font-size="9">↓ 90 kV (HT)</text>
+
+      <!-- Ligne HT régionale -->
+      <line class="ligne4" x1="370" y1="125" x2="385" y2="125"/>
+      <line class="ligne4" x1="422" y1="125" x2="495" y2="125" stroke="#b91c1c" stroke-width="2"/>
+
+      <!-- Transfo abaisseur 2 -->
+      <circle cx="510" cy="125" r="13" fill="none" stroke="#0969da" stroke-width="2"/>
+      <circle cx="530" cy="125" r="13" fill="none" stroke="#0969da" stroke-width="2"/>
+      <text class="lbl4t" x="520" y="170" text-anchor="middle" font-size="9">↓ 20 kV (HTA)</text>
+
+      <!-- Distribution HTA -->
+      <line class="ligne4" x1="495" y1="125" x2="510" y2="125"/>
+      <line class="ligne4" x1="543" y1="125" x2="610" y2="125" stroke="#dc2626" stroke-width="1.8"/>
+
+      <!-- Transfo poste de quartier -->
+      <circle cx="623" cy="125" r="11" fill="none" stroke="#0969da" stroke-width="2"/>
+      <circle cx="640" cy="125" r="11" fill="none" stroke="#0969da" stroke-width="2"/>
+      <text class="lbl4t" x="630" y="170" text-anchor="middle" font-size="9">↓ 230 V (BT)</text>
+
+      <!-- Maison abonnée -->
+      <line class="ligne4" x1="610" y1="125" x2="623" y2="125"/>
+      <line class="ligne4" x1="651" y1="125" x2="690" y2="125" stroke="#1d4ed8"/>
+      <rect x="690" y="105" width="25" height="35" fill="#fef3c7" stroke="#92400e" stroke-width="1.5"/>
+      <polygon points="688,105 702,92 716,105" fill="#7f1d1d"/>
+      <text class="lbl4t" x="702" y="160" text-anchor="middle" font-size="9">abonné</text>
+
+      <!-- Annotation -->
+      <text class="lbl4t" x="270" y="195" text-anchor="middle" font-size="10" font-style="italic" fill="#475569">Le transport longue distance se fait toujours en TRÈS HAUTE TENSION (THT) pour limiter les pertes</text>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Pour transporter 100 MW sur 100 km, quelle est l'économie d'énergie réalisée en transportant en 400 kV (THT) plutôt qu'en 90 kV (HT) ou en 230 V (BT) ? La THT est-elle indispensable ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer le <strong>courant I</strong> qui devrait circuler dans la ligne pour transporter 100 MW à chacune des 3 tensions ci-dessous. Utiliser \(I = P / U\) (cas d'une charge purement résistive).</p>
+  <ul>
+    <li>Cas BT : U = 230 V</li>
+    <li>Cas HT : U = 90 000 V (90 kV)</li>
+    <li>Cas THT : U = 400 000 V (400 kV)</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>BT : I = 100 000 000 / 230 ≈ <strong>434 783 A</strong> (irréaliste !)</li>
+      <li>HT : I = 100 000 000 / 90 000 ≈ <strong>1 111 A</strong></li>
+      <li>THT : I = 100 000 000 / 400 000 = <strong>250 A</strong></li>
+    </ul>
+    <p>Constat : à puissance égale, plus la tension est élevée, plus le courant est faible. La THT divise le courant par <strong>1 740 fois</strong> par rapport à la BT.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>résistance R</strong> d'une ligne aluminium de longueur effective 200 km et de section 600 mm², à l'aide de la formule \(R = \rho \cdot L / S\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>R = ρ × L_eff / S = (2,8 × 10⁻⁸) × 200 000 / (6 × 10⁻⁴)</p>
+    <p>R = (2,8 × 200 000 / 6) × 10⁻⁸⁺⁴ = (560 000 / 6) × 10⁻⁴ ≈ 93 333 × 10⁻⁴</p>
+    <p>R ≈ <strong>9,33 Ω</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer les <strong>pertes par effet Joule</strong> P<sub>pertes</sub> = R × I² dans la ligne, dans les 3 cas.</p>
+  <p>Exprimer le résultat en watts, puis en mégawatts (1 MW = 10⁶ W) pour faciliter la comparaison.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>BT : P_pertes = 9,33 × 434 783² = 9,33 × 1,89 × 10¹¹ ≈ <strong>1,76 × 10¹² W = 1 760 000 MW</strong> (totalement irréaliste, plus que la production !)</li>
+      <li>HT : P_pertes = 9,33 × 1 111² = 9,33 × 1 234 321 ≈ <strong>11,5 × 10⁶ W = 11,5 MW</strong></li>
+      <li>THT : P_pertes = 9,33 × 250² = 9,33 × 62 500 ≈ <strong>5,83 × 10⁵ W = 0,58 MW</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>pourcentage de pertes</strong> par rapport à la puissance totale produite (100 MW), dans chacun des 3 cas. Conclure sur l'intérêt de la haute tension.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>BT : 1 760 000 / 100 = <strong>17 600 %</strong> → <strong>impossible</strong>, la ligne fondrait avant même de transporter quoi que ce soit.</li>
+      <li>HT : 11,5 / 100 = <strong>11,5 %</strong> → pertes énormes, économiquement inacceptable sur 100 km.</li>
+      <li>THT : 0,58 / 100 = <strong>0,58 %</strong> → pertes négligeables, transport viable.</li>
+    </ul>
+    <p><strong>Conclusion :</strong> la THT est <strong>indispensable</strong> pour le transport longue distance. C'est la seule option qui permet de transporter 100 MW sur 100 km avec moins de 1 % de pertes.</p>
+    <p>Plus précisément : multiplier la tension par 4,4 (de 90 kV à 400 kV) divise les pertes par 4,4² ≈ 20.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>D'après les calculs des questions 1 à 4, expliquer en une phrase pourquoi <strong>doubler la tension</strong> de transport divise les pertes Joule par 4 (à puissance constante).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>À puissance P constante, doubler U → I est divisé par 2 (relation I = P/U).</p>
+    <p>Or les pertes Joule \(P_{\text{pertes}} = R \times I^2\) varient en <strong>I au carré</strong> → divisé par 2² = <strong>4</strong>.</p>
+    <p>Cette relation explique pourquoi tout réseau de transport longue distance est nécessairement à haute tension. C'est aussi pourquoi le réseau électrique est en alternatif : le transformateur n'existe pas en continu, et il est indispensable pour monter / descendre la tension.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-yellow">REA</span></h2>
+  <p>Le parc éolien fonctionne en moyenne <strong>3 000 h/an</strong> à pleine puissance équivalente. Calculer l'<strong>énergie annuelle perdue</strong> dans la ligne THT (en MWh, puis en kWh).</p>
+  <p>Au tarif moyen de 0,06 €/kWh (tarif de gros marché), calculer le <strong>coût annuel des pertes</strong> pour RTE.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie perdue annuelle (THT) : E = P × t = 0,58 × 3 000 = <strong>1 740 MWh/an = 1 740 000 kWh/an</strong></p>
+    <p>Coût : 1 740 000 × 0,06 ≈ <strong>104 400 €/an</strong></p>
+    <p>Pour comparaison, en HT 90 kV : 11,5 × 3 000 = 34 500 MWh perdus, coût ≈ <strong>2 070 000 €/an</strong>.</p>
+    <p>Économie THT vs HT : <strong>~ 1,97 M€/an</strong>. Sur 30 ans (durée de vie d'une ligne) : ≈ 60 M€ économisés.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Pour le transport en BT (cas absurde), on a calculé I ≈ 434 783 A. Vérifier que cette intensité est <strong>impossible à supporter</strong> par la ligne (densité de courant max admissible pour l'aluminium : <strong>3 A/mm²</strong>).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Densité de courant : J = I / S = 434 783 / 600 ≈ <strong>724 A/mm²</strong></p>
+    <p>C'est <strong>240 fois la densité maximale admissible</strong> (3 A/mm²) ! La ligne fondrait instantanément (T &gt; 1 500 °C) avant même de transporter 1 W.</p>
+    <p>Pour respecter la limite, il faudrait une section S = 434 783 / 3 ≈ <strong>145 000 mm²</strong>, soit un câble de diamètre 43 cm — totalement irréaliste, et pourtant les pertes resteraient à 17 600 % !</p>
+    <p>Conclusion : la BT n'est physiquement <strong>pas envisageable</strong> pour le transport longue distance. La THT n'est pas un choix, c'est une nécessité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note explicative</strong> que Camille adresse au comité technique :</p>
+  <ul>
+    <li>chiffres clés (3 scénarios)</li>
+    <li>justification du choix THT</li>
+    <li>économie financière annuelle</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>RTE — Note technique : raccordement parc éolien Dunkerque ↔ Lille (100 km, 100 MW)</strong><br>
+      • Pour transporter 100 MW sur 100 km, la <strong>tension de la ligne détermine entièrement</strong> les pertes par effet Joule.<br>
+      • <strong>BT 230 V : impossible</strong> (1 760 000 MW de pertes nécessaires, ligne fondrait).<br>
+      • <strong>HT 90 kV : 11,5 MW de pertes (11,5 %)</strong>, soit 34 500 MWh/an perdus, ≈ 2,07 M€/an de pertes.<br>
+      • <strong>THT 400 kV : 0,58 MW de pertes (0,58 %)</strong>, soit 1 740 MWh/an, ≈ 104 k€/an de pertes.<br>
+      • <strong>Choix : THT 400 kV</strong>. Économie de ~ 1,97 M€/an vs HT, ~ 60 M€ sur la durée de vie de la ligne. C'est aussi la solution standard du réseau RTE pour toutes les lignes ≥ 50 km à forte puissance.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Pourquoi alors n'utilise-t-on pas la THT pour la <strong>distribution domestique</strong> (chez les particuliers) ? Donner 2 raisons techniques et de sécurité.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Raison 1 — Sécurité :</strong> 400 kV est mortel à plusieurs mètres de distance (effet de couronne, arc électrique). Impossible d'avoir des prises domestiques sécurisées à cette tension. La BT 230 V reste dangereuse mais maîtrisable (disjoncteur différentiel 30 mA).</p>
+    <p><strong>Raison 2 — Distance courte :</strong> dans une maison ou un quartier, les distances sont de quelques dizaines de mètres. Avec L petit, R est petit, donc même en BT les pertes restent acceptables (quelques %). L'économie d'une montée en tension serait nulle face au coût des transformateurs et de l'isolation.</p>
+    <p>D'où le compromis : <strong>THT pour le transport, HTA pour la distribution régionale, BT pour les abonnés</strong>. Chaque palier de tension correspond à une plage de distances optimale.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Loi clé :</strong> à puissance P transportée constante, le courant I = P/U est inversement proportionnel à la tension U.</li>
+    <li><strong>Pertes Joule en ligne :</strong> \(P_{\text{pertes}} = R \cdot I^2\). Varient en I² → multiplier U par 2 divise les pertes par 4.</li>
+    <li><strong>Hiérarchie des tensions du réseau français :</strong> centrale (20 kV) → THT 400 kV (transport longue distance) → HT 90 kV (transport régional) → HTA 20 kV (distribution) → BT 230/400 V (abonnés).</li>
+    <li><strong>Pertes typiques sur le réseau RTE :</strong> environ 2 à 3 % de l'énergie injectée. Sans la THT, ce serait &gt; 30 %.</li>
+    <li><strong>Pourquoi pas la THT chez soi :</strong> la sécurité électrique exige une tension faible (230 V) à proximité des usagers, et les distances courtes rendent l'effet Joule négligeable même en BT.</li>
+    <li><strong>Lien avec le transformateur :</strong> la THT impose un réseau alternatif (le transformateur ne fonctionne qu'en alternatif). C'est ce qui a fait gagner historiquement le courant alternatif sur le courant continu (« guerre des courants » Edison/Tesla).</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Réseau de distribution), §2 (Effet Joule) et §3 (Pourquoi la haute tension) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

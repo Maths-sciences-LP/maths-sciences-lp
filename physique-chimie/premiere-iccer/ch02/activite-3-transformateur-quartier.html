@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Activité 3 – Transformateur d'un poste de quartier – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}
+.plaque{background:#fff;border:3px solid #1e293b;border-radius:6px;padding:16px 22px;margin:14px 0;font-family:'Courier New',monospace;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.plaque-titre{background:#1e293b;color:#fff;padding:8px 14px;margin:-16px -22px 14px;font-family:Arial,sans-serif;font-size:.9em;letter-spacing:1px}
+.plaque-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dotted #94a3b8;font-size:.92em}
+.plaque-row.warn{color:#b91c1c;font-weight:600}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Transformateur d'un poste de quartier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 2 – Transport de l'énergie | 1ère Bac Pro ICCER (Grpt 1) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre le rôle d'un transformateur dans le réseau électrique</li>
+    <li>Calculer le rapport de transformation k = U₂ / U₁</li>
+    <li>Utiliser la conservation de la puissance d'un transformateur idéal : U₁ × I₁ = U₂ × I₂</li>
+    <li>Vérifier qu'un transformateur n'est pas en surcharge</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §4 (transformateur). Rapport de transformation : \(k = U_2 / U_1 = N_2 / N_1\). Pour un transfo idéal : \(U_1 \times I_1 = U_2 \times I_2\).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – maintenance préventive sur un poste de transformation HTA/BT</h2>
+  <p><em>Manon, technicienne de poste chez ENEDIS à Lille, effectue une visite de maintenance préventive sur le poste de transformation H59 du quartier Saint-Maurice. Ce poste alimente 80 logements et 4 commerces. Manon doit vérifier la plaque signalétique du transformateur, calculer la charge actuelle et anticiper l'arrivée d'un futur immeuble de 30 logements supplémentaires.</em></p>
+
+  <h3>Document 1 — Plaque signalétique du transformateur installé</h3>
+  <div class="plaque">
+    <div class="plaque-titre">⚡ TRANSFORMATEUR HTA/BT — POSTE H59 — SCHNEIDER ELECTRIC</div>
+    <div class="plaque-row"><span>Référence</span><span>TR-100-MO</span></div>
+    <div class="plaque-row"><span>Tension primaire U₁</span><span><strong>20 000 V (20 kV)</strong></span></div>
+    <div class="plaque-row"><span>Tension secondaire U₂</span><span><strong>230 V</strong></span></div>
+    <div class="plaque-row"><span>Puissance apparente nominale S</span><span><strong>100 kVA</strong></span></div>
+    <div class="plaque-row"><span>Fréquence</span><span>50 Hz</span></div>
+    <div class="plaque-row"><span>Couplage</span><span>monophasé (poste rural simplifié)</span></div>
+    <div class="plaque-row"><span>Pertes à vide (fer)</span><span>500 W (constantes)</span></div>
+    <div class="plaque-row"><span>Pertes en charge (cuivre, à pleine charge)</span><span>1 200 W (varient en I²)</span></div>
+    <div class="plaque-row warn"><span>⚠ Service maximal continu</span><span>100 % de S nominale</span></div>
+  </div>
+
+  <h3>Document 2 — Schéma du poste de transformation</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 240" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : à gauche, ligne haute tension HTA arrivant du poste source à 20 kV. Au centre, le transformateur (poste de quartier) abaisse la tension à 230 V. À droite, départ basse tension BT vers les logements et commerces du quartier. Les courants I1 (côté primaire HT) et I2 (côté secondaire BT) sont marqués sur le schéma.">
+      <defs>
+        <style>
+          .ti3t{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lblE{font:11px sans-serif;fill:#1a202c}
+          .lblHT{font:700 12px sans-serif;fill:#b91c1c}
+          .lblBT{font:700 12px sans-serif;fill:#1d4ed8}
+          .ligne{stroke:#1f2937;stroke-width:3;fill:none}
+        </style>
+      </defs>
+
+      <text class="ti3t" x="350" y="22">Poste de quartier — du réseau HTA aux abonnés BT</text>
+
+      <!-- Sol -->
+      <rect x="0" y="200" width="700" height="40" fill="#84cc16" opacity=".25"/>
+
+      <!-- Ligne HT à gauche -->
+      <line class="ligne" x1="40" y1="80" x2="240" y2="80"/>
+      <line class="ligne" x1="40" y1="100" x2="240" y2="100"/>
+      <!-- Pylônes -->
+      <line x1="80" y1="60" x2="80" y2="200" stroke="#475569" stroke-width="2"/>
+      <line x1="160" y1="60" x2="160" y2="200" stroke="#475569" stroke-width="2"/>
+      <text class="lblHT" x="140" y="55" text-anchor="middle">U₁ = 20 000 V (HTA)</text>
+
+      <!-- Bâtiment poste -->
+      <rect x="240" y="120" width="200" height="80" fill="#fff" stroke="#1e293b" stroke-width="2.5" rx="6"/>
+      <text class="lblE" x="340" y="113" text-anchor="middle" font-weight="bold" fill="#1e293b">POSTE H59</text>
+      <!-- Symbole transformateur (deux cercles entrelacés) -->
+      <circle cx="320" cy="160" r="20" fill="none" stroke="#0969da" stroke-width="2.5"/>
+      <circle cx="360" cy="160" r="20" fill="none" stroke="#0969da" stroke-width="2.5"/>
+      <text class="lblE" x="290" y="195" text-anchor="middle" font-size="9">N₁</text>
+      <text class="lblE" x="390" y="195" text-anchor="middle" font-size="9">N₂</text>
+
+      <!-- I1 entrant -->
+      <line class="ligne" x1="240" y1="90" x2="280" y2="90" stroke="#dc2626"/>
+      <line class="ligne" x1="280" y1="90" x2="280" y2="140" stroke="#dc2626"/>
+      <text class="lblHT" x="218" y="86" text-anchor="end">I₁ →</text>
+
+      <!-- I2 sortant -->
+      <line class="ligne" x1="400" y1="140" x2="400" y2="90" stroke="#1d4ed8"/>
+      <line class="ligne" x1="400" y1="90" x2="460" y2="90" stroke="#1d4ed8"/>
+      <text class="lblBT" x="465" y="86">→ I₂</text>
+
+      <!-- Lignes BT à droite -->
+      <line class="ligne" x1="460" y1="90" x2="660" y2="90" stroke="#1d4ed8"/>
+      <line class="ligne" x1="460" y1="110" x2="660" y2="110" stroke="#1d4ed8"/>
+      <text class="lblBT" x="560" y="78" text-anchor="middle">U₂ = 230 V (BT)</text>
+
+      <!-- Maisons -->
+      <rect x="490" y="160" width="35" height="40" fill="#fef3c7" stroke="#92400e"/>
+      <polygon points="487,160 507,143 527,160" fill="#7f1d1d"/>
+      <rect x="540" y="160" width="35" height="40" fill="#fef3c7" stroke="#92400e"/>
+      <polygon points="537,160 557,143 577,160" fill="#7f1d1d"/>
+      <rect x="590" y="160" width="35" height="40" fill="#fef3c7" stroke="#92400e"/>
+      <polygon points="587,160 607,143 627,160" fill="#7f1d1d"/>
+      <text class="lblE" x="560" y="220" text-anchor="middle" font-size="10" font-style="italic">80 logements + 4 commerces</text>
+
+      <!-- Lignes vers maisons -->
+      <line x1="510" y1="110" x2="510" y2="160" stroke="#1d4ed8" stroke-width="1.5"/>
+      <line x1="560" y1="110" x2="560" y2="160" stroke="#1d4ed8" stroke-width="1.5"/>
+      <line x1="610" y1="110" x2="610" y2="160" stroke="#1d4ed8" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <h3>Document 3 — Mesures de Manon (jour de visite, 18h)</h3>
+  <ul>
+    <li>Tension secondaire mesurée : U₂ = <strong>231 V</strong> (proche du nominal)</li>
+    <li>Courant secondaire mesuré : I₂ = <strong>260 A</strong></li>
+    <li>Cos φ moyen du quartier : 0,98 (proche de 1, charge majoritairement résistive — chauffage électrique)</li>
+    <li>Tarif EDF des pertes : 0,15 €/kWh (tarif Acheminement)</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Le transformateur du poste H59 est-il dimensionné correctement, et pourra-t-il absorber l'arrivée des 30 nouveaux logements prévus pour 2027 ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>D'après la plaque signalétique (Doc 1), citer les <strong>tension primaire</strong> U₁, la <strong>tension secondaire</strong> U₂ et la <strong>puissance apparente nominale</strong> S du transformateur. Préciser leur unité.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>U₁ = 20 000 V</strong> = 20 kV (tension du réseau HTA d'arrivée)</li>
+      <li><strong>U₂ = 230 V</strong> (tension distribuée aux abonnés)</li>
+      <li><strong>S = 100 kVA</strong> = 100 000 VA (puissance apparente maximale que le transformateur peut fournir)</li>
+    </ul>
+    <p>Le rôle du transformateur est d'<strong>abaisser</strong> la tension de 20 kV à 230 V pour la rendre utilisable par les abonnés.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>rapport de transformation</strong> \(k = U_2 / U_1\). Exprimer le résultat en notation décimale et sous forme d'une fraction simple « 1 sur ... ».</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>k = U₂ / U₁ = 230 / 20 000 = <strong>0,0115</strong></p>
+    <p>Sous forme de fraction : k = 1 / (20 000 / 230) ≈ <strong>1 / 87</strong></p>
+    <p>Interprétation : le transformateur divise la tension par environ 87 (en sortie, on a 87 fois moins de volts qu'en entrée).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Le courant secondaire mesuré est I₂ = 260 A (Doc 3). À l'aide de la relation de conservation de puissance d'un transformateur idéal \(U_1 \times I_1 = U_2 \times I_2\), calculer le <strong>courant primaire</strong> I₁ qui circule dans la ligne 20 kV.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>I₁ = (U₂ × I₂) / U₁ = (230 × 260) / 20 000 = 59 800 / 20 000 ≈ <strong>2,99 A ≈ 3 A</strong></p>
+    <p>Le courant côté primaire (HT) est <strong>87 fois plus faible</strong> que le courant côté secondaire (BT) — c'est exactement l'inverse du rapport des tensions. C'est pourquoi on transporte en haute tension : pour réduire le courant et donc les pertes Joule (R × I²) dans les lignes longue distance.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>puissance apparente</strong> S<sub>actuelle</sub> = U₂ × I₂ fournie par le transformateur à l'instant de la mesure.</p>
+  <p>Quel pourcentage de la puissance nominale (100 kVA) cela représente-t-il ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>S<sub>actuelle</sub> = 230 × 260 = <strong>59 800 VA ≈ 60 kVA</strong></p>
+    <p>Taux de charge : 60 / 100 = <strong>60 %</strong></p>
+    <p>Le transformateur fonctionne à 60 % de sa capacité nominale — il y a une marge de 40 % avant saturation.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>puissance active</strong> P fournie aux abonnés à l'aide de la relation \(P = U_2 \times I_2 \times \cos\varphi\) (cos φ = 0,98 d'après le Doc 3).</p>
+  <p>En déduire l'<strong>énergie active</strong> consommée par le quartier sur 24 h, si on suppose la charge moyenne égale à 50 % de cette puissance active mesurée.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P = 230 × 260 × 0,98 = <strong>58 604 W ≈ 58,6 kW</strong> à 18h.</p>
+    <p>Charge moyenne sur 24 h : 0,50 × 58,6 ≈ 29,3 kW.</p>
+    <p>Énergie sur 24 h : E = P × t = 29,3 × 24 ≈ <strong>703 kWh/jour</strong> consommés par le quartier.</p>
+    <p>Soit ≈ 8,4 kWh/jour/logement (cohérent avec une consommation résidentielle moyenne).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Le transformateur a deux types de pertes (voir plaque) :</p>
+  <ul>
+    <li><strong>Pertes fer</strong> P<sub>fer</sub> = 500 W (constantes, dès que le transformateur est sous tension, même à vide)</li>
+    <li><strong>Pertes cuivre</strong> P<sub>cuivre</sub> = 1 200 W à pleine charge (varient en I², donc à 60 % de charge : 1 200 × 0,60² = 432 W)</li>
+  </ul>
+  <p>Calculer les pertes totales à 60 % de charge, et le rendement \(\eta = P_{\text{utile}} / (P_{\text{utile}} + P_{\text{pertes}})\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pertes totales = 500 + 432 = <strong>932 W ≈ 0,93 kW</strong></p>
+    <p>Rendement : η = 58,6 / (58,6 + 0,93) = 58,6 / 59,53 ≈ <strong>0,984 = 98,4 %</strong></p>
+    <p>Excellent rendement — un transformateur moderne perd typiquement moins de 2 % de l'énergie qui le traverse.</p>
+    <p>Sur 24 h : énergie perdue = 0,932 × 24 ≈ 22 kWh/jour, soit 22 × 0,15 ≈ 3,30 € de pertes électriques par jour pour ENEDIS.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Un projet d'immeuble de <strong>30 logements supplémentaires</strong> est prévu pour 2027. Estimer la nouvelle puissance demandée au pic du soir (en supposant qu'un nouveau logement consomme en pic la même chose qu'un logement actuel : ≈ 0,73 kW).</p>
+  <p>Le transformateur de 100 kVA suffira-t-il, ou faudra-t-il le remplacer ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pic actuel : 60 kW pour 80 logements + 4 commerces, soit ≈ 0,73 kW/logement équivalent (commerces inclus).</p>
+    <p>Augmentation : 30 × 0,73 ≈ <strong>22 kW supplémentaires</strong> au pic.</p>
+    <p>Nouveau pic estimé : 60 + 22 = <strong>82 kW</strong> de puissance active, soit ≈ 84 kVA en apparente (cos φ = 0,98).</p>
+    <p>Taux de charge futur : 84 / 100 = <strong>84 %</strong>. Le transformateur de 100 kVA <strong>suffira encore</strong>, mais avec une marge de seulement 16 %.</p>
+    <p>Recommandation : <strong>surveiller le poste</strong> et envisager un remplacement par un transformateur de 160 kVA si d'autres extensions sont prévues (école, atelier, bornes de recharge VE).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>rapport de visite</strong> de Manon pour le centre d'exploitation ENEDIS :</p>
+  <ul>
+    <li>diagnostic de la charge actuelle</li>
+    <li>rendement du transformateur</li>
+    <li>impact prévu de l'extension 2027 et recommandation</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ENEDIS — Rapport de visite poste H59 (Saint-Maurice, Lille) — 7 mai 2026</strong><br>
+      • Transformateur Schneider TR-100-MO — 20 kV / 230 V — 100 kVA monophasé — état général satisfaisant.<br>
+      • <strong>Charge actuelle</strong> au pic du soir : 60 kVA (60 % de la nominale). Tension secondaire 231 V conforme. Cos φ 0,98 (excellent).<br>
+      • <strong>Rendement</strong> mesuré : 98,4 %. Pertes ≈ 22 kWh/jour, soit 3,30 €/jour à charge ENEDIS.<br>
+      • <strong>Extension 2027</strong> (30 logements) : pic estimé 82 kW → 84 % de charge. Le transformateur tient, mais marge réduite à 16 %.<br>
+      • <strong>Recommandation</strong> : surveillance renforcée du poste à partir de 2027. Prévoir un remplacement par un transfo 160 kVA si bornes de recharge VE installées dans le quartier.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Le bobinage primaire du transformateur a <strong>N₁ = 8 700 spires</strong>. Calculer le nombre de spires N₂ du bobinage secondaire à l'aide de la relation \(N_2 / N_1 = U_2 / U_1\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>N₂ = N₁ × (U₂ / U₁) = 8 700 × (230 / 20 000) = 8 700 × 0,0115 ≈ <strong>100 spires</strong></p>
+    <p>Le bobinage secondaire est très court (100 spires de gros câble pour supporter 260 A), tandis que le primaire est très long (8 700 spires de fil fin pour limiter le courant à 3 A).</p>
+    <p>Cette construction physique est ce qui réalise concrètement la division de tension par 87.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Rôle d'un transformateur :</strong> abaisser ou élever la tension d'un circuit alternatif sans en modifier la fréquence. Il fonctionne grâce à l'induction électromagnétique entre deux bobinages.</li>
+    <li><strong>Rapport de transformation :</strong> \(k = U_2 / U_1 = N_2 / N_1\). Si k &lt; 1 : abaisseur ; si k &gt; 1 : élévateur.</li>
+    <li><strong>Conservation de puissance (transfo idéal) :</strong> \(U_1 \times I_1 = U_2 \times I_2\). Si la tension est divisée par 87, le courant est multiplié par 87.</li>
+    <li><strong>Puissance apparente nominale S :</strong> exprime la capacité maximale du transformateur en VA ou kVA. Le taux de charge = S<sub>utilisée</sub> / S<sub>nominale</sub> ne doit pas dépasser 100 %.</li>
+    <li><strong>Pertes :</strong> pertes fer (constantes, à vide) + pertes cuivre (proportionnelles à I²). Rendement typique 97-99 %.</li>
+    <li><strong>Application réseau :</strong> chaque poste de quartier a son propre transformateur abaisseur 20 kV → 230/400 V.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Réseau de distribution), §4 (Transformateur) et §5 (Applications professionnelles) de la leçon Ch02.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

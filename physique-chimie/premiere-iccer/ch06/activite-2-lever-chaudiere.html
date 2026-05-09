@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – Activité 2 – Lever une chaudière avec un levier – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Lever une chaudière avec un levier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 6 – Équilibre en rotation | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer le moment d'une force : M = F × d</li>
+    <li>Appliquer le principe des moments à un levier en équilibre</li>
+    <li>Choisir la bonne longueur de levier pour soulever une charge donnée</li>
+    <li>Comprendre l'avantage mécanique d'un levier en chantier</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (moment d'une force), §3 (équilibre) et §6 (levier). Principe : \(M_{\text{moteur}} = M_{\text{résistant}}\) à l'équilibre, soit \(F_1 \cdot d_1 = F_2 \cdot d_2\).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – descente d'une chaudière au sous-sol chez M. Bernard</h2>
+  <p><em>Hugo, plombier-chauffagiste chez « ChauffPro » à Saint-Étienne, doit descendre une nouvelle chaudière fonte de <strong>120 kg</strong> au sous-sol de M. Bernard. Pas d'ascenseur, escalier étroit. Il décide de soulever d'abord la chaudière de quelques cm à l'aide d'un <strong>levier</strong> appuyé sur un point fixe (une cale en bois) pour glisser ensuite une plaque chariot dessous. Il dispose de 2 longueurs de levier en acier et veut savoir laquelle choisir pour soulever sans se blesser le dos.</em></p>
+
+  <h3>Document 1 — Données du chantier</h3>
+  <ul>
+    <li>Masse de la chaudière : m = <strong>120 kg</strong></li>
+    <li>Accélération de la pesanteur : g = <strong>10 N/kg</strong> (arrondi)</li>
+    <li>Force exercée par la chaudière (poids) : <strong>P = m × g = 1 200 N</strong></li>
+    <li>Distance de l'appui (cale) à la chaudière : <strong>d<sub>charge</sub> = 20 cm = 0,20 m</strong></li>
+    <li>Force maximale exercée par Hugo sans se blesser : <strong>F<sub>max</sub> = 250 N</strong> (≈ 25 kg de pression à la main)</li>
+    <li>Levier court disponible : L₁ = 1,00 m → distance à l'appui = 0,80 m</li>
+    <li>Levier long disponible : L₂ = 1,80 m → distance à l'appui = 1,60 m</li>
+  </ul>
+
+  <h3>Document 2 — Schéma du levier</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 240" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Levier appuyé sur une cale (point d'appui). À gauche, la chaudière de 120 kg appuie vers le bas sur l'extrémité courte (distance 20 cm de l'appui). À droite, Hugo pousse vers le bas sur l'extrémité longue (distance d). Les deux moments doivent être égaux pour soulever : F × d = P × 0,20 m.">
+      <defs>
+        <style>
+          .ti6{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl6{font:11px sans-serif;fill:#1a202c}
+          .lblR6{font:700 12px sans-serif;fill:#b91c1c}
+          .lblB6{font:700 12px sans-serif;fill:#1d4ed8}
+        </style>
+      </defs>
+
+      <text class="ti6" x="350" y="22">Levier appuyé sur une cale — soulèvement de la chaudière</text>
+
+      <!-- Sol -->
+      <rect x="0" y="200" width="700" height="40" fill="#84cc16" opacity=".25"/>
+      <line x1="0" y1="200" x2="700" y2="200" stroke="#16a34a" stroke-width="1.5"/>
+
+      <!-- Cale (point d'appui) -->
+      <polygon points="220,200 240,170 260,200" fill="#92400e" stroke="#7c2d12" stroke-width="2"/>
+      <text class="lbl6" x="240" y="220" text-anchor="middle" font-size="10" font-style="italic" fill="#92400e">point d'appui</text>
+
+      <!-- Levier (barre inclinée) -->
+      <line x1="170" y1="180" x2="600" y2="155" stroke="#374151" stroke-width="6" stroke-linecap="round"/>
+
+      <!-- Chaudière à gauche (poids) -->
+      <rect x="140" y="130" width="60" height="60" fill="#cbd5e1" stroke="#1f2937" stroke-width="2"/>
+      <text class="lbl6" x="170" y="160" text-anchor="middle" font-size="10" font-weight="bold" fill="#1f2937">CHAUDIÈRE</text>
+      <text class="lbl6" x="170" y="175" text-anchor="middle" font-size="9" fill="#1f2937">120 kg</text>
+
+      <!-- Cote distance d_charge -->
+      <line x1="170" y1="195" x2="240" y2="195" stroke="#b91c1c" stroke-width="1"/>
+      <line x1="170" y1="190" x2="170" y2="200" stroke="#b91c1c"/>
+      <line x1="240" y1="190" x2="240" y2="200" stroke="#b91c1c"/>
+      <text class="lbl6" x="205" y="208" text-anchor="middle" font-size="10" font-weight="bold" fill="#b91c1c">0,20 m</text>
+
+      <!-- Force P (poids vers le bas) -->
+      <line x1="170" y1="125" x2="170" y2="105" stroke="#b91c1c" stroke-width="2.5" marker-end="url(#arrUp6)"/>
+      <text class="lblR6" x="170" y="100" text-anchor="middle">P = 1 200 N</text>
+
+      <!-- Hugo à droite -->
+      <circle cx="600" cy="125" r="10" fill="#fde68a" stroke="#b45309"/>
+      <rect x="592" y="135" width="16" height="20" fill="#0969da"/>
+      <text class="lbl6" x="600" y="105" text-anchor="middle" font-size="9" font-style="italic">Hugo</text>
+
+      <!-- Force F (Hugo pousse vers le bas) -->
+      <line x1="600" y1="138" x2="600" y2="155" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#arrDown6)"/>
+      <text class="lblB6" x="640" y="148">F</text>
+
+      <!-- Cote distance d (point d'appui à Hugo) -->
+      <line x1="240" y1="172" x2="600" y2="172" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="4,3"/>
+      <text class="lbl6" x="420" y="186" text-anchor="middle" font-size="11" font-weight="bold" fill="#1d4ed8">distance d (à choisir)</text>
+
+      <defs>
+        <marker id="arrUp6" markerWidth="9" markerHeight="9" refX="4" refY="0" orient="auto">
+          <polygon points="0,9 4,0 9,9" fill="#b91c1c"/>
+        </marker>
+        <marker id="arrDown6" markerWidth="9" markerHeight="9" refX="4" refY="9" orient="auto">
+          <polygon points="0,0 4,9 9,0" fill="#1d4ed8"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle longueur de levier Hugo doit-il choisir pour soulever la chaudière de 120 kg sans dépasser ses 250 N de force maximale ? Le levier court (1 m) suffit-il, ou faut-il le levier long (1,80 m) ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer le <strong>poids P</strong> de la chaudière à l'aide de la relation \(P = m \times g\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P = m × g = 120 × 10 = <strong>1 200 N</strong></p>
+    <p>Cette force s'exerce verticalement vers le bas, au niveau du centre de gravité de la chaudière (au milieu).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-green">APP</span></h2>
+  <p>Énoncer le <strong>principe des moments</strong> qui régit l'équilibre d'un solide en rotation autour d'un point d'appui.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>À l'équilibre (juste avant que la chaudière commence à se soulever), la <strong>somme des moments</strong> par rapport au point d'appui est nulle :</p>
+    <p style="text-align:center;font-size:1.1em">\(M_{\text{moteur}} = M_{\text{résistant}}\)</p>
+    <p style="text-align:center;font-size:1.1em">\(F \times d = P \times d_{\text{charge}}\)</p>
+    <p>Le moment d'une force par rapport à un point = F × bras de levier (distance perpendiculaire de la force à l'axe de rotation).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>moment résistant</strong> M<sub>résistant</sub> = P × d<sub>charge</sub> exercé par la chaudière par rapport au point d'appui.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>M<sub>résistant</sub> = P × d<sub>charge</sub> = 1 200 × 0,20 = <strong>240 N·m</strong></p>
+    <p>C'est le « couple » que Hugo doit compenser de l'autre côté du levier pour soulever la chaudière.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Avec le <strong>levier court</strong> (distance d₁ = 0,80 m côté Hugo), calculer la force F₁ que Hugo doit exercer pour soulever la chaudière.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F₁ × d₁ = P × d<sub>charge</sub> → F₁ = P × d<sub>charge</sub> / d₁ = 1 200 × 0,20 / 0,80</p>
+    <p>F₁ = 240 / 0,80 = <strong>300 N</strong></p>
+    <p>Hugo doit pousser avec 300 N (≈ 30 kg de pression). C'est <strong>au-dessus</strong> de sa force maximale de 250 N — risque de blessure au dos.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Avec le <strong>levier long</strong> (distance d₂ = 1,60 m côté Hugo), calculer la force F₂ nécessaire. Hugo peut-il soulever sans se blesser ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F₂ = 1 200 × 0,20 / 1,60 = 240 / 1,60 = <strong>150 N</strong></p>
+    <p>Hugo doit pousser avec 150 N (≈ 15 kg de pression). C'est <strong>en dessous</strong> de sa force maximale de 250 N → soulèvement sans risque pour son dos. <strong>Il choisit le levier long.</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>rapport d'amplification</strong> du levier long : combien de fois Hugo « multiplie-t-il » sa force grâce au levier ? Vérifier que c'est cohérent avec le rapport des bras de levier.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Amplification = P / F₂ = 1 200 / 150 = <strong>×8</strong></p>
+    <p>Vérification par le rapport des bras : d₂ / d<sub>charge</sub> = 1,60 / 0,20 = <strong>×8</strong> ✓</p>
+    <p>Le rapport d'amplification est égal au rapport des bras de levier. C'est ce qui rend le levier si efficace : avec un long bras du côté de l'opérateur et un petit bras du côté de la charge, on multiplie la force.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Hugo veut savoir <strong>quelle masse maximale</strong> il pourrait soulever avec son levier long, sans dépasser ses 250 N de force.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>max</sub> = F<sub>max</sub> × d₂ / d<sub>charge</sub> = 250 × 1,60 / 0,20 = <strong>2 000 N</strong></p>
+    <p>Soit m<sub>max</sub> = P<sub>max</sub> / g = 2 000 / 10 = <strong>200 kg</strong></p>
+    <p>Hugo pourrait théoriquement soulever jusqu'à 200 kg avec son levier long, sans dépasser sa force max. Au-delà, il faut un palan, un cric, ou une équipe. Pour une chaudière de 120 kg, le levier long convient parfaitement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes une <strong>fiche de bonne pratique</strong> destinée aux apprentis de l'équipe ChauffPro :</p>
+  <ul>
+    <li>principe du levier (en une phrase)</li>
+    <li>règle pratique pour choisir la longueur de levier</li>
+    <li>précautions de sécurité</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ChauffPro — Bonne pratique : utiliser un levier sur chantier</strong><br>
+      • <strong>Principe :</strong> un levier multiplie la force selon le rapport des bras (côté charge / côté opérateur). Plus le bras opérateur est long, plus la force à exercer est faible.<br>
+      • <strong>Règle :</strong> pour soulever une charge de poids P avec une force F, il faut un bras opérateur d &gt; (P × d<sub>charge</sub>) / F.<br>
+      • <strong>Avantage du levier long</strong> (1,80 m) : ×8 d'amplification, charges jusqu'à 200 kg sans risque dorsal.<br>
+      • <strong>Précautions :</strong> point d'appui solide (bois sec, jamais sur tuyauterie ou carrelage fragile), gants antidérapants, ne jamais soulever au-delà de 250 N à la main, demander un collègue au-delà.<br>
+      • Privilégier un cric ou un palan pour les charges dépassant 250 kg.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Hugo veut placer le point d'appui <strong>2 cm plus près de la chaudière</strong> (d<sub>charge</sub> = 0,18 m au lieu de 0,20 m). Sa nouvelle distance côté Hugo devient d₂' = 1,62 m. Recalculer F nécessaire avec le levier long. Conclure sur l'effet de la position du point d'appui.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F = P × d<sub>charge</sub> / d₂' = 1 200 × 0,18 / 1,62 ≈ <strong>133 N</strong></p>
+    <p>Au lieu de 150 N, Hugo n'a plus besoin que de 133 N. Gain de 17 N (≈ 11 %).</p>
+    <p>Conclusion : <strong>rapprocher le point d'appui de la charge réduit la force à exercer</strong>. Astuce de chantier : positionner soigneusement la cale au plus près de l'objet à soulever pour économiser ses efforts.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Moment d'une force :</strong> M = F × d, où d est le bras de levier (distance perpendiculaire de la force à l'axe). Unité : N·m.</li>
+    <li><strong>Principe des moments à l'équilibre :</strong> M<sub>moteur</sub> = M<sub>résistant</sub>, soit F₁ × d₁ = F₂ × d₂.</li>
+    <li><strong>Amplification du levier :</strong> rapport des bras de levier d<sub>opérateur</sub> / d<sub>charge</sub>. Un long bras opérateur démultiplie la force humaine.</li>
+    <li><strong>Force humaine maximale</strong> sans risque : ≈ 250 N par main (≈ 25 kg). Au-delà : risque dorsal ou chute.</li>
+    <li><strong>Position du point d'appui :</strong> plus il est près de la charge, plus la force à exercer est faible.</li>
+    <li><strong>Application pro :</strong> levier en bois (échafaudage), pied-de-biche (démolition), barre à mine (terrassement), clé à molette (vissage / dévissage). Tous appliquent le même principe.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Moment d'une force), §3 (Équilibre en rotation) et §6 (Levier dans le BTP) de la leçon Ch06.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

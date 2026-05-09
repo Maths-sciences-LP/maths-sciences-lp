@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 4 – Compresseur d'air d'atelier – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Compresseur d'air d'atelier (Boyle-Mariotte) <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 7 – Pression et force pressante | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique des fluides | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Lire un manomètre et distinguer pression relative et pression absolue</li>
+    <li>Appliquer la loi de Boyle-Mariotte au remplissage d'une cuve à air</li>
+    <li>Calculer le volume d'air comprimé équivalent à pression atmosphérique</li>
+    <li>Évaluer le risque de surpression et d'éclatement d'une cuve</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §IV (manomètre) et §V (Boyle-Mariotte). P<sub>absolue</sub> = P<sub>relative</sub> + P<sub>atm</sub>. À T constante : P₁ × V₁ = P₂ × V₂.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – mise en route du compresseur d'atelier</h2>
+  <p><em>Léa, technicienne en énergies renouvelables chez « ProTherm » à Lyon, utilise quotidiennement le compresseur d'air d'atelier pour alimenter ses outils pneumatiques (boulonneuse à choc, agrafeuse, soufflette). Le compresseur dispose d'une cuve de 50 L et d'un manomètre. Avant de commencer ses interventions, elle vérifie le niveau de pression et calcule combien de temps il lui faudra pour le remplir entièrement.</em></p>
+
+  <h3>Document 1 — Caractéristiques du compresseur</h3>
+  <ul>
+    <li>Volume de la cuve : <strong>V<sub>cuve</sub> = 50 L</strong></li>
+    <li>Pression de service maximale : <strong>P<sub>max</sub> = 8 bar relative</strong> (= 9 bar absolue)</li>
+    <li>Pression d'éclatement (rupture) : <strong>P<sub>rupture</sub> = 24 bar absolue</strong> (3 × P<sub>max</sub>)</li>
+    <li>Pression atmosphérique au niveau de la mer : P<sub>atm</sub> = 1 bar absolue</li>
+    <li>Débit du moteur du compresseur : <strong>q = 200 L/min</strong> d'air aspiré à pression atmosphérique</li>
+  </ul>
+
+  <h3>Document 2 — Lecture du manomètre au démarrage</h3>
+  <ul>
+    <li>Manomètre indique : <strong>2 bar relative</strong> (cuve partiellement vidée par usage de la veille)</li>
+    <li>Soit <strong>3 bar absolue</strong> (= 2 + 1 atm).</li>
+  </ul>
+
+  <h3>Document 3 — Schéma du compresseur</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 220" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : compresseur d'air d'atelier. À gauche, le moteur électrique aspire l'air ambiant à 1 bar et le comprime dans la cuve. La cuve cylindrique au centre contient l'air comprimé sous 8 bar relative. Un manomètre indique la pression. À droite, une sortie alimente l'outillage pneumatique.">
+      <defs>
+        <style>
+          .ti7c{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl7c{font:11px sans-serif;fill:#1a202c}
+          .lblB7c{font:700 11px sans-serif;fill:#1d4ed8}
+        </style>
+      </defs>
+
+      <text class="ti7c" x="350" y="22">Compresseur d'air d'atelier</text>
+
+      <!-- Aspiration air ambiant -->
+      <text class="lbl7c" x="50" y="80" text-anchor="middle" font-size="10" fill="#475569" font-style="italic">air ambiant</text>
+      <text class="lbl7c" x="50" y="93" text-anchor="middle" font-size="9" fill="#475569">1 bar abs</text>
+      <line x1="80" y1="100" x2="140" y2="100" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#arr7c)"/>
+
+      <!-- Moteur compresseur -->
+      <rect x="140" y="80" width="100" height="80" fill="#fef3c7" stroke="#b45309" stroke-width="2" rx="6"/>
+      <text class="lbl7c" x="190" y="115" text-anchor="middle" font-weight="bold" fill="#b45309" font-size="11">MOTEUR</text>
+      <text class="lbl7c" x="190" y="135" text-anchor="middle" font-size="10" fill="#b45309">débit 200 L/min</text>
+
+      <!-- Tube vers cuve -->
+      <line x1="240" y1="120" x2="320" y2="120" stroke="#1d4ed8" stroke-width="3"/>
+
+      <!-- Cuve (cylindre) -->
+      <rect x="320" y="60" width="280" height="140" fill="#cbd5e1" stroke="#1e293b" stroke-width="2.5" rx="20"/>
+      <ellipse cx="320" cy="130" rx="8" ry="70" fill="#cbd5e1" stroke="#1e293b" stroke-width="2.5"/>
+      <ellipse cx="600" cy="130" rx="8" ry="70" fill="#cbd5e1" stroke="#1e293b" stroke-width="2.5"/>
+      <text class="lbl7c" x="460" y="135" text-anchor="middle" font-weight="bold" fill="#1f2937">CUVE 50 L</text>
+      <text class="lbl7c" x="460" y="155" text-anchor="middle" font-size="10" fill="#1f2937" font-style="italic">air comprimé</text>
+
+      <!-- Manomètre -->
+      <circle cx="460" cy="50" r="22" fill="#fff" stroke="#1f2937" stroke-width="2"/>
+      <text class="lbl7c" x="460" y="50" text-anchor="middle" font-size="14" font-weight="bold" fill="#dc2626">8</text>
+      <text class="lbl7c" x="460" y="68" text-anchor="middle" font-size="9" fill="#475569">bar</text>
+      <line x1="460" y1="72" x2="460" y2="80" stroke="#1f2937"/>
+      <text class="lbl7c" x="460" y="42" text-anchor="middle" font-size="8" fill="#15803d">manomètre</text>
+
+      <!-- Sortie outillage -->
+      <line x1="600" y1="120" x2="650" y2="120" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#arr7c)"/>
+      <text class="lbl7c" x="660" y="115" font-size="10" fill="#1d4ed8">→ outils</text>
+      <text class="lbl7c" x="660" y="128" font-size="9" fill="#1d4ed8">8 bar</text>
+
+      <!-- Soupape sécurité -->
+      <line x1="540" y1="60" x2="540" y2="40" stroke="#b91c1c" stroke-width="2"/>
+      <circle cx="540" cy="35" r="5" fill="#dc2626"/>
+      <text class="lbl7c" x="540" y="22" text-anchor="middle" font-size="9" fill="#b91c1c" font-weight="bold">soupape</text>
+
+      <defs>
+        <marker id="arr7c" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="#1d4ed8"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Combien de temps Léa devra-t-elle attendre que le compresseur passe de 2 bar à 8 bar relative ? Et quelle est la quantité d'air ambiant (à 1 bar) effectivement « stockée » dans la cuve à pleine pression ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Citer la <strong>relation</strong> entre pression relative (lue sur le manomètre), pression absolue et pression atmosphérique. Convertir 8 bar relative en bar absolue.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Relation : <strong>P<sub>absolue</sub> = P<sub>relative</sub> + P<sub>atmosphérique</sub></strong>.</p>
+    <p>8 bar relative + 1 bar atm = <strong>9 bar absolue</strong>.</p>
+    <p>Le manomètre indique « 0 » quand la cuve est ouverte à l'atmosphère (donc 1 bar absolue dedans). On dit qu'un manomètre « lit zéro à l'atmosphère ».</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>À pleine charge (8 bar relative = 9 bar absolue), la cuve de 50 L contient une masse d'air équivalente à un volume d'<strong>air ambiant</strong> bien plus grand. Calculer ce <strong>volume équivalent à 1 bar absolue</strong> à l'aide de Boyle-Mariotte : \(P_1 V_1 = P_2 V_2\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P₂ × V₂ = P₁ × V₁ (à T constante). En notant l'état comprimé (état 2) et l'état ambiant équivalent (état 1) :</p>
+    <p>V₁ = (P₂ × V₂) / P₁ = (9 × 50) / 1 = <strong>450 L</strong></p>
+    <p>La cuve de 50 L contient à pleine pression une quantité d'air qui occuperait <strong>450 L à pression atmosphérique</strong>. C'est l'avantage du stockage sous pression : on stocke 9 fois plus d'air dans le même volume.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>À l'état partiellement vidé (2 bar relative = 3 bar absolue), calculer le volume équivalent V<sub>1</sub>' d'air à 1 bar.</p>
+  <p>En déduire le <strong>volume d'air à 1 bar manquant</strong> pour passer de 2 bar à 8 bar relative.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V₁' = (3 × 50) / 1 = <strong>150 L</strong> à 1 bar.</p>
+    <p>Volume manquant : 450 − 150 = <strong>300 L d'air à 1 bar</strong> à pomper dans la cuve pour passer de 2 à 8 bar relative.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Le moteur du compresseur aspire <strong>200 L/min</strong> d'air ambiant à 1 bar. Calculer le <strong>temps de remplissage</strong> nécessaire pour pomper les 300 L manquants.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>t = volume / débit = 300 / 200 = <strong>1,5 minute = 1 min 30 s</strong>.</p>
+    <p>Léa devra patienter 1 min 30 avant de pouvoir utiliser ses outils à pleine pression. C'est rapide grâce à un débit moteur correct.</p>
+    <p>(En pratique le moteur s'arrête automatiquement à 8 bar grâce à un pressostat.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Si Léa utilise sa boulonneuse pneumatique qui consomme <strong>500 L/min d'air à 1 bar</strong> pendant 2 minutes, le compresseur peut-il suivre ou la cuve va-t-elle se vider plus vite que le moteur ne la remplit ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Consommation outil : 500 L/min. Débit moteur : 200 L/min. <strong>Déficit : 300 L/min</strong> (l'outil consomme 2,5 × plus que le moteur ne fournit).</p>
+    <p>Sur 2 min : déficit total = 600 L à 1 bar = 600/9 ≈ 67 L à 9 bar. Soit plus que les 50 L de cuve → la cuve se vide.</p>
+    <p>En réalité, la pression chute progressivement, le moteur tourne en continu mais ne suit pas. <strong>Symptôme :</strong> la boulonneuse perd en couple après 30-40 secondes de travail.</p>
+    <p>Solution : (1) prendre un compresseur à plus gros débit (≥ 500 L/min), (2) prendre une cuve plus grande (200 L) pour avoir plus de réserve, (3) accepter de travailler par à-coups en attendant la recharge.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>force totale</strong> que la pression d'air exerce sur l'<strong>extrémité plate</strong> de la cuve (disque de surface 0,1 m²) à pleine pression (8 bar relative).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F = P × S. Attention : pour une force pressante exercée par l'air sur la paroi, c'est la pression <strong>relative</strong> qui compte (la pression atmosphérique pousse aussi de l'autre côté, donc s'annule).</p>
+    <p>F = (8 × 10⁵) × 0,1 = <strong>80 000 N = 8 tonnes</strong>.</p>
+    <p>Soit l'équivalent du poids d'un éléphant qui appuierait sur l'embout. C'est pour cela que les cuves de compresseurs sont en acier épais (3-5 mm) testé en pression.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>La cuve a une pression d'éclatement à <strong>24 bar absolue</strong>. Si la soupape de sécurité du compresseur est défectueuse et que le moteur continue de pomper, quel volume d'air à 1 bar atteindrait-on à la rupture ?</p>
+  <p>Calculer le <strong>temps</strong> que mettrait le moteur à atteindre cette pression catastrophique.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V<sub>équivalent à 1 bar</sub> = 24 × 50 / 1 = <strong>1 200 L</strong>.</p>
+    <p>Volume supplémentaire à pomper depuis l'état rempli (8 bar) : 1 200 − 450 = <strong>750 L</strong>.</p>
+    <p>Temps : 750 / 200 = <strong>3,75 min</strong> avant rupture si la soupape ne se déclenche pas.</p>
+    <p>Conséquence : explosion violente (énergie libérée équivalente à plusieurs centaines de kJ). Risque de mort. <strong>La soupape de sécurité est une pièce vitale</strong> et doit être contrôlée annuellement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes une <strong>fiche de bonne utilisation du compresseur</strong> pour les techniciens débutants de ProTherm :</p>
+  <ul>
+    <li>fonctionnement (Boyle-Mariotte)</li>
+    <li>temps de recharge typique</li>
+    <li>précautions de sécurité</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProTherm — Bonne utilisation du compresseur d'atelier</strong><br>
+      • <strong>Principe :</strong> on stocke 50 L d'air à 9 bar absolue, soit l'équivalent de 450 L d'air ambiant. C'est cette « réserve » qui alimente les outils pneumatiques.<br>
+      • <strong>Recharge :</strong> de 2 bar à 8 bar relative = 1 min 30 (300 L d'air à 1 bar à pomper, débit moteur 200 L/min).<br>
+      • <strong>Outils gourmands</strong> (boulonneuse à choc 500 L/min) : la cuve se vide plus vite qu'elle ne se remplit. Travailler par séquences de 30 s, attendre la remontée à 8 bar entre chaque.<br>
+      • <strong>Sécurité :</strong> ne jamais démonter la soupape de sécurité (rupture cuve = 8 t de pression sur l'embout = explosion mortelle). Vérification soupape chaque année.<br>
+      • <strong>Maintenance :</strong> purger l'eau de condensation chaque semaine (vanne en bas de cuve) pour éviter la corrosion interne.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Léa monte au refuge en montagne (altitude 2 000 m) où la pression atmosphérique est de <strong>0,8 bar absolue</strong>. Si elle utilise le même compresseur en haut, recalculer la pression absolue dans la cuve à pleine charge (8 bar relative). Comparer.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P<sub>absolue</sub> = P<sub>relative</sub> + P<sub>atm</sub> = 8 + 0,8 = <strong>8,8 bar absolue</strong>.</p>
+    <p>Comparaison : 8,8 bar (montagne) vs 9 bar (plaine). La pression absolue dans la cuve dépend de l'altitude.</p>
+    <p>Mais ce qui compte pour les outils, c'est la <strong>pression relative</strong> (différence entre intérieur et extérieur). Donc la cuve délivre toujours 8 bar de pression effective aux outils, quelle que soit l'altitude. Ouf !</p>
+    <p>(Ce raisonnement est valable tant que le compresseur peut aspirer assez d'air ambiant. À très haute altitude — 5 000 m — l'air raréfié peut limiter le débit.)</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Pression absolue / relative :</strong> P<sub>abs</sub> = P<sub>rel</sub> + P<sub>atm</sub>. Le manomètre lit la pression relative (= différence avec l'extérieur).</li>
+    <li><strong>Loi de Boyle-Mariotte :</strong> à T constante, P × V = constante. Stocker de l'air sous pression = stocker plus de volume équivalent.</li>
+    <li><strong>Volume équivalent à 1 bar :</strong> V₁ = (P₂ × V₂) / P₁. Une cuve 50 L à 9 bar absolue contient l'équivalent de 450 L d'air ambiant.</li>
+    <li><strong>Temps de remplissage :</strong> t = volume manquant à 1 bar / débit du compresseur. À surveiller pour ne pas attendre trop longtemps entre 2 utilisations d'outils.</li>
+    <li><strong>Soupape de sécurité :</strong> obligatoire sur toute cuve sous pression. Empêche l'éclatement (énergie libérée potentiellement mortelle).</li>
+    <li><strong>Force pressante</strong> sur paroi : F = P<sub>relative</sub> × S. À 8 bar et 0,1 m² : 80 kN, soit 8 tonnes.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §III (Pression atmosphérique), §IV (Manomètre) et §V (Loi de Boyle-Mariotte) de la leçon Ch07.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

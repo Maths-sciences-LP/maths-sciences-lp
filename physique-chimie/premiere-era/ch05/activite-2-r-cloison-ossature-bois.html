@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité 2 – R d'une cloison à ossature bois – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Calculer le R d'une cloison à ossature bois <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 5 – Minimiser les transferts thermiques | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Thermique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la résistance thermique d'une paroi multi-couches</li>
+    <li>Vérifier la conformité d'une cloison à ossature bois (MOB) à la RT 2012</li>
+    <li>Identifier la couche dominante en termes d'isolation</li>
+    <li>Choisir l'isolant adapté à un mur extérieur</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a>. R<sub>total</sub> = R₁ + R₂ + R₃ + … (couches en série).
+</p>
+
+<div class="situation">
+  <h2>Situation – construction maison MOB de M. Loiseau</h2>
+  <p><em>Hugo, charpentier-constructeur en MOB (Maison à Ossature Bois) à Bordeaux, monte une cloison extérieure pour M. Loiseau. Il assemble plusieurs couches : panneau extérieur OSB, isolant, ossature bois, frein-vapeur, cloison plâtre intérieur. Hugo doit calculer le R total et vérifier la norme RT 2012 (R ≥ 4 m²·K/W pour mur extérieur).</em></p>
+
+  <h3>Document 1 — Composition de la cloison MOB</h3>
+  <table>
+    <thead><tr><th>Couche (de l'extérieur vers l'intérieur)</th><th>Épaisseur</th><th>λ (W/m·K)</th></tr></thead>
+    <tbody>
+      <tr><td>① Bardage bois mélèze</td><td>22 mm</td><td>0,15</td></tr>
+      <tr><td>② Lame d'air ventilée (négligeable)</td><td>25 mm</td><td>—</td></tr>
+      <tr><td>③ Pare-pluie + OSB structural</td><td>12 mm</td><td>0,13</td></tr>
+      <tr><td>④ Isolant laine de bois</td><td>140 mm</td><td>0,038</td></tr>
+      <tr><td>⑤ Frein-vapeur (négligeable)</td><td>0,2 mm</td><td>—</td></tr>
+      <tr><td>⑥ Plaque de plâtre BA 13</td><td>13 mm</td><td>0,25</td></tr>
+    </tbody>
+  </table>
+  <p><em>Note : la lame d'air ventilée et le frein-vapeur ne participent pas à la résistance thermique (négligeables).</em></p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Cette cloison MOB respecte-t-elle la RT 2012 (R ≥ 4 m²·K/W), et quelle couche apporte le plus à l'isolation ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>résistance thermique de chaque couche</strong> (R = e / λ).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>① Bardage : 0,022 / 0,15 ≈ <strong>0,15 m²·K/W</strong>.</li>
+      <li>③ OSB : 0,012 / 0,13 ≈ <strong>0,09 m²·K/W</strong>.</li>
+      <li>④ Laine de bois : 0,140 / 0,038 ≈ <strong>3,68 m²·K/W</strong>.</li>
+      <li>⑥ Plâtre : 0,013 / 0,25 ≈ <strong>0,05 m²·K/W</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>résistance thermique totale</strong> R<sub>total</sub> (somme).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>R<sub>total</sub> = 0,15 + 0,09 + 3,68 + 0,05 = <strong>3,97 m²·K/W</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-blue">ANA</span></h2>
+  <p>La RT 2012 exige R ≥ 4 m²·K/W pour un mur extérieur. La cloison de Hugo est-elle conforme ? Que faire si non ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>3,97 &lt; 4,0 → <strong>juste insuffisant</strong> de 0,03 m²·K/W (≈ 1 % de la cible).</p>
+    <p>Action simple : <strong>passer l'isolant à 145 mm</strong> au lieu de 140 mm. Nouveau R isolant : 0,145/0,038 ≈ 3,82. Nouveau total : 4,11 m²·K/W → CONFORME.</p>
+    <p>Hugo modifie son plan d'achat (rouleau d'isolant 145 mm au lieu de 140), surcoût négligeable.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Quelle est la <strong>part de chaque couche</strong> dans la résistance totale ? Conclure sur la couche la plus importante.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>① Bardage : 0,15/3,97 ≈ <strong>3,8 %</strong>.</li>
+      <li>③ OSB : 0,09/3,97 ≈ <strong>2,3 %</strong>.</li>
+      <li>④ Laine de bois : 3,68/3,97 ≈ <strong>92,7 %</strong>.</li>
+      <li>⑥ Plâtre : 0,05/3,97 ≈ <strong>1,3 %</strong>.</li>
+    </ul>
+    <p><strong>L'isolant représente 93 % de la performance thermique</strong>. Tout le reste (bois, OSB, plâtre) ne fait que 7 %. Le choix et l'épaisseur de l'isolant sont donc le levier principal.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Comparer 3 isolants (laine de bois, laine de verre, polystyrène expansé), tous à 140 mm, en termes de R obtenu.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Isolant</th><th>λ</th><th>R à 140 mm</th></tr></thead>
+      <tbody>
+        <tr><td>Laine de bois</td><td>0,038</td><td>3,68</td></tr>
+        <tr><td>Laine de verre</td><td>0,032</td><td>4,38</td></tr>
+        <tr><td>Polystyrène expansé</td><td>0,032</td><td>4,38</td></tr>
+        <tr><td>Polyuréthane</td><td>0,022</td><td>6,36</td></tr>
+      </tbody>
+    </table>
+    <p>Plus λ est petit, plus R est grand. Le PU est le plus performant mais peu écologique. La laine de bois reste un compromis biosourcé.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Hugo veut respecter une approche « éco-construction ». Justifier le choix de la <strong>laine de bois</strong> malgré sa performance moindre.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>Biosourcé</strong> : laine de bois = chutes de bois recyclées (filière française).</li>
+      <li><strong>Faible énergie grise</strong> : peu d'énergie pour la fabriquer (vs PU pétrochimique).</li>
+      <li><strong>Régulation hygrothermique</strong> : absorbe et restitue l'humidité, évite les ponts thermiques humides.</li>
+      <li><strong>Bonne isolation phonique</strong> en bonus (pour MOB qui sonne creux).</li>
+      <li><strong>Recyclable</strong> en fin de vie.</li>
+    </ul>
+    <p>Compromis : 14,5 cm laine bois (R 3,82) au lieu de 14 cm laine verre (R 4,38) → cohérent avec la philosophie éco.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>L'<strong>ossature bois</strong> elle-même (poteaux 45×140 mm, espacés tous les 60 cm) traverse l'isolant. C'est un <strong>pont thermique</strong>. Calculer R<sub>poteau</sub> (140 mm bois, λ = 0,15) et comparer à R<sub>isolant</sub>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>R<sub>poteau</sub> = 0,140 / 0,15 = <strong>0,93 m²·K/W</strong>.</p>
+    <p>vs R<sub>isolant</sub> = 3,68 m²·K/W. <strong>Le poteau bois est 4 fois moins isolant que l'isolant qu'il remplace</strong>.</p>
+    <p>Sur un mur de 60 cm, les poteaux occupent 4,5 cm soit 7,5 % de la surface → réduction effective du R global d'environ 5 %. Solution courante : doubler l'isolant côté intérieur (« contre-cloison »).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche technique</strong> que Hugo remet à M. Loiseau pour valider la composition de paroi.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Hugo Construction Bois — Fiche cloison MOB · M. Loiseau · 7 mai 2026</strong><br>
+      • <strong>Composition</strong> (extérieur → intérieur) : bardage mélèze 22 mm, lame d'air ventilée, OSB 12 mm, laine de bois 145 mm, frein-vapeur, BA13.<br>
+      • <strong>R total : 4,11 m²·K/W</strong> (norme RT 2012 ≥ 4) — CONFORME ✓.<br>
+      • <strong>Isolant biosourcé</strong> : laine de bois (filière française, recyclable, faible énergie grise).<br>
+      • <strong>Ponts thermiques</strong> traités par contre-cloison intérieure 40 mm laine de bois supplémentaire.<br>
+      • <strong>Coût</strong> : 95 €/m² HT pose comprise. 25 m² total = 2 375 € pour cette face.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Calculer R équivalent en passant à 200 mm de laine de bois. Quel R atteint-on alors ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>R<sub>isolant</sub> 200 mm = 0,200 / 0,038 = <strong>5,26 m²·K/W</strong>.</p>
+    <p>R total = 0,15 + 0,09 + 5,26 + 0,05 = <strong>5,55 m²·K/W</strong>.</p>
+    <p>Suffit pour la <strong>RE 2020</strong> (R ≥ 5 pour mur extérieur), norme actuelle. Surcoût isolant ≈ 30 % mais conformité réglementation.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Couches en série :</strong> R<sub>total</sub> = ∑ Rᵢ. Plus on a de couches isolantes épaisses, plus R augmente.</li>
+    <li><strong>Loi de Fourier rappel :</strong> R = e / λ.</li>
+    <li><strong>Norme RT 2012 :</strong> mur ext R ≥ 4. RE 2020 : R ≥ 5.</li>
+    <li><strong>L'isolant représente la majeure partie</strong> du R total (~ 90 %). Optimisation = choix d'épaisseur d'isolant.</li>
+    <li><strong>Ponts thermiques :</strong> ossature bois = R local 4 fois moindre. À traiter par contre-cloison.</li>
+    <li><strong>Isolants biosourcés</strong> (laine de bois, ouate cellulose, chanvre) : performance thermique acceptable + bilan écologique excellent.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur les notions de R et de cumul des résistances de la leçon Ch05.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

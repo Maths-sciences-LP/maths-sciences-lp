@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch08 – Activité 3 – Identifier un alliage par pesée hydrostatique – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Identifier un alliage par pesée hydrostatique <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 8 – Force d'Archimède | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique des fluides | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Mettre en évidence la poussée d'Archimède par pesée à sec puis dans l'eau</li>
+    <li>Calculer le volume d'un objet à partir de la différence de pesée</li>
+    <li>Calculer la masse volumique d'un matériau et l'identifier dans un tableau</li>
+    <li>Appliquer la méthode pour identifier un tube récupéré sur chantier</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §I (mise en évidence Archimède) et §IV (masses volumiques). Méthode : F<sub>Archimède</sub> = (m<sub>air</sub> − m<sub>eau</sub>) × g, V = F<sub>Archimède</sub> / (ρ<sub>eau</sub> × g), ρ<sub>objet</sub> = m / V.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – tube récupéré sur ancienne installation</h2>
+  <p><em>Sophie, technicienne en rénovation thermique chez « Heritage Plomberie » à Tours, démonte une ancienne installation de chauffage chez un client. Elle récupère un morceau de tube métallique non marqué qu'elle aimerait identifier (cuivre, laiton, plomb, fer ?) avant de décider de sa réutilisation ou de son recyclage. Sans marquage ni accès au laboratoire, elle utilise une méthode qu'elle a apprise en formation : la <strong>pesée hydrostatique</strong>, basée sur la poussée d'Archimède.</em></p>
+
+  <h3>Document 1 — Mesures de Sophie</h3>
+  <ul>
+    <li>Masse du tube pesé à sec sur balance : <strong>m<sub>air</sub> = 60 g = 0,060 kg</strong></li>
+    <li>Masse apparente du tube suspendu à un dynamomètre <strong>plongé dans l'eau</strong> : <strong>m<sub>eau</sub> = 53 g = 0,053 kg</strong></li>
+    <li>Masse volumique de l'eau : ρ<sub>eau</sub> = 1 000 kg/m³</li>
+    <li>g ≈ 10 N/kg</li>
+  </ul>
+
+  <h3>Document 2 — Tableau de référence des masses volumiques</h3>
+  <table>
+    <thead>
+      <tr><th>Matériau</th><th>ρ (kg/m³)</th><th>Usage typique</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Aluminium</td><td>2 700</td><td>Radiateurs design, châssis</td></tr>
+      <tr><td>Acier ordinaire / Fer</td><td>7 850</td><td>Tubes de chauffage, charpente</td></tr>
+      <tr><td>Laiton</td><td>8 500</td><td>Robinetterie, raccords</td></tr>
+      <tr><td>Cuivre</td><td>8 960</td><td>Tubes plomberie ECS, câbles élec</td></tr>
+      <tr><td>Plomb</td><td>11 340</td><td>Anciennes canalisations (à proscrire)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Schéma du dispositif de pesée hydrostatique</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 240" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : à gauche, le tube est suspendu à un dynamomètre dans l'air, qui indique 0,60 N (60 g). À droite, le même tube est suspendu et plongé dans un bécher d'eau, le dynamomètre indique 0,53 N (53 g) car la poussée d'Archimède soulage le tube de 0,07 N.">
+      <defs>
+        <style>
+          .ti8p{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl8p{font:11px sans-serif;fill:#1a202c}
+          .lblB8p{font:700 11px sans-serif;fill:#1d4ed8}
+          .lblR8p{font:700 11px sans-serif;fill:#b91c1c}
+        </style>
+      </defs>
+
+      <text class="ti8p" x="350" y="22">Pesée hydrostatique — à sec vs immergé</text>
+
+      <!-- Cas A : à sec -->
+      <text class="lblB8p" x="170" y="50" text-anchor="middle">À sec (dans l'air)</text>
+      <!-- Dynamomètre -->
+      <rect x="140" y="65" width="60" height="80" fill="#fff" stroke="#1f2937" stroke-width="2"/>
+      <text class="lbl8p" x="170" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">0,60</text>
+      <text class="lbl8p" x="170" y="115" text-anchor="middle" font-size="9">N</text>
+      <line x1="170" y1="145" x2="170" y2="180" stroke="#1f2937" stroke-width="1.5"/>
+      <!-- Tube -->
+      <rect x="155" y="180" width="30" height="40" fill="#f59e0b" stroke="#7c2d12" stroke-width="1.5" rx="3"/>
+      <text class="lbl8p" x="170" y="225" text-anchor="middle" font-size="9">tube inconnu</text>
+
+      <!-- Cas B : immergé -->
+      <text class="lblB8p" x="500" y="50" text-anchor="middle">Plongé dans l'eau</text>
+      <!-- Dynamomètre -->
+      <rect x="470" y="65" width="60" height="80" fill="#fff" stroke="#1f2937" stroke-width="2"/>
+      <text class="lbl8p" x="500" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">0,53</text>
+      <text class="lbl8p" x="500" y="115" text-anchor="middle" font-size="9">N</text>
+      <line x1="500" y1="145" x2="500" y2="180" stroke="#1f2937" stroke-width="1.5"/>
+      <!-- Bécher d'eau -->
+      <path d="M 430 180 L 440 230 L 560 230 L 570 180 Z" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+      <rect x="441" y="190" width="118" height="40" fill="#bfdbfe" opacity=".6"/>
+      <line x1="441" y1="190" x2="559" y2="190" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text class="lbl8p" x="430" y="200" font-size="9" fill="#1d4ed8">eau</text>
+      <!-- Tube immergé -->
+      <rect x="485" y="195" width="30" height="35" fill="#f59e0b" stroke="#7c2d12" stroke-width="1.5" rx="3"/>
+
+      <!-- Flèche poussée -->
+      <line x1="540" y1="215" x2="540" y2="195" stroke="#16a34a" stroke-width="2" marker-end="url(#arrUp8)"/>
+      <text class="lbl8p" x="600" y="208" font-size="10" fill="#15803d" font-weight="bold">F<sub>Archimède</sub></text>
+
+      <defs>
+        <marker id="arrUp8" markerWidth="9" markerHeight="9" refX="4" refY="0" orient="auto">
+          <polygon points="0,9 4,0 9,9" fill="#16a34a"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> À partir des deux pesées (à sec et immergée), comment Sophie peut-elle déterminer la masse volumique du tube et identifier le métal qui le compose ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer le <strong>poids réel</strong> P du tube (à sec dans l'air) et le <strong>poids apparent</strong> P<sub>app</sub> (immergé). En déduire la <strong>poussée d'Archimède</strong> F<sub>A</sub>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>P = m<sub>air</sub> × g = 0,060 × 10 = <strong>0,60 N</strong></p>
+    <p>P<sub>app</sub> = m<sub>eau</sub> × g = 0,053 × 10 = <strong>0,53 N</strong></p>
+    <p>F<sub>A</sub> = P − P<sub>app</sub> = 0,60 − 0,53 = <strong>0,07 N</strong></p>
+    <p>L'eau exerce sur le tube une force verticale vers le haut de 0,07 N qui « allège » le tube de 7 g.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>D'après le théorème d'Archimède, F<sub>A</sub> = ρ<sub>eau</sub> × V<sub>tube</sub> × g. En déduire le <strong>volume du tube</strong> V<sub>tube</sub>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V<sub>tube</sub> = F<sub>A</sub> / (ρ<sub>eau</sub> × g) = 0,07 / (1 000 × 10) = 0,07 / 10 000</p>
+    <p>V<sub>tube</sub> = <strong>7 × 10⁻⁶ m³ = 7 cm³</strong></p>
+    <p>(C'est le volume de l'objet, et donc aussi le volume d'eau déplacée.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>masse volumique</strong> ρ<sub>tube</sub> à partir de la masse à sec et du volume.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>ρ<sub>tube</sub> = m<sub>air</sub> / V<sub>tube</sub> = 0,060 / (7 × 10⁻⁶)</p>
+    <p>ρ<sub>tube</sub> = 60 000 / 7 ≈ <strong>8 570 kg/m³</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer la valeur trouvée (8 570 kg/m³) au tableau des masses volumiques (Doc 2) et <strong>identifier le matériau</strong>. Quel(s) usage(s) habituel(s) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>8 570 kg/m³ correspond le mieux au <strong>laiton</strong> (8 500 kg/m³) ou éventuellement au <strong>cuivre</strong> (8 960). L'écart de 70 (vs 30 avec laiton) penche pour le laiton.</p>
+    <p>Le laiton est un alliage cuivre + zinc, très utilisé pour : <strong>robinetterie, raccords, vannes</strong> en plomberie. Couleur dorée caractéristique.</p>
+    <p>Le cuivre pur (presque rose-rouge) servait pour les tubes de plomberie ECS jusqu'à l'apparition du PER. Sophie peut confirmer en regardant la couleur du métal au cœur (gratter la patine).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Si la mesure avait donné m<sub>eau</sub> = 55 g (au lieu de 53), quelle masse volumique Sophie aurait-elle calculée ? Quel matériau correspondrait ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F<sub>A</sub> = (60 − 55) × 0,01 = 0,05 N. V = 0,05/10 000 = 5 × 10⁻⁶ m³ = 5 cm³.</p>
+    <p>ρ = 0,060 / (5 × 10⁻⁶) = <strong>12 000 kg/m³</strong>.</p>
+    <p>Cette valeur correspond approximativement au <strong>plomb</strong> (11 340 kg/m³). À éviter absolument : les tubes plomb sont interdits dans le réseau d'eau potable depuis 2013 (saturnisme). Sophie devrait le porter en déchetterie.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>À l'inverse, si la mesure avait donné m<sub>eau</sub> = 38 g, calculer ρ. Quel matériau ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>F<sub>A</sub> = (60 − 38) × 0,01 = 0,22 N. V = 0,22/10 000 = 22 × 10⁻⁶ m³ = 22 cm³.</p>
+    <p>ρ = 0,060 / (22 × 10⁻⁶) ≈ <strong>2 730 kg/m³</strong>.</p>
+    <p>Cette valeur correspond à l'<strong>aluminium</strong> (2 700 kg/m³). Utilisé pour des radiateurs design ou des châssis de PAC. Réutilisable en chantier ou recyclable.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Pourquoi cette méthode <strong>fonctionne-t-elle quel que soit la forme</strong> du tube (creux, plein, irrégulier) ? Que se passerait-il si le tube est <strong>creux et bouché par les extrémités</strong> ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La poussée d'Archimède dépend uniquement du <strong>volume immergé</strong>, pas de la forme. C'est l'avantage de cette méthode : on n'a pas besoin de mesurer les dimensions.</p>
+    <p><strong>Tube creux bouché :</strong> il déplace plus d'eau que son métal seul (le volume creux est aussi immergé). Donc ρ<sub>apparente</sub> calculée serait fausse, plus faible que la réalité.</p>
+    <p>Solution : <strong>percer le tube</strong> avant la pesée, pour que l'eau remplisse l'intérieur (alors V mesuré = volume du métal seul).</p>
+    <p>C'est pour cette raison que Sophie travaille toujours avec des tubes ouverts ou des morceaux pleins.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche d'identification</strong> que Sophie remplit pour le tube récupéré :</p>
+  <ul>
+    <li>mesures effectuées (m_air, m_eau)</li>
+    <li>volume et masse volumique calculés</li>
+    <li>matériau identifié et destination du tube</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Heritage Plomberie — Fiche identification matériau récupéré · 7 mai 2026</strong><br>
+      • <strong>Pesées :</strong> m<sub>air</sub> = 60 g (à sec), m<sub>eau</sub> = 53 g (immergé). Poussée Archimède = 0,07 N.<br>
+      • <strong>Volume du tube :</strong> 7 cm³ (par calcul Archimède, sans mesure dimensionnelle).<br>
+      • <strong>Masse volumique :</strong> 8 570 kg/m³.<br>
+      • <strong>Identification :</strong> <strong>laiton</strong> (référence 8 500 kg/m³). Confirmé visuellement par couleur dorée caractéristique.<br>
+      • <strong>Destination :</strong> tube réutilisable en plomberie (raccord secondaire, robinetterie). Stocker au magasin avec étiquette « laiton récupéré ». Si tube cuivre, prix de revente meilleur en filière de tri.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Sophie veut vérifier sa méthode sur un échantillon connu : un boulon en <strong>acier</strong> de 100 g. Quelle masse devrait-elle lire en plongeant le boulon dans l'eau ? (ρ<sub>acier</sub> = 7 850 kg/m³.)</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V<sub>acier</sub> = m / ρ = 0,100 / 7 850 ≈ 1,27 × 10⁻⁵ m³ = 12,7 cm³.</p>
+    <p>F<sub>A</sub> = ρ<sub>eau</sub> × V × g = 1 000 × 1,27 × 10⁻⁵ × 10 ≈ 0,127 N.</p>
+    <p>Soit une « perte apparente » de 12,7 g.</p>
+    <p>Masse lue immergée : 100 − 12,7 = <strong>87,3 g</strong> sur le dynamomètre.</p>
+    <p>Si Sophie lit autre chose, elle saurait que sa balance ou son installation pose problème. Cet étalon de mesure est essentiel pour valider une méthode expérimentale.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Poussée d'Archimède :</strong> F<sub>A</sub> = ρ<sub>fluide</sub> × V<sub>immergé</sub> × g, dirigée vers le haut.</li>
+    <li><strong>Pesée hydrostatique :</strong> méthode pour déterminer le volume d'un objet de forme quelconque, à partir de la différence de pesée à sec et immergée.</li>
+    <li><strong>Volume :</strong> V = (m<sub>air</sub> − m<sub>eau</sub>) / ρ<sub>eau</sub>.</li>
+    <li><strong>Masse volumique :</strong> ρ<sub>objet</sub> = m<sub>air</sub> / V<sub>objet</sub>. Permet d'identifier un matériau dans un tableau.</li>
+    <li><strong>Métaux courants en plomberie</strong> (ρ croissante) : aluminium 2 700 ≪ acier 7 850 &lt; laiton 8 500 &lt; cuivre 8 960 ≪ plomb 11 340.</li>
+    <li><strong>Précaution :</strong> tube creux ouvert (sinon V mesuré inclut l'air et fausse le résultat).</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §I (Mise en évidence Archimède), §II (Caractéristiques) et §IV (Masses volumiques de référence) de la leçon Ch08.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

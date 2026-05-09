@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – Activité 3 – Diluer un désinfectant pour circuit ECS – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Préparer une solution désinfectante par dilution <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 9 – Solutions aqueuses | 1ère Bac Pro ICCER (Grpt 1) | Physique – Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre la conservation de la quantité de matière lors d'une dilution</li>
+    <li>Appliquer la loi de dilution C₁V₁ = C₂V₂</li>
+    <li>Calculer le volume de solution mère et le volume d'eau à ajouter</li>
+    <li>Réaliser une dilution dans le respect des normes sanitaires</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §V (dilution). Loi : la quantité de soluté est conservée → \(C_1 \times V_1 = C_2 \times V_2\). On ajoute uniquement du solvant (eau).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – désinfection du circuit ECS après installation</h2>
+  <p><em>Léo, plombier-chauffagiste chez « EauPure » à Marseille, vient d'installer un nouveau ballon ECS de 200 L chez Mme Bernier. Avant la mise en service, la norme NF DTU 60.11 impose un <strong>traitement de désinfection</strong> à l'eau de Javel (hypochlorite de sodium) pour éliminer toute bactérie résiduelle (notamment légionelles). Léo doit préparer 100 L de solution désinfectante à <strong>0,5 % de chlore actif</strong> à partir d'eau de Javel commerciale concentrée à <strong>9,6 %</strong>, puis remplir le circuit, laisser agir 24 h et rincer.</em></p>
+
+  <h3>Document 1 — Données de la dilution</h3>
+  <ul>
+    <li>Solution mère (eau de Javel commerciale) : <strong>C₁ = 9,6 % de chlore actif</strong></li>
+    <li>Solution fille à préparer (désinfectant) : <strong>C₂ = 0,5 % de chlore actif</strong></li>
+    <li>Volume de solution fille à préparer : <strong>V₂ = 100 L</strong> (volume circuit + marge)</li>
+    <li>Recommandation NF DTU : concentration entre 0,4 et 1 % de chlore actif, durée d'action 12 à 24 h, puis rinçage abondant</li>
+  </ul>
+
+  <h3>Document 2 — Schéma de la dilution</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 220" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma de dilution : à gauche, un bidon d'eau de Javel commerciale concentrée à 9,6 %, dont on prélève le volume V1. Au centre, on verse ce volume dans une cuve. À droite, on ajoute de l'eau jusqu'à atteindre le volume final V2 = 100 L. La quantité de chlore reste la même, mais la concentration finale est de 0,5 %.">
+      <defs>
+        <style>
+          .ti9dil{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl9dil{font:11px sans-serif;fill:#1a202c}
+          .lblB9dil{font:700 11px sans-serif;fill:#1d4ed8}
+        </style>
+      </defs>
+
+      <text class="ti9dil" x="350" y="22">Préparation par dilution — C₁V₁ = C₂V₂</text>
+
+      <!-- Bidon mère -->
+      <rect x="50" y="60" width="80" height="120" fill="#fef3c7" stroke="#b45309" stroke-width="2" rx="6"/>
+      <text class="lbl9dil" x="90" y="100" text-anchor="middle" font-weight="bold" fill="#b45309" font-size="11">JAVEL</text>
+      <text class="lbl9dil" x="90" y="120" text-anchor="middle" font-size="11" fill="#b91c1c">9,6 %</text>
+      <text class="lbl9dil" x="90" y="195" text-anchor="middle" font-size="9" font-style="italic">solution mère C₁</text>
+
+      <!-- Flèche de prélèvement -->
+      <line x1="135" y1="120" x2="220" y2="120" stroke="#1f2937" stroke-width="2" marker-end="url(#arr9dil)"/>
+      <text class="lbl9dil" x="175" y="110" text-anchor="middle" font-size="10" font-weight="bold">V₁ = ?</text>
+
+      <!-- Cuve résultante -->
+      <path d="M 240 80 L 240 200 L 460 200 L 460 80 Z" fill="none" stroke="#1f2937" stroke-width="2"/>
+      <rect x="241" y="100" width="218" height="100" fill="#bfdbfe" opacity=".7"/>
+      <text class="lbl9dil" x="350" y="155" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="11">SOLUTION DILUÉE</text>
+      <text class="lbl9dil" x="350" y="175" text-anchor="middle" font-size="10" fill="#1d4ed8">V₂ = 100 L · C₂ = 0,5 %</text>
+
+      <!-- Robinet d'eau -->
+      <line x1="500" y1="100" x2="540" y2="100" stroke="#1d4ed8" stroke-width="3"/>
+      <line x1="540" y1="100" x2="540" y2="60" stroke="#1d4ed8" stroke-width="3"/>
+      <text class="lbl9dil" x="540" y="50" text-anchor="middle" font-size="10" fill="#1d4ed8" font-weight="bold">eau</text>
+      <line x1="510" y1="100" x2="510" y2="115" stroke="#1d4ed8" stroke-width="1.5"/>
+      <line x1="515" y1="100" x2="515" y2="120" stroke="#1d4ed8" stroke-width="1.5"/>
+      <line x1="520" y1="100" x2="520" y2="115" stroke="#1d4ed8" stroke-width="1.5"/>
+
+      <!-- Cote V2 -->
+      <text class="lbl9dil" x="595" y="200" text-anchor="middle" font-size="10" fill="#475569" font-style="italic">+ eau pour atteindre 100 L</text>
+
+      <defs>
+        <marker id="arr9dil" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="#1f2937"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel volume V₁ de solution mère (eau de Javel à 9,6 %) Léo doit-il prélever, et combien d'eau doit-il ajouter pour obtenir 100 L de solution désinfectante à 0,5 % ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Énoncer la <strong>loi de la dilution</strong> qui relie les concentrations et volumes avant et après dilution. Quelle grandeur physique reste-t-elle conservée ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Loi de dilution : <strong>C₁ × V₁ = C₂ × V₂</strong></p>
+    <p>La grandeur conservée est la <strong>quantité de soluté</strong> (en moles ou en masse). On n'ajoute que de l'eau (solvant), donc le soluté présent dans le volume V₁ se retrouve <strong>réparti</strong> dans le volume V₂ plus grand.</p>
+    <p>Conséquence : C₂ &lt; C₁ (la concentration diminue puisque le volume augmente à quantité constante).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>volume V₁</strong> de solution mère à prélever pour préparer 100 L à 0,5 %.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V₁ = (C₂ × V₂) / C₁ = (0,5 × 100) / 9,6 = 50 / 9,6 ≈ <strong>5,21 L</strong></p>
+    <p>Soit ≈ 5,2 L d'eau de Javel concentrée. (Léo arrondira à 5,25 L pour la mesure.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>volume d'eau à ajouter</strong> pour atteindre les 100 L finaux.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V<sub>eau</sub> = V₂ − V₁ = 100 − 5,21 ≈ <strong>94,8 L d'eau</strong>.</p>
+    <p>Procédure : verser environ 60-70 L d'eau dans la cuve, puis ajouter les 5,21 L d'eau de Javel, puis compléter à 100 L exactement avec de l'eau. Mélanger doucement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Vérifier le calcul en vérifiant que la <strong>quantité de chlore actif</strong> est bien la même avant et après dilution.</p>
+  <p>Quantité dans V₁ = C₁ × V₁. Quantité dans V₂ = C₂ × V₂. Les deux doivent être égales.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Quantité dans V₁ : 9,6 % × 5,21 L = 0,096 × 5,21 = <strong>0,500 L</strong> de chlore équivalent (en pourcentage volume).</p>
+    <p>Quantité dans V₂ : 0,5 % × 100 L = 0,005 × 100 = <strong>0,500 L</strong> ✓</p>
+    <p>Les deux quantités sont identiques. La conservation est respectée.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>La norme tolère une concentration entre <strong>0,4 % et 1,0 %</strong>. Si Léo se trompe et prélève seulement 3 L d'eau de Javel (au lieu de 5,21), calculer la concentration réelle obtenue. Reste-t-elle dans la plage tolérée ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Avec V₁ = 3 L : C₂' = (C₁ × V₁) / V₂ = (9,6 × 3) / 100 = <strong>0,29 %</strong>.</p>
+    <p>0,29 % &lt; 0,4 % → <strong>concentration insuffisante</strong>. La désinfection ne sera pas efficace, des bactéries peuvent survivre.</p>
+    <p>Action : ajouter le volume manquant : ΔV₁ = 5,21 − 3 = 2,21 L d'eau de Javel supplémentaire (et retirer le même volume d'eau pour conserver V₂ = 100 L).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Inversement, si Léo en a mis trop (par erreur 8 L), calculer la concentration et l'effet sur le matériel.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>C₂'' = (9,6 × 8) / 100 = <strong>0,77 %</strong>.</p>
+    <p>0,77 % reste dans la plage 0,4-1,0 % → désinfection efficace, mais limite haute. Inconvénients :</p>
+    <ul>
+      <li><strong>Corrosion accrue</strong> du circuit (cuivre, acier) → durée de vie réduite des tubes.</li>
+      <li>Rinçage plus long (plus difficile à éliminer).</li>
+      <li>Risque d'odeur de chlore résiduelle dans l'eau chaude.</li>
+    </ul>
+    <p>Action : si dépassement modéré (≤ 1 %), accepter mais bien rincer. Si nettement plus, diluer en ajoutant de l'eau jusqu'à atteindre 0,5 %.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-yellow">REA</span></h2>
+  <p>Léo a aussi reçu un autre stock d'eau de Javel <strong>concentrée à 4,8 %</strong> (ancien stock). Quel volume V₁' lui faudrait-il prélever de ce stock pour obtenir les mêmes 100 L à 0,5 % ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V₁' = (0,5 × 100) / 4,8 = <strong>10,42 L</strong> (au lieu de 5,21).</p>
+    <p>Avec une solution mère 2 fois moins concentrée, il faut 2 fois plus de volume pour obtenir la même solution fille. Logique inverse de la concentration.</p>
+    <p><strong>Conséquence pratique :</strong> stocker plus de produit, vidanger plus d'eau de la cuve avant ajout. La règle reste C₁V₁ = C₂V₂, quelle que soit la concentration de départ.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>protocole de désinfection</strong> que Léo applique chez Mme Bernier, en mentionnant aussi les EPI et le rinçage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>EauPure — Protocole désinfection ECS · Mme Bernier (Marseille) — 7 mai 2026</strong><br>
+      • <strong>Préparation :</strong> 100 L de solution à 0,5 % de chlore actif. Prélever <strong>5,21 L d'eau de Javel à 9,6 %</strong>, ajouter <strong>94,8 L d'eau froide</strong> dans la cuve. Mélanger.<br>
+      • <strong>EPI :</strong> gants nitrile, lunettes, blouse. Local ventilé. Verser l'eau de Javel <strong>dans</strong> l'eau (pas l'inverse).<br>
+      • <strong>Application :</strong> remplir le ballon ECS et le circuit avec la solution. Laisser agir <strong>24 h</strong> sans usage de l'eau chaude.<br>
+      • <strong>Rinçage :</strong> vidanger entièrement, puis 3 rinçages avec eau claire (analyseur chlore résiduel &lt; 0,1 mg/L avant remise en service).<br>
+      • <strong>Mise en service :</strong> chauffer le ballon à 60 °C minimum (lutte anti-légionelle). Remettre une <strong>fiche de désinfection</strong> au client (à conserver 5 ans).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Léo doit aussi désinfecter régulièrement le réseau d'eau d'un <strong>immeuble de 30 logements</strong> (volume circuit ECS = 800 L, désinfection annuelle obligatoire en collectif). Calculer le volume d'eau de Javel à 9,6 % nécessaire pour 800 L à 0,5 %.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>V₁ = (0,5 × 800) / 9,6 = 400 / 9,6 ≈ <strong>41,7 L d'eau de Javel concentrée</strong>.</p>
+    <p>Volume d'eau à ajouter : 800 − 41,7 ≈ 758 L.</p>
+    <p>Cela représente une cuve de 1 m³ à manipuler et 8 bidons de 5 L d'eau de Javel commerciale. Logistique non négligeable pour les bailleurs.</p>
+    <p>En pratique, les sociétés spécialisées (Veolia, Suez) utilisent des doseurs en ligne qui injectent automatiquement la bonne concentration dans le circuit, sans préparation manuelle.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Loi de dilution :</strong> C₁ × V₁ = C₂ × V₂. La quantité de soluté est conservée.</li>
+    <li><strong>Volume mère :</strong> V₁ = (C₂ × V₂) / C₁. Ne pas se tromper de sens (V₁ &lt; V₂ toujours).</li>
+    <li><strong>Volume d'eau à ajouter :</strong> V<sub>eau</sub> = V₂ − V₁.</li>
+    <li><strong>Procédure sécurisée :</strong> verser le concentré <strong>dans</strong> l'eau (pas l'inverse), mélanger doucement, EPI obligatoires.</li>
+    <li><strong>Désinfection ECS :</strong> 0,4 à 1,0 % de chlore actif, 12-24 h d'action, puis rinçage abondant. Norme NF DTU 60.11.</li>
+    <li><strong>Concentration de la solution mère :</strong> influence directement le volume à prélever. Toujours vérifier l'étiquette du bidon.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §IV (Concentration) et §V (Dilution) de la leçon Ch09.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

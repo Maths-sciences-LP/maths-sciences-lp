@@ -1,7 +1,39 @@
 # Journal de bord du projet
 
 **Site :** https://maths-sciences-lp.github.io/
-**Dernière mise à jour :** 2026-05-02 (Ch06 ICCER : 6 activités complémentaires + fix MathJax 54 index.html + nouveau prompt)
+**Dernière mise à jour :** 2026-05-07 (relectures Ch09 maths 2nde + château d'eau ICCER + formalisation format manuel scolaire dans prompt-activite.md)
+
+---
+
+## Travail récent
+
+### Session 7 mai 2026 — Relectures, fixes et formalisation du format manuel scolaire
+
+**Périmètre** : relecture systématique des 4 activités du chapitre 9 maths Seconde (Fonction affine), correction de bugs trouvés, relecture et complétion de l'activité 2 château d'eau (PC Term ICCER Ch05), formalisation du format « manuel scolaire complet » dans `prompts/prompt-activite.md`.
+
+**Bugs corrigés sur Ch09 Maths 2nde** :
+- `exercices-capacites.html` (PR #426) : exo 14b orphelin entre cap-sections C6 et C7 (sans `data-cap` → toujours visible) replacé dans la C6. 2 SVG dupliqués supprimés (C3 et C6 Ex 13).
+- `activite.html` (PR #426) : SVG erroné — pentes des droites D(h)=45h+60 et M(h)=40h+90 mal calculées (`x2="330"` mais `y2="118"` correspondait à h=6). Recalcul des `y2` à 100 (D) et 102 (M) pour que les droites passent par le point d'intersection (290, 118). Ajout du timestamp manquant.
+- `activite-4-salaire-variable.html` (PR #427) : 3 balises `<li</li>` malformées (lignes 208, 221, 235) corrigées.
+- `activite-2-tarif-taxi.html` et `activite-3-couts-eclairage.html` : relus, aucun problème.
+
+**Complétion de `physique-chimie/terminale-iccer/ch05/activite-2-chateau-eau.html`** :
+- Activité créée précédemment au format manuel scolaire **incomplet** : 7 questions au lieu de 8, pas de bonus, pas de ref leçon finale, badge COM en jaune.
+- Corrections : ajout d'une 8ᵉ question (ANA — pression au 9ᵉ étage et nécessité d'un suppresseur), ajout d'un encadré bonus (pression au fond d'une piscine et du lac Léman), ajout de la ref leçon `📚 §2 + §3 de la leçon Ch05`, passage du badge Q7 (devenue Q8 COM) en `badge-red`, ajout de la classe CSS `.bonus` au style inline, mise à jour du timestamp.
+
+**Formalisation du format « manuel scolaire complet »** dans `prompts/prompt-activite.md` :
+- Nouvelle section dédiée aux **activités secondaires** (`activite-2/3/4-...html`) qui suivent un format unifié et imprimable, distinct de l'activité de découverte principale plus libre.
+- Spécifications obligatoires : timestamp, bouton imprimer, badge SITUATION PRO, persona avec prénom + métier réel, Doc 1 (SVG) + Doc 2 (données), problématique encadrée, **8 questions** APP/REA/ANA/VAL/COM, lignes-réponse imprimables (`<ul class="lignes-reponse">`), bonus encadré jaune (`.bonus`), À retenir avec ref leçon finale.
+- Style CSS `.bonus` inline obligatoire documenté.
+- Checklist spécifique ajoutée (incluant la vérification `grep '<li</li>'` pour les balises malformées récurrentes).
+
+**Bilan des activités au format manuel scolaire** créées lors des sessions précédentes (récap pour traçabilité) :
+- **PC Seconde Ch01–Ch14** : 42 activités secondaires (3 par chapitre)
+- **Maths 1ère Ch01–Ch09** : 27 activités secondaires (3 par chapitre)
+- **Maths CAP Ch01–Ch07** : 21 activités secondaires (3 par chapitre)
+- Total : **90 activités secondaires** au format manuel scolaire complet
+
+**PR** : #426 (mergée — fix Ch09 maths 2nde activite + exercices-capacites), #427 (mergée — fix activite-4 salaire-variable).
 
 ---
 

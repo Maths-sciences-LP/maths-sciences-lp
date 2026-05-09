@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité 3 – Diagnostic d'un pont thermique – 1ère ERA-MA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-erama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Diagnostic d'un pont thermique en MOB <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 5 – Minimiser les transferts thermiques | 1ère Bac Pro ERA-MA (Grpt 3) | Physique – Thermique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Identifier les ponts thermiques d'une construction MOB</li>
+    <li>Calculer la perte d'énergie due à un pont thermique</li>
+    <li>Comparer plusieurs solutions de traitement</li>
+    <li>Choisir la solution adaptée au budget</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a>. Pont thermique = zone où R local est inférieur au R nominal de la paroi. Perte locale supplémentaire.
+</p>
+
+<div class="situation">
+  <h2>Situation – diagnostic thermographie chez M. Diallo</h2>
+  <p><em>Camille, technicienne énergétique, fait une thermographie chez M. Diallo (maison MOB de 4 ans). Elle détecte des <strong>ponts thermiques</strong> autour des fenêtres et au niveau de la jonction mur/toit. M. Diallo se plaint de courants d'air froid l'hiver. Camille doit chiffrer l'impact et proposer des solutions.</em></p>
+
+  <h3>Document 1 — Mesures thermographiques de Camille</h3>
+  <ul>
+    <li>Mur courant : T<sub>intérieur surface</sub> = 18 °C (avec ambiant 20 °C)</li>
+    <li>Pont thermique en angle de fenêtre : T<sub>intérieur</sub> = <strong>14 °C</strong> (4 °C de moins, écart anormal)</li>
+    <li>Surface totale ponts thermiques mesurée : <strong>6 m²</strong> (jonctions, encadrements)</li>
+    <li>R nominal mur : <strong>4 m²·K/W</strong>, R local pont thermique : <strong>1,2 m²·K/W</strong></li>
+    <li>ΔT moyen ext-int en hiver : 12 °C, saison de chauffe 5 000 h, tarif 0,11 €/kWh PCI gaz, η chaudière 95 %.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel est le surcoût annuel des ponts thermiques chez M. Diallo, et quelles solutions Camille peut-elle proposer ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>flux thermique perdu</strong> par les 6 m² de ponts thermiques, et la <strong>perte théorique</strong> si ces zones avaient le R nominal.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Φ<sub>pont</sub> = S × ΔT / R<sub>local</sub> = 6 × 12 / 1,2 = <strong>60 W</strong>.</p>
+    <p>Φ<sub>nominal</sub> (si bonne isolation) = 6 × 12 / 4 = <strong>18 W</strong>.</p>
+    <p>Surperte : 60 − 18 = <strong>42 W</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>énergie supplémentaire perdue annuellement</strong> à cause des ponts thermiques.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>E = 42 × 5 000 / 1 000 = <strong>210 kWh/an</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>surcoût financier</strong> annuel.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>210 / 0,95 × 0,11 ≈ <strong>24 €/an</strong>.</p>
+    <p>Sur 30 ans (durée habitat) : ≈ 720 € de gaspillage.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Outre la perte énergétique, quels <strong>autres problèmes</strong> les ponts thermiques causent-ils ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>Sensation d'inconfort</strong> : surfaces froides perçues comme « courants d'air » même sans courant.</li>
+      <li><strong>Condensation</strong> : air chaud humide rencontre surface froide → goutte d'eau → moisissures, taches.</li>
+      <li><strong>Détérioration matériaux</strong> : humidité gonfle le bois, corrode les fixations.</li>
+      <li><strong>Risques santé</strong> : moisissures = problèmes respiratoires.</li>
+      <li><strong>Image négative</strong> du logement, valeur immobilière réduite.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-yellow">REA</span></h2>
+  <p>Camille propose 3 traitements pour les ponts thermiques :</p>
+  <ul>
+    <li>(a) Doublage intérieur 40 mm laine de verre : 200 €</li>
+    <li>(b) Mousse PU projetée 30 mm : 350 €</li>
+    <li>(c) ITE (isolation thermique par l'extérieur) localisée : 600 €</li>
+  </ul>
+  <p>Calculer le retour sur investissement (ROI) de chaque option.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Économie annuelle estimée (suppression du pont thermique) : ~ 24 €/an.</p>
+    <ul>
+      <li>(a) 200/24 ≈ <strong>8 ans</strong>. Doublage simple, masque possibles dégradations.</li>
+      <li>(b) 350/24 ≈ <strong>15 ans</strong>. Travail rapide mais coûteux et peu écolo.</li>
+      <li>(c) 600/24 ≈ <strong>25 ans</strong>. Trop long, mais traite radicalement.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">VAL</span></h2>
+  <p>Le ROI semble long pour 24 €/an d'économies. Pourquoi traiter quand même les ponts thermiques ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'économie d'énergie n'est <strong>qu'un argument secondaire</strong> ! Les vraies raisons :</p>
+    <ul>
+      <li><strong>Confort</strong> : disparition des sensations froides, du « jamais chaud ».</li>
+      <li><strong>Hygiène</strong> : disparition des condensations et moisissures.</li>
+      <li><strong>Conservation du bâti</strong> : pas de dégradation locale du bois et plâtre.</li>
+      <li><strong>Valeur immobilière</strong> : diagnostic amélioré, attractivité du bien.</li>
+    </ul>
+    <p>Le ROI seul est un mauvais critère. Décision = qualité de vie.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">ANA</span></h2>
+  <p>Combien d'<strong>euros sur 30 ans</strong> Camille peut-elle annoncer (énergie + valeur immobilière) ? Estimer.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie : 30 × 24 = 720 €.</p>
+    <p>Valeur immobilière : un logement « sans pont thermique, DPE A » est vendu environ <strong>5-10 % plus cher</strong> qu'un B. Sur 250 000 € de bien : 12 500 à 25 000 € de plus-value.</p>
+    <p>Coût intervention : 200 € (option a). Bénéfice total : facile &gt; 10 000 €. ROI sur la valorisation immobilière, pas sur les économies d'énergie pures.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>rapport de diagnostic</strong> que Camille remet à M. Diallo.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>DiagThermo Camille — Diagnostic ponts thermiques · M. Diallo · 7 mai 2026</strong><br>
+      • <strong>Constat thermographique</strong> : 6 m² de ponts thermiques détectés (encadrements fenêtres, jonction mur/toit).<br>
+      • <strong>Surcoût énergétique</strong> : 210 kWh/an, soit ≈ 24 €/an. Sur 30 ans : 720 €.<br>
+      • <strong>Vrai problème</strong> : risque de condensation et moisissures, inconfort hivernal, dégradation du bois.<br>
+      • <strong>Recommandation</strong> : traitement par doublage intérieur 40 mm laine de verre (200 € HT). Solution simple, ROI confort &lt; 1 an.<br>
+      • <strong>Bénéfices indirects</strong> : valorisation immobilière (DPE amélioré), suppression sensation courants d'air, qualité de l'air (pas de moisissures).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>L'<strong>isolation par l'extérieur (ITE)</strong> élimine les ponts thermiques en <strong>enrobant la totalité du bâti</strong>. Pourquoi est-ce supérieur à l'isolation par l'intérieur (ITI) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>L'ITE place l'isolant <strong>à l'extérieur</strong> de l'ossature, qui est ainsi protégée du froid → plus de pont thermique.</li>
+      <li>La masse intérieure (mur béton, ossature) reste à T ambiante → meilleure inertie thermique.</li>
+      <li>Aucune perte de surface habitable (vs ITI qui prend 5-10 cm intérieur).</li>
+      <li>Travaux sans déranger les habitants (extérieur).</li>
+    </ul>
+    <p>Inconvénient : modification de l'aspect extérieur (à valider en zone classée). Surcoût ≈ 30 % vs ITI.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Pont thermique :</strong> zone d'une paroi où R local est plus faible → flux thermique local accru.</li>
+    <li><strong>Localisations typiques :</strong> jonctions mur/toit, mur/sol, encadrements de fenêtres, ossature bois MOB, balcons.</li>
+    <li><strong>Calcul :</strong> Φ<sub>pont</sub> = S × ΔT / R<sub>local</sub>. Surperte = Φ<sub>pont</sub> − Φ<sub>nominal</sub>.</li>
+    <li><strong>Conséquences :</strong> énergie + condensation + moisissures + dégradation matériaux.</li>
+    <li><strong>Solutions :</strong> rupteur thermique, doublage intérieur, ITE.</li>
+    <li><strong>ITE</strong> : élimine quasiment tous les ponts thermiques mais coût et démarche plus lourds.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur les notions de R, ponts thermiques et stratégies d'isolation de la leçon Ch05.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

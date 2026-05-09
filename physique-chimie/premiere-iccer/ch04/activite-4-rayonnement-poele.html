@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité 4 – Rayonnement d'un poêle à granulés – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Rayonnement thermique d'un poêle à granulés <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 4 – Transferts thermiques | 1ère Bac Pro ICCER (Grpt 1) | Physique – Thermique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Distinguer rayonnement, conduction et convection</li>
+    <li>Convertir une température de °C en K</li>
+    <li>Appliquer la loi de Stefan-Boltzmann pour calculer un flux radiatif</li>
+    <li>Comprendre l'effet de l'émissivité ε et de la couleur d'un radiateur</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §3 (rayonnement thermique). Loi de Stefan : \(\Phi = \varepsilon \cdot \sigma \cdot S \cdot (T_{\text{chaud}}^4 - T_{\text{froid}}^4)\), avec σ = 5,67 × 10⁻⁸ W/(m²·K⁴) et ε émissivité (0 à 1).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – installation d'un poêle à granulés chez Mme Roussel</h2>
+  <p><em>Léa, conseillère en énergies renouvelables chez « Bois Énergie 49 » à Angers, vient de poser un poêle à granulés MCZ Boxtherm dans le séjour de Mme Roussel (40 m²). Le poêle est censé fournir 8 kW de puissance. Léa veut expliquer à sa cliente <strong>comment cette chaleur arrive concrètement dans la pièce</strong> (rayonnement direct + convection naturelle), et calculer la part de chacun pour bien placer le poêle dans la pièce.</em></p>
+
+  <h3>Document 1 — Caractéristiques du poêle MCZ Boxtherm</h3>
+  <ul>
+    <li>Puissance nominale totale : <strong>P_total = 8 000 W</strong></li>
+    <li>Surface de façade chaude (acier peint noir mat) : <strong>S = 0,80 m²</strong></li>
+    <li>Température de la façade en régime nominal : <strong>T<sub>façade</sub> = 200 °C</strong></li>
+    <li>Émissivité de la peinture noire mate : <strong>ε = 0,90</strong> (sans unité)</li>
+    <li>Température de l'air et des murs de la pièce : <strong>T<sub>pièce</sub> = 20 °C</strong></li>
+    <li>Constante de Stefan-Boltzmann : σ = <strong>5,67 × 10⁻⁸ W/(m²·K⁴)</strong></li>
+  </ul>
+
+  <h3>Document 2 — Les 3 modes de transfert thermique du poêle</h3>
+  <table>
+    <thead>
+      <tr><th>Mode</th><th>Description</th><th>Distance d'efficacité</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Rayonnement</strong> infrarouge</td><td>La façade chaude émet des ondes IR qui chauffent directement les objets et les personnes en face, sans chauffer l'air entre.</td><td>Tout le champ visible du poêle (jusqu'à plusieurs mètres)</td></tr>
+      <tr><td><strong>Convection</strong> naturelle</td><td>L'air chaud au-dessus du poêle monte, brasse la pièce, redescend froid sur les murs extérieurs.</td><td>Toute la pièce, mais lente (nécessite plusieurs minutes)</td></tr>
+      <tr><td><strong>Conduction</strong></td><td>Chaleur transmise au sol et à la cheminée par contact direct. Faible part.</td><td>Quelques cm autour du poêle</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Schéma du poêle et de ses transferts thermiques</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 280" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma d'un poêle à granulés posé dans un séjour. Le poêle est à 200°C en façade. Des flèches orange en éventail montrent le rayonnement infrarouge émis vers les meubles et les personnes en face. Au-dessus du poêle, des flèches montantes indiquent la convection naturelle (air chaud monte). Une personne assise à 2 m reçoit la chaleur par rayonnement direct et indirectement par l'air ambiant.">
+      <defs>
+        <radialGradient id="ray4">
+          <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#fef3c7" stop-opacity="0"/>
+        </radialGradient>
+        <style>
+          .ti4ray{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl4ray{font:11px sans-serif;fill:#1a202c}
+          .lblR4ray{font:700 12px sans-serif;fill:#b91c1c}
+        </style>
+      </defs>
+
+      <text class="ti4ray" x="350" y="22">Poêle à granulés — rayonnement IR + convection</text>
+
+      <!-- Pièce -->
+      <rect x="20" y="40" width="660" height="220" fill="#fef9c3" opacity=".3" stroke="#92400e" stroke-width="1.5"/>
+      <text class="lbl4ray" x="350" y="55" text-anchor="middle" font-style="italic" fill="#92400e">Séjour 40 m² · 20 °C</text>
+
+      <!-- Aura rayonnement -->
+      <ellipse cx="120" cy="180" rx="150" ry="80" fill="url(#ray4)"/>
+
+      <!-- Poêle -->
+      <rect x="60" y="140" width="100" height="100" fill="#1f2937" stroke="#000" stroke-width="2" rx="3"/>
+      <!-- Vitre flammes -->
+      <rect x="75" y="160" width="70" height="60" fill="#f59e0b" stroke="#7c2d12" stroke-width="1.5" rx="2"/>
+      <path d="M 88,210 Q 92,195 96,210 Q 100,193 104,210 Q 108,195 112,210 Q 116,200 120,210 Q 125,195 130,210 Z" fill="#dc2626" stroke="#7c2d12"/>
+      <text class="lbl4ray" x="110" y="252" text-anchor="middle" font-weight="bold" fill="#1f2937">Poêle MCZ</text>
+      <text class="lbl4ray" x="110" y="265" text-anchor="middle" font-size="9" fill="#dc2626">façade 200 °C</text>
+
+      <!-- Flèches rayonnement (en éventail) -->
+      <line x1="170" y1="190" x2="280" y2="120" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrIR)"/>
+      <line x1="170" y1="190" x2="320" y2="160" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrIR)"/>
+      <line x1="170" y1="190" x2="350" y2="200" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrIR)"/>
+      <line x1="170" y1="190" x2="320" y2="240" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrIR)"/>
+      <line x1="170" y1="190" x2="280" y2="260" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrIR)"/>
+      <text class="lbl4ray" x="240" y="155" font-size="10" fill="#b45309" font-weight="bold" font-style="italic">rayonnement IR</text>
+
+      <!-- Convection : flèches montantes au-dessus -->
+      <path d="M 80 130 Q 80 100 80 75" stroke="#dc2626" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrUp4)"/>
+      <path d="M 110 130 Q 110 100 110 70" stroke="#dc2626" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrUp4)"/>
+      <path d="M 140 130 Q 140 100 140 75" stroke="#dc2626" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrUp4)"/>
+      <text class="lbl4ray" x="110" y="65" text-anchor="middle" font-size="10" fill="#7f1d1d" font-style="italic">convection (air chaud)</text>
+
+      <!-- Personne assise sur fauteuil -->
+      <rect x="430" y="180" width="100" height="60" fill="#ddd6fe" stroke="#5b21b6" stroke-width="1.5" rx="6"/>
+      <circle cx="480" cy="170" r="14" fill="#fde68a" stroke="#b45309"/>
+      <rect x="465" y="180" width="30" height="40" fill="#7c3aed"/>
+      <text class="lbl4ray" x="480" y="255" text-anchor="middle" font-size="10" font-style="italic">personne (à 2 m)</text>
+      <text class="lbl4ray" x="480" y="270" text-anchor="middle" font-size="9" fill="#7c3aed">reçoit chaleur par IR + air</text>
+
+      <!-- Cote distance -->
+      <line x1="170" y1="220" x2="430" y2="220" stroke="#475569" stroke-width="1" stroke-dasharray="3,2"/>
+      <text class="lbl4ray" x="300" y="215" text-anchor="middle" font-size="9" fill="#475569">≈ 2 m</text>
+
+      <defs>
+        <marker id="arrIR" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="#f59e0b"/>
+        </marker>
+        <marker id="arrUp4" markerWidth="8" markerHeight="8" refX="4" refY="0" orient="auto">
+          <polygon points="0,8 4,0 8,8" fill="#dc2626"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle puissance Mme Roussel reçoit-elle par rayonnement infrarouge depuis la façade du poêle, et que représente cette part par rapport à la puissance totale de 8 000 W ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Convertir les températures du Doc 1 en <strong>kelvins (K)</strong>, sachant que T(K) = T(°C) + 273.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>T<sub>façade</sub> = 200 + 273 = <strong>473 K</strong></li>
+      <li>T<sub>pièce</sub> = 20 + 273 = <strong>293 K</strong></li>
+    </ul>
+    <p>La loi de Stefan-Boltzmann <strong>impose des températures absolues en kelvins</strong> (jamais en °C), car elle utilise des puissances 4 — un calcul en °C donnerait un résultat absurde.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer T<sub>façade</sub>⁴ et T<sub>pièce</sub>⁴, puis leur différence (T<sub>chaud</sub>⁴ − T<sub>froid</sub>⁴).</p>
+  <p><em>Astuce : utiliser une calculatrice scientifique. 473⁴ ≈ 5,01 × 10¹⁰ et 293⁴ ≈ 7,37 × 10⁹.</em></p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>473⁴ = 5,01 × 10¹⁰ K⁴ (≈ 50 milliards)</p>
+    <p>293⁴ = 7,37 × 10⁹ K⁴ (≈ 7,4 milliards)</p>
+    <p>Différence : 5,01 × 10¹⁰ − 0,737 × 10¹⁰ ≈ <strong>4,27 × 10¹⁰ K⁴</strong></p>
+    <p>La différence est dominée par la température chaude (la T froide compte peu en puissance 4) — c'est pourquoi le rayonnement augmente très vite avec T<sub>chaud</sub>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Appliquer la <strong>loi de Stefan-Boltzmann</strong> pour calculer la puissance rayonnée Φ par la façade du poêle :</p>
+  <p style="text-align:center;font-size:1.1em">\(\Phi = \varepsilon \cdot \sigma \cdot S \cdot (T_{\text{chaud}}^4 - T_{\text{froid}}^4)\)</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Φ = 0,90 × (5,67 × 10⁻⁸) × 0,80 × (4,27 × 10¹⁰)</p>
+    <p>Φ = 0,90 × 5,67 × 0,80 × 4,27 × 10⁻⁸⁺¹⁰</p>
+    <p>Φ = 17,42 × 10² ≈ <strong>1 740 W</strong></p>
+    <p>La façade rayonne donc environ <strong>1 740 W</strong> sous forme d'infrarouges.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Comparer la puissance rayonnée (1 740 W) à la puissance totale du poêle (8 000 W). Quel pourcentage de l'énergie est transmis par <strong>rayonnement direct</strong> ? Et par <strong>convection</strong> (le reste, en supposant la conduction négligeable) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Part rayonnement : 1 740 / 8 000 ≈ <strong>22 %</strong></p>
+    <p>Part convection : 100 % − 22 % ≈ <strong>78 %</strong> (l'air chaud qui circule dans la pièce)</p>
+    <p>L'essentiel de la chaleur est donc distribué par convection (l'air monte, brasse, redescend). Le rayonnement direct concerne surtout les objets et personnes <strong>en face du poêle</strong>, qui ressentent une chaleur immédiate (comme un soleil intérieur).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Que se passe-t-il si Mme Roussel choisit un <strong>poêle à inertie</strong> qui n'atteint que <strong>120 °C</strong> en façade (au lieu de 200 °C) ? Recalculer la puissance rayonnée. Conclure sur l'effet de la température.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>T<sub>façade</sub> = 120 + 273 = 393 K. 393⁴ ≈ 2,39 × 10¹⁰</p>
+    <p>(T<sub>chaud</sub>⁴ − T<sub>pièce</sub>⁴) = 2,39 × 10¹⁰ − 0,737 × 10¹⁰ ≈ 1,65 × 10¹⁰</p>
+    <p>Φ = 0,90 × 5,67 × 10⁻⁸ × 0,80 × 1,65 × 10¹⁰ ≈ <strong>673 W</strong></p>
+    <p>À 120 °C la puissance rayonnée tombe à <strong>673 W</strong> au lieu de 1 740 W (× 0,39).</p>
+    <p>Conclusion : la puissance rayonnée varie énormément avec la température (en T⁴). Doubler T (en K) multiplie le rayonnement par 16 ! D'où l'importance pour un poêle d'avoir une façade chaude (≥ 150 °C) si on veut bénéficier du rayonnement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>L'<strong>émissivité ε</strong> de la peinture noire mate est de 0,90. Pour de la <strong>peinture chromée brillante</strong>, ε ≈ 0,10. Recalculer la puissance rayonnée si Mme Roussel avait choisi un poêle chromé. Pourquoi les poêles sont-ils peints en noir mat ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Φ<sub>chromé</sub> = (0,10 / 0,90) × 1 740 ≈ <strong>193 W</strong></p>
+    <p>Un poêle chromé rayonnerait <strong>9 fois moins</strong> que le poêle noir mat ! L'énergie reste « bloquée » à l'intérieur, le poêle deviendrait surchauffé à l'intérieur et risquerait de rayer ses joints.</p>
+    <p>C'est pourquoi les poêles, radiateurs, fers à repasser, etc. sont presque tous peints en <strong>noir mat ou couleur sombre</strong> : pour maximiser ε et donc le rayonnement vers l'extérieur. Inversement, l'<strong>aluminium poli (ε = 0,05)</strong> est utilisé pour les <strong>réflecteurs</strong> derrière des radiateurs : il réfléchit la chaleur sans la rayonner lui-même.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Mme Roussel hésite entre placer son poêle <strong>contre un mur</strong> (1 face rayonnante visible) ou <strong>au centre de la pièce</strong> (4 faces visibles). Quelle position maximise la chaleur ressentie ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Au <strong>centre de la pièce</strong>, les 4 façades du poêle rayonnent vers les 4 directions. Si la surface totale rayonnante est par exemple 4 × 0,80 = 3,20 m² (au lieu de 0,80), la puissance rayonnée est multipliée par 4 → <strong>~ 7 000 W</strong> au total.</p>
+    <p>En pratique :</p>
+    <ul>
+      <li>Poêle au mur : 1 face rayonne, ~ 1 740 W direct vers la pièce, mais 3 faces gaspillées contre/dans le mur.</li>
+      <li>Poêle central (poêle de masse, scandinave) : rendement maximal, mais nécessite une cheminée traversant le plafond.</li>
+    </ul>
+    <p>Compromis pratique : poêle dans un <strong>angle ou contre un mur intérieur</strong> (pas mur extérieur, sinon le rayonnement chauffe le mur extérieur pour rien).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note explicative</strong> que Léa remet à Mme Roussel :</p>
+  <ul>
+    <li>répartition des 8 kW par mode de transfert</li>
+    <li>recommandation pour la position du poêle</li>
+    <li>conseil sur la couleur et l'entretien</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Bois Énergie 49 — Note technique pour Mme Roussel (Angers) — 7 mai 2026</strong><br>
+      • Votre poêle MCZ Boxtherm 8 kW délivre la chaleur par <strong>2 modes</strong> : ~ 22 % par <strong>rayonnement infrarouge</strong> (1 740 W) directement vers les meubles et personnes en face, et ~ 78 % par <strong>convection</strong> (l'air chaud qui circule dans la pièce).<br>
+      • <strong>Position recommandée :</strong> dans un angle, contre un mur intérieur (pas extérieur) pour ne pas gaspiller le rayonnement à chauffer la rue. Idéal : façade orientée vers le canapé / coin repas.<br>
+      • <strong>Couleur :</strong> noir mat (déjà choisi) — émissivité 0,90, optimale. Ne pas peindre le poêle en couleur claire ou métallique : la chaleur resterait piégée à l'intérieur.<br>
+      • <strong>Entretien :</strong> dépoussiérer la façade hebdomadairement (la poussière forme une couche isolante qui réduit le rayonnement). Ramonage 2 ×/an obligatoire.<br>
+      • <strong>Astuce :</strong> placer un <strong>réflecteur en aluminium poli</strong> derrière le poêle si mur extérieur inévitable, pour renvoyer le rayonnement vers la pièce.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Comparer la puissance rayonnée par le poêle (1 740 W) à celle rayonnée par <strong>un être humain au repos</strong> (température peau ≈ 33 °C, surface peau ≈ 1,8 m², ε peau ≈ 0,98). Calculer la puissance que la peau rayonne dans une pièce à 20 °C, et expliquer pourquoi on a froid au cinéma malgré 100 personnes dans la salle.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>T<sub>peau</sub> = 33 + 273 = 306 K. 306⁴ ≈ 8,77 × 10⁹.</p>
+    <p>Différence : 8,77 × 10⁹ − 7,37 × 10⁹ = 1,40 × 10⁹.</p>
+    <p>Φ = 0,98 × 5,67 × 10⁻⁸ × 1,8 × 1,40 × 10⁹ ≈ <strong>140 W</strong> par personne.</p>
+    <p>100 personnes au cinéma rayonnent ≈ 14 000 W = 14 kW vers les murs et les autres spectateurs. C'est plus que 2 poêles à granulés ! Mais on a quand même froid car :</p>
+    <ul>
+      <li>Le rayonnement va dans toutes les directions et est dispersé sur les murs/sol/plafond (grands volumes).</li>
+      <li>L'air n'est presque pas chauffé directement par le rayonnement (l'air est transparent aux IR thermiques).</li>
+      <li>Notre propre corps perd 140 W qu'il faut compenser, le ressenti dépend de l'air ambiant.</li>
+    </ul>
+    <p>Conclusion : le rayonnement humain existe, mais le confort dépend d'abord de la température de l'air et de l'humidité.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Rayonnement thermique :</strong> émission d'ondes électromagnétiques (infrarouges) par tout corps de température T &gt; 0 K. Pas besoin de matière pour se propager (vide possible — c'est ainsi que le Soleil chauffe la Terre).</li>
+    <li><strong>Loi de Stefan-Boltzmann :</strong> \(\Phi = \varepsilon \cdot \sigma \cdot S \cdot (T_{\text{chaud}}^4 - T_{\text{froid}}^4)\). Températures en kelvins obligatoirement.</li>
+    <li><strong>Constante de Stefan :</strong> σ = 5,67 × 10⁻⁸ W/(m²·K⁴).</li>
+    <li><strong>Émissivité ε :</strong> sans unité, comprise entre 0 et 1. Corps noir parfait : ε = 1. Aluminium poli : ε ≈ 0,05. Peinture mate : ε ≈ 0,9.</li>
+    <li><strong>Importance de la température :</strong> Φ varie en T⁴ → multiplier T (en K) par 2 multiplie le rayonnement par 16. Petites variations de T<sub>chaud</sub> = grosses variations de Φ.</li>
+    <li><strong>Application :</strong> radiateurs et poêles sont peints en noir mat pour maximiser ε. Les réflecteurs derrière les radiateurs sont en aluminium poli (ε faible) pour ne pas absorber l'IR.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Rayonnement thermique) et §4 (Comparaison des trois modes) de la leçon Ch04.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

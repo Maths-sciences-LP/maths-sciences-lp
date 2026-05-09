@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité 4 – Vitesse moyenne sur une tournée – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Vitesse moyenne sur une tournée de livraison <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 5 – Vitesse et accélération | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la durée d'un trajet à vitesse connue : t = d / v</li>
+    <li>Comprendre la différence entre « vitesse moyenne sur un trajet composite » et « moyenne arithmétique des vitesses »</li>
+    <li>Appliquer la formule \(v_{\text{moy}} = d_{\text{totale}} / t_{\text{total}}\)</li>
+    <li>Optimiser un planning de tournée professionnelle</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §1 (vitesse moyenne) et §3 (mouvement rectiligne uniforme par tronçons). Sur un trajet composite : \(v_{\text{moy}} = \dfrac{d_1 + d_2 + d_3 + \ldots}{t_1 + t_2 + t_3 + \ldots}\).
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – tournée du matin pour Lucas</h2>
+  <p><em>Lucas, livreur de chaudières chez « Atlantic » à Bordeaux, doit livrer 3 clients en une matinée. Il quitte le dépôt à 8h00 et veut estimer son heure d'arrivée chez chaque client. Il connaît les distances et les vitesses moyennes habituelles selon le type de route. Il doit aussi remplir son carnet de bord avec la vitesse moyenne globale de sa tournée.</em></p>
+
+  <h3>Document 1 — Détail des 3 trajets de la tournée du matin</h3>
+  <table>
+    <thead>
+      <tr><th>Tronçon</th><th>Type de route</th><th>Distance</th><th>Vitesse moyenne</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Dépôt → Client A (M. Boucher)</td><td>Autoroute A10</td><td>40 km</td><td>110 km/h</td></tr>
+      <tr><td>Client A → Client B (Mme Lefèvre)</td><td>Route départementale</td><td>15 km</td><td>75 km/h</td></tr>
+      <tr><td>Client B → Client C (M. Diallo)</td><td>Centre-ville Bordeaux</td><td>5 km</td><td>30 km/h</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Données complémentaires</h3>
+  <ul>
+    <li>Heure de départ du dépôt : <strong>8 h 00</strong></li>
+    <li>Temps de pause / livraison chez chaque client : 20 min (déchargement + signature)</li>
+    <li>Conversion : 1 h = 60 min, 1 km/h = 1/3,6 m/s</li>
+  </ul>
+
+  <h3>Document 3 — Carte schématique de la tournée</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 240" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Carte de la tournée. Le dépôt est en haut à gauche. Une autoroute mène au client A (bas-droite) sur 40 km. Du client A, une route départementale mène au client B sur 15 km. Du client B, en centre-ville, une route urbaine mène au client C sur 5 km. La distance totale est de 60 km.">
+      <defs>
+        <style>
+          .ti5t{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl5t{font:11px sans-serif;fill:#1a202c}
+          .lblB5t{font:700 11px sans-serif;fill:#1d4ed8}
+          .stop{fill:#fef3c7;stroke:#92400e;stroke-width:2}
+          .start{fill:#dcfce7;stroke:#16a34a;stroke-width:2.5}
+          .end{fill:#fee2e2;stroke:#dc2626;stroke-width:2.5}
+        </style>
+      </defs>
+
+      <text class="ti5t" x="350" y="22">Tournée Atlantic — 3 clients en matinée</text>
+
+      <!-- Dépôt -->
+      <rect class="start" x="40" y="60" width="100" height="50" rx="8"/>
+      <text class="lbl5t" x="90" y="80" text-anchor="middle" font-weight="bold" fill="#15803d">DÉPÔT</text>
+      <text class="lbl5t" x="90" y="95" text-anchor="middle" font-size="9" fill="#15803d">départ 8 h 00</text>
+
+      <!-- Trajet 1 (autoroute) -->
+      <path d="M 140 85 L 280 165" stroke="#0969da" stroke-width="3"/>
+      <text class="lblB5t" x="200" y="110" text-anchor="middle">A10</text>
+      <text class="lbl5t" x="200" y="125" text-anchor="middle" font-size="10" fill="#0969da">40 km · 110 km/h</text>
+
+      <!-- Client A -->
+      <rect class="stop" x="280" y="160" width="100" height="50" rx="8"/>
+      <text class="lbl5t" x="330" y="180" text-anchor="middle" font-weight="bold" fill="#92400e">CLIENT A</text>
+      <text class="lbl5t" x="330" y="195" text-anchor="middle" font-size="9" fill="#92400e">M. Boucher</text>
+
+      <!-- Trajet 2 (départementale) -->
+      <path d="M 380 185 L 460 130" stroke="#16a34a" stroke-width="2.5"/>
+      <text class="lbl5t" x="430" y="170" text-anchor="middle" font-size="10" fill="#15803d">D1 · 15 km · 75 km/h</text>
+
+      <!-- Client B -->
+      <rect class="stop" x="460" y="105" width="100" height="50" rx="8"/>
+      <text class="lbl5t" x="510" y="125" text-anchor="middle" font-weight="bold" fill="#92400e">CLIENT B</text>
+      <text class="lbl5t" x="510" y="140" text-anchor="middle" font-size="9" fill="#92400e">Mme Lefèvre</text>
+
+      <!-- Trajet 3 (ville) -->
+      <path d="M 560 130 L 600 175" stroke="#b45309" stroke-width="2"/>
+      <text class="lbl5t" x="600" y="125" text-anchor="middle" font-size="10" fill="#b45309">centre-ville</text>
+      <text class="lbl5t" x="600" y="138" text-anchor="middle" font-size="10" fill="#b45309">5 km · 30 km/h</text>
+
+      <!-- Client C -->
+      <rect class="end" x="570" y="170" width="100" height="50" rx="8"/>
+      <text class="lbl5t" x="620" y="190" text-anchor="middle" font-weight="bold" fill="#b91c1c">CLIENT C</text>
+      <text class="lbl5t" x="620" y="205" text-anchor="middle" font-size="9" fill="#b91c1c">M. Diallo</text>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> À quelle heure Lucas terminera-t-il sa tournée ? Quelle est sa vitesse moyenne globale, et pourquoi est-elle plus faible que la moyenne des vitesses des 3 tronçons ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la <strong>durée</strong> de chacun des 3 tronçons (en heures puis en minutes), à l'aide de la formule \(t = d / v\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Tronçon 1 : t₁ = 40 / 110 ≈ 0,364 h ≈ <strong>21,8 min</strong> (≈ 22 min)</li>
+      <li>Tronçon 2 : t₂ = 15 / 75 = 0,200 h = <strong>12 min</strong></li>
+      <li>Tronçon 3 : t₃ = 5 / 30 ≈ 0,167 h ≈ <strong>10 min</strong></li>
+    </ul>
+    <p>Astuce : pour passer h → min, on multiplie par 60.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>durée totale de roulage</strong> (sans les pauses) puis la <strong>durée totale de la tournée</strong> en ajoutant 2 pauses livraisons de 20 min (chez A et B, pas chez C qui est l'arrivée).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Durée roulage : 22 + 12 + 10 = <strong>44 min</strong></p>
+    <p>Pauses : 2 × 20 = 40 min</p>
+    <p>Durée totale tournée : 44 + 40 = <strong>84 min ≈ 1 h 24 min</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>En déduire l'<strong>heure d'arrivée prévue</strong> chez chacun des 3 clients (départ dépôt à 8h00).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Arrivée chez A : 8h00 + 22 min = <strong>8h22</strong></li>
+      <li>Départ chez A : 8h22 + 20 min = 8h42</li>
+      <li>Arrivée chez B : 8h42 + 12 min = <strong>8h54</strong></li>
+      <li>Départ chez B : 8h54 + 20 min = 9h14</li>
+      <li>Arrivée chez C : 9h14 + 10 min = <strong>9h24</strong></li>
+    </ul>
+    <p>Lucas finira sa tournée à 9h24, soit après <strong>1h24</strong> de tournée totale (44 min de route + 40 min de pause).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>distance totale</strong> de la tournée et la <strong>vitesse moyenne de roulage</strong> (sur la durée 44 min de roulage uniquement) :</p>
+  <p style="text-align:center;font-size:1.1em">\(v_{\text{moy}} = \dfrac{d_1 + d_2 + d_3}{t_1 + t_2 + t_3}\)</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Distance totale : 40 + 15 + 5 = <strong>60 km</strong></p>
+    <p>Durée roulage : 44 min = 44 / 60 ≈ 0,733 h</p>
+    <p>v<sub>moy roulage</sub> = 60 / 0,733 ≈ <strong>81,8 km/h</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>moyenne arithmétique</strong> des 3 vitesses : (110 + 75 + 30) / 3. Comparer avec la vitesse moyenne calculée en Q4 (81,8 km/h).</p>
+  <p>Pourquoi les 2 valeurs sont-elles différentes ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Moyenne arithmétique : (110 + 75 + 30) / 3 = 215 / 3 ≈ <strong>71,7 km/h</strong></p>
+    <p>Vitesse moyenne réelle : <strong>81,8 km/h</strong> (donc plus rapide que la moyenne arithmétique).</p>
+    <p>Pourquoi cette différence ? Parce que les 3 tronçons n'ont pas la même longueur :</p>
+    <ul>
+      <li>40 km à 110 km/h dominent dans le calcul (gros pourcentage de la distance)</li>
+      <li>5 km à 30 km/h ne pèsent que peu</li>
+    </ul>
+    <p><strong>Règle :</strong> la vitesse moyenne réelle est <em>pondérée par la distance (ou la durée)</em>, pas une simple moyenne. On peut la voir comme une « moyenne pondérée par les distances ».</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>vitesse moyenne globale de la tournée</strong> (en incluant les pauses dans la durée totale 84 min). Pourquoi est-elle bien plus faible que 81,8 km/h ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Durée totale : 84 min = 84/60 = 1,4 h.</p>
+    <p>v<sub>moy globale</sub> = 60 / 1,4 ≈ <strong>42,9 km/h</strong>.</p>
+    <p>Cette valeur est très différente de 81,8 km/h car elle inclut les <strong>40 min de pauses</strong> où Lucas ne roule pas (vitesse = 0). En entreprise, c'est cette vitesse moyenne globale qui sert au planning de tournée — pas la vitesse de roulage.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Si Lucas évite l'autoroute (péage trop cher) et passe par une nationale équivalente (40 km à 80 km/h au lieu de 110 km/h sur autoroute), recalculer la nouvelle heure d'arrivée chez le client A et la nouvelle durée totale de la tournée.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Nouveau t₁ = 40 / 80 = 0,5 h = <strong>30 min</strong> (au lieu de 22 min). Surcoût temps : +8 min.</p>
+    <p>Arrivée chez A : 8h30 (au lieu de 8h22). Fin tournée : 9h32 (au lieu de 9h24).</p>
+    <p>Décision : pour Lucas, gagner 8 min coûte le péage (≈ 4 € pour 40 km). À évaluer en fonction du nombre de tournées par jour : si 4 tournées/jour, gain de 32 min sur la journée → souvent rentable de prendre l'autoroute pour une entreprise de livraison.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>planning prévisionnel</strong> que Lucas envoie à ses clients la veille au soir :</p>
+  <ul>
+    <li>heures d'arrivée prévues</li>
+    <li>vitesse moyenne globale de la tournée</li>
+    <li>marge de manœuvre en cas de retard</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atlantic — Planning livraison du 8 mai 2026 — Lucas Martin</strong><br>
+      • Départ dépôt : 8 h 00 (Bordeaux Nord).<br>
+      • <strong>Arrivée prévue M. Boucher : 8 h 22</strong> (40 km, autoroute A10).<br>
+      • <strong>Arrivée prévue Mme Lefèvre : 8 h 54</strong> (15 km, départementale après 20 min de pause).<br>
+      • <strong>Arrivée prévue M. Diallo : 9 h 24</strong> (5 km, centre-ville Bordeaux après 20 min de pause).<br>
+      • Vitesse moyenne tournée : 43 km/h (incluant pauses livraison). Marge de manœuvre : ± 15 min selon trafic. En cas de retard &gt; 30 min, je préviens par SMS.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>En cas d'<strong>embouteillage en centre-ville</strong>, la vitesse moyenne du tronçon 3 chute à <strong>15 km/h</strong> (au lieu de 30). Recalculer la nouvelle durée du tronçon 3 et la nouvelle vitesse moyenne de roulage. Quel est l'impact sur l'horaire d'arrivée chez le client C ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Nouveau t₃ = 5 / 15 = 0,333 h = <strong>20 min</strong> (au lieu de 10 min). Surcoût : +10 min.</p>
+    <p>Arrivée chez C : 9h34 (au lieu de 9h24).</p>
+    <p>Nouvelle durée roulage : 22 + 12 + 20 = 54 min.</p>
+    <p>Nouvelle v<sub>moy roulage</sub> = 60 / (54/60) = <strong>66,7 km/h</strong> (au lieu de 81,8 km/h).</p>
+    <p>Le centre-ville à 5 km de distance fait chuter la moyenne globale de 18 % à cause des 15 km/h. Conclusion : <strong>les bouchons urbains pénalisent fortement</strong> les tournées professionnelles, même sur de courtes distances.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Vitesse moyenne sur un trajet :</strong> \(v_{\text{moy}} = d_{\text{totale}} / t_{\text{total}}\). C'est la définition fondamentale.</li>
+    <li><strong>Sur un trajet composite</strong> (plusieurs tronçons à vitesses différentes) : v<sub>moy</sub> = (d₁ + d₂ + …) / (t₁ + t₂ + …). Les durées doivent être calculées séparément.</li>
+    <li><strong>Attention :</strong> v<sub>moy</sub> n'est <em>pas</em> la moyenne arithmétique des vitesses (sauf si tous les tronçons ont même durée).</li>
+    <li><strong>Calcul d'une durée :</strong> t = d / v. Toujours veiller à la cohérence des unités (km/h ↔ km, ou m/s ↔ m).</li>
+    <li><strong>Vitesse moyenne globale</strong> (incluant pauses) : différente de la vitesse moyenne de roulage. C'est celle qui sert au planning d'une tournée.</li>
+    <li><strong>Application :</strong> en gestion de tournée, les pauses livraisons (déchargement, signature) représentent souvent 50 % du temps total — d'où l'importance de planifier réaliste.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Vitesse, vitesse moyenne) et §3 (Mouvement uniforme par tronçons) de la leçon Ch05.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

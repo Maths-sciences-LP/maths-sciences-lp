@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité 2 – Bilan CO₂ d'une saison de chauffage – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Bilan CO₂ d'une saison de chauffage au gaz <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 3 – Combustion | 1ère Bac Pro ICCER (Grpt 1) | Physique – Chimie | ⏱ 40 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Équilibrer l'équation de combustion complète du méthane</li>
+    <li>Calculer la masse de CO₂ émise par combustion d'une masse de combustible</li>
+    <li>Estimer les émissions annuelles d'une chaudière gaz résidentielle</li>
+    <li>Comparer l'empreinte carbone du chauffage gaz à d'autres solutions</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §2 (combustion complète), §4 (équilibrage), §5 (PCI) et §6 (CO₂). \(\text{CH}_4 + 2\,\text{O}_2 \rightarrow \text{CO}_2 + 2\,\text{H}_2\text{O}\). 1 kg de CH₄ → 2,75 kg de CO₂.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – audit énergie + carbone chez M. Petit</h2>
+  <p><em>Inès, conseillère énergétique chez « Effy » à Rennes, réalise un audit RGE chez M. Petit qui veut comprendre l'impact climatique de sa chaudière gaz à condensation. La maison de 110 m² est chauffée au gaz naturel (méthane principalement). M. Petit hésite à passer à une pompe à chaleur en 2027 et veut chiffrer son empreinte carbone actuelle.</em></p>
+
+  <h3>Document 1 — Données de la maison de M. Petit</h3>
+  <ul>
+    <li>Surface : 110 m² — bien isolée (RT 2012)</li>
+    <li>Besoins thermiques annuels : <strong>13 860 kWh/an</strong> (chauffage + ECS combinés)</li>
+    <li>Chaudière gaz à condensation, rendement : <strong>η = 95 %</strong> (sur PCI)</li>
+    <li>Type de gaz : <strong>gaz naturel</strong> (≈ méthane CH₄ pur, pour simplifier les calculs)</li>
+  </ul>
+
+  <h3>Document 2 — Caractéristiques physico-chimiques du gaz naturel</h3>
+  <table>
+    <thead>
+      <tr><th>Grandeur</th><th>Valeur</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Formule chimique</td><td>CH₄ (méthane)</td></tr>
+      <tr><td>Masse molaire M(CH₄)</td><td>16 g/mol</td></tr>
+      <tr><td>Masse molaire M(CO₂)</td><td>44 g/mol</td></tr>
+      <tr><td>Masse volumique du gaz à 15 °C, 1 bar</td><td>0,72 kg/m³</td></tr>
+      <tr><td>Pouvoir calorifique inférieur (PCI)</td><td>10 kWh/m³ ≈ 13,9 kWh/kg</td></tr>
+      <tr><td>Tarif gaz naturel résidentiel 2026</td><td>0,11 €/kWh PCI</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Schéma de la combustion du méthane dans la chaudière</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 220" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma réactionnel : à gauche, 1 molécule de CH4 (méthane) et 2 molécules de O2 (dioxygène) entrent dans la chambre de combustion. Au centre, la chambre de combustion représente la chaudière. À droite, sortent 1 molécule de CO2 (dioxyde de carbone) et 2 molécules de H2O (eau). De l'énergie thermique est dégagée vers le circuit de chauffage.">
+      <defs>
+        <style>
+          .ti3c{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl3c{font:11px sans-serif;fill:#1a202c}
+          .lblB3c{font:700 12px sans-serif;fill:#1d4ed8}
+          .lblR3c{font:700 12px sans-serif;fill:#b91c1c}
+          .lblG3c{font:700 12px sans-serif;fill:#15803d}
+          .mol{stroke:#1f2937;stroke-width:1.5}
+        </style>
+      </defs>
+
+      <text class="ti3c" x="350" y="22">Combustion complète du méthane dans une chaudière à condensation</text>
+
+      <!-- Chaudière au centre -->
+      <rect x="270" y="80" width="160" height="120" fill="#fef3c7" stroke="#b45309" stroke-width="2" rx="8"/>
+      <text class="lbl3c" x="350" y="105" text-anchor="middle" font-weight="bold" fill="#b45309">Chaudière à condensation</text>
+      <!-- Flammes -->
+      <path d="M 320,140 Q 325,125 330,140 Q 335,128 340,140 Q 345,123 350,140 Q 355,128 360,140 Q 365,125 370,140 Q 375,128 380,140 Z" fill="#f59e0b" stroke="#b45309"/>
+      <text class="lbl3c" x="350" y="170" text-anchor="middle" font-size="9" fill="#b45309" font-style="italic">flamme</text>
+
+      <!-- Réactifs (gauche) -->
+      <text class="lblB3c" x="70" y="60" text-anchor="middle">RÉACTIFS</text>
+      <!-- CH4 -->
+      <circle class="mol" cx="70" cy="100" r="14" fill="#1d4ed8"/>
+      <circle class="mol" cx="55" cy="90" r="6" fill="#fff"/>
+      <circle class="mol" cx="85" cy="90" r="6" fill="#fff"/>
+      <circle class="mol" cx="85" cy="110" r="6" fill="#fff"/>
+      <circle class="mol" cx="55" cy="110" r="6" fill="#fff"/>
+      <text class="lbl3c" x="70" y="135" text-anchor="middle" font-weight="bold">1 CH₄</text>
+      <text class="lbl3c" x="70" y="148" text-anchor="middle" font-size="9" fill="#1d4ed8">(méthane)</text>
+
+      <!-- + -->
+      <text class="lblBig" x="135" y="105" text-anchor="middle" font-size="22" font-weight="bold" fill="#1f2937">+</text>
+
+      <!-- 2 O2 -->
+      <circle class="mol" cx="170" cy="95" r="9" fill="#dc2626"/>
+      <circle class="mol" cx="190" cy="95" r="9" fill="#dc2626"/>
+      <circle class="mol" cx="170" cy="120" r="9" fill="#dc2626"/>
+      <circle class="mol" cx="190" cy="120" r="9" fill="#dc2626"/>
+      <text class="lbl3c" x="180" y="148" text-anchor="middle" font-weight="bold">2 O₂</text>
+      <text class="lbl3c" x="180" y="160" text-anchor="middle" font-size="9" fill="#b91c1c">(dioxygène)</text>
+
+      <!-- Flèche réactionnelle -->
+      <line x1="220" y1="130" x2="265" y2="130" stroke="#1f2937" stroke-width="2.5" marker-end="url(#arrCmb)"/>
+      <text class="lbl3c" x="242" y="123" text-anchor="middle" font-size="9" fill="#1f2937">combustion</text>
+
+      <defs>
+        <marker id="arrCmb" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="#1f2937"/>
+        </marker>
+      </defs>
+
+      <!-- Flèche après chaudière -->
+      <line x1="430" y1="130" x2="475" y2="130" stroke="#1f2937" stroke-width="2.5" marker-end="url(#arrCmb)"/>
+
+      <!-- Produits (droite) -->
+      <text class="lblG3c" x="615" y="60" text-anchor="middle">PRODUITS</text>
+      <!-- CO2 -->
+      <circle class="mol" cx="510" cy="100" r="12" fill="#475569"/>
+      <circle class="mol" cx="495" cy="105" r="9" fill="#dc2626"/>
+      <circle class="mol" cx="525" cy="105" r="9" fill="#dc2626"/>
+      <text class="lbl3c" x="510" y="135" text-anchor="middle" font-weight="bold">1 CO₂</text>
+      <text class="lbl3c" x="510" y="148" text-anchor="middle" font-size="9" fill="#475569">(dioxyde de carbone)</text>
+
+      <!-- + -->
+      <text x="565" y="110" text-anchor="middle" font-size="22" font-weight="bold" fill="#1f2937">+</text>
+
+      <!-- 2 H2O -->
+      <circle class="mol" cx="600" cy="100" r="10" fill="#0891b2"/>
+      <circle class="mol" cx="589" cy="92" r="5" fill="#fff"/>
+      <circle class="mol" cx="611" cy="92" r="5" fill="#fff"/>
+      <circle class="mol" cx="640" cy="100" r="10" fill="#0891b2"/>
+      <circle class="mol" cx="629" cy="92" r="5" fill="#fff"/>
+      <circle class="mol" cx="651" cy="92" r="5" fill="#fff"/>
+      <text class="lbl3c" x="620" y="135" text-anchor="middle" font-weight="bold">2 H₂O</text>
+      <text class="lbl3c" x="620" y="148" text-anchor="middle" font-size="9" fill="#0891b2">(vapeur d'eau)</text>
+
+      <!-- Flèche énergie sortante -->
+      <path d="M 350 200 L 350 215" stroke="#dc2626" stroke-width="3" marker-end="url(#arrCmb)"/>
+      <text class="lbl3c" x="350" y="195" text-anchor="middle" font-size="10" fill="#b91c1c" font-weight="bold">+ chaleur (Q)</text>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Combien de tonnes de CO₂ M. Petit émet-il chaque année à cause de son chauffage gaz, et quel serait le gain en passant à une pompe à chaleur ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Compléter et <strong>équilibrer</strong> l'équation de combustion complète du méthane dans le dioxygène :</p>
+  <p style="text-align:center;font-size:1.1em">… CH₄ + … O₂ → … CO₂ + … H₂O</p>
+  <p>Vérifier la conservation de chaque type d'atome (C, H, O).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p style="text-align:center;font-size:1.1em"><strong>1 CH₄ + 2 O₂ → 1 CO₂ + 2 H₂O</strong></p>
+    <p>Vérification :</p>
+    <ul>
+      <li>Carbone : 1 à gauche (dans CH₄), 1 à droite (dans CO₂) ✓</li>
+      <li>Hydrogène : 4 à gauche (4 H dans CH₄), 4 à droite (2 × 2 dans 2 H₂O) ✓</li>
+      <li>Oxygène : 4 à gauche (2 × 2 dans 2 O₂), 4 à droite (2 dans CO₂ + 2 × 1 dans 2 H₂O) ✓</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>D'après l'équation, lorsque <strong>1 mole de CH₄</strong> brûle, combien de moles de CO₂ se forment ?</p>
+  <p>Calculer alors la masse de CO₂ formée par combustion d'<strong>1 kg de méthane</strong> (M(CH₄) = 16 g/mol, M(CO₂) = 44 g/mol).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>D'après l'équation : 1 mole de CH₄ → <strong>1 mole de CO₂</strong>.</p>
+    <p>Nombre de moles dans 1 kg de CH₄ : n = m / M = 1 000 / 16 = 62,5 mol</p>
+    <p>Donc 62,5 mol de CO₂ produites.</p>
+    <p>Masse de CO₂ : m(CO₂) = n × M(CO₂) = 62,5 × 44 = <strong>2 750 g = 2,75 kg</strong></p>
+    <p>Règle simple : <strong>1 kg de méthane brûlé → 2,75 kg de CO₂ émis</strong>. (rapport 44/16 des masses molaires)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>La chaudière de M. Petit fournit 13 860 kWh/an de chaleur utile, avec un rendement η = 95 %. Calculer l'<strong>énergie chimique apportée par le gaz</strong> (en kWh PCI) puis le <strong>volume de gaz consommé</strong> (PCI = 10 kWh/m³).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie chimique nécessaire : E<sub>gaz</sub> = E<sub>utile</sub> / η = 13 860 / 0,95 ≈ <strong>14 590 kWh PCI/an</strong></p>
+    <p>Volume de gaz : V = E / PCI = 14 590 / 10 = <strong>1 459 m³/an</strong></p>
+    <p>Soit ≈ 4 m³/jour en moyenne (saison + hors saison).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Convertir le volume de gaz consommé en <strong>masse</strong> (à l'aide de la masse volumique 0,72 kg/m³). Puis en déduire la masse annuelle de <strong>CO₂ émise</strong> par la chaudière (avec le rapport 2,75 trouvé en Q2).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Masse de gaz : m(CH₄) = V × ρ = 1 459 × 0,72 ≈ <strong>1 050 kg/an</strong></p>
+    <p>Masse de CO₂ émise : m(CO₂) = 2,75 × m(CH₄) = 2,75 × 1 050 ≈ <strong>2 890 kg/an ≈ 2,9 tonnes/an</strong></p>
+    <p>Soit l'équivalent CO₂ d'environ 14 000 km parcourus en voiture essence (≈ 200 g CO₂/km).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>coût annuel du gaz</strong> de M. Petit (à 0,11 €/kWh PCI). Comparer à un foyer chauffé électrique direct (3 000 €/an pour la même surface — voir Activité 2 du Ch01).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût gaz : 14 590 × 0,11 ≈ <strong>1 605 €/an</strong></p>
+    <p>Comparaison :</p>
+    <ul>
+      <li>Chauffage gaz à condensation : 1 605 €/an et <strong>2 900 kg CO₂/an</strong></li>
+      <li>Chauffage électrique direct : 3 000 €/an mais émissions CO₂ très faibles en France (mix nucléaire/EnR ≈ 60 g/kWh × 13 860 ≈ 830 kg CO₂/an, soit 3 fois moins)</li>
+    </ul>
+    <p>Le gaz est moins cher mais émet plus de CO₂ — l'inverse en énergie / écologie.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Si M. Petit installe une <strong>pompe à chaleur</strong> (COP saisonnier 3,3), il consomme 13 860 / 3,3 ≈ 4 200 kWh d'électricité/an pour les mêmes besoins thermiques. Calculer ses <strong>nouvelles émissions CO₂ annuelles</strong> (mix électrique français : 60 g CO₂ / kWh).</p>
+  <p>Comparer à la chaudière gaz et calculer le pourcentage de réduction.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Émissions PAC : 4 200 × 60 / 1 000 ≈ <strong>250 kg CO₂/an</strong></p>
+    <p>Comparaison : 250 vs 2 900 → réduction = (2 900 − 250) / 2 900 ≈ <strong>91 % de CO₂ en moins</strong>.</p>
+    <p>Le passage à la PAC fait passer M. Petit d'une chaudière émettant 2,9 t de CO₂/an à seulement 0,25 t/an. C'est l'un des leviers les plus efficaces de la transition énergétique résidentielle.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Dans un quartier de <strong>500 maisons</strong> chauffées au gaz comme celle de M. Petit, calculer les émissions totales de CO₂ par an. Convertir en équivalent « tour du monde en avion » (1 tour du monde par personne ≈ 3 t CO₂).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Émissions totales : 500 × 2,9 = <strong>1 450 tonnes de CO₂/an</strong></p>
+    <p>Équivalent : 1 450 / 3 ≈ <strong>483 tours du monde en avion</strong>.</p>
+    <p>Cela illustre pourquoi la rénovation énergétique des bâtiments est un enjeu national : les 30 millions de logements français représentent une part importante des émissions de CO₂ (≈ 16 % du total).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche de synthèse</strong> qu'Inès remet à M. Petit :</p>
+  <ul>
+    <li>diagnostic chiffré actuel (gaz)</li>
+    <li>impact d'un passage à la PAC (énergie + CO₂)</li>
+    <li>argument climatique pour aider la décision</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Effy — Audit énergie + carbone · M. Petit (Rennes) — 7 mai 2026</strong><br>
+      • <strong>Situation actuelle :</strong> chaudière gaz à condensation. Consommation ≈ 1 460 m³/an de gaz naturel, coût 1 605 €/an. Émissions <strong>2,9 tonnes de CO₂/an</strong>.<br>
+      • <strong>Hypothèse PAC air/eau (COP 3,3) :</strong> 4 200 kWh d'électricité/an, soit ≈ 250 kg CO₂/an (mix français bas carbone).<br>
+      • <strong>Réduction d'émissions : 91 %</strong> (de 2,9 t à 0,25 t/an), soit l'équivalent d'un tour du monde en avion économisé tous les ans.<br>
+      • <strong>Recommandation :</strong> engager le projet PAC dès 2027. Aides MaPrimeRénov' jusqu'à 4 000 €. Coût final estimé ≈ 2 400 €. Retour sur investissement &lt; 2 ans, et gain climatique majeur sur 15 ans.<br>
+      • <strong>Bonus :</strong> chaque tonne de CO₂ évitée correspond à environ 1 hectare de forêt jeune — c'est concret et valorisable au bilan carbone du foyer.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Le voisin de M. Petit utilise du <strong>fioul</strong> (formule chimique simplifiée C₁₂H₂₆) pour chauffer la même surface (13 860 kWh/an utiles, rendement chaudière 90 %). Sachant que la combustion de 1 kg de fioul libère 13 kWh PCI et émet <strong>3,15 kg de CO₂</strong>, comparer son empreinte carbone à celle de M. Petit (gaz).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie nécessaire : 13 860 / 0,90 ≈ 15 400 kWh PCI/an.</p>
+    <p>Masse de fioul : 15 400 / 13 ≈ <strong>1 185 kg/an</strong>.</p>
+    <p>Émissions CO₂ : 1 185 × 3,15 ≈ <strong>3 730 kg/an = 3,7 t/an</strong>.</p>
+    <p>Comparaison : fioul 3,7 t vs gaz 2,9 t. Le fioul émet <strong>~ 28 % de plus</strong> de CO₂ que le gaz pour la même chaleur produite.</p>
+    <p>Hiérarchie carbone : fioul ≫ gaz ≫ électricité française ≫ PAC sur électricité française. C'est pour cela que le fioul est progressivement interdit dans les rénovations (loi Climat et Résilience 2022).</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Combustion du méthane :</strong> \(\text{CH}_4 + 2\,\text{O}_2 \rightarrow \text{CO}_2 + 2\,\text{H}_2\text{O}\). C'est une combustion <strong>complète</strong> qui libère de l'énergie.</li>
+    <li><strong>Conservation des atomes :</strong> dans une équation équilibrée, le nombre d'atomes de chaque élément est identique avant et après réaction.</li>
+    <li><strong>Règle de masse :</strong> 1 kg de CH₄ brûlé → 2,75 kg de CO₂ émis (rapport 44/16 des masses molaires CO₂/CH₄).</li>
+    <li><strong>PCI :</strong> Pouvoir Calorifique Inférieur, énergie libérée par 1 unité de combustible. Gaz naturel ≈ 10 kWh/m³ ou 14 kWh/kg.</li>
+    <li><strong>Hiérarchie carbone des chauffages :</strong> fioul (315 g CO₂/kWh) &gt; gaz (210) &gt; électricité française (60) &gt; PAC sur électricité française (~ 18).</li>
+    <li><strong>Enjeu climatique :</strong> rénover les chauffages fossiles est l'un des leviers les plus efficaces pour réduire les émissions de CO₂ d'un foyer.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Combustion complète), §4 (Équilibrage) et §6 (CO₂ et effet de serre) de la leçon Ch03.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

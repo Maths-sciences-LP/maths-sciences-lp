@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – Activité 4 – Mesurer la dureté de l'eau par titrage – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Mesurer la dureté de l'eau par titrage <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 9 – Solutions aqueuses | 1ère Bac Pro ICCER (Grpt 1) | Physique – Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre le principe d'un titrage : réaction complète soluté + réactif</li>
+    <li>Calculer une concentration molaire à partir d'un volume de réactif versé</li>
+    <li>Convertir une concentration molaire en degré hydrotimétrique (°f)</li>
+    <li>Recommander la pose d'un adoucisseur en fonction de la dureté mesurée</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §VI (titrage). À l'équivalence : n<sub>réactif versé</sub> = n<sub>soluté</sub>. Dureté : 1 °f = 10 mg/L de CaCO₃.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – étude avant pose d'adoucisseur</h2>
+  <p><em>Sami, technicien adoucisseur chez « EcoEau » à Toulouse, est appelé chez M. Lacroix qui a constaté de fortes traces de calcaire dans sa salle de bains. Avant de proposer un adoucisseur (équipement coûteux), Sami fait un test simple : il mesure la <strong>dureté de l'eau</strong> du robinet par <strong>titrage à l'EDTA</strong>. Il prélève 100 mL d'eau, ajoute un indicateur coloré, et verse goutte à goutte une solution d'EDTA jusqu'à virage de couleur (rouge → bleu).</em></p>
+
+  <h3>Document 1 — Données du titrage</h3>
+  <ul>
+    <li>Volume de l'échantillon d'eau : <strong>V<sub>eau</sub> = 100 mL = 0,100 L</strong></li>
+    <li>Solution d'EDTA utilisée : concentration <strong>C<sub>EDTA</sub> = 0,010 mol/L</strong></li>
+    <li>Volume d'EDTA versé jusqu'au virage : <strong>V<sub>EDTA</sub> = 25 mL = 25 × 10⁻³ L</strong></li>
+    <li>Réaction de titrage : <strong>EDTA + Ca²⁺ → complexe stable</strong> (rapport 1:1, 1 mol EDTA pour 1 mol Ca²⁺)</li>
+    <li>Masse molaire CaCO₃ : <strong>M = 100 g/mol</strong></li>
+  </ul>
+
+  <h3>Document 2 — Échelle de dureté de l'eau (°f)</h3>
+  <table>
+    <thead>
+      <tr><th>Dureté (°f)</th><th>Type d'eau</th><th>Recommandation chauffagiste</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0 – 7</td><td>Très douce</td><td>Aucun adoucisseur</td></tr>
+      <tr><td>7 – 15</td><td>Douce</td><td>Adoucisseur facultatif</td></tr>
+      <tr><td>15 – 30</td><td>Moyennement dure / dure</td><td>Adoucisseur recommandé (rentabilité 5-10 ans)</td></tr>
+      <tr><td>30 – 50</td><td>Très dure</td><td>Adoucisseur fortement conseillé</td></tr>
+      <tr><td>&gt; 50</td><td>Extrêmement dure</td><td>Adoucisseur indispensable</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Schéma du dispositif de titrage</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 240" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : burette graduée verticale contenant la solution d'EDTA. En dessous, un erlenmeyer avec 100 mL d'eau et l'indicateur coloré rouge. À mesure que l'EDTA est versé, la couleur change de rouge à bleu au point d'équivalence. Le volume V_EDTA versé est lu sur la burette.">
+      <defs>
+        <style>
+          .ti9t{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl9t{font:11px sans-serif;fill:#1a202c}
+          .lblB9t{font:700 11px sans-serif;fill:#1d4ed8}
+        </style>
+      </defs>
+
+      <text class="ti9t" x="350" y="22">Titrage à l'EDTA — détermination de la dureté</text>
+
+      <!-- Burette -->
+      <rect x="200" y="40" width="40" height="120" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+      <text class="lbl9t" x="160" y="65" text-anchor="end" font-size="9">0 mL</text>
+      <text class="lbl9t" x="160" y="155" text-anchor="end" font-size="9">50 mL</text>
+      <line x1="170" y1="65" x2="200" y2="65" stroke="#1d4ed8" stroke-width="0.7"/>
+      <line x1="170" y1="100" x2="200" y2="100" stroke="#1d4ed8" stroke-width="0.7"/>
+      <line x1="170" y1="135" x2="200" y2="135" stroke="#1d4ed8" stroke-width="0.7"/>
+      <line x1="170" y1="155" x2="200" y2="155" stroke="#1d4ed8" stroke-width="0.7"/>
+      <!-- Niveau initial 25 mL versé -->
+      <text class="lblB9t" x="160" y="106" text-anchor="end" font-weight="bold">25 mL</text>
+      <line x1="200" y1="100" x2="240" y2="100" stroke="#dc2626" stroke-width="2"/>
+      <text class="lbl9t" x="280" y="105" font-size="10" font-weight="bold" fill="#b91c1c">niveau</text>
+      <!-- Robinet burette -->
+      <rect x="215" y="160" width="10" height="20" fill="#475569"/>
+      <line x1="220" y1="180" x2="220" y2="200" stroke="#1d4ed8" stroke-width="2"/>
+      <text class="lbl9t" x="220" y="215" text-anchor="middle" font-size="10" fill="#1d4ed8" font-weight="bold">EDTA</text>
+
+      <!-- Erlenmeyer -->
+      <path d="M 380 160 L 360 220 L 480 220 L 460 160 L 460 130 L 380 130 Z" fill="none" stroke="#1f2937" stroke-width="2"/>
+      <rect x="362" y="170" width="116" height="49" fill="#dbeafe" opacity=".6"/>
+      <line x1="362" y1="170" x2="478" y2="170" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text class="lbl9t" x="420" y="195" text-anchor="middle" font-size="10" fill="#1d4ed8" font-weight="bold">eau + indicateur</text>
+      <text class="lbl9t" x="420" y="208" text-anchor="middle" font-size="9" fill="#475569">100 mL</text>
+      <text class="lbl9t" x="420" y="240" text-anchor="middle" font-size="10" font-style="italic" fill="#475569">erlenmeyer</text>
+
+      <!-- Couleur indicateur (avant / après) -->
+      <text class="lbl9t" x="540" y="100" font-size="11" fill="#dc2626" font-weight="bold">↻ rouge</text>
+      <text class="lbl9t" x="540" y="160" font-size="11" fill="#1d4ed8" font-weight="bold">→ bleu</text>
+      <text class="lbl9t" x="540" y="180" font-size="9" fill="#475569" font-style="italic">(virage à l'équivalence)</text>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle est la dureté de l'eau de M. Lacroix exprimée en °f, et la pose d'un adoucisseur est-elle recommandée ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>quantité de matière d'EDTA</strong> n<sub>EDTA</sub> versée jusqu'au virage, à l'aide de la relation \(n = C \times V\).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>n<sub>EDTA</sub> = C<sub>EDTA</sub> × V<sub>EDTA</sub> = 0,010 × 25 × 10⁻³ = 0,010 × 0,025</p>
+    <p>n<sub>EDTA</sub> = <strong>2,5 × 10⁻⁴ mol</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>D'après l'équation de titrage (rapport 1:1), en déduire la <strong>quantité de matière de Ca²⁺</strong> contenue dans les 100 mL d'eau.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>À l'équivalence : n<sub>Ca²⁺</sub> = n<sub>EDTA</sub> (rapport 1:1).</p>
+    <p>n<sub>Ca²⁺</sub> = <strong>2,5 × 10⁻⁴ mol</strong> dans les 100 mL d'échantillon.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>concentration molaire</strong> [Ca²⁺] dans l'eau du robinet (n / V).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>[Ca²⁺] = n<sub>Ca²⁺</sub> / V<sub>eau</sub> = (2,5 × 10⁻⁴) / 0,100 = <strong>2,5 × 10⁻³ mol/L</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Convertir cette concentration en <strong>concentration massique</strong> en CaCO₃ (mg/L), à l'aide de M(CaCO₃) = 100 g/mol.</p>
+  <p>En déduire la <strong>dureté en °f</strong> (1 °f = 10 mg/L de CaCO₃).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Concentration massique : c<sub>m</sub> = [Ca²⁺] × M = 2,5 × 10⁻³ × 100 = 0,250 g/L = <strong>250 mg/L de CaCO₃</strong>.</p>
+    <p>Dureté : 250 / 10 = <strong>25 °f</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>D'après le Doc 2, à quelle <strong>catégorie</strong> appartient l'eau de M. Lacroix ? La pose d'un adoucisseur est-elle recommandée ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>25 °f appartient à la catégorie <strong>« moyennement dure / dure »</strong> (15-30 °f).</p>
+    <p>Recommandation : <strong>adoucisseur recommandé</strong>, rentable sur 5-10 ans (économie d'entretien chaudière + durée de vie ECS + réduction tartre dans tous les appareils).</p>
+    <p>Pour M. Lacroix : oui, Sami peut proposer un adoucisseur. Bénéfice supplémentaire : moins de calcaire dans la cuvette des WC, moins de tartre sur la robinetterie.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>masse de calcaire</strong> que produit l'eau de M. Lacroix sur <strong>1 an</strong>, sachant qu'il consomme 100 m³ d'eau par an. Convertir en kg.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Masse de CaCO₃ : 250 mg/L × 100 000 L = 25 × 10⁶ mg = <strong>25 kg/an</strong>.</p>
+    <p>25 kg de calcaire arrivent dans la maison chaque année. Une partie reste dans les canalisations, le ballon, la chaudière (formant le tartre), une partie ressort aux égouts.</p>
+    <p>Sur 10 ans : 250 kg = équivalent d'un sac de ciment ! D'où l'intérêt de l'adoucisseur ou du moins d'un détartrage périodique.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Sami refait un titrage 6 mois après pose de l'adoucisseur : il verse cette fois <strong>2 mL d'EDTA</strong> avant le virage. Calculer la nouvelle dureté. L'adoucisseur fonctionne-t-il bien ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>n<sub>EDTA</sub>' = 0,010 × 0,002 = 2 × 10⁻⁵ mol = n<sub>Ca²⁺</sub>'</p>
+    <p>[Ca²⁺]' = 2 × 10⁻⁵ / 0,100 = 2 × 10⁻⁴ mol/L</p>
+    <p>c<sub>m</sub>' = 2 × 10⁻⁴ × 100 = 0,020 g/L = <strong>20 mg/L = 2 °f</strong>.</p>
+    <p>L'eau adoucie est descendue à <strong>2 °f</strong> (« très douce »). Réduction de 25 → 2, soit -92 % de calcaire. <strong>L'adoucisseur fonctionne parfaitement.</strong></p>
+    <p>Recommandation : régler l'adoucisseur pour cible 5-7 °f (eau légèrement minéralisée, plus saine pour la consommation que 0 °f).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>diagnostic</strong> que Sami remet à M. Lacroix après son titrage initial :</p>
+  <ul>
+    <li>résultat chiffré de la dureté</li>
+    <li>impact du calcaire sur ses installations</li>
+    <li>recommandation et rentabilité</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>EcoEau — Diagnostic eau · M. Lacroix (Toulouse) — 7 mai 2026</strong><br>
+      • <strong>Mesure de dureté :</strong> titrage EDTA → 25 °f (eau dure, catégorie 15-30 °f).<br>
+      • <strong>Calcaire annuel :</strong> 25 kg de CaCO₃ entrent dans votre maison chaque année. Dépôts probables dans : chaudière (rendement chute), ballon ECS (durée de vie réduite), robinetterie, lave-linge.<br>
+      • <strong>Recommandation :</strong> pose d'un <strong>adoucisseur 16 L</strong> avec régénération automatique (sel régénérant). Cible : 5-7 °f.<br>
+      • <strong>Investissement :</strong> 1 200 € HT installé (avec aides éventuelles MaPrimeRénov' selon revenus).<br>
+      • <strong>Rentabilité :</strong> économies estimées 200 €/an (énergie + sel) + durée de vie chaudière prolongée. Retour sur investissement 6 ans, durée de vie 15 ans.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Les analyses de l'eau publique se font aussi en <strong>°TH (titre hydrotimétrique)</strong> ou en <strong>°dH (degrés allemands)</strong>. Conversions : 1 °f = 1 °TH = 0,56 °dH. Convertir 25 °f en °dH.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>25 °f = 25 × 0,56 = <strong>14 °dH</strong>.</p>
+    <p>Échelle allemande pour comparaison : 0-7 °dH douce, 7-14 °dH moyenne, &gt; 14 °dH dure. 14 °dH est donc la limite haute « moyenne / dure » dans l'échelle allemande, similaire à la classification française.</p>
+    <p>Lors d'achats de produits d'origine étrangère (adoucisseurs allemands, par exemple), bien vérifier l'unité. C'est la même physique mesurée différemment.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Titrage :</strong> ajout progressif d'un réactif jusqu'à la fin de la réaction (équivalence). À ce point : n<sub>réactif versé</sub> = n<sub>soluté à doser</sub> (si rapport 1:1).</li>
+    <li><strong>Dureté de l'eau :</strong> due au Ca²⁺ et Mg²⁺. Mesurée par titrage à l'EDTA + indicateur coloré.</li>
+    <li><strong>Conversion :</strong> 1 °f = 10 mg/L de CaCO₃ = 1 °TH ≈ 0,56 °dH.</li>
+    <li><strong>Échelle :</strong> &lt; 7 °f très douce, 7-15 douce, 15-30 dure, 30-50 très dure, &gt; 50 extrêmement dure.</li>
+    <li><strong>Adoucisseur :</strong> recommandé pour eau ≥ 15 °f. Cible visée 5-7 °f (un peu de calcium garde l'eau saine à boire).</li>
+    <li><strong>Calcul de masse annuelle :</strong> dureté × volume consommé. Une eau à 25 °f sur 100 m³/an = 25 kg de calcaire.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §III (n = m/M), §IV (Concentration) et §VI (Titrage) de la leçon Ch09.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

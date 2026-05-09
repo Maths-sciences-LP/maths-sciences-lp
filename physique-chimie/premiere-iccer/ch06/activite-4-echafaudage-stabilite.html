@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – Activité 4 – Stabilité d'un échafaudage roulant – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Stabilité d'un échafaudage roulant en chantier <span style="font-size:.55em;color:#b91c1c;font-weight:600">DIAGNOSTIC</span></h1>
+  <p class="sous-titre">Chapitre 6 – Équilibre en rotation | 1ère Bac Pro ICCER (Grpt 1) | Physique – Mécanique | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre la condition de non-basculement d'un solide</li>
+    <li>Calculer le moment d'un poids et d'une force latérale par rapport à un point d'appui</li>
+    <li>Déterminer la force latérale maximale avant basculement</li>
+    <li>Évaluer les risques de chute liés à l'utilisation d'un échafaudage roulant</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §3 (équilibre en rotation) et §5 (centre de gravité et basculement). Condition : la verticale du centre de gravité doit passer <strong>à l'intérieur</strong> de la base d'appui.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – pose d'une cassette de PAC en plafond</h2>
+  <p><em>Marc, technicien climaticien chez « ClimaPro » à Marseille, doit fixer une cassette de pompe à chaleur au plafond d'un magasin (hauteur 4 m). Il monte sur un <strong>échafaudage roulant</strong> dont la base mesure 1,20 m × 0,80 m. Avec le matériel et son poids, l'ensemble fait 105 kg, dont une grande partie est en haut. Le manuel d'utilisation rappelle qu'il faut éviter d'exercer des poussées latérales (par exemple en frappant un coup de marteau ou en tirant fort sur une vis). Marc veut comprendre <strong>quelle force latérale</strong> ferait basculer l'échafaudage.</em></p>
+
+  <h3>Document 1 — Caractéristiques de l'échafaudage et de Marc</h3>
+  <ul>
+    <li>Base d'appui (rectangle) : <strong>1,20 m × 0,80 m</strong></li>
+    <li>Côté étroit (le plus à risque pour le basculement) : <strong>L = 0,80 m</strong> → <strong>demi-largeur = 0,40 m</strong></li>
+    <li>Hauteur de la plate-forme de travail : <strong>h = 4,00 m</strong> au-dessus du sol</li>
+    <li>Masse totale (échafaudage + Marc + outillage) : <strong>m = 105 kg</strong> → <strong>P = 1 050 N</strong> (g ≈ 10 N/kg)</li>
+    <li>Centre de gravité de l'ensemble : à <strong>h<sub>CdG</sub> = 2,80 m</strong> au-dessus du sol (Marc en haut tire le CdG vers le haut)</li>
+  </ul>
+
+  <h3>Document 2 — Schéma de l'échafaudage et basculement</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 360" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Schéma : échafaudage roulant de hauteur 4 m posé sur 4 roues. Base 0,80 m vue de côté. Marc travaille sur la plate-forme en haut. Le centre de gravité est à 2,80 m. Si une force horizontale F est exercée à hauteur 4 m, elle crée un moment de basculement autour du bord de la base (point A). Le poids P, à la verticale du CdG, crée un moment de stabilité autour de A.">
+      <defs>
+        <style>
+          .ti6e{font:700 13px sans-serif;text-anchor:middle;fill:#0969da}
+          .lbl6e{font:11px sans-serif;fill:#1a202c}
+          .lblR6e{font:700 12px sans-serif;fill:#b91c1c}
+          .lblB6e{font:700 12px sans-serif;fill:#1d4ed8}
+          .struct{stroke:#475569;stroke-width:2;fill:none}
+        </style>
+      </defs>
+
+      <text class="ti6e" x="350" y="22">Échafaudage roulant — risque de basculement</text>
+
+      <!-- Sol -->
+      <rect x="0" y="320" width="700" height="40" fill="#84cc16" opacity=".25"/>
+      <line x1="0" y1="320" x2="700" y2="320" stroke="#16a34a" stroke-width="1.5"/>
+
+      <!-- Échafaudage (vue de côté) -->
+      <!-- Roues -->
+      <circle cx="280" cy="313" r="8" fill="#1f2937"/>
+      <circle cx="440" cy="313" r="8" fill="#1f2937"/>
+
+      <!-- Plate-forme et structure -->
+      <line class="struct" x1="280" y1="305" x2="280" y2="80"/>
+      <line class="struct" x1="440" y1="305" x2="440" y2="80"/>
+      <!-- Diagonales -->
+      <line class="struct" x1="280" y1="80" x2="440" y2="200" stroke-dasharray="4,3"/>
+      <line class="struct" x1="440" y1="80" x2="280" y2="200" stroke-dasharray="4,3"/>
+      <line class="struct" x1="280" y1="200" x2="440" y2="80" stroke-dasharray="4,3"/>
+      <!-- Plate-forme -->
+      <rect x="270" y="70" width="180" height="14" fill="#92400e" stroke="#7c2d12" stroke-width="2"/>
+      <rect x="270" y="298" width="180" height="10" fill="#475569"/>
+
+      <!-- Marc -->
+      <circle cx="360" cy="55" r="14" fill="#fde68a" stroke="#b45309"/>
+      <rect x="350" y="65" width="20" height="20" fill="#0969da"/>
+      <text class="lbl6e" x="360" y="38" text-anchor="middle" font-size="9" fill="#0969da" font-weight="bold">Marc + outillage</text>
+
+      <!-- Force latérale F -->
+      <line x1="450" y1="75" x2="510" y2="75" stroke="#b91c1c" stroke-width="3" marker-end="url(#arrFR6)"/>
+      <text class="lblR6e" x="478" y="65" text-anchor="middle">F latérale</text>
+      <text class="lbl6e" x="478" y="93" text-anchor="middle" font-size="9" fill="#7f1d1d">(coup de marteau, traction)</text>
+
+      <!-- Centre de gravité (point étoilé) -->
+      <circle cx="360" cy="170" r="6" fill="#dc2626"/>
+      <text class="lblR6e" x="370" y="175" font-size="11">CdG · 2,80 m</text>
+      <line x1="360" y1="176" x2="360" y2="320" stroke="#b91c1c" stroke-width="1" stroke-dasharray="3,2"/>
+
+      <!-- Force poids P -->
+      <line x1="360" y1="180" x2="360" y2="220" stroke="#b91c1c" stroke-width="3" marker-end="url(#arrDownE)"/>
+      <text class="lblR6e" x="385" y="207">P = 1 050 N</text>
+
+      <!-- Point d'appui pour basculement (bord A) -->
+      <circle cx="440" cy="320" r="5" fill="#dc2626"/>
+      <text class="lblR6e" x="455" y="335" font-size="11">point A (axe de basculement)</text>
+
+      <!-- Cote demi-largeur -->
+      <line x1="360" y1="335" x2="440" y2="335" stroke="#1d4ed8" stroke-width="1"/>
+      <line x1="360" y1="330" x2="360" y2="340" stroke="#1d4ed8"/>
+      <line x1="440" y1="330" x2="440" y2="340" stroke="#1d4ed8"/>
+      <text class="lbl6e" x="400" y="350" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="10">d = 0,40 m</text>
+
+      <!-- Cote hauteur F -->
+      <line x1="540" y1="80" x2="540" y2="320" stroke="#b91c1c" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <text class="lbl6e" x="560" y="200" font-size="10" fill="#b91c1c" font-weight="bold">h = 4 m</text>
+
+      <defs>
+        <marker id="arrFR6" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+          <polygon points="0,0 9,4 0,8" fill="#b91c1c"/>
+        </marker>
+        <marker id="arrDownE" markerWidth="9" markerHeight="9" refX="4" refY="9" orient="auto">
+          <polygon points="0,0 4,9 9,0" fill="#b91c1c"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle force latérale F maximale Marc peut-il exercer (par exemple un coup de marteau) avant que l'échafaudage ne bascule autour du point A ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Citer la <strong>condition de non-basculement</strong> d'un solide soumis à plusieurs forces. Identifier l'<strong>axe de basculement</strong> probable de l'échafaudage si Marc applique une force vers la droite.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Condition de non-basculement :</strong> la verticale du centre de gravité doit rester à l'intérieur de la base d'appui. Tant que c'est le cas, le poids crée un moment qui ramène l'échafaudage vers la verticale.</p>
+    <p>Si Marc pousse vers la droite, l'axe potentiel de basculement est la <strong>roue droite (point A)</strong>. C'est autour de ce point que les moments s'évaluent.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>moment stabilisateur</strong> M<sub>P</sub> exercé par le poids P par rapport au point A (axe de basculement). Le bras de levier est la demi-largeur d = 0,40 m.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>M<sub>P</sub> = P × d = 1 050 × 0,40 = <strong>420 N·m</strong></p>
+    <p>Ce moment <strong>tend à maintenir</strong> l'échafaudage vertical (le poids ramène le CdG vers la base).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>moment de basculement</strong> M<sub>F</sub> exercé par la force latérale F appliquée à hauteur h = 4 m, en fonction de F.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>M<sub>F</sub> = F × h = F × 4,00 = <strong>4 F</strong> (en N·m)</p>
+    <p>Plus la force est appliquée <strong>haut</strong>, plus son moment est grand. C'est exactement la même formule que pour un levier : F × bras de levier.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-yellow">REA</span></h2>
+  <p>Le basculement commence quand <strong>M<sub>F</sub> = M<sub>P</sub></strong>. Calculer la <strong>force F<sub>max</sub></strong> latérale que Marc peut exercer sans basculer l'échafaudage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>M<sub>F</sub> = M<sub>P</sub> → 4 F<sub>max</sub> = 420 → F<sub>max</sub> = 420 / 4 = <strong>105 N</strong></p>
+    <p>Soit l'équivalent d'environ <strong>10,5 kg de poussée latérale</strong>. C'est très peu — équivalent à pousser modérément avec une seule main.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Que se passe-t-il si Marc donne un <strong>coup de marteau</strong> de force F = 200 N (sur une vis récalcitrante) ? Vérifier si l'échafaudage bascule.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>M<sub>F</sub> = 200 × 4 = 800 N·m. M<sub>P</sub> = 420 N·m.</p>
+    <p>800 &gt; 420 → <strong>l'échafaudage bascule</strong>. Marc tombe de 4 m de hauteur.</p>
+    <p>C'est exactement pour cela que les manuels d'échafaudage interdisent les coups de marteau ou les efforts latéraux brusques en hauteur. Si l'opération nécessite cela, on doit utiliser un échafaudage stabilisé (hauban, fixation au mur) ou une nacelle.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer la <strong>force latérale maximale</strong> que pourrait subir l'échafaudage si Marc utilisait le côté <strong>large de la base</strong> (1,20 m, demi-largeur 0,60 m). Comparer avec le côté étroit.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Avec demi-largeur 0,60 m : M<sub>P</sub> = 1 050 × 0,60 = 630 N·m.</p>
+    <p>F<sub>max</sub> = 630 / 4 = <strong>157,5 N</strong> (au lieu de 105 N côté étroit).</p>
+    <p>Gain de 50 % de stabilité côté large. <strong>Conseil :</strong> orienter toujours l'échafaudage avec son <strong>côté large face au sens de travail</strong> (où l'on risque le plus d'exercer des forces).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Pour augmenter la stabilité, le manuel propose 3 options :</p>
+  <ul>
+    <li>(a) Lester la base avec 50 kg de sacs de sable (CdG abaissé, masse augmentée)</li>
+    <li>(b) Élargir la base avec des stabilisateurs (demi-largeur 0,80 m au lieu de 0,40 m)</li>
+    <li>(c) Diminuer la hauteur de travail à 3 m au lieu de 4 m</li>
+  </ul>
+  <p>Évaluer chaque option en calculant la nouvelle F<sub>max</sub>. Laquelle est la plus efficace ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>(a) Lester avec 50 kg :</strong> P passe à 1 550 N. F<sub>max</sub> = (1 550 × 0,40) / 4 = <strong>155 N</strong>. Gain ×1,48.</p>
+    <p><strong>(b) Stabilisateurs 0,80 m :</strong> M<sub>P</sub> = 1 050 × 0,80 = 840 N·m. F<sub>max</sub> = 840 / 4 = <strong>210 N</strong>. Gain ×2.</p>
+    <p><strong>(c) Hauteur 3 m :</strong> M<sub>F</sub> = F × 3. F<sub>max</sub> = 420 / 3 = <strong>140 N</strong>. Gain ×1,33.</p>
+    <p><strong>Classement :</strong> (b) stabilisateurs &gt; (a) lestage &gt; (c) hauteur réduite.</p>
+    <p>Élargir la base est la solution la plus efficace. C'est pourquoi tous les échafaudages professionnels disposent de stabilisateurs déployables.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes une <strong>note de sécurité</strong> que Marc affiche dans son fourgon pour ses futures interventions :</p>
+  <ul>
+    <li>la règle physique de stabilité (en une phrase)</li>
+    <li>3 chiffres clés (F<sub>max</sub> sans / avec stabilisateurs)</li>
+    <li>2 bonnes pratiques de chantier</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ClimaPro — Sécurité chantier en hauteur · note 7 mai 2026</strong><br>
+      • <strong>Règle physique :</strong> un échafaudage bascule dès que la force latérale × hauteur dépasse le poids × demi-largeur. Plus on travaille haut et étroit, plus le risque est grand.<br>
+      • <strong>Échafaudage standard 0,80 m, hauteur 4 m :</strong> F<sub>max</sub> latérale 105 N (≈ 10 kg). Un coup de marteau = 200 N → bascule.<br>
+      • <strong>Avec stabilisateurs 1,60 m</strong> : F<sub>max</sub> 210 N. Avec lestage 50 kg : F<sub>max</sub> 155 N.<br>
+      • <strong>Bonne pratique 1 :</strong> toujours déployer les stabilisateurs avant de monter, orienter le côté large face au plan de travail.<br>
+      • <strong>Bonne pratique 2 :</strong> jamais de coup de marteau en hauteur — utiliser une visseuse électrique. Si effort latéral inévitable, redescendre et fixer l'échafaudage au mur.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Marc emprunte un mini-échafaudage plus haut : hauteur 6 m, base inchangée 0,80 m, ensemble 105 kg + CdG à 4 m. Recalculer F<sub>max</sub>. Conclure sur l'effet de la hauteur.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>M<sub>P</sub> = 1 050 × 0,40 = 420 N·m (inchangé).</p>
+    <p>M<sub>F</sub> = F × 6 (la force est appliquée à 6 m maintenant).</p>
+    <p>F<sub>max</sub> = 420 / 6 = <strong>70 N</strong> (au lieu de 105 N).</p>
+    <p>Réduction de 33 % de la stabilité simplement en passant de 4 m à 6 m de hauteur. <strong>La hauteur amplifie les risques au carré (Mₚ × h non, mais F<sub>max</sub> ∝ 1/h).</strong></p>
+    <p>D'où la <strong>règle des 3:1</strong> : la hauteur d'un échafaudage roulant ne doit pas dépasser 3 fois sa demi-largeur de base. Ici 6 m / 0,40 m = 15 → bien au-dessus de 3, échafaudage instable, à proscrire sans stabilisation supplémentaire.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Condition de non-basculement :</strong> la verticale du centre de gravité doit passer à l'intérieur de la base d'appui.</li>
+    <li><strong>Moment stabilisateur</strong> du poids : M<sub>P</sub> = P × demi-largeur de base.</li>
+    <li><strong>Moment de basculement</strong> d'une force latérale : M<sub>F</sub> = F × hauteur d'application.</li>
+    <li><strong>Force latérale max admissible :</strong> F<sub>max</sub> = (P × demi-largeur) / hauteur.</li>
+    <li><strong>Solutions de stabilisation</strong> (par ordre d'efficacité) : (1) stabilisateurs / élargir la base, (2) lester / abaisser le CdG, (3) réduire la hauteur de travail.</li>
+    <li><strong>Règle des 3:1</strong> pour échafaudage roulant : hauteur ≤ 3 × demi-largeur de base. Au-delà : stabilisation supplémentaire obligatoire.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Équilibre en rotation) et §5 (Centre de gravité et basculement) de la leçon Ch06.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

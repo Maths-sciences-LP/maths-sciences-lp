@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Activité 4 – Optimiser un ballon ECS en heures creuses – 1ère ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}
+.fiche{background:#fff;border:2px solid #1e40af;border-radius:8px;margin:14px 0;box-shadow:0 4px 12px rgba(0,0,0,.1);overflow:hidden}
+.fiche-header{background:linear-gradient(135deg,#1e40af,#3b82f6);color:#fff;padding:12px 18px;font-family:Arial,sans-serif}
+.fiche-header h3{margin:0;color:#fff;border:none;font-size:1.05em}
+.fiche-body{padding:14px 18px;font-size:.93em}
+.fiche-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #cbd5e1}
+.fiche-row span:first-child{color:#475569}
+.fiche-row span:last-child{font-weight:600;color:#1e3a8a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Optimiser un ballon ECS en heures creuses <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 1 – Énergie et puissance électrique | 1ère Bac Pro ICCER (Grpt 1) | Physique – Électricité | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer une énergie consommée à partir d'une puissance et d'une durée (E = P × t)</li>
+    <li>Comparer deux options tarifaires (Base et Heures Pleines / Heures Creuses)</li>
+    <li>Programmer un contacteur jour/nuit pour optimiser la consommation</li>
+    <li>Estimer une économie annuelle et conseiller un client</li>
+  </ul>
+</div>
+
+<p style="margin:8px 0;padding:8px 12px;background:#fef3c7;border-left:3px solid #b45309;font-size:.9em">
+  💡 Notions centrales : <a href="lecon.html">leçon</a> §3 (énergie E = P × t en kWh) et §6 (applications professionnelles). Coût = énergie × tarif unitaire.
+</p>
+
+<!-- ===== SITUATION ===== -->
+<div class="situation">
+  <h2>Situation – installation d'un ballon ECS chez M. Renard</h2>
+  <p><em>Sami, plombier-chauffagiste chez « SaniThermique » à Nantes, vient d'installer un nouveau ballon d'eau chaude sanitaire (ECS) électrique chez M. Renard, qui vit seul. Avant de partir, Sami doit conseiller son client sur le tarif EDF le plus adapté : option <strong>Base</strong> (un seul tarif jour et nuit) ou option <strong>Heures Pleines / Heures Creuses</strong> (deux tarifs, plus avantageux la nuit). Le client veut comprendre le calcul.</em></p>
+
+  <h3>Document 1 — Fiche technique du ballon ECS installé</h3>
+  <div class="fiche">
+    <div class="fiche-header"><h3>📋 Ballon ECS électrique vertical · Atlantic Chauffeo 200 L</h3></div>
+    <div class="fiche-body">
+      <div class="fiche-row"><span>Capacité du réservoir</span><span>200 litres</span></div>
+      <div class="fiche-row"><span>Puissance de la résistance</span><span>2 200 W = 2,2 kW</span></div>
+      <div class="fiche-row"><span>Tension d'alimentation</span><span>230 V monophasé</span></div>
+      <div class="fiche-row"><span>Temps de chauffe complet (10 °C → 65 °C)</span><span>≈ 6 h</span></div>
+      <div class="fiche-row"><span>Temps de chauffe quotidien moyen (utilisation seul)</span><span><strong>4 h/jour</strong></span></div>
+      <div class="fiche-row"><span>Pertes statiques (réserve chaude)</span><span>1,5 kWh/jour</span></div>
+      <div class="fiche-row"><span>Classe énergétique</span><span>C</span></div>
+    </div>
+  </div>
+
+  <h3>Document 2 — Tarifs EDF 2026 (option Base et option HP/HC)</h3>
+  <table>
+    <thead>
+      <tr><th>Option</th><th>Abonnement mensuel (6 kVA)</th><th>Tarif énergie</th><th>Plage horaire</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Base</strong> (tarif unique)</td><td>13,29 €</td><td>0,2516 €/kWh</td><td>24 h / 24</td></tr>
+      <tr><td rowspan="2"><strong>Heures Pleines / Creuses</strong></td><td rowspan="2">13,75 €</td><td>HP : 0,2700 €/kWh</td><td>6 h → 22 h (16 h)</td></tr>
+      <tr><td>HC : 0,2068 €/kWh</td><td>22 h → 6 h (8 h)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Plage horaire HP/HC sur 24 heures</h3>
+  <div class="svg-wrap" style="margin:14px 0">
+    <svg width="100%" viewBox="0 0 700 200" style="max-width:700px;display:block;margin:0 auto" role="img" aria-label="Plage horaire jour/nuit du tarif Heures Pleines / Heures Creuses. HC de 0h à 6h et de 22h à 24h tarifées 0,2068 €/kWh ; HP de 6h à 22h tarifées 0,27 €/kWh. Le ballon ECS doit être programmé pour chauffer pendant les heures creuses uniquement (4 h dans la plage 0h-6h).">
+      <defs>
+        <style>
+          .ax4{stroke:#1f2937;stroke-width:1.5;fill:none}
+          .hp4{fill:#fee2e2;stroke:#dc2626;stroke-width:1.5}
+          .hc4{fill:#dcfce7;stroke:#16a34a;stroke-width:1.5}
+          .lbl4{font:12px sans-serif;fill:#1a202c}
+          .lblHP4{font:700 13px sans-serif;fill:#b91c1c}
+          .lblHC4{font:700 13px sans-serif;fill:#15803d}
+        </style>
+      </defs>
+
+      <!-- Frise principale -->
+      <!-- HC 0h-6h : x=60 à x=210 -->
+      <rect class="hc4" x="60" y="60" width="150" height="60"/>
+      <!-- HP 6h-22h : x=210 à x=610 -->
+      <rect class="hp4" x="210" y="60" width="400" height="60"/>
+      <!-- HC 22h-24h : x=610 à x=660 -->
+      <rect class="hc4" x="610" y="60" width="50" height="60"/>
+
+      <!-- Labels dans les plages -->
+      <text class="lblHC4" x="135" y="95" text-anchor="middle">HC</text>
+      <text class="lbl4" x="135" y="112" text-anchor="middle" font-size="10" fill="#15803d">0,2068 €/kWh</text>
+      <text class="lblHP4" x="410" y="95" text-anchor="middle">Heures Pleines</text>
+      <text class="lbl4" x="410" y="112" text-anchor="middle" font-size="10" fill="#7f1d1d">0,2700 €/kWh</text>
+      <text class="lblHC4" x="635" y="95" text-anchor="middle">HC</text>
+
+      <!-- Graduations horaires -->
+      <line class="ax4" x1="60" y1="120" x2="660" y2="120"/>
+      <line class="ax4" x1="60" y1="120" x2="60" y2="128"/>
+      <line class="ax4" x1="210" y1="120" x2="210" y2="128"/>
+      <line class="ax4" x1="610" y1="120" x2="610" y2="128"/>
+      <line class="ax4" x1="660" y1="120" x2="660" y2="128"/>
+      <text class="lbl4" x="60" y="143" text-anchor="middle" font-weight="bold">0h</text>
+      <text class="lbl4" x="210" y="143" text-anchor="middle" font-weight="bold">6h</text>
+      <text class="lbl4" x="410" y="143" text-anchor="middle">12h (midi)</text>
+      <text class="lbl4" x="610" y="143" text-anchor="middle" font-weight="bold">22h</text>
+      <text class="lbl4" x="660" y="143" text-anchor="middle" font-weight="bold">24h</text>
+
+      <!-- Annotation chauffe ballon -->
+      <path d="M 90 60 L 90 30" stroke="#0969da" stroke-width="1.5" stroke-dasharray="3,2" fill="none"/>
+      <path d="M 200 60 L 200 30" stroke="#0969da" stroke-width="1.5" stroke-dasharray="3,2" fill="none"/>
+      <line x1="90" y1="30" x2="200" y2="30" stroke="#0969da" stroke-width="2" marker-start="url(#arrL)" marker-end="url(#arrR)"/>
+      <text class="lbl4" x="145" y="22" text-anchor="middle" fill="#0969da" font-weight="bold" font-size="11">programmation chauffe ballon (4 h dans HC)</text>
+
+      <!-- Légende durée totale -->
+      <text class="lbl4" x="135" y="180" text-anchor="middle" font-size="11" fill="#15803d" font-weight="600">8 h de HC / jour</text>
+      <text class="lbl4" x="410" y="180" text-anchor="middle" font-size="11" fill="#b91c1c" font-weight="600">16 h de HP / jour</text>
+
+      <defs>
+        <marker id="arrL" markerWidth="8" markerHeight="8" refX="0" refY="4" orient="auto">
+          <polygon points="8,0 0,4 8,8" fill="#0969da"/>
+        </marker>
+        <marker id="arrR" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+          <polygon points="0,0 8,4 0,8" fill="#0969da"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> M. Renard doit-il rester en option Base ou passer à l'option Heures Pleines / Heures Creuses pour son nouveau ballon ECS ? À partir de combien d'années cela devient-il rentable ?
+</div>
+
+<!-- ===== QUESTIONS ===== -->
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la <strong>puissance électrique</strong> du ballon à partir de la tension U = 230 V et de la résistance dont la fiche technique annonce 2 200 W. Vérifier la cohérence de la valeur P avec U × I sachant que I ≈ 9,57 A.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>D'après la fiche : <strong>P = 2 200 W = 2,2 kW</strong>.</p>
+    <p>Vérification U × I = 230 × 9,57 ≈ <strong>2 201 W</strong> ✓. Les deux valeurs concordent.</p>
+    <p>Le courant I = P/U = 2 200 / 230 ≈ 9,57 A — cohérent avec un appareil 230 V protégé par un disjoncteur 16 A.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>énergie quotidienne</strong> consommée par le ballon (résistance qui chauffe 4 h/j + 1,5 kWh de pertes statiques) et l'<strong>énergie annuelle</strong> (365 jours).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie résistance : E = P × t = 2,2 × 4 = <strong>8,8 kWh/jour</strong></p>
+    <p>Avec pertes : 8,8 + 1,5 = <strong>10,3 kWh/jour</strong></p>
+    <p>Énergie annuelle : 10,3 × 365 ≈ <strong>3 760 kWh/an</strong></p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>coût annuel</strong> du ballon en option <strong>Base</strong> (tarif unique 0,2516 €/kWh) en comptant uniquement le coût de l'énergie (sans abonnement).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Coût annuel = 3 760 × 0,2516 ≈ <strong>946 €/an</strong></p>
+    <p>(En option Base, peu importe l'heure de chauffe, le tarif est le même.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Sami programme le <strong>contacteur jour/nuit</strong> du ballon pour qu'il ne chauffe que pendant les heures creuses (entre 22h et 6h, soit 8 h de plage disponibles).</p>
+  <p>Le ballon a besoin de 4 h/jour pour chauffer : peut-il tenir entièrement dans la plage HC ?</p>
+  <p>Calculer le coût annuel en option <strong>HP/HC</strong> si toute la chauffe se fait en HC.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Oui : 4 h ≤ 8 h disponibles → toute la chauffe se fait en HC (à 0,2068 €/kWh).</p>
+    <p>Coût annuel HP/HC = 3 760 × 0,2068 ≈ <strong>778 €/an</strong></p>
+    <p>Économie sur l'énergie : 946 − 778 = <strong>168 €/an</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>L'option HP/HC a un <strong>abonnement plus cher</strong> (13,75 € contre 13,29 €). Calculer le surcoût annuel d'abonnement.</p>
+  <p>En déduire l'<strong>économie annuelle nette</strong> (économie énergie − surcoût abonnement).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Surcoût abonnement annuel : (13,75 − 13,29) × 12 = 0,46 × 12 = <strong>5,52 €/an</strong>.</p>
+    <p>Économie nette annuelle : 168 − 5,52 ≈ <strong>162 €/an</strong>.</p>
+    <p>Le passage en HP/HC est largement rentable, même avec l'abonnement plus cher.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Sami doit poser un <strong>contacteur jour/nuit</strong> dans le tableau électrique de M. Renard (le ballon n'en avait pas). Coût matériel + main d'œuvre : <strong>120 €</strong>. Calculer le <strong>temps de retour sur investissement</strong>.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Temps de retour : 120 / 162 ≈ <strong>0,74 an</strong>, soit environ <strong>9 mois</strong>.</p>
+    <p>Sur 15 ans (durée de vie du ballon), économie cumulée : 15 × 162 − 120 = <strong>2 310 €</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-blue">VAL</span></h2>
+  <p>Et si M. Renard utilisait le ballon <strong>aussi en journée</strong> (oubli de programmation, douche imprévue après 22h non couverte par la HC) : 25 % de la chauffe en HP, 75 % en HC. L'option HP/HC reste-t-elle rentable ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie en HP : 0,25 × 3 760 = 940 kWh → 940 × 0,2700 = <strong>253,8 €</strong></p>
+    <p>Énergie en HC : 0,75 × 3 760 = 2 820 kWh → 2 820 × 0,2068 = <strong>583,2 €</strong></p>
+    <p>Coût total HP/HC dégradé : 253,8 + 583,2 ≈ <strong>837 €</strong></p>
+    <p>Comparaison option Base (946 €) : économie nette = 946 − 837 − 5,52 ≈ <strong>103 €/an</strong>.</p>
+    <p>Verdict : même mal programmée, l'option HP/HC reste rentable. Mais bien programmer le contacteur fait gagner 60 €/an supplémentaires (162 vs 103). Sami doit insister auprès du client !</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>conseil tarifaire</strong> que Sami envoie à M. Renard :</p>
+  <ul>
+    <li>recommandation chiffrée (option à choisir, économie attendue)</li>
+    <li>investissement nécessaire</li>
+    <li>conseil pour bien profiter de l'option</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>SaniThermique — Conseil tarifaire pour M. Renard (Nantes)</strong><br>
+      • Votre ballon ECS de 200 L consomme environ <strong>3 760 kWh/an</strong> (10,3 kWh/jour).<br>
+      • <strong>Recommandation : passer à l'option Heures Creuses</strong>. Économie : <strong>~ 162 €/an</strong> (167 € sur l'énergie − 5 € de surcoût d'abonnement).<br>
+      • Investissement : <strong>120 €</strong> pour le contacteur jour/nuit dans votre tableau (déjà chiffré). Retour sur investissement : 9 mois. Sur 15 ans : ~ 2 310 € économisés.<br>
+      • <strong>Important :</strong> bien régler le contacteur sur les plages HC (22h-6h) et éviter d'enclencher la chauffe manuellement en journée — l'économie est conditionnée à une chauffe en HC à 100 %.<br>
+      • Démarche EDF : appeler le 3004 ou changer en ligne sur edf.fr ; effet à la prochaine échéance.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Le voisin de M. Renard, M. Petit, est une famille de 4 personnes. Son ballon ECS est de 300 L, puissance 2,4 kW, et chauffe <strong>7 h/jour</strong>. Calculer la nouvelle économie annuelle pour cette famille en passant en HP/HC. Que peut-on conclure sur l'intérêt de l'option HP/HC en fonction du foyer ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Énergie chauffe : 2,4 × 7 = 16,8 kWh/jour. Avec pertes (~ 2 kWh) : 18,8 kWh/jour. Soit ≈ <strong>6 860 kWh/an</strong>.</p>
+    <p>Coût Base : 6 860 × 0,2516 ≈ 1 726 €. Coût HP/HC (toute en HC) : 6 860 × 0,2068 ≈ 1 419 €.</p>
+    <p>Économie nette : 1 726 − 1 419 − 5,52 ≈ <strong>302 €/an</strong>.</p>
+    <p>Conclusion : <strong>plus la consommation est élevée, plus l'option HP/HC est intéressante</strong>. Pour un foyer 4 personnes, l'économie est presque doublée par rapport à un foyer seul. Pour des très petits consommateurs (< 1 500 kWh/an d'eau chaude), l'option Base reste plus simple.</p>
+  </div>
+</div>
+
+<!-- ===== A RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Énergie consommée :</strong> E = P × t (en kWh si P en kW et t en h).</li>
+    <li><strong>Coût d'utilisation :</strong> coût = énergie × tarif unitaire (en €/kWh). À ajouter à l'abonnement mensuel.</li>
+    <li><strong>Option Heures Pleines / Heures Creuses :</strong> tarif réduit pendant 8 h la nuit (~ 22h-6h). Avantage si on peut concentrer la consommation pendant cette plage.</li>
+    <li><strong>Contacteur jour/nuit :</strong> appareil qui n'autorise la chauffe du ballon ECS que pendant les heures creuses. Investissement ~ 120 €.</li>
+    <li><strong>Règle pratique :</strong> l'option HP/HC est rentable dès qu'au moins <strong>50 % de la consommation</strong> peut être déplacée en HC. Idéal pour ballon ECS, voiture électrique, lave-linge.</li>
+    <li><strong>Limite :</strong> pour un très petit consommateur (logement étudiant, chauffage gaz, peu d'ECS), l'option Base reste plus simple et tout aussi économique.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Énergie électrique en kWh), §4 (Mesure de l'énergie) et §6 (Applications professionnelles) de la leçon Ch01.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
