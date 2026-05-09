@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 4 – Résolution d'impression dpi – CAP SDG</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Choisir la résolution d'impression d'une enseigne <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 7 — Calculs numériques | CAP SDG (Signalétique et Décors Graphiques) | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Manipuler les puissances de 10 et l'écriture scientifique</li>
+    <li>Convertir des unités de longueur et d'aire</li>
+    <li>Calculer un nombre total de pixels</li>
+    <li>Estimer un poids de fichier (ordre de grandeur)</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – choix d'un fichier d'impression</h2>
+  <p><em>Sami, apprenti en signalétique chez « Couleurs Vives » à Marseille, prépare l'impression d'une bâche publicitaire pour une animation commerciale. Le client a fourni un visuel en haute résolution. Sami doit vérifier que la résolution sera suffisante pour l'imprimer en grand format sans pixellisation, et estimer le poids du fichier final.</em></p>
+
+  <h3>Document 1 — Vocabulaire</h3>
+  <ul>
+    <li><strong>dpi</strong> = dots per inch = points par pouce. 1 pouce = <strong>2,54 cm</strong>.</li>
+    <li>Une <strong>image</strong> est un quadrillage de points colorés (pixels).</li>
+    <li>Pour une enseigne lue de loin (&gt; 5 m) : <strong>72 dpi</strong> suffisent.</li>
+    <li>Pour une bâche lue de près : <strong>150 dpi</strong> recommandés.</li>
+  </ul>
+
+  <h3>Document 2 — Bâche à imprimer</h3>
+  <ul>
+    <li>Dimensions : <strong>4 m × 3 m</strong>.</li>
+    <li>Lecture client à environ <strong>3 m</strong> de distance → 150 dpi requis.</li>
+    <li>Format de couleur : <strong>4 octets</strong> par pixel (RGBA 32 bits).</li>
+  </ul>
+
+  <h3>Document 3 — Conversions et puissances de 10</h3>
+  <ul>
+    <li>1 m = 100 cm = $10^2$ cm.</li>
+    <li>1 octet = 1 caractère ; 1 ko = $10^3$ octets ; 1 Mo = $10^6$ octets ; 1 Go = $10^9$ octets.</li>
+    <li>1 pouce = 2,54 cm donc 1 m = $\dfrac{100}{2,54} \approx 39,4$ pouces.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Combien de pixels comporte la bâche imprimée à 150 dpi, et quel est le poids du fichier en Mo / Go ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Convertir les dimensions de la bâche en <strong>pouces</strong> (1 pouce = 2,54 cm = 0,0254 m).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Largeur : $4 \div 0,0254 \approx 157,5$ pouces.</p>
+    <p>Hauteur : $3 \div 0,0254 \approx 118,1$ pouces.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>À 150 dpi, calculer le <strong>nombre de pixels en largeur</strong> et en <strong>hauteur</strong>. Donner le résultat arrondi.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Largeur : $157,5 \times 150 \approx 23\,625$ pixels.</p>
+    <p>Hauteur : $118,1 \times 150 \approx 17\,716$ pixels.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>nombre total de pixels</strong> de la bâche. Donner le résultat en écriture scientifique.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$N = 23\,625 \times 17\,716 \approx 4,18 \times 10^8$ pixels.</p>
+    <p>Soit ≈ <strong>418 millions de pixels</strong>. Une image gigantesque !</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>poids du fichier</strong> en octets (4 octets par pixel). Convertir en Mo et en Go.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Poids = $4,18 \times 10^8 \times 4 = 1,67 \times 10^9$ octets.</p>
+    <p>En Mo : $1,67 \times 10^9 \div 10^6 = 1\,670 \,$Mo.</p>
+    <p>En Go : $1,67 \times 10^9 \div 10^9 = $ <strong>≈ 1,67 Go</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Donner un <strong>ordre de grandeur</strong> rapide : avec dimensions 4 × 3 m² = 12 m², à 150 dpi, le nombre de pixels par m² est environ $(150 \times 39,4)^2 \approx 3,5 \times 10^7$. Combien estime-t-on en pixels totaux ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Estimation : $12 \times 3,5 \times 10^7 = 42 \times 10^7 = 4,2 \times 10^8$ pixels.</p>
+    <p>Très proche de 4,18 × 10^8 (calcul exact). Bonne méthode pour vérifier rapidement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Le client a fourni une image de <strong>résolution 8 000 × 6 000 pixels</strong>. Quelle est sa résolution effective sur la bâche 4 × 3 m (en dpi) ? Suffit-elle ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Largeur : $\dfrac{8\,000}{157,5} \approx $ <strong>50,8 dpi</strong>.</p>
+    <p>Insuffisant pour une lecture à 3 m (150 dpi requis), mais OK pour une lecture à plus de 5 m (72 dpi minimum). À 50 dpi, l'image apparaîtra <strong>légèrement pixellisée de près</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Sami décide de <strong>diminuer la résolution cible</strong> à 72 dpi (vu la distance de lecture réelle). Quel sera le nouveau poids du fichier en Mo ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Avec 72 dpi : pixels totaux $\div (\dfrac{150}{72})^2 \approx \div 4,34$.</p>
+    <p>Poids : $\dfrac{1\,670}{4,34} \approx $ <strong>385 Mo</strong>.</p>
+    <p>Beaucoup plus léger : plus facile à envoyer au prestataire d'impression.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche technique</strong> que Sami transmet au client pour valider les choix d'impression.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Couleurs Vives Marseille — Fiche technique impression bâche · 7 mai 2026</strong><br>
+      • <strong>Format :</strong> 4 m × 3 m, lecture à ~3 m de distance.<br>
+      • <strong>Résolution préconisée :</strong> 150 dpi (haute qualité) → 4,2 × 10⁸ pixels, poids 1,67 Go.<br>
+      • <strong>Fichier client :</strong> 8 000 × 6 000 px → ≈ 51 dpi sur le format final (insuffisant pour 150 dpi).<br>
+      • <strong>Solution :</strong> imprimer à 72 dpi (suffisant à 3 m), poids 385 Mo, transmissible par Wetransfer.<br>
+      • <strong>Vérification visuelle :</strong> tirage A4 « bon à tirer » avant lancement de la grande impression.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Sami fait également une <strong>impression A4</strong> (21 × 29,7 cm) à 300 dpi pour le bon à tirer. Combien de pixels et quel poids ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Conversion : $21 \,$cm = $\dfrac{21}{2,54} \approx 8,27$ pouces, $29,7$ cm $\approx 11,69$ pouces.</p>
+    <p>Pixels : $8,27 \times 300 \times 11,69 \times 300 \approx 8,7 \times 10^6 \,$pixels.</p>
+    <p>Poids : $8,7 \times 10^6 \times 4 \approx 35 \,$Mo. Très raisonnable.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Conversion :</strong> 1 pouce = 2,54 cm. 1 m ≈ 39,4 pouces.</li>
+    <li><strong>Résolution :</strong> dpi (dots per inch) = pixels par pouce.</li>
+    <li><strong>Nombre de pixels :</strong> dimensions (en pouces) × dpi (dans chaque axe), puis multiplier les deux.</li>
+    <li><strong>Écriture scientifique :</strong> indispensable au-delà de $10^6$ (millions).</li>
+    <li><strong>Conversions de poids :</strong> 1 Mo = $10^6$ octets, 1 Go = $10^9$ octets.</li>
+    <li><strong>Application pro :</strong> impression grand format, fichiers numériques, distance de lecture.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Décimaux), §4 (Puissances de 10), §5 (Ordres de grandeur) et §6 (Conversions) de la leçon Ch07.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

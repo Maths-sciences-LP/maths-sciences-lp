@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 3 – Fractions et masse de bois – CAP Ébéniste</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Fractions de planche et masse de bois <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 7 — Calculs numériques | CAP Ébéniste | Mathématiques | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Effectuer des opérations sur les fractions</li>
+    <li>Calculer une masse à partir d'un volume et d'une masse volumique</li>
+    <li>Donner un ordre de grandeur cohérent</li>
+    <li>Convertir des unités de masse</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – partage d'une planche entre apprentis</h2>
+  <p><em>Inès, apprentie ébéniste à Bordeaux, partage une grande planche de chêne avec 2 autres apprentis. Le maître attribue $\dfrac{1}{2}$ de la planche à Inès, $\dfrac{1}{3}$ à Lucas et le reste à Marie. La planche pèse 18 kg et fait 2,40 m de long. Inès doit préparer la coupe et calculer le poids approximatif de chaque part pour le rangement.</em></p>
+
+  <h3>Document 1 — Caractéristiques de la planche</h3>
+  <ul>
+    <li>Essence : <strong>chêne</strong>.</li>
+    <li>Masse volumique du chêne : $\rho \approx 720 \,$kg/m³.</li>
+    <li>Longueur : <strong>2,40 m</strong>.</li>
+    <li>Largeur : <strong>30 cm</strong>.</li>
+    <li>Épaisseur : <strong>3,5 cm</strong>.</li>
+    <li>Masse mesurée : <strong>18 kg</strong>.</li>
+  </ul>
+
+  <h3>Document 2 — Schéma du partage</h3>
+  <div class="svg-wrap">
+  <svg viewBox="0 0 460 100" width="460" height="100" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="40" width="240" height="40" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
+    <text x="140" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">Inès — 1/2</text>
+    <rect x="260" y="40" width="120" height="40" fill="#d97706" stroke="#92400e" stroke-width="2"/>
+    <text x="320" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Lucas — 1/3</text>
+    <rect x="380" y="40" width="60" height="40" fill="#92400e" stroke="#7c2d12" stroke-width="2"/>
+    <text x="410" y="65" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Marie</text>
+    <text x="20" y="35" font-size="9" fill="#475569">0</text>
+    <text x="265" y="35" font-size="9" fill="#475569">120 cm</text>
+    <text x="385" y="35" font-size="9" fill="#475569">200 cm</text>
+    <text x="445" y="35" font-size="9" fill="#475569">240</text>
+    <text x="230" y="20" text-anchor="middle" font-size="11" font-weight="700">Planche 2,40 m / 18 kg</text>
+  </svg>
+  </div>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle longueur et quelle masse reviennent à chaque apprenti ? La masse calculée correspond-elle à la masse mesurée ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Inès reçoit $\dfrac{1}{2}$ de la planche, Lucas $\dfrac{1}{3}$. Quelle <strong>fraction</strong> reste-t-il pour Marie ? (Réduire au même dénominateur.)</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\dfrac{1}{2} + \dfrac{1}{3} = \dfrac{3}{6} + \dfrac{2}{6} = \dfrac{5}{6}$.</p>
+    <p>Marie : $1 - \dfrac{5}{6} = $ <strong>$\dfrac{1}{6}$</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>longueur</strong> de planche reçue par chaque apprenti.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Inès : $\dfrac{1}{2} \times 2,40 = $ <strong>1,20 m</strong>.</li>
+      <li>Lucas : $\dfrac{1}{3} \times 2,40 = $ <strong>0,80 m</strong>.</li>
+      <li>Marie : $\dfrac{1}{6} \times 2,40 = $ <strong>0,40 m</strong>.</li>
+    </ul>
+    <p>Vérification : $1,20 + 0,80 + 0,40 = 2,40 \,$m ✓.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>masse</strong> reçue par chaque apprenti à partir de la masse totale (18 kg).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Inès : $\dfrac{1}{2} \times 18 = $ <strong>9 kg</strong>.</li>
+      <li>Lucas : $\dfrac{1}{3} \times 18 = $ <strong>6 kg</strong>.</li>
+      <li>Marie : $\dfrac{1}{6} \times 18 = $ <strong>3 kg</strong>.</li>
+    </ul>
+    <p>Vérification : $9 + 6 + 3 = 18 \,$kg ✓.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Calculer le <strong>volume</strong> de la planche en m³ (avec 2,40 m × 30 cm × 3,5 cm). Donner le résultat en écriture scientifique.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$V = 2,40 \times 0,30 \times 0,035 = 0,0252 \,$m³.</p>
+    <p>Écriture scientifique : <strong>$2,52 \times 10^{-2} \,$m³</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>À partir de la masse volumique du chêne (720 kg/m³), calculer la masse <strong>théorique</strong> de la planche. Comparer à la masse mesurée (18 kg).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$m = \rho \times V = 720 \times 0,0252 = $ <strong>18,14 kg</strong>.</p>
+    <p>Mesurée : 18 kg → écart de 0,14 kg, soit moins de 1 %. <strong>Cohérent</strong>. La petite différence vient probablement du séchage (taux d'humidité).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Donner un <strong>ordre de grandeur</strong> rapide de la masse théorique : arrondir à $7 \times 10^2 \,$kg/m³ et $2,5 \times 10^{-2}$ m³.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Estimation : $7 \times 10^2 \times 2,5 \times 10^{-2} = 7 \times 2,5 \times 10^{2-2} = 17,5 \times 10^0 = $ <strong>17,5 kg</strong>.</p>
+    <p>L'estimation rapide donne 17,5 kg, très proche de 18 kg ✓. Bon réflexe pour vérifier mentalement les calculs.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Marie souhaite <strong>échanger</strong> sa part contre celle de Lucas. Quel partage propose-t-elle de faire ? Inès doit-elle tracer un nouveau plan de coupe ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Marie : 1/6 (40 cm, 3 kg). Lucas : 1/3 (80 cm, 6 kg). <strong>Pas équitable</strong> en l'état.</p>
+    <p>Marie propose donc de <strong>doubler sa part</strong>. Donc 1/3 chacun + Inès reste à 1/2 ne fait plus 1.</p>
+    <p>Solution : Inès accepte de céder 1/6 de plus à Marie → Inès passe à 1/3, Marie à 1/3, Lucas à 1/3 (partage équitable). Inès doit retracer le plan : 0,80 m chacun.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>plan de débit final</strong> que les 3 apprentis affichent à l'atelier après accord.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Bordeaux — Plan de débit planche chêne · 7 mai 2026</strong><br>
+      • <strong>Planche :</strong> chêne, 2,40 m × 30 × 3,5 cm, masse 18 kg.<br>
+      • <strong>Volume :</strong> $2,52 \times 10^{-2}$ m³ (cohérent avec ρ ≈ 720 kg/m³).<br>
+      • <strong>Partage initial :</strong> Inès 1/2, Lucas 1/3, Marie 1/6 → non équitable.<br>
+      • <strong>Partage validé :</strong> 1/3 chacun → 0,80 m et 6 kg par apprenti.<br>
+      • <strong>Pertes scie :</strong> 2 traits × 4 mm = 8 mm à anticiper sur les longueurs.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Inès remplace son chêne par du <strong>noyer</strong> ($\rho \approx 650 \,$kg/m³) pour un autre projet, mêmes dimensions. Quelle est la nouvelle masse de la planche ? Comparer à 18 kg.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$m_{noyer} = 650 \times 0,0252 \approx $ <strong>16,4 kg</strong>.</p>
+    <p>Soit 1,6 kg de moins que le chêne. Le noyer est légèrement <strong>moins dense</strong> (à dimensions égales, plus léger).</p>
+    <p>Pratique : utile pour des meubles à transporter ou des panneaux suspendus.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Addition de fractions :</strong> mettre au même dénominateur, additionner les numérateurs.</li>
+    <li><strong>Fraction d'une quantité :</strong> $\dfrac{a}{b} \times Q$.</li>
+    <li><strong>Masse, volume, masse volumique :</strong> $m = \rho \times V$.</li>
+    <li><strong>Écriture scientifique :</strong> $a \times 10^n$ avec $1 \leq a < 10$.</li>
+    <li><strong>Multiplication des puissances :</strong> $10^a \times 10^b = 10^{a+b}$.</li>
+    <li><strong>Application pro :</strong> répartition matière, contrôle masse, choix d'essence.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Fractions), §4 (Puissances de 10), §5 (Ordres de grandeur) et §6 (Conversions) de la leçon Ch07.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
