@@ -628,5 +628,12 @@ une dimension minimale à respecter, une quantité à produire au minimum...</p>
 
 </div><!-- fin .c -->
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </body>
 </html>
