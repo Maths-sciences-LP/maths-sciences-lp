@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité 3 – Bruit d'une scie circulaire – CAP Ébéniste</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Sécuriser l'usage d'une scie circulaire <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 5 — Acoustique | CAP Ébéniste | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Lire un sonomètre et choisir la protection auditive adaptée</li>
+    <li>Comprendre la durée maximale d'exposition</li>
+    <li>Identifier les fréquences perçues (graves/aigus)</li>
+    <li>Calculer une atténuation après isolation phonique</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – atelier d'ébénisterie</h2>
+  <p><em>Inès, apprentie ébéniste à Lille, débite des panneaux à la scie circulaire fixe. Cette machine est très bruyante. Elle doit choisir ses EPI auditifs et organiser ses tâches pour limiter son exposition. L'atelier voisin (bureau d'études) est gêné par le bruit.</em></p>
+
+  <h3>Document 1 — Mesures sonomètre</h3>
+  <table>
+    <thead><tr><th>Conditions</th><th>Niveau (dB)</th></tr></thead>
+    <tbody>
+      <tr><td>Atelier au repos</td><td>45 dB</td></tr>
+      <tr><td>Scie circulaire en marche à vide</td><td>92 dB</td></tr>
+      <tr><td>Scie en coupe (panneau bois)</td><td>105 dB</td></tr>
+      <tr><td>Bureau voisin (cloison standard)</td><td>62 dB</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Réglementation et seuils</h3>
+  <ul>
+    <li>Seuil EPI obligatoire : <strong>85 dB</strong>.</li>
+    <li>Seuil d'alarme (protection renforcée) : <strong>90 dB</strong>.</li>
+    <li>Dose journalière max sans EPI : <strong>85 dB pendant 8 h</strong>.</li>
+    <li>À 90 dB : 4 h max ; 95 dB : 2 h ; 100 dB : 1 h ; 105 dB : <strong>30 min</strong>.</li>
+  </ul>
+
+  <h3>Document 3 — Caractéristiques du son de scie</h3>
+  <p>Le son de la scie en coupe contient surtout des fréquences <strong>aiguës</strong> (2 000-8 000 Hz) qui sont les plus agressives pour l'oreille humaine. La voix humaine se situe entre 100-300 Hz (graves) et les consonnes vers 4 000 Hz.</p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Inès peut-elle débiter sans EPI ? Combien de temps maximum peut-elle utiliser la scie ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>La scie en coupe émet <strong>105 dB</strong>. Inès doit-elle porter une protection auditive ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>105 dB &gt; 85 dB → <strong>OUI, EPI obligatoire</strong>. Au-delà de 90 dB, protection renforcée recommandée.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Quelle est la <strong>durée maximale d'exposition</strong> à 105 dB sans EPI ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>D'après le tableau : <strong>30 min/jour maximum</strong>. Au-delà : <strong>lésions auditives</strong> possibles (acouphènes, surdité).</p>
+    <p>En pratique, Inès passe rarement 30 min en continu sur la scie, mais cumule 1-2 h dans la journée → EPI <strong>obligatoire</strong> pour son audition.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Inès porte un <strong>casque antibruit</strong> (−30 dB). Quel niveau perçoit-elle ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$105 - 30 = $ <strong>75 dB</strong>.</p>
+    <p>75 dB = niveau d'une rue passante. Plus de risque pour l'audition (sous le seuil de 85 dB).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Le bureau voisin perçoit <strong>62 dB</strong>. La cloison atténue donc combien de dB ? Et est-ce confortable pour travailler dans le bureau ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Atténuation : $105 - 62 = $ <strong>43 dB</strong> (bonne cloison standard).</p>
+    <p>62 dB = bruit de conversation animée → <strong>très inconfortable</strong> pour un bureau d'études (concentration impossible).</p>
+    <p>Recommandation : améliorer l'isolation de la cloison ou délocaliser le bureau.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Inès remarque que le bruit aigu de la scie « rentre dans la tête ». Pourquoi les sons aigus (4 000 Hz) sont-ils plus gênants que les sons graves (100 Hz) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'oreille humaine est <strong>plus sensible aux fréquences 1 000-4 000 Hz</strong> (zone de la parole). Un son aigu à 75 dB paraît plus fort qu'un son grave à 75 dB.</p>
+    <p>De plus, les fréquences aiguës <strong>fatiguent davantage</strong> les cellules ciliées de la cochlée → risque de surdité plus rapide.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Inès propose de <strong>capoter la scie</strong> avec un caisson absorbant (−15 dB). Quels niveaux atteindra-t-elle dans l'atelier et dans le bureau voisin ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Atelier : $105 - 15 = $ <strong>90 dB</strong> (toujours obligatoire EPI mais doses ↓).</p>
+    <p>Bureau : $62 - 15 = $ <strong>47 dB</strong>. Niveau de bibliothèque, confortable pour travailler.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Avec une scie capotée (atelier 90 dB) et un casque antibruit (−30 dB), pendant combien de temps Inès peut-elle l'utiliser sans risque ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Niveau perçu : $90 - 30 = 60 \,$dB. Bien en dessous de 85 dB → <strong>aucune limite de durée</strong>.</p>
+    <p>Inès peut travailler à la scie toute la journée sans risque pour son audition.</p>
+    <p>L'investissement (capotage + casque) est rentabilisé en santé professionnelle.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note d'amélioration</strong> qu'Inès propose à son maître pour l'atelier.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Lille — Note acoustique scie circulaire · 7 mai 2026</strong><br>
+      • <strong>Mesure :</strong> 105 dB en coupe → durée max 30 min sans EPI.<br>
+      • <strong>EPI actuels :</strong> casque antibruit (−30 dB) → 75 dB perçu, conforme.<br>
+      • <strong>Bureau voisin :</strong> 62 dB → trop bruyant pour la concentration.<br>
+      • <strong>Solution :</strong> capotage scie (−15 dB), passage à 90 dB atelier et 47 dB bureau.<br>
+      • <strong>Bénéfice :</strong> sécurité auditive, confort bureau, productivité maintenue.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Calculer la <strong>période</strong> d'un son aigu à <strong>4 000 Hz</strong> émis par la scie. La comparer à la période d'un son grave à 100 Hz.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>4 000 Hz : $T = \dfrac{1}{4\,000} = 0,000\,25 \,$s = <strong>250 µs</strong>.</p>
+    <p>100 Hz : $T = \dfrac{1}{100} = $ <strong>10 ms</strong>.</p>
+    <p>Le son aigu vibre <strong>40 fois plus vite</strong> que le grave. Plus la fréquence est élevée, plus la période est courte.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Période :</strong> $T = \dfrac{1}{f}$ (en s, f en Hz).</li>
+    <li><strong>EPI obligatoire :</strong> ≥ 85 dB.</li>
+    <li><strong>Doses :</strong> 85 dB / 8 h ; 90 dB / 4 h ; 100 dB / 1 h ; 105 dB / 30 min.</li>
+    <li><strong>Atténuation casque :</strong> ~30 dB.</li>
+    <li><strong>Sons aigus</strong> plus dangereux que les graves à dB égal.</li>
+    <li><strong>Application pro :</strong> sécurité atelier, capotage, isolation phonique.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Fréquence/période), §3 (Niveau acoustique), §4 (Isolants), §7 (Protections) de la leçon Ch05.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

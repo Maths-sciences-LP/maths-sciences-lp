@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité 4 – Haut-parleur d'enseigne – CAP SDG</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Régler un haut-parleur d'enseigne <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 5 — Acoustique | CAP SDG (Signalétique et Décors Graphiques) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer la fréquence et la période d'un son</li>
+    <li>Vérifier la conformité d'un niveau sonore en milieu urbain</li>
+    <li>Comprendre l'atténuation du son avec la distance</li>
+    <li>Choisir une fréquence adaptée à la communication commerciale</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – sonorisation d'une enseigne d'événement</h2>
+  <p><em>Sami, apprenti en signalétique chez « Couleurs Vives » à Marseille, installe une enseigne sonorisée pour l'inauguration d'une boutique. La boutique veut diffuser un jingle de bienvenue (musique douce + message vocal) aux clients qui passent sur le trottoir. Sami doit régler le volume pour respecter la réglementation de la ville et choisir l'emplacement du haut-parleur.</em></p>
+
+  <h3>Document 1 — Jingle de bienvenue</h3>
+  <ul>
+    <li>Fréquence dominante de la voix : <strong>250 Hz</strong>.</li>
+    <li>Fréquences musicales : 100 Hz (graves) à 4 000 Hz (aigus).</li>
+    <li>Niveau désiré à 1 m du haut-parleur : <strong>75 dB</strong>.</li>
+  </ul>
+
+  <h3>Document 2 — Loi d'atténuation</h3>
+  <ul>
+    <li>En espace ouvert, doubler la distance → niveau diminue de <strong>−6 dB</strong>.</li>
+    <li>Niveau perçu à $d$ : $L(d) = L_0 - 6 \cdot \log_2(d)$ avec $L_0$ = niveau à 1 m.</li>
+  </ul>
+
+  <h3>Document 3 — Réglementation locale</h3>
+  <ul>
+    <li>Niveau max au pied de l'enseigne (façade) : <strong>75 dB</strong>.</li>
+    <li>Niveau max sur le trottoir d'en face (10 m) : <strong>55 dB</strong> (limite ambiance résidentielle).</li>
+    <li>Diffusion sonore commerciale autorisée : <strong>10h-19h</strong> uniquement.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Le réglage à 75 dB à 1 m respecte-t-il la limite à 10 m ? Quelles sont les caractéristiques du son émis ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la <strong>période</strong> du son vocal à 250 Hz.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$T = \dfrac{1}{f} = \dfrac{1}{250} = $ <strong>0,004 s = 4 ms</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>niveau perçu à 10 m</strong> du haut-parleur en utilisant la loi d'atténuation.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$L(10) = 75 - 6 \cdot \log_2(10) = 75 - 6 \times 3,32 = 75 - 19,9$.</p>
+    <p>$L(10) \approx $ <strong>55 dB</strong>.</p>
+    <p>Calcul intermédiaire : à 2 m → 69 dB ; 4 m → 63 dB ; 8 m → 57 dB ; 10 m → ~55 dB.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Le réglage à <strong>75 dB à 1 m</strong> respecte-t-il la limite urbaine de 55 dB sur le trottoir d'en face ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>55 ≤ 55 → <strong>tout juste conforme</strong>. Sami est à la limite.</p>
+    <p>Pour avoir une marge de sécurité, il vaut mieux régler à <strong>72 dB à 1 m</strong> (donnera ~52 dB sur le trottoir).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Si Sami baisse le volume à <strong>72 dB à 1 m</strong>, quel niveau aura-t-on à 10 m ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$L(10) = 72 - 19,9 \approx $ <strong>52 dB</strong>.</p>
+    <p>52 &lt; 55 → marge de 3 dB. Plus confortable. Le jingle reste audible (52 dB = conversation calme).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>L'oreille humaine est plus sensible vers <strong>2 000-4 000 Hz</strong> (plage de la parole). Sami doit-il privilégier une voix aiguë ou grave pour son jingle ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Une voix <strong>moyennement aiguë</strong> (2 000 Hz) sera la plus perceptible et compréhensible.</p>
+    <p>Les voix très graves (100 Hz) sont moins « porteuses » mais plus <strong>chaleureuses</strong> et moins fatigantes à long terme.</p>
+    <p>Pour un jingle commercial : voix entre 250 et 500 Hz, intelligible mais non agressive.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Le jingle dure 30 secondes et se répète <strong>toutes les 3 minutes</strong>. Combien de fois par heure ? Cela peut-il devenir gênant pour les voisins commerçants ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\dfrac{60}{3} = $ <strong>20 fois par heure</strong>, soit toutes les 3 min pendant 9 h = 180 fois par jour.</p>
+    <p>Très répétitif → <strong>fatigue auditive et lassitude</strong> garanties pour les voisins. Risque de plaintes.</p>
+    <p>Recommandation : intervalle de <strong>5-10 min</strong> minimum, ou diffusion uniquement aux heures de fort passage.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Sami décide d'orienter le haut-parleur <strong>vers la vitrine</strong> au lieu du trottoir. Quel niveau perçoit-on à 10 m sur le trottoir d'en face (atténuation directionnelle estimée à −10 dB) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$L(10)_{trottoir} = 55 - 10 = $ <strong>45 dB</strong> (avec haut-parleur dirigé vers la vitrine, en réflexion).</p>
+    <p>45 dB = très calme, niveau d'ambiance résidentielle. Aucune gêne pour les voisins.</p>
+    <p>L'orientation directionnelle est <strong>la solution la plus simple</strong> pour respecter la réglementation.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche de réglage sonorisation</strong> que Sami remet à la cliente.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Couleurs Vives Marseille — Réglage sonorisation enseigne · 7 mai 2026</strong><br>
+      • <strong>Niveau réglé :</strong> 72 dB à 1 m du haut-parleur (limite légale 75 dB en façade).<br>
+      • <strong>À 10 m (trottoir face) :</strong> ~52 dB, conforme à la limite résidentielle 55 dB.<br>
+      • <strong>Orientation :</strong> haut-parleur vers la vitrine (atténuation directionnelle voisins).<br>
+      • <strong>Diffusion autorisée :</strong> 10h-19h uniquement (arrêté municipal).<br>
+      • <strong>Fréquence jingle :</strong> 1 toutes les 5 min minimum (éviter saturation auditive).
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si Sami doit sonoriser un <strong>marché en plein air</strong> (cible 75 dB à 30 m), à quel niveau doit-il régler à 1 m du haut-parleur ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Atténuation à 30 m : $6 \cdot \log_2(30) = 6 \times 4,91 \approx 29,4 \,$dB.</p>
+    <p>$L_0 = 75 + 29,4 \approx $ <strong>104 dB à 1 m</strong>. Niveau très élevé !</p>
+    <p>Solution : <strong>plusieurs haut-parleurs</strong> répartis dans le marché (système distribué) pour éviter de monter aussi fort à la source.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Période :</strong> $T = \dfrac{1}{f}$.</li>
+    <li><strong>Atténuation distance :</strong> en plein champ, doublement de distance → −6 dB.</li>
+    <li><strong>Limites urbaines :</strong> ~75 dB façade, 55 dB ambiance résidentielle.</li>
+    <li><strong>Voix audible</strong> : 250-2 000 Hz, plage la plus sensible de l'oreille.</li>
+    <li><strong>Sonorisation :</strong> mieux vaut plusieurs sources distribuées qu'une seule très forte.</li>
+    <li><strong>Application pro :</strong> sonorisation commerciale, conformité réglementaire, écologie sonore urbaine.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §2 (Fréquence/période), §3 (Niveau acoustique), §6 (Aigu/grave) de la leçon Ch05.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

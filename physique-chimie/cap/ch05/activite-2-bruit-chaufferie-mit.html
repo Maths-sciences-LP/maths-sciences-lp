@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité 2 – Bruit en chaufferie – CAP MIT</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Mesurer le bruit d'une chaufferie collective <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 5 — Acoustique | CAP MIT (Métiers Installation Thermique) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Lire un sonomètre et interpréter le niveau dB</li>
+    <li>Choisir une protection auditive adaptée</li>
+    <li>Calculer une atténuation après isolation</li>
+    <li>Comprendre la durée maximale d'exposition au bruit</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – chaufferie d'une copropriété</h2>
+  <p><em>Karim, apprenti chauffagiste à Strasbourg, intervient dans une chaufferie collective au sous-sol. Il mesure le niveau sonore avec un sonomètre. Le compresseur de la PAC tourne en continu. Les habitants se plaignent du bruit dans les appartements du rez-de-chaussée.</em></p>
+
+  <h3>Document 1 — Mesures de Karim (au sonomètre)</h3>
+  <table>
+    <thead><tr><th>Position</th><th>Niveau (dB)</th></tr></thead>
+    <tbody>
+      <tr><td>Près du compresseur (1 m)</td><td>92 dB</td></tr>
+      <tr><td>À 5 m du compresseur</td><td>85 dB</td></tr>
+      <tr><td>Couloir technique (porte fermée)</td><td>72 dB</td></tr>
+      <tr><td>Salon RDC au-dessus</td><td>52 dB</td></tr>
+      <tr><td>Bibliothèque (ambiance calme)</td><td>30 dB</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Réglementation</h3>
+  <ul>
+    <li>Bruit en logement : limite légale <strong>30 dB la nuit</strong>, 35 dB le jour.</li>
+    <li>EPI auditif obligatoire à partir de <strong>85 dB</strong> en milieu professionnel.</li>
+    <li>Durée max d'exposition à 92 dB sans EPI : <strong>30 min/jour</strong> (au-delà, lésions auditives).</li>
+  </ul>
+
+  <h3>Document 3 — Protections auditives</h3>
+  <ul>
+    <li>Bouchons mousse : atténuation <strong>−25 dB</strong>.</li>
+    <li>Casque antibruit : atténuation <strong>−30 dB</strong>.</li>
+    <li>Bouchons sur mesure (moulés) : atténuation <strong>−27 dB</strong>.</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Karim doit-il porter une protection ? Le bruit dans le salon respecte-t-il la réglementation ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Au pied du compresseur, Karim mesure <strong>92 dB</strong>. Est-il obligé de porter des protections auditives ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>92 dB &gt; 85 dB → <strong>OUI, port d'EPI auditif obligatoire</strong>.</p>
+    <p>Sans EPI, lésions possibles au-delà de 30 min/jour d'exposition.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Karim porte des <strong>bouchons mousse</strong> (−25 dB). Quel niveau perçoit-il réellement à l'oreille à 1 m du compresseur ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Niveau perçu : $92 - 25 = $ <strong>67 dB</strong>.</p>
+    <p>67 dB = ambiance bureau, conversation normale. Confort acoustique correct, plus de risque pour l'audition.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Le salon du rez-de-chaussée est à <strong>52 dB</strong> à cause du compresseur. Cela respecte-t-il la limite légale (35 dB le jour) ? Calculer le dépassement.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>52 dB &gt; 35 dB → <strong>NON conforme</strong>, dépassement de 17 dB.</p>
+    <p>17 dB d'écart est très significatif (le doublement perçu de l'intensité = +10 dB).</p>
+    <p>Les habitants sont en droit d'exiger une mise en conformité (isolation phonique de la chaufferie).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>L'isolation phonique de la chaufferie atténuera de <strong>−20 dB</strong> le bruit transmis au salon. Quel sera le nouveau niveau ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$52 - 20 = $ <strong>32 dB</strong>.</p>
+    <p>32 &lt; 35 dB → <strong>conforme</strong>. Marge de 3 dB pour la sécurité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Pour la chaufferie, on peut isoler avec :</p>
+  <ul>
+    <li>Plaque de plâtre + laine de roche : −15 dB.</li>
+    <li>Doublage acoustique double couche : −20 dB.</li>
+    <li>Cabine isolante haute performance : −30 dB.</li>
+  </ul>
+  <p>Quelle solution recommander ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>−20 dB suffit (32 dB final). Pas besoin de cabine isolante (surdimensionnée).</p>
+    <p>Recommandation : <strong>doublage acoustique double couche</strong>. Bon compromis prix/efficacité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Le compresseur fonctionne à <strong>50 Hz</strong>. Calculer la <strong>période</strong> du son émis. Cette fréquence est-elle perceptible par l'oreille humaine ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$T = \dfrac{1}{f} = \dfrac{1}{50} = $ <strong>0,02 s = 20 ms</strong>.</p>
+    <p>50 Hz est dans la plage audible (20-20 000 Hz), considérée comme un <strong>son grave</strong> (« vrombissement »). Souvent ressenti dans le ventre plus qu'écouté.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Karim conseille au syndic d'installer en plus un <strong>silencieux</strong> sur la sortie du compresseur (atténuation −10 dB localement). Quel sera le niveau au pied du compresseur après silencieux + isolation phonique combinées ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Au compresseur : $92 - 10 = 82 \,$dB (silencieux).</p>
+    <p>Salon RDC : initial 52, isolation −20, silencieux −10 → estimation <strong>~22 dB</strong>.</p>
+    <p>Silence presque parfait. Attention : les ondes basses fréquences (50 Hz) restent difficiles à isoler en pratique.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes le <strong>rapport acoustique</strong> que Karim remet au syndic.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermie Strasbourg — Rapport acoustique chaufferie · 7 mai 2026</strong><br>
+      • <strong>Mesures :</strong> 92 dB compresseur, 52 dB salon RDC (limite 35 dB jour).<br>
+      • <strong>Non conformité :</strong> dépassement +17 dB. Plaintes habitants justifiées.<br>
+      • <strong>Solution :</strong> doublage acoustique double couche (−20 dB) → 32 dB salon, conforme.<br>
+      • <strong>EPI travailleurs :</strong> bouchons mousse (−25 dB) obligatoires en chaufferie (&gt; 85 dB).<br>
+      • <strong>Coût isolation :</strong> ~3 500 € HT, devis joint. Délai de pose : 2 jours.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si on double la distance entre le compresseur et un point de mesure, le niveau sonore <strong>diminue de 6 dB</strong> (loi en plein champ). Vérifier cette loi avec les mesures de Karim (passage de 1 m à 5 m, soit ×5 distance, ce qui devrait donner ~−14 dB).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Loi : $-6 \times \log_2(\text{ratio distance}) \approx -6 \times \log_2(5) = -6 \times 2,32 = -13,9 \,$dB.</p>
+    <p>Mesure : $92 - 85 = -7$ dB seulement. <strong>Plus faible que prévu</strong> : la chaufferie est confinée (pas de plein champ libre), réflexions sur les murs maintiennent le niveau.</p>
+    <p>D'où l'importance des <strong>parois absorbantes</strong> (laine acoustique).</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Niveau sonore en dB :</strong> échelle logarithmique. +10 dB = perception × 2.</li>
+    <li><strong>Limite professionnelle :</strong> 85 dB → EPI obligatoire.</li>
+    <li><strong>Limite logement :</strong> 30 dB nuit / 35 dB jour.</li>
+    <li><strong>Atténuation EPI :</strong> bouchons ~25 dB, casque ~30 dB.</li>
+    <li><strong>Atténuation isolation :</strong> dépend du type (15 à 40 dB).</li>
+    <li><strong>Application pro :</strong> diagnostic acoustique chaufferie, conformité réglementaire.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Niveau acoustique), §4 (Isolants) et §7 (Protections auditives) de la leçon Ch05.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
