@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 4 – Synthèse additive RGB – CAP SDG</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Composer une couleur sur écran LED RGB <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 7 — Optique | CAP SDG (Signalétique et Décors Graphiques) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre la synthèse additive des couleurs RGB</li>
+    <li>Distinguer synthèse additive (lumière) et soustractive (encres CMJN)</li>
+    <li>Calculer une longueur d'onde et une fréquence</li>
+    <li>Identifier les phénomènes de réflexion et réfraction</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – écran LED publicitaire dynamique</h2>
+  <p><em>Sami, apprenti en signalétique chez « Couleurs Vives » à Marseille, configure un écran LED couleur de 1 m × 0,5 m posé en vitrine. L'écran est composé de pixels RGB. Il doit aussi imprimer un visuel papier avec les mêmes couleurs sur encres CMJN. Sami se demande pourquoi il ne suffit pas de copier les valeurs RGB pour l'impression.</em></p>
+
+  <h3>Document 1 — Pixel RGB</h3>
+  <ul>
+    <li>Chaque pixel = 3 micro-LED : <strong>Rouge (R)</strong>, <strong>Verte (G)</strong>, <strong>Bleue (B)</strong>.</li>
+    <li>Synthèse additive : $R + G + B = $ <strong>blanc</strong>.</li>
+    <li>$R + G = $ jaune ; $G + B = $ cyan ; $R + B = $ magenta.</li>
+    <li>Aucun ($R = G = B = 0$) : <strong>noir</strong> (LED éteintes).</li>
+  </ul>
+
+  <h3>Document 2 — Longueurs d'onde des LED</h3>
+  <table>
+    <thead><tr><th>Couleur</th><th>$\lambda$ (nm)</th></tr></thead>
+    <tbody>
+      <tr><td>Bleu</td><td>465</td></tr>
+      <tr><td>Vert</td><td>525</td></tr>
+      <tr><td>Rouge</td><td>625</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 3 — Synthèse soustractive (encres CMJN)</h3>
+  <ul>
+    <li><strong>Cyan</strong> absorbe le rouge.</li>
+    <li><strong>Magenta</strong> absorbe le vert.</li>
+    <li><strong>Jaune</strong> absorbe le bleu.</li>
+    <li><strong>Noir (K)</strong> absorbe tout.</li>
+  </ul>
+  <p>Sur papier, on part du blanc et on <strong>retire</strong> des couleurs (par absorption).</p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Pourquoi un orange éclatant à l'écran apparaît-il terne sur papier ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>En synthèse additive, quelle couleur obtient-on en allumant <strong>R + G + B à 100 %</strong> ? Et avec <strong>R + G uniquement</strong> ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$R + G + B$ : <strong>blanc</strong>.</p>
+    <p>$R + G$ : <strong>jaune</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>fréquence</strong> de la lumière verte à $\lambda = 525 \,$nm.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$f = \dfrac{c}{\lambda} = \dfrac{3 \times 10^8}{525 \times 10^{-9}} = \dfrac{3 \times 10^8}{5,25 \times 10^{-7}} \approx $ <strong>5,7 × 10^{14} Hz</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Sur l'écran LED, Sami met R = 255, G = 165, B = 0 (orange). Quelle est la couleur résultante en synthèse additive ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>R 100 % + G 65 % + B 0 % → <strong>orange vif</strong>.</p>
+    <p>L'écran émet beaucoup de rouge, un peu moins de vert, pas de bleu. Notre œil perçoit l'addition comme un orange.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Sur le papier (synthèse soustractive), pour obtenir un orange, quelles encres faut-il combiner ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pour réfléchir le rouge et le vert (= orange) en partant du blanc :</p>
+    <ul>
+      <li>Pas de cyan (qui absorbe le rouge).</li>
+      <li>Pas trop de magenta (absorbe le vert).</li>
+      <li>Beaucoup de jaune (absorbe le bleu, ne touche ni R ni G).</li>
+    </ul>
+    <p>Composition CMJN orange : C 0 %, M 60 %, J 100 %, N 0 %.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Pourquoi le même orange paraît-il <strong>plus terne sur papier</strong> que sur écran ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>L'écran <strong>émet</strong> de la lumière → forte intensité.</li>
+      <li>Le papier <strong>réfléchit</strong> la lumière ambiante → l'éclat dépend de la lumière reçue.</li>
+      <li>Les encres CMJN ont une <strong>gamme</strong> (gamut) plus étroite que les LED RGB → certaines couleurs vives ne peuvent pas être reproduites.</li>
+    </ul>
+    <p>Phénomène appelé « gamut » : tout l'orange écran peut ne pas exister sur papier.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>L'écran LED est posé derrière une <strong>vitre antireflet</strong>. Quel phénomène optique limite-t-elle ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La <strong>réflexion</strong> spéculaire de la lumière ambiante sur la vitre.</p>
+    <p>Sans antireflet : on voit son propre reflet et la luminosité ambiante perturbent la lecture.</p>
+    <p>L'antireflet a un <strong>traitement optique</strong> qui annule en grande partie la lumière incidente réfléchie.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Pour avoir des couleurs <strong>cohérentes</strong> entre écran et papier (« épreuve couleur »), quelle solution Sami doit-il proposer au client ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>Utiliser un écran <strong>calibré</strong> (sonde colorimétrique) sur l'espace CMJN imprimable.</li>
+      <li>Imprimer un <strong>BAT (bon à tirer)</strong> et le valider sous l'éclairage final (vitrine).</li>
+      <li>Définir la couleur en <strong>Pantone</strong> (référence universelle) plutôt que RGB seul.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche couleur</strong> que Sami remet au client pour expliquer la cohérence écran ↔ papier.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Couleurs Vives Marseille — Fiche couleur écran/papier · 7 mai 2026</strong><br>
+      • <strong>Écran LED :</strong> synthèse additive RGB (R + G + B = blanc).<br>
+      • <strong>Papier :</strong> synthèse soustractive CMJN (encres absorbent les couleurs).<br>
+      • <strong>Différence :</strong> écran émet ; papier réfléchit. Gamut écran &gt; gamut imprimerie.<br>
+      • <strong>Cohérence :</strong> écran calibré + BAT validé sous lumière de vitrine + référence Pantone.<br>
+      • <strong>Conseil :</strong> certaines couleurs ultra vives (orange fluo) sont impossibles à imprimer fidèlement.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Calculer la longueur d'onde de la lumière jaune (synthèse additive R + G). À quelle longueur d'onde correspond le jaune « pur » du spectre solaire (vers 580 nm) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>En synthèse additive : R (625 nm) + G (525 nm) → notre œil perçoit du <strong>jaune</strong>, mais physiquement c'est un mélange.</p>
+    <p>Le jaune « pur » du spectre solaire est à <strong>580 nm</strong> (entre R et G).</p>
+    <p>L'œil ne distingue pas « 1 photon à 580 nm » et « R + G mélangés » — c'est ce qu'on appelle le <strong>métamérisme additif</strong>.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Synthèse additive (lumière) :</strong> R + G + B = blanc.</li>
+    <li><strong>Synthèse soustractive (encre) :</strong> on part du blanc et on enlève des couleurs.</li>
+    <li><strong>Longueurs d'onde :</strong> bleu 465, vert 525, rouge 625 nm.</li>
+    <li><strong>Gamut :</strong> ensemble des couleurs reproductibles. Écran &gt; papier.</li>
+    <li><strong>Réflexion :</strong> sur surfaces lisses (vitre antireflet limite ce phénomène).</li>
+    <li><strong>Application pro :</strong> écrans LED, impression, calibrage couleur, écosystème Pantone.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Lumière), §2 (Réflexion), §4 (Spectre), §5 (Synthèse additive) de la leçon Ch07.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
