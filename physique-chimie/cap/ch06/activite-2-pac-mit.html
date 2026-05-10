@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – Activité 2 – Pompe à chaleur et transferts thermiques – CAP MIT</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Suivre les transferts thermiques d'une PAC <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 6 — Thermique | CAP MIT (Métiers Installation Thermique) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Identifier les modes de transfert thermique (conduction, convection, rayonnement)</li>
+    <li>Distinguer chaleur (Q) et température (T)</li>
+    <li>Calculer une énergie $Q = m c \Delta T$</li>
+    <li>Comprendre le COP d'une pompe à chaleur</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – diagnostic d'une PAC air-eau</h2>
+  <p><em>Karim, apprenti chauffagiste à Toulouse, intervient sur une PAC air-eau d'une maison. La PAC capte la chaleur de l'air extérieur (5 °C en hiver) pour chauffer un circuit d'eau à 45 °C qui alimente le plancher chauffant. Il doit vérifier le bon fonctionnement et expliquer au client comment ça marche.</em></p>
+
+  <h3>Document 1 — Données techniques</h3>
+  <ul>
+    <li>Puissance thermique fournie : <strong>9 kW</strong>.</li>
+    <li>Puissance électrique consommée : <strong>3 kW</strong>.</li>
+    <li>Volume d'eau du circuit : <strong>200 L</strong>.</li>
+    <li>Capacité thermique de l'eau : $c = 4\,180 \,$J/(kg·°C).</li>
+  </ul>
+
+  <h3>Document 2 — Modes de transfert thermique</h3>
+  <ul>
+    <li><strong>Conduction :</strong> à travers une paroi solide (ex. parois échangeur, murs).</li>
+    <li><strong>Convection :</strong> par mouvement d'un fluide (ex. eau circulant dans tuyaux, air dans ventilateur).</li>
+    <li><strong>Rayonnement :</strong> par ondes électromagnétiques (ex. soleil, surface chaude qui « rayonne »).</li>
+  </ul>
+
+  <h3>Document 3 — COP (Coefficient de Performance)</h3>
+  <p>$\text{COP} = \dfrac{P_{thermique\,fournie}}{P_{électrique\,consommée}}$</p>
+  <p>Indique combien de kWh de chaleur on obtient pour 1 kWh d'électricité consommée.</p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel est le COP de la PAC, et combien de temps pour porter le circuit à température ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer le <strong>COP</strong> de la PAC.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\text{COP} = \dfrac{9}{3} = $ <strong>3</strong>.</p>
+    <p>Pour 1 kWh d'électricité, la PAC fournit 3 kWh de chaleur. Très efficace.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer l'<strong>énergie</strong> nécessaire pour faire passer le circuit d'eau de 20 °C à 45 °C ($Q = m c \Delta T$).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$Q = 200 \times 4\,180 \times (45 - 20) = 200 \times 4\,180 \times 25 = 20\,900\,000 \,$J ≈ 20,9 MJ.</p>
+    <p>En kWh : $\dfrac{20\,900\,000}{3\,600\,000} \approx $ <strong>5,8 kWh</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer le <strong>temps</strong> nécessaire à la PAC (9 kW thermique) pour fournir cette énergie.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$t = \dfrac{Q}{P} = \dfrac{5,8}{9} \approx 0,64 \,$h ≈ <strong>39 min</strong>.</p>
+    <p>Plutôt rapide. À comparer avec une chaudière gaz classique de même puissance : temps similaire.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Identifier les <strong>3 modes de transfert</strong> à l'œuvre dans la PAC :</p>
+  <ul>
+    <li>De l'air extérieur vers le fluide frigorigène : ?</li>
+    <li>Du fluide frigorigène vers l'eau du circuit : ?</li>
+    <li>De l'eau du plancher vers la pièce : ?</li>
+  </ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>Air extérieur → fluide : <strong>convection</strong> (ventilateur) + <strong>conduction</strong> (échangeur ailettes).</li>
+      <li>Fluide → eau : <strong>conduction</strong> (échangeur à plaques) + <strong>convection</strong> (eau qui circule).</li>
+      <li>Plancher → pièce : <strong>rayonnement</strong> (sol chaud rayonne) + <strong>convection</strong> (air ambiant).</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>La <strong>chaleur</strong> et la <strong>température</strong> ne sont pas la même chose. Donner un exemple concret tiré de cette situation.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'air à <strong>5 °C</strong> contient <strong>beaucoup de chaleur</strong> (énergie thermique). C'est la PAC qui « extrait » cette chaleur.</p>
+    <p>La <strong>température</strong> mesure l'agitation des molécules. La <strong>chaleur</strong> est l'énergie totale.</p>
+    <p>Une cuillerée d'eau bouillante (100 °C) a moins de chaleur qu'une baignoire d'eau tiède (40 °C, 100 L).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Si le COP était <strong>seulement de 2</strong> (au lieu de 3), quelle serait la nouvelle puissance électrique consommée pour les 9 kW thermiques ? Combien d'économies par an (3 000 h fonct., 0,21 €/kWh) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$P_{élec} = \dfrac{9}{2} = 4,5 \,$kW (au lieu de 3).</p>
+    <p>Différence : $1,5 \,$kW × $3\,000$ h × $0,21 = $ <strong>945 €/an</strong> de surcoût avec un mauvais COP.</p>
+    <p>Choisir une PAC avec un bon COP est <strong>très rentable</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>L'<strong>équilibre thermique</strong> est atteint quand l'eau du circuit ne chauffe plus. Quel est l'indicateur à observer ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>L'<strong>équilibre thermique</strong> est atteint quand la température cible (45 °C) est <strong>stable</strong> (n'augmente plus).</p>
+    <p>La PAC se met alors en pause (cycle on/off) ou réduit la fréquence du compresseur (modulation).</p>
+    <p>Pour maintenir l'équilibre face aux pertes (murs, vitrage), la PAC fonctionne par cycles.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes l'<strong>explication client</strong> que Karim donne au propriétaire pour vulgariser le fonctionnement.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermie Toulouse — Explication PAC client · 7 mai 2026</strong><br>
+      • <strong>Principe :</strong> la PAC « pompe » la chaleur de l'air extérieur (même à 5 °C il y a de la chaleur).<br>
+      • <strong>COP = 3 :</strong> 1 kWh d'électricité → 3 kWh de chaleur dans votre circuit.<br>
+      • <strong>Modes de transfert :</strong> conduction (échangeurs), convection (ventilateur, eau), rayonnement (plancher).<br>
+      • <strong>Mise en chauffe :</strong> ~40 min pour passer 200 L d'eau de 20 à 45 °C.<br>
+      • <strong>Économies :</strong> par rapport à un chauffage électrique direct, vous divisez la facture par 3.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Pour <strong>vaporiser</strong> 1 L d'eau (changement d'état liquide → vapeur), il faut <strong>2 260 kJ</strong>. Combien de litres d'eau peut-on vaporiser avec l'énergie de 5,8 kWh = 20,9 MJ ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\dfrac{20\,900}{2\,260} \approx $ <strong>9,2 L</strong> d'eau vaporisée.</p>
+    <p>L'énergie de chauffe (5,8 kWh) suffirait à transformer 9 L d'eau liquide à 100 °C en vapeur à 100 °C.</p>
+    <p>Le changement d'état nécessite beaucoup plus d'énergie que le chauffage à T constante.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Énergie thermique :</strong> $Q = m c \Delta T$ (J).</li>
+    <li><strong>Capacité thermique de l'eau :</strong> $c = 4\,180 \,$J/(kg·°C).</li>
+    <li><strong>Modes de transfert :</strong> conduction (solide), convection (fluide), rayonnement.</li>
+    <li><strong>COP :</strong> rapport puissance thermique / puissance électrique.</li>
+    <li><strong>Chaleur ≠ température :</strong> la chaleur est une énergie, la température mesure l'agitation.</li>
+    <li><strong>Application pro :</strong> dimensionnement PAC, optimisation énergétique, conseil client.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §3 (Équilibre thermique), §4 (Chaleur ≠ T), §7 (Transferts) de la leçon Ch06.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
