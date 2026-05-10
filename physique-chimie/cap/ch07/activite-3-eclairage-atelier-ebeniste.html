@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 3 – Éclairage atelier ébéniste – CAP Ébéniste</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 3 – Choisir l'éclairage de l'atelier <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 7 — Optique | CAP Ébéniste | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Comprendre la température de couleur d'une source lumineuse</li>
+    <li>Choisir un éclairage adapté à l'inspection du bois</li>
+    <li>Calculer une longueur d'onde dominante</li>
+    <li>Identifier les phénomènes de réflexion et synthèse soustractive</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – choix éclairage en atelier</h2>
+  <p><em>Inès, apprentie ébéniste à Lyon, prépare la finition d'une commode et veut choisir le meilleur éclairage pour bien voir les défauts (fissures, irrégularités, taches). Elle compare 3 types d'éclairages disponibles dans son atelier.</em></p>
+
+  <h3>Document 1 — Éclairages disponibles</h3>
+  <table>
+    <thead><tr><th>Type</th><th>Température couleur (K)</th><th>Sensation</th></tr></thead>
+    <tbody>
+      <tr><td>Halogène (incandescente)</td><td>3 000 K</td><td>Lumière chaude jaune</td></tr>
+      <tr><td>LED « blanc neutre »</td><td>4 000 K</td><td>Lumière neutre</td></tr>
+      <tr><td>LED « blanc froid »</td><td>6 500 K</td><td>Lumière froide bleutée (= lumière du jour)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Indice de Rendu des Couleurs (IRC)</h3>
+  <ul>
+    <li>IRC = 100 : lumière du soleil (rendu parfait des couleurs).</li>
+    <li>IRC ≥ 90 : éclairage <strong>professionnel</strong> recommandé pour atelier finition.</li>
+    <li>IRC 70-80 : éclairage standard, suffisant en bureau.</li>
+    <li>IRC &lt; 70 : couleurs faussées, déconseillé en atelier.</li>
+  </ul>
+
+  <h3>Document 3 — Synthèse soustractive (peinture/teinture bois)</h3>
+  <p>Une teinture <strong>chêne foncé</strong> absorbe le bleu et le vert (réfléchit le rouge/jaune). Sous lumière chaude (jaune), le bois paraît plus sombre. Sous lumière froide (bleue), il paraît plus clair.</p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quel éclairage Inès doit-elle choisir pour la finition ? Et pour la teinture ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Quelle est la différence entre <strong>lumière chaude</strong> et <strong>lumière froide</strong> ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Lumière <strong>chaude</strong> (3 000 K) : domine le jaune-orange. Ambiance « cocooning ».</p>
+    <p>Lumière <strong>froide</strong> (6 500 K) : domine le bleu, simule la lumière du jour.</p>
+    <p>Plus la T en Kelvin est élevée, plus la lumière paraît bleue (paradoxe : on parle de « lumière froide » mais T plus haute).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Pour <strong>contrôler les couleurs</strong> d'une finition, Inès doit choisir un éclairage à fort IRC. Quel choix faire dans le tableau ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Pour finition (rendu fidèle des couleurs) : <strong>LED « blanc neutre » ou « blanc froid » avec IRC ≥ 90</strong>.</p>
+    <p>L'halogène a un excellent IRC (~100) mais consomme 5× plus d'électricité. Préférer LED haut IRC pour l'efficacité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>longueur d'onde dominante</strong> émise par une lumière à 6 500 K (lumière du jour). Loi de Wien : $\lambda_{max} = \dfrac{2,898 \times 10^6}{T}$ (en nm avec T en K).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\lambda_{max} = \dfrac{2,898 \times 10^6}{6\,500} \approx $ <strong>446 nm</strong>.</p>
+    <p>446 nm = bleu. C'est la couleur dominante de la lumière du jour.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Pourquoi le bois <strong>chêne foncé</strong> paraît-il plus rougeâtre sous lumière chaude (3 000 K) qu'à la lumière du jour ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La lumière chaude contient surtout des longueurs d'onde rouges/jaunes (faible bleu).</p>
+    <p>Le chêne réfléchit les rouges/jaunes et absorbe le bleu. Sous lumière chaude, il y a <strong>peu de bleu à absorber</strong> → la dominante rouge réfléchie est exacerbée.</p>
+    <p>D'où l'aspect plus chaud et chaleureux du bois en intérieur soir/feu de cheminée.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Pour la <strong>teinture</strong>, Inès doit valider la couleur sous différents éclairages (« métamérisme »). Pourquoi ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le <strong>métamérisme</strong> : 2 surfaces qui paraissent identiques sous une lumière peuvent paraître différentes sous une autre.</p>
+    <p>Inès doit valider la teinture sous : lumière du jour (6 500 K) <strong>et</strong> lumière chaude (3 000 K) du salon du client.</p>
+    <p>Sinon : une commode parfaite à l'atelier peut paraître mal teintée chez le client.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Sur le vernis brillant, Inès observe un <strong>reflet</strong> du néon. Quel phénomène optique ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>C'est la <strong>réflexion spéculaire</strong> sur la surface lisse du vernis (comme un miroir).</p>
+    <p>Loi de la réflexion : angle d'incidence = angle de réflexion.</p>
+    <p>Pour limiter ces reflets gênants : éclairage diffus (par plusieurs sources, ou avec abat-jour), ou vernis mat.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Inès opte pour des LED 4 000 K + IRC 95. Combien d'énergie économise-t-elle par rapport à des halogènes (équivalent 60 W LED ↔ 300 W halogène, sur 8 h × 250 jours, 0,21 €/kWh) ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Diff. puissance : $300 - 60 = 240 \,$W = 0,24 kW par éclairage.</p>
+    <p>Énergie économisée par éclairage : $0,24 \times 8 \times 250 = 480 \,$kWh/an.</p>
+    <p>Coût économisé : $480 \times 0,21 = $ <strong>≈ 100 €/an</strong> par éclairage. Pour 5 éclairages = 500 €/an.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche choix éclairage</strong> qu'Inès propose au maître d'apprentissage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Atelier Lyon — Choix éclairage finition · 7 mai 2026</strong><br>
+      • <strong>Recommandation :</strong> LED 4 000 K, IRC ≥ 95, équivalent 60 W → puissance 300 W halogène.<br>
+      • <strong>Argument couleurs :</strong> rendu fidèle (IRC), proche lumière du jour.<br>
+      • <strong>Validation teinture :</strong> contrôler sous chaud (3 000 K) et froid (6 500 K) — métamérisme.<br>
+      • <strong>Vernis brillant :</strong> diffuser plusieurs sources pour réduire les reflets spéculaires.<br>
+      • <strong>Économie :</strong> ~100 €/an d'électricité par luminaire vs halogène.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Calculer la longueur d'onde dominante d'une lampe halogène à 3 000 K. Vérifier que la lumière paraît bien jaune.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\lambda_{max} = \dfrac{2,898 \times 10^6}{3\,000} \approx $ <strong>966 nm</strong>.</p>
+    <p>966 nm = IR proche ! En réalité, l'halogène émet beaucoup d'<strong>IR (chaleur)</strong>, et seulement une partie dans le visible jaune.</p>
+    <p>D'où la sensation chaude (à la fois en couleur et en chaleur réelle), mais aussi le faible rendement énergétique.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Température de couleur (K) :</strong> 3 000 K chaud, 4 000 K neutre, 6 500 K froid.</li>
+    <li><strong>IRC :</strong> indice de rendu des couleurs (max 100 = soleil).</li>
+    <li><strong>Loi de Wien :</strong> $\lambda_{max} = \dfrac{2,898 \times 10^6}{T}$ (nm).</li>
+    <li><strong>Métamérisme :</strong> couleurs identiques sous une lumière, différentes sous une autre.</li>
+    <li><strong>Réflexion spéculaire :</strong> surfaces lisses (vernis, miroir).</li>
+    <li><strong>Application pro :</strong> finition bois, contrôle qualité, économie énergétique éclairage.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Lumière), §2 (Réflexion), §4 (Spectre), §6 (Applications) de la leçon Ch07.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

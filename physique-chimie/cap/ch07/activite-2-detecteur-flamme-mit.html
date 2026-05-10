@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Activité 2 – Détecteur flamme infrarouge – CAP MIT</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 2 – Détecter une flamme avec capteur infrarouge <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 7 — Optique | CAP MIT (Métiers Installation Thermique) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Identifier les domaines du spectre lumineux (UV, visible, IR)</li>
+    <li>Comprendre la réflexion et la transmission de la lumière</li>
+    <li>Calculer une longueur d'onde à partir de la fréquence</li>
+    <li>Choisir un capteur optique adapté</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – sécurité d'une chaudière gaz</h2>
+  <p><em>Karim, apprenti chauffagiste à Strasbourg, intervient sur la sécurité d'une chaudière gaz. La chaudière est équipée d'un détecteur de flamme par capteur <strong>infrarouge (IR)</strong> : si la flamme s'éteint, le capteur arrête immédiatement l'arrivée de gaz. Karim doit comprendre comment fonctionne ce détecteur et le tester.</em></p>
+
+  <h3>Document 1 — Spectre électromagnétique</h3>
+  <table>
+    <thead><tr><th>Type</th><th>Longueur d'onde</th><th>Couleur/sensation</th></tr></thead>
+    <tbody>
+      <tr><td>UV</td><td>10-400 nm</td><td>Invisible, brûle la peau</td></tr>
+      <tr><td>Visible (violet)</td><td>400 nm</td><td>Violet</td></tr>
+      <tr><td>Visible (rouge)</td><td>700 nm</td><td>Rouge</td></tr>
+      <tr><td>IR proche</td><td>700-1 400 nm</td><td>Invisible, chaleur</td></tr>
+      <tr><td>IR lointain</td><td>1,4-1 000 µm</td><td>Émission corps chauds</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Document 2 — Émission de la flamme</h3>
+  <ul>
+    <li>Une flamme de gaz émet surtout dans <strong>l'IR proche</strong> (1 000-3 000 nm).</li>
+    <li>Émet aussi un peu dans le visible (la flamme bleue qu'on voit).</li>
+    <li>Vitesse de la lumière : $c = 3 \times 10^8 \,$m/s.</li>
+    <li>$\lambda = \dfrac{c}{f}$ (longueur d'onde = vitesse / fréquence).</li>
+  </ul>
+
+  <h3>Document 3 — Capteurs optiques</h3>
+  <ul>
+    <li>Photodiode <strong>UV</strong> : détecte UV (90 % de la lumière du soleil).</li>
+    <li>Photodiode <strong>visible</strong> : détecte ce que voit l'œil.</li>
+    <li>Photodiode <strong>IR</strong> : détecte les corps chauds (flamme, humain, moteur).</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Pourquoi un capteur IR plutôt qu'un capteur visible pour détecter une flamme ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Citer 3 types de rayonnements électromagnétiques classés par longueur d'onde.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Du plus court au plus long : <strong>UV (10-400 nm) → Visible (400-700 nm) → IR (&gt; 700 nm)</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Calculer la <strong>fréquence</strong> d'un IR à $\lambda = 2\,000$ nm émis par la flamme.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$f = \dfrac{c}{\lambda} = \dfrac{3 \times 10^8}{2\,000 \times 10^{-9}} = \dfrac{3 \times 10^8}{2 \times 10^{-6}} = $ <strong>1,5 × 10^{14} Hz</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Pourquoi le capteur ne peut-il pas être un capteur <strong>visible</strong> ? Donner 2 raisons.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li>La <strong>lumière ambiante</strong> du local (lampes) déclencherait des fausses alertes.</li>
+      <li>La <strong>flamme</strong> émet surtout dans l'IR. Le capteur visible verrait peu d'énergie.</li>
+      <li>La couleur de flamme (bleue/jaune) varie selon le combustible. L'IR est <strong>plus universel</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>Le capteur IR est placé à <strong>10 cm</strong> de la flamme. La lumière infrarouge se propage en ligne droite. Quelle propriété de l'optique garantit cela ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La lumière (et l'IR qui en est une forme) se propage en <strong>ligne droite</strong> dans un milieu homogène.</p>
+    <p>Cette propriété fait que la flamme « éclaire » directement le capteur sans détour. C'est la base du fonctionnement.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Si on place une <strong>vitre</strong> entre la flamme et le capteur, le capteur fonctionne-t-il toujours ? (La plupart des vitres laissent passer le visible mais bloquent partiellement l'IR.)</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le verre <strong>absorbe une partie</strong> du rayonnement IR (effet « pare-soleil » en voiture).</p>
+    <p>Le capteur fonctionnerait moins bien. Solution : utiliser une vitre en <strong>quartz</strong> (transparente à l'IR) ou supprimer la vitre.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>Si la flamme s'éteint, en combien de temps le capteur réagit-il ? Pourquoi est-ce important pour la sécurité ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le capteur IR réagit en <strong>quelques millisecondes</strong> (10 ms typiquement).</p>
+    <p>Importance : si la flamme s'éteint mais que le gaz continue, on a une <strong>fuite de gaz non brûlé</strong> → risque d'explosion. Le capteur doit fermer la vanne <strong>en moins de 1 seconde</strong> (norme).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Citer une autre <strong>application professionnelle</strong> des capteurs IR en chauffage.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ul>
+      <li><strong>Caméra thermique</strong> pour détecter ponts thermiques, fuites d'eau chaude, surchauffe.</li>
+      <li><strong>Thermomètre IR</strong> à visée laser pour mesurer T sans contact (radiateur, fluide).</li>
+      <li><strong>Détecteur de présence</strong> (économie chauffage : couper si pièce vide).</li>
+      <li><strong>Télécommande</strong> de chauffage / climatisation (LED IR émettrice).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>note technique</strong> que Karim laisse au responsable maintenance.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>ProThermie Strasbourg — Note maintenance détecteur flamme · 7 mai 2026</strong><br>
+      • <strong>Capteur :</strong> photodiode IR (1 000-3 000 nm) à 10 cm de la flamme.<br>
+      • <strong>Choix IR :</strong> insensible à la lumière ambiante, énergie max émise par la flamme.<br>
+      • <strong>Test :</strong> coupure flamme → vanne fermée en &lt; 1 s ✓ (conforme norme).<br>
+      • <strong>Précaution :</strong> ne pas obstruer le capteur (vitre, suie). Nettoyer 1×/an.<br>
+      • <strong>Apparentés :</strong> caméra thermique pour détection ponts thermiques bâtiment.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>La flamme bleue d'un brûleur gaz émet aussi dans le visible à <strong>$\lambda = 450$ nm</strong>. Calculer la fréquence correspondante. Comparer à la fréquence IR.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$f = \dfrac{3 \times 10^8}{450 \times 10^{-9}} \approx 6,67 \times 10^{14} \,$Hz.</p>
+    <p>4,4 fois plus que l'IR à 2 000 nm. La lumière visible bleue a une <strong>énergie par photon</strong> plus élevée que l'IR.</p>
+    <p>Mais l'intensité énergétique totale (le « flux » émis) est <strong>plus forte dans l'IR</strong> pour une flamme.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Spectre :</strong> UV (&lt; 400 nm) / Visible (400-700 nm) / IR (&gt; 700 nm).</li>
+    <li><strong>$\lambda = \dfrac{c}{f}$</strong> avec $c = 3 \times 10^8$ m/s.</li>
+    <li><strong>Lumière propagée en ligne droite</strong> dans un milieu homogène.</li>
+    <li><strong>Capteur IR :</strong> idéal pour détecter chaleur (flamme, humain, moteur).</li>
+    <li><strong>Verre :</strong> bloque les UV et partiellement l'IR.</li>
+    <li><strong>Application pro :</strong> sécurité chauffage, caméra thermique, télécommandes.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Lumière), §4 (Spectre), §6 (Applications) de la leçon Ch07.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
