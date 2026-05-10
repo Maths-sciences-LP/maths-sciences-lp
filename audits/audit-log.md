@@ -1,5 +1,5 @@
 # Journal des audits
-**Dernière mise à jour** : 2026-05-02 (6 activités complémentaires Ch06 ICCER + fix MathJax)
+**Dernière mise à jour** : 2026-05-10 (/check-quality physique-chimie/seconde/ch13 — confirmation 🟡 ds.html 0 visuel sur 13 questions Optique (réflexion/réfraction/fibre/prisme) alors que chapitre extrêmement visuel ; reste du chapitre globalement très bon (lecon riche en SVG/Chart.js/Canvas animé, exercices.html ratio 25 %, activité avec grand SVG pédagogique))
 
 Ce fichier est mis à jour automatiquement à chaque exécution d'un skill d'audit.
 
@@ -77,38 +77,50 @@ Recensement complet du site : 1 103 fichiers HTML (avant ajout des 138 index.htm
 
 **6 derniers chapitres traités** : 3 SVG ch03 maths (boîte à moustaches Ex 4, comparaison étendues Ex 5, fuseau ±σ Ex 7) ; 1 SVG ch08 maths (lecture antécédents droite Ex 13) ; 1 SVG ch14 maths (agrandissement pavé k=2 Ex 5) ; 1 SVG ch08 PC (échelle pH Ex 5) ; 1 SVG ch09 PC (oscillogramme diapason Ex 22) ; 1 SVG ch14 PC (spectre visible Ex 7). Total : 8 SVG. **Phase 4 du plan d'amélioration Seconde maintenant complète : 15/15 chapitres**, **68 SVG ajoutés au total**. Timestamps mis à jour.
 
+## 2026-05-10 — /check-quality maths/seconde/ch08 (Fonction linéaire et proportionnalité)
+
+Confirmation 🔴 : `ds.html` ne contient **aucun visuel** sur les 9 exercices répartis sur 3 niveaux de différenciation, alors que le chapitre "Fonction linéaire et proportionnalité" devrait massivement s'appuyer sur droites passant par O, tableaux de proportionnalité et lecture graphique. `exercices.html` : ratio visuels 8/41 ≈ 19,5 % (en dessous du seuil 20 % attendu pour un chapitre fonctions/géométrie) — manque visuels en niveau Socle (Ex 1-18 : 0 visuel sauf 1 SVG méthode décoratif Ex 3 et 1 SVG antécédents Ex 13) ; Niveau Approfondissement (Ex 31-41) : aucune représentation graphique des comparaisons fournisseurs (Ex 35, Ex 41) qui s'y prêtent. `interro.html` : un seul SVG décoratif sur le Sujet A Socle (et représente une droite affine \(f(x)=ax+b\) ce qui est incohérent avec le sujet linéaire — possible erreur copié-collé) ; Sujet B Socle, Sujet A/B Standard, Sujet A/B Approfondissement : 0 visuel. **Données qui dévoilent le coefficient** : `exercices.html` Ex 7 énonce \(f(3)=12\), \(g(5)=20\), \(h(4)=10\) puis demande de "trouver \(a\)" — la réponse étant le simple quotient affiché, c'est juste la procédure mais acceptable. `interro.html` Sujet A Q3 Socle énonce le tableau (2,4,6,10) → (10,20,30,50) et la question demande le rapport, laquelle est triviale car l'énoncé peut faire deviner le coefficient. Pas d'animation interdite, pas de référence orpheline. nav.js, print.css, :root, MathJax, diff.js conformes sur tous les fichiers.
+
+## 2026-05-10 — /check-quality maths/seconde/ch02 (Statistiques à une variable)
+
+Confirmation 🔴 : `ds.html` ne contient aucun visuel pour 6 exercices répartis sur 3 niveaux de différenciation (chapitre statistiques → graphes/diagrammes attendus). Incohérence majeure de portée : `lecon.html` annonce que les indicateurs (moyenne, médiane, quartiles, boîte à moustaches) sont reportés au Ch03, mais `exercices.html` (Ex 2 à 33), `interro.html` et plusieurs questions de QCM les utilisent abondamment. Plusieurs SVG dans `exercices.html` et `activite.html` sont des illustrations génériques (étiquettes A-E, valeurs aléatoires) qui ne reflètent pas les données chiffrées de l'énoncé (ex. Ex 9 : SVG à 5 barres A-E pour un énoncé sur 6 mois Janvier-Juin). Données dévoilant la solution : `exercices.html` Ex 23 et Ex 28 (séries triées entièrement données dans la correction). Tableau récapitulatif des compétences (ligne 1869) cite des compétences (boîte à moustaches, moyenne pondérée) hors du périmètre annoncé du chapitre.
+
+## 2026-05-10 — /check-quality physique-chimie/seconde/ch13 (Réflexion, réfraction et signaux lumineux)
+
+Confirmation 🟡 ciblée sur `ds.html` : 0 visuel pour 13 questions sur les trois niveaux (5 socle + 5 standard + 5 appro) alors que toutes les notions du chapitre sont géométriques (rayons incident/réfléchi/réfracté, normale, dioptre air/verre, prisme, fibre optique, miroir galvanométrique). Aucun schéma de réflexion (Standard A.1, Socle A.5 miroir, Appro A.1 miroir CNC) ; aucun dioptre représenté pour les exercices air/verre, eau/air et fibre cœur/gaine ; pas de schéma du prisme (Appro A.2 - retour vers air à 55°), de la lame à faces parallèles (Appro A.3 vitre 5 mm), ni de la fibre CNC (Appro B.2 cœur 1,46 / gaine 1,40). Incohérence forte avec le reste du chapitre : `lecon.html` (4 SVG riches + Chart.js + Canvas animé Snell-Descartes), `exercices.html` (8 SVG, ratio ≈ 25 %), `activite.html` (1 grand SVG pédagogique 500×380 + tableau de mesures), `interro.html` (3 SVG) et `qcm.html` (1 SVG d'en-tête) sont tous bien dotés. Aucun problème détecté côté technique sur l'ensemble du chapitre : nav.js, print.css, :root (#6f42c1 conforme PC Seconde), MathJax, qcm.js, diff.js, sujet.js (interro), classes non redéfinies, pas d'animations interdites dans exos/DS/interro. lecon.html : 4 mini-exo bien répartis avec corrections, diff.js absent (conforme). Pas de données dévoilant la solution dans les tableaux. Pas de référence orpheline non couverte par un visuel adjacent.
+
 ## Log
 
 | Chapitre | `/audit-chapter` | `/check-quality` | `/scientific-audit` | `/section-audit` | Résultat |
 |---|---|---|---|---|---|
-| maths/seconde/ch01 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟢 |
-| maths/seconde/ch02 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch03 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch04 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟢 |
-| maths/seconde/ch05 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch06 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch07 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch08 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch09 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟢 |
-| maths/seconde/ch10 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch11 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch12 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch13 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| maths/seconde/ch14 | 2026-04-06 | 2026-04-06 | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch01 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch02 | 2026-04-06 | — | — | 2026-04-06 | 🟢 |
-| physique-chimie/seconde/ch03 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch04 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch05 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch06 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch07 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch08 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch09 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch10 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch11 | — | — | 2026-04-06 | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch12 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch13 | — | — | — | 2026-04-06 | 🟡 |
-| physique-chimie/seconde/ch14 | — | — | — | 2026-04-06 | 🟡 |
+| maths/seconde/ch01 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟢 |
+| maths/seconde/ch02 | 2026-04-06 | 2026-05-10 | — | 2026-05-10 | 🔴 |
+| maths/seconde/ch03 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟡 |
+| maths/seconde/ch04 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟢 |
+| maths/seconde/ch05 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟡 |
+| maths/seconde/ch06 | 2026-04-06 | 2026-05-10 | — | 2026-05-10 | 🔴 |
+| maths/seconde/ch07 | 2026-04-06 | 2026-05-10 | — | 2026-05-10 | 🔴 |
+| maths/seconde/ch08 | 2026-04-06 | 2026-05-10 | — | 2026-05-10 | 🔴 |
+| maths/seconde/ch09 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟢 |
+| maths/seconde/ch10 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟢 |
+| maths/seconde/ch11 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟢 |
+| maths/seconde/ch12 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟢 |
+| maths/seconde/ch13 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟢 |
+| maths/seconde/ch14 | 2026-04-06 | 2026-04-06 | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch01 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch02 | 2026-04-06 | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch03 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch04 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch05 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch06 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch07 | — | 2026-05-10 | — | 2026-05-10 | 🟡 |
+| physique-chimie/seconde/ch08 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch09 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch10 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch11 | — | — | 2026-04-06 | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch12 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch13 | — | 2026-05-10 | — | 2026-05-10 | 🟡 |
+| physique-chimie/seconde/ch14 | — | — | — | 2026-05-10 | 🟢 |
 | maths/premiere/ch01 | — | — | — | 2026-04-07 | 🟡 |
 | maths/premiere/ch02 | — | — | — | 2026-04-07 | 🟡 |
 | maths/premiere/ch03 | — | — | — | 2026-04-07 | 🔴 |
