@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – Activité 4 – Dilatation thermique panneau – CAP SDG</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
+.bonus{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité 4 – Anticiper la dilatation d'un panneau dibond <span style="font-size:.55em;color:#0891b2;font-weight:600">SITUATION PRO</span></h1>
+  <p class="sous-titre">Chapitre 6 — Thermique | CAP SDG (Signalétique et Décors Graphiques) | Physique-Chimie | ⏱ 35 min</p>
+  <p class="maj">Dernière mise à jour : 7 mai 2026, format manuel scolaire</p>
+</header>
+<button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer une dilatation thermique linéaire</li>
+    <li>Comprendre les transferts thermiques sur une enseigne extérieure</li>
+    <li>Choisir une fixation tolérante à la dilatation</li>
+    <li>Vérifier la température d'un boîtier LED</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation – installation d'une enseigne extérieure</h2>
+  <p><em>Sami, apprenti en signalétique chez « Couleurs Vives » à Marseille, installe un panneau dibond aluminium-PVC sur la façade ouest d'un magasin. En été, la température de surface peut atteindre 60 °C en plein soleil ; en hiver, descendre à 0 °C. Sami doit choisir des fixations qui acceptent la dilatation thermique sans déformer le panneau.</em></p>
+
+  <h3>Document 1 — Caractéristiques du dibond</h3>
+  <ul>
+    <li>Longueur du panneau : <strong>L = 3 m</strong>.</li>
+    <li>Coefficient de dilatation linéaire de l'aluminium : $\alpha = 23 \times 10^{-6}$ /°C.</li>
+    <li>Coefficient pour le PVC : $\alpha_{PVC} = 70 \times 10^{-6}$ /°C (mais l'âme est mince).</li>
+  </ul>
+
+  <h3>Document 2 — Plage de température</h3>
+  <ul>
+    <li>Température minimale (hiver, -5 °C → +5 °C) : 0 °C.</li>
+    <li>Température maximale (été, plein soleil, 35 °C ambiant) : 60 °C surface.</li>
+    <li>Amplitude annuelle : <strong>$\Delta T = 60$ °C</strong>.</li>
+  </ul>
+
+  <h3>Document 3 — Formules</h3>
+  <ul>
+    <li><strong>Dilatation linéaire :</strong> $\Delta L = \alpha \cdot L \cdot \Delta T$.</li>
+    <li><strong>Transferts thermiques sur enseigne :</strong> rayonnement (soleil → panneau), conduction (panneau → support), convection (vent → panneau).</li>
+  </ul>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> De combien de mm le panneau s'allonge-t-il en été ? Comment fixer pour éviter les déformations ?
+</div>
+
+<div class="exo">
+  <h2>Question 1 <span class="badge-green">APP</span></h2>
+  <p>Calculer la <strong>dilatation linéaire</strong> du panneau dibond entre 0 et 60 °C ($\Delta T = 60$ °C).</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\Delta L = 23 \times 10^{-6} \times 3 \times 60 = 4\,140 \times 10^{-6} \,$m = <strong>4,14 mm</strong>.</p>
+    <p>Le panneau s'allonge de plus de 4 mm entre l'hiver et l'été !</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="badge-yellow">REA</span></h2>
+  <p>Si Sami visse les 4 coins de manière <strong>rigide</strong> (sans jeu), que va-t-il se passer en été ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le panneau ne pouvant s'allonger librement, il va se <strong>déformer</strong> (gondoler, bomber au centre).</p>
+    <p>Au pire, les vis peuvent <strong>arracher</strong> le dibond ou plier les fixations. Effet « cloque » très visible et inesthétique.</p>
+    <p>Solution : <strong>fixations à trous oblongs</strong> qui laissent jouer le panneau dans le sens de sa longueur.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="badge-yellow">REA</span></h2>
+  <p>Sami pose 4 fixations avec des trous oblongs de <strong>+/− 3 mm</strong>. La marge totale (6 mm) est-elle suffisante pour absorber la dilatation ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Marge fixation : 6 mm. Dilatation calculée : 4,14 mm.</p>
+    <p>$6 > 4,14$ → <strong>OK avec marge de sécurité ~30 %</strong>. Bonne pratique professionnelle.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="badge-blue">ANA</span></h2>
+  <p>En face <strong>nord</strong> (jamais de soleil direct), la température max ne dépasserait pas 35 °C. Quel serait alors $\Delta L$ ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\Delta T = 35 - 0 = 35$ °C.</p>
+    <p>$\Delta L = 23 \times 10^{-6} \times 3 \times 35 = 2,4 \,$mm.</p>
+    <p>Quasi 2× moins. L'orientation du panneau a un impact significatif.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="badge-blue">ANA</span></h2>
+  <p>Identifier les <strong>3 modes de transfert</strong> qui chauffent le panneau en été :</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li><strong>Rayonnement</strong> : soleil → panneau (effet majeur, surtout panneau foncé).</li>
+      <li><strong>Convection</strong> : air chaud autour → panneau (modéré).</li>
+      <li><strong>Conduction</strong> : façade chaude → support → panneau (faible).</li>
+    </ol>
+    <p>Le rayonnement solaire est dominant. Un panneau blanc s'échauffe beaucoup moins qu'un noir (albédo).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 <span class="badge-blue">ANA</span></h2>
+  <p>L'enseigne est rétroéclairée par <strong>LED</strong>. La température dans le boîtier monte à 50 °C en fonctionnement. Sami mesure 65 °C en été. Y a-t-il un risque ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Plage normale LED : 0 à 60 °C. À 65 °C, on dépasse de 5 °C.</p>
+    <p>Conséquences : <strong>vieillissement accéléré</strong> (durée de vie ÷ 2 par tranche de +10 °C), variation chromatique.</p>
+    <p>Solution : <strong>aérations</strong> dans le boîtier ou <strong>dissipateurs</strong> pour évacuer la chaleur par convection naturelle.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 <span class="badge-green">VAL</span></h2>
+  <p>Sami choisit une couleur <strong>blanche</strong> au lieu de noire pour le boîtier extérieur. Quel impact sur la température ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Le blanc <strong>réfléchit</strong> ~80 % du rayonnement solaire (albédo 0,8).</p>
+    <p>Le noir absorbe ~95 % (albédo 0,05).</p>
+    <p>Différence : la surface blanche peut être <strong>15-20 °C plus froide</strong> en plein soleil. Plus économe pour les LED et la dilatation.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 8 <span class="badge-red">COM</span></h2>
+  <p>Rédiger en 5 lignes la <strong>fiche pose</strong> que Sami remet au client pour assurer la longévité de l'enseigne.</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir un exemple</button>
+  <div class="corr">
+    <p style="background:#fef3c7;border:2px solid #f59e0b;padding:14px;border-radius:6px">
+      <strong>Couleurs Vives Marseille — Fiche pose enseigne ext. · 7 mai 2026</strong><br>
+      • <strong>Panneau dibond 3 m, façade ouest :</strong> ΔT 60 °C → dilatation 4,14 mm.<br>
+      • <strong>Fixations :</strong> 4 trous oblongs ± 3 mm (marge sécurité +30 %).<br>
+      • <strong>Boîtier blanc :</strong> ~15 °C plus froid qu'un noir (albédo).<br>
+      • <strong>LED :</strong> aérations boîtier pour ventilation, T &lt; 60 °C garantissant la durée de vie.<br>
+      • <strong>Garantie :</strong> 5 ans contre les déformations thermiques avec ce type de pose.
+    </p>
+  </div>
+</div>
+
+<div class="bonus">
+  <strong>Pour aller plus loin (bonus)</strong>
+  <p>Si Sami doit poser une enseigne en <strong>verre acrylique</strong> (PMMA, $\alpha = 70 \times 10^{-6}$ /°C) de 3 m, quelle est la dilatation pour ΔT = 60 °C ? Comment doit-il fixer ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>$\Delta L = 70 \times 10^{-6} \times 3 \times 60 = 12,6 \,$mm.</p>
+    <p>3× plus que le dibond ! Le PMMA est très dilatable.</p>
+    <p>Solution : trous oblongs <strong>± 8 mm</strong>, ou fixation par <strong>profil aluminium</strong> coulissant.</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li><strong>Dilatation linéaire :</strong> $\Delta L = \alpha \cdot L \cdot \Delta T$.</li>
+    <li><strong>Coefficients $\alpha$ :</strong> aluminium 23, acier 12, PVC 70 (×10⁻⁶ /°C).</li>
+    <li><strong>Modes de transfert :</strong> rayonnement, conduction, convection.</li>
+    <li><strong>Albédo :</strong> blanc réfléchit ~80 %, noir absorbe ~95 %.</li>
+    <li><strong>Fixation tolérante :</strong> trous oblongs, profilés coulissants pour absorber dilatation.</li>
+    <li><strong>Application pro :</strong> enseignes extérieures, durabilité, choix matériaux.</li>
+  </ul>
+  <p style="margin-top:10px"><em>📚 Cette activité s'appuie sur §1 (Température), §3 (Équilibre thermique), §7 (Transferts) de la leçon Ch06.</em></p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
