@@ -108,16 +108,16 @@
   <h2>Question 5 &nbsp;<span class="badge-green">REA</span></h2>
   <p>Trouve les <strong>quartiles</strong> \(Q_1\) et \(Q_3\) et calcule l'<strong>écart interquartile</strong>.</p>
   <div class="meth">
-    <strong>Méthode :</strong> La série de 12 valeurs est divisée en 4 groupes de 3.<br>
-    \(Q_1\) = médiane de la première moitié (6 premières valeurs).<br>
-    \(Q_3\) = médiane de la seconde moitié (6 dernières valeurs).
+    <strong>Méthode officielle (BO) :</strong> sur la série triée de \(N\) valeurs,<br>
+    Q₁ est la valeur de rang \(\lceil N/4 \rceil\) — au moins 25 % des données lui sont ≤.<br>
+    Q₃ est la valeur de rang \(\lceil 3N/4 \rceil\) — au moins 75 % des données lui sont ≤.
   </div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    Première moitié : 35 – 38 – <strong>38</strong> – <strong>38</strong> – 39 – 40 → \(Q_1 = \dfrac{38+38}{2} = 38\) min<br>
-    Seconde moitié : 41 – 42 – <strong>44</strong> – <strong>45</strong> – 46 – 52 → \(Q_3 = \dfrac{44+45}{2} = 44{,}5\) min<br>
-    Écart interquartile : \(Q_3 - Q_1 = 44{,}5 - 38 = 6{,}5\) min<br>
-    Les 50 % centraux des fabrications durent entre 38 et 44,5 min.
+    N = 12. Position de Q₁ : \(\lceil 12/4 \rceil = 3\) → Q₁ = 3<sup>e</sup> valeur = <strong>38 min</strong>.<br>
+    Position de Q₃ : \(\lceil 3 \times 12/4 \rceil = 9\) → Q₃ = 9<sup>e</sup> valeur = <strong>44 min</strong>.<br>
+    Écart interquartile : \(Q_3 - Q_1 = 44 - 38 = \mathbf{6}\) min.<br>
+    Les 50 % centraux des fabrications durent entre 38 et 44 min.
   </div>
 </div>
 

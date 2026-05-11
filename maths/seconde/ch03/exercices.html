@@ -17,7 +17,7 @@
 <header>
   <h1>Chapitre 3 – Exercices</h1>
   <p class="sous-titre">Indicateurs statistiques &nbsp;|&nbsp; Seconde Pro MA-MA</p>
-  <p class="maj">Dernière mise à jour : 1 mai 2026</p>
+  <p class="maj">Dernière mise à jour : 30 avril 2026</p>
 </header>
 
 
@@ -58,7 +58,7 @@
   <ul>
     <li><strong>Moyenne :</strong> \(\bar{x} = \dfrac{\text{somme des valeurs}}{n}\) &nbsp;|&nbsp; avec effectifs : \(\bar{x} = \dfrac{\sum n_i x_i}{\sum n_i}\)</li>
     <li><strong>Médiane :</strong> valeur centrale d'une série triée par ordre croissant (si \(n\) pair : moyenne des deux valeurs centrales)</li>
-    <li><strong>Q1 :</strong> médiane de la première moitié &nbsp;|&nbsp; <strong>Q3 :</strong> médiane de la seconde moitié</li>
+    <li><strong>Q1 :</strong> valeur au rang \(\lceil N/4 \rceil\) (au moins 25 % des données ≤) &nbsp;|&nbsp; <strong>Q3 :</strong> valeur au rang \(\lceil 3N/4 \rceil\) (au moins 75 % ≤)</li>
     <li><strong>Écart interquartile :</strong> \(\text{IQR} = Q3 - Q1\) &nbsp;|&nbsp; <strong>Étendue :</strong> \(\text{max} - \text{min}\)</li>
     <li><strong>Écart-type :</strong> \(\sigma = \sqrt{\dfrac{\sum (x_i - \bar{x})^2}{n}}\) — mesure la dispersion autour de la moyenne</li>
   </ul>
@@ -145,9 +145,9 @@
     <p><strong>3.</strong> Somme = 28 + 31 + 35 + 38 + 42 + 42 + 42 + 47 + 55 = 360. Moyenne = \(\dfrac{360}{9} = \mathbf{40{,}0}\) min.</p>
     <p><strong>4.</strong> 9 valeurs → la médiane est la 5<sup>e</sup> valeur : <strong>Me = 42 min</strong>.</p>
     <p><strong>5.</strong> Le mode est <strong>42</strong> (apparaît 3 fois).</p>
-    <p><strong>6.</strong> Première moitié : {28 ; 31 ; 35 ; 38} → \(Q_1 = \dfrac{31 + 35}{2} = \mathbf{33}\) min.<br>
-    Seconde moitié : {42 ; 42 ; 47 ; 55} → \(Q_3 = \dfrac{42 + 47}{2} = \mathbf{44{,}5}\) min.<br>
-    Écart interquartile : \(Q_3 - Q_1 = 44{,}5 - 33 = \mathbf{11{,}5}\) min.</p>
+    <p><strong>6.</strong> \(N = 9\) → Rang de \(Q_1 = \lceil 9/4 \rceil = 3\) → \(Q_1\) = 3<sup>e</sup> valeur = <strong>35 min</strong>.<br>
+    Rang de \(Q_3 = \lceil 27/4 \rceil = 7\) → \(Q_3\) = 7<sup>e</sup> valeur = <strong>42 min</strong>.<br>
+    Écart interquartile : \(Q_3 - Q_1 = 42 - 35 = \mathbf{7}\) min.</p>
   </div>
 </div>
 
@@ -206,10 +206,10 @@
     <strong>Méthode pas à pas :</strong><br>
     <strong>Étape 1 :</strong> La série a \(n = 12\) valeurs (nombre pair).<br>
     → Médiane = moyenne des valeurs de rang 6 et 7 : Me = \(\dfrac{25 + 28}{2}\) = ……<br><br>
-    <strong>Étape 2 :</strong> Première moitié = {12, 15, 18, 20, 23, 25} (rangs 1 à 6).<br>
-    → Q1 = moyenne des rangs 3 et 4 = \(\dfrac{18 + 20}{2}\) = ……<br><br>
-    <strong>Étape 3 :</strong> Deuxième moitié = {28, 30, 35, 38, 42, 50} (rangs 7 à 12).<br>
-    → Q3 = moyenne des rangs 3 et 4 (de cette moitié) = \(\dfrac{35 + 38}{2}\) = ……<br><br>
+    <strong>Étape 2 :</strong> Rang de Q1 = \(\lceil 12/4 \rceil = 3\).<br>
+    → Q1 = valeur au rang 3 de la série triée = ……<br><br>
+    <strong>Étape 3 :</strong> Rang de Q3 = \(\lceil 3 \times 12 / 4 \rceil = 9\).<br>
+    → Q3 = valeur au rang 9 de la série triée = ……<br><br>
     <strong>Étape 4 :</strong> IQR = Q3 − Q1 = …… − …… = ……
   </div>
 
@@ -220,13 +220,13 @@
   <div class="corr">
     <span class="etape">1. Calculs :</span>
     <p>Me = \(\dfrac{25 + 28}{2} = \mathbf{26{,}5}\) min</p>
-    <p>Q1 = \(\dfrac{18 + 20}{2} = \mathbf{19}\) min</p>
-    <p>Q3 = \(\dfrac{35 + 38}{2} = \mathbf{36{,}5}\) min</p>
-    <p>IQR = 36,5 − 19 = <strong>17,5 min</strong></p>
+    <p>Q1 = 3<sup>e</sup> valeur = <strong>18 min</strong> (rang \(\lceil 12/4 \rceil = 3\))</p>
+    <p>Q3 = 9<sup>e</sup> valeur = <strong>35 min</strong> (rang \(\lceil 36/4 \rceil = 9\))</p>
+    <p>IQR = 35 − 18 = <strong>17 min</strong></p>
     <span class="etape">2. Interprétation :</span>
-    <p>50 % des interventions durent entre <strong>19 min et 36,5 min</strong>.</p>
+    <p>50 % des interventions durent entre <strong>18 min et 35 min</strong>.</p>
     <div class="svg-wrap" style="margin:8px 0">
-      <svg width="100%" viewBox="0 0 480 160" style="max-width:480px" role="img" aria-label="Boîte à moustaches : minimum 12 min, Q1 19 min, médiane 26,5 min, Q3 36,5 min, maximum 50 min. Écart interquartile IQR = 17,5 min.">
+      <svg width="100%" viewBox="0 0 480 160" style="max-width:480px" role="img" aria-label="Boîte à moustaches : minimum 12 min, Q1 18 min, médiane 26,5 min, Q3 35 min, maximum 50 min. Écart interquartile IQR = 17 min.">
         <defs>
           <style>
             .ax{stroke:#1a202c;stroke-width:1.6;fill:none}
@@ -254,29 +254,29 @@
           <line x1="390" y1="116" x2="390" y2="124" stroke="#1a202c"/><text class="lab" x="390" y="138">50</text>
           <line x1="460" y1="116" x2="460" y2="124" stroke="#1a202c"/><text class="lab" x="460" y="138">60</text>
         </g>
-        <!-- Box : Q1=19→x=173 ; Q3=36,5→x=295,5 ; Médiane=26,5→x=225,5 -->
-        <rect class="box" x="173" y="60" width="123" height="40"/>
+        <!-- Box : Q1=18→x=166 ; Q3=35→x=285 ; Médiane=26,5→x=225,5 -->
+        <rect class="box" x="166" y="60" width="119" height="40"/>
         <line class="med" x1="225" y1="60" x2="225" y2="100"/>
         <!-- Moustaches : min=12→x=124 ; max=50→x=390 -->
-        <line class="whisk" x1="124" y1="80" x2="173" y2="80"/>
+        <line class="whisk" x1="124" y1="80" x2="166" y2="80"/>
         <line class="whisk" x1="124" y1="68" x2="124" y2="92"/>
-        <line class="whisk" x1="296" y1="80" x2="390" y2="80"/>
+        <line class="whisk" x1="285" y1="80" x2="390" y2="80"/>
         <line class="whisk" x1="390" y1="68" x2="390" y2="92"/>
         <!-- Annotations -->
         <line stroke="#1d4ed8" stroke-dasharray="2 2" x1="124" y1="92" x2="124" y2="120"/>
-        <line stroke="#1d4ed8" stroke-dasharray="2 2" x1="173" y1="100" x2="173" y2="120"/>
-        <line stroke="#1d4ed8" stroke-dasharray="2 2" x1="296" y1="100" x2="296" y2="120"/>
+        <line stroke="#1d4ed8" stroke-dasharray="2 2" x1="166" y1="100" x2="166" y2="120"/>
+        <line stroke="#1d4ed8" stroke-dasharray="2 2" x1="285" y1="100" x2="285" y2="120"/>
         <line stroke="#1d4ed8" stroke-dasharray="2 2" x1="390" y1="92" x2="390" y2="120"/>
         <text class="lblb" x="124" y="56">min=12</text>
-        <text class="lblb" x="173" y="56">Q1=19</text>
+        <text class="lblb" x="166" y="56">Q1=18</text>
         <text class="lblr" x="225" y="56">Me=26,5</text>
-        <text class="lblb" x="296" y="56">Q3=36,5</text>
+        <text class="lblb" x="285" y="56">Q3=35</text>
         <text class="lblb" x="390" y="56">max=50</text>
         <!-- IQR -->
-        <line stroke="#16a34a" stroke-width="1.8" x1="173" y1="35" x2="296" y2="35"/>
-        <line stroke="#16a34a" stroke-width="1.8" x1="173" y1="30" x2="173" y2="40"/>
-        <line stroke="#16a34a" stroke-width="1.8" x1="296" y1="30" x2="296" y2="40"/>
-        <text class="lab" font-weight="bold" fill="#16a34a" x="234" y="29">IQR = 17,5 min (50 % central)</text>
+        <line stroke="#16a34a" stroke-width="1.8" x1="166" y1="35" x2="285" y2="35"/>
+        <line stroke="#16a34a" stroke-width="1.8" x1="166" y1="30" x2="166" y2="40"/>
+        <line stroke="#16a34a" stroke-width="1.8" x1="285" y1="30" x2="285" y2="40"/>
+        <text class="lab" font-weight="bold" fill="#16a34a" x="225" y="29">IQR = 17 min (50 % central)</text>
       </svg>
       <p style="font-size:.85em;color:#4a5568;text-align:center;margin:4px 0 0">La boîte contient les 50 % centraux de la série. La médiane (rouge) sépare les 50 % inférieurs des 50 % supérieurs.</p>
     </div>
@@ -685,10 +685,10 @@
     <strong>Méthode pas à pas :</strong><br>
     <strong>Étape 1 :</strong> On a \(n = 11\) valeurs (nombre impair).<br>
     → La médiane est la valeur de rang \(\dfrac{11+1}{2} = 6\). La 6<sup>e</sup> valeur est ……<br><br>
-    <strong>Étape 2 :</strong> Première moitié (rangs 1 à 5) : {42, 45, 48, 50, 53}.<br>
-    → Q1 = valeur centrale (rang 3) = ……<br><br>
-    <strong>Étape 3 :</strong> Deuxième moitié (rangs 7 à 11) : {58, 61, 64, 70, 78}.<br>
-    → Q3 = valeur centrale (rang 3 de cette moitié) = ……<br><br>
+    <strong>Étape 2 :</strong> Rang de Q1 = \(\lceil 11/4 \rceil = 3\).<br>
+    → Q1 = valeur au rang 3 de la série triée = ……<br><br>
+    <strong>Étape 3 :</strong> Rang de Q3 = \(\lceil 33/4 \rceil = 9\).<br>
+    → Q3 = valeur au rang 9 de la série triée = ……<br><br>
     <strong>Étape 4 :</strong> IQR = Q3 − Q1 = …… − …… = ……
   </div>
 
@@ -699,8 +699,8 @@
   <div class="corr">
     <span class="etape">1. Calculs :</span>
     <p>Me = 6<sup>e</sup> valeur = <strong>55 g</strong></p>
-    <p>Q1 = 3<sup>e</sup> valeur de la première moitié = <strong>48 g</strong></p>
-    <p>Q3 = 3<sup>e</sup> valeur de la seconde moitié = <strong>64 g</strong></p>
+    <p>Q1 = valeur au rang \(\lceil 11/4 \rceil = 3\) = <strong>48 g</strong></p>
+    <p>Q3 = valeur au rang \(\lceil 33/4 \rceil = 9\) = <strong>64 g</strong></p>
     <p>IQR = 64 − 48 = <strong>16 g</strong></p>
     <span class="etape">2. Analyse de la valeur 78 g :</span>
     <p>Seuil haut = Q3 + 1,5 × IQR = 64 + 1,5 × 16 = 64 + 24 = <strong>88 g</strong>.<br>
@@ -724,8 +724,8 @@
     <strong>Méthode pas à pas :</strong><br>
     <strong>Étape 1 :</strong> Min = …… m &nbsp;|&nbsp; Max = …… m<br>
     <strong>Étape 2 :</strong> \(n = 12\) (pair) → Me = moyenne des rangs 6 et 7 = \(\dfrac{…… + ……}{2}\) = …… m<br>
-    <strong>Étape 3 :</strong> Première moitié {5,2 ; 5,8 ; 6,1 ; 6,5 ; 6,9 ; 7,2} → Q1 = moyenne des rangs 3 et 4 = \(\dfrac{…… + ……}{2}\) = …… m<br>
-    <strong>Étape 4 :</strong> Seconde moitié {7,5 ; 7,8 ; 8,3 ; 8,7 ; 9,1 ; 9,6} → Q3 = moyenne des rangs 3 et 4 = \(\dfrac{…… + ……}{2}\) = …… m<br>
+    <strong>Étape 3 :</strong> Rang de Q1 = \(\lceil 12/4 \rceil = 3\) → Q1 = valeur au rang 3 de la série triée = …… m<br>
+    <strong>Étape 4 :</strong> Rang de Q3 = \(\lceil 36/4 \rceil = 9\) → Q3 = valeur au rang 9 de la série triée = …… m<br>
     <strong>Étape 5 :</strong> Placer Min, Q1, Me, Q3, Max sur un axe gradué de 5 à 10.
   </div>
 
@@ -738,14 +738,14 @@
     <span class="etape">1. Les 5 indicateurs :</span>
     <p>Min = <strong>5,2 m</strong> &nbsp;|&nbsp; Max = <strong>9,6 m</strong></p>
     <p>Me = \(\dfrac{7{,}2 + 7{,}5}{2} = \mathbf{7{,}35}\) m</p>
-    <p>Q1 = \(\dfrac{6{,}1 + 6{,}5}{2} = \mathbf{6{,}3}\) m</p>
-    <p>Q3 = \(\dfrac{8{,}3 + 8{,}7}{2} = \mathbf{8{,}5}\) m</p>
+    <p>Q1 = valeur au rang 3 = <strong>6,1 m</strong></p>
+    <p>Q3 = valeur au rang 9 = <strong>8,3 m</strong></p>
     <span class="etape">2. Boîte à moustaches :</span>
-    <p style="font-family:monospace;font-size:1em;white-space:pre">  5,2 ──────[ 6,3 │── 7,35 ──│ 8,5 ]────── 9,6
+    <p style="font-family:monospace;font-size:1em;white-space:pre">  5,2 ──────[ 6,1 │── 7,35 ──│ 8,3 ]────── 9,6
   Min       Q1       Me        Q3        Max</p>
     <span class="etape">3. Écart interquartile :</span>
-    <p>IQR = Q3 − Q1 = 8,5 − 6,3 = <strong>2,2 m</strong></p>
-    <p>50 % des lancers se situent entre 6,3 m et 8,5 m. L'IQR montre que la moitié centrale des lancers couvre une plage de 2,2 m.</p>
+    <p>IQR = Q3 − Q1 = 8,3 − 6,1 = <strong>2,2 m</strong></p>
+    <p>50 % des lancers se situent entre 6,1 m et 8,3 m. L'IQR montre que la moitié centrale des lancers couvre une plage de 2,2 m.</p>
   </div>
 </div>
 
@@ -787,8 +787,8 @@
   <div class="guide">
     <p style="margin:0 0 8px;font-weight:700;color:var(--p)">Guide — Calculer Q1 et Q3 pour n = 12 valeurs :</p>
     <div class="guide-step"><div class="guide-num">1</div><div>Trouver la médiane (entre les rangs 6 et 7).</div></div>
-    <div class="guide-step"><div class="guide-num">2</div><div><strong>Q1</strong> : médiane de la première moitié {rangs 1 à 6}.</div></div>
-    <div class="guide-step"><div class="guide-num">3</div><div><strong>Q3</strong> : médiane de la seconde moitié {rangs 7 à 12}.</div></div>
+    <div class="guide-step"><div class="guide-num">2</div><div><strong>Q1</strong> : valeur au rang \(\lceil N/4 \rceil\) de la série triée.</div></div>
+    <div class="guide-step"><div class="guide-num">3</div><div><strong>Q3</strong> : valeur au rang \(\lceil 3N/4 \rceil\) de la série triée.</div></div>
     <div class="guide-step"><div class="guide-num">4</div><div>Calculer l'écart interquartile : \(\text{IQR} = Q3 - Q1\).</div></div>
   </div>
 
@@ -802,13 +802,13 @@
     <span class="etape">1. Médiane (n = 12, pair) :</span>
     <p>Me = moyenne des valeurs de rang 6 et 7 = \(\dfrac{25 + 28}{2} = \mathbf{26{,}5 \text{ min}}\)</p>
     <span class="etape">2. Q1 et Q3 :</span>
-    <p>Première moitié : {12, 15, 18, 20, 23, 25} → 6 valeurs → Q1 = moyenne des rangs 3 et 4 = \(\dfrac{18 + 20}{2} = \mathbf{19 \text{ min}}\)</p>
-    <p>Deuxième moitié : {28, 30, 35, 38, 42, 50} → 6 valeurs → Q3 = moyenne des rangs 3 et 4 = \(\dfrac{35 + 38}{2} = \mathbf{36{,}5 \text{ min}}\)</p>
+    <p>Rang de Q1 = \(\lceil 12/4 \rceil = 3\) → Q1 = valeur au rang 3 de la série triée = <strong>18 min</strong></p>
+    <p>Rang de Q3 = \(\lceil 36/4 \rceil = 9\) → Q3 = valeur au rang 9 de la série triée = <strong>35 min</strong></p>
     <span class="etape">3. Écart interquartile :</span>
-    <p>\(\text{IQR} = Q3 - Q1 = 36{,}5 - 19 = \mathbf{17{,}5 \text{ min}}\)<br>
+    <p>\(\text{IQR} = Q3 - Q1 = 35 - 18 = \mathbf{17 \text{ min}}\)<br>
     L'IQR représente la plage de durée des 50 % d'interventions «&nbsp;du milieu&nbsp;» (ni les plus courtes, ni les plus longues). Il mesure la dispersion sans être perturbé par les valeurs extrêmes.</p>
     <span class="etape">4. Interprétation :</span>
-    <p>50 % des interventions durent entre <strong>19 min et 36,5 min</strong>.</p>
+    <p>50 % des interventions durent entre <strong>18 min et 35 min</strong>.</p>
   </div>
 </div>
 
@@ -945,7 +945,7 @@
 
   <div class="q"><strong>1.</strong> Identifier le minimum et le maximum.</div>
   <div class="q"><strong>2.</strong> Trouver la médiane (Me). Justifier.</div>
-  <div class="q"><strong>3.</strong> Calculer Q1 (médiane de la première moitié) et Q3 (médiane de la seconde moitié).</div>
+  <div class="q"><strong>3.</strong> Calculer Q1 (valeur au rang \(\lceil N/4 \rceil\)) et Q3 (valeur au rang \(\lceil 3N/4 \rceil\)).</div>
   <div class="q"><strong>4.</strong> Résumer les 5 indicateurs : Min, Q1, Me, Q3, Max. Décrire la boîte à moustaches correspondante en plaçant ces valeurs sur un axe gradué de 0 à 70.</div>
   <div class="q"><strong>5.</strong> Calculer l'écart interquartile. 68 min paraît-il une valeur inhabituelle ?</div>
 
@@ -956,8 +956,8 @@
     <span class="etape">2. Médiane (n = 15) :</span>
     <p>La médiane est la valeur de rang \(\dfrac{15+1}{2} = 8\). La 8<sup>e</sup> valeur est <strong>Me = 30 min</strong>.</p>
     <span class="etape">3. Q1 et Q3 :</span>
-    <p>Première moitié (rangs 1 à 7) : {10, 14, 18, 20, 23, 25, 28} → Q1 = valeur centrale de rang 4 = <strong>20 min</strong></p>
-    <p>Seconde moitié (rangs 9 à 15) : {33, 36, 38, 42, 45, 52, 68} → Q3 = valeur centrale de rang 4 = <strong>42 min</strong></p>
+    <p>Rang de Q1 = \(\lceil 15/4 \rceil = 4\) → Q1 = valeur au rang 4 de la série triée = <strong>20 min</strong></p>
+    <p>Rang de Q3 = \(\lceil 45/4 \rceil = 12\) → Q3 = valeur au rang 12 de la série triée = <strong>42 min</strong></p>
     <span class="etape">4. Les 5 indicateurs :</span>
     <table>
       <tr><th>Min</th><th>Q1</th><th>Me</th><th>Q3</th><th>Max</th></tr>
@@ -1029,13 +1029,11 @@
     <span class="etape">2. Médiane (n = 16, pair) :</span>
     <p>Me = moyenne des rangs 8 et 9 = \(\dfrac{132 + 135}{2} = \mathbf{133{,}5}\) mmHg</p>
     <span class="etape">3. Q1 et Q3 :</span>
-    <p>Première moitié (rangs 1 à 8) : {115, 118, 120, 122, 125, 128, 130, 132}<br>
-    Q1 = moyenne des rangs 4 et 5 = \(\dfrac{122 + 125}{2} = \mathbf{123{,}5}\) mmHg</p>
-    <p>Seconde moitié (rangs 9 à 16) : {135, 136, 138, 140, 142, 145, 148, 155}<br>
-    Q3 = moyenne des rangs 4 et 5 = \(\dfrac{140 + 142}{2} = \mathbf{141}\) mmHg</p>
-    <p>IQR = 141 − 123,5 = <strong>17,5 mmHg</strong></p>
+    <p>Rang de Q1 = \(\lceil 16/4 \rceil = 4\) → Q1 = valeur au rang 4 de la série triée = <strong>122 mmHg</strong></p>
+    <p>Rang de Q3 = \(\lceil 48/4 \rceil = 12\) → Q3 = valeur au rang 12 de la série triée = <strong>140 mmHg</strong></p>
+    <p>IQR = 140 − 122 = <strong>18 mmHg</strong></p>
     <span class="etape">4. Estimation de l'hypertension :</span>
-    <p>Q3 = 141 mmHg, donc environ <strong>25 % des patients</strong> ont une tension supérieure à Q3 ≈ 140 mmHg. En comptant exactement : 140, 142, 145, 148, 155 → <strong>5 patients sur 16</strong>, soit environ 31 %.</p>
+    <p>Q3 = 140 mmHg, donc environ <strong>25 % des patients</strong> ont une tension supérieure ou égale à Q3 = 140 mmHg. En comptant exactement : 140, 142, 145, 148, 155 → <strong>5 patients sur 16</strong>, soit environ 31 %.</p>
   </div>
 </div>
 
@@ -1111,11 +1109,11 @@
     <p>3 ; 5 ; 5 ; 7 ; 7 ; 7 ; 9 ; 9 ; 9 ; 11 ; 11 ; 13</p>
     <p>n = 12 (pair) → Me = moyenne des rangs 6 et 7 = \(\dfrac{7 + 9}{2} = \mathbf{8}\) jours.</p>
     <span class="etape">4. Q1 et Q3 :</span>
-    <p>Première moitié {3, 5, 5, 7, 7, 7} → Q1 = \(\dfrac{5 + 7}{2} = \mathbf{6}\) jours.</p>
-    <p>Seconde moitié {9, 9, 9, 11, 11, 13} → Q3 = \(\dfrac{9 + 11}{2} = \mathbf{10}\) jours.</p>
-    <p>IQR = 10 − 6 = <strong>4 jours</strong>.</p>
+    <p>Rang de Q1 = \(\lceil 12/4 \rceil = 3\) → Q1 = valeur au rang 3 de la série triée = <strong>5 jours</strong>.</p>
+    <p>Rang de Q3 = \(\lceil 36/4 \rceil = 9\) → Q3 = valeur au rang 9 de la série triée = <strong>9 jours</strong>.</p>
+    <p>IQR = 9 − 5 = <strong>4 jours</strong>.</p>
     <span class="etape">5. Interprétation :</span>
-    <p>L'IQR de 4 jours est <strong>modéré</strong> par rapport à la moyenne de 8 jours. Les précipitations sont <strong>relativement régulières</strong> au fil de l'année : 50 % des mois comptent entre 6 et 10 jours de pluie.</p>
+    <p>L'IQR de 4 jours est <strong>modéré</strong> par rapport à la moyenne de 8 jours. Les précipitations sont <strong>relativement régulières</strong> au fil de l'année : 50 % des mois comptent entre 5 et 9 jours de pluie.</p>
   </div>
 </div>
 
@@ -1237,11 +1235,11 @@
     <span class="etape">2. Série triée et indicateurs de position :</span>
     <p>350, 360, 380, 410, 430, 520, 590, 650, 710, 790, 820, 980</p>
     <p><strong>Médiane</strong> (n=12) : moyenne des rangs 6 et 7 = \(\dfrac{520+590}{2} = \mathbf{555 \text{ kWh}}\)</p>
-    <p>Première moitié {350, 360, 380, 410, 430, 520} → <strong>Q1</strong> = \(\dfrac{380+410}{2} = \mathbf{395 \text{ kWh}}\)</p>
-    <p>Seconde moitié {590, 650, 710, 790, 820, 980} → <strong>Q3</strong> = \(\dfrac{710+790}{2} = \mathbf{750 \text{ kWh}}\)</p>
+    <p>Rang de Q1 = \(\lceil 12/4 \rceil = 3\) → <strong>Q1</strong> = valeur au rang 3 de la série triée = <strong>380 kWh</strong></p>
+    <p>Rang de Q3 = \(\lceil 36/4 \rceil = 9\) → <strong>Q3</strong> = valeur au rang 9 de la série triée = <strong>710 kWh</strong></p>
     <span class="etape">3. Étendue et IQR :</span>
     <p>Étendue = 980 − 350 = <strong>630 kWh</strong></p>
-    <p>IQR = Q3 − Q1 = 750 − 395 = <strong>355 kWh</strong></p>
+    <p>IQR = Q3 − Q1 = 710 − 380 = <strong>330 kWh</strong></p>
     <span class="etape">4. Écart-type (calcul complet) :</span>
     <table>
       <tr><th>Mois</th><th>x<sub>i</sub></th><th>x<sub>i</sub> − x̄</th><th>(x<sub>i</sub> − x̄)²</th></tr>
@@ -1261,10 +1259,10 @@
     </table>
     <p>\(\sigma^2 = \dfrac{479\,822}{12} \approx 39\,985\) &nbsp;→&nbsp; \(\sigma = \sqrt{39\,985} \approx \mathbf{200 \text{ kWh}}\)</p>
     <span class="etape">5. Détection des mois anormaux :</span>
-    <p>Seuil bas = \(Q1 - 1{,}5 \times \text{IQR} = 395 - 1{,}5 \times 355 = 395 - 532{,}5 = -137{,}5 \text{ kWh}\)<br>
+    <p>Seuil bas = \(Q1 - 1{,}5 \times \text{IQR} = 380 - 1{,}5 \times 330 = 380 - 495 = -115 \text{ kWh}\)<br>
     → Pas de mois anormalement bas (toutes les consommations sont positives).</p>
-    <p>Seuil haut = \(Q3 + 1{,}5 \times \text{IQR} = 750 + 532{,}5 = \mathbf{1\,282{,}5 \text{ kWh}}\)<br>
-    → Aucune valeur ne dépasse 1 282,5 kWh. <strong>Pas de mois formellement aberrant</strong> selon cette règle.</p>
+    <p>Seuil haut = \(Q3 + 1{,}5 \times \text{IQR} = 710 + 495 = \mathbf{1\,205 \text{ kWh}}\)<br>
+    → Aucune valeur ne dépasse 1 205 kWh. <strong>Pas de mois formellement aberrant</strong> selon cette règle.</p>
     <p>Cependant, <strong>Décembre (980 kWh)</strong> est la valeur la plus éloignée de la médiane (+ 425 kWh) et nettement au-dessus de Q3. À surveiller.</p>
     <span class="etape">6. Interprétation technique :</span>
     <p>La consommation suit une <strong>logique saisonnière nette</strong> : basse en été (350–430 kWh en juillet–août), haute en hiver (820–980 kWh en janvier et décembre). L'écart-type de ~200 kWh confirme une forte variabilité annuelle.</p>
@@ -1307,7 +1305,7 @@
       <tr><td><strong>Machine A</strong></td><td>−1,2</td><td>−0,3</td><td>0,2</td><td>0,8</td><td>1,8</td></tr>
       <tr><td><strong>Machine B</strong></td><td>−0,4</td><td>−0,1</td><td>0,2</td><td>0,4</td><td>2,5</td></tr>
     </table>
-    <p><em>Détail :</em> Q1 = valeur de rang 4 de la première moitié (rangs 1–7), Q3 = valeur de rang 4 de la seconde moitié (rangs 9–15).</p>
+    <p><em>Détail :</em> Rang de Q1 = \(\lceil 15/4 \rceil = 4\) → Q1 = 4<sup>e</sup> valeur de la série triée. Rang de Q3 = \(\lceil 45/4 \rceil = 12\) → Q3 = 12<sup>e</sup> valeur de la série triée.</p>
     <span class="etape">2. IQR :</span>
     <p>IQR(A) = 0,8 − (−0,3) = <strong>1,1 mm</strong> &nbsp;|&nbsp; IQR(B) = 0,4 − (−0,1) = <strong>0,5 mm</strong></p>
     <span class="etape">3. Moyennes :</span>
@@ -1390,7 +1388,7 @@ Machine B :    (−0,4)─[−0,1│0,2│0,4]──────────(2,5
     <p>\(\bar{x} = \dfrac{88{,}7}{15} \approx \mathbf{5{,}91}\) h</p>
     <span class="etape">2. Indicateurs de position (n = 15) :</span>
     <p>Mediane = 8<sup>e</sup> valeur = <strong>5,5 h</strong></p>
-    <p>Q1 (rang 4 de la 1ere moitie) = <strong>4,5 h</strong> &nbsp;|&nbsp; Q3 (rang 4 de la 2nde moitie) = <strong>6,5 h</strong></p>
+    <p>Q1 (rang \(\lceil 15/4 \rceil = 4\)) = <strong>4,5 h</strong> &nbsp;|&nbsp; Q3 (rang \(\lceil 45/4 \rceil = 12\)) = <strong>6,5 h</strong></p>
     <span class="etape">3. IQR et etendue :</span>
     <p>IQR = 6,5 - 4,5 = <strong>2 h</strong> &nbsp;|&nbsp; Etendue = 12,0 - 3,5 = <strong>8,5 h</strong></p>
     <span class="etape">4. Comparaison moyenne/mediane :</span>
@@ -1499,20 +1497,20 @@ Machine B :    (−0,4)─[−0,1│0,2│0,4]──────────(2,5
   <div class="corr">
     <span class="etape">1. Indicateurs (n = 20) :</span>
     <p>Me = moyenne des rangs 10 et 11 = \(\dfrac{31+32}{2} = \mathbf{31{,}5}\) kWh</p>
-    <p>1ere moitie {18,22,24,25,26,27,28,29,30,31} → Q1 = \(\dfrac{26+27}{2} = \mathbf{26{,}5}\) kWh</p>
-    <p>2nde moitie {32,33,34,35,36,38,40,42,55,72} → Q3 = \(\dfrac{36+38}{2} = \mathbf{37}\) kWh</p>
+    <p>Rang de Q1 = \(\lceil 20/4 \rceil = 5\) → Q1 = valeur au rang 5 de la série triée = <strong>26 kWh</strong></p>
+    <p>Rang de Q3 = \(\lceil 60/4 \rceil = 15\) → Q3 = valeur au rang 15 de la série triée = <strong>36 kWh</strong></p>
     <span class="etape">2. IQR et seuils :</span>
-    <p>IQR = 37 - 26,5 = <strong>10,5 kWh</strong></p>
-    <p>Seuil bas = 26,5 - 1,5 × 10,5 = 26,5 - 15,75 = <strong>10,75 kWh</strong></p>
-    <p>Seuil haut = 37 + 1,5 × 10,5 = 37 + 15,75 = <strong>52,75 kWh</strong></p>
+    <p>IQR = 36 - 26 = <strong>10 kWh</strong></p>
+    <p>Seuil bas = 26 - 1,5 × 10 = 26 - 15 = <strong>11 kWh</strong></p>
+    <p>Seuil haut = 36 + 1,5 × 10 = 36 + 15 = <strong>51 kWh</strong></p>
     <span class="etape">3. Valeurs aberrantes :</span>
-    <p>55 kWh &gt; 52,75 → <strong>aberrante</strong>. 72 kWh &gt; 52,75 → <strong>aberrante</strong>. Il y a <strong>2 valeurs aberrantes</strong>.</p>
+    <p>55 kWh &gt; 51 → <strong>aberrante</strong>. 72 kWh &gt; 51 → <strong>aberrante</strong>. Il y a <strong>2 valeurs aberrantes</strong>.</p>
     <span class="etape">4. Moyennes :</span>
     <p>Somme totale = 677 → \(\bar{x} = \dfrac{677}{20} = \mathbf{33{,}85}\) kWh</p>
     <p>Sans aberrantes : somme = 677 - 55 - 72 = 550 pour 18 valeurs → \(\bar{x}_{\text{corr}} = \dfrac{550}{18} \approx \mathbf{30{,}56}\) kWh</p>
     <p>Ecart : 33,85 - 30,56 = <strong>3,29 kWh</strong> (les 2 valeurs aberrantes augmentent la moyenne d'environ 10 %).</p>
     <span class="etape">5. Interpretation technique :</span>
-    <p>Les journees a 55 et 72 kWh sont anormales. Causes possibles : <strong>vague de froid exceptionnelle</strong>, <strong>dysfonctionnement du thermostat</strong>, <strong>porte ou fenetre restee ouverte</strong>, ou <strong>panne du systeme de regulation</strong>. Le technicien doit : verifier le thermostat, controler l'isolation du batiment, et mettre en place une alerte automatique si la consommation depasse le seuil de 53 kWh.</p>
+    <p>Les journees a 55 et 72 kWh sont anormales. Causes possibles : <strong>vague de froid exceptionnelle</strong>, <strong>dysfonctionnement du thermostat</strong>, <strong>porte ou fenetre restee ouverte</strong>, ou <strong>panne du systeme de regulation</strong>. Le technicien doit : verifier le thermostat, controler l'isolation du batiment, et mettre en place une alerte automatique si la consommation depasse le seuil de 51 kWh.</p>
   </div>
 </div>
 
@@ -1597,8 +1595,8 @@ Machine B :    (−0,4)─[−0,1│0,2│0,4]──────────(2,5
     <p>1500 ; 1500 ; 1500 ; 1500 ; 1500 ; 1800 ; 1800 ; 2200 ; 2500 ; 6000</p>
     <p>n = 10 (pair) → Me = \(\dfrac{1500+1800}{2} = \mathbf{1\,650\,\text{€}}\)</p>
     <span class="etape">3. Q1 et Q3 :</span>
-    <p>1ere moitie {1500, 1500, 1500, 1500, 1500} → Q1 = <strong>1 500 €</strong></p>
-    <p>2nde moitie {1800, 1800, 2200, 2500, 6000} → Q3 = <strong>2 200 €</strong></p>
+    <p>Rang de Q1 = \(\lceil 10/4 \rceil = 3\) → Q1 = valeur au rang 3 de la série triée = <strong>1 500 €</strong></p>
+    <p>Rang de Q3 = \(\lceil 30/4 \rceil = 8\) → Q3 = valeur au rang 8 de la série triée = <strong>2 200 €</strong></p>
     <p>IQR = 2200 - 1500 = <strong>700 €</strong></p>
     <span class="etape">4. Valeur aberrante :</span>
     <p>Seuil haut = Q3 + 1,5 × IQR = 2200 + 1050 = <strong>3 250 €</strong>. 6000 &gt; 3250 → <strong>oui, le salaire du dirigeant est aberrant</strong>.</p>

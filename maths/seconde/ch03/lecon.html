@@ -123,12 +123,15 @@
   <em>La médiane est Q₂ = Me.</em>
 </div>
 <div class="meth">
-  <strong>Méthode :</strong> partager la série triée en deux moitiés (avant et après la médiane).<br>
-  Q₁ = médiane de la 1<sup>re</sup> moitié. &nbsp; Q₃ = médiane de la 2<sup>e</sup> moitié.
+  <strong>Méthode (officielle BO) :</strong> sur la série triée de \(N\) valeurs,<br>
+  • Q₁ est la valeur de rang \(\lceil N/4 \rceil\) (plus petit entier ≥ \(N/4\)).<br>
+  • Q₃ est la valeur de rang \(\lceil 3N/4 \rceil\).<br>
+  Autrement dit : Q₁ est la plus petite valeur telle qu'au moins 25 % des données lui sont ≤ ; Q₃ idem avec 75 %.
 </div>
 <div class="ex">
-  1<sup>re</sup> moitié : 18&nbsp;·&nbsp;20&nbsp;·&nbsp;22&nbsp;·&nbsp;25&nbsp;·&nbsp;27&nbsp;·&nbsp;28 &nbsp;→&nbsp; \(Q_1 = \dfrac{22+25}{2} = \mathbf{23{,}5 \text{ min}}\)<br>
-  2<sup>e</sup> moitié : 30&nbsp;·&nbsp;32&nbsp;·&nbsp;35&nbsp;·&nbsp;40&nbsp;·&nbsp;45&nbsp;·&nbsp;55 &nbsp;→&nbsp; \(Q_3 = \dfrac{35+40}{2} = \mathbf{37{,}5 \text{ min}}\)
+  Série triée (N = 12) : 18 · 20 · 22 · 25 · 27 · 28 · 30 · 32 · 35 · 40 · 45 · 55.<br>
+  Position de Q₁ : \(\lceil 12/4 \rceil = 3\) &nbsp;→&nbsp; Q₁ = 3<sup>e</sup> valeur = <strong>22 min</strong>.<br>
+  Position de Q₃ : \(\lceil 3 \times 12/4 \rceil = 9\) &nbsp;→&nbsp; Q₃ = 9<sup>e</sup> valeur = <strong>35 min</strong>.
 </div>
 
 <div class="mini-exo">
@@ -136,9 +139,9 @@
   <p>10 durées triées (min) : 8, 12, 15, 18, 20, 22, 25, 28, 32, 40. Calculer Q₁, Me, Q₃ et l'IQR (écart interquartile). Interpréter.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    N=10, pair. Me = (20+22)/2 = <strong>21 min</strong>.<br>
-    1<sup>re</sup> moitié : 8, 12, 15, 18, 20 → Q₁ = <strong>15 min</strong>.<br>
-    2<sup>e</sup> moitié : 22, 25, 28, 32, 40 → Q₃ = <strong>28 min</strong>.<br>
+    N = 10, pair. Me = (5<sup>e</sup> + 6<sup>e</sup>)/2 = (20 + 22)/2 = <strong>21 min</strong>.<br>
+    Position Q₁ : \(\lceil 10/4 \rceil = 3\) → Q₁ = 3<sup>e</sup> valeur = <strong>15 min</strong>.<br>
+    Position Q₃ : \(\lceil 30/4 \rceil = 8\) → Q₃ = 8<sup>e</sup> valeur = <strong>28 min</strong>.<br>
     IQR = 28 − 15 = <strong>13 min</strong>. 50&nbsp;% des interventions durent entre 15 et 28 min.
   </div>
 </div>
@@ -147,7 +150,7 @@
   <div class="card"><div class="label">Mode / Classe modale</div><div class="value" style="color:var(--o)">[20;30[</div><div class="desc">Classe la plus fréquente</div></div>
   <div class="card"><div class="label">Moyenne x̅</div><div class="value">≈ 31,4 min</div><div class="desc">Barycentre de la série</div></div>
   <div class="card"><div class="label">Médiane Me</div><div class="value" style="color:var(--s)">29 min</div><div class="desc">Valeur centrale robuste</div></div>
-  <div class="card"><div class="label">Q₁ / Q₃</div><div class="value" style="color:var(--p)">23,5 / 37,5</div><div class="desc">Quartiles 1 et 3</div></div>
+  <div class="card"><div class="label">Q₁ / Q₃</div><div class="value" style="color:var(--p)">22 / 35</div><div class="desc">Quartiles 1 et 3</div></div>
 </div>
 
 <!-- 3. INDICATEURS DE DISPERSION -->
@@ -171,7 +174,7 @@
   Il représente l’étendue des 50&nbsp;% centraux des données.
 </div>
 <div class="ex">
-  IQR = 37,5 − 23,5 = <strong>14 min</strong>. La moitié centrale des interventions dure entre 23,5 et 37,5 min.
+  IQR = 35 − 22 = <strong>13 min</strong>. La moitié centrale des interventions dure entre 22 et 35 min.
 </div>
 
 <h3>3.3 L’écart-type σ</h3>
@@ -200,7 +203,7 @@
 </div>
 
 <div class="boxplot-wrap">
-  <!-- v->x : x(v)=40+v*460/60 — min=18->178, Q1=23.5->220, Me=29->263, Q3=37.5->328, max=55->462 -->
+  <!-- v->x : x(v)=40+v*460/60 — min=18->178, Q1=22->209, Me=29->262, Q3=35->308, max=55->462 -->
   <svg width="100%" viewBox="0 0 520 130" style="max-width:520px;height:auto;display:block;margin:auto">
     <line x1="40" y1="90" x2="500" y2="90" stroke="#4a5568" stroke-width="1.5"/>
     <line x1="40"  y1="88" x2="40"  y2="95" stroke="#4a5568"/><text x="40"  y="108" text-anchor="middle" font-size="11" fill="#718096">0</text>
@@ -212,20 +215,20 @@
     <line x1="500" y1="88" x2="500" y2="95" stroke="#4a5568"/><text x="500" y="108" text-anchor="middle" font-size="11" fill="#718096">60</text>
     <text x="270" y="123" text-anchor="middle" font-size="10" fill="#718096">Durée (minutes)</text>
     <!-- Moustache gauche -->
-    <line x1="178" y1="65" x2="220" y2="65" stroke="#2b6cb0" stroke-width="2"/>
+    <line x1="178" y1="65" x2="209" y2="65" stroke="#2b6cb0" stroke-width="2"/>
     <line x1="178" y1="57" x2="178" y2="73" stroke="#2b6cb0" stroke-width="2"/>
     <!-- Boite -->
-    <rect x="220" y="50" width="108" height="30" fill="#bee3f8" stroke="#2b6cb0" stroke-width="2" rx="2"/>
+    <rect x="209" y="50" width="99" height="30" fill="#bee3f8" stroke="#2b6cb0" stroke-width="2" rx="2"/>
     <!-- Mediane -->
-    <line x1="263" y1="50" x2="263" y2="80" stroke="#1a365d" stroke-width="3"/>
+    <line x1="262" y1="50" x2="262" y2="80" stroke="#1a365d" stroke-width="3"/>
     <!-- Moustache droite -->
-    <line x1="328" y1="65" x2="462" y2="65" stroke="#2b6cb0" stroke-width="2"/>
+    <line x1="308" y1="65" x2="462" y2="65" stroke="#2b6cb0" stroke-width="2"/>
     <line x1="462" y1="57" x2="462" y2="73" stroke="#2b6cb0" stroke-width="2"/>
     <!-- Labels -->
     <text x="178" y="45" text-anchor="middle" font-size="11" fill="#c53030" font-weight="700">Min=18</text>
-    <text x="220" y="45" text-anchor="middle" font-size="11" fill="#2b6cb0" font-weight="700">Q₁=23,5</text>
-    <text x="263" y="41" text-anchor="middle" font-size="11" fill="#1a365d" font-weight="700">Me=29</text>
-    <text x="328" y="45" text-anchor="middle" font-size="11" fill="#2b6cb0" font-weight="700">Q₃=37,5</text>
+    <text x="209" y="45" text-anchor="middle" font-size="11" fill="#2b6cb0" font-weight="700">Q₁=22</text>
+    <text x="262" y="41" text-anchor="middle" font-size="11" fill="#1a365d" font-weight="700">Me=29</text>
+    <text x="308" y="45" text-anchor="middle" font-size="11" fill="#2b6cb0" font-weight="700">Q₃=35</text>
     <text x="462" y="45" text-anchor="middle" font-size="11" fill="#c53030" font-weight="700">Max=55</text>
   </svg>
 </div>
@@ -233,9 +236,9 @@
 <div class="prop">
   <strong>Lecture :</strong>
   <ul>
-    <li>Longueur de la boîte = IQR = 14 min → dispersion des 50&nbsp;% centraux.</li>
-    <li>Médiane proche de Q₁ → distribution légèrement asymétrique vers la droite.</li>
-    <li>Moustache droite très longue (37,5 → 55) → intervention à 55 min possiblement aberrante.</li>
+    <li>Longueur de la boîte = IQR = 13 min → dispersion des 50&nbsp;% centraux.</li>
+    <li>Médiane à peu près centrée dans la boîte (légèrement à droite) → distribution assez symétrique au cœur.</li>
+    <li>Moustache droite très longue (35 → 55) → intervention à 55 min possiblement aberrante.</li>
   </ul>
 </div>
 
@@ -444,8 +447,8 @@
   <div class="ico">❌</div>
   <div class="txt">
     <strong>Mal identifier Q1 et Q3 (confusion sur la position)</strong><br>
-    Q1 est la médiane de la première moitié de la série (25 % des données en dessous), Q3 est la médiane de la deuxième moitié (75 % en dessous). Certains élèves prennent le premier ou le dernier quart des valeurs sans appliquer la bonne méthode.<br>
-    <em>Conseil : la méthode utilisée dans ce cours consiste à couper la série triée en deux moitiés, puis à prendre la médiane de chaque moitié (voir section 2.4). Une méthode alternative utilise les positions \(\frac{n+1}{4}\) et \(\frac{3(n+1)}{4}\), mais elle peut donner des résultats légèrement différents. En cas de doute, utiliser la calculatrice et vérifier.</em>
+    Q₁ est la plus petite valeur telle qu'au moins 25 % des données lui sont ≤. Q₃ idem avec 75 %. Certains élèves prennent le premier ou le dernier quart des valeurs au hasard sans appliquer la méthode de position officielle.<br>
+    <em>Conseil : la méthode officielle (BO) utilise les positions \(\lceil N/4 \rceil\) pour Q₁ et \(\lceil 3N/4 \rceil\) pour Q₃ sur la série triée (voir section 2.4). D'autres méthodes existent (calculatrice, tableur) et peuvent donner des résultats légèrement différents — en classe, on suit la méthode des positions.</em>
   </div>
 </div>
 
