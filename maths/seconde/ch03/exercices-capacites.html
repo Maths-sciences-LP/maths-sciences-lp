@@ -236,7 +236,7 @@
 
 <div class="meth">
   <strong>Rappel de cours</strong>
-  <p><strong>Q1</strong> (premier quartile) est la médiane de la moitié inférieure de la série ordonnée. <strong>Q3</strong> (troisième quartile) est la médiane de la moitié supérieure. L'<strong>écart interquartile</strong> est \(\text{IQR} = Q_3 - Q_1\) : il mesure la dispersion des 50 % centraux, indépendamment des valeurs extrêmes.</p>
+  <p>Sur la série triée de \(N\) valeurs : <strong>Q1</strong> est la valeur au rang \(\lceil N/4 \rceil\) (au moins 25 % des données lui sont ≤). <strong>Q3</strong> est la valeur au rang \(\lceil 3N/4 \rceil\) (au moins 75 % ≤). L'<strong>écart interquartile</strong> est \(\text{IQR} = Q_3 - Q_1\) : il mesure la dispersion des 50 % centraux, indépendamment des valeurs extrêmes.</p>
 </div>
 
 <div class="exo">
@@ -254,9 +254,9 @@
   <div class="corr">
     \(n = 12\) valeurs.<br>
     Médiane : moyenne des 6e et 7e valeurs : \(\text{Me} = \frac{18+20}{2} = 19\)<br>
-    Q1 : médiane de la moitié inférieure (6 premières valeurs : 5 ; 8 ; 10 ; 12 ; 15 ; 18) : \(Q_1 = \frac{10+12}{2} = 11\)<br>
-    Q3 : médiane de la moitié supérieure (6 dernières : 20 ; 22 ; 25 ; 28 ; 30 ; 32) : \(Q_3 = \frac{25+28}{2} = 26{,}5\)<br>
-    Écart interquartile : \(Q_3 - Q_1 = 26{,}5 - 11 = \mathbf{15{,}5}\)
+    Position Q1 : \(\lceil 12/4 \rceil = 3\) → Q1 = 3<sup>e</sup> valeur = <strong>10</strong>.<br>
+    Position Q3 : \(\lceil 36/4 \rceil = 9\) → Q3 = 9<sup>e</sup> valeur = <strong>25</strong>.<br>
+    Écart interquartile : \(Q_3 - Q_1 = 25 - 10 = \mathbf{15}\)
   </div>
 </div>
 
@@ -280,8 +280,8 @@
   <div class="corr">
     Ordre croissant : 1 480 ; 1 530 ; 1 550 ; 1 590 ; 1 600 ; 1 620 ; 1 680 ; 1 700 ; 1 750 ; 1 800<br>
     Médiane : \(\frac{1600+1620}{2} = 1610\) €<br>
-    Q1 : médiane des 5 premières : 1 550 €<br>
-    Q3 : médiane des 5 dernières : 1 700 €<br>
+    Position Q1 : \(\lceil 10/4 \rceil = 3\) → Q1 = 3<sup>e</sup> valeur = 1 550 €<br>
+    Position Q3 : \(\lceil 30/4 \rceil = 8\) → Q3 = 8<sup>e</sup> valeur = 1 700 €<br>
     <ol type="a">
       <li>\(Q_1 = 1\,550\) € ; \(Q_3 = 1\,700\) €</li>
       <li>IQR = \(1\,700 - 1\,550 = \mathbf{150}\) € → l'écart interquartile mesure la dispersion des 50 % de salaires centraux.</li>

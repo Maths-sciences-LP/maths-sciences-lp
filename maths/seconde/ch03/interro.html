@@ -240,9 +240,9 @@
   <div class="zone-reponse-longue"></div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Série triée : 86, 87, 88, 88, 89, 89, 90, 90, 91, 92</p>
-    <p>a) 1re moitié : 86, 87, 88, 88, 89 → \(Q_1 = \mathbf{88}\) cm (valeur centrale)</p>
-    <p>2e moitié : 89, 90, 90, 91, 92 → \(Q_3 = \mathbf{90}\) cm</p>
+    <p>Série triée : 86, 87, 88, 88, 89, 89, 90, 90, 91, 92 (N = 10).</p>
+    <p>a) Position Q1 : \(\lceil 10/4 \rceil = 3\) → Q1 = 3<sup>e</sup> valeur = <strong>88 cm</strong>.</p>
+    <p>Position Q3 : \(\lceil 30/4 \rceil = 8\) → Q3 = 8<sup>e</sup> valeur = <strong>90 cm</strong>.</p>
     <p>b) IQR : \(90 - 88 = \mathbf{2}\) cm. Étendue : \(92 - 86 = \mathbf{6}\) cm</p>
     <p>c) La tolérance est [87 ; 91]. L'étendue va de 86 à 92 : il y a des chaises <strong>hors tolérance</strong> (86 cm et 92 cm).</p>
   </div>
@@ -327,9 +327,9 @@
   <div class="zone-reponse-longue"></div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Série triée : 43, 44, 45, 45, 46, 46, 47, 47, 48, 49</p>
-    <p>a) 1re moitié : 43, 44, 45, 45, 46 → \(Q_1 = \mathbf{45}\) cm (valeur centrale)</p>
-    <p>2e moitié : 46, 47, 47, 48, 49 → \(Q_3 = \mathbf{47}\) cm</p>
+    <p>Série triée : 43, 44, 45, 45, 46, 46, 47, 47, 48, 49 (N = 10).</p>
+    <p>a) Position Q1 : \(\lceil 10/4 \rceil = 3\) → Q1 = 3<sup>e</sup> valeur = <strong>45 cm</strong>.</p>
+    <p>Position Q3 : \(\lceil 30/4 \rceil = 8\) → Q3 = 8<sup>e</sup> valeur = <strong>47 cm</strong>.</p>
     <p>b) IQR : \(47 - 45 = \mathbf{2}\) cm. Étendue : \(49 - 43 = \mathbf{6}\) cm</p>
     <p>c) La tolérance est [44 ; 48]. L'étendue va de 43 à 49 : il y a des tasseaux <strong>hors tolérance</strong> (43 cm et 49 cm).</p>
   </div>
@@ -421,13 +421,13 @@
   <div class="zone-reponse-longue"></div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Série triée : 18, 20, 22, 25, 27, 28, 30, 32, 35, 40, 45, 55</p>
-    <p>a) Min = 18, Me = 29 (calculée en Q1)</p>
-    <p>1re moitié : 18, 20, 22, 25, 27, 28 → \(Q_1 = \dfrac{22+25}{2} = \mathbf{23{,}5}\)</p>
-    <p>2e moitié : 30, 32, 35, 40, 45, 55 → \(Q_3 = \dfrac{35+40}{2} = \mathbf{37{,}5}\)</p>
-    <p>5 valeurs : <strong>Min = 18, \(Q_1\) = 23,5, Me = 29, \(Q_3\) = 37,5, Max = 55</strong></p>
-    <p>b) Étendue = \(55 - 18 = \mathbf{37}\) min. IQR = \(37{,}5 - 23{,}5 = \mathbf{14}\) min.</p>
-    <p>c) Moustache gauche : \(23{,}5 - 18 = 5{,}5\) min. Moustache droite : \(55 - 37{,}5 = 17{,}5\) min.</p>
+    <p>Série triée : 18, 20, 22, 25, 27, 28, 30, 32, 35, 40, 45, 55 (N = 12).</p>
+    <p>a) Min = 18, Me = 29.</p>
+    <p>Position Q1 : \(\lceil 12/4 \rceil = 3\) → Q1 = 3<sup>e</sup> valeur = <strong>22</strong>.</p>
+    <p>Position Q3 : \(\lceil 36/4 \rceil = 9\) → Q3 = 9<sup>e</sup> valeur = <strong>35</strong>.</p>
+    <p>5 valeurs : <strong>Min = 18, \(Q_1\) = 22, Me = 29, \(Q_3\) = 35, Max = 55</strong>.</p>
+    <p>b) Étendue = \(55 - 18 = \mathbf{37}\) min. IQR = \(35 - 22 = \mathbf{13}\) min.</p>
+    <p>c) Moustache gauche : \(22 - 18 = 4\) min. Moustache droite : \(55 - 35 = 20\) min.</p>
     <p>La moustache droite est bien plus longue, ce qui signifie que la distribution est <strong>asymétrique vers la droite</strong> : quelques interventions longues (notamment 55 min) étirent la série vers les grandes valeurs.</p>
   </div>
 </div>
@@ -514,13 +514,13 @@
   <div class="zone-reponse-longue"></div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Série triée : 22, 24, 26, 28, 30, 31, 35, 36, 38, 42, 48, 50</p>
-    <p>a) Min = 22, Me = 33 (calculée en Q1)</p>
-    <p>1re moitié : 22, 24, 26, 28, 30, 31 → \(Q_1 = \dfrac{26+28}{2} = \mathbf{27}\)</p>
-    <p>2e moitié : 35, 36, 38, 42, 48, 50 → \(Q_3 = \dfrac{38+42}{2} = \mathbf{40}\)</p>
-    <p>5 valeurs : <strong>Min = 22, \(Q_1\) = 27, Me = 33, \(Q_3\) = 40, Max = 50</strong></p>
-    <p>b) Étendue = \(50 - 22 = \mathbf{28}\) min. IQR = \(40 - 27 = \mathbf{13}\) min.</p>
-    <p>c) Moustache gauche : \(27 - 22 = 5\) min. Moustache droite : \(50 - 40 = 10\) min.</p>
+    <p>Série triée : 22, 24, 26, 28, 30, 31, 35, 36, 38, 42, 48, 50 (N = 12).</p>
+    <p>a) Min = 22, Me = 33.</p>
+    <p>Position Q1 : \(\lceil 12/4 \rceil = 3\) → Q1 = 3<sup>e</sup> valeur = <strong>26</strong>.</p>
+    <p>Position Q3 : \(\lceil 36/4 \rceil = 9\) → Q3 = 9<sup>e</sup> valeur = <strong>38</strong>.</p>
+    <p>5 valeurs : <strong>Min = 22, \(Q_1\) = 26, Me = 33, \(Q_3\) = 38, Max = 50</strong>.</p>
+    <p>b) Étendue = \(50 - 22 = \mathbf{28}\) min. IQR = \(38 - 26 = \mathbf{12}\) min.</p>
+    <p>c) Moustache gauche : \(26 - 22 = 4\) min. Moustache droite : \(50 - 38 = 12\) min.</p>
     <p>La moustache droite est plus longue, ce qui signifie que la distribution est <strong>asymétrique vers la droite</strong> : quelques montages longs (48 et 50 min) étirent la série vers les grandes valeurs.</p>
   </div>
 </div>

@@ -279,10 +279,10 @@
   <div class="q-feedback"></div>
 </div>
 
-<div class="q-block" data-correct="a">
+<div class="q-block" data-correct="b">
   <h3>Question 3</h3>
   <p class="theme">Calcul – Quartiles</p>
-  <p>Série triée de 12 valeurs : 18, 20, 22, 25, 27, 28, 30, 32, 35, 40, 45, 55. Le premier quartile Q₁ vaut :</p>
+  <p>Série triée de 12 valeurs : 18, 20, 22, 25, 27, 28, 30, 32, 35, 40, 45, 55. Le premier quartile Q₁ (position ⌈N/4⌉) vaut :</p>
   <div class="options">
     <label><input type="radio" name="t3" value="a"> 23,5</label>
     <label><input type="radio" name="t3" value="b"> 22</label>
@@ -295,12 +295,12 @@
 <div class="q-block" data-correct="d">
   <h3>Question 4</h3>
   <p class="theme">Calcul – Écart interquartile</p>
-  <p>Si Q₁ = 23,5 et Q₃ = 37,5, l'écart interquartile (IQR) vaut :</p>
+  <p>Si Q₁ = 22 et Q₃ = 35, l'écart interquartile (IQR) vaut :</p>
   <div class="options">
-    <label><input type="radio" name="t4" value="a"> 61</label>
-    <label><input type="radio" name="t4" value="b"> 30,5</label>
+    <label><input type="radio" name="t4" value="a"> 57</label>
+    <label><input type="radio" name="t4" value="b"> 28,5</label>
     <label><input type="radio" name="t4" value="c"> 7</label>
-    <label><input type="radio" name="t4" value="d"> 14</label>
+    <label><input type="radio" name="t4" value="d"> 13</label>
   </div>
   <div class="q-feedback"></div>
 </div>
@@ -541,7 +541,7 @@
 <div class="q-block" data-correct="a">
   <h3>Question 7</h3>
   <p class="theme">Analyse – Valeur aberrante</p>
-  <p>On a Min = 18, Q₁ = 23,5, Me = 29, Q₃ = 37,5, Max = 55. La moustache droite (Q₃ → Max) mesure 17,5, tandis que la moustache gauche (Min → Q₁) mesure 5,5. On peut dire que :</p>
+  <p>On a Min = 18, Q₁ = 22, Me = 29, Q₃ = 35, Max = 55. La moustache droite (Q₃ → Max) mesure 20, tandis que la moustache gauche (Min → Q₁) mesure 4. On peut dire que :</p>
   <div class="options">
     <label><input type="radio" name="a7" value="a"> la valeur 55 est possiblement aberrante, la distribution est asymétrique vers la droite</label>
     <label><input type="radio" name="a7" value="b"> la série est parfaitement symétrique</label>
@@ -684,8 +684,8 @@ var explications = {
   /* === STANDARD === */
   "t1": "Moyenne = (12×2 + 15×2 + 20×1) / 5 = (24 + 30 + 20) / 5 = 74 / 5 = 14,8.",
   "t2": "N = 8 (pair). Médiane = moyenne des rangs 4 et 5 : (18 + 20) / 2 = 19.",
-  "t3": "1ʳᵉ moitié : 18, 20, 22, 25, 27, 28 → Q₁ = (22 + 25) / 2 = 23,5.",
-  "t4": "IQR = Q₃ − Q₁ = 37,5 − 23,5 = 14.",
+  "t3": "Position Q₁ = ⌈12/4⌉ = 3 → Q₁ = 3ᵉ valeur = 22 (méthode officielle BO).",
+  "t4": "IQR = Q₃ − Q₁ = 35 − 22 = 13.",
   "t5": "L'IQR = Q₃ − Q₁ représente l'étendue des 50 % centraux des données.",
   "t6": "Centres : 15, 25, 35, 45. Moyenne = (3×15 + 7×25 + 6×35 + 4×45) / 20 = (45 + 175 + 210 + 180) / 20 = 610 / 20 = 30,5 min.",
   "t7": "La classe modale est celle ayant le plus grand effectif : [20;30[ avec 7 interventions.",
@@ -699,12 +699,12 @@ var explications = {
   "t15": "Fréquence = effectif / effectif total = 7 / 20 = 0,35 = 35 %.",
   /* === APPROFONDISSEMENT === */
   "a1": "Moyenne = (4×2 + 8×2,5 + 5×3 + 3×4) / 20 = (8 + 20 + 15 + 12) / 20 = 55 / 20 = 2,75 h.",
-  "a2": "1ʳᵉ moitié : 8, 12, 15, 18, 20 → Q₁ = 15. 2ᵉ moitié : 22, 25, 28, 32, 40 → Q₃ = 28. IQR = 28 − 15 = 13.",
+  "a2": "N = 10. Position Q₁ = ⌈10/4⌉ = 3 → Q₁ = 3ᵉ valeur = 15. Position Q₃ = ⌈30/4⌉ = 8 → Q₃ = 8ᵉ valeur = 28. IQR = 28 − 15 = 13.",
   "a3": "La variance σ² = Σ(xᵢ − x̄)² / N mesure la moyenne des carrés des écarts à la moyenne.",
   "a4": "Un écart-type petit signifie que les valeurs sont proches de la moyenne : la série est homogène.",
   "a5": "Centres : 110, 130, 150, 170. Moyenne = (4×110 + 9×130 + 5×150 + 2×170) / 20 = (440 + 1170 + 750 + 340) / 20 = 2700 / 20 = 135 kWh.",
   "a6": "x̄_A = 30 < x̄_B = 34 (A plus rapide) et σ_A = 1,6 < σ_B = 15 (A plus régulière). L'équipe A est plus rapide ET plus régulière.",
-  "a7": "La moustache droite (17,5) est 3 fois plus longue que la gauche (5,5) : distribution asymétrique vers la droite, 55 min est possiblement aberrante.",
+  "a7": "La moustache droite (20) est 5 fois plus longue que la gauche (4) : distribution asymétrique vers la droite, 55 min est possiblement aberrante.",
   "a8": "Nouvelle somme = 20 + 22 + 25 + 28 + 30 + 85 = 210. Nouvelle moyenne = 210 / 6 = 35.",
   "a9": "N = 6 (pair). Médiane = moyenne des rangs 3 et 4 : (25 + 28) / 2 = 26,5. La valeur 85 n'a presque pas changé la médiane.",
   "a10": "La moyenne a augmenté de 10 (de 25 à 35) tandis que la médiane n'a bougé que de 1,5 (de 25 à 26,5). La médiane est bien plus robuste face aux valeurs extrêmes.",
