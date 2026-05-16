@@ -86,8 +86,9 @@
         </g>
         <text class="lblA" x="270" y="275" text-anchor="middle">Distance x (m)</text>
 
-        <!-- Parabole h(x) = -0,02 x² + 0,5 x. Points (0,0) → (60,240). (5,2) → (148, 240-95=145). (10, 3) → (236, 97,5). (12,5, 3,125) → (280, 91). (15, 3) → (324, 97,5). (20, 2) → (412, 145). (25, 0) → (500, 240) -->
-        <path d="M 60,240 Q 280,-30 500,240" fill="none" stroke="#0056b3" stroke-width="2.5"/>
+        <!-- Parabole h(x) = -0,02 x² + 0,5 x. Bezier quadratique de (60,240) à (500,240). -->
+        <!-- Pour sommet exact (280, 91), control y = 2×91 - 240 = -58. À t=0,5 : y = 240/2 + (-58)/2 = 91 ✓ -->
+        <path d="M 60,240 Q 280,-58 500,240" fill="none" stroke="#0056b3" stroke-width="2.5"/>
 
         <!-- Points clés -->
         <circle cx="60" cy="240" r="4" fill="#15803d"/>

@@ -94,10 +94,9 @@
         </g>
         <text class="lblA" x="270" y="275" text-anchor="middle">Côté x (m)</text>
 
-        <!-- Parabole : pour x ∈ [0, 32], y = x² . Génération via path. y_pixel = 240 - x²*0,19 -->
-        <path d="M 60,240 Q 280,235 320,200 T 470,80 L 500,52" fill="none" stroke="#0056b3" stroke-width="2.5"/>
-        <!-- Approximation simplifiée par cubique. Plus précis : -->
-        <path d="M 60,240 L 123,239 L 186,233 L 248,222 L 311,164 L 374,101 L 437,18" fill="none" stroke="#0056b3" stroke-width="2.5" stroke-dasharray="0"/>
+        <!-- Parabole f(x)=x² : Bezier quadratique exacte de (0;0)=(60,240) à (31,62;1000)=(458,50) -->
+        <!-- Control point math (15,81;0) → pixel (259,240). Vérif à t=0,5 : x_pixel=259, y_pixel=192,5, soit f(15,83)≈250 ✓ -->
+        <path d="M 60,240 Q 259,240 458,50" fill="none" stroke="#0056b3" stroke-width="2.5"/>
 
         <!-- Points repères -->
         <circle cx="211" cy="213" r="5" fill="#dc2626"/>
