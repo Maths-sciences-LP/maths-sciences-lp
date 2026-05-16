@@ -241,7 +241,7 @@ MathJax = {tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
   </thead>
   <tbody>
     <tr><td>Vide</td><td>1,000</td><td>300 000 km/s</td><td>Référence</td></tr>
-    <tr><td>Air</td><td>1,003 (≈1)</td><td>≈ 299 100 km/s</td><td>Quasi identique au vide</td></tr>
+    <tr><td>Air</td><td>1,0003 (≈1)</td><td>≈ 299 900 km/s</td><td>Quasi identique au vide</td></tr>
     <tr><td>Eau</td><td>1,33</td><td>≈ 225 000 km/s</td><td>Piscine, vernis à base d'eau</td></tr>
     <tr><td>Plexiglas (PMMA)</td><td>1,49</td><td>≈ 201 000 km/s</td><td>Vitres, panneaux décoratifs</td></tr>
     <tr><td>Verre ordinaire</td><td>1,50</td><td>200 000 km/s</td><td>Fenêtres, miroirs</td></tr>
@@ -548,8 +548,8 @@ MathJax = {tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
   var ctx = document.getElementById('chartIndice');
   if(!ctx) return;
   var milieux = ['Vide', 'Air', 'Eau', 'Verre', 'Diamant'];
-  var vitesses = [300000, 299100, 225000, 200000, 124000];
-  var indices = [1.000, 1.003, 1.333, 1.500, 2.420];
+  var vitesses = [300000, 299900, 225000, 200000, 124000];
+  var indices = [1.000, 1.0003, 1.333, 1.500, 2.420];
   var colors = [
     'rgba(59,130,246,0.85)',
     'rgba(96,165,250,0.85)',
