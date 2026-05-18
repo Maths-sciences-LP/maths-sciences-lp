@@ -34,7 +34,8 @@
   <h2>Situation – Yann veut acheter un terrain pour son atelier</h2>
   <p><em>Yann, jeune artisan menuisier, cherche un terrain carré pour construire son futur atelier. Le notaire et l'agent immobilier lui présentent les surfaces de plusieurs terrains, certains avec leurs dimensions, d'autres avec seulement leur surface. Il doit savoir convertir entre côté et surface.</em></p>
 
-  <h3>Document — terrains disponibles dans la zone artisanale</h3>
+  <h3>Document 1 — terrains disponibles dans la zone artisanale</h3>
+  <p style="font-style:italic;color:#475569;margin-bottom:6px">Ce tableau sera complété au fil des questions 1, 2 et 3.</p>
   <table>
     <thead>
       <tr><th>N°</th><th>Côté (m)</th><th>Surface (m²)</th><th>Prix au m²</th><th>Prix total</th></tr>
@@ -47,66 +48,116 @@
     </tbody>
   </table>
 
-  <h3>Document — graphique de la fonction carré f(x) = x²</h3>
+  <h3>Document 2 — formule de la surface d'un carré</h3>
+  <div style="background:linear-gradient(135deg,#dbeafe 0%,#eff6ff 100%);padding:14px 18px;border-radius:8px;border-left:4px solid #1d4ed8;margin:14px 0;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.05)">
+    <p style="font-size:1.3em;margin:4px 0 8px;color:#1e3a8a"><strong>f(x) = x²</strong> &nbsp;&nbsp;⟺&nbsp;&nbsp; <strong>Surface = côté × côté</strong></p>
+    <p style="font-size:.92em;margin:0;color:#475569">Pour retrouver le côté à partir de la surface : <strong>côté = √surface</strong> (racine carrée).</p>
+  </div>
+
+  <h3>Document 3 — graphique de la fonction carré f(x) = x²</h3>
   <div class="svg-wrap" style="margin:14px 0">
-    <svg width="100%" viewBox="0 0 540 280" style="max-width:540px;display:block;margin:0 auto" role="img" aria-label="Parabole f(x) = x² pour x ≥ 0. Points repères 12 m → 144 m², 20 m → 400 m², 25 m → 625 m². Courbe croissante avec accélération.">
-        <defs>
-          <style>
-            .ax{stroke:#1a202c;stroke-width:1.5}
-            .gd{stroke:#cbd5e1;stroke-width:.6}
-            .lbl{font:11px sans-serif;fill:#1a202c}
-            .lblA{font:600 12px sans-serif;fill:#1a202c}
-            .ti{font:700 13px sans-serif;text-anchor:middle;fill:#0056b3}
-          </style>
-        </defs>
-        <text class="ti" x="270" y="22">f(x) = x² — surface d'un carré de côté x</text>
+    <svg width="100%" viewBox="0 0 560 290" style="max-width:600px;display:block;margin:0 auto" role="img" aria-label="Parabole f(x) = x² pour x de 0 à 35 m. Surface de 0 à 1250 m². Points repères 12 m → 144 m², 20 m → 400 m², 25 m → 625 m².">
+      <defs>
+        <style>
+          .ax{stroke:#1a202c;stroke-width:1.6;fill:none}
+          .gd{stroke:#e2e8f0;stroke-width:.6}
+          .gdm{stroke:#cbd5e1;stroke-width:.7}
+          .lbl{font:11px 'Segoe UI',sans-serif;fill:#334155}
+          .lblA{font:600 12px 'Segoe UI',sans-serif;fill:#1a202c}
+          .ti{font:700 14px 'Segoe UI',sans-serif;text-anchor:middle;fill:#0056b3}
+          .cv{stroke:#0056b3;stroke-width:2.5;fill:none}
+        </style>
+      </defs>
+      <text class="ti" x="280" y="24">f(x) = x² — surface d'un carré de côté x</text>
 
-        <!-- Y : 0 → 240, 1000 m² → 50. 1 m² = 0,19 px. 144 → 213, 400 → 164, 625 → 121, 900 → 69 -->
-        <g class="gd">
-          <line x1="60" y1="50" x2="500" y2="50"/>
-          <line x1="60" y1="98" x2="500" y2="98"/>
-          <line x1="60" y1="145" x2="500" y2="145"/>
-          <line x1="60" y1="193" x2="500" y2="193"/>
-          <line x1="60" y1="240" x2="500" y2="240"/>
-        </g>
-        <line class="ax" x1="60" y1="240" x2="510" y2="240"/>
-        <line class="ax" x1="60" y1="40" x2="60" y2="240"/>
+      <!-- Grille horizontale tous les 125 m² -->
+      <g class="gd">
+        <line x1="60" y1="50" x2="500" y2="50"/>
+        <line x1="60" y1="69" x2="500" y2="69"/>
+        <line x1="60" y1="88" x2="500" y2="88"/>
+        <line x1="60" y1="107" x2="500" y2="107"/>
+        <line x1="60" y1="126" x2="500" y2="126"/>
+        <line x1="60" y1="145" x2="500" y2="145"/>
+        <line x1="60" y1="164" x2="500" y2="164"/>
+        <line x1="60" y1="183" x2="500" y2="183"/>
+        <line x1="60" y1="202" x2="500" y2="202"/>
+        <line x1="60" y1="221" x2="500" y2="221"/>
+      </g>
+      <!-- Grille majeure tous les 250 m² -->
+      <g class="gdm">
+        <line x1="60" y1="202" x2="500" y2="202"/>
+        <line x1="60" y1="164" x2="500" y2="164"/>
+        <line x1="60" y1="126" x2="500" y2="126"/>
+        <line x1="60" y1="88" x2="500" y2="88"/>
+      </g>
+      <!-- Grille X tous les 5 m -->
+      <g class="gd">
+        <line x1="122.9" y1="40" x2="122.9" y2="240"/>
+        <line x1="185.7" y1="40" x2="185.7" y2="240"/>
+        <line x1="248.6" y1="40" x2="248.6" y2="240"/>
+        <line x1="311.4" y1="40" x2="311.4" y2="240"/>
+        <line x1="374.3" y1="40" x2="374.3" y2="240"/>
+        <line x1="437.1" y1="40" x2="437.1" y2="240"/>
+        <line x1="500" y1="40" x2="500" y2="240"/>
+      </g>
 
-        <g class="lbl" text-anchor="end">
-          <text x="55" y="244">0</text>
-          <text x="55" y="197">250</text>
-          <text x="55" y="149">500</text>
-          <text x="55" y="102">750</text>
-          <text x="55" y="54">1 000</text>
-        </g>
-        <text class="lblA" x="20" y="145" transform="rotate(-90 20 145)" text-anchor="middle">Surface (m²)</text>
+      <!-- Axes avec flèches -->
+      <line class="ax" x1="60" y1="240" x2="510" y2="240"/>
+      <line class="ax" x1="60" y1="35" x2="60" y2="245"/>
+      <polygon points="510,240 502,236 502,244" fill="#1a202c"/>
+      <polygon points="60,35 56,43 64,43" fill="#1a202c"/>
 
-        <!-- X : 0 → 60, 35 m → 500. 1 m = 12,57 px -->
-        <g class="lbl" text-anchor="middle">
-          <text x="60" y="258">0</text>
-          <text x="123" y="258">5</text>
-          <text x="186" y="258">10</text>
-          <text x="248" y="258">15</text>
-          <text x="311" y="258">20</text>
-          <text x="374" y="258">25</text>
-          <text x="437" y="258">30</text>
-          <text x="500" y="258">35</text>
-        </g>
-        <text class="lblA" x="270" y="275" text-anchor="middle">Côté x (m)</text>
+      <!-- Graduations Y (tous les 250 m²) -->
+      <g class="lbl" text-anchor="end">
+        <text x="55" y="54">1 250</text>
+        <text x="55" y="92">1 000</text>
+        <text x="55" y="130">750</text>
+        <text x="55" y="168">500</text>
+        <text x="55" y="206">250</text>
+        <text x="55" y="243">0</text>
+      </g>
+      <text class="lblA" x="20" y="140" transform="rotate(-90 20 140)" text-anchor="middle">Surface f(x) = x² (m²)</text>
 
-        <!-- Parabole f(x)=x² : Bezier quadratique exacte de (0;0)=(60,240) à (31,62;1000)=(458,50) -->
-        <!-- Control point math (15,81;0) → pixel (259,240). Vérif à t=0,5 : x_pixel=259, y_pixel=192,5, soit f(15,83)≈250 ✓ -->
-        <path d="M 60,240 Q 259,240 458,50" fill="none" stroke="#0056b3" stroke-width="2.5"/>
+      <!-- Graduations X (tous les 5 m) -->
+      <g class="lbl" text-anchor="middle">
+        <text x="60" y="257">0</text>
+        <text x="122.9" y="257">5</text>
+        <text x="185.7" y="257">10</text>
+        <text x="248.6" y="257">15</text>
+        <text x="311.4" y="257">20</text>
+        <text x="374.3" y="257">25</text>
+        <text x="437.1" y="257">30</text>
+        <text x="500" y="257">35</text>
+      </g>
+      <text class="lblA" x="280" y="276" text-anchor="middle">Côté x (m)</text>
 
-        <!-- Points repères -->
-        <circle cx="211" cy="213" r="5" fill="#dc2626"/>
-        <text x="211" y="207" class="lbl" fill="#dc2626" text-anchor="middle">12m → 144m²</text>
+      <!-- Parabole f(x)=x² — 36 points calculés de x=0 à x=35 -->
+      <path class="cv" d="M 60,240 L 72.6,239.8 L 85.1,239.4 L 97.7,238.6 L 110.3,237.6 L 122.9,236.2 L 135.4,234.5 L 148,232.6 L 160.6,230.3 L 173.1,227.7 L 185.7,224.8 L 198.3,221.6 L 210.9,218.1 L 223.4,214.3 L 236,210.2 L 248.6,205.8 L 261.1,201.1 L 273.7,196.1 L 286.3,190.8 L 298.9,185.1 L 311.4,179.2 L 324,173 L 336.6,166.4 L 349.1,159.6 L 361.7,152.4 L 374.3,145 L 386.9,137.2 L 399.4,129.2 L 412,120.8 L 424.6,112.2 L 437.1,103.2 L 449.7,93.9 L 462.3,84.4 L 474.9,74.5 L 487.4,64.3 L 500,53.8"/>
 
-        <circle cx="311" cy="164" r="5" fill="#dc2626"/>
-        <text x="311" y="158" class="lbl" fill="#dc2626" text-anchor="middle">20m → 400m²</text>
+      <!-- Points repères avec lignes de projection -->
+      <!-- (12; 144) -->
+      <line x1="210.9" y1="240" x2="210.9" y2="218.1" stroke="#dc2626" stroke-width="1" stroke-dasharray="3 2"/>
+      <line x1="60" y1="218.1" x2="210.9" y2="218.1" stroke="#dc2626" stroke-width="1" stroke-dasharray="3 2"/>
+      <circle cx="210.9" cy="218.1" r="4.5" fill="#dc2626" stroke="#fff" stroke-width="1.5"/>
+      <text x="216" y="214" class="lbl" fill="#dc2626" font-weight="700">(12 ; 144)</text>
 
-        <circle cx="374" cy="121" r="5" fill="#dc2626"/>
-        <text x="374" y="115" class="lbl" fill="#dc2626" text-anchor="middle">25m → 625m²</text>
+      <!-- (20; 400) -->
+      <line x1="311.4" y1="240" x2="311.4" y2="179.2" stroke="#dc2626" stroke-width="1" stroke-dasharray="3 2"/>
+      <line x1="60" y1="179.2" x2="311.4" y2="179.2" stroke="#dc2626" stroke-width="1" stroke-dasharray="3 2"/>
+      <circle cx="311.4" cy="179.2" r="4.5" fill="#dc2626" stroke="#fff" stroke-width="1.5"/>
+      <text x="317" y="175" class="lbl" fill="#dc2626" font-weight="700">(20 ; 400)</text>
+
+      <!-- (25; 625) -->
+      <line x1="374.3" y1="240" x2="374.3" y2="145" stroke="#dc2626" stroke-width="1" stroke-dasharray="3 2"/>
+      <line x1="60" y1="145" x2="374.3" y2="145" stroke="#dc2626" stroke-width="1" stroke-dasharray="3 2"/>
+      <circle cx="374.3" cy="145" r="4.5" fill="#dc2626" stroke="#fff" stroke-width="1.5"/>
+      <text x="380" y="141" class="lbl" fill="#dc2626" font-weight="700">(25 ; 625)</text>
+
+      <!-- Légende -->
+      <g transform="translate(310,288)">
+        <line x1="0" y1="-4" x2="22" y2="-4" stroke="#0056b3" stroke-width="2.5"/>
+        <text x="28" y="0" class="lbl">parabole y = x²</text>
+      </g>
     </svg>
   </div>
 
@@ -133,6 +184,7 @@
 <div class="exo">
   <h2>Question 2 <span class="badge-yellow">REA</span></h2>
   <p>Calculer le côté des terrains 3 et 4 du tableau (surface connue, côté inconnu).</p>
+  <p class="aide"><em>Indication : pour retrouver le côté à partir de la surface, utiliser la <strong>racine carrée</strong> (touche √ de la calculatrice). On résout <em>x² = surface</em>, donc <em>x = √surface</em>.</em></p>
   <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
@@ -140,7 +192,7 @@
       <li>Terrain 3 : x² = 400 → x = √400 = <strong>20 m</strong>.</li>
       <li>Terrain 4 : x² = 1 250 → x = √1 250 ≈ <strong>35,36 m</strong>.</li>
     </ul>
-    <p>La <strong>racine carrée</strong> est la fonction réciproque du carré : si f(x) = x², alors f⁻¹(y) = √y.</p>
+    <p>Calculer la racine carrée d'une surface, c'est retrouver l'<strong>antécédent</strong> par la fonction carré.</p>
   </div>
 </div>
 
@@ -185,38 +237,49 @@
 
 <div class="exo">
   <h2>Question 5 <span class="badge-blue">VAL</span></h2>
-  <p>Yann a un budget de 100 000 €. Quelle est la <strong>surface</strong> maximum qu'il peut acheter ? Et le côté correspondant si le terrain est carré ?</p>
+  <p>Yann a un budget de <strong>100 000 €</strong> pour l'achat du terrain (tarif : 80 €/m²).</p>
+  <p><strong>a)</strong> Quelle est la surface maximum qu'il peut acheter ?</p>
+  <p><strong>b)</strong> Quel est le côté correspondant si le terrain est carré ?</p>
   <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Surface max : 100 000 / 80 = <strong>1 250 m²</strong>.</p>
-    <p>Côté : √1 250 ≈ <strong>35,36 m</strong>.</p>
+    <p><strong>a)</strong> Surface max : 100 000 ÷ 80 = <strong>1 250 m²</strong>.</p>
+    <p><strong>b)</strong> Côté : √1 250 ≈ <strong>35,36 m</strong>.</p>
     <p>C'est le terrain 4 du tableau. À ce prix, terrain confortable pour un atelier (~ 1/4 d'hectare).</p>
   </div>
 </div>
 
 <div class="exo">
   <h2>Question 6 <span class="badge-blue">ANA</span></h2>
-  <p>Si le prix au m² monte de 80 € à 100 € (+25 %), quelle est la nouvelle surface accessible avec 100 000 € ? Le côté augmente-t-il aussi de 25 % ?</p>
-  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
+  <p>Le prix au m² monte de <strong>80 € à 100 €</strong> (le terrain devient plus cher). Yann garde son budget de 100 000 €.</p>
+  <p><strong>a)</strong> Quelle est la nouvelle surface qu'il peut acheter ?</p>
+  <p><strong>b)</strong> Quel est le côté correspondant ?</p>
+  <p><strong>c)</strong> De quel pourcentage la <strong>surface</strong> a-t-elle diminué (par rapport à la question 5) ? Et le <strong>côté</strong> ?</p>
+  <p><strong>d)</strong> Comparer ces deux pourcentages. Que remarque-t-on ?</p>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Nouvelle surface : 100 000 / 100 = <strong>1 000 m²</strong> (− 20 %).</p>
-    <p>Nouveau côté : √1 000 ≈ <strong>31,62 m</strong> (− 11 %).</p>
-    <p>Le côté <strong>diminue moins</strong> que le prix : c'est l'effet inverse de la racine carrée. Si la surface diminue de 20 %, le côté diminue d'environ 11 %.</p>
-    <p>Cette propriété est utile pour les analyses de coût : une petite réduction de côté permet de grosses économies.</p>
+    <p><strong>a)</strong> Nouvelle surface : 100 000 ÷ 100 = <strong>1 000 m²</strong>.</p>
+    <p><strong>b)</strong> Côté : √1 000 ≈ <strong>31,62 m</strong>.</p>
+    <p><strong>c)</strong> Surface : de 1 250 m² à 1 000 m², soit une baisse de \(\dfrac{1\,250 - 1\,000}{1\,250} = 0{,}20 = \mathbf{20\,\%}\).<br>
+    Côté : de 35,36 m à 31,62 m, soit une baisse de \(\dfrac{35{,}36 - 31{,}62}{35{,}36} \approx 0{,}106 = \mathbf{10{,}6\,\%}\).</p>
+    <p><strong>d)</strong> Le <strong>côté diminue moins que la surface</strong> : ~11 % contre 20 %. C'est l'effet de la racine carrée. Quand la surface baisse de 20 %, le côté baisse de seulement ~11 % (car √0,80 ≈ 0,894, soit 89 % du côté initial).</p>
   </div>
 </div>
 
 <div class="exo">
   <h2>Question 7 <span class="badge-blue">VAL</span></h2>
-  <p>Yann pense que pour un atelier de 100 m² utilisable, il a besoin d'un terrain de 200 m² (espace extérieur compris). Quel côté minimum doit avoir le terrain carré ? Vérifier avec le graphique.</p>
+  <p>Yann veut un atelier de <strong>100 m²</strong> à l'intérieur. Il prévoit autant d'espace extérieur (parking, déchargement, stockage de bois) que la surface de l'atelier.</p>
+  <p><strong>a)</strong> Quelle est la surface totale nécessaire du terrain ?</p>
+  <p><strong>b)</strong> Quel doit être le côté minimum du terrain carré ?</p>
+  <p><strong>c)</strong> Vérifier ce résultat sur le graphique.</p>
   <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Côté minimum : √200 ≈ <strong>14,14 m</strong>.</p>
-    <p>Sur le graphique, on cherche x tel que x² = 200 → on lit x ≈ 14 m. Cohérent avec le calcul exact.</p>
-    <p>Pour avoir une marge, prendre <strong>15 m</strong> de côté (surface 225 m²).</p>
+    <p><strong>a)</strong> Surface totale : 100 m² (atelier) + 100 m² (extérieur) = <strong>200 m²</strong>.</p>
+    <p><strong>b)</strong> Côté minimum : √200 ≈ <strong>14,14 m</strong>.</p>
+    <p><strong>c)</strong> Sur le graphique : on cherche x tel que x² = 200. On lit x ≈ 14 m, cohérent avec le calcul.</p>
+    <p>En pratique, pour avoir une marge, Yann choisira plutôt un terrain de <strong>15 m de côté</strong> (surface 225 m²).</p>
   </div>
 </div>
 
