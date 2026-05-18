@@ -202,12 +202,21 @@
   <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Nouvelle contrainte : 2L + l = 100 (le mur dispense d'1 côté).</p>
-    <p>l = 100 − 2L</p>
-    <p>A(L) = L × (100 − 2L) = 100 L − 2 L²</p>
-    <p>Tester différentes valeurs : L = 25 → l = 50 → A = 1 250. L = 20 → l = 60 → A = 1 200. L = 30 → l = 40 → A = 1 200.</p>
-    <p>Maximum à <strong>L = 25, l = 50</strong> → A = <strong>1 250 m²</strong>.</p>
-    <p>Le rectangle optimal est <strong>2 fois plus long que large</strong> (1 × 2). Plus du tout un carré.</p>
+    <p><strong>Mise en équation :</strong> 2L + l = 100 (le mur dispense d'1 côté), donc l = 100 − 2L et A(L) = L × (100 − 2L) = <strong>100 L − 2 L²</strong>.</p>
+    <p><strong>Recherche du max (méthode par tableau de valeurs) :</strong></p>
+    <table>
+      <thead><tr><th>L (m)</th><th>l = 100−2L</th><th>A = L × l</th></tr></thead>
+      <tbody>
+        <tr><td>15</td><td>70</td><td>1 050</td></tr>
+        <tr><td>20</td><td>60</td><td>1 200</td></tr>
+        <tr><td>25</td><td>50</td><td><strong>1 250</strong> (max)</td></tr>
+        <tr><td>30</td><td>40</td><td>1 200</td></tr>
+        <tr><td>35</td><td>30</td><td>1 050</td></tr>
+      </tbody>
+    </table>
+    <p>L'aire est <strong>maximale</strong> pour <strong>L = 25 m</strong>, alors l = 50 m, soit A = <strong>1 250 m²</strong>.</p>
+    <p>Le rectangle optimal est <strong>2 fois plus long que large</strong> (proportions 1×2). Ce n'est plus du tout un carré.</p>
+    <p style="font-size:.88em;color:#92400e;background:#fef3c7;padding:8px 12px;border-radius:6px;margin-top:10px"><em><strong>Méthode avancée (Première) :</strong> pour une parabole \(A(L) = aL^2 + bL\), le sommet est en \(L = -\dfrac{b}{2a}\). Ici a = −2, b = 100, d'où \(L_{\text{sommet}} = -\dfrac{100}{2 \times (-2)} = 25\) m. La formule donne directement le résultat sans tester.</em></p>
   </div>
 </div>
 
@@ -231,11 +240,12 @@
   <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p>Périmètre 150 → demi-périmètre 75 → carré optimal de 37,5 × 37,5.</p>
+    <p><strong>D'après la propriété démontrée en Q4</strong> (à périmètre fixé, le carré maximise l'aire), avec 150 m de grillage :</p>
+    <p>Demi-périmètre : 150 ÷ 2 = 75 m → côté du carré = 75 ÷ 2 = <strong>37,5 m</strong>.</p>
     <p>A_max = 37,5² = <strong>1 406,25 m²</strong>.</p>
-    <p>Gain en aire : 1 406 − 625 = <strong>781 m²</strong> (+125 %).</p>
+    <p>Gain en aire : 1 406,25 − 625 = <strong>781 m²</strong> (soit +125 %).</p>
     <p>Surcoût grillage : 50 × 12 = <strong>600 €</strong>.</p>
-    <p>Si Karim peut valoriser cette surface supplémentaire (= y stocker plus de marchandises pour produire et vendre), 600 € est facilement amorti. Sinon, c'est un investissement non rentable.</p>
+    <p>Si Karim peut valoriser cette surface supplémentaire (stockage, production, vente), 600 € est facilement amorti. Sinon, c'est un investissement non rentable.</p>
   </div>
 </div>
 
