@@ -1,5 +1,6 @@
 # Journal des audits
-**Dernière mise à jour** : 2026-05-10 (/check-quality physique-chimie/seconde/ch13 — confirmation 🟡 ds.html 0 visuel sur 13 questions Optique (réflexion/réfraction/fibre/prisme) alors que chapitre extrêmement visuel ; reste du chapitre globalement très bon (lecon riche en SVG/Chart.js/Canvas animé, exercices.html ratio 25 %, activité avec grand SVG pédagogique))
+**Dernière mise à jour** : 2026-05-19 (/audit-chapter physique-chimie/seconde/ch09 — focus activités : 🟡 fichiers complets, mais incohérence numérique défonceuse/toupie entre activités (105/102/107 dB), Q4 activite-2 hors-programme (log), timestamps `.maj` mal formés sur activités 2-4, `.maj` absent sur activite.html, titre Activité 3 divergent index/fichier)
+**Dernière mise à jour précédente** : 2026-05-10 (/check-quality physique-chimie/seconde/ch13 — confirmation 🟡 ds.html 0 visuel sur 13 questions Optique (réflexion/réfraction/fibre/prisme) alors que chapitre extrêmement visuel ; reste du chapitre globalement très bon (lecon riche en SVG/Chart.js/Canvas animé, exercices.html ratio 25 %, activité avec grand SVG pédagogique))
 
 Ce fichier est mis à jour automatiquement à chaque exécution d'un skill d'audit.
 
@@ -115,7 +116,7 @@ Confirmation 🟡 ciblée sur `ds.html` : 0 visuel pour 13 questions sur les tro
 | physique-chimie/seconde/ch06 | — | — | — | 2026-05-10 | 🟢 |
 | physique-chimie/seconde/ch07 | — | 2026-05-10 | — | 2026-05-10 | 🟡 |
 | physique-chimie/seconde/ch08 | — | — | — | 2026-05-10 | 🟢 |
-| physique-chimie/seconde/ch09 | — | — | — | 2026-05-10 | 🟢 |
+| physique-chimie/seconde/ch09 | 2026-05-19 | — | — | 2026-05-10 | 🟡 |
 | physique-chimie/seconde/ch10 | — | — | — | 2026-05-10 | 🟢 |
 | physique-chimie/seconde/ch11 | — | — | 2026-04-06 | 2026-05-10 | 🟢 |
 | physique-chimie/seconde/ch12 | — | — | — | 2026-05-10 | 🟢 |
