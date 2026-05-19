@@ -16,7 +16,7 @@
 <header>
   <h1>Activité 4 – Échelles logarithmiques : séismes (Richter) et bruits (décibels) <span style="font-size:.55em;color:#7c3aed;font-weight:600">PROJET DOCUMENTAIRE</span></h1>
   <p class="sous-titre">Chapitre 5 – Exponentielle et logarithme décimal | Terminale Bac Pro | Mathématiques | ⏱ 50 min</p>
-  <p class="maj">Dernière mise à jour : 4 mai 2026, 11:30</p>
+  <p class="maj">Dernière mise à jour : 19 mai 2026, 14:30</p>
 </header>
 <button onclick="window.print()" style="margin:10px 0;padding:8px 18px;border:1px solid #ccc;border-radius:6px;background:#f8fafc;cursor:pointer;font-size:.9em;font-weight:600">🖨️ Imprimer cette activité</button>
 
@@ -32,12 +32,12 @@
 
 <div class="situation">
   <h2>Situation – les échelles « cachent » la réalité physique</h2>
-  <p><em>Mathilde lit que le séisme de 2025 en Turquie était de magnitude 7,8, alors que celui d'Agadir en 1960 était de 5,9. Elle lit aussi qu'un avion au décollage fait 130 dB et un marteau-piqueur 100 dB. Ces écarts paraissent modestes, mais qu'en est-il en réalité physique ?</em></p>
+  <p><em>Mathilde lit que le séisme de 2023 en Turquie était de magnitude 7,8, alors que celui d'Agadir en 1960 était de 5,9. Elle lit aussi qu'un avion au décollage fait 130 dB et un marteau-piqueur 100 dB. Ces écarts paraissent modestes, mais qu'en est-il en réalité physique ?</em></p>
 
   <h3>Document 1 — échelle de Richter (énergie d'un séisme)</h3>
   <div style="background:#dbeafe;padding:10px 14px;border-radius:6px;border-left:3px solid #1d4ed8;margin:14px 0">
-    <p style="text-align:center"><strong>M = (2/3) × log(E) − 4,8</strong> où E = énergie libérée (joules)</p>
-    <p>Conséquence : 1 unité de magnitude = facteur 10^(3/2) ≈ <strong>31,6 sur l'énergie</strong>.</p>
+    <p style="text-align:center"><strong>log(E) = 1,5 × M + 4,8</strong> &nbsp;(soit \(M = \tfrac{2}{3}\log(E) - 3{,}2\)) où E = énergie libérée (en joules)</p>
+    <p>Conséquence : 1 unité de magnitude = facteur 10<sup>1,5</sup> ≈ <strong>31,6 sur l'énergie</strong>.</p>
   </div>
 
   <h3>Document 2 — échelle des décibels (intensité sonore)</h3>
@@ -84,7 +84,7 @@
 
 <div class="exo">
   <h2>Question 1 <span class="badge-yellow">REA</span></h2>
-  <p>Calculer le rapport d'énergie entre le séisme de Turquie (M = 7,8) et celui d'Agadir (M = 5,9).</p>
+  <p>Calculer le rapport d'énergie entre le séisme de Turquie 2023 (M = 7,8) et celui d'Agadir 1960 (M = 5,9).</p>
   <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
@@ -97,13 +97,13 @@
 
 <div class="exo">
   <h2>Question 2 <span class="badge-yellow">REA</span></h2>
-  <p>Comparer le séisme de Sumatra 2004 (M = 9,1) à celui de Turquie (M = 7,8).</p>
+  <p>Comparer le séisme de Sumatra 2004 (M = 9,1) à celui de Turquie 2023 (M = 7,8).</p>
   <ul class="lignes-reponse"><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>Différence : 9,1 − 7,8 = 1,3.</p>
     <p>Rapport d'énergie : 10^(1,5 × 1,3) = 10^1,95 ≈ <strong>89</strong>.</p>
-    <p>Sumatra 2004 a libéré <strong>89 fois plus d'énergie</strong> que la Turquie 2025.</p>
+    <p>Sumatra 2004 a libéré <strong>89 fois plus d'énergie</strong> que la Turquie 2023.</p>
     <p>Comparaison cumulée : Sumatra 2004 vs Agadir 1960 : 89 × 708 ≈ <strong>63 000 fois</strong> plus d'énergie. Astronomique.</p>
     <p>C'est pour ça que Sumatra 2004 a déclenché un mégatsunami avec 230 000 morts, alors que Agadir, plus localisé, a fait 12 000 morts.</p>
   </div>
@@ -152,7 +152,7 @@
 <div class="exo">
   <h2>Question 6 <span class="badge-blue">VAL</span></h2>
   <p>L'OMS recommande un seuil d'exposition à 85 dB pour 8 h/jour. Si Karim utilise une scie circulaire qui émet 95 dB, combien de temps peut-il travailler par jour sans risque (sans EPI) ?</p>
-  <ul class="lignes-reponse"><li></li><li></li><li</li><li</li><li</li></ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>Règle d'exposition : la dose acceptable est <strong>divisée par 2 tous les 3 dB de plus</strong>.</p>
@@ -166,7 +166,7 @@
 <div class="exo">
   <h2>Question 7 <span class="badge-blue">ANA</span></h2>
   <p>L'aéroport demande à un nouvel avion d'être 10 dB plus silencieux que l'ancien (passer de 130 à 120 dB). Quel défi technique cela représente-t-il ?</p>
-  <ul class="lignes-reponse"><li></li><li</li><li</li><li</li><li</li></ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>−10 dB = <strong>diviser l'intensité sonore par 10</strong>.</p>
@@ -184,16 +184,16 @@
 <div class="exo">
   <h2>Question 8 <span class="badge-yellow">COM</span></h2>
   <p>Rédiger en 5 lignes une note pédagogique : « Pourquoi les échelles logarithmiques sont-elles trompeuses pour le grand public ? »</p>
-  <ul class="lignes-reponse"><li></li><li</li><li</li><li</li><li</li></ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir un exemple</button>
   <div class="corr">
     <p><em><strong>Les échelles logarithmiques cachent la réalité physique</strong></em></p>
     <p><em>Quand on lit « séisme magnitude 7,8 » ou « bruit 130 dB », notre cerveau perçoit ces valeurs <strong>linéairement</strong>. Mais ce sont des échelles <strong>logarithmiques</strong> : 1 unité Richter = ×31 sur l'énergie ; 10 dB = ×10 sur l'intensité.</em></p>
     <p><em>Conséquences :</em></p>
-    <ul><em>
-      <li>Un séisme M=7,8 libère 700× plus d'énergie qu'un M=5,9.</li>
-      <li>Un avion (130 dB) émet 1 000× plus d'intensité qu'un marteau-piqueur (100 dB).</li>
-    </em></ul>
+    <ul>
+      <li><em>Un séisme M = 7,8 libère 700× plus d'énergie qu'un M = 5,9.</em></li>
+      <li><em>Un avion (130 dB) émet 1 000× plus d'intensité qu'un marteau-piqueur (100 dB).</em></li>
+    </ul>
     <p><em>Toujours <strong>« dé-loguer »</strong> mentalement les valeurs avant de comparer. Idem pour le pH (acidité), magnitudes stellaires, ISO photo.</em></p>
   </div>
 </div>
@@ -201,7 +201,7 @@
 <div class="exo" style="background:#fef3c7;border:1px solid #b45309">
   <h2>🚀 Pour aller plus loin <span class="badge-blue">ANA</span></h2>
   <p>L'échelle de Mercalli classe les séismes par leurs <strong>effets visibles</strong> (I à XII), de manière linéaire. Pourquoi a-t-on remplacé Mercalli par Richter pour la communication scientifique ?</p>
-  <ul class="lignes-reponse"><li></li><li</li><li</li><li</li><li</li></ul>
+  <ul class="lignes-reponse"><li></li><li></li><li></li><li></li><li></li></ul>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>Mercalli (1884, révisé 1931) : <strong>I (imperceptible) à XII (destruction totale)</strong>. Linéaire et qualitative.</p>
